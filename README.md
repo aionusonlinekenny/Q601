@@ -155,6 +155,25 @@ $cfg['Servers'][$i]['password'] = '123456';
 
 ## 6. Import Database
 
+### Bước 6.0 - Cấu hình InnoDB trước khi import (bắt buộc với MySQL 5.6)
+
+File SQL dùng `ROW_FORMAT=DYNAMIC` (nhiều cột blob). MySQL 5.6 mặc định dùng định dạng Antelope không hỗ trợ DYNAMIC, cần đổi sang Barracuda.
+
+Mở file: `C:\xampp\mysql\bin\my.ini`
+
+Tìm section `[mysqld]` và thêm 2 dòng sau:
+```ini
+[mysqld]
+innodb_file_format=Barracuda
+innodb_file_per_table=1
+```
+
+Sau đó **restart MySQL** trong XAMPP Control Panel.
+
+> **MySQL 5.7+ / 8.0:** Barracuda là mặc định, bỏ qua bước này.
+
+---
+
 Game cần **5 database** (schema) trong MySQL:
 
 | Tên Database | File SQL | Mô tả |

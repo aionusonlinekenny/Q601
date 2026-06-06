@@ -27,7 +27,7 @@ CREATE TABLE `blacklist` (
   `name` varchar(36) NOT NULL COMMENT '角色名',
   `blockTime` date NOT NULL COMMENT '屏蔽时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of blacklist
@@ -60,7 +60,7 @@ CREATE TABLE `game_auction` (
   `endTime` bigint(64) NOT NULL COMMENT '结束时间',
   `item` mediumblob NOT NULL COMMENT '拍卖物',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of game_auction
@@ -77,7 +77,7 @@ CREATE TABLE `game_chatfriend` (
   `black` mediumblob COMMENT '黑名单',
   `enmey` mediumblob COMMENT '仇人',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of game_chatfriend
@@ -91,7 +91,7 @@ CREATE TABLE `game_funstep` (
   `playerId` varchar(36) NOT NULL COMMENT '玩家Id',
   `funstep` mediumblob COMMENT '玩家新手记录',
   PRIMARY KEY (`playerId`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of game_funstep
@@ -106,7 +106,7 @@ CREATE TABLE `game_giftcode` (
   `keyCode` varchar(12) NOT NULL DEFAULT '' COMMENT '礼包码',
   `groupId` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`name`,`keyCode`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of game_giftcode
@@ -122,7 +122,7 @@ CREATE TABLE `game_instance` (
   `refId` varchar(36) NOT NULL COMMENT '副本RefId',
   `data` blob COMMENT '玩家副本数据',
   PRIMARY KEY (`id`,`refId`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of game_instance
@@ -137,7 +137,7 @@ CREATE TABLE `game_ladder` (
   `memberData` mediumblob COMMENT '成员信息',
   `isDelete` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of game_ladder
@@ -151,7 +151,7 @@ CREATE TABLE `game_minisys` (
   `sysname` varchar(64) NOT NULL,
   `data` mediumblob,
   PRIMARY KEY (`sysname`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of game_minisys
@@ -170,7 +170,7 @@ INSERT INTO `game_minisys` VALUES ('TarotRank', 0x000027100000000000000000000000
 DROP TABLE IF EXISTS `game_oldplayer`;
 CREATE TABLE `game_oldplayer` (
   `identityId` varchar(60) DEFAULT NULL COMMENT '玩家id'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of game_oldplayer
@@ -184,7 +184,7 @@ CREATE TABLE `game_resdownload` (
   `identityId` varchar(60) NOT NULL COMMENT '玩家identityId',
   `resDownload` mediumblob COMMENT '分包下载',
   PRIMARY KEY (`identityId`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of game_resdownload
@@ -198,7 +198,7 @@ CREATE TABLE `game_sortboarddata` (
   `id` int(8) NOT NULL COMMENT '排行榜ID',
   `sortboardData` mediumblob COMMENT '排行榜数据',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of game_sortboarddata
@@ -243,7 +243,7 @@ CREATE TABLE `game_storelimit` (
   `allLimitData` mediumblob COMMENT '全服限购',
   `personalLimitData` mediumblob COMMENT '全服限购',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of game_storelimit
@@ -259,7 +259,7 @@ CREATE TABLE `game_tarot` (
   `itemName` varchar(100) DEFAULT NULL COMMENT '获取物品名称',
   `gainTime` varchar(50) DEFAULT NULL COMMENT '获得物品时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of game_tarot
@@ -277,7 +277,7 @@ CREATE TABLE `game_union` (
   `totemData` mediumblob COMMENT '图腾',
   `systemData` mediumblob COMMENT '公会系统动态聊天数据',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of game_union
@@ -301,7 +301,7 @@ CREATE TABLE `gmmail` (
   `endtime` bigint(64) DEFAULT NULL,
   `bindGold` int(4) DEFAULT NULL,
   PRIMARY KEY (`mailId`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of gmmail
@@ -329,7 +329,7 @@ CREATE TABLE `mail` (
   PRIMARY KEY (`id`) USING BTREE,
   KEY `mail_playerID` (`playerId`) USING BTREE,
   KEY `mail_mailId` (`mailId`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of mail
@@ -343,7 +343,7 @@ CREATE TABLE `monitor` (
   `playerId` varchar(36) NOT NULL,
   `data` mediumblob COMMENT '玩家发送过来的消息字节流',
   PRIMARY KEY (`playerId`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of monitor
@@ -364,7 +364,7 @@ CREATE TABLE `no_delay_player` (
   `activityData` mediumblob COMMENT '活动(签到，在线计时)',
   `commonActivityData` mediumblob COMMENT '日常活动',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of no_delay_player
@@ -378,7 +378,7 @@ CREATE TABLE `offline_ai` (
   `playerid` varchar(36) NOT NULL COMMENT '角色ID(uuid)',
   `dbData` mediumblob COMMENT '离线数据',
   PRIMARY KEY (`playerid`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of offline_ai
@@ -425,7 +425,7 @@ CREATE TABLE `player` (
   PRIMARY KEY (`id`) USING BTREE,
   KEY `idx_identityId` (`identityId`) USING BTREE,
   KEY `idx_name` (`name`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of player

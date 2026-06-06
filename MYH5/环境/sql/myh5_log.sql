@@ -107,7 +107,7 @@ CREATE TABLE `log_gold` (
   `gold` int(11) DEFAULT NULL,
   `qudao` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of log_gold
@@ -158,7 +158,7 @@ CREATE TABLE `log_item_2019_07` (
   `itemid` int(11) NOT NULL COMMENT '道具id',
   `change` bigint(20) NOT NULL COMMENT '道具数量改变',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of log_item_2019_07
@@ -180,7 +180,7 @@ CREATE TABLE `log_item_2019_08` (
   `itemid` int(11) NOT NULL COMMENT '道具id',
   `change` bigint(20) NOT NULL COMMENT '道具数量改变',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of log_item_2019_08
