@@ -1,106 +1,106 @@
 {
   "system_prompt_config_1": {
     "property": {
-      "bricks": "%1$s被踢出军团！",
-      "description": "XXXX被踢出军团"
+      "bricks": "%1$s has been kicked from the Legion!",
+      "description": "XXXX kicked from Legion"
     },
     "refId": "system_prompt_config_1"
   },
   "system_prompt_config_2": {
     "property": {
-      "bricks": "%1$s退出了军团！",
-      "description": "XXX退出了军团"
+      "bricks": "%1$s has left the Legion!",
+      "description": "XXX left the Legion"
     },
     "refId": "system_prompt_config_2"
   },
   "system_prompt_config_3": {
     "property": {
-      "bricks": "%1$s加入了军团！",
-      "description": "XXX加入了军团"
+      "bricks": "%1$s has joined the Legion!",
+      "description": "XXX joined the Legion"
     },
     "refId": "system_prompt_config_3"
   },
   "system_prompt_config_4": {
     "property": {
-      "bricks": "%1$s登记了幻兽%2$s，军团实力大涨！",
-      "description": "XXX登记了幻兽XX，军团实力大涨"
+      "bricks": "%1$s registered Phantom Beast %2$s, Legion power rises!",
+      "description": "XXX registered Phantom Beast XX, Legion power rises"
     },
     "refId": "system_prompt_config_4"
   },
   "system_prompt_config_5": {
     "property": {
-      "bricks": "%1$s修改了军团公告！",
-      "description": "XXX修改了军团公告"
+      "bricks": "%1$s updated the Legion Bulletin!",
+      "description": "XXX updated the Legion Bulletin"
     },
     "refId": "system_prompt_config_5"
   },
   "system_prompt_config_6": {
     "property": {
-      "bricks": "%1$s被任命为副团长！",
-      "description": "玩家XXXX被任命为副团长"
+      "bricks": "%1$s has been appointed Vice Leader!",
+      "description": "Player XXXX appointed Vice Leader"
     },
     "refId": "system_prompt_config_6"
   },
   "system_prompt_config_7": {
     "property": {
-      "bricks": "玩家%1$s放弃选择",
-      "description": "玩家XXXX放弃选择"
+      "bricks": "Player %1$s has declined to choose",
+      "description": "Player XXXX declined to choose"
     },
     "refId": "system_prompt_config_7"
   },
   "system_prompt_config_8": {
     "property": {
-      "bricks": "玩家%1$s拒绝了你的邀请",
-      "description": "玩家XXXX拒绝了你的邀请"
+      "bricks": "Player %1$s declined your invitation",
+      "description": "Player XXXX declined your invitation"
     },
     "refId": "system_prompt_config_8"
   },
   "system_prompt_config_9": {
     "property": {
-      "bricks": "你成功退出了公会%1$s",
-      "description": "你成功退出了公会XXXX"
+      "bricks": "You have successfully left guild %1$s",
+      "description": "You successfully left guild XXXX"
     },
     "refId": "system_prompt_config_9"
   },
   "system_prompt_config_10": {
     "property": {
-      "bricks": "你已成功加入%1$s公会",
-      "description": "你已成功加入XXXX公会"
+      "bricks": "You have successfully joined %1$s guild",
+      "description": "You successfully joined XXXX guild"
     },
     "refId": "system_prompt_config_10"
   },
   "system_prompt_config_11": {
     "property": {
-      "bricks": "你被踢出公会%1$s",
-      "description": "你被踢出公会XXXX"
+      "bricks": "You have been kicked from guild %1$s",
+      "description": "You were kicked from guild XXXX"
     },
     "refId": "system_prompt_config_11"
   },
   "system_prompt_config_12": {
     "property": {
-      "bricks": "%1$s公会已经解散",
-      "description": "XXXX公会已经解散"
+      "bricks": "%1$s guild has been disbanded",
+      "description": "XXXX guild has been disbanded"
     },
     "refId": "system_prompt_config_12"
   },
   "system_prompt_config_13": {
     "property": {
-      "bricks": "你对%1$s公会的申请被拒绝",
-      "description": "你对XXXX公会的申请被拒绝"
+      "bricks": "Your application to %1$s guild has been rejected",
+      "description": "Your application to XXXX guild has been rejected"
     },
     "refId": "system_prompt_config_13"
   },
   "system_prompt_config_14": {
     "property": {
-      "bricks": "成功解散公会%1$s",
-      "description": "成功解散公会XXXX"
+      "bricks": "Guild %1$s has been successfully disbanded",
+      "description": "Guild XXXX successfully disbanded"
     },
     "refId": "system_prompt_config_14"
   },
   "system_prompt_config_15": {
     "property": {
-      "bricks": "%1$s为军团捐献了%2$s钻石，获得了大量军团贡献！",
-      "description": "XXXX为军团捐献了XXXX钻石，获得了大量军团贡献！"
+      "bricks": "Player %1$s donated %2$s gems to the Legion, gaining a large amount of Legion Contribution!",
+      "description": "XXXX donated XXXX gems to the Legion, gaining a large amount of Legion Contribution!"
     },
     "refId": "system_prompt_config_15"
   }
