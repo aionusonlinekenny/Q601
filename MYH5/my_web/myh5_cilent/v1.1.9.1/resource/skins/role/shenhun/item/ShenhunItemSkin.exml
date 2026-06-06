@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.ShenhunItemSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image source="role_json.img_shenhun_icon_png" x="0" y="0"/>
+	<components:Icon id="imgIcon" y="14" horizontalCenter="0"/>
+	<e:Image id="imgAdd" y="6" source="pet_json.img_pet_add_png" horizontalCenter="0"/>
+	<e:Image id="imgLock" source="role_json.img_shenhun_lock_png" y="4" horizontalCenter="0"/>
+	<e:Label id="labLv" text="Lv.10" y="89" size="16" horizontalCenter="0" textColor="0xc6b59e"/>
+</e:Skin>

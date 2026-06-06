@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.ActivityMainDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" xmlns:activity="view.activity.*" width="600" height="1020">
+	<e:Image y="32" anchorOffsetY="0" height="988" width="580" source="activity_json.img_activity_bigbg" horizontalCenter="0" scale9Grid="14,24,0,0"/>
+	<e:Group id="group" width="600" height="850" y="154" x="0">
+	</e:Group>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="27" anchorOffsetY="26" y="41" x="579"/>
+	<components:IconButton id="btnLeft" anchorOffsetX="18" anchorOffsetY="27" y="107" source="activity_json.img_arrow_leftRight" x="22"/>
+	<components:IconButton id="btnRight" anchorOffsetX="18" anchorOffsetY="27" y="107" skewY="180" source="activity_json.img_arrow_leftRight" x="578"/>
+	<e:Image width="578" source="activity_json.img_line_new" scale9Grid="47,3,6,3" horizontalCenter="0" y="139" touchEnabled="false"/>
+	<e:Scroller id="scrollerTab" width="500" height="91" y="62" scrollPolicyV="off" x="50">
+		<e:Group id="tabGroup" touchEnabled="false" x="0" y="-16">
+			<e:layout>
+				<e:HorizontalLayout gap="0"/>
+			</e:layout>
+		</e:Group>
+	</e:Scroller>
+	<e:Image source="img_activity_title_png" x="36" touchEnabled="false"/>
+	<e:Image source="activity_json.img_title_activity" y="24" horizontalCenter="0"/>
+</e:Skin>

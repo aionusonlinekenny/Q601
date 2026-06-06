@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin width="139" height="184" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" class="skin.MainEudemonsSkin">
+	<e:Group id="eudemonsGroup" x="-37" width="176" height="183" y="1">
+		<e:Image id="imgPet" source="uiMain_json.img_pet_main" x="38.3" y="30" anchorOffsetX="0" width="140" anchorOffsetY="0" height="113"/>
+		<e:Image id="imgPetPro" y="131" horizontalCenter="23.5" source="achieven_json.img_give_goods"/>
+		<components:IconButton id="btnEudemonsHide" xmlns:components="components.*" anchorOffsetX="15" anchorOffsetY="29" y="74" touchEnabled="true" width="27" source="uiMain_json.btn_main_left3" x="51"/>
+		<e:ProgressBar id="eudemonsPro" height="13.61" x="36" y="155" anchorOffsetX="0" anchorOffsetY="0" width="140" value="100">
+		<e:skinName>
+			<e:Skin xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+			<e:Image source="uiMain_json.main_pet_proDown" scale9Grid="27,4,38,5" width="100%"/>
+			<e:Image id="thumb" x="7" y="2.5" source="uiMain_json.mian_pet_proUp" width="90%" scale9Grid="9,3,60,2"/>
+			</e:Skin>
+		</e:skinName>
+		</e:ProgressBar>
+	</e:Group>
+	<components:IconButton id="btnEudemonsShow" anchorOffsetX="15" anchorOffsetY="29" y="76" touchEnabled="true" source="uiMain_json.btn_main_right3" left="6" width="27"/>
+	<e:Image id="imgRedPet" x="18" y="118" source="uiMain_json.img_main_red"/>
+</e:Skin>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.BagSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" xmlns:components="components.*"  width="600" height="916">
+	<e:Group id="item1" y="35" anchorOffsetY="0" width="578" x="11">
+		<e:Image source="common_json.img_inbg_png" x="0" y="0" anchorOffsetX="0" width="578" anchorOffsetY="0" height="730" scale9Grid="5,6,18,15"/>
+		<e:Image y="727" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" height="105" scale9Grid="80,14,480,6" source="common_implementbar_png"/>
+
+		<e:Scroller id="scroller1" x="16" y="25" anchorOffsetX="0" anchorOffsetY="0" height="670" width="545">
+			<e:List id="listEquipts" x="34.5" y="24" itemRenderer="renderer.ItemIconRenderer" itemRendererSkinName="itemIcon.ItemIconSkin">
+				<e:layout>
+					<e:TileLayout orientation="rows" requestedColumnCount="5"  paddingLeft="25" paddingTop="15" horizontalGap="12" verticalGap="12"/>
+				</e:layout>
+			</e:List>
+		</e:Scroller>
+
+		<components:IconButton id="btnAddCount" source="common_json.btn_jia_png" x="258" y="776" anchorOffsetX="22" anchorOffsetY="21"/>
+		<e:Image source="common_json.img_numbg_png" x="80.33" y="759" anchorOffsetY="0" height="38" anchorOffsetX="0" width="150"  scale9Grid="17,8,23,8"/>
+		<components:SnapButton id="btnRonglian" label="熔炼" y="777" anchorOffsetX="81" skinName="skins.SnapButtonDefaultSkin" x="458" anchorOffsetY="26" icon="img_warn_png"/>
+		<e:Label text="总容量" x="8.5" y="764" size="24"  textColor="0xcfc9be"/>
+		<e:Label id="labCount" text="9/200" x="90" y="765" size="24" anchorOffsetX="0" width="131" textAlign="center"  textColor="0xcfc9be"/>
+	</e:Group>
+	<e:Group id="item2" x="11" y="35" width="578" visible="false">
+		<e:Image source="common_json.img_inbg_png" x="0" y="0" anchorOffsetX="0" width="578" anchorOffsetY="0" height="730" scale9Grid="5,6,18,15"/>
+		<e:Image y="727" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" source="common_implementbar_png" height="105" scale9Grid="80,14,480,6" x="-31" width="640"/>
+		<e:Scroller id="scroller2" x="16" y="25" anchorOffsetX="0" anchorOffsetY="0" height="670" width="545">
+			<e:List id="listProp" x="51" y="1" itemRenderer="renderer.ItemIconRenderer" itemRendererSkinName="itemIcon.ItemIconSkin">
+				<e:layout>
+					<e:TileLayout orientation="rows" requestedColumnCount="5"  paddingLeft="25" paddingTop="15" horizontalGap="12" verticalGap="12"/>
+				</e:layout>
+			</e:List>
+		</e:Scroller>
+	</e:Group>
+	<e:Group id="item3" y="35" anchorOffsetY="0" width="578" x="11" visible="false">
+		<e:Image source="common_json.img_inbg_png" x="0" y="0" anchorOffsetX="0" width="578" anchorOffsetY="0" height="729" scale9Grid="5,6,18,15"/>
+		<e:Image y="727" anchorOffsetX="0" anchorOffsetY="0"  horizontalCenter="0" source="common_implementbar_png" height="105" scale9Grid="80,14,480,6"/>
+		<e:Scroller id="scroller3" x="16" y="25" anchorOffsetX="0" anchorOffsetY="0" height="670" width="545">
+			<e:List id="listXuemai" x="0" y="-1.33" itemRenderer="renderer.ItemIconRenderer"  itemRendererSkinName="itemIcon.ItemIconSkin">
+				<e:layout>
+					<e:TileLayout orientation="rows" requestedColumnCount="5"  paddingLeft="25" paddingTop="15" horizontalGap="12" verticalGap="12"/>
+				</e:layout>
+			</e:List>
+		</e:Scroller>
+		<e:Label text="注 : 分解多余的神魂可获得神魂精华" x="22" y="768.18" size="20"  textColor="0x34e22c"/>
+		<components:SnapButton id="btnFenjie" label="一键分解" y="777" anchorOffsetX="81" skinName="skins.SnapButtonDefaultSkin" x="458" anchorOffsetY="26"/>
+	</e:Group>
+	<e:Button id="btnEquipt" label="装备" x="122" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0"/>
+	<e:Button id="btnProp" label="道具" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0" x="240"/>
+	<e:Button id="btnShenhun" label="神魂" x="358" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0"/>
+</e:Skin>

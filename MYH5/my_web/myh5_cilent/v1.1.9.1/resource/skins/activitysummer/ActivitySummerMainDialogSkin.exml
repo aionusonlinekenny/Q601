@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.ActivitySummerMainDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" xmlns:activity="view.activity.*" width="600" height="1020">
+	<e:Image y="32" anchorOffsetY="0" height="988" width="580" horizontalCenter="0" source="img_summer_bg_png" scale9Grid="39,163,504,28"/>
+	<components:IconButton id="btnLeft" anchorOffsetX="18" anchorOffsetY="27" y="119" x="575" source="activitySummer_json.btn_summer_fangxiang"/>
+	<components:IconButton id="btnRight" anchorOffsetX="18" anchorOffsetY="27" y="119" skewY="180" x="22" source="activitySummer_json.btn_summer_fangxiang"/>
+	<e:Scroller id="scrollerTab" width="500" height="91" y="75" scrollPolicyV="off" x="50">
+		<e:Group id="tabGroup" touchEnabled="false" x="0" y="-16">
+		<e:layout>
+			<e:HorizontalLayout gap="0"/>
+		</e:layout>
+		</e:Group>
+	</e:Scroller>
+	<e:Group id="group" width="600" height="850" y="169" x="0">
+	</e:Group>
+	<e:Image source="img_activity_title_png" x="36" touchEnabled="false" visible="false"/>
+	<e:Image y="9" horizontalCenter="0.5" source="img_summer_title_png"/>
+	<components:IconButton id="btnClose" y="26" x="548" source="activitySummer_json.btn_summer_close"/>
+</e:Skin>

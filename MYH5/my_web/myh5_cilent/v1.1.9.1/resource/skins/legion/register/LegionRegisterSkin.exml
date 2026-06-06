@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LegionRegisterSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:ns1="*" width="600" height="916">
+	<e:Image width="576" height="792" x="13" y="45" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_inbg_png" scale9Grid="5,6,18,15"/>
+	<e:Scroller id="registerscroller" height="782" anchorOffsetX="0" anchorOffsetY="0" y="49" scrollPolicyH="off" scrollPolicyV="on" width="565" x="19">
+		<e:List id="registerlist" itemRenderer="LegionRegisterRenderers" anchorOffsetY="0" height="819" x="0" y="-5">
+			<e:layout>
+				<e:VerticalLayout gap="2"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<components:SnapButton id="btnDengji" label="登记幻兽" x="214" y="846" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png"/>
+	<components:SnapButton id="btnFenxiang" label="战力分享" x="225" y="884" skinName="skins.SnapButtonDefaultSkin" width="150" visible="false"/>
+	<components:SnapButton id="btnHelp" label="" x="51" y="868" anchorOffsetX="34" anchorOffsetY="33">
+		<components:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="explore_json.img_seeHelp" source.down="explore_json.img_seeHelp"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+</e:Skin>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.TitleRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" width="586" height="167">
+	<e:Image x="0" y="0" anchorOffsetX="0" width="100%" anchorOffsetY="0" height="170" scale9Grid="22,17,30,36" source="img_union_list_png"/>
+	<e:Image source="img_fashion_time_bg_png" y="11.5" x="50"/>
+	<e:Image id="imgDisabled" x="486" y="56" source="fashion_json.img__fashion_disabled"/>
+	<e:Image id="imgTitle" horizontalCenter="-144.5" verticalCenter="-5" source=""/>
+	<e:CheckBox id="boxChecked" label="" x="12" y="56">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="common_json.img_checkbox_unselect_png" source.down="common_json.img_checkbox_select_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+		</e:Skin>
+		</e:skinName>
+	</e:CheckBox>
+	<e:Label id="labTime" text="7天" y="9.83" size="18" textAlign="center" width="80" textColor="0xedc839" horizontalCenter="-140.5"/>
+	<e:Label id="labProperty0" text="剩余7天" y="44" size="18" x="254" textAlign="left" lineSpacing="10" textColor="0x7d6a52"/>
+	<e:Label id="labProperty1" text="剩余7天" y="44" size="18" x="407" textAlign="left" lineSpacing="10" textColor="0x7d6a52"/>
+	<e:Label id="labProperty2" text="剩余7天" y="74" size="18" x="254" textAlign="left" lineSpacing="10" textColor="0x7d6a52"/>
+	<e:Label id="labProperty3" text="剩余7天" y="74" size="18" x="407" textAlign="left" lineSpacing="10" textColor="0x7d6a52"/>
+	<e:Label id="labLastTime" text="剩余时间 : " y="10.5" size="18" x="253" textAlign="left" lineSpacing="10" textColor="0x34e22c"/>
+	<e:Label id="labDesc" text="描述描述描述描述描述描述" y="136" size="14" x="12" textAlign="left" lineSpacing="10" width="550" anchorOffsetY="0" height="18" textColor="0xc6b59e"/>
+</e:Skin>

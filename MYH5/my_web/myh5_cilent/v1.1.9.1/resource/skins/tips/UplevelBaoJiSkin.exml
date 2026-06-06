@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.UplevelBaoJiSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" xmlns:components="components.*">
+	<e:Image id="imgBaoji" y="0" anchorOffsetY="0" source="tips_json.img_baoji" horizontalCenter="0"/>
+	<e:Image id="imgSuperBaoji" source="tips_json.img_s_baoji" y="0" horizontalCenter="0"/>
+</e:Skin>

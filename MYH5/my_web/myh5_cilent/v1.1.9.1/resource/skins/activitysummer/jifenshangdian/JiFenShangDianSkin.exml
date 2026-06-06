@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.JiFenShangDianSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" width="600" height="850">
+	<e:Image source="img_summer_line_png" y="27" x="17"/>
+	<e:Scroller width="559" height="783" y="62" horizontalCenter="0.5" anchorOffsetY="0">
+		<e:List id="listReward" x="0" y="35" anchorOffsetY="0" height="768" itemRendererSkinName="renderer.JifenShangDianRendererSkin" itemRenderer="renderer.JifenShangDianRenderer">
+			<e:layout>
+				<e:TileLayout requestedColumnCount="3" horizontalGap="5"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:Label text="我的积分：" x="23" y="7" size="16" textColor="0xbdbdbd" stroke="2"/>
+	<e:Label id="labJifen" text="21323" y="7" size="16" textColor="0xffbc5d" stroke="2" verticalAlign="middle" textAlign="left" left="106"/>
+	<e:Label id="labJifenget" text="获得积分" y="7" size="16" verticalAlign="middle" textAlign="left" left="179" textColor="0x80ff19"/>
+	<e:Label text="截止时间：" x="376" y="7" size="16" stroke="2" textColor="0x6ae1f7"/>
+	<e:Label id="labTime" text="156161116" y="7" size="16" stroke="2" verticalAlign="middle" textAlign="left" left="454" textColor="0x80ff19"/>
+	<e:Image source="img_summer_duihuan_png" x="21" y="31"/>
+</e:Skin>

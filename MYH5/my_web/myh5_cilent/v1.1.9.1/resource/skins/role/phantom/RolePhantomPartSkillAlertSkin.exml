@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.RolePhantomPartSkillAlertSkin" width="500" height="600" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image x="0" y="0" width="500" height="570" source="common_json.img_tips_bg_png" scale9Grid="22,26,21,15"/>
+	<e:Image source="tips_json.img_tips_namebg" y="25" horizontalCenter="0"/>
+	<e:Image source="common_closetip_png" y="580" anchorOffsetX="143" anchorOffsetY="14" horizontalCenter="0"/>
+	<components:Icon id="imgQuality" y="85" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="9,9,19,19" source="common_json.img_qlt_1_png" width="68" height="68" horizontalCenter="0"/>
+	<e:Image id="imgSkill" x="220" y="87" source=""/>
+	<e:Label id="labName" text="名字是六个字" y="28" size="24" textAlign="center" width="160" height="24" horizontalCenter="0" textColor="0xdf660e"/>
+	<e:Label id="labCurSkill" text="当前技能效果（0/4）" y="190" size="20" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" textColor="0xEDC839" stroke="1"/>
+	<e:Label id="labDes1" text="增加角色攻防固定值，外加幻武培养总属性的50%，外加幻武培养总属性的50%" y="270" size="16" anchorOffsetY="0" height="41" anchorOffsetX="0" width="334" verticalAlign="middle" textAlign="center" lineSpacing="5" horizontalCenter="0" textColor="0xcfc9be"/>
+	<e:Group y="230" horizontalCenter="0">
+		<e:Label id="labCurName0" text="守护者之" y="0" size="16" anchorOffsetX="0" anchorOffsetY="0" textColor="0xC6B59E" x="0" verticalAlign="justify" width="80" textAlign="center"/>
+		<e:Label id="labCurName1" text="守护者之" y="0" size="16" anchorOffsetX="0" anchorOffsetY="0" textColor="0xC6B59E" x="85" verticalAlign="justify" textAlign="center" width="80"/>
+		<e:Label id="labCurName2" text="守护者之" y="0" size="16" anchorOffsetX="0" anchorOffsetY="0" textColor="0xC6B59E" x="170" verticalAlign="justify" width="80" textAlign="center"/>
+		<e:Label id="labCurName3" text="守护者之" y="0" size="16" anchorOffsetX="0" anchorOffsetY="0" textColor="0xC6B59E" x="255" verticalAlign="justify" width="80" textAlign="center"/>
+	</e:Group>
+	<e:Group id="nextGroup" x="83" y="335">
+		<e:Image source="rolePhantom_json.role_phantom_part_next_png" y="0" rotation="90" x="183"/>
+		<e:Label id="labNextSkill" text="下级技能效果" y="65" size="20" anchorOffsetX="0" anchorOffsetY="0" textColor="0xEDC839" stroke="1" x="107"/>
+		<e:Label id="labDes2" text="增加角色攻防固定值，外加幻武培养总属性的50%，外加幻武培养总属性的50%" y="145" size="16" anchorOffsetY="0" height="41" anchorOffsetX="0" width="332" verticalAlign="middle" textAlign="center" lineSpacing="5" x="1" textColor="0xcfc9be"/>
+		<e:Group y="105" x="0">
+			<e:Label id="labNextName0" text="守护者之心" y="0" size="16" anchorOffsetX="0" anchorOffsetY="0" textColor="0xC6B59E" x="0" verticalAlign="justify" width="80" textAlign="center"/>
+			<e:Label id="labNextName1" text="守护者之心" y="0" size="16" anchorOffsetX="0" anchorOffsetY="0" textColor="0xC6B59E" x="85" verticalAlign="justify" width="80" textAlign="center"/>
+			<e:Label id="labNextName2" text="守护者之心" y="0" size="16" anchorOffsetX="0" anchorOffsetY="0" textColor="0xC6B59E" x="170" verticalAlign="justify" width="80" textAlign="center"/>
+			<e:Label id="labNextName3" text="守护者之心" y="0" size="16" anchorOffsetX="0" anchorOffsetY="0" textColor="0xC6B59E" x="255" verticalAlign="justify" textAlign="center" width="80"/>
+		</e:Group>
+	</e:Group>
+</e:Skin>

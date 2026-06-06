@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.PetFenJieRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image width="590" height="120" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="pet_json.img_pet_list_png" scale9Grid="24,23,13,18"/>
+	<e:Image source="pet_json.img_pet_zidi_png" x="109" y="20"/>
+	<e:Image id="imgHuanShouQuality" x="17" y="12" source="common_json.img_qlt_3_png"/>
+	<e:Image id="imgHuanShouIcon" x="22" y="15" width="80" height="80" source=""/>
+	<e:Label id="labHuanShouName" text="宠物名字" y="27" size="20" textAlign="left" verticalAlign="middle" left="115" textColor="0xedc839"/>
+	<e:Label id="labHuanShouPower" text="战斗力 : 0" y="27" size="20" textAlign="left" verticalAlign="middle" left="269" textColor="0xedc839"/>
+	<e:Label id="labHuanShouGift" text="概率获得 : 紫宠碎片x2" y="68" size="18" verticalAlign="middle" textAlign="left" left="117" textColor="0xc6b59e"/>
+	<components:SnapButton id="btnFenJie" label="分解" x="425" y="37" skinName="skins.SnapOrangeButtonSkin"/>
+	<components:SnapButton id="btnZhongsheng" label="重生" x="426" y="38" skinName="skins.SnapGreenButtonSkin" anchorOffsetX="0" width="130" visible="false"/>
+	<e:Label id="labStep" text="+0" x="238" y="28" size="20" textColor="0x34e22c"/>
+</e:Skin>

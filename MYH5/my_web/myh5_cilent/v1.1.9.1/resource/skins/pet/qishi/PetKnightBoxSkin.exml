@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.PetKnightBoxSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" >
+	<e:Image id="imgQuality" source="common_json.img_qlt_1_png" horizontalCenter="0" verticalCenter="0"/>
+	<e:Image id="imgIcon" horizontalCenter="0" verticalCenter="0" source="pet_json.img_qishiIcon0_samll_png"/>
+	<e:Label id="labLv" text="0" size="16" verticalAlign="middle" y="68" right="10" textAlign="right" stroke="2" textColor="0xfff0c2"/>
+	<e:Image id="imgRedPoint" source="common_json.img_warn_png" x="3" y="3"/>
+</e:Skin>

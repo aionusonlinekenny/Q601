@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LegionRankSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" height="916" width="600">
+	<e:Image width="576" height="869" x="12" y="47" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_inbg_png" scale9Grid="5,6,18,15"/>
+	<e:Scroller id="Rankscroller" height="858" anchorOffsetX="0" anchorOffsetY="0" y="52" scrollPolicyH="auto" scrollPolicyV="auto" width="563" x="18">
+		<e:List id="Ranklist" itemRenderer="LegionRankRenderer" anchorOffsetY="0" height="859" itemRendererSkinName="renderer.LegionRankRendererSkin">
+			<e:layout>
+				<e:VerticalLayout gap="2"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+</e:Skin>

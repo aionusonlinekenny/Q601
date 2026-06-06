@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.MainPetItemBigSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+    <e:Image x="1" y="0"  source="uiMain_json.img_main_petbg"/>
+    <e:Image id="icon" x="15" y="11" height="66" anchorOffsetX="0" width="66"  anchorOffsetY="0" source="pet_icon_circle_json.2070"/>
+	<e:Image source="uiMain_json.main_quality_blue" x="14" y="11" anchorOffsetX="0" anchorOffsetY="0" id="imgQuality"/>
+	<e:Image id="imgStateDead" y="71" source="uiMain_json.btn_main_petdead" x="14"/>
+	<e:Image id="imgStateJoin" y="71" x="14" source="uiMain_json.btn_main_join"/>
+	<e:Image id="imgStateUntie" y="71" x="14" source="uiMain_json.btn_main_untie"/>
+	<e:Label id="labTime" text="5" x="61" y="75.5" size="14" textColor="0xc6b59e" stroke="1"/>
+	<e:ProgressBar id="hp" y="97.25" value="30" anchorOffsetX="0" anchorOffsetY="0" x="20">
+		<e:skinName>
+		<e:Skin minWidth="30" minHeight="18" height="9">
+			<e:Image source="uiMain_json.main_pet_blood_back"/>
+			<e:Image id="thumb" x="1" y="1" anchorOffsetX="0" anchorOffsetY="0" source="uiMain_json.img_main_redbar_small" width="54"/>
+		</e:Skin>
+		</e:skinName>
+	</e:ProgressBar>
+</e:Skin>

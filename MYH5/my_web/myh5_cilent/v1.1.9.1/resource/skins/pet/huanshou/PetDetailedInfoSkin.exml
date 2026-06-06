@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="PetDetailedInfoSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" states="skill,talent" >
+	<e:Image width="626" height="969" source.skill="common_json.img_prompt_bg_png" source.talent="common_json.img_prompt_bg_png" scale9Grid.skill="35,79,27,18" scale9Grid.talent="35,79,27,18" horizontalCenter="0" horizontalCenter.skill="1" horizontalCenter.talent="1" includeIn="skill,talent" source="common_json.img_prompt_bg_png" scale9Grid="50,72,11,17"/>
+	<e:Image width="582.98" height="800.53" y="63.16" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_inbg_png" scale9Grid="5,6,18,15" horizontalCenter="0"/>
+	<e:Image id="imgTalentQuality" includeIn="talent" y="86" source="common_json.img_qlt_1_png" horizontalCenter="0"/>
+	<e:Label id="labTalentName" text="大鹏展翅   Lv: 5" includeIn="talent" y="179" size="20" textColor="0xc6b59e" horizontalCenter="0" verticalAlign="middle" textAlign="center"/>
+	<e:Label text="当前效果 " includeIn="talent" y="278" size="20" textColor="0xedc839" x="271"/>
+	<e:Label id="labTalentCurr" text="对群里目标造成60%+50000点法术伤害，冷却时间1秒。" includeIn="talent" y="314" size="20" anchorOffsetX="0" width="450" anchorOffsetY="0" height="86" horizontalCenter="0" lineSpacing="5" textColor="0xc6b59e"/>
+	<e:Label text="下次效果 " includeIn="talent" y="462" size="20" textColor="0xedc839" x="271"/>
+	<e:Label id="labTalentNext" text="对群里目标造成80%+80000点法术伤害，冷却时间0.5秒" includeIn="talent" y="495" size="20" width="450" height="86" horizontalCenter="0" anchorOffsetX="0" anchorOffsetY="0" lineSpacing="5" textColor="0xc6b59e"/>
+	<e:Label id="labTalentcondition" text="升级条件 " includeIn="talent" y="649" size="20" anchorOffsetX="0" textAlign="right" verticalAlign="middle" anchorOffsetY="0" textColor="0xcfc9be" right="359"/>
+	<e:Image id="imgQualityBook1" includeIn="talent" x="269" y="597" source="common_json.img_qlt_1_png"/>
+	<e:Label id="labTalentType" text="类型 : 群攻类型" includeIn="talent" y="212" size="20" textColor="0xc6b59e" horizontalCenter="0" verticalAlign="middle" textAlign="center"/>
+	<components:Icon id="imgTalentBookicon" includeIn="talent" x="274" y="600" width="80" height="80" source=""/>
+	<components:Icon id="imgTalentIcon" includeIn="talent" y="89" width="80" height="80" source="" horizontalCenter="0"/>
+	<e:Image id="imgSkillQuality" includeIn="skill" y="86" source="common_json.img_qlt_1_png" horizontalCenter="0"/>
+	<e:Label id="labSkillName" text="大鹏展翅   Lv: 5" includeIn="skill" y="179" size="20" verticalAlign="middle" textAlign="left" textColor="0xc6b59e" horizontalCenter="0"/>
+	<e:Label id="labSkillType" text="类型 : 群攻类型" includeIn="skill" y="212" size="20" textColor="0xc6b59e" horizontalCenter="0"/>
+	<e:Label text="当前效果 " includeIn="skill" x="271" y="278" size="20" textColor="0xedc839"/>
+	<e:Label id="labSkillCurr" text="对群里目标造成60%+50000点法术伤害，冷却时间1秒。" includeIn="skill" y="314" size="20" anchorOffsetX="0" width="450" anchorOffsetY="0" height="86" horizontalCenter="0" lineSpacing="5" textColor="0xc6b59e"/>
+	<e:Label text="下次效果 " includeIn="skill" x="271" y="462" size="20" textColor="0xedc839"/>
+	<e:Label id="labSkillNext" text="对群里目标造成80%+80000点法术伤害，冷却时间0.5秒" includeIn="skill" y="495" size="20" width="450" height="86" horizontalCenter="0" anchorOffsetY="0" lineSpacing="5" textColor="0xc6b59e" anchorOffsetX="0"/>
+	<e:Label id="labSkillcondition" text="升级条件" includeIn="skill" y="649" size="20" anchorOffsetX="0" textAlign="right" verticalAlign="middle" anchorOffsetY="0" textColor="0xcfc9be" right="364"/>
+	<e:Image id="imgQualityBook" includeIn="skill" x="269" y="597" source="common_json.img_qlt_1_png"/>
+	<components:Icon id="imgSkillBookicon" includeIn="skill" x="274" y="600" width="80" height="80" source=""/>
+	<components:Icon id="imgSkillIcon" includeIn="skill" y="89" width="80" height="80" source="" horizontalCenter="0"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" y.skill="29" x.skill="599" y.talent="29" x.talent="599" x="599" y="34" anchorOffsetX="27" anchorOffsetY="24" includeIn="skill,talent"/>
+	<components:IconButton id="btnBack" source="common_json.btn_back_png" y.skill="899" x.skill="571" x.talent="571" y.talent="899" x="565" y="918" anchorOffsetX="38" anchorOffsetY="33" anchorOffsetX.skill="41" anchorOffsetY.skill="32" includeIn="skill,talent"/>
+	<components:SnapButton id="btnTalentUpdata" label="升级" includeIn="talent" y="761" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" anchorOffsetX="76" anchorOffsetY="24" horizontalCenter="0"/>
+	<e:Image id="imgTalentTitle" includeIn="talent" y="7" source="img_pet_talentTitle_png" horizontalCenter="0"/>
+	<components:IconButton id="btnGettalentBook" includeIn="talent" x="446" y="655" source="common_json.img_getRes_png" anchorOffsetX="35" anchorOffsetY="36"/>
+	<e:Image source="rolePhantom_json.role_phantom_part_next_png" x="326" y="408" rotation="88.58"/>
+	<components:IconButton id="btnTalentChange" includeIn="talent" x="381" y="127" source="pet_json.img_book_change_png"/>
+	<components:IconButton id="btnTalentHe" includeIn="talent" x="42" y="82" source="pet_json.btn_hecheng_png"/>
+	<components:IconButton id="btnTalentList" includeIn="talent" x="40" y="180" source="pet_json.btn_tanlentList_png"/>
+	<e:Label id="labTalentCount" text="1/2" includeIn="talent" y="660" size="20" verticalAlign="middle" textAlign="right" textColor="0x34e22c" right="275"/>
+	<components:SnapButton id="btnSkillUpdata" label="升级" includeIn="skill" y="761" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" anchorOffsetX="76" anchorOffsetY="24" horizontalCenter="0"/>
+	<e:Image id="imgSkillTitle" includeIn="skill" y="6" source="img_pet_skillTitle_png" horizontalCenter="0"/>
+	<components:IconButton id="btnGetskillBook" includeIn="skill" x="446" y="655" source="common_json.img_getRes_png" anchorOffsetX="35" anchorOffsetY="36"/>
+	<components:IconButton id="btnSkillChange" includeIn="skill" x="381" y="127" source="pet_json.img_book_change_png"/>
+	<components:IconButton id="btnSkillHe" includeIn="skill" x="42" y="82" source="pet_json.btn_hecheng_png"/>
+	<components:IconButton id="btnSkillList" includeIn="skill" x="31" y="180" source="pet_json.btn_skillList_png"/>
+	<e:Label id="labSkillCount" text="1/2" includeIn="skill" y="660" size="20" verticalAlign="middle" textColor="0x34e22c" textAlign="right" right="274"/>
+</e:Skin>

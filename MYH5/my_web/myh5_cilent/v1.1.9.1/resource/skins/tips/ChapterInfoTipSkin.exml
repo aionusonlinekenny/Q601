@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.ChapterInfoTipSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" height="139">
+	<e:Image source="tips_json.img_tips_chapter_bg" y="0" anchorOffsetY="0" scale9Grid="65,26,396,73" horizontalCenter="0" height="100%"/>
+	<e:Image source="tips_json.img_tips_arrow" y="60.67" x="241"/>
+	<e:Image source="tips_json.img_tips_arrow" y="96" x="241"/>
+	<e:Label text="关卡效率提升" y="23.34" size="20" textColor="0xedc839" horizontalCenter="8"/>
+	<e:Label id="labCurrentMoney" text="1111111" y="58.67" size="20" textColor="0xcfc9be" textAlign="right" right="307"/>
+	<e:Label id="labNextMoney" text="6535" y="58.67" size="20" textAlign="right" right="131" textColor="0x34e22c"/>
+	<e:Label id="labCurrentExp" text="1111111" y="94" size="20" textColor="0xcfc9be" textAlign="right" right="307"/>
+	<e:Label id="labNextExp" text="200000" y="94" size="20" textAlign="right" right="131" textColor="0x34e22c"/>
+	<e:Label text="/小时" x="412" y="58.67" size="20" textColor="0xcfc9be"/>
+	<e:Label text="/小时" x="412" y="94" size="20" textColor="0xcfc9be"/>
+	<e:Image source="tips_json.img_tip_exp" x="102" y="91.99" width="26" height="26"/>
+	<e:Image source="tips_json.img_tip_gold" x="99.33" y="53.66" width="30" height="30"/>
+</e:Skin>

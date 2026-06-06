@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.FirstPlayerDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing"  xmlns:ui="ui.*" xmlns:firstplayer="firstplayer.*" height="1074" width="600">
+	<e:Image id="imgBackBg" anchorOffsetY="0" x="0" y="27" source="img_firstPlayer_bg_png"/>
+	<components:SnapButton id="btnSeek" label="" anchorOffsetX="0" y="878" x="244" anchorOffsetY="0" icon="uiMain_json.img_main_red">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="firstrecharge_json.btn_fr_orange"/>
+			<e:Image x="45" verticalCenter="1.5" source="firstplayer_json.img_keyTitle"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<e:Image id="seekRedPoint" source="uiMain_json.img_main_red" x="249" y="884" visible="false"/>
+	<components:SnapButton id="btnReceive" label="" anchorOffsetX="0" y="877" x="245" anchorOffsetY="0" visible="false">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="firstrecharge_json.btn_fr_orange"/>
+			<e:Image x="45" verticalCenter="1" source="firstplayer_json.img_lingquTitle"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<e:Image id="ReceiveRedPoint" source="uiMain_json.img_main_red" x="253" y="883" visible="false"/>
+	<e:Image id="imgKey0" x="221" y="794" source="firstplayer_json.img_empty_key"/>
+	<e:Image id="imgKey1" y="795" source="firstplayer_json.img_empty_key" x="312"/>
+	<e:Image id="imgKey2" x="402" y="794" source="firstplayer_json.img_empty_key"/>
+	<firstplayer:FirstPlayerRewardItem id="rewardItem0" x="146" y="495" skinName="skin.FirstPlayerRewardItemSkin"/>
+	<firstplayer:FirstPlayerRewardItem id="rewardItem1" x="341" y="495" skinName="skin.FirstPlayerRewardItemSkin"/>
+	<firstplayer:FirstPlayerRewardItem id="rewardItem2" x="146" y="655" skinName="skin.FirstPlayerRewardItemSkin"/>
+	<firstplayer:FirstPlayerRewardItem id="rewardItem3" x="341" y="655" skinName="skin.FirstPlayerRewardItemSkin"/>
+	<e:Label id="labTime" text="截至时间 : 2018年06月14日" x="288" y="406" textColor="0xedc839" size="16" verticalAlign="middle" textAlign="center"/>
+	<e:Label id="labAlready" text="您已领取了活动奖励！" x="161.01" y="907.27" size="16" verticalAlign="middle" textAlign="center" rotation="0.39" anchorOffsetX="0" width="374.98" anchorOffsetY="0" height="15.95" textColor="0xfc0f19"/>
+	<e:Label id="labName0" text="第1名" x="154" y="461" textColor="0xedc839" size="16"/>
+	<e:Label id="labName2" text="第11-50名" x="159" y="625" textColor="0xedc839" size="16"/>
+	<e:Label id="labName1" text="第2-10名" x="356" y="461" textColor="0xedc839" size="16"/>
+	<e:Label id="labName3" text="第51-999名" x="360" y="625" textColor="0xedc839" size="16"/>
+	<e:Label id="lab0" text="哦啊评价哦" y="461" verticalAlign="middle" textAlign="left" x="200" size="16" textColor="0x34e22c"/>
+	<e:Label id="lab1" text="剩余20份" y="461" verticalAlign="middle" textAlign="left" x="424" size="16" textColor="0x34e22c"/>
+	<e:Label id="lab2" text="剩余300份" x="236" y="625" verticalAlign="middle" textAlign="left" size="16" textColor="0x34e22c"/>
+	<e:Label id="lab3" text="剩余999份" x="448" y="625" verticalAlign="middle" textAlign="left" size="16" textColor="0x34e22c"/>
+	<e:Label text="黄铜钥匙" x="205" y="854" size="20" textColor="0xedc839"/>
+	<e:Label text="水晶钥匙" x="398" y="854" size="20" textColor="0x1291ce"/>
+	<e:Label text="翡翠钥匙" x="304" y="854" size="20" textColor="0x34e22c"/>
+	<e:Label id="rollLabel" text="" x="111" y="419" anchorOffsetX="0" height="20" size="20" textColor="0xcfc9be"/>
+	<components:IconButton id="btnClose" x="546" y="120" source="common_json.btn_close_png" anchorOffsetX="27" anchorOffsetY="26"/>
+</e:Skin>

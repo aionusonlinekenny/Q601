@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.PetItemSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" states="zhuangbei,qiyue" >
+	<e:Group y="97.5" anchorOffsetY="0" height="16" touchEnabled="false" y.qiyue="100.85" horizontalCenter="0">
+		<e:Image id="imgxing1" x="0" y="0" source="common_json.img_smallStar_png" width="15" height="14" visible="false"/>
+		<e:Image id="imgxing2" x="18" y="0" source="common_json.img_smallStar_png" width="15" height="14" visible="false"/>
+		<e:Image id="imgxing3" x="34" y="0" source="common_json.img_smallStar_png" width="15" height="14" visible="false"/>
+		<e:Image id="imgxing4" x="53" y="0" source="common_json.img_smallStar_png" width="15" height="14" visible="false"/>
+		<e:Image id="imgxing5" x="73" y="0" source="common_json.img_smallStar_png" width="15" height="14" visible="false"/>
+		<e:layout>
+		<e:HorizontalLayout gap="3"/>
+		</e:layout>
+	</e:Group>
+	<e:Image id="imgQuality" y="7.6" source="common_json.img_qlt_1_png" horizontalCenter="0" source.qiyue="pet_json.img_qiyue_di_png"/>
+	<components:Icon id="imgIcon" y="11" source="" width="80" height="80" x="5" touchEnabled="true"/>
+	<e:Image id="imgHigth" y="6.65" source="common_json.img_selectFrame_png" horizontalCenter="0" touchEnabled="true" visible="false"/>
+	<e:Image id="imgPoint" width="20" height="20" x="0" y="1" source="common_json.img_warn_png" touchEnabled="true" visible="false"/>
+	<e:Label id="labCount" text="Label" y="14" size="20" stroke="2" right="7" textColor="0xc6b59e" touchEnabled="true" visible="false"/>
+</e:Skin>

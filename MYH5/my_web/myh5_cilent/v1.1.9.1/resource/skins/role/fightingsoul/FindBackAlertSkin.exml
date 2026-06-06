@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.FindBackAlertSkin" width="560" height="600" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" states="unfind,find"  height.find="400">
+	<e:Image x="0" y="0" anchorOffsetX="0" width="100%" anchorOffsetY="0" height="100%" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
+	<components:SnapButton id="btnGet" label="立即开通" y="537" anchorOffsetX="81" anchorOffsetY="26" skinName="skins.SnapButtonDefaultSkin" horizontalCenter="0" label.find="立即领取" horizontalCenter.find="0" y.find="328" horizontalCenter.unfind="0" y.unfind="531"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="27" anchorOffsetY="27" x="533" y="27"/>
+	<e:Image source="role_wing_skill_line_png" includeIn="find" x="4" y="262"/>
+	<e:Image id="img" source="role_findback_month_png" x="0" y="217" includeIn="unfind"/>
+	<e:Label text="当前损益" y="10" size="26" textColor="0xD6CAB7" bold="false" fontFamily="Microsoft YaHei" horizontalCenter="0"/>
+	<e:Label text="可领取 : " y="208" size="18" fontFamily="Microsoft YaHei" textColor="0xCAB59E" textAlign="right" x="195" x.find="198"/>
+	<e:Label id="labGet" text="600/80000" y="208" size="18" fontFamily="Microsoft YaHei" textAlign="right" x="273" textColor="0x34e22c" x.find="268"/>
+	<components:RewardItemBox id="icon" y="79" skinName="components.ItemBoxSkin" horizontalCenter="0"/>
+</e:Skin>

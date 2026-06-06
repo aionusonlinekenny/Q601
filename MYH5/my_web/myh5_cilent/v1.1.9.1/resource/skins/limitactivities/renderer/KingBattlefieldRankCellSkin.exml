@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.KingBattlefieldRankCellSkin" width="580" height="67" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="rankings_json.img_rankMan_base" x="0" y="0" scale9Grid="13,13,59,38" width="580"/>
+	<e:Image id="imgRanking" scaleX="0.6" scaleY="0.6" anchorOffsetX="0" y="3" width="77" anchorOffsetY="0" height="96" source="ladder_json.img_rank_2" horizontalCenter="-217"/>
+	<e:Label id="labRanking" text="4" size="20" textAlign="center" width="46" anchorOffsetX="0" anchorOffsetY="0" height="17" bold="true" textColor="0xc6b59e" horizontalCenter="-217" verticalCenter="0"/>
+	<e:Label id="labLegionName" text="军团名称名称" x="151" y="25" size="16" textAlign="center" width="131" anchorOffsetX="0" anchorOffsetY="0" height="19" bold="true" textColor="0xC6B59E"/>
+	<e:Label id="labName" text="团长名称大哥" x="301" y="25" size="16" textAlign="center" width="131" anchorOffsetX="0" anchorOffsetY="0" height="19" bold="true" textColor="0xc6b59e"/>
+	<e:Label id="labScore" text="9999999" x="431" y="25" size="16" textAlign="center" width="140" bold="true" anchorOffsetX="0" textColor="0xc6b59e"/>
+</e:Skin>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.MainPetItemSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:ProgressBar id="hp" y="56.25" value="30" anchorOffsetX="0" anchorOffsetY="0" x="3">
+		<e:skinName>
+		<e:Skin minWidth="30" minHeight="18" height="9">
+			<e:Image source="uiMain_json.main_pet_blood_back"/>
+			<e:Image id="thumb" x="1" y="1" anchorOffsetX="0" anchorOffsetY="0" source="uiMain_json.img_main_redbar_small" width="54"/>
+		</e:Skin>
+		</e:skinName>
+	</e:ProgressBar>
+    <e:Image id="imgBack" x="32" y="30"  source="uiMain_json.img_main_petbg" width="61" height="61" anchorOffsetX="31" anchorOffsetY="30"/>
+	<e:Image id="imgQuality" source="uiMain_json.main_quality_blue" x="6" y="4.5" anchorOffsetX="0" width="51" anchorOffsetY="0" height="51"/>
+    <e:Image id="icon" x="10" y="9" height="43" anchorOffsetX="0" width="43"  source="player_icon_circle_json.job_2" anchorOffsetY="0"/>
+	<e:Image id="btnAdd" x="21" y="20" source="uiMain_json.img_main_add" touchEnabled="false"/>
+	<e:Image id="btnLock" source="uiMain_json.img_main_lock" x="14" y="13" touchEnabled="false"/>
+</e:Skin>

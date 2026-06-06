@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.ProgressBlueSkin" xmlns:e="http://ns.egret.com/eui" width="200">
+	<e:Image width="100%" source="treasure_json.img_progress_out" scale9Grid="49,10,52,7"/>
+	<e:Image id="thumb" width="100%" y="5" source="treasure_json.img_progress_in" scale9Grid="34,1,77,12"/>
+	<e:Label id="labelDisplay" textAlign="center" verticalAlign="middle" size="14" horizontalCenter="0" text="10/20" bold="true" y="5" textColor="0xefece3"/>
+</e:Skin>

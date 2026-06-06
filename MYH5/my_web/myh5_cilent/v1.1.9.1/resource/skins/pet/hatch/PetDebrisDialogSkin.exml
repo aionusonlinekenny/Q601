@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.PetDebrisDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image x="0" y="0" width="626" height="969" anchorOffsetY="0" source="common_json.img_prompt_bg_png" anchorOffsetX="0" scale9Grid="35,79,27,18"/>
+	<e:Image width="578" height="800" x="24" y="75" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_inbg_png" scale9Grid="5,6,18,15"/>
+	<e:Image y="9" horizontalCenter="0.5" source="img_title_hatch1_png"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" top="10" right="0"/>
+	<components:IconButton id="btnBack" right="25" source="common_json.btn_back_png" bottom="10"/>
+	<e:Scroller height="766" y="91" anchorOffsetY="0" anchorOffsetX="0" width="556" x="35">
+			<e:List id="listDebris" height="624" x="24" y="-307" scaleX="1" scaleY="1" anchorOffsetY="0" itemRendererSkinName="renderer.PetDebrisRendererSkin" anchorOffsetX="0" itemRenderer="renderer.PetDebrisRenderer">
+				<e:layout>
+					<e:TileLayout horizontalGap="0"/>
+				</e:layout>
+			</e:List>
+
+	</e:Scroller>
+</e:Skin>

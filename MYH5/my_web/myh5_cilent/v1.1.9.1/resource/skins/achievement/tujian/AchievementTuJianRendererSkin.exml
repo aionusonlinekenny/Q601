@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.AchievementTuJianRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" height="232">
+	<e:Image id="imgQuality" anchorOffsetX="0" anchorOffsetY="0" height="223" scale9Grid="41,44,10,8" width="180" y="8" x="0" source="tujian_json.img_Picframe_2"/>
+	<e:Image source="img_picture_itembg_png" y="16" x="7"/>
+	<e:Image id="imgIcon" y="14" touchEnabled="false" x="6" source=""/>
+	<e:Image id="imgBg" anchorOffsetX="0" anchorOffsetY="0" height="223" source="tujian_json.img_Picframe" scale9Grid="41,44,10,8" width="180" y="8" x="0"/>
+	<e:Image source="tujian_json.img_Pictouming" x="6" y="170" anchorOffsetX="0" width="170" anchorOffsetY="0" height="52" touchEnabled="false"/>
+	<e:BitmapLabel id="labPower" y="196.49" anchorOffsetX="0" anchorOffsetY="0" text="800" touchEnabled="false" font="fight_font2_fnt" letterSpacing="-3" textAlign="centre" left="65"/>
+	<e:Label id="labName" text="Label" y="174" size="18" verticalAlign="middle" textAlign="center" horizontalCenter="0.5" textColor="0xc6b59e" touchEnabled="false"/>
+	<e:Label id="labLv" text="0" y="20" size="18" textColor="0xc6b59e" verticalAlign="middle" textAlign="center" touchEnabled="false" horizontalCenter="-69.5"/>
+	<e:Image id="imgJihuo" source="tujian_json.img_Picactivated" x="30" y="106" touchEnabled="false"/>
+	<e:Image id="imgNoJihuo" source="tujian_json.img_Picactivate" x="98" y="15" touchEnabled="false"/>
+	<e:Image id="imgUp" source="tujian_json.img_Picup" x="37" y="19" touchEnabled="false"/>
+	<e:Image id="imgRedPoint" source="common_json.img_warn_png" x="0" y="1"/>
+	<e:Image source="common_json.img_fight_png" x="31" y="196" anchorOffsetX="0" width="33" anchorOffsetY="0" height="27"/>
+</e:Skin>

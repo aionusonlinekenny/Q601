@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.RankingSkin" width="600" height="916" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image y="20" x="61" source="img_onepref_base_jpg"/>
+	<e:Image source="img_one_base_png" y="852" scale9Grid="95,4,175,26" width="657" anchorOffsetY="0" height="63" anchorOffsetX="0" horizontalCenter="0.5"/>
+	<e:Image source="img_one_base_png" y="314.67" scale9Grid="95,4,175,26" width="657" anchorOffsetY="0" height="63" anchorOffsetX="0" horizontalCenter="0.5"/>
+	<e:Image id="imgVip" source="rankings_json.img_vip" x="91" y="340"/>
+	<e:Image source="ladder_json.img_rank_1" x="28" y="304" width="45" height="65" scaleX="1.2" scaleY="1.2"/>
+	<e:Label id="labType" text="幻兽战力 : " x="355" y="340" size="22" bold="true" textColor="0x34e22c"/>
+	<e:Label text="我的排名 : " x="22" y="874.69" size="20" textColor="0xd1a765" bold="true"/>
+	<e:Label id="labType1" text="战力 : " x="288" y="874.69" size="20" textColor="0xd1a765" bold="true"/>
+	<e:Label id="labFirstName" text="军团的大魔王" x="178" y="340" size="22" bold="true" textColor="0xedc839"/>
+	<e:Label id="labOwnRanking" text="100" x="121" y="874.69" size="20" textColor="0xffb200" fontFamily="Microsoft JhengHei" bold="true"/>
+	<e:BitmapLabel id="labRanking" x="135" text="15" y="340" font="vip_font2_fnt" scaleX="0.8" scaleY="0.8"/>
+	<e:Scroller id="scroRanking" width="456" height="469" x="12" y="380" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="off" scrollPolicyV="auto">
+		<e:List id="listRanking" itemRenderer="renderer.RankingCell" anchorOffsetY="0" height="469"/>
+	</e:Scroller>
+	<e:Scroller id="scroFenLei" width="118" height="480" x="470" y="380" anchorOffsetY="0" anchorOffsetX="0" scrollPolicyH="off" scrollPolicyV="auto">
+		<e:List id="listFenLei" x="12" selectedIndex="0" y="0" height="45" anchorOffsetX="0" width="118">
+			<e:itemRendererSkinName>
+			<e:Skin states="up,down,disabled" height="54">
+				<e:Image alpha.disabled="0.5" width="100%" height="65" source="rankings_json.img_unchecked_base" source.down="rankings_json.img_checked_base" source.up="rankings_json.img_unchecked_base" anchorOffsetY="0"/>
+				<e:Label id="labelDisplay" size="18" width="100%" text="{data.name}" textColor="0xa29585" y="17" x="0" textAlign="center"/>
+			</e:Skin>
+			</e:itemRendererSkinName>
+			<e:ArrayCollection>
+				<e:Array>
+					<e:Object name="战力排行"/>
+					<e:Object name="等级排行"/>
+					<e:Object name="幻兽塔"/>
+					<e:Object name="神之试炼"/>
+					<e:Object name="幻兽排行"/>
+					<e:Object name="战士排行"/>
+					<e:Object name="法师排行"/>
+					<e:Object name="异能者"/>
+					<e:Object name="野战排行"/>
+				</e:Array>
+			</e:ArrayCollection>
+			<e:layout>
+				<e:TileLayout requestedColumnCount="1" verticalGap="-5"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:Group id="firstPlayer1" width="242" height="313" y="3" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0"/>
+	<e:Group id="firstPlayer2" width="572" height="59" y="317" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0"/>
+	<e:Group id="worship" x="427" y="152" anchorOffsetY="0" anchorOffsetX="0">
+		<e:Image anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_tips_bg_png" scale9Grid="20,23,22,20" alpha="0.6" touchEnabled="false" height="159" width="155"/>
+		<e:Image source="tips_json.img_tip_gold" x="14" y="12" width="45" height="37" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" touchEnabled="false"/>
+		<e:Label id="expLab" text="EXP" y="58" size="18" textAlign="center" verticalAlign="middle" textColor="0x34E22C" x="9" anchorOffsetX="0" width="61" anchorOffsetY="0" height="19" scaleX="1" scaleY="1" stroke="1"/>
+		<e:Label id="goldNum" text="0" y="20" size="18" textAlign="left" verticalAlign="middle" x="64" anchorOffsetX="0" anchorOffsetY="0" height="20" textColor="0xedc839" scaleX="1" scaleY="1" stroke="1"/>
+		<e:Label id="expNum" text="0" y="58" size="18" textAlign="left" verticalAlign="middle" x="64" anchorOffsetX="0" anchorOffsetY="0" height="16" textColor="0xedc839" scaleX="1" scaleY="1" stroke="1"/>
+		<components:SnapButton id="btnWorship" label="膜拜" x="80.37" y="117.52" width="123" skinName="skins.SnapOrangeButtonSkin" height="54" icon="img_warn_png" anchorOffsetX="62.87" anchorOffsetY="26.52" scaleX="1" scaleY="1"/>
+		<e:Image id="getImg" source="rankings_json.img_get" x="26" y="80" scaleX="1" scaleY="1" touchEnabled="false"/>
+		<e:Label id="todayNum" text="0" y="140" size="18" textAlign="left" verticalAlign="middle" textColor="0x34E22C" x="-100" anchorOffsetX="0" width="61" anchorOffsetY="0" height="24" scaleX="1" scaleY="1" stroke="1"/>
+	</e:Group>
+	<e:Label id="todayLab" text="被膜拜:" y="292" size="18" textAlign="center" verticalAlign="middle" x="219" anchorOffsetX="0" width="151" anchorOffsetY="0" height="24" scaleX="1" scaleY="1" textColor="0xedc839" stroke="1"/>
+</e:Skin>

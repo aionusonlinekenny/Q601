@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.TitleItemSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" width="600" height="867">
+	<e:Image source="common_inbar_png" width="700" horizontalCenter="0" anchorOffsetY="0" height="100" y="767" scale9Grid="90,7,54,21"/>
+	<e:Image x="0" y="34" width="600" anchorOffsetY="0" height="735" source="common_json.img_inbg_png" scale9Grid="7,6,17,17"/>
+	<e:Scroller id="scrollerTitle" width="586" height="721" y="41" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0">
+		<e:List id="listTitle" x="-12" y="-14" itemRendererSkinName="renderer.TitleRendererSkin" itemRenderer="renderer.TitleRenderer">
+
+		</e:List>
+	</e:Scroller>
+	<components:IconButton id="btnLimit" x="61" y="816" anchorOffsetX="39" anchorOffsetY="39" source="fashion_json.btn_fashion_timelimit"/>
+	<components:IconButton id="btnForever" x="143" y="816" anchorOffsetX="39" anchorOffsetY="39" source="fashion_json.btn_fashion_forever"/>
+	<e:Image id="imgSelected" source="img_fashion_selected_png" x="60" y="815" anchorOffsetX="45" anchorOffsetY="47"/>
+</e:Skin>

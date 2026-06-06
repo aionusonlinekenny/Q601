@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.MaterialBoxSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image source="common_json.img_qlt_1_png" x="0" y="0"/>
+	<components:Icon id="icon" x="5" y="3" source="" anchorOffsetX="0" width="80" anchorOffsetY="0" height="80"/>
+	<e:Image id="star1" source="explore_json.img_explore_star" x="4" y="2" anchorOffsetX="0" width="26" anchorOffsetY="0" height="26"/>
+	<e:Image id="star2" source="explore_json.img_explore_star" x="32" y="2" anchorOffsetX="0" width="26" anchorOffsetY="0" height="26"/>
+	<e:Image id="star3" source="explore_json.img_explore_star" x="60" y="2" anchorOffsetX="0" width="26" anchorOffsetY="0" height="26"/>
+	<e:Label id="labName" text="label" y="92" bold="true" size="16" horizontalCenter="0.5" verticalAlign="middle" textColor="0xc6b59e"/>
+	<e:Image id="imgRed" source="common_json.img_warn_png" x="-11" y="-9"/>
+</e:Skin>

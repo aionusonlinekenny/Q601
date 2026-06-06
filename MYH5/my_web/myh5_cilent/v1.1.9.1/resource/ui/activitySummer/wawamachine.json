@@ -1,0 +1,11 @@
+{"file":"wawamachine.png","frames":{
+"wawaji_qiu":{"x":113,"y":78,"w":110,"h":110,"offX":0,"offY":0,"sourceW":110,"sourceH":110},
+"wawaji_qiu_di":{"x":1,"y":78,"w":110,"h":110,"offX":0,"offY":0,"sourceW":110,"sourceH":110},
+"wawaji_shen":{"x":469,"y":1,"w":15,"h":12,"offX":0,"offY":0,"sourceW":15,"sourceH":12},
+"wawa_btn":{"x":235,"y":1,"w":232,"h":75,"offX":0,"offY":0,"sourceW":232,"sourceH":75},
+"wawa_btn_hq":{"x":1,"y":1,"w":232,"h":75,"offX":0,"offY":0,"sourceW":232,"sourceH":76},
+"wawa_title_1":{"x":352,"y":134,"w":115,"h":54,"offX":0,"offY":0,"sourceW":115,"sourceH":54},
+"wawa_title_2":{"x":1,"y":190,"w":114,"h":53,"offX":0,"offY":0,"sourceW":115,"sourceH":54},
+"wawa_title_3":{"x":352,"y":78,"w":115,"h":54,"offX":0,"offY":0,"sourceW":115,"sourceH":54},
+"wawa_title_4":{"x":225,"y":176,"w":115,"h":54,"offX":0,"offY":0,"sourceW":115,"sourceH":54},
+"wawaji_gouzi":{"x":225,"y":78,"w":125,"h":96,"offX":0,"offY":0,"sourceW":125,"sourceH":108}}}

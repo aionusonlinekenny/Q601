@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LadderBuyTimesSkin" width="543" height="344" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image x="0" y="0" source="common_json.img_tips_bg_png" scale9Grid="22,26,21,15" anchorOffsetX="0" width="543" height="344"/>
+	<components:IconButton id="btnJian" x="154" y="122" source="common_json.btn_jian_png"/>
+	<components:IconButton id="btnJian0" x="341" y="122" source="common_json.btn_jia_png"/>
+	<components:SnapButton id="btnJianTen" label="-10" x="67" y="120" skinName="skins.SnapRedButtonSkin" anchorOffsetX="0" width="84"/>
+	<components:SnapButton id="btnJiaTen" label="+10" x="389" y="120" skinName="skins.SnapRedButtonSkin" anchorOffsetX="0" width="84"/>
+	<components:SnapButton id="btnBuy" label="购买" y="241" skinName="skins.SnapOrangeButtonSkin" width="143" anchorOffsetX="0" horizontalCenter="0"/>
+	<e:Image id="imgTatolPayType" x="222" y="198" source="common_json.img_diamonds_png" width="28" height="25"/>
+	<e:Label id="labPrice" text="50" y="197.33" textAlign="left" verticalAlign="middle" anchorOffsetX="0" width="126" size="22" anchorOffsetY="0" height="26" x="262" fontFamily="Microsoft JhengHei" textColor="0xc6b59e"/>
+	<e:Image source="ladder_json.img_title_right" x="336" y="56"/>
+	<e:Image source="ladder_json.img_title_left" x="-38" y="56"/>
+	<e:Label text="购买次数" y="48" size="24" textColor="0xedc839" horizontalCenter="0"/>
+	<components:IconButton id="btnBack" source="common_json.btn_back_png" y="300" x="498" anchorOffsetX="37" anchorOffsetY="36"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="26" anchorOffsetY="27" x="512" y="32"/>
+	<e:TextInput id="textInputNum" width="125" height="30" y="129" anchorOffsetX="0" anchorOffsetY="0" text="1" textColor="0xcbc6ac" restrict="0-9" horizontalCenter="0">
+		<e:skinName>
+		<e:Skin minHeight="40" minWidth="300" states="normal,disabled,normalWithPrompt,disabledWithPrompt" width="130" height="38">
+			<e:Image x="-3" y="-2" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_numbg_png" width="132" height="40" scale9Grid="7,6,41,12"/>
+			<e:Rect height="38" width="132" fillColor="0x000000" fillAlpha="0" anchorOffsetX="0" anchorOffsetY="0" x="-2" y="-1"/>
+			<e:EditableText id="textDisplay" verticalCenter="0.5" left="-1" right="2" textColor.disabled="0xff0000" width="100%" height="37" size="20" textColor="0xddc235" anchorOffsetX="0" anchorOffsetY="0" verticalAlign="middle" textAlign="left" width.normal="100%" verticalCenter.normal="0" textAlign.normal="center" left.normal="-1"/>
+			<e:Label id="promptDisplay" verticalCenter="0" textColor="0xa9a9a9" width="90%" height="36" size="20" touchEnabled="false" includeIn="normalWithPrompt,disabledWithPrompt" anchorOffsetX="0" anchorOffsetY="0" verticalAlign="middle" text="" textAlign="center" horizontalCenter="0" left.normalWithPrompt="-1" right.normalWithPrompt="2" left.disabledWithPrompt="-1" right.disabledWithPrompt="2"/>
+		</e:Skin>
+		</e:skinName>
+	</e:TextInput>
+</e:Skin>

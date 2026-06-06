@@ -1,0 +1,138 @@
+191114 14:34:03 [Note] Plugin 'FEDERATED' is disabled.
+191114 14:34:03 InnoDB: The InnoDB memory heap is disabled
+191114 14:34:03 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+191114 14:34:03 InnoDB: Compressed tables use zlib 1.2.3
+191114 14:34:03 InnoDB: Initializing buffer pool, size = 47.0M
+191114 14:34:03 InnoDB: Completed initialization of buffer pool
+191114 14:34:03 InnoDB: highest supported file format is Barracuda.
+InnoDB: Log scan progressed past the checkpoint lsn 35990424
+191114 14:34:03  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+InnoDB: Doing recovery: scanned up to log sequence number 35997237
+191114 14:34:04  InnoDB: Starting an apply batch of log records to the database...
+InnoDB: Progress in percents: 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 
+InnoDB: Apply batch completed
+191114 14:34:04  InnoDB: Waiting for the background threads to start
+191114 14:34:05 InnoDB: 5.5.53 started; log sequence number 35997237
+191114 14:34:05 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+191114 14:34:05 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+191114 14:34:05 [Note] Server socket created on IP: '0.0.0.0'.
+191114 14:34:05 [Note] Event Scheduler: Loaded 0 events
+191114 14:34:05 [Note] D:\MYH5\phpStudy\PHPTutorial\MySQL\bin\mysqld.exe: ready for connections.
+Version: '5.5.53'  socket: ''  port: 3306  MySQL Community Server (GPL)
+191114 14:54:22 [Note] Plugin 'FEDERATED' is disabled.
+191114 14:54:22 InnoDB: The InnoDB memory heap is disabled
+191114 14:54:22 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+191114 14:54:22 InnoDB: Compressed tables use zlib 1.2.3
+191114 14:54:22 InnoDB: Initializing buffer pool, size = 47.0M
+191114 14:54:22 InnoDB: Completed initialization of buffer pool
+191114 14:54:22 InnoDB: highest supported file format is Barracuda.
+InnoDB: The log sequence number in ibdata files does not match
+InnoDB: the log sequence number in the ib_logfiles!
+191114 14:54:22  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+191114 14:54:23  InnoDB: Waiting for the background threads to start
+191114 14:54:24 InnoDB: 5.5.53 started; log sequence number 36002115
+191114 14:54:24 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+191114 14:54:24 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+191114 14:54:24 [Note] Server socket created on IP: '0.0.0.0'.
+191114 14:54:24 [Note] Event Scheduler: Loaded 0 events
+191114 14:54:24 [Note] D:\MYH5\phpStudy\PHPTutorial\MySQL\bin\mysqld.exe: ready for connections.
+Version: '5.5.53'  socket: ''  port: 3306  MySQL Community Server (GPL)
+191114 15:27:29 [Note] Plugin 'FEDERATED' is disabled.
+191114 15:27:29 InnoDB: The InnoDB memory heap is disabled
+191114 15:27:29 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+191114 15:27:29 InnoDB: Compressed tables use zlib 1.2.3
+191114 15:27:29 InnoDB: Initializing buffer pool, size = 47.0M
+191114 15:27:29 InnoDB: Completed initialization of buffer pool
+191114 15:27:29 InnoDB: highest supported file format is Barracuda.
+InnoDB: The log sequence number in ibdata files does not match
+InnoDB: the log sequence number in the ib_logfiles!
+191114 15:27:29  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+191114 15:27:30  InnoDB: Waiting for the background threads to start
+191114 15:27:31 InnoDB: 5.5.53 started; log sequence number 36758946
+191114 15:27:31 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+191114 15:27:31 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+191114 15:27:31 [Note] Server socket created on IP: '0.0.0.0'.
+191114 15:27:31 [Note] Event Scheduler: Loaded 0 events
+191114 15:27:31 [Note] D:\MYH5\phpStudy\PHPTutorial\MySQL\bin\mysqld.exe: ready for connections.
+Version: '5.5.53'  socket: ''  port: 3306  MySQL Community Server (GPL)
+191114 15:37:16 [Note] Plugin 'FEDERATED' is disabled.
+191114 15:37:16 InnoDB: The InnoDB memory heap is disabled
+191114 15:37:16 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+191114 15:37:16 InnoDB: Compressed tables use zlib 1.2.3
+191114 15:37:16 InnoDB: Initializing buffer pool, size = 47.0M
+191114 15:37:16 InnoDB: Completed initialization of buffer pool
+191114 15:37:16 InnoDB: highest supported file format is Barracuda.
+InnoDB: The log sequence number in ibdata files does not match
+InnoDB: the log sequence number in the ib_logfiles!
+191114 15:37:16  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+191114 15:37:17  InnoDB: Waiting for the background threads to start
+191114 15:37:18 InnoDB: 5.5.53 started; log sequence number 36973996
+191114 15:37:18 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+191114 15:37:18 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+191114 15:37:18 [Note] Server socket created on IP: '0.0.0.0'.
+191114 15:37:18 [Note] Event Scheduler: Loaded 0 events
+191114 15:37:18 [Note] D:\MYH5\phpStudy\PHPTutorial\MySQL\bin\mysqld.exe: ready for connections.
+Version: '5.5.53'  socket: ''  port: 3306  MySQL Community Server (GPL)
+191114 15:39:54 [Note] Plugin 'FEDERATED' is disabled.
+191114 15:39:54 InnoDB: The InnoDB memory heap is disabled
+191114 15:39:54 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+191114 15:39:54 InnoDB: Compressed tables use zlib 1.2.3
+191114 15:39:54 InnoDB: Initializing buffer pool, size = 47.0M
+191114 15:39:54 InnoDB: Completed initialization of buffer pool
+191114 15:39:54 InnoDB: highest supported file format is Barracuda.
+InnoDB: The log sequence number in ibdata files does not match
+InnoDB: the log sequence number in the ib_logfiles!
+191114 15:39:54  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+191114 15:39:55  InnoDB: Waiting for the background threads to start
+191114 15:39:56 InnoDB: 5.5.53 started; log sequence number 37000564
+191114 15:39:56 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+191114 15:39:56 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+191114 15:39:56 [Note] Server socket created on IP: '0.0.0.0'.
+191114 15:39:56 [Note] Event Scheduler: Loaded 0 events
+191114 15:39:56 [Note] D:\MYH5\phpStudy\PHPTutorial\MySQL\bin\mysqld.exe: ready for connections.
+Version: '5.5.53'  socket: ''  port: 3306  MySQL Community Server (GPL)
+191114 15:42:20 [Note] Plugin 'FEDERATED' is disabled.
+191114 15:42:20 InnoDB: The InnoDB memory heap is disabled
+191114 15:42:20 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+191114 15:42:20 InnoDB: Compressed tables use zlib 1.2.3
+191114 15:42:20 InnoDB: Initializing buffer pool, size = 47.0M
+191114 15:42:20 InnoDB: Completed initialization of buffer pool
+191114 15:42:20 InnoDB: highest supported file format is Barracuda.
+InnoDB: Log scan progressed past the checkpoint lsn 37103794
+191114 15:42:20  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+InnoDB: Doing recovery: scanned up to log sequence number 37115945
+191114 15:42:21  InnoDB: Starting an apply batch of log records to the database...
+InnoDB: Progress in percents: 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 
+InnoDB: Apply batch completed
+191114 15:42:21  InnoDB: Waiting for the background threads to start
+191114 15:42:22 InnoDB: 5.5.53 started; log sequence number 37115945
+191114 15:42:22 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+191114 15:42:22 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+191114 15:42:22 [Note] Server socket created on IP: '0.0.0.0'.
+191114 15:42:22 [Note] Event Scheduler: Loaded 0 events
+191114 15:42:22 [Note] D:\MYH5\phpStudy\PHPTutorial\MySQL\bin\mysqld.exe: ready for connections.
+Version: '5.5.53'  socket: ''  port: 3306  MySQL Community Server (GPL)

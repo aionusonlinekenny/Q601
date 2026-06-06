@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="legionWar.LegionWarRewardBoxSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image id="imgIcon" source="legionWar_json.img_legionwar_box1" touchEnabled="false" scaleX="1" scaleY="1" horizontalCenter="0"/>
+	<e:Label id="labScore" text="9999999" size="14" textAlign="center" width="90" anchorOffsetX="0" textColor="0xC6B59E" scaleX="1" scaleY="1" horizontalCenter="0.5" stroke="2" y="68"/>
+</e:Skin>

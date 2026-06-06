@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="CopyFailSkin" width="600" height="900" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Group id="group" y="243" width="391" height="532" x="105">
+		<e:Image id="tag" y="-233" source="img_explore_fail_png" scaleX="1" scaleY="1" height="874" scale9Grid="0,377,529,58" x="-69"/>
+		<components:SnapButton id="btnOK" label="确   定" y="505" anchorOffsetX="75" width="150"
+		                       skinName="skins.SnapButtonDefaultSkin"  anchorOffsetY="25" x="196"/>
+		<e:List id="listStrengthen" width="426" x="-19" y="60" anchorOffsetX="0" anchorOffsetY="0" itemRendererSkinName="renderer.CopyFailRenderSkin"/>
+	</e:Group>
+	<e:Label id="labTime" text="10" y="829" size="20" touchEnabled="false" horizontalCenter="0" textColor="0xc6b59e"/>
+</e:Skin>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.KaiFuLiBaoSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="600" height="850">
+	<e:Image y="157" horizontalCenter="0" source="img_activity_kaifu_bg_jpg"/>
+	<e:Image id="tab0" y="11" source="activity_kaifu_tab0_jpg" left="32"/>
+	<e:Image id="tab1" x="167" y="11" source="activity_kaifu_tab1_jpg"/>
+	<e:Image id="tab2" x="302" y="11" source="activity_kaifu_tab2_jpg"/>
+	<e:Image id="tab3" y="11" source="activity_kaifu_tab3_jpg" x="437"/>
+	<e:Image x="17.35" y="455.3" touchEnabled="false" anchorOffsetX="0" width="357" anchorOffsetY="0" height="271.7" source="img_activity_inbg2_png"/>
+	<components:RewardItemBox id="reward0" x="33" y="465" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward1" x="149" y="465" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward2" x="266" y="465" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward3" x="33" y="594" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward4" x="149" y="594" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward5" x="266" y="594" skinName="components.ItemBoxSkin"/>
+	<components:SnapButton id="btnBuy" label="立即购买" y="776" anchorOffsetX="80" horizontalCenter="0" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="29"/>
+	<e:Label id="labDate" text="剩余时间 : 1天12小时20分" y="816" size="20" textColor="0x2B8C25" bold="true" horizontalCenter="0"/>
+	<e:Image x="332.32" y="620.35" touchEnabled="false" source="img_activity_chest_di_png"/>
+	<e:Image x="329.32" y="573.35" anchorOffsetX="0" width="253" touchEnabled="false" source="img_activity_chest_di2_png"/>
+	<e:Image id="imgSelected" source="activity_json.img_activity_selected" x="32" y="10" anchorOffsetX="2" width="135" anchorOffsetY="2" height="139" scale9Grid="5,5,2,3"/>
+	<e:Image id="imgModel" touchEnabled="false" scaleX="0.8" scaleY="0.8" horizontalCenter="157" verticalCenter="116.5" source="activity_kaifu_reward0_png"/>
+	<e:Image x="233.5" y="233.64" source="activity_json.lab_chaoHuaSuan"/>
+	<e:Image source="activity_json.img_yuanjia" x="169" y="309"/>
+	<e:Group x="173" y="314">
+		<e:BitmapLabel id="labYuanJia" anchorOffsetX="0" anchorOffsetY="0" text="500" font="fight_font_fnt" scaleX="0.6" scaleY="0.6" x="50" y="0"/>
+		<e:Image y="10" scale9Grid="4,0,24,3" anchorOffsetX="0" anchorOffsetY="0" height="7" right="-6" left="0" source="common_json.img_hongxian_png"/>
+	</e:Group>
+	<e:Image id="imgChatDesc" x="142" y="343" source="activity_kaifu_gift0_png"/>
+	<e:Image id="imgChatDesc2" source="activity_kaifu_tips0_png" y="714" anchorOffsetX="99" anchorOffsetY="39" horizontalCenter="150"/>
+</e:Skin>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.ProgressFineSkin" xmlns:e="http://ns.egret.com/eui">
+	<e:Image source="uiMain_json.main_pet_proDown" scale9Grid="27,4,38,5" width="100%"/>
+	<e:Image id="thumb" x="7" y="2.5" source="uiMain_json.mian_pet_proUp" width="90%" scale9Grid="9,3,60,2"/>
+	<e:Label id="labelDisplay" textAlign="center" verticalAlign="middle" size="7" horizontalCenter="0" text="10/20" bold="true" y="3.5" textColor="0xEFECE3"/>
+</e:Skin>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="NewFile" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*">
+	<e:Image id="imgBg" anchorOffsetX="0" width="465" anchorOffsetY="0" height="251" source="common_json.img_tips_bg_png" scale9Grid="22,26,21,15" x="0" y="0"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="432" y="27" anchorOffsetX="25" anchorOffsetY="25"/>
+	<components:SnapButton id="btnSure" label="确定" y="182" skinName="skins.SnapButtonDefaultSkin" width="150" x="158"/>
+	<components:SnapButton id="btnRandom" label="" anchorOffsetX="32" anchorOffsetY="32" horizontalCenter="184" bottom="115">
+		<components:skinName>
+		<e:Skin states="up,down,disabled" xmlns:w="http://ns.egret.com/wing">
+			<e:Image width="100%" height="100%" source="create_json.btn_create_sieve"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<e:TextInput id="input" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="-17.5" bottom="125">
+		<e:skinName>
+		<e:Skin minHeight="40" minWidth="300" states="normal,disabled,normalWithPrompt,disabledWithPrompt" xmlns:w="http://ns.egret.com/wing">
+			<e:Image x="0" y="0" anchorOffsetX="0" width="300" source="create_json.btn_create_text_back" scale9Grid="17,11,11,27"/>
+			<e:Rect height="49" width="100%" fillColor="0x000000" fillAlpha="0" anchorOffsetY="0"/>
+			<e:EditableText id="textDisplay" textColor.disabled="0xff0000" width="280" height="24" size="24" horizontalCenter="0" verticalAlign="middle" textAlign="center" textColor="0xc6b59e" text="去问驱蚊器我" verticalCenter="-1.5"/>
+			<e:Label id="promptDisplay" textColor="0xa9a9a9" width="280" height="24" size="20" touchEnabled="false" includeIn="normalWithPrompt,disabledWithPrompt" verticalAlign="middle" textAlign="center" horizontalCenter="0" verticalCenter="-1.5"/>
+		</e:Skin>
+		</e:skinName>
+	</e:TextInput>
+	<e:Label text="角色名字不能超过6个字，不能包含空格和敏感字" verticalAlign="middle" textAlign="center" size="20" textColor="0xEDC839" bottom="88" horizontalCenter="0.5"/>
+</e:Skin>

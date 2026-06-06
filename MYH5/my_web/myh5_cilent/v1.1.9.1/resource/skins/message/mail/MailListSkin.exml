@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.MailListSkin" width="575" height="117" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" states="4,3,2,1"  height.1="117">
+	<e:Group id="listGroup" x="0" y="0">
+		<e:Image width="575" height="117" anchorOffsetX="0" anchorOffsetY="0" x="0" y="0" scale9Grid="12,25,15,19" source="img_union_list_png"/>
+		<e:Image x="37" y="22" scaleX="1" scaleY="1" source="mail_json.img_mail" source.1="mail_json.img_mail_open" source.3="mail_json.img_mail_open"/>
+		<e:Image x="461" y="18" includeIn="4,3" source="mail_json.img_mail_box"/>
+		<e:Image x="9" y="0" includeIn="4,2" source="mail_json.img_new"/>
+		<e:Image x="138" y="19" source="mail_json.img_wordsetting"/>
+		<e:Label id="labelSender" x="143" y="26" size="20" strokeColor="0x291a17" stroke="2" textColor="0xd1a765" text="name"/>
+		<e:Label id="labelData" x="143" y="71" size="20" text="{data.sender}" textColor="0xc6b59e"/>
+	</e:Group>
+</e:Skin>

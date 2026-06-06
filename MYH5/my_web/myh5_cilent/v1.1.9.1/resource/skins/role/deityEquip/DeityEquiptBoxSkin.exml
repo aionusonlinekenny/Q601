@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.DeityEquiptBoxSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+
+
+
+
+
+	<e:Group id="boxGroup" x="20" y="0">
+		<components:Icon id="imgQuality" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="9,9,19,19" source="common_json.img_qlt_1_png"/>
+		<components:Icon id="imgIcon" x="5" y="3" anchorOffsetX="0" anchorOffsetY="0" source="" width="80" height="80"/>
+		<components:Icon id="imgWarn" source="common_json.img_warn_png" x="0" y="0"/>
+		<e:Image id="imgFen" x="45" y="45" source="role_json.role_deityEquipFen_png"/>
+	</e:Group>
+	<e:Label id="labName" text="获取:vip10礼包" y="93" size="18" anchorOffsetX="0" textAlign="center" horizontalCenter="0" textColor="0xc6b59e" stroke="1" width="130"/>
+</e:Skin>

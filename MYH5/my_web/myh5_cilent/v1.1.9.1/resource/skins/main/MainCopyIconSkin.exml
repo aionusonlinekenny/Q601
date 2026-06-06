@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin.MainCopyIconSkin" width="136" height="209" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*">
+	<components:SnapButton id="btnCopyArena" label="" anchorOffsetX="65" anchorOffsetY="36" icon="uiMain_json.img_main_red" isWarn="false" y="37" x="66">
+		<components:skinName>
+		<e:Skin states="up,down,disabled" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+			<e:Image width="100%" height="100%" source="uiMain_json.item_main_arena"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="uiMain_json.img_main_red" visible="false"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnCopyMaterial" label="" anchorOffsetX="65" anchorOffsetY="37" icon="uiMain_json.img_main_red" isWarn="false" y="108" x="66">
+		<components:skinName>
+		<e:Skin states="up,down,disabled" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+			<e:Image width="100%" height="100%" source="uiMain_json.item_main_copy"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="uiMain_json.img_main_red" visible="false"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnCopyBoss" label="" anchorOffsetX="65" anchorOffsetY="36" icon="uiMain_json.img_main_red" isWarn="false" y="175" x="67">
+		<components:skinName>
+		<e:Skin states="up,down,disabled" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+			<e:Image width="100%" height="100%" source="uiMain_json.item_main_boss"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="uiMain_json.img_main_red" visible="false"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+</e:Skin>

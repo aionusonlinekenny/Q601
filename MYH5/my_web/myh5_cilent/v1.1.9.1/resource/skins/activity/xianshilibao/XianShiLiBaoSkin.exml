@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="XianShiLiBaoSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="img_activity_xianshi_bg_png" x="0" y="0"/>
+	<e:Image source="img_activity_xianshi_moshi_png" x="135" y="68"/>
+	<e:Image id="imgTitle" source="img_activity_xianshi_titel2_png" y="119" horizontalCenter="92"/>
+	<e:BitmapLabel id="labDiamond" y="72" text="88888" anchorOffsetX="0" letterSpacing="-5" font="property_font_fnt" horizontalCenter="14"/>
+	<e:BitmapLabel id="labPercent" y="329" text="300000" anchorOffsetX="0" letterSpacing="-5" horizontalCenter="90" font="fight_font4_fnt"/>
+	<components:SnapButton id="btnBuy" label="Button" x="363" y="417" anchorOffsetX="120" anchorOffsetY="33" icon="img_warn_png">
+		<components:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="activity_json.img_activity_xslbbtnbg"/>
+			<e:Image id="iconDisplay" x="25" y="6" source="uiMain_json.img_main_red" visible="false"/>
+			<e:Image id="labImg" source="activity_json.img_activity_lijilingqu" x="62.58" y="13"/>
+			</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:RewardItemBox id="reward0" y="178.69" skinName="components.RewardBoxSkin" x="149.67" width="117" height="130"/>
+	<components:RewardItemBox id="reward1" y="179" skinName="components.RewardBoxSkin" x="261.08"/>
+	<components:RewardItemBox id="reward2" y="179" skinName="components.RewardBoxSkin" x="372.67"/>
+	<components:RewardItemBox id="reward3" y="179" skinName="components.RewardBoxSkin" x="483.75"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="25" anchorOffsetY="24" x="605" y="64.5" width="54" height="55"/>
+</e:Skin>

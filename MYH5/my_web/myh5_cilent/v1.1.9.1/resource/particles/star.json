@@ -1,0 +1,7 @@
+{"file":"star.png","frames":{
+"star1_png":{"x":22,"y":22,"w":19,"h":19,"offX":1,"offY":1,"sourceW":20,"sourceH":20},
+"star2_png":{"x":43,"y":1,"w":19,"h":19,"offX":1,"offY":1,"sourceW":20,"sourceH":20},
+"star3_png":{"x":22,"y":1,"w":19,"h":19,"offX":1,"offY":1,"sourceW":20,"sourceH":20},
+"star4_png":{"x":1,"y":43,"w":19,"h":19,"offX":1,"offY":1,"sourceW":20,"sourceH":20},
+"star5_png":{"x":1,"y":22,"w":19,"h":19,"offX":1,"offY":1,"sourceW":20,"sourceH":20},
+"star6_png":{"x":1,"y":1,"w":19,"h":19,"offX":1,"offY":1,"sourceW":20,"sourceH":20}}}

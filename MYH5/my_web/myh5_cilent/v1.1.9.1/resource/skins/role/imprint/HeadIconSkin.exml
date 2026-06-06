@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.HeadIconSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" >
+	<components:Icon id="imgQuality" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="9,9,19,19" source="explore_json.img_circle_back"/>
+	<components:Icon id="imgIcon" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" width="80" height="80" source="common_json.img_lock_circle_png" y="6"/>
+	<components:Icon id="imgWarn" source="common_json.img_warn_png" x="0" y="0"/>
+	<e:Label id="labXueXi" text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" horizontalCenter="0" textColor="0xEDC839" y="25"/>
+</e:Skin>

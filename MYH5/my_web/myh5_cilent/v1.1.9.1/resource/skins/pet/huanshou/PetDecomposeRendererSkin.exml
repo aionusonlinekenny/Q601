@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.PetDecomposeRendererSkin" width="558" height="112" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image x="0" y="0" scale9Grid="17,19,96,73" anchorOffsetX="0" width="558" source="role_json.img_role_fenjielistbg_png"/>
+	<e:Label id="labName" text="装备名字" x="121" y="30" size="20" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false" textColor="0xEDC839"/>
+	<e:Label id="labDesc" text="获得 : 灵魂精华X" x="121" y="68" size="20" anchorOffsetX="0" anchorOffsetY="0" cacheAsBitmap="true" touchEnabled="false" textColor="0xC6B59E"/>
+	<components:SnapButton id="btnDecompose" label="分解" anchorOffsetX="66" x="480" skinName="skins.SnapOrangeButtonSkin" y="64" anchorOffsetY="28"/>
+	<item:NormalItem id="item" x="23" y="13" skinName="tipIcon.NormalItemSkin"/>
+	<e:Label id="labCount" text="99999" y="80.5" size="16" anchorOffsetX="0" textAlign="right" width="61" x="46" bold="true" textColor="0xC6B59E" stroke="2"/>
+</e:Skin>

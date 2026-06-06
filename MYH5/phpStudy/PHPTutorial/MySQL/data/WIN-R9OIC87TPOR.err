@@ -1,0 +1,85 @@
+190828  0:09:36 [Note] Plugin 'FEDERATED' is disabled.
+190828  0:09:36 InnoDB: The InnoDB memory heap is disabled
+190828  0:09:36 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+190828  0:09:36 InnoDB: Compressed tables use zlib 1.2.3
+190828  0:09:36 InnoDB: Initializing buffer pool, size = 47.0M
+190828  0:09:36 InnoDB: Completed initialization of buffer pool
+190828  0:09:36 InnoDB: highest supported file format is Barracuda.
+InnoDB: The log sequence number in ibdata files does not match
+InnoDB: the log sequence number in the ib_logfiles!
+190828  0:09:36  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+190828  0:09:36  InnoDB: Waiting for the background threads to start
+190828  0:09:37 InnoDB: 5.5.53 started; log sequence number 1675461
+190828  0:09:37 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+190828  0:09:37 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+190828  0:09:37 [Note] Server socket created on IP: '0.0.0.0'.
+190828  0:09:37 [Note] Event Scheduler: Loaded 0 events
+190828  0:09:37 [Note] D:\MYH5\phpStudy\PHPTutorial\MySQL\bin\mysqld.exe: ready for connections.
+Version: '5.5.53'  socket: ''  port: 3306  MySQL Community Server (GPL)
+190828  0:13:22 [Warning] IP address '85.93.20.38' could not be resolved: 请求的名称有效，但是找不到请求的类型的数据。 
+190828  1:04:06 [Warning] IP address '218.60.67.21' could not be resolved: 不知道这样的主机。 
+190828  6:25:41 [Warning] IP address '222.186.173.224' could not be resolved: 不知道这样的主机。 
+190828  9:04:44 [Warning] IP address '116.255.190.179' could not be resolved: 不知道这样的主机。 
+190828 11:26:49 [Warning] IP address '119.188.245.178' could not be resolved: 不知道这样的主机。 
+190828 12:40:38 [Warning] IP address '125.77.30.197' could not be resolved: 不知道这样的主机。 
+190828 15:21:21 [Warning] IP address '122.114.156.148' could not be resolved: 请求的名称有效，但是找不到请求的类型的数据。 
+190828 18:42:04 [Note] Plugin 'FEDERATED' is disabled.
+190828 18:42:04 InnoDB: The InnoDB memory heap is disabled
+190828 18:42:04 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+190828 18:42:04 InnoDB: Compressed tables use zlib 1.2.3
+190828 18:42:04 InnoDB: Initializing buffer pool, size = 47.0M
+190828 18:42:04 InnoDB: Completed initialization of buffer pool
+190828 18:42:04 InnoDB: highest supported file format is Barracuda.
+InnoDB: Log scan progressed past the checkpoint lsn 9775865
+190828 18:42:04  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+InnoDB: Doing recovery: scanned up to log sequence number 9801938
+190828 18:42:04  InnoDB: Starting an apply batch of log records to the database...
+InnoDB: Progress in percents: 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 
+InnoDB: Apply batch completed
+190828 18:42:05  InnoDB: Waiting for the background threads to start
+190828 18:42:06 InnoDB: 5.5.53 started; log sequence number 9801938
+190828 18:42:06 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+190828 18:42:06 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+190828 18:42:06 [Note] Server socket created on IP: '0.0.0.0'.
+190828 18:42:06 [Note] Event Scheduler: Loaded 0 events
+190828 18:42:06 [Note] D:\MYH5\phpStudy\PHPTutorial\MySQL\bin\mysqld.exe: ready for connections.
+Version: '5.5.53'  socket: ''  port: 3306  MySQL Community Server (GPL)
+190828 18:54:07 [Warning] IP address '58.218.56.120' could not be resolved: 不知道这样的主机。 
+190828 20:31:55 [Warning] IP address '85.93.20.38' could not be resolved: 请求的名称有效，但是找不到请求的类型的数据。 
+190828 20:53:22 [Warning] IP address '218.60.67.30' could not be resolved: 不知道这样的主机。 
+190829  0:53:21 [Note] Plugin 'FEDERATED' is disabled.
+190829  0:53:21 InnoDB: The InnoDB memory heap is disabled
+190829  0:53:21 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+190829  0:53:21 InnoDB: Compressed tables use zlib 1.2.3
+190829  0:53:21 InnoDB: Initializing buffer pool, size = 47.0M
+190829  0:53:21 InnoDB: Completed initialization of buffer pool
+190829  0:53:21 InnoDB: highest supported file format is Barracuda.
+InnoDB: The log sequence number in ibdata files does not match
+InnoDB: the log sequence number in the ib_logfiles!
+190829  0:53:21  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+190829  0:53:21  InnoDB: Waiting for the background threads to start
+190829  0:53:22 InnoDB: 5.5.53 started; log sequence number 12083482
+190829  0:53:22 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+190829  0:53:22 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+190829  0:53:22 [Note] Server socket created on IP: '0.0.0.0'.
+190829  0:53:22 [Note] Event Scheduler: Loaded 0 events
+190829  0:53:22 [Note] D:\MYH5\phpStudy\PHPTutorial\MySQL\bin\mysqld.exe: ready for connections.
+Version: '5.5.53'  socket: ''  port: 3306  MySQL Community Server (GPL)
+190829  1:08:36 [Warning] IP address '85.93.20.38' could not be resolved: 请求的名称有效，但是找不到请求的类型的数据。 
+190829  1:47:51 [Warning] IP address '114.230.58.241' could not be resolved: 不知道这样的主机。 
+190829  7:24:26 [Warning] IP address '122.114.156.229' could not be resolved: 这是在主机名解析时通常出现的暂时错误，它意味着本地服务器没有从权威服务器上收到响应。 
+190829  7:45:40 [Warning] IP address '107.170.201.217' could not be resolved: 请求的名称有效，但是找不到请求的类型的数据。 
+190829  9:46:09 [Warning] IP address '125.77.30.197' could not be resolved: 不知道这样的主机。 
+190829 11:13:00 [Warning] IP address '138.99.216.217' could not be resolved: 不知道这样的主机。 

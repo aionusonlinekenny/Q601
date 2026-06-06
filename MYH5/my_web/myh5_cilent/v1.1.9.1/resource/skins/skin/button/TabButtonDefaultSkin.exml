@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<e:Skin class="skins.TabButtonDefaultSkin" states="up,down,disabled" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing">
+    <e:Image alpha.disabled="0.5" width="100%" height="100%"
+              source.up="common_json.btn_red1_png" source.down="common_json.btn_red1_selected_png" source="common_json.btn_red1_png" source.disabled="common_json.btn_red1_png"/>
+    <e:Label id="labelDisplay" verticalAlign="middle" textAlign="center" size="20"
+             width="100%" height="38" verticalCenter="-2" horizontalCenter="0"
+             horizontalCenter.up="0" verticalCenter.up="-2" size.up="22" stroke.up="1"
+             verticalCenter.down="-2" stroke.down="1" size.down="22" textColor.down="0xf7dca5"
+             strokeColor.down="0x480302"  horizontalCenter.down="0" textColor="0xfcd67d" textColor.up="0x907450" textColor.disabled="0x66523d"/>
+    <e:Image id="iconDisplay" top="0" left="0" includeIn="up,down"  source="img_warn_png" visible="false"/>
+</e:Skin>

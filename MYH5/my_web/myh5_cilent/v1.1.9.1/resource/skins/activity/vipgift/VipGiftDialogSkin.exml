@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.VipGiftDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="600" height="850">
+	<e:Image id="imgBackBg" y="0" anchorOffsetY="0" horizontalCenter="0" source="img_vipGift_bg_jpg" scale9Grid="64,97,386,584" width="562" height="850"/>
+	<e:Image y="195" source="vip_json.img_vip_line" width="503" horizontalCenter="0.5"/>
+	<e:Image source="img_vipgift_bg1_png" y="524.18" scale9Grid="31,34,190,61" width="556" horizontalCenter="0"/>
+	<e:Image y="221" source="img_vipgift_bg_png" x="76"/>
+	<e:Image id="imgReward" verticalCenter="-63.5" horizontalCenter="0" source="vipgift_vip0_png"/>
+	<e:Scroller height="80" y="764" anchorOffsetX="0" anchorOffsetY="0" width="528" horizontalCenter="0">
+		<e:List id="listTab" x="-36" y="0" anchorOffsetX="0" width="529">
+			<e:itemRendererSkinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image alpha.disabled="0.5" width="100%" height="100%" scale9Grid="39,7,11,42" source.up="{data.icon}" source.down="{data.icons}" source.disabled="{data.icon}" source="{data.icon}"/>
+				<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="common_json.img_warn_png" visible="false"/>
+				</e:Skin>
+			</e:itemRendererSkinName>
+			<e:ArrayCollection>
+				<e:Array>
+					<e:Object icon="vipgift_json.btn_vipgift0" icons="vipgift_json.btn_vipgifts0"/>
+					<e:Object icon="vipgift_json.btn_vipgift1" icons="vipgift_json.btn_vipgifts1"/>
+					<e:Object icon="vipgift_json.btn_vipgift2" icons="vipgift_json.btn_vipgifts2"/>
+					<e:Object icon="vipgift_json.btn_vipgift3" icons="vipgift_json.btn_vipgifts3"/>
+					<e:Object icon="vipgift_json.btn_vipgift4" icons="vipgift_json.btn_vipgifts4"/>
+					<e:Object icon="vipgift_json.btn_vipgift5" icons="vipgift_json.btn_vipgifts5"/>
+					<e:Object icon="vipgift_json.btn_vipgift6" icons="vipgift_json.btn_vipgifts6"/>
+					<e:Object icon="vipgift_json.btn_vipgift7" icons="vipgift_json.btn_vipgifts7"/>
+					<e:Object icon="vipgift_json.btn_vipgift8" icons="vipgift_json.btn_vipgifts8"/>
+					<e:Object icon="vipgift_json.btn_vipgift9" icons="vipgift_json.btn_vipgifts9"/>
+					<e:Object icon="vipgift_json.btn_vipgift10" icons="vipgift_json.btn_vipgifts10"/>
+				</e:Array>
+			</e:ArrayCollection>
+			<e:layout>
+				<e:HorizontalLayout gap="-3"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<components:SnapButton id="btnBuy" label="领取" y="690" anchorOffsetX="71.2" icon="common_json.img_warn_png" anchorOffsetY="26" skinName="skins.SnapGreenButtonSkin" width="146" x="298.2">
+	</components:SnapButton>
+	<e:Label text="VIP等级越高，奖励越丰富" y="735" size="20" textColor="0x34e22c" x="184"/>
+	<components:RewardItemBox id="reward0" y="543" skinName="components.ItemBoxSkin" x="65"/>
+	<components:RewardItemBox id="reward1" y="543" skinName="components.ItemBoxSkin" x="192"/>
+	<components:RewardItemBox id="reward2" y="543" skinName="components.ItemBoxSkin" x="318"/>
+	<components:RewardItemBox id="reward3" y="543" skinName="components.ItemBoxSkin" x="445"/>
+	<e:Image id="imgChat" y="31" anchorOffsetX="0" anchorOffsetY="0" source="img_vipgift_chat0_png" horizontalCenter="0.5"/>
+	<e:Image id="notAttain" source="vip_json.img_not_attain" y="653" x="233"/>
+	<e:Image id="getVipBox" source="vip_json.img_get_vipBox" y="653" x="233"/>
+</e:Skin>

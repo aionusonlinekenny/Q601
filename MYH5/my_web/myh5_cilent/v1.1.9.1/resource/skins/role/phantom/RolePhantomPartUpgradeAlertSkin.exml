@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.RolePhantomPartUpgradeAlertSkin" width="500" height="660" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" xmlns:item="item.*" states="unactive,lianhua,tupo" >
+	<e:Image x="0" y="0" width="500" height="660" source="common_json.img_tips_bg_png" scale9Grid="22,26,21,15"/>
+	<e:Image source="role_phantom_part_bg_png" y="50" horizontalCenter="0" horizontalCenter.unactive="0" y.unactive="50"/>
+	<e:Image source="role_phantom_part_lock_png" includeIn="unactive" x="132" y="112"/>
+	<e:Image y="9" horizontalCenter="0" source="rolePhantom_json.role_phantom_part_upgrade_png" source.unactive="rolePhantom_json.role_phantom_part_active_png" source.tupo="rolePhantom_json.role_phantom_part_tupo_png"/>
+	<e:Image id="icon0" source="rolePhantom_json.role_phantom_part_dian_png" x="211" y="55" includeIn="lianhua,tupo" x.lianhua="217" x.tupo="217"/>
+	<e:Image source="rolePhantom_json.role_phantom_part_dian_png" includeIn="lianhua,tupo" x="299" y="88" id="icon1" x.lianhua="306" x.tupo="306" y.tupo="90" y.lianhua="90"/>
+	<e:Image source="rolePhantom_json.role_phantom_part_dian_png" includeIn="lianhua,tupo" x="348" y="158.5" id="icon2" y.lianhua="167" y.tupo="167" x.lianhua="352" x.tupo="352"/>
+	<e:Image source="rolePhantom_json.role_phantom_part_dian_png" includeIn="lianhua,tupo" x="352" y="246.5" id="icon3" y.lianhua="256" y.tupo="256" x.tupo="340" x.lianhua="340"/>
+	<e:Image source="rolePhantom_json.role_phantom_part_dian_png" includeIn="lianhua,tupo" x="292" y="314.5" id="icon4" x.lianhua="270" y.lianhua="325" x.tupo="270" y.tupo="325"/>
+	<e:Image source="rolePhantom_json.role_phantom_part_dian_png" includeIn="lianhua,tupo" x="194" y="325.5" id="icon5" x.lianhua="164" y.lianhua="325" x.tupo="164" y.tupo="325"/>
+	<e:Image source="rolePhantom_json.role_phantom_part_dian_png" includeIn="lianhua,tupo" x="109" y="284.5" id="icon6" x.lianhua="90" y.lianhua="256" x.tupo="90" y.tupo="256"/>
+	<e:Image source="rolePhantom_json.role_phantom_part_dian_png" includeIn="lianhua,tupo" x="82" y="199.5" id="icon7" y.lianhua="167" y.tupo="167" x.lianhua="79" x.tupo="79"/>
+	<e:Image source="rolePhantom_json.role_phantom_part_dian_png" includeIn="lianhua,tupo" x="113" y="100.5" id="icon8" x.lianhua="123" y.lianhua="90" y.tupo="90" x.tupo="123"/>
+	<e:Image source="tips_json.img_tips_namebg" y="401" horizontalCenter="0" horizontalCenter.lianhua="0" y.lianhua="411" y.tupo="411" horizontalCenter.unactive="0" y.unactive="411"/>
+	<e:Image id="imgNextLv" y="488" source="common_json.img_arrow_green_png" x="356" includeIn="tupo" anchorOffsetY="0" height="22"/>
+	<e:Image source="common_json.img_numbg_png" y="533" anchorOffsetY="0" height="42" anchorOffsetX="0" width="140" scale9Grid="11,5,40,12" includeIn="lianhua" touchEnabled="false" x="238"/>
+	<e:Label id="labAdd0" text="攻击 + 150" y="489" size="16" anchorOffsetX="0" textAlign="left" textColor="0x34E22C" touchEnabled="false" includeIn="unactive" width="115" x="312"/>
+	<components:SnapButton id="btnState" label="激活" y="531" anchorOffsetX="81" width="162" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" horizontalCenter="0" label.lianhua="炼化" label.tupo="突破" horizontalCenter.tupo="0" y.tupo="610" y.lianhua="610" horizontalCenter.lianhua="0" y.unactive="610"/>
+	<item:PropertyItemBox id="propertyBox" y="455" skinName="normal.PropertyItemBoxSkin" horizontalCenter="0" horizontalCenter.tupo="63" y.tupo="515.5" visible.unactive="false"/>
+	<components:Icon id="iconPart" y="196" horizontalCenter="-3" width="60" height="60" source="" includeIn="lianhua,tupo" horizontalCenter.lianhua="0" horizontalCenter.tupo="0"/>
+	<e:Label id="labNeed" text="消耗炼化：" x="74" y="541" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xCFC9BE" textAlign="right" touchEnabled="false" anchorOffsetX="0" width="169" includeIn="lianhua"/>
+	<e:Label id="labCount" text="800000/8000" y="808" size="20" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" y.lianhua="541" horizontalCenter.lianhua="57" includeIn="lianhua" width="130" x="254"/>
+	<components:Icon id="imgQuality" y="457" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="9,9,19,19" source="common_json.img_qlt_1_png" width="90" height="90" horizontalCenter="0" includeIn="unactive,tupo" horizontalCenter.tupo="-164" horizontalCenter.unactive="0" y.unactive="481" y.tupo="473" width.tupo="70" height.tupo="70" width.unactive="70" height.unactive="70"/>
+	<e:Image id="imgIcon" x="212" y="461" source="" includeIn="unactive,tupo" x.tupo="56" y.tupo="478" y.unactive="486" x.unactive="220"/>
+	<e:Label id="labName" text="名字是六个字" y="406" size="20" textAlign="center" width="160" height="24" horizontalCenter="0" textColor="0xc6b59e" horizontalCenter.lianhua="0" y.lianhua="416" y.tupo="416" horizontalCenter.unactive="0" y.unactive="416"/>
+	<e:Label id="labName1" text="名字是六" y="545" size="20" textAlign="center" width="89" height="23" horizontalCenter.lianhua="-0.5" textColor="0xC6B59E" anchorOffsetX="0" anchorOffsetY="0" includeIn="unactive,tupo" size.tupo="16" height.tupo="16" size.unactive="16" height.unactive="18" x.tupo="41" x.unactive="206" y.unactive="555" y.tupo="551"/>
+	<e:Label id="labNum" text="0/1" y="520" size="20" textAlign="right" width="82" height="22" horizontalCenter.lianhua="-2" textColor="0xC6B59E" anchorOffsetX="0" anchorOffsetY="0" includeIn="unactive,tupo" textColor.unactive="0x34e22c" size.tupo="16" y.tupo="521" height.tupo="18" size.unactive="16" y.unactive="530" height.unactive="17" x.tupo="57" x.unactive="221" width.tupo="60" width.unactive="60"/>
+	<e:Label id="labAdd1" text="攻击 + 150" y="521" size="16" anchorOffsetX="0" textAlign="left" textColor="0x34E22C" touchEnabled="false" includeIn="unactive" width="115" x="312"/>
+	<components:Icon id="imgWarn" source="common_json.img_warn_png" x="171" y="584"/>
+	<e:Label id="labTuPo" text="突破等级上限" y="487" size="16" textAlign="left" width="103" height="17" anchorOffsetX="0" anchorOffsetY="0" includeIn="tupo" textColor="0xb6281a" x="153"/>
+	<e:Label id="labNum0" text="10" y="488" size="16" textAlign="left" textColor="0xC6B59E" anchorOffsetX="0" anchorOffsetY="0" includeIn="tupo" x="303"/>
+	<e:Label id="labNum1" text="10" y="488" size="16" textAlign="left" textColor="0xC6B59E" anchorOffsetX="0" anchorOffsetY="0" includeIn="tupo" x="408"/>
+</e:Skin>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ForgingIconSkin" width="104" height="104" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image x="7" y="7" source="forging_json.img_equip_back"/>
+	<components:Icon id="imgForging" x="12" y="12" anchorOffsetX="0" anchorOffsetY="0" width="80" height="80"/>
+	<e:Image id="imgGlodFrame" x="8" y="8" source="common_json.img_selectFrame_png" visible="false"/>
+	<e:Group y="74" horizontalCenter="0">
+		<e:Image source="common_json.img_Lv_png" x="0" y="2"/>
+		<e:BitmapLabel id="labGrade" x="20" y="0" anchorOffsetX="0" anchorOffsetY="0" text="5" font="level_font_fnt" scaleX="0.8" scaleY="0.8"/>
+	</e:Group>
+</e:Skin>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ApplyListSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" width="600" height="916">
+	<e:Image width="576" height="869" x="11" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_inbg_png" scale9Grid="5,6,18,15" y="47"/>
+	<e:Image width="570" height="41" x="15" y="53" scale9Grid="7,7,5,30" anchorOffsetX="0" anchorOffsetY="0" source="union_json.img_union_up_png"/>
+	<e:Image x="11" y="849" anchorOffsetY="0" height="58" source="img_di_png"/>
+	<e:Label text="申请列表" x="250" y="36" textColor="0xfefbac" size="25" visible="false"/>
+	<components:SnapButton id="btnClearList" label="清空列表" x="9.32" y="890" skinName="skins.SnapButtonDefaultSkin" width="120" scaleX="1" scaleY="1" visible="false"/>
+	<components:SnapButton id="btnAgree" label="全部同意" x="129.65" y="890" skinName="skins.SnapButtonDefaultSkin" width="120" visible="false"/>
+	<components:SnapButton id="btnCondition" label="申请条件" x="245.98" y="854" skinName="skins.SnapButtonDefaultSkin"/>
+	<e:Scroller id="applyListScro" width="565" height="750" y="94" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="auto" scrollPolicyV="auto" x="17">
+		<e:List id="applyList" itemRenderer="ApplyListRenderer" anchorOffsetY="0" x="0" y="6" anchorOffsetX="0" itemRendererSkinName="renderer.ApplyListRendererSkin" height="750">
+			<e:layout>
+				<e:VerticalLayout gap="2"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:Image source="union_json.img_union_line_png" x="147" y="54" height="35"/>
+	<e:Image source="union_json.img_union_line_png" x="261" y="54" height="35"/>
+	<e:Image source="union_json.img_union_line_png" x="384" y="54" height="35"/>
+	<e:Label text="申请者" x="50" y="62" size="20" textColor="0xedc839"/>
+	<e:Label text="等级" x="187" y="62" size="20" textColor="0xedc839"/>
+	<e:Label text="战力" x="304" y="62" size="20" textColor="0xedc839"/>
+	<e:Label text="操作" x="462" y="62" size="20" textColor="0xedc839"/>
+</e:Skin>

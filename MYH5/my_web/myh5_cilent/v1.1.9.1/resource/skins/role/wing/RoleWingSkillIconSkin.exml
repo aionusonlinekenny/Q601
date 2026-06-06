@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.RoleWingSkillIconSkin" width="201" height="100" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" >
+	<e:Image id="imgBg" source="role_wing_di_jpg" x="0" y="0"/>
+	<components:Icon id="imgQuality" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="9,9,19,19" source="common_json.img_qlt_1_png" width="100" height="100"/>
+	<components:Icon id="imgSkill" x="5" y="3"  source=""/>
+	<components:Icon id="imgWarn" source="common_json.img_warn_png" x="0" y="0"/>
+	<e:Label id="labLv" text="Lv.1" y="68" size="16" anchorOffsetX="0" width="95" textAlign="center" horizontalCenter="48" stroke="1" textColor="0xC6B59E" />
+	<e:Label id="labName" text="飞羽" y="37" size="18" anchorOffsetX="0" width="98" stroke="2" x="100" textColor="0xFFB200" textAlign="center"/>
+	<e:Label id="labUnActivate" text="未激活天空之翼" size="16" anchorOffsetX="0" width="86" textAlign="left" horizontalCenter="51.5" stroke="1"  x="10" anchorOffsetY="0" height="36" verticalCenter="0" textColor="0xc6b59e"/>
+</e:Skin>

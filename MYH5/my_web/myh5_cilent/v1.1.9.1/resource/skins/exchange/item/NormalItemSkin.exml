@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="tipIcon.NormalItemSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+
+	<components:Icon id="imgQuality" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="9,9,19,19" source="common_json.img_qlt_1_png"/>
+	<components:Icon id="imgIcon" x="5" y="3" anchorOffsetX="0" anchorOffsetY="0" source="" width="80" height="80"/>
+</e:Skin>

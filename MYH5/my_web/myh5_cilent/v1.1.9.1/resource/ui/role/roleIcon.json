@@ -1,0 +1,11 @@
+{"file":"roleIcon.png","frames":{
+"btnStarEquip_png":{"x":85,"y":89,"w":81,"h":85,"offX":1,"offY":0,"sourceW":82,"sourceH":85},
+"btn_deityEquip_png":{"x":85,"y":259,"w":82,"h":82,"offX":0,"offY":0,"sourceW":82,"sourceH":82},
+"btn_fashion_png":{"x":1,"y":89,"w":82,"h":85,"offX":0,"offY":0,"sourceW":82,"sourceH":85},
+"btn_gem_png":{"x":169,"y":88,"w":82,"h":85,"offX":0,"offY":0,"sourceW":82,"sourceH":86},
+"btn_godhood_png":{"x":85,"y":1,"w":82,"h":86,"offX":0,"offY":0,"sourceW":82,"sourceH":86},
+"btn_lifeSoul_png":{"x":1,"y":176,"w":82,"h":82,"offX":0,"offY":0,"sourceW":82,"sourceH":82},
+"btn_lilian_png":{"x":169,"y":1,"w":82,"h":85,"offX":0,"offY":0,"sourceW":82,"sourceH":86},
+"btn_orange_equip_png":{"x":1,"y":1,"w":82,"h":86,"offX":0,"offY":0,"sourceW":82,"sourceH":86},
+"btn_phantom_png":{"x":168,"y":175,"w":82,"h":82,"offX":0,"offY":0,"sourceW":82,"sourceH":82},
+"btn_wing_png":{"x":169,"y":259,"w":82,"h":82,"offX":0,"offY":0,"sourceW":82,"sourceH":82}}}

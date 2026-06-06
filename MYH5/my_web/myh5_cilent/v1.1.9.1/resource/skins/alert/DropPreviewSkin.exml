@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.DropPreviewSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="520" height="562">
+	<e:Image id="imgBg" x="0" y="0" anchorOffsetX="0" width="521" anchorOffsetY="0" height="563" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
+	<e:Image y="372" anchorOffsetX="0" width="466" anchorOffsetY="0" height="154" source="common_json.img_bubbleBg_png" scale9Grid="9,9,14,15" x="27"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="484" y="30" anchorOffsetX="26" anchorOffsetY="25"/>
+	<components:IconButton id="btnBack" source="common_json.btn_back_png" y="515.8" x="474.5" anchorOffsetX="37" anchorOffsetY="36"/>
+	<e:Image y="10" horizontalCenter="0" source="img_title_rewardShow_png"/>
+	<components:RewardItemBox id="drop0" x="69" y="74" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="drop1" x="177." y="74" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="drop2" x="286." y="74" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="drop3" x="395" y="74" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="cdrop0" x="69" y="223" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="cdrop1" x="177." y="223" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="cdrop2" x="286." y="223" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="cdrop3" x="395" y="223" skinName="components.ItemBoxSkin"/>
+	<e:Label text="归属奖励" y="77" anchorOffsetX="0" width="20" size="20" x="29" textColor="0xedc839"/>
+	<e:Label text="参与奖励"  y="226" anchorOffsetX="0" width="20" size="20" x="26" textColor="0xc6b59e"/>
+	<e:Label id="labDesc" text="参与奖励" y="396.8" anchorOffsetX="0" width="424" size="20" textColor="0xC6B59E" anchorOffsetY="0" height="106" x="48"/>
+	<e:Image source="explore_json.img_quintuple" x="70" y="62" touchEnabled="false"/>
+	<e:Image source="explore_json.img_quintuple" x="178." y="62" touchEnabled="false"/>
+	<e:Image source="explore_json.img_quintuple" x="287." y="62" touchEnabled="false"/>
+	<e:Image source="explore_json.img_quintuple" x="396" y="62" touchEnabled="false"/>
+	<e:Image source="explore_json.img_probability" x="99" y="224" touchEnabled="false"/>
+	<e:Image source="explore_json.img_probability" x="207." y="224" touchEnabled="false"/>
+	<e:Image source="explore_json.img_probability" x="316." y="224" touchEnabled="false"/>
+	<e:Image source="explore_json.img_probability" x="425" y="224" touchEnabled="false"/>
+</e:Skin>

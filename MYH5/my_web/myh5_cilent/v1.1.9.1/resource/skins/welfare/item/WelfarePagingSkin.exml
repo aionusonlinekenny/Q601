@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="item.WelfarePagingSkin" width="580" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Button id="btnLeft" label="" y="19" x="-3">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="activity_json.img_arrow_leftRight"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="btnRight" label="" y="69" rotation="180.29" x="582">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="activity_json.img_arrow_leftRight"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Scroller id="scroller" width="482" height="85" x="49" scrollPolicyV="off" scrollPolicyH="auto">
+		<e:List id="listPaging" x="12" selectedIndex="0" y="0" width="491" itemRendererSkinName="renderer.ActivityTabButtonSkin" itemRenderer="renderer.ActivityTabButton" useVirtualLayout="false">
+			<e:ArrayCollection>
+				<e:Array>
+					<e:Object name="累计登录"/>
+					<e:Object name="签到"/>
+					<e:Object name="激活码"/>
+					<e:Object name="公告"/>
+					<e:Object name="FAQ"/>
+				</e:Array>
+			</e:ArrayCollection>
+			<e:layout>
+				<e:HorizontalLayout gap="0"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+</e:Skin>

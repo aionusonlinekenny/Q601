@@ -1,0 +1,11 @@
+{"file":"fight_font4.png","frames":{
+"9":{"x":1,"y":49,"w":36,"h":45,"offX":3,"offY":3,"sourceW":39,"sourceH":48},
+"0":{"x":1,"y":1,"w":37,"h":46,"offX":1,"offY":2,"sourceW":38,"sourceH":48},
+"1":{"x":38,"y":142,"w":32,"h":44,"offX":4,"offY":3,"sourceW":38,"sourceH":47},
+"2":{"x":39,"y":95,"w":35,"h":45,"offX":3,"offY":2,"sourceW":38,"sourceH":47},
+"3":{"x":76,"y":96,"w":34,"h":45,"offX":3,"offY":3,"sourceW":38,"sourceH":48},
+"4":{"x":40,"y":1,"w":37,"h":45,"offX":2,"offY":2,"sourceW":39,"sourceH":47},
+"5":{"x":78,"y":49,"w":36,"h":45,"offX":2,"offY":3,"sourceW":38,"sourceH":48},
+"6":{"x":1,"y":96,"w":35,"h":45,"offX":3,"offY":3,"sourceW":38,"sourceH":48},
+"7":{"x":40,"y":48,"w":36,"h":45,"offX":2,"offY":2,"sourceW":38,"sourceH":47},
+"8":{"x":79,"y":1,"w":36,"h":46,"offX":2,"offY":2,"sourceW":38,"sourceH":48}}}

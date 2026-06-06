@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.ChangePetItemBoxSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*"  width="90" height="108">
+	<e:Image id="imgQuality" y="0" source="common_json.img_qlt_1_png" x="0"/>
+	<components:Icon id="imgIcon" y="3" width="80" height="80" x="5" source=""/>
+	<e:Label id="labName" text="11111" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="0" y="88" textColor="0xc6b59e"/>
+	<e:Image id="imgChange" source="godruins_json.godruins_change" x="63" y="59"/>
+</e:Skin>

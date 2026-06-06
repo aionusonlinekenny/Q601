@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LegionRegisterPetSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:ns1="*" height="916" width="600">
+	<e:Image width="576" height="864" x="11" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_inbg_png" scale9Grid="5,6,18,15" y="45"/>
+	<e:Scroller id="petscroller" height="852" anchorOffsetX="0" anchorOffsetY="0" y="50" scrollPolicyH="off" scrollPolicyV="on" width="565" x="17">
+		<e:List id="petlist" itemRenderer="LegionRegisterPetRenderer" anchorOffsetY="0" height="875">
+			<e:layout>
+				<e:VerticalLayout gap="2"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+</e:Skin>

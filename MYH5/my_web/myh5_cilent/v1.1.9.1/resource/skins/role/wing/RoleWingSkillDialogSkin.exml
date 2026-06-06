@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.RoleWingSkillDialogSkin" width="600" height="916" xmlns:e="http://ns.egret.com/eui" xmlns:ui="ui.*" xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="role_wing_skillbg_png" x="240" y="120" scale9Grid="7,79,44,480" anchorOffsetX="0" width="339"/>
+	<e:Image source="common_implementbar_png" anchorOffsetY="0" height="131" scale9Grid="80,15,480,14" y="785" horizontalCenter="0"/>
+	<e:Image y="36" source="common_fightBg_png" horizontalCenter="0"/>
+	<e:Image x="205.04" y="43" source="common_json.img_fight_png" width="57" height="31"/>
+	<e:Image source="role_wing_skill_line_png" x="257" y="300" width="300"/>
+	<e:Image id="imgSelect" source="role_wing_skill_select_png" x="14" y="114"/>
+	<e:BitmapLabel id="blabFight" y="44.8" text="8765199" touchEnabled="false" x="273" font="fight_font2_fnt"/>
+	<item:RoleWingSkillIcon id="skillIcon0" x="20" y="121" skinName="normal.RoleWingSkillIconSkin"/>
+	<item:RoleWingSkillIcon id="skillIcon1" x="20" y="228" skinName="normal.RoleWingSkillIconSkin"/>
+	<item:RoleWingSkillIcon id="skillIcon2" x="20" y="335" skinName="normal.RoleWingSkillIconSkin"/>
+	<item:RoleWingSkillIcon id="skillIcon3" x="20" y="442" skinName="normal.RoleWingSkillIconSkin"/>
+	<item:RoleWingSkillIcon id="skillIcon4" x="20" y="549" skinName="normal.RoleWingSkillIconSkin"/>
+	<item:RoleWingSkillIcon id="skillIcon5" x="20" y="656" skinName="normal.RoleWingSkillIconSkin"/>
+	<item:RoleWingSkillIcon id="skillIcon" x="324.5" y="181" skinName="normal.RoleWingSkillIconSkin"/>
+	<e:Group id="consumeGroup" x="133" y="795">
+		<e:Image source="common_json.img_numbg_png" y="5" anchorOffsetY="0" height="42" anchorOffsetX="0" width="108" scale9Grid="11,5,40,12" touchEnabled="false" x="169"/>
+		<components:IconButton id="btnGetMaterial" x="358" y="37" source="common_json.img_getRes_png" anchorOffsetX="34" anchorOffsetY="35"/>
+		<e:Label id="labNeed" text="消耗道具 : " x="0" y="14" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xCFC9BE" textAlign="right" touchEnabled="false" anchorOffsetX="0" width="169"/>
+		<e:Label id="labCount" text="8000/8000" y="13" size="20" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="175" width="96"/>
+		<components:Icon id="imgWarnActive" source="common_json.img_warn_png" x="89" y="55"/>
+	</e:Group>
+	<e:Group id="groupNextSkill" x="244" y="587">
+		<e:Label text="下一级属性" y="0" size="18" anchorOffsetX="0" textAlign="center" touchEnabled="false" x="123.5" textColor="0xDF660E"/>
+		<e:Label id="labDes1" text="增加角色攻防固定值，外加幻武培养总属性的50%，外加幻武培养总属性的50%" x="56" y="27" size="16" textColor="0xCFC9BE" anchorOffsetY="0" height="83" anchorOffsetX="0" width="243" verticalAlign="top" textAlign="left" lineSpacing="5"/>
+		<e:Image y="-85" x="172" rotation="90" anchorOffsetX="21" anchorOffsetY="15" scaleX="1" scaleY="1" source="rolePhantom_json.role_phantom_part_next_png"/>
+	</e:Group>
+	<components:SnapButton id="btnUpgrade" label="提升" y="875" anchorOffsetX="81" width="162" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" horizontalCenter="0"/>
+	<components:Icon id="imgWarn" source="common_json.img_warn_png" x="219" y="848"/>
+	<e:Label text="当前属性" y="318" size="18" anchorOffsetX="0" textAlign="center" touchEnabled="false" x="376.5" textColor="0xdf660e"/>
+	<e:Label id="labDes0" text="增加角色攻防固定值，外加幻武培养总属性的50%，外加幻武培养总属性的50%" x="299" y="351" size="16" anchorOffsetY="0" height="84" anchorOffsetX="0" width="243" textAlign="left" textColor="0xcfc9be" lineSpacing="5"/>
+</e:Skin>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.CheckAlertSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" height="378" width="528">
+	<e:Image x="0" y="0" anchorOffsetX="0" width="100%" anchorOffsetY="0" height="100%" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
+	<e:Image width="445" height="171" x="41.5" y="78" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_prompt_nei_bg_png" scale9Grid="13,23,2,4"/>
+	<e:Image source="common_json.img_prompt_title_png" x="225" y="7"/>
+	<e:Label id="labContent" text="" y="110" anchorOffsetX="0" width="421" anchorOffsetY="0" height="89" verticalAlign="middle" textAlign="center" size="20" lineSpacing="10" horizontalCenter="0.5" textColor="0xc6b59e"/>
+	<components:IconButton id="btnClose" x="491" y="33" source="common_json.btn_close_png" anchorOffsetX="26" anchorOffsetY="25"/>
+	<components:SnapButton id="btnCancel" label="取消" x="147.5" y="297" skinName="skins.SnapButtonDefaultSkin" anchorOffsetX="80" anchorOffsetY="26"/>
+	<components:SnapButton id="btnOk" label="确定" x="390.5" y="296" skinName="skins.SnapButtonDefaultSkin" anchorOffsetX="80" anchorOffsetY="25"/>
+	<e:Group y="335" horizontalCenter="0">
+		<e:CheckBox id="boxChecked" label="" x="0" y="0">
+			<e:skinName>
+			<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="common_json.img_checkbox_unselect_png" source.down="common_json.img_checkbox_select_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+			</e:skinName>
+		</e:CheckBox>
+		<e:Label id="labProperty0" text="本次登录不再提示" y="3" size="20" x="56.5" textAlign="left" lineSpacing="10" textColor="0xc6b59e"/>
+	</e:Group>
+</e:Skin>

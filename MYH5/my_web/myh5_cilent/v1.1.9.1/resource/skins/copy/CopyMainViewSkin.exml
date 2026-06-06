@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="view.CopyMainViewSkin" currentState="chapter" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" xmlns:item="item.*" xmlns:ui="ui.*" xmlns:copy="copy.*" xmlns:ns1="*" xmlns:legionWar="legionWar.*" xmlns:renderer="renderer.*" width="600" height="1080" states="chapter,personboss,everyboss,petpagoda,demonpagoda,material,legionwar,kingbattlefield" >
+	<components:IconButton id="btnInspire" width="73" height="73" anchorOffsetX="37" anchorOffsetY="36" includeIn="petpagoda,demonpagoda" source="copy_json.img_bless" horizontalCenter.demonpagoda="222.5" top.demonpagoda="222" top.petpagoda="404" right.petpagoda="35"/>
+	<e:Group id="gpZhan" includeIn="demonpagoda" scaleX="1" scaleY="1" anchorOffsetX="0" width="220" horizontalCenter="168" top="143">
+		<e:Image source="copy_json.img_tips_noEnd" x="0" y="0" includeIn="demonpagoda"/>
+		<e:Image source="copy_json.img_tip_noEnd" x="26" y="0" includeIn="demonpagoda"/>
+		<e:BitmapLabel id="labKillNum" y="11.33" text="0" font="noEndKillArt_fnt" anchorOffsetX="0" x="84.34" anchorOffsetY="0" includeIn="demonpagoda"/>
+	</e:Group>
+	<e:Group id="bloodGroup" horizontalCenter="0.5" top="126" includeIn="chapter,personboss,everyboss,petpagoda,material">
+		<e:Image source="copy_json.boss_blood_title" x="99" y="34" source.personboss="copy_json.boss_blood_title"/>
+		<e:Image source="copy_json.boss_blood_stripBack" x="101" y="67" scale9Grid="9,3,28,25" anchorOffsetX="0" width="338"/>
+		<e:Image id="bossBlood" source="copy_json.boss_blood_bar" x="99" y="70" width="336" includeIn="chapter,personboss,everyboss,petpagoda,material" scale9Grid="1,5,34,14"/>
+		<e:Image y="4" x="3.5" includeIn="chapter,personboss,everyboss,petpagoda,material" anchorOffsetX="0" source="copy_json.boss_head_back"/>
+		<e:Image id="bossHead" x="16" y="22" anchorOffsetX="0" anchorOffsetY="0" source="boss_icon_circle_json.3000" includeIn="chapter,personboss,everyboss,petpagoda,material" width="84" height="84"/>
+		<e:Group id="imgszlyChat" x="52" y="95.5" includeIn="petpagoda">
+			<e:Image includeIn="petpagoda" y="0" x="8.5" source="copy_boss_tip_back_png" anchorOffsetX="0" width="345"/>
+			<e:Label text="存活30秒或击杀BOSS即可获得胜利" y="11.5" size="18" textColor="0xFFEFDD" x="45" includeIn="petpagoda"/>
+		</e:Group>
+		<e:Group id="imghsChat" x="52" y="94" includeIn="petpagoda">
+			<e:Image includeIn="petpagoda" y="0" x="0" source="copy_boss_tip_back_png" anchorOffsetX="0" width="355"/>
+			<e:Label text="30秒内击杀BOSS即可获得胜利" y="12" size="18" textColor="0xFFEFDD" x="48" includeIn="petpagoda"/>
+		</e:Group>
+		<e:Image source="copy_json.boss_belong_back" x="371" y="144" scale9Grid="9,3,36,20" width="141" includeIn="everyboss,demonpagoda"/>
+		<e:Image id="belongTitleBar" source="copy_json.boss_blood_title" x="360.5" y="114" anchorOffsetX="0" width="149" includeIn="everyboss"/>
+		<e:Image id="belongBlood" source="copy_json.boss_belong_blood_bar" x="380" y="144" width="128" includeIn="everyboss" scale9Grid="14,9,23,10"/>
+		<e:Image id="belongBack" x="292" y="99" includeIn="everyboss" anchorOffsetX="0" anchorOffsetY="0" source="copy_json.boss_player_head_back"/>
+		<e:Image id="belongHead" x="304" y="111" anchorOffsetX="0" width="68" anchorOffsetY="0" height="68" includeIn="everyboss" source="player_icon_circle_json.job_1"/>
+		<e:Label text="归属" x="384" y="124.5" size="14" includeIn="everyboss" textColor="0xc6b59e"/>
+		<e:Label id="belongName" text="X" x="419" y="124.5" size="14" bold="true" includeIn="everyboss" textColor="0xedc839"/>
+		<e:Label id="bossLevel" text="LV.90" x="128" y="46.5" size="16" includeIn="chapter,personboss,everyboss,petpagoda,material" textColor="0xc6b59e"/>
+		<e:Label id="bossName" text="X" x="177" y="46.5" size="16" bold="true" text.petpagoda="Name" includeIn="chapter,personboss,everyboss,petpagoda,material" textColor="0xedc839"/>
+		<e:Label id="bossHp" text="550/1322" y="75" size="14" textColor="0xFFEFDD" x="229" x.demonpagoda="255" includeIn="chapter,personboss,everyboss,petpagoda,material"/>
+		<components:SnapButton id="btnReward" label="奖励" x="24" y="112" includeIn="everyboss" y.everyboss="109" x.everyboss="28">
+			<components:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="copy_json.boss_btn_award"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="18" textColor="0xc6b59e" bold="true" stroke="2" strokeColor="0x000000"/>
+				</e:Skin>
+			</components:skinName>
+		</components:SnapButton>
+		<e:Group x="113" y="177" includeIn="everyboss">
+			<e:Image includeIn="everyboss" y="0" x="0" source="copy_boss_tip_back_png" anchorOffsetX="0" width="319"/>
+			<e:Label text="BOSS归属者可获得多倍奖励" y="12.5" size="18" x="48" includeIn="everyboss" textColor="0xffefdd"/>
+		</e:Group>
+		<e:Group id="shieldGroup" width="223.84" height="65.5" includeIn="everyboss" x="30.08" y="140.85" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false" visible="false">
+			<e:Image width="153" x="53" y="24" anchorOffsetX="0" anchorOffsetY="0" source="copy_json.boss_block_stripBack" scale9Grid="7,1,4,12"/>
+			<e:Image id="bossShield" width="150" x="55" y="25" anchorOffsetX="0" anchorOffsetY="0" source="copy_json.boss_block_bar" scale9Grid="7,1,4,12"/>
+			<e:Image x="0" source="copy_json.img_boss_block" anchorOffsetX="0" anchorOffsetY="0"/>
+		</e:Group>
+	</e:Group>
+	<components:SnapButton id="btnAttack" label="攻击归属者" anchorOffsetX="84" anchorOffsetY="27" includeIn="everyboss" bottom="223" width="193" height="57" horizontalCenter="0">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="copy_json.boss_btn_ belong" scale9Grid="18,0,23,57"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="24" textColor="0xe0ac33"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<e:Scroller width="100" height="524" right="0" anchorOffsetY="0" top="278" includeIn="everyboss,legionwar,kingbattlefield">
+			<e:List id="listAttacker" itemRenderer="renderer.PlayerAttackerRenderer" scaleX="1" scaleY="1" itemRendererSkinName="renderer.PlayerAttackerRendererSkin"/>
+	</e:Scroller>
+	<e:Group x="0" y="362" width="94" height="350">
+		<item:MainPetBigItem id="pet0" x="46" y="53" skinName="normal.MainPetItemBigSkin" anchorOffsetX="46" anchorOffsetY="53" width="94" height="107"/>
+		<item:MainPetBigItem id="pet1" x="46" y="175" skinName="normal.MainPetItemBigSkin" anchorOffsetX="46" anchorOffsetY="53"/>
+		<item:MainPetBigItem id="pet2" x="46" y="295.15" skinName="normal.MainPetItemBigSkin" anchorOffsetX="46" anchorOffsetY="53"/>
+	</e:Group>
+	<e:Group id="legionWarRankGroup" includeIn="legionwar,kingbattlefield" y="190" x="-260" y.kingbattlefield="302">
+		<legionWar:LegionWarSmallRank id="legionWarRank" skinName="legionWar.LegionWarSmallRankSkin" scaleX="1" scaleY="1"/>
+		<components:IconButton id="legionLeft" x="240" y="52" source="legionWar_json.btn_legionwar_rankLeft"/>
+	</e:Group>
+	<e:Group includeIn="legionwar,kingbattlefield" horizontalCenter="0" bottom="105" touchThrough="true">
+		<e:ProgressBar id="progressBar" width="600" height="33" y="100" anchorOffsetX="0" skinName="skins.ProgressChestSkin" anchorOffsetY="0" touchEnabled="false" x="0" scaleX="1" scaleY="1"/>
+		<e:Label id="labProgressScore" textAlign="center" verticalAlign="middle" size="16" horizontalCenter="0.5" text="10/20" textColor="0xCFC9BE" y="105"/>
+		<legionWar:LegionWarRewardBox id="reawardBox0" skinName="legionWar.LegionWarRewardBoxSkin" x="12" y="10" includeIn="chapter,personboss,everyboss,petpagoda,demonpagoda,material,legionwar,kingbattlefield"/>
+		<legionWar:LegionWarRewardBox id="reawardBox1" skinName="legionWar.LegionWarRewardBoxSkin" x="129.5" y="10" includeIn="chapter,personboss,everyboss,petpagoda,demonpagoda,material,legionwar,kingbattlefield"/>
+		<legionWar:LegionWarRewardBox id="reawardBox2" skinName="legionWar.LegionWarRewardBoxSkin" x="247" y="10" includeIn="chapter,personboss,everyboss,petpagoda,demonpagoda,material,legionwar,kingbattlefield"/>
+		<legionWar:LegionWarRewardBox id="reawardBox3" skinName="legionWar.LegionWarRewardBoxSkin" x="364.5" y="10" includeIn="chapter,personboss,everyboss,petpagoda,demonpagoda,material,legionwar,kingbattlefield"/>
+		<legionWar:LegionWarRewardBox id="reawardBox4" skinName="legionWar.LegionWarRewardBoxSkin" x="482" y="10" includeIn="chapter,personboss,everyboss,petpagoda,demonpagoda,material,legionwar,kingbattlefield"/>
+	</e:Group>
+	<components:IconButton id="legionRight" y="240" includeIn="legionwar,kingbattlefield" source="legionWar_json.btn_legionwar_rankRight" y.kingbattlefield="301"/>
+	<e:Image id="imgShiedPet" includeIn="legionwar,kingbattlefield" x="47" y="174" source="legionWar_json.img_legionwar_shied1" anchorOffsetX="48" anchorOffsetY="11" y.kingbattlefield="248.66"/>
+	<e:Group width="576" height="155" includeIn="kingbattlefield" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" top="100">
+		<renderer:KingBattlefieldRenderer id="point0" width="103" height="149" x="112" y="53" skinName="renderer.KingBattlefieldRendererSkin" anchorOffsetX="51" anchorOffsetY="51"/>
+		<renderer:KingBattlefieldRenderer id="point1" width="103" height="149" x="209" y="55" skinName="renderer.KingBattlefieldRendererSkin" anchorOffsetX="52" anchorOffsetY="53"/>
+		<renderer:KingBattlefieldRenderer id="point2" width="103" height="149" x="305" y="55" skinName="renderer.KingBattlefieldRendererSkin" anchorOffsetX="51" anchorOffsetY="53"/>
+		<renderer:KingBattlefieldRenderer id="point3" width="103" height="149" x="402" y="54" skinName="renderer.KingBattlefieldRendererSkin" anchorOffsetX="52" anchorOffsetY="52"/>
+		<renderer:KingBattlefieldRenderer id="point4" width="103" height="149" x="498" y="56" skinName="renderer.KingBattlefieldRendererSkin" anchorOffsetX="52" anchorOffsetY="54"/>
+	</e:Group>
+	<e:Image source="limitactivities_json.img_timeTitle" includeIn="kingbattlefield" horizontalCenter="-65.5" bottom="251"/>
+	<e:Image source="limitactivities_json.img_timeBg" includeIn="kingbattlefield" scale9Grid="34,3,207,25" anchorOffsetX="0" width="173" anchorOffsetY="0" height="26" horizontalCenter="24.5" bottom="247"/>
+	<e:Label id="integralTime" text="00:00" includeIn="kingbattlefield" anchorOffsetX="0" width="130" textColor="0x1291ce" textAlign="center" anchorOffsetY="0" height="23" size="26" bottom="250" horizontalCenter="15"/>
+	<e:Group includeIn="everyboss" width="202" bottom="186" horizontalCenter="0">
+		<e:Image source="tips_json.img_tips_textbg" includeIn="everyboss" y="0" scale9Grid="20,3,121,25" anchorOffsetX="0" width="203" x="0"/>
+		<e:Image source="copy_json.boss_img_ iconTitle" includeIn="everyboss" y="6" x="5"/>
+		<e:Label id="labWho" text="我" includeIn="everyboss" y="8" size="16" verticalAlign="middle" textAlign="left" textColor="0x34e22c" height="16" horizontalCenter="45.5"/>
+	</e:Group>
+	<copy:BossBlockAlert id="shieldReward" includeIn="everyboss" y="647" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" skinName="BossBlockAlertSkin"/>
+	<copy:MaterialInfoView id="materialInfo" includeIn="material" horizontalCenter="0" bottom="178" skinName="skin.MaterialInfoSkin"/>
+</e:Skin>

@@ -1,0 +1,6 @@
+{"file":"trading.png","frames":{
+"title_sell":{"x":1,"y":61,"w":100,"h":28,"offX":0,"offY":0,"sourceW":100,"sourceH":28},
+"img_crystal_big":{"x":1,"y":1,"w":60,"h":58,"offX":0,"offY":2,"sourceW":60,"sourceH":60},
+"img_crystal_little":{"x":102,"y":1,"w":22,"h":25,"offX":0,"offY":0,"sourceW":22,"sourceH":25},
+"img_paimai_icon":{"x":63,"y":1,"w":37,"h":38,"offX":0,"offY":0,"sourceW":37,"sourceH":38},
+"title_added":{"x":1,"y":91,"w":79,"h":29,"offX":0,"offY":0,"sourceW":79,"sourceH":29}}}

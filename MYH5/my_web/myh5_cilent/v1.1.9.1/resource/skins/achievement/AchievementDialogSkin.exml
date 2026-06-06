@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.AchievementDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*" xmlns:components="components.*" xmlns:item="item.*" xmlns:ns1="*" xmlns:achievement="achievement.*"  states="everyday,college,tujian"  width="600" height="916">
+	<e:Image width="576" height="677" anchorOffsetY="0" height.everyday="704" y="77" anchorOffsetX="0" source="common_json.img_inbg_png" y.college="46" height.college="672" x.everyday="12" x.college="12" x="12" y.everyday="40" scale9Grid="5,6,18,15" includeIn="everyday,college"/>
+	<e:ProgressBar id="proCollege" height="28" includeIn="college" x="159" y="780" anchorOffsetX="0" anchorOffsetY="0" width="303" skinName="skins.ProgressChestSkin"/>
+	<e:Image y="716" anchorOffsetX="0" anchorOffsetY="0" height="150" source="common_implementbar_png" horizontalCenter="0" scale9Grid="0,12,640,16" includeIn="college"/>
+	<e:Image source="achieven_json.img_pet_bear" includeIn="college" x="19" y="718"/>
+	<e:Image source="achieven_json.img_unlock_pet" includeIn="college" x="26" y="804"/>
+	<ns1:PetIcon id="petIcon2" includeIn="college" x="429" y="717" skinName="PetIconCell"/>
+	<e:Image source="achieven_json.img_task_huoyue" includeIn="everyday" x="28" y="813"/>
+	<e:Image includeIn="everyday" y="45" width="568" x="16" source="union_json.img_union_up_png" scale9Grid="7,7,5,30"/>
+	<e:Image source="union_json.img_union_line_png" includeIn="everyday" x="162" y="46"/>
+	<e:Image source="union_json.img_union_line_png" includeIn="everyday" x="245" y="46"/>
+	<e:Image source="union_json.img_union_line_png" includeIn="everyday" x="328" y="46"/>
+	<e:Image source="union_json.img_union_line_png" includeIn="everyday" x="426" y="46"/>
+	<e:Label id="labStudyValue" text="99999" includeIn="college" y="819" size="18" verticalAlign="middle" textAlign="center" x="313" fontFamily="Microsoft JhengHei" bold="true" textColor="0xc6b59e"/>
+	<e:Label text="学习值:" includeIn="college" x="250" y="819" size="18" textColor="0xd1a765"/>
+	<e:Label id="labPro" text="120/300" includeIn="college" y="787" size="12" horizontalCenter="10" textColor="0xefece3"/>
+	<e:Label text="活跃" includeIn="everyday" x="267.34" y="58" size="20" textColor="0x7d6a52"/>
+	<e:Label text="战魂" includeIn="everyday" x="357.09" y="58" size="20" textColor="0x7d6a52"/>
+	<e:Label text="操作" includeIn="everyday" x="490.09" y="58" size="20" textColor="0x7d6a52"/>
+	<e:Label text="次数" includeIn="everyday" x="184" y="58" size="20" textColor="0x7d6a52"/>
+	<e:Label text="名称" includeIn="everyday" x="74" y="58" size="20" textColor="0x7d6a52"/>
+	<item:PrizeProgress id="prizeProgress" y="747" skinName="item.PrizeProgressSkin" x="99" includeIn="everyday" width="474"/>
+	<e:ToggleButton id="btnEveryday" label="每日任务" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" y="865" x="246"/>
+	<e:ToggleButton id="btnTujian" label="图鉴" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" y="865" x="362"/>
+	<e:ToggleButton id="btnCollege" label="幻兽学院" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" y="865" x="130"/>
+	<achievement:AchievementTuJianDialog id="tujianView" includeIn="tujian" skinName="skins.AchievementTuJianDialogSkin" x="11"/>
+	<e:Scroller id="scrollerCollegedayTask" width="564" height="666.14" y="49.12" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="off" scrollPolicyV="auto" includeIn="college" touchEnabled="false" x="18">
+		<e:List id="collegeList" itemRenderer="AchievementSkillRenderer" anchorOffsetX="0" anchorOffsetY="0" height="680" x="174" y="1" width="566">
+		</e:List>
+	</e:Scroller>
+	<e:Scroller id="scrollerEverydayTask" width="566" height="643" y="92" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="off" scrollPolicyV="auto" includeIn="everyday" touchEnabled="false" x="17">
+		<e:List id="everydayList" itemRenderer="AchievementSkillRenderer" anchorOffsetX="0" anchorOffsetY="0" height="644.67">
+		</e:List>
+	</e:Scroller>
+</e:Skin>

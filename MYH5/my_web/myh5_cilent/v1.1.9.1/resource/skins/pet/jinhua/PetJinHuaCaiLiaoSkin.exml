@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="PetJinHuaCaiLiaoSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image width="626" height="969" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
+	<e:Image width="582.98" height="800.53" x="21.87" y="63.16" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_inbg_png" scale9Grid="5,6,18,15"/>
+	<e:Scroller id="scrollerCollege" width="570.33" height="786" x="27.34" y="68" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="off" scrollPolicyV="on">
+		<e:List id="listHuanShou" itemRenderer="PetJinHuaCaiLiaoRenderer">
+			<e:layout>
+				<e:TileLayout orientation="rows" horizontalGap="10" requestedColumnCount="2" paddingLeft="5"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="597" y="34" anchorOffsetX="25" anchorOffsetY="24"/>
+	<components:IconButton id="btnBack" source="common_json.btn_back_png" x="563" y="915" anchorOffsetX="36" anchorOffsetY="30"/>
+	<e:Image x="254" y="7" source="img_title_petCailiao_png"/>
+	<e:Label id="labNoCailiao" text="没有可消耗的材料。" y="364" horizontalCenter="0" size="20" textColor="0xC6B59E"/>
+	<e:Label id="labCailiao" text="请放入绿色品质以上的幻兽或绿色进阶石。" y="900" horizontalCenter="0" size="20" textColor="0xff0000"/>
+</e:Skin>

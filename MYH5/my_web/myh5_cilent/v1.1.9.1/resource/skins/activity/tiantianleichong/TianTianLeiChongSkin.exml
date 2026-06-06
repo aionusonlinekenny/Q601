@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.TianTianLeiChongSkin" width="600" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image x="19" y="0" source="img_activity_title_bg_jpg"/>
+	<e:Image y="56" source="activity_json.everyLeiC_title" x="100"/>
+	<e:Image source="activity_black_bg_png" x="338" y="188"/>
+	<e:Label id="labDate" text="2018年12月12日 " x="142" y="129" size="18" textColor="0x34E22C"/>
+	<e:Label id="labDesc" text="活动期间幻兽总战力排行" x="142" y="164" size="16" width="191" height="63" lineSpacing="5" textColor="0xC6B59E" textAlign="left"/>
+	<e:Label text="截止时间 : " x="46" y="129" size="18" textColor="0xEDC839"/>
+	<e:Label text="活动说明 : " x="46" y="164" size="18" textColor="0xEDC839"/>
+	<e:Scroller width="559" height="625" y="220" x="21">
+		<e:List id="listReward" x="40" y="8" itemRendererSkinName="renderer.ActivityLevelRendererSkin">
+		<e:layout>
+			<e:VerticalLayout gap="0"/>
+		</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:Label id="labRechange" text="200000魔石" y="192" size="22" textColor="0x34E22C" verticalAlign="middle" textAlign="right" x="415" stroke="1"/>
+	<e:Label text="已充值" x="349" y="192" size="22" textColor="0xE86927" stroke="1"/>
+</e:Skin>

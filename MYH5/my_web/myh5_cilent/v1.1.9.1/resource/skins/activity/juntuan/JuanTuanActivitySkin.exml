@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.JuanTuanActivitySkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" width="600" height="850">
+	<e:Image source="img_kaifuactivity_title_bg_jpg" x="19" y="0"/>
+	<e:Image x="100" y="47" source="activity_json.juntuanZhan_title"/>
+	<e:Label id="labDate" text="2018年12月12日 " x="142" y="125" size="18" textColor="0x34e22c"/>
+	<e:Label id="labDesc" text="活动期间幻兽总战力排行" x="142" y="154" size="16" width="191" height="64" lineSpacing="5" textColor="0xc6b59e" textAlign="left"/>
+	<e:Label text="截止时间 : " x="46" y="125" size="18" textColor="0xedc839"/>
+	<e:Label text="活动说明 : " x="46" y="154" size="18" textColor="0xedc839"/>
+	<e:Label id="labMyFight" text="" y="215" size="22" textColor="0x2B8C25" rotation="0.1" left="140"/>
+	<e:Scroller width="559" height="470" y="380" x="21">
+		<e:List id="listReward" x="40" y="-31.33" itemRendererSkinName="renderer.JuanTuanActivityRendererSkin">
+		<e:layout>
+			<e:VerticalLayout gap="0"/>
+		</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:Image y="217" source="img_activity_juntuan_wenzi_png" x="26"/>
+</e:Skin>

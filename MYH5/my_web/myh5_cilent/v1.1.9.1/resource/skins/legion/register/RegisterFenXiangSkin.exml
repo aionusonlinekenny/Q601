@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="RegisterFenXiangSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image width="525" height="506" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
+	<e:Label text="总属性加成 : " y="126" size="20" verticalAlign="middle" textAlign="left" anchorOffsetX="0" anchorOffsetY="0" left="72" textColor="0xedc839"/>
+	<e:Label id="labCount" text="已登记图腾的数量 : 7" y="75" size="20" verticalAlign="top" textAlign="left" anchorOffsetY="0" anchorOffsetX="0" left="72" textColor="0xedc839"/>
+	<components:IconButton id="btnClose" x="468" y="5" source="common_json.btn_close_png"/>
+	<e:Image x="204" y="9" source="union_json.img_union_title17_png"/>
+	<e:Label id="labInfo" text="生命 : 10000" y="161" size="20" verticalAlign="middle" textAlign="left" left="74" lineSpacing="10" textColor="0xc6b59e"/>
+	<e:Image width="450" x="33" y="114" source="common_json.img_normal_line_png"/>
+	<e:Image width="450" x="33" y="408" source="common_json.img_normal_line_png"/>
+</e:Skin>

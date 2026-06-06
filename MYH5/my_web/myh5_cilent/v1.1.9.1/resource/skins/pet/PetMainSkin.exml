@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.PetMainSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" xmlns:components="components.*" xmlns:eudemons="dialog.eudemons.*" width="600" height="916">
+	<e:Button id="btnHuanShou" label="幻兽" x="14" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0">
+	</e:Button>
+	<e:Button id="btnHuanHua" label="幻化" x="128" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0">
+	</e:Button>
+	<e:Button id="btnJinjie" label="进阶" x="243" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0">
+	</e:Button>
+	<e:Button id="btnQiShi" label="骑士" x="358" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0">
+	</e:Button>
+	<e:Button id="btnFenJie" label="分解" x="473" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0"/>
+	
+</e:Skin>

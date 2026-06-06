@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.GoldAndDiamondsSkin" xmlns:e="http://ns.egret.com/eui">
+	<e:Image id="iconMoney" y="2" source="uiMain_json.main_img_gold" x="2"/>
+	<e:Image id="iconDiamend" y="3" source="uiMain_json.main_img_diamonds" x="107"/>
+	<e:Label id="labMoney" text="1.5亿" y="8" anchorOffsetX="0" width="90" size="18" rotation="0.39" anchorOffsetY="0" height="20" textColor="0xEDC839" x="30"/>
+	<e:Label id="labDiamond" text="987456320" y="8" anchorOffsetX="0" width="76" size="18" rotation="0.39" anchorOffsetY="0" height="19.95" textColor="0x34e22c" x="141"/>
+</e:Skin>

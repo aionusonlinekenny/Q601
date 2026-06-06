@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.RoleSkillSkin" width="600" xmlns:e="http://ns.egret.com/eui" xmlns:ui="ui.*" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" xmlns:components="components.*" xmlns:tips="tips.*" height="867">
+	<e:Image id="imgBackBg" y="40" anchorOffsetY="0" anchorOffsetX="0" source="role_skillbg_jpg" horizontalCenter="0" height="704.15"/>
+	<e:List id="listSkills" y="44" itemRendererSkinName="renderer.RoleSkillRendererSkin" width="553" height="695" anchorOffsetY="0" x="24">
+		<e:layout>
+			<e:TileLayout orientation="rows" requestedColumnCount="2" paddingLeft="-10" verticalGap="-12" horizontalGap="-12"/>
+		</e:layout>
+	</e:List>
+
+	<e:Image source="common_implementbar_png" anchorOffsetY="0" height="134" scale9Grid="80,15,480,14" horizontalCenter="0" anchorOffsetX="0" y="733"/>
+
+
+	<e:Group y="745" horizontalCenter="0">
+		<e:Label text="消耗 : " x="0" y="4" size="20" anchorOffsetY="0" textColor="0xc6b59e"/>
+		<e:Label id="labCoinMuit" text="9999999" x="87" y="4" size="20" textAlign="left" textColor="0x34e22c"/>
+		<e:Image source="common_json.img_gold_png" x="56" y="0" anchorOffsetX="0"/>
+	</e:Group>
+	<components:SnapButton id="btnUpgradeAll" label="一键提升" y="808" anchorOffsetX="84" width="168" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="27" x="300"/>
+</e:Skin>

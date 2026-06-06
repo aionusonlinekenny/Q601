@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.ApplyListRendererSkin" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image id="imgbg" width="562" height="120" anchorOffsetX="0" anchorOffsetY="0"
+	          y="0" scale9Grid="12,25,15,19" source="img_union_list_png"/>
+	<e:Label id="labName" text="玩家 " y="48" size="20" verticalAlign="middle" textAlign="center"
+	          horizontalCenter="-217" textColor="0xc6b59e"/>
+	<e:Label id="labPower" text="0" y="48" size="20" verticalAlign="middle"
+	         textAlign="center"  horizontalCenter="13" textColor="0xc6b59e"/>
+	<e:Label id="labLv" text="0" y="48" size="20" verticalAlign="middle"
+	         textAlign="left"  x="174" textColor="0xcfc9be"/>
+	<components:SnapButton id="btnAgree" label="同意" x="412" y="61" skinName="skins.SnapAgreeButton" anchorOffsetX="46" width="95" anchorOffsetY="24"/>
+	<components:SnapButton id="btnRefuse" label="拒绝" x="513" y="64" skinName="skins.SnapRefuseButton" anchorOffsetX="51" anchorOffsetY="27"/>
+</e:Skin>

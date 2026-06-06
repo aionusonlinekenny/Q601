@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.TreasureMainSkin" width="600" height="916" xmlns:e="http://ns.egret.com/eui" xmlns:treasure="treasure.*" states="taro,mono,baocang">
+	<e:ToggleButton id="togTaro" label="塔罗" x="192" y="867" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png"/>
+	<e:ToggleButton id="togBaoCang" label="众神宝藏" x="307" y="867" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png"/>
+	<e:ToggleButton id="togMono" label="魔龙" x="424" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" y="867" visible="false"/>
+	<treasure:TreasureBaoCang id="baoCang" includeIn="baocang" x="11" skinName="skins.TreasureBaoCangSkin"/>
+	<treasure:TreasureMono id="mono" includeIn="mono" y="0" skinName="skins.TreasureMonoSkin" x="11"/>
+	<treasure:TreasureTarot id="tarot" y="0" skinName="skins.TreasureTarotSkin" includeIn="taro" x="11"/>
+</e:Skin>

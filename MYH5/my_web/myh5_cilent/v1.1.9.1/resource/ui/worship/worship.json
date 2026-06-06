@@ -1,0 +1,7 @@
+{"file":"worship.png","frames":{
+"img_worship_vote":{"x":96,"y":96,"w":75,"h":72,"offX":0,"offY":0,"sourceW":75,"sourceH":72},
+"btn_worship_egg":{"x":173,"y":96,"w":65,"h":33,"offX":0,"offY":0,"sourceW":65,"sourceH":33},
+"btn_worship_flower":{"x":1,"y":104,"w":65,"h":33,"offX":0,"offY":0,"sourceW":65,"sourceH":33},
+"btn_worship_getegg":{"x":96,"y":1,"w":93,"h":93,"offX":0,"offY":0,"sourceW":93,"sourceH":93},
+"btn_worship_getflower":{"x":1,"y":1,"w":93,"h":101,"offX":0,"offY":0,"sourceW":93,"sourceH":101},
+"img_worship_exp":{"x":1,"y":139,"w":89,"h":21,"offX":0,"offY":0,"sourceW":89,"sourceH":21}}}

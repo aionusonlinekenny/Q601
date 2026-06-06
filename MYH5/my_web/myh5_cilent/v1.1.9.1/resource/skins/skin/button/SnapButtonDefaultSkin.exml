@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<e:Skin class="skins.SnapButtonDefaultSkin" states="up,down,disabled" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" width="160" height="52" height.up="56">
+    <e:Image alpha.disabled="0.5" width="100%" height="100%" source="common_json.btnt_red_selected_png" scale9Grid="12,13,9,27"/>
+    <e:Label id="labelDisplay"               verticalAlign="middle" textAlign="center" size="20" width="100%" height="38" verticalCenter="-3" horizontalCenter="0" verticalCenter.up="0" size.up="24" stroke.up="2" verticalCenter.down="0" stroke.down="1" size.down="24" strokeColor.down="0x480302" textColor.up="0xffe79b" strokeColor.up="0x320e02" textColor.down="0xffe79b" horizontalCenter.down="0" textColor="0xfcd67d"/>
+    <e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="img_warn_png"  visible="false"/>
+</e:Skin>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.FirstRechargeDialogSkin" currentState="fivehundred" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" xmlns:treasure="treasure.*" height="1074" width="600" states="ten,fifty,twohundred,fivehundred" >
+	<e:Image id="imgBackBg" scale9Grid="75,537,450,37" source="img_firstinbg_1_png" horizontalCenter="-6.5" y="30"/>
+	<e:Image source="img_firstrecharge_txt500_png" includeIn="fivehundred" y="643" horizontalCenter="0"/>
+	<e:Image source="img_firstrecharge_txt200_png" includeIn="twohundred" y="637" horizontalCenter="0"/>
+	<e:Image source="img_firstrecharge_txt50_png" includeIn="fifty" y="637" horizontalCenter="0"/>
+	<e:Image source="img_firstrecharge_txt10_png" includeIn="ten" y="637" horizontalCenter="0"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="26" anchorOffsetY="26" x="545.22" y="143.04"/>
+	<components:RewardItemBox id="reward0" y="515.38" skinName="components.ItemBoxSkin" x="27"/>
+	<components:RewardItemBox id="reward1" y="515.38" skinName="components.ItemBoxSkin" x="119"/>
+	<components:RewardItemBox id="reward2" y="515.38" skinName="components.ItemBoxSkin" x="211"/>
+	<components:RewardItemBox id="reward3" y="515.38" skinName="components.ItemBoxSkin" x="303"/>
+	<components:RewardItemBox id="reward4" y="515.38" skinName="components.ItemBoxSkin" x="395"/>
+	<components:RewardItemBox id="reward5" y="515.38" skinName="components.ItemBoxSkin" x="487"/>
+	<components:SnapButton id="btnGet" label="Button" y="720" anchorOffsetX="77" anchorOffsetY="24" horizontalCenter.fifty="0" horizontalCenter.ten="0" horizontalCenter="4.5">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="firstrecharge_json.btn_fr_orange"/>
+	<e:Image source="firstplayer_json.img_lingquTitle" x="46" y="16"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnUp" label="Button" y="720" anchorOffsetX="77" anchorOffsetY="24" horizontalCenter="3.5" x.ten="280" y.ten="720" x.fifty="280" y.fifty="720" x.twohundred="280" y.twohundred="720" x.fivehundred="280" y.fivehundred="720">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="firstrecharge_json.btn_fr_orange"/>
+			<e:Image x="44" y="16" source="firstrecharge_json.img_firstrecharge_"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<e:Group id="groupModel" x="199" y="391"/>
+	<e:Image x="263" y="203" source.fivehundred="img_firstrecharge_500_png" source.twohundred="img_firstrecharge_200_png" source.fifty="img_firstrecharge_50_png" source.ten="img_firstrecharge_10_png" source="img_firstrecharge_10_png" y.ten="203" y.fifty="203" x.fifty="253" y.twohundred="185" x.twohundred="233" y.fivehundred="203" x.fivehundred="253"/>
+	<e:Image source="firstrecharge_json.img_firstrecharge_giveBg" x="0" y="317" y.ten="98"/>
+	<e:Image source="firstrecharge_json.img_firstrecharge_title_500" includeIn="fivehundred" x="112" y="345"/>
+	<e:Image source="firstrecharge_json.img_firstrecharge_title_200" includeIn="twohundred" x="111.5" y="339"/>
+	<e:Image source="firstrecharge_json.img_firstrecharge_title_50" includeIn="fifty" x="120" y="358"/>
+	<e:Image source="firstrecharge_json.img_firstrecharge_5s" includeIn="fifty" x="197" y="356"/>
+	<e:Image x="97" y="348" source="firstrecharge_json.img_firstrecharge_title_50" includeIn=""/>
+	<e:Image source="firstrecharge_json.img_firstrecharge_5s" x="204" y="368" includeIn=""/>
+	<e:Image id="imgRed" x="209" y="699" source="uiMain_json.img_main_red" x.fifty="209" x.ten="209" x.twohundred="209" x.fivehundred="209" y.ten="699" y.fifty="699" y.twohundred="699" y.fivehundred="699"/>
+	<e:Image id="imgIsget" source="firstrecharge_json.img_firstrecharge_yilingqu" y="692" horizontalCenter.fifty="0" horizontalCenter.ten="0" horizontalCenter="0"/>
+	<e:ToggleButton id="btntab_1" label="" x="31" y="455">
+		<e:skinName>
+			<e:Skin states="up,down">
+			<e:Image width="100%" height="100%" source="firstrecharge_json.btn_firstrecharge_10_1" source.down="firstrecharge_json.btn_firstrecharge_10_2"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:ToggleButton>
+	<e:ToggleButton id="btntab_2" label="" x="168" y="455">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="firstrecharge_json.btn_firstrecharge_50_1" source.down="firstrecharge_json.btn_firstrecharge_50_2"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:ToggleButton>
+	<e:ToggleButton id="btntab_3" label="" x="305" y="455">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="firstrecharge_json.btn_firstrecharge_200_1" source.down="firstrecharge_json.btn_firstrecharge_200_2"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:ToggleButton>
+	<e:ToggleButton id="btntab_4" label="" x="442" y="441">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="firstrecharge_json.btn_firstrecharge_500_1" source.down="firstrecharge_json.btn_firstrecharge_500_2"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:ToggleButton>
+	<e:Group id="effectGroup" y="783" horizontalCenter="0"/>
+	<e:Label id="labRmbTips" text="仅需充值XXXX元即可领取该礼包" y="762" anchorOffsetX="0" width="429" fontFamily="Microsoft YaHei" size="18" textAlign="center" stroke="1" textColor="0xe4d7b0" horizontalCenter.fifty="0" horizontalCenter.ten="0" horizontalCenter="0.5"/>
+	<e:Label text="仅此页面充值有效" x="330" y="367" size="20" textColor="0x34e22c" bold="true"/>
+	
+
+</e:Skin>

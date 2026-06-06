@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.AchievementTuJianUpSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:firstplayer="firstplayer.*" xmlns:item="item.*" width="522">
+	<e:Image x="1" y="0" anchorOffsetX="0" width="518" anchorOffsetY="0" height="627.73" source="common_json.img_tips_bg_png" scale9Grid="32,27,5,17"/>
+	<components:IconButton id="btnGetData" x="466.13" y="578.55" source="common_json.img_getRes_png" anchorOffsetX="36" anchorOffsetY="35"/>
+	<item:PropertyItemBox id="propertyBox" y="382" skinName="normal.PropertyItemBoxSkin" horizontalCenter="-4"/>
+	<e:Image source="tips_json.img_tips_title_shuxing" y="337" x="70"/>
+	<e:Image source="tips_json.img_tips_putong" y="333" horizontalCenter="0"/>
+	<components:SnapButton id="btnUp" label="升级" y="584.67" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" x="258.33"/>
+	<e:Image width="270" height="35" y="14" source="tips_json.img_tips_namebg" scale9Grid="36,4,216,26" anchorOffsetX="0" anchorOffsetY="0" x="126"/>
+	<e:Label text="图鉴详情" y="18" size="25" x="211" textColor="0xedc839"/>
+	<e:Image source="img__firstplayer_eff_bg_png" y="62" x="115"/>
+	<e:Image id="imgQuality" source="tujian_json.img_Picframe_2" y="92" scale9Grid="31,27,28,35" anchorOffsetX="0" width="180" anchorOffsetY="0" height="223" x="171"/>
+	<e:Image source="img_picture_itembg_png" y="101" x="180"/>
+	<e:Image id="imgIcon" y="101" x="178" source=""/>
+	<e:Image id="imgBg" source="tujian_json.img_Picframe" x="171" y="92" scale9Grid="42,42,10,10" width="180" height="223"/>
+	<e:Image source="tujian_json.img_Pictouming" x="178" y="255" anchorOffsetX="0" width="170" anchorOffsetY="0" height="52" touchEnabled="false"/>
+	<e:Image source="tujian_json.img_Pictouming" y="509" anchorOffsetX="0" width="327" anchorOffsetY="0" height="29" touchEnabled="false" x="98"/>
+	<e:Label id="labName" text="Label" y="259" size="18" verticalAlign="middle" textAlign="center" touchEnabled="false" textColor="0xc6b59e" horizontalCenter="0"/>
+	<e:Label id="labLv" text="99" y="103" size="18" textColor="0xC6B59E" verticalAlign="middle" textAlign="center" touchEnabled="false" horizontalCenter="-70.5"/>
+	<e:Label id="labData" text="" y="513" size="20" verticalAlign="middle" textAlign="center" textColor="0xc6b59e" horizontalCenter="0"/>
+	<e:Image source="common_closetip_png" y="629.17" x="120"/>
+	<e:Image source="common_json.img_fight_png" x="201" y="279" anchorOffsetX="0" width="33" anchorOffsetY="0" height="27"/>
+	<e:BitmapLabel id="labPower" y="279.49" anchorOffsetX="0" anchorOffsetY="0" text="800" touchEnabled="false" font="fight_font2_fnt" letterSpacing="-3" textAlign="centre" left="235"/>
+</e:Skin>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LadderRankingSkin" width="600" height="916" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="common_inbar_png" y="796.99" anchorOffsetX="0" width="700" anchorOffsetY="0" scale9Grid="90,12,22,16" x="-50" height="120"/>
+	<e:Image y="32" source="img_backGround_jpg" x="11"/>
+	<e:Image source="img_one_base_png" y="290.59" scale9Grid="95,4,175,26" width="607" anchorOffsetY="0" height="61" anchorOffsetX="0" horizontalCenter="0.5"/>
+	<e:Image source="ladder_json.img_black_copy" y="289.59" x="170" visible="false"/>
+	<e:Image id="imgGrade" source="ladder_json.img_dan_dia" x="336" y="323" scaleX="0.6" scaleY="0.6"/>
+	<e:Image id="imgLv" x="380" y="325" source="gradeArt_json.04" scaleX="0.9" scaleY="0.9"/>
+	<e:Image source="ladder_json.img_rank_1" x="48" y="14"/>
+	<e:Label text="我的排名 : " x="58" y="833.41" size="20" textColor="0xc6b59e"/>
+	<e:Label text="我的积分 : " x="58" y="862.25" size="20" textColor="0xc6b59e"/>
+	<e:Label id="labRanking" text="555555" x="162.67" y="834.25" size="20" textAlign="left" anchorOffsetX="0" width="121.66" fontFamily="Microsoft JhengHei" textColor="0xedc839"/>
+	<e:Label id="labJiFen" text="44444" x="162.67" y="861.25" size="20" anchorOffsetX="0" width="122.33" textAlign="left" fontFamily="Microsoft JhengHei" textColor="0xedc839"/>
+	<e:Label id="labScore" text="1000" size="20" fontFamily="Microsoft JhengHei" x="262.88" y="323" textColor="0xedc839"/>
+	<e:Label text="积分:" size="20" x="212" y="323" textColor="0xedc839"/>
+	<e:Label id="labNameGrade" text="玩家名称" size="20" y="297.96" textColor="0xc6b59e" horizontalCenter="0"/>
+	<components:SnapButton id="btnReward" label="段位奖励" x="390.8" y="827.49" skinName="skins.SnapButtonDefaultSkin" width="168" icon="img_warn_png" anchorOffsetY="0" height="59"/>
+	<e:Scroller id="scroller" width="558" height="441" y="353.84" anchorOffsetX="0" anchorOffsetY="0" x="18" scrollPolicyH="off" scrollPolicyV="auto">
+		<e:List id="listRanking" itemRenderer="renderer.LadderRankingCell" anchorOffsetY="0" height="395" x="0" y="-2"/>
+	</e:Scroller>
+	<components:RewardItemBox id="reward" y="53" skinName="components.ItemBoxSkin" x="479"/>
+	<e:Image y="31" source="ladder_json.img_exclusiveAward" x="482"/>
+</e:Skin>

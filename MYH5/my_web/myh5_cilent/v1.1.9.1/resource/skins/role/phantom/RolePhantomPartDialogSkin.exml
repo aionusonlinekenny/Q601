@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.RolePhantomPartDialogSkin" width="600" height="916" xmlns:e="http://ns.egret.com/eui" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image source="role_huanwubg_jpg" y="0" horizontalCenter="0"/>
+	<e:Image y="122.17" source="common_fightBg_png" horizontalCenter="0"/>
+	<e:Image x="205" y="128" source="common_json.img_fight_png" width="57" height="31"/>
+	<e:Image source="common_implementbar_png" anchorOffsetY="0" height="131" scale9Grid="80,15,480,14" y="540.5" horizontalCenter="1"/>
+	<e:Image y="670" anchorOffsetY="0" height="244" source="common_infobar_png" scale9Grid="0,25,587,9" anchorOffsetX="0" horizontalCenter="0.5"/>
+	<e:Image id="imgSelect" source="explore_json.img_circle_gold" x="80" y="47" anchorOffsetX="43" anchorOffsetY="43" width="83" height="83"/>
+	<e:BitmapLabel id="blabFight" y="129.8" text="8765199" touchEnabled="false" x="272.96" font="fight_font2_fnt"/>
+	<item:RolePhantomHeadIcon id="headIcon0" x="39" y="7" skinName="normal.RolePhantomHeadIconSkin"/>
+	<item:RolePhantomHeadIcon id="headIcon1" x="129" y="7" skinName="normal.RolePhantomHeadIconSkin"/>
+	<item:RolePhantomHeadIcon x="219" y="7" skinName="normal.RolePhantomHeadIconSkin" id="headIcon2"/>
+	<item:RolePhantomHeadIcon x="309" y="7" skinName="normal.RolePhantomHeadIconSkin" id="headIcon3"/>
+	<item:RolePhantomHeadIcon x="399" y="7" skinName="normal.RolePhantomHeadIconSkin" id="headIcon4"/>
+	<item:RolePhantomHeadIcon x="489" y="7" skinName="normal.RolePhantomHeadIconSkin" id="headIcon5"/>
+	<e:Group id="partGroup0" x="60" y="205">
+		<e:Image source="rolePhantom_json.role_phantom_part_icon1_png" x="0" y="0"/>
+		<e:Image source="rolePhantom_json.role_phantom_part_dian_png" x="163" y="39"/>
+		<components:Icon id="imgPart0" x="21" y="21" source=""/>
+		<e:Label id="labLv0" text="10" x="16" y="71" size="18" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xC6B59E" textAlign="right" width="70"/>
+	</e:Group>
+	<e:Group id="partGroup1" x="78" y="377">
+		<e:Image source="rolePhantom_json.role_phantom_part_icon2_png" x="0" y="20"/>
+		<e:Image source="rolePhantom_json.role_phantom_part_dian_png" x="137.5" y="0"/>
+		<components:Icon id="imgPart1" x="20" y="63" source=""/>
+		<e:Label id="labLv1" text="10" x="16" y="115" size="18" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xC6B59E" textAlign="right" width="70"/>
+	</e:Group>
+	<e:Group id="partGroup2" x="351" y="204">
+		<e:Image source="rolePhantom_json.role_phantom_part_icon4_png" x="45" y="0"/>
+		<e:Image source="rolePhantom_json.role_phantom_part_dian_png" x="0" y="104"/>
+		<components:Icon id="imgPart2" x="115" y="21" source=""/>
+		<e:Label id="labLv2" text="10" x="112" y="72" size="18" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xC6B59E" textAlign="right" width="70"/>
+	</e:Group>
+	<e:Group id="partGroup3" x="309" y="406.5">
+		<e:Image source="rolePhantom_json.role_phantom_part_icon3_png" x="50" y="0"/>
+		<e:Image source="rolePhantom_json.role_phantom_part_dian_png" x="0" y="18.5"/>
+		<components:Icon id="imgPart3" x="148" y="21" source=""/>
+		<e:Label id="labLv3" text="10" x="144" y="72" size="18" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textAlign="right" width="70" textColor="0xc6b59e"/>
+	</e:Group>
+	<e:Group id="skillGroup" x="40" y="555">
+		<components:Icon id="imgQuality" y="0" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="9,9,19,19" source="common_json.img_qlt_1_png" width="68" height="68" x="0"/>
+		<e:Image id="imgSkill" x="4" y="3" source=""/>
+	</e:Group>
+	<components:Icon id="imgWarn0" source="common_json.img_warn_png" x="68" y="213"/>
+	<components:Icon id="imgWarn2" source="common_json.img_warn_png" x="457" y="213"/>
+	<components:Icon id="imgWarn1" source="common_json.img_warn_png" x="91" y="431"/>
+	<components:Icon id="imgWarn3" source="common_json.img_warn_png" x="447" y="418"/>
+	<e:Label id="labDes" text="增加角色攻防固定值，外加幻武培养总属性的50%，外加幻武培养总属性的50%" x="120.46" y="581" size="18" anchorOffsetY="0" height="41" anchorOffsetX="0" width="465" verticalAlign="middle" textAlign="left" textColor="0xcfc9be"/>
+	<e:Label id="labHP" text="生命：1999" x="125" y="727" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xC6B59E"/>
+	<e:Label id="labDef" text="物防：1999" x="125" y="782" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xC6B59E"/>
+	<e:Label id="labAtt" text="攻击：1999" x="380" y="727" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xC6B59E"/>
+	<e:Label id="labMdef" text="法防：1999" x="380" y="782" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xC6B59E"/>
+	<e:Label id="labUnactive" text="未激活" x="121" y="554" size="18" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xb6281a"/>
+</e:Skin>

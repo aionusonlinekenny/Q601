@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.TuJianStateCellSkin" currentState="up" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" states="up,down" width="89" height="87">
+	<e:Image id="imgIcon" x="0" y="-1" source="tujian_json.tj001"/>
+	<e:Image includeIn="down" anchorOffsetX="0" width="85" height="85" x="3" y="2" source="tujian_json.img_picture_seled"/>
+	<e:Image id="imgRedPoint" source="common_json.img_warn_png" x="2" y="1" touchEnabled="false"/>
+</e:Skin>

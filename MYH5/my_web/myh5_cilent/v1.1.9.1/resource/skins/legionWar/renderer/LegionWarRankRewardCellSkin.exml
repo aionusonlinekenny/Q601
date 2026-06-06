@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.LegionWarRankRewardCellSkin" width="580" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="rankings_json.img_rankMan_base" x="0" y="0" scale9Grid="13,13,59,38" width="580" height="125"/>
+	<e:Image id="imgRanking" anchorOffsetX="0" anchorOffsetY="0" source="ladder_json.img_rank_2" horizontalCenter="-214" verticalCenter="0" scaleX="0.8" scaleY="0.8"/>
+	<e:Label id="labRanking" text="4" size="30" textAlign="center" anchorOffsetX="0" anchorOffsetY="0" bold="true" textColor="0xC6B59E" horizontalCenter="-214" verticalCenter="0"/>
+	<components:RewardItemBox id="reward0" x="143" y="7" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward1" x="247.66666666666666" y="7" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward2" x="352.3333333333333" y="7" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward3" x="457" y="7" skinName="components.ItemBoxSkin"/>
+</e:Skin>

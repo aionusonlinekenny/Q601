@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.FashionRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" width="96" height="102" states="up,down" >
+	<e:Image id="imgQuality" source="common_json.img_qlt_1_png" x="6" y="12"/>
+	<components:Icon id="imgIcon" x="10" y="15" source="" width="80" height="80"/>
+	<e:Image id="imgDressed" source="fashion_json.img_fashion_dressed" y="0" x="0"/>
+	<e:Image id="imgWarn" source="common_json.img_warn_png" x="7.4" y="12.8"/>
+	<e:Image id="imgSelect" source="common_json.img_selectFrame_png" y="18" anchorOffsetX="7" anchorOffsetY="7" x="13" includeIn="down"/>
+</e:Skin>

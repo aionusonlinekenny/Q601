@@ -1,0 +1,100 @@
+{
+   "union_prompt_config_1": {
+    "property": {
+      "bricks": "玩家%1$s被踢出军团",
+      "description": "玩家XXXX被踢出军团"
+    },
+    "refId": "union_prompt_config_9"
+  },
+  "union_prompt_config_2": {
+    "property": {
+      "bricks": "%1$s退出了军团",
+      "description": "XXX退出了军团"
+    },
+    "refId": "union_prompt_config_2"
+  },
+  "union_prompt_config_3": {
+    "property": {
+      "bricks": "%1$s加入了军团",
+      "description": "XXX加入了军团"
+    },
+    "refId": "union_prompt_config_3"
+  },
+  "union_prompt_config_4": {
+    "property": {
+      "bricks": "%1$s登记了幻兽%2$s，军团实力大涨",
+      "description": "XXX登记了幻兽XX，军团实力大涨"
+    },
+    "refId": "union_prompt_config_4"
+  },
+  "union_prompt_config_5": {
+    "property": {
+      "bricks": "%1$s修改了军团公告",
+      "description": "XXX修改了军团公告"
+    },
+    "refId": "union_prompt_config_5"
+  },
+  "union_prompt_config_6": {
+    "property": {
+      "bricks": "玩家%1$s被任命为%2$s",
+      "description": "玩家XXXX被任命为XXXX"
+    },
+    "refId": "union_prompt_config_6"
+  },
+  "union_prompt_config_7": {
+    "property": {
+      "bricks": "玩家%1$s放弃选择",
+      "description": "玩家XXXX放弃选择"
+    },
+    "refId": "union_prompt_config_7"
+  },
+  "union_prompt_config_8": {
+    "property": {
+      "bricks": "玩家%1$s拒绝了你的邀请",
+      "description": "玩家XXXX拒绝了你的邀请"
+    },
+    "refId": "union_prompt_config_8"
+  },
+  "union_prompt_config_9": {
+    "property": {
+      "bricks": "你成功退出了公会%1$s",
+      "description": "你成功退出了公会XXXX"
+    },
+    "refId": "union_prompt_config_9"
+  },
+  "union_prompt_config_10": {
+    "property": {
+      "bricks": "你已成功加入%1$s公会",
+      "description": "你已成功加入XXXX公会"
+    },
+    "refId": "union_prompt_config_10"
+  },
+  "union_prompt_config_11": {
+    "property": {
+      "bricks": "你被踢出公会%1$s",
+      "description": "你被踢出公会XXXX"
+    },
+    "refId": "union_prompt_config_11"
+  },
+  "union_prompt_config_12": {
+    "property": {
+      "bricks": "%1$s公会已经解散",
+      "description": "XXXX公会已经解散"
+    },
+    "refId": "union_prompt_config_12"
+  },
+  "union_prompt_config_13": {
+    "property": {
+      "bricks": "你对%1$s公会的申请被拒绝",
+      "description": "你对XXXX公会的申请被拒绝"
+    },
+    "refId": "union_prompt_config_13"
+  },
+  "union_prompt_config_14": {
+    "property": {
+      "bricks": "成功解散公会%1$s",
+      "description": "成功解散公会XXXX"
+    },
+    "refId": "union_prompt_config_14"
+  }
+}

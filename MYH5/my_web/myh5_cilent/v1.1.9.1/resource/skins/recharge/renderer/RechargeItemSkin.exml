@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.RechargeItemSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" width="293" height="165">
+	<e:Image x="0" y="0" source="activity_every_json.activity_every_boss_bg" width="293" height="165" scale9Grid="41,34,21,18"/>
+	<e:Image id="imgIcon" y="10" x="10" source="img_recharge_ms10_png"/>
+	<e:Image source="common_json.img_diamonds_png" x="257" y="9"/>
+	<e:Image source="recharge_json.img_recharge_bottombg" x="10.5" y="127"/>
+	<e:Group id="firstGroup" x="8" y="8">
+		<e:Image id="imgFirstFlag" source="recharge_json.img_recharge_fcflag" x="0" y="0"/>
+		<e:Image id="imgSong" source="recharge_json.img_recharge_song" x="142" y="33"/>
+		<e:Image source="common_json.img_diamonds_png" x="248.5" y="37"/>
+		<e:Label id="labMoshi2" text="100000" y="41" size="20" textAlign="center" textColor="0xEDC839" x="184"/>
+	</e:Group>
+	<e:Label id="labMoshi" text="100000" y="11" size="20" textAlign="center" textColor="0xEDC839" x="192"/>
+	<e:Label id="labName" text="获得 : " y="10" size="20" textAlign="center" x="142.5" textColor="0xc6b59e"/>
+	<e:Image id="imgPrice" source="recharge_json.img_recharge_¥10" y="131" right="21"/>
+</e:Skin>

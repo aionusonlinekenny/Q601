@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.GetSpuerEquitmentSkin" width="526" height="168" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="tips_json.img_tips_chapter_bg" x="0" y="0" anchorOffsetY="0" height="168" scale9Grid="0,22,510,27"/>
+	<e:Label text="获得极品" y="21" textColor="0xedc839" size="24" horizontalCenter="9"/>
+	<components:RewardItemBox id="drop0" y="50" skinName="components.ItemBoxSkin" x="107"/>
+	<components:RewardItemBox id="drop1" y="50" skinName="components.ItemBoxSkin" x="227"/>
+	<components:RewardItemBox id="drop2" y="50" skinName="components.ItemBoxSkin" x="347"/>
+</e:Skin>

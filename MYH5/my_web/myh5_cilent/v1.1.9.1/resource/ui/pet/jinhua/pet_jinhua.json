@@ -1,0 +1,17 @@
+{"file":"pet_jinhua.png","frames":{
+"img_Pet_FF":{"x":1,"y":100,"w":100,"h":97,"offX":0,"offY":0,"sourceW":100,"sourceH":97},
+"img_Pet_GJ":{"x":409,"y":1,"w":100,"h":97,"offX":0,"offY":0,"sourceW":100,"sourceH":97},
+"img_Pet_point":{"x":488,"y":100,"w":8,"h":8,"offX":2,"offY":2,"sourceW":12,"sourceH":12},
+"img_Pet_S":{"x":428,"y":100,"w":28,"h":28,"offX":0,"offY":0,"sourceW":28,"sourceH":28},
+"img_Pet_SM":{"x":307,"y":1,"w":100,"h":97,"offX":0,"offY":0,"sourceW":100,"sourceH":97},
+"img_Pet_SS":{"x":368,"y":100,"w":28,"h":28,"offX":0,"offY":0,"sourceW":28,"sourceH":28},
+"img_Pet_SSS":{"x":338,"y":100,"w":28,"h":28,"offX":0,"offY":0,"sourceW":28,"sourceH":28},
+"img_Pet_WC":{"x":205,"y":1,"w":100,"h":97,"offX":0,"offY":0,"sourceW":100,"sourceH":97},
+"img_Pet_WF":{"x":103,"y":1,"w":100,"h":97,"offX":0,"offY":0,"sourceW":100,"sourceH":97},
+"img_Pet_xianji":{"x":220,"y":100,"w":86,"h":29,"offX":0,"offY":0,"sourceW":86,"sourceH":29},
+"img_Pet_xingyingzhi":{"x":103,"y":100,"w":115,"h":63,"offX":0,"offY":0,"sourceW":115,"sourceH":63},
+"img_Pet_A":{"x":308,"y":100,"w":28,"h":28,"offX":0,"offY":0,"sourceW":28,"sourceH":28},
+"img_Pet_B":{"x":308,"y":130,"w":28,"h":28,"offX":0,"offY":0,"sourceW":28,"sourceH":28},
+"img_Pet_C":{"x":458,"y":100,"w":28,"h":28,"offX":0,"offY":0,"sourceW":28,"sourceH":28},
+"img_Pet_D":{"x":398,"y":100,"w":28,"h":28,"offX":0,"offY":0,"sourceW":28,"sourceH":28},
+"img_Pet_FC":{"x":1,"y":1,"w":100,"h":97,"offX":0,"offY":0,"sourceW":100,"sourceH":97}}}

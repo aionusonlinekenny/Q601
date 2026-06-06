@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.PropertyItemBoxSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:item="item.*">
+	<item:PropertyChangeItem id="item0" x="0" y="0" skinName="normal.PropertyChangeItemSkin"/>
+</e:Skin>

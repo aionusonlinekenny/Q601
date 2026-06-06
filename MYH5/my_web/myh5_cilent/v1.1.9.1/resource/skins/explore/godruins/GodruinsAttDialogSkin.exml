@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.GodruinsAttDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" height="616" width="531">
+	<e:Image x="0" anchorOffsetX="0" width="528" anchorOffsetY="0" height="611" source="common_json.img_tips_bg_png" scale9Grid="22,26,21,15" y="0"/>
+	<components:SnapButton id="btnAtt" label="挑战" y="537" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" horizontalCenter="0"/>
+	<e:Group id="bossGroup0" x="91" y="111" width="90" height="101">
+		<e:Image id="imgQuality0" source="common_json.img_qlt_1_png" x="0" y="0"/>
+		<e:Image id="imgIcon0" width="80" height="80" x="4" y="4"/>
+		<e:Label id="labName0" text="Label" y="88" size="16" horizontalCenter="0" verticalAlign="middle" textAlign="center" textColor="0xc6b59e"/>
+		<e:Label id="labLv0" text="Label" y="65" size="16" verticalAlign="middle" textAlign="right" textColor="0xc6b59e" right="10" stroke="2"/>
+	</e:Group>
+	<e:Group id="bossGroup1" x="222" y="110" width="90" height="104">
+		<e:Image id="imgQuality1" source="common_json.img_qlt_1_png" x="0" y="0"/>
+		<e:Image id="imgIcon1" width="80" height="80" x="4" y="4"/>
+		<e:Label id="labName1" text="Label" y="88" size="16" horizontalCenter="0" verticalAlign="middle" textAlign="center" textColor="0xc6b59e"/>
+		<e:Label id="labLv1" text="Label" y="65" size="16" verticalAlign="middle" textAlign="right" textColor="0xc6b59e" right="10" stroke="2"/>
+	</e:Group>
+	<e:Group id="bossGroup2" x="352" y="110" width="90" height="104">
+		<e:Image id="imgQuality2" source="common_json.img_qlt_1_png" x="0" y="0"/>
+		<e:Image id="imgIcon2" width="80" height="80" x="4" y="4"/>
+		<e:Label id="labName2" text="Label" y="88" size="16" horizontalCenter="0" verticalAlign="middle" textAlign="center" textColor="0xc6b59e"/>
+		<e:Label id="labLv2" text="Label" y="65" size="16" verticalAlign="middle" textAlign="right" textColor="0xc6b59e" right="8" stroke="2"/>
+	</e:Group>
+	<e:Group id="giftGroup0" x="89" y="350">
+		<e:Image id="imgQualityGift0" source="common_json.img_qlt_1_png" x="0" y="0" touchEnabled="false"/>
+		<components:Icon id="imgIconGift0" width="80" height="80" x="4" y="4" touchEnabled="false"/>
+		<e:Label id="labGiftName0" text="Label" y="88" size="16" horizontalCenter="0" verticalAlign="middle" textAlign="center" textColor="0xc6b59e" touchEnabled="false"/>
+		<e:Label id="labGiftLv0" text="Label" y="66" size="16" textAlign="right" verticalAlign="middle" right="8" textColor="0xc6b59e" touchEnabled="false" stroke="2"/>
+	</e:Group>
+	<e:Group id="giftGroup1" x="220" y="350">
+		<e:Image id="imgQualityGift1" source="common_json.img_qlt_1_png" x="0" y="0" touchEnabled="false"/>
+		<components:Icon id="imgIconGift1" width="80" height="80" x="4" y="4" touchEnabled="false"/>
+		<e:Label id="labGiftName1" text="Label" y="88" size="16" horizontalCenter="0" verticalAlign="middle" textAlign="center" textColor="0xc6b59e" touchEnabled="false"/>
+		<e:Label id="labGiftLv1" text="Label" y="66" size="16" textAlign="right" verticalAlign="middle" right="8" textColor="0xc6b59e" touchEnabled="false" stroke="2"/>
+	</e:Group>
+	<e:Group id="giftGroup2" x="350" y="350">
+		<e:Image id="imgQualityGift2" source="common_json.img_qlt_1_png" x="0" y="0" touchEnabled="false"/>
+		<components:Icon id="imgIconGift2" width="80" height="80" x="4" y="4" touchEnabled="false"/>
+		<e:Label id="labGiftName2" text="Label" y="88" size="16" horizontalCenter="0" verticalAlign="middle" textAlign="center" textColor="0xc6b59e" touchEnabled="false"/>
+		<e:Label id="labGiftLv2" text="Label" y="66" size="16" textAlign="right" verticalAlign="middle" right="8" textColor="0xc6b59e" touchEnabled="false" stroke="2"/>
+	</e:Group>
+	<e:Image source="tips_json.img_tips_title_shuxing" y="271" horizontalCenter="0"/>
+	<e:Image source="tips_json.img_tips_namebg" y="27" horizontalCenter="-0.5"/>
+	<e:Image source="godruins_json.godruins_first_gift" y="267" horizontalCenter="0"/>
+	<e:Label text="遗迹战斗只有上阵幻兽可出战" y="309" size="20" horizontalCenter="0.5" verticalAlign="middle" textAlign="center" textColor="0xb4e224"/>
+	<e:Label id="labName" text="只有上阵幻兽可" y="34" size="20" verticalAlign="middle" textAlign="center" textColor="0xB4E224" horizontalCenter="0.5"/>
+	<e:Image source="godruins_json.godruins_shouhu_pet" x="54" y="116"/>
+</e:Skin>

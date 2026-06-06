@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="CopyWinSkin" width="600" height="916" currentState="collier" xmlns:e="http://ns.egret.com/eui" xmlns:item="item.*"
+        xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" states="material,personboss,everyboss,pagoda,ladderpvp,noend,wilderfigth,collier,godRuins,chuansong"  >
+	<e:Group id="group" y="93" width="434" horizontalCenter="0">
+		<e:Image id="tag" source="img_explore_win_png" y="-85" x="-77" width="588" height="874" scale9Grid="0,417,588,77"/>
+		<e:Image source="copy_json.boss_player_head_back" includeIn="everyboss" y="134.72" scaleX="1.2" scaleY="1.2" x="164"/>
+		<e:Image id="imgHead" includeIn="everyboss" y="145.7" source="player_icon_circle_json.job_1" scaleX="1" scaleY="1" x="174"/>
+		<e:Scroller height="259" y="360" anchorOffsetX="0" anchorOffsetY="0" includeIn="material,personboss,everyboss,pagoda,ladderpvp,wilderfigth,collier,godRuins,chuansong" scrollPolicyH.personboss="off" scrollPolicyV.personboss="on" scrollPolicyH.material="off" scrollPolicyV.material="on" scrollPolicyH.everyboss="off" scrollPolicyV.everyboss="on" scrollPolicyH.pagoda="off" scrollPolicyV.pagoda="on" scrollPolicyH.ladderpvp="off" scrollPolicyV.ladderpvp="on" horizontalCenter.ladderpvp="0.5" y.ladderpvp="336.37" horizontalCenter.personboss="-0.5" y.personboss="451.83" height.personboss="264" horizontalCenter.material="1.5" y.material="335" horizontalCenter.pagoda="0.5" y.pagoda="304.3" width="413" horizontalCenter="0" scrollPolicyH.wilderfigth="off" scrollPolicyV.wilderfigth="on" scrollPolicyH.collier="off" scrollPolicyV.collier="on">
+		<e:List id="list" x="-0.5" y="0" itemRenderer="components.RewardItemRenderer" anchorOffsetY="0" height="241" y.ladderpvp="-1.33" x.ladderpvp="1.33" height.personboss="266" itemRendererSkinName="components.ItemBoxSkin" x.collier="1">
+			<e:layout>
+			<e:TileLayout orientation="rows" requestedColumnCount="4" horizontalGap="16" paddingLeft="6" paddingTop="2" paddingRight="6" paddingBottom="2" columnWidth="90"/>
+			</e:layout>
+			<e:ArrayCollection>
+				<e:Array>
+				</e:Array>
+			</e:ArrayCollection>
+		</e:List>
+		</e:Scroller>
+		<e:Image source="tips_json.img_tips_arrow" includeIn="ladderpvp,wilderfigth" x="180" y="205" scaleX="0.5" scaleY="0.5" y.wilderfigth="267.14"/>
+		<e:Image source="tips_json.img_tips_arrow" includeIn="ladderpvp,wilderfigth" x="180" y="161" scaleX="0.5" scaleY="0.5" y.wilderfigth="223.14"/>
+		<e:Label id="labKillNum" text="本次击败100个怪物" y="396.09" size="20" includeIn="noend" x="130" textColor="0x34e22c"/>
+		<e:Label text="战斗统计" y="313.09" size="25" includeIn="noend" horizontalCenter="0" textColor="0xedc839"/>
+		<e:Image x="313" y="213.01" anchorOffsetX="38" anchorOffsetY="42" source="explore_json.img_big_star_empty" includeIn="material"/>
+		<e:Image x="216" y="191.01" anchorOffsetX="37" anchorOffsetY="42" source="explore_json.img_big_star_empty" includeIn="material"/>
+		<e:Image x="118.5" y="215.01" anchorOffsetX="37" anchorOffsetY="42" source="explore_json.img_big_star_empty" includeIn="material"/>
+		<e:Image id="star1" x="118.5" y="213.01" anchorOffsetX="37" anchorOffsetY="40"  source="explore_json.img_big_star_full" includeIn="material"/>
+		<e:Image id="star3" x="313" y="213.01" anchorOffsetX="38" anchorOffsetY="42"  source="explore_json.img_big_star_full" includeIn="material"/>
+		<e:Image id="star2" x="216" y="191.01" anchorOffsetX="37" anchorOffsetY="42"  source="explore_json.img_big_star_full" includeIn="material"/>
+		<components:SnapButton id="btnOK" label="确   定" y="667" anchorOffsetX="75" width="150" skinName="skins.SnapButtonDefaultSkin" includeIn="material,everyboss,ladderpvp,noend,wilderfigth,collier,godRuins,chuansong" anchorOffsetY="26" y.ladderpvp="672" y.material="673" y.noend="644.27" x="217" x.material="217" x.everyboss="217" x.ladderpvp="217" x.noend="217"/>
+		<components:SnapButton id="btnNext" label="挑战下一关" y="664" anchorOffsetX="81" width="163" skinName="skins.SnapButtonDefaultSkin" x="320" includeIn="pagoda" anchorOffsetY="23"/>
+		<components:SnapButton id="btnExit" label="退出挑战" y="667" anchorOffsetX="82" width="163" skinName="skins.SnapButtonDefaultSkin" x="109" includeIn="pagoda" anchorOffsetY="26"/>
+		<e:Label id="labPrompt" text="获得奖励如下:" x="4.84" y="321.68" size="20" includeIn="material,personboss,everyboss,pagoda,ladderpvp,wilderfigth,collier,godRuins,chuansong" textColor="0xedc839" y.material="297.01" y.ladderpvp="297.71" x.ladderpvp="10.5" text.personboss="BOSS掉落如下 : " y.personboss="413.17" x.personboss="12" y.pagoda="266.98" y.everyboss="314.08" x.everyboss="12.52" x.material="10.84" x.pagoda="9.84" x.wilderfigth="12.84" x.collier="12.84" textColor.material="0x7d6a52" textColor.personboss="0x7d6a52" textColor.everyboss="0x7d6a52" textColor.pagoda="0x7d6a52" textColor.ladderpvp="0x7d6a52" textColor.wilderfigth="0x7d6a52" textColor.collier="0x7d6a52"/>
+		<e:Label text="BOSS归属者" includeIn="everyboss" y="114.72" size="20" textColor="0xedc839" width="157" textAlign="center" x="139"/>
+		<e:Label id="labPlayerName" text="玩家名字维字" includeIn="everyboss" y="249.08" size="20" textAlign="center" width="120" textColor="0x34e22c" x="157"/>
+		<components:RewardItemBox id="drop0" x="21.66" y="179.87" skinName="components.ItemBoxSkin" includeIn="personboss"/>
+		<components:RewardItemBox id="drop1" x="125.67" y="177.86" skinName="components.ItemBoxSkin" includeIn="personboss"/>
+		<components:SnapButton id="btnReceive" label="单倍奖励" x="109" y="323.49" anchorOffsetX="81" anchorOffsetY="26" skinName="skins.SnapButtonDefaultSkin" includeIn="personboss"/>
+		<components:SnapButton id="btnReceiveDouble" label="双倍奖励" x="321" y="323.49" anchorOffsetX="81" anchorOffsetY="26" skinName="skins.SnapButtonDefaultSkin" includeIn="personboss"/>
+		<e:Label text="副本奖励如下 : " x="5" y="150.17" size="20" includeIn="personboss" textColor="0xEDC839"/>
+		<e:Label text="VIP1可领" x="287" y="363.49" size="16" includeIn="personboss" textColor="0x34e22c"/>
+		<e:Label id="labNowRank" text="45" includeIn="ladderpvp,wilderfigth" x="125.66" y="155" size="18" width="41" textAlign="center" textColor="0xc6b59e" y.wilderfigth="217.14"/>
+		<e:Label id="labNowJiFen" text="1" includeIn="ladderpvp,wilderfigth" x="125.66" y="201" size="18" width="41" textAlign="center" textColor="0xc6b59e" y.wilderfigth="263.14"/>
+		<e:Label id="labUpJiFen" text="2" includeIn="ladderpvp,wilderfigth" x="206" y="201" size="18" width="41" textAlign="center" textColor="0x52e708" y.wilderfigth="263.14"/>
+		<e:Label id="labUpRank" text="55" includeIn="ladderpvp,wilderfigth" x="206" y="155" size="18" width="41" textAlign="center" textColor="0x52e708" y.wilderfigth="217.14"/>
+		<e:Label id="labGradeNow" text="青铜1" includeIn="ladderpvp" x="125.66" y="246" size="18" textColor="0xc6b59e"/>
+		<e:Image source="explore_json.img_rank_up" includeIn="ladderpvp,wilderfigth" x="14" y="150" y.wilderfigth="212.14"/>
+		<e:Image source="explore_json.img_grade_now" includeIn="ladderpvp" x="14" y="240"/>
+		<e:Image source="explore_json.img_jifen_up" includeIn="ladderpvp,wilderfigth" x="14" y="195" y.wilderfigth="257.14" source.wilderfigth="wilderfight_json.img_shalu_png"/>
+		<e:Image id="imgUpGrade" source="explore_json.img_grade_up" includeIn="ladderpvp" x="330" y="133"/>
+		<e:Label id="labCountDown" text="5秒后自动进入下一关" x="252" y="698.3" size="14" includeIn="pagoda" textColor="0x37a01c"/>
+		<e:Label text="挑战成功" includeIn="pagoda,wilderfigth,collier,godRuins,chuansong" y="170.54" x="157" textColor="0xedc839" y.wilderfigth="135.71"/>
+	</e:Group>
+	<e:Label id="labTime" text="10" y="829" size="20" touchEnabled="false" horizontalCenter="0" includeIn="material,personboss,everyboss,ladderpvp,noend,wilderfigth,godRuins,chuansong" textColor="0xc6b59e"/>
+</e:Skin>

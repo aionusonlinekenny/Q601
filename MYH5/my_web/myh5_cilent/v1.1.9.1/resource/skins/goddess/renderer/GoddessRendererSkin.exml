@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.GoddessRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" height="505">
+	<e:Image id="imgIcon" source="img_goddess_b1_png" x="3" y="5"/>
+	<e:Image source="img_goddess_namebg_png" x="0" y="0" anchorOffsetX="0" width="197"/>
+	<e:Image id="imgSelected" source="img_goddess_selected_png" x="0" y="0" scale9Grid="11,11,66,66" anchorOffsetX="0" width="197" anchorOffsetY="0" height="505"/>
+	<e:Image id="imgName" source="goddess_json.img_goddess_name_1" x="5" y="11" anchorOffsetX="0" width="186"/>
+</e:Skin>

@@ -1,0 +1,5 @@
+{"file":"shop.png","frames":{
+"img_buy_finsh_png":{"x":1,"y":1,"w":93,"h":95,"offX":0,"offY":0,"sourceW":93,"sourceH":95},
+"img_salebg_png":{"x":171,"y":73,"w":61,"h":70,"offX":0,"offY":0,"sourceW":61,"sourceH":70},
+"btn_mojing_png":{"x":96,"y":1,"w":73,"h":78,"offX":0,"offY":0,"sourceW":73,"sourceH":78},
+"btn_moshi_png":{"x":171,"y":1,"w":73,"h":70,"offX":0,"offY":8,"sourceW":73,"sourceH":78}}}

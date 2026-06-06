@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.FirstPlayerRewardDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:firstplayer="firstplayer.*" height="645" width="522">
+	<e:Image anchorOffsetX="0" width="100%" anchorOffsetY="0" height="100%" source="common_json.img_prompt_bg_png" scale9Grid="32,68,16,22"/>
+	<components:IconButton id="btnClose" x="482" y="29" source="common_json.btn_close_png" anchorOffsetX="28" anchorOffsetY="25"/>
+	<components:IconButton id="btnBack" x="471" y="591.67" anchorOffsetX="37" anchorOffsetY="32" source="common_json.btn_back_png"/>
+	<e:Image id="imgTitle" y="8.68" source="firstplayer_json.img_seekkey_title" x="196"/>
+	<e:Image anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_tips_bg_png" scale9Grid="20,23,22,20" alpha="0.6" touchEnabled="false" height="81" width="467" y="338" horizontalCenter="0"/>
+	<components:SnapButton id="btnReceive" label="领取奖励" y="584.67" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" x="258.33"/>
+	<firstplayer:FirstPlayerRewardItem id="rewardItem" y="447.56" skinName="skin.FirstPlayerRewardItemSkin" x="164"/>
+	<e:Image source="tips_json.img_tips_title_shuxing" y="426.77" horizontalCenter="0.5" touchEnabled="false"/>
+	<e:Image source="firstplayer_json.img__key_receive" y="421.77" horizontalCenter="2.5" touchEnabled="false"/>
+	<e:Image source="img__firstplayer_eff_bg_png" y="22.27" x="45.1" anchorOffsetX="0" width="426.47" anchorOffsetY="0" height="409" alpha="0.2"/>
+	<e:Image id="imgIconKey0" source="firstplayer_json.img_empty_key" x="15" y="58" anchorOffsetX="0" width="45" anchorOffsetY="0" height="37.37"/>
+	<e:Image id="imgIconKey1" source="firstplayer_json.img_empty_key" x="75" y="58" anchorOffsetX="0" width="45" anchorOffsetY="0" height="37.37"/>
+	<e:Image id="imgIconKey2" source="firstplayer_json.img_empty_key" x="134.33" y="58" anchorOffsetX="0" width="45" anchorOffsetY="0" height="37.37"/>
+	<e:Image id="imgCurrKey" source="firstplayer_json.img_big_key1" y="168.33" x="149"/>
+	<e:Label id="labhelp" text="Label" y="366" size="20" anchorOffsetX="0" width="430" anchorOffsetY="0" height="43" verticalAlign="top" textAlign="center" horizontalCenter="0" lineSpacing="2" textColor="0x34e22c"/>
+	<e:Image id="imgTitleKey" source="firstplayer_json.img_name_key2" x="196" y="95.37"/>
+	<e:Image source="firstplayer_json.img_tishi" x="162.83" y="341"/>
+</e:Skin>

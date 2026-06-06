@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.SkillAndTalentItemSkin" currentState="up" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*"  states="up,down" >
+	<e:Image id="imgQuality" y="0" source="common_json.img_qlt_1_png" x="0"/>
+	<e:Image id="imgSelectSkill" source="common_json.img_selectFrame_png" y="6" touchEnabled="false" anchorOffsetX="7" anchorOffsetY="7" x="8" includeIn="down"/>
+	<components:Icon id="imgIcon" y="3" width="80" height="80" x="5" source=""/>
+	<e:Label id="labName" text="11111" size="15" verticalAlign="middle" textAlign="center" horizontalCenter="0" y="87" textColor="0xffffff" stroke="2"/>
+	<e:Label id="labCount" text="11111" size="15" verticalAlign="middle" y="68" textColor="0xffffff" stroke="2" right="6" textAlign="right"/>
+</e:Skin>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.XingYingLunPanSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:tips="tips.*" width="600" height="850">
+	<e:Image source="img_summer_lunpan_bg_jpg" y="38" horizontalCenter="0"/>
+	<e:Label text="消耗魔石开启幸运轮盘可获得积分" x="36" y="47" size="16" stroke="2" textColor="0x80ff19"/>
+	<e:Image id="iconDiamend" y="47" source="uiMain_json.main_img_diamonds" x="442"/>
+	<e:Label id="labDiamond" text="156161116" y="52" anchorOffsetX="0" size="16" rotation="0.39" anchorOffsetY="0" textColor="0x80ff19" verticalAlign="middle" textAlign="left" x="475" stroke="2"/>
+	<e:Image source="img_summer_line_png" y="510" horizontalCenter="0.5" anchorOffsetY="0" height="158"/>
+	<e:Label text="我的积分：" x="36" y="21" size="16" stroke="2" textColor="0xbdbdbd"/>
+	<e:Label id="labJiFen" text="21323" y="21" size="16" textColor="0xffbc5d" stroke="2" verticalAlign="middle" textAlign="left" x="119"/>
+	<e:Label text="截止时间：" x="397" y="21" size="16" stroke="2" textColor="0x6ae1f7"/>
+	<e:Label id="labTime" text="156161116" y="21" size="16" stroke="2" verticalAlign="middle" textAlign="left" x="475" textColor="0x80ff19"/>
+	<e:Image source="img_summer_jifen_png" y="157" x="95"/>
+	<components:RewardItemBox id="item0" x="105" skinName="components.ItemBoxSkin" y="187"/>
+	<components:RewardItemBox id="item4" x="105" skinName="components.ItemBoxSkin" y="304"/>
+	<components:RewardItemBox id="item5" x="205" skinName="components.ItemBoxSkin" y="304"/>
+	<components:RewardItemBox id="item6" x="306" skinName="components.ItemBoxSkin" y="304"/>
+	<components:RewardItemBox id="item1" x="205" skinName="components.ItemBoxSkin" y="187"/>
+	<components:RewardItemBox id="item2" x="306" skinName="components.ItemBoxSkin" y="187"/>
+	<components:RewardItemBox id="item3" x="406" skinName="components.ItemBoxSkin" y="187"/>
+	<components:RewardItemBox id="item7" x="406" skinName="components.ItemBoxSkin" y="304"/>
+	<e:Image source="img_summer_record_png" x="14" y="642"/>
+	<components:SnapButton id="btnOne" label="抽一次" y="600" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" x="181.33"/>
+	<components:SnapButton id="btnFive" label="5连抽" y="600" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" x="423.33"/>
+	<e:Image source="activitySummer_json.img_summer_info_di" y="674" anchorOffsetX="0" width="574" anchorOffsetY="0" height="174" scale9Grid="4,4,25,24" x="13"/>
+	<e:Label text="消耗魔石：" x="118" y="549" size="18" textColor="0x848790" stroke="2"/>
+	<e:Label id="labCountOne" text="100" y="549" size="18" textColor="0x2ff8ff" stroke="2" verticalAlign="middle" textAlign="left" x="206"/>
+	<e:Label text="消耗魔石：" x="359" y="549" size="18" textColor="0x848790" stroke="2"/>
+	<e:Label text="播放特效" x="418" y="647" size="18" stroke="2" textColor="0x848790"/>
+	<e:Label id="labCountFive" text="480" y="549" size="18" textColor="0x2ff8ff" stroke="2" verticalAlign="middle" textAlign="left" x="447"/>
+	<e:Image id="btnTeXiao" source="activitySummer_json.img_summer_seledcd" x="387" y="642"/>
+	<e:Image id="imgTeXiao" source="boss_json.img_boss_selecd" x="394" y="649" touchEnabled="false"/>
+	<e:Image id="icon0" source="activitySummer_json.imgIcon0" x="25" y="88"/>
+	<e:Image id="icon1" x="95" y="88" source="activitySummer_json.imgIcon9"/>
+	<e:Image id="icon2" x="165" y="88" source="activitySummer_json.imgIcon6"/>
+	<e:Image id="icon3" x="235" y="88" source="activitySummer_json.imgIcon3"/>
+	<e:Image id="icon4" x="306" y="88" source="activitySummer_json.imgIcon1"/>
+	<e:Image id="icon5" x="376" y="88" source="activitySummer_json.imgIcon5"/>
+	<e:Image id="icon6" x="446" y="88" source="activitySummer_json.imgIcon7"/>
+	<e:Image id="icon7" x="516" y="88" source="activitySummer_json.imgIcon13"/>
+	<e:Image id="icon8" x="516" y="159" source="activitySummer_json.imgIcon8"/>
+	<e:Image id="icon9" x="516" y="230" source="activitySummer_json.imgIcon6"/>
+	<e:Image id="icon10" x="516" y="300" source="activitySummer_json.imgIcon12"/>
+	<e:Image id="icon11" x="516" y="371" source="activitySummer_json.imgIcon3"/>
+	<e:Image id="icon12" x="516" y="442" source="activitySummer_json.imgIcon2"/>
+	<e:Image id="icon13" x="446" y="442" source="activitySummer_json.imgIcon4"/>
+	<e:Image id="icon14" x="376" y="442" source="activitySummer_json.imgIcon5"/>
+	<e:Image id="icon15" x="306" y="442" source="activitySummer_json.imgIcon11"/>
+	<e:Image id="icon16" x="235" y="442" source="activitySummer_json.imgIcon1"/>
+	<e:Image id="icon17" x="165" y="442" source="activitySummer_json.imgIcon8"/>
+	<e:Image id="icon18" x="95" y="442" source="activitySummer_json.imgIcon10"/>
+	<e:Image id="icon19" x="25" y="442" source="activitySummer_json.imgIcon13"/>
+	<e:Image id="icon20" x="25" y="371" source="activitySummer_json.imgIcon4"/>
+	<e:Image id="icon21" x="25" y="300" source="activitySummer_json.imgIcon14"/>
+	<e:Image id="icon22" x="25" y="230" source="activitySummer_json.imgIcon3"/>
+	<e:Image id="icon23" x="25" y="159" source="activitySummer_json.imgIcon5"/>
+	<e:Label id="lab0" text="XXX" y="129.34" size="16" verticalAlign="middle" textAlign="right" right="518" stroke="2" textColor="0xffffff"/>
+	<e:Label id="lab23" text="XXX" y="200.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="518"/>
+	<e:Label id="lab22" text="XXX" y="271.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="518"/>
+	<e:Label id="lab21" text="XXX" y="341.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="518"/>
+	<e:Label id="lab20" text="XXX" y="412.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="518"/>
+	<e:Label id="lab19" text="XXX" y="483.34" size="16" verticalAlign="middle" textAlign="right" right="518" stroke="2"/>
+	<e:Label id="lab18" text="XXX" y="483.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="447"/>
+	<e:Label id="lab17" text="XXX" y="483.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="376"/>
+	<e:Label id="lab16" text="XXX" y="483.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="306"/>
+	<e:Label id="lab15" text="XXX" y="483.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="235"/>
+	<e:Label id="lab14" text="XXX" y="483.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="165"/>
+	<e:Label id="lab13" text="XXX" y="483.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="94"/>
+	<e:Label id="lab12" text="XXX" y="483.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="24"/>
+	<e:Label id="lab1" text="XXX" y="129.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="447"/>
+	<e:Label id="lab2" text="XXX" y="129.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="376"/>
+	<e:Label id="lab3" text="XXX" y="129.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="306"/>
+	<e:Label id="lab4" text="XXX" y="129.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="235"/>
+	<e:Label id="lab5" text="XXX" y="129.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="165"/>
+	<e:Label id="lab6" text="XXX" y="129.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="94"/>
+	<e:Label id="lab7" text="XXX" y="129.34" size="16" verticalAlign="middle" textAlign="right" right="24" stroke="2"/>
+	<e:Label id="lab8" text="XXX" y="200.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="24"/>
+	<e:Label id="lab9" text="XXX" y="271.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="24"/>
+	<e:Label id="lab10" text="XXX" y="341.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="24"/>
+	<e:Label id="lab11" text="XXX" y="412.34" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="24"/>
+	<e:Image id="imgSeleced" source="activitySummer_json.img_summer_lunpan_xuanze" x="21.33" y="90.34" anchorOffsetX="6.33" anchorOffsetY="11.34"/>
+	<e:Image id="imgSeleced0" source="activitySummer_json.img_summer_lunpan_xuanze" x="31.33" y="100.34" anchorOffsetX="6.33" anchorOffsetY="11.34" visible="false"/>
+	<e:Image id="imgSeleced1" source="activitySummer_json.img_summer_lunpan_xuanze" x="41.33" y="110.34" anchorOffsetX="6.33" anchorOffsetY="11.34" visible="false"/>
+	<e:Image id="imgSeleced2" source="activitySummer_json.img_summer_lunpan_xuanze" x="51.33" y="120.34" anchorOffsetX="6.33" anchorOffsetY="11.34" visible="false"/>
+	<e:Image id="imgSeleced3" source="activitySummer_json.img_summer_lunpan_xuanze" x="61.33" y="130.34" anchorOffsetX="6.33" anchorOffsetY="11.34" visible="false"/>
+	<e:Image id="imgSeleced4" source="activitySummer_json.img_summer_lunpan_xuanze" x="71.33" y="140.34" anchorOffsetX="6.33" anchorOffsetY="11.34" visible="false"/>
+	<e:Scroller id="scroller" width="558" height="154" x="20" y="682" anchorOffsetY="0" anchorOffsetX="0">
+		<e:List id="list" itemRendererSkinName="renderer.XingYingLunPanRendererSkin" itemRenderer="renderer.XingYingLunPanRenderer" width="558" height="158" anchorOffsetX="0" anchorOffsetY="0">
+		</e:List>
+	</e:Scroller>
+	<e:Image source="activitySummer_json.img_xianding" x="102" y="187"/>
+	<e:Image source="activitySummer_json.img_xianding" x="202" y="187"/>
+	<e:Label id="btnJIfen" text="积分兑换" y="21" size="16" verticalAlign="middle" textAlign="left" textColor="0x80FF19" x="194"/>
+</e:Skin>

@@ -1,0 +1,12 @@
+{"file":"step_font.png","frames":{
+"9":{"x":34,"y":0,"w":19,"h":30,"offX":0,"offY":0,"sourceW":20,"sourceH":31},
+"阶":{"x":0,"y":0,"w":32,"h":33,"offX":0,"offY":0,"sourceW":33,"sourceH":34},
+"0":{"x":0,"y":35,"w":15,"h":21,"offX":3,"offY":6,"sourceW":20,"sourceH":31},
+"1":{"x":17,"y":35,"w":13,"h":23,"offX":3,"offY":5,"sourceW":20,"sourceH":31},
+"2":{"x":74,"y":25,"w":20,"h":21,"offX":0,"offY":6,"sourceW":20,"sourceH":31},
+"3":{"x":55,"y":30,"w":16,"h":26,"offX":0,"offY":4,"sourceW":20,"sourceH":31},
+"4":{"x":96,"y":26,"w":19,"h":22,"offX":0,"offY":6,"sourceW":20,"sourceH":31},
+"5":{"x":74,"y":0,"w":20,"h":23,"offX":0,"offY":5,"sourceW":20,"sourceH":31},
+"6":{"x":55,"y":0,"w":17,"h":28,"offX":0,"offY":1,"sourceW":20,"sourceH":31},
+"7":{"x":96,"y":0,"w":19,"h":24,"offX":0,"offY":3,"sourceW":20,"sourceH":31},
+"8":{"x":34,"y":32,"w":16,"h":25,"offX":0,"offY":2,"sourceW":20,"sourceH":31}}}

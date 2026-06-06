@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.ForgingMainSkin" width="600" height="916" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:tween="egret.tween.*" xmlns:ns1="*" xmlns:components="components.*" states="fuMo,baoShi,zhuMo" >
+	<e:Image id="imgBackBg" y="-1.47" horizontalCenter="0" source="img_forging_jpg"/>
+	<e:Image y="145.53" x="151" source="img_disk_png"/>
+	<e:Image y="710" anchorOffsetX="0" anchorOffsetY="0" height="156.33" source="common_implementbar_png" horizontalCenter="0" scale9Grid="0,12,640,16"/>
+	<e:Image id="imgBg" y="610.97" anchorOffsetY="0" height="106" source="common_infobar_png" horizontalCenter="0.5" scale9Grid="0,25,584,9"/>
+	<ns1:ForgingIcon id="img1" x="302" y="20.53" anchorOffsetX="52" skinName="ForgingIconSkin"/>
+	<ns1:ForgingIcon id="img2" x="472" y="85.53" anchorOffsetX="52" skinName="ForgingIconSkin"/>
+	<ns1:ForgingIcon id="img3" x="528" y="240.53" anchorOffsetX="52" skinName="ForgingIconSkin"/>
+	<ns1:ForgingIcon id="img4" x="472" y="395.53" anchorOffsetX="52" skinName="ForgingIconSkin"/>
+	<ns1:ForgingIcon id="img5" y="455.53" x="302" anchorOffsetX="52" anchorOffsetY="0" skinName="ForgingIconSkin"/>
+	<ns1:ForgingIcon id="img6" x="128" y="395.53" anchorOffsetX="52" skinName="ForgingIconSkin"/>
+	<ns1:ForgingIcon id="img7" x="71" y="240.53" anchorOffsetX="52" skinName="ForgingIconSkin"/>
+	<ns1:ForgingIcon id="img8" x="128" y="85.53" anchorOffsetX="52" skinName="ForgingIconSkin"/>
+	<e:ToggleButton id="togFuMo" label="魔魂" x="185.67" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" anchorOffsetX="58.67" anchorOffsetY="24.34" bottom="0">
+	</e:ToggleButton>
+	<e:ToggleButton id="togGem" label="宝石" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" x="301.67" anchorOffsetX="58.67" anchorOffsetY="24" bottom="0">
+	</e:ToggleButton>
+	<e:ToggleButton id="togInPower" label="注灵" x="416" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" anchorOffsetX="58" anchorOffsetY="24.67" bottom="0">
+	</e:ToggleButton>
+	<e:Group y="736" horizontalCenter="0">
+		<e:Label id="labPropName" text="需要极品碎片 : " x="0" y="0" size="20" textAlign="left" textColor="0xcfc9be"/>
+		<e:Label id="labProp" text="0/0" y="0" size="20" anchorOffsetY="0" textColor="0xdd4f4f" textAlign="left" anchorOffsetX="0" x="136" x.zhuMo="155"/>
+	</e:Group>
+	<components:SnapButton id="btnForging" label="提  升" y="794.52" skinName="skins.SnapButtonDefaultSkin" anchorOffsetX="74" label.fuMo="附  魔" label.zhuMo="注  灵" icon="img_warn_png" anchorOffsetY="26" width="160" height="56" x="294"/>
+	<components:IconButton id="imgGetProp" x="443" y="711" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_getRes_png"/>
+	<e:Group id="gp0" x="50" y="640.29" scaleX="1" scaleY="1">
+		<e:Label id="labArb0" text="生命 : 99999" x="0" size="20" scaleX="1" scaleY="1" y="0" textColor="0xc6b59e"/>
+		<e:Label id="labUp0" text="Label" x="177" y="0" size="20" textColor="0x39d800"/>
+		<e:Image id="row0" x="139.67" y="0" source="common_json.img_arrow_green_png"/>
+	</e:Group>
+	<e:Group id="gp1" x="338" y="640.29" scaleX="1" scaleY="1">
+		<e:Label id="labArb1" text="生命 : 99999" x="0" size="20" scaleX="1" scaleY="1" y="0" textColor="0xc6b59e"/>
+		<e:Label id="labUp1" text="Label" x="179" y="0" size="20" textColor="0x39D800"/>
+		<e:Image id="row1" x="140.67" y="0" source="common_json.img_arrow_green_png"/>
+	</e:Group>
+	<e:Group id="gp2" x="50" y="679.96" scaleX="1" scaleY="1">
+		<e:Label id="labArb2" text="生命 : 99999" x="0" size="20" scaleX="1" scaleY="1" y="0" textColor="0xc6b59e"/>
+		<e:Label id="labUp2" text="Label" x="177" y="0" size="20" textColor="0x39D800"/>
+		<e:Image id="row2" x="139.67" y="0" source="common_json.img_arrow_green_png"/>
+	</e:Group>
+	<e:Group id="gp3" x="338" y="679.96" scaleX="1" scaleY="1">
+		<e:Label id="labArb3" text="生命 : 99999" x="0" size="20" scaleX="1" scaleY="1" y="0" textColor="0xc6b59e"/>
+		<e:Label id="labUp3" text="Label" x="179" y="0" size="20" textColor="0x39D800"/>
+		<e:Image id="row3" x="140.67" y="0" source="common_json.img_arrow_green_png"/>
+	</e:Group>
+	<e:Group id="gpEffect" y="290" x="300" anchorOffsetY="158"/>
+	<e:Label text="长按可以连续操作" y="836" size="18" horizontalCenter="0" textColor="0x7d6a52"/>
+	<e:Image source="common_fightBg_png" y="558.6" horizontalCenter="0"/>
+	<e:Image x="214.94" y="567.27" source="common_json.img_fight_png" width="57" height="31"/>
+	<e:BitmapLabel id="labFight" y="568.79" anchorOffsetX="0" anchorOffsetY="0" text="7200" touchEnabled="false" left="281" font="fight_font2_fnt"/>
+</e:Skin>

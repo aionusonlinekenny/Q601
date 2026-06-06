@@ -1,0 +1,12 @@
+{"file":"platformactivity.png","frames":{
+"btn_Years":{"x":124,"y":1,"w":121,"h":64,"offX":0,"offY":0,"sourceW":121,"sourceH":64},
+"btn_Years1":{"x":1,"y":1,"w":121,"h":64,"offX":0,"offY":0,"sourceW":121,"sourceH":64},
+"btn_Yellow":{"x":1,"y":67,"w":110,"h":47,"offX":0,"offY":0,"sourceW":110,"sourceH":47},
+"img_Yellow_finsh":{"x":128,"y":199,"w":58,"h":22,"offX":0,"offY":0,"sourceW":58,"sourceH":22},
+"img_Yellow_v0":{"x":128,"y":133,"w":125,"h":31,"offX":0,"offY":0,"sourceW":125,"sourceH":31},
+"img_Yellow_v1":{"x":1,"y":133,"w":125,"h":31,"offX":0,"offY":0,"sourceW":125,"sourceH":31},
+"img_Yellow_v2":{"x":113,"y":100,"w":125,"h":31,"offX":0,"offY":0,"sourceW":125,"sourceH":31},
+"img_Yellow_v3":{"x":113,"y":67,"w":125,"h":31,"offX":0,"offY":0,"sourceW":125,"sourceH":31},
+"img_Yellow_v4":{"x":1,"y":199,"w":125,"h":31,"offX":0,"offY":0,"sourceW":125,"sourceH":31},
+"img_Yellow_v5":{"x":128,"y":166,"w":125,"h":31,"offX":0,"offY":0,"sourceW":125,"sourceH":31},
+"img_Yellow_v6":{"x":1,"y":166,"w":125,"h":31,"offX":0,"offY":0,"sourceW":125,"sourceH":31}}}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin.FirstPlayerRewardItemSkin" width="195" height="110" xmlns:e="http://ns.egret.com/eui"  xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="group1" x="98.8" y="0" anchorOffsetY="0" height="110">
+		<e:Image id="quality1" x="0" y="0" source="common_json.img_qlt_6_png"/>
+		<components:Icon id="icon1" width="80" height="80" anchorOffsetX="0" anchorOffsetY="0" x="5" y="3"/>
+		<e:Label id="labName1" text="名称" y="88" size="16" verticalAlign="middle" textColor="0xC6B59E" horizontalCenter="0" textAlign="center"/>
+		<e:Label id="labCount1" text="x100" y="66" bold="true" size="16" verticalAlign="middle" stroke="2" textColor="0xC6B59E" anchorOffsetX="0" width="77" x="6" textAlign="right"/>
+		<e:Image id="wenhao1" x="17" y="14" source="firstplayer_json.img_wenhao"/>
+	</e:Group>
+	<e:Group id="group0" anchorOffsetY="0" height="110" x="5.8" y="0">
+		<e:Image id="quality0" x="0" y="0" source="common_json.img_qlt_6_png"/>
+		<components:Icon id="icon0" width="80" height="80" anchorOffsetX="0" anchorOffsetY="0" x="5" y="3"/>
+		<e:Label id="labName0" text="名称" y="88" size="16" verticalAlign="middle" horizontalCenter="0" textAlign="center" textColor="0xc6b59e"/>
+		<e:Label id="labCount0" text="x100" y="66" bold="true" size="16" verticalAlign="middle" stroke="2" textColor="0xC6B59E" anchorOffsetX="0" width="77" x="6" textAlign="right"/>
+		<e:Image id="wenhao0" x="16" y="14" source="firstplayer_json.img_wenhao"/>
+	</e:Group>
+	<e:Image id="imgState" source="firstplayer_json.img_received" x="39" y="8" touchEnabled="false"/>
+</e:Skin>

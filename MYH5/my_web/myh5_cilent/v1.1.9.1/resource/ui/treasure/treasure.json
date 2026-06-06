@@ -1,0 +1,12 @@
+{"file":"treasure.png","frames":{
+"img_treasure_record":{"x":421,"y":81,"w":88,"h":24,"offX":0,"offY":0,"sourceW":88,"sourceH":24},
+"img_BaoCangtitle1":{"x":78,"y":81,"w":212,"h":24,"offX":0,"offY":2,"sourceW":214,"sourceH":28},
+"img_discoount":{"x":214,"y":107,"w":61,"h":24,"offX":0,"offY":0,"sourceW":61,"sourceH":24},
+"img_discoount2":{"x":1,"y":81,"w":75,"h":74,"offX":0,"offY":0,"sourceW":75,"sourceH":74},
+"img_exp":{"x":421,"y":107,"w":61,"h":23,"offX":2,"offY":2,"sourceW":65,"sourceH":26},
+"img_preview":{"x":292,"y":81,"w":127,"h":31,"offX":1,"offY":2,"sourceW":131,"sourceH":35},
+"img_treasure_addexp":{"x":78,"y":107,"w":91,"h":37,"offX":0,"offY":0,"sourceW":91,"sourceH":37},
+"img_treasure_baoji2":{"x":250,"y":1,"w":241,"h":78,"offX":6,"offY":0,"sourceW":247,"sourceH":78},
+"img_treasure_baoji3":{"x":1,"y":1,"w":247,"h":78,"offX":0,"offY":0,"sourceW":247,"sourceH":78},
+"img_treasure_god":{"x":484,"y":107,"w":24,"h":25,"offX":1,"offY":1,"sourceW":26,"sourceH":27},
+"img_treasure_prize":{"x":171,"y":107,"w":41,"h":45,"offX":0,"offY":0,"sourceW":41,"sourceH":45}}}

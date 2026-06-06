@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin width="150" height="150" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" class="components.MoveControlSkin">
+	<e:Image id="back" x="0" y="0" source="uiMain_json.img_control_back"/>
+	<e:Image id="ball" anchorOffsetX="30" anchorOffsetY="30" y="75" x="75" source="uiMain_json.img_control_ball"/>
+</e:Skin>

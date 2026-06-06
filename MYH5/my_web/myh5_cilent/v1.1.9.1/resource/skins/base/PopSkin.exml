@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="base.PopSkin" width="597" height="569" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image x="0" y="0" width="100%" height="100%" source="main_pop_back_png" scale9Grid="160,73,187,46"/>
+	<e:Image y="0" horizontalCenter="0" source="uiMain_json.img_titlePoint"/>
+	<e:Image id="imgTitle" source="" y="4" horizontalCenter="0"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="26" anchorOffsetY="24" y="24" right="0"/>
+</e:Skin>

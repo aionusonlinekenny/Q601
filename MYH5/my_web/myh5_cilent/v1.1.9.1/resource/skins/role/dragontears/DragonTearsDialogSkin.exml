@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.DragonTearsDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
+        xmlns:components="components.*" xmlns:item="item.*" width="600" height="916">
+	<e:Image id="imgBg" source="role_peeragebg_jpg" x="1"/>
+	<e:Image y="445" anchorOffsetY="0" height="235" horizontalCenter="0.5" source="common_infobar_png" scale9Grid="4,25,583,13"/>
+	<e:Image source="role_json.img_dragon_di_png" x="45" y="64"/>
+	<e:Image source="common_implementbar_png" anchorOffsetY="0" height="237" horizontalCenter="0" scale9Grid="80,15,480,14" y="679"/>
+	<e:Image source="common_json.img_numbg_png" y="790.01" anchorOffsetY="0" height="41" anchorOffsetX="0" width="254" scale9Grid="11,5,40,12" x="176" visible="false"/>
+	<e:Label text="需要等级:" x="130" y="712" size="20" anchorOffsetY="0" wordWrap="false"
+	         lineSpacing="10"  textColor="0xc6b59e"/>
+	<e:Label text="需要金币:" x="332" y="712" size="20" anchorOffsetY="0" wordWrap="false"
+	         lineSpacing="10"  textColor="0xc6b59e"/>
+	<e:Image source="common_json.img_numbg_png" y="738" anchorOffsetY="0" height="41" anchorOffsetX="0" width="94" scale9Grid="11,5,40,12" x="175" visible="false"/>
+	<e:Image source="common_json.img_numbg_png" y="735" anchorOffsetY="0" height="41" anchorOffsetX="0" width="98" scale9Grid="11,5,40,12" x="434.68" visible="false"/>
+	<e:Label id="labLv" text="神5" x="224" y="712" size="20" anchorOffsetY="0"
+	         wordWrap="false" lineSpacing="10"  textColor="0x34e22c"/>
+	<e:Label id="labNeedCoin" text="50000" x="421.69" y="712" size="20" anchorOffsetY="0"
+	         wordWrap="false" lineSpacing="10"  textColor="0x34e22c"/>
+	<e:Group y="775.01" horizontalCenter="0.5">
+		<e:Label text="消耗碎片:" x="0" y="0" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xc6b59e"/>
+		<e:Label id="labNeedDebris" text="50000" x="111" y="0" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0x34e22c"/>
+	</e:Group>
+	<e:Label text="幻兽和角色都享受加成" y="642.67" size="20" anchorOffsetY="0" wordWrap="false"
+	         lineSpacing="10" horizontalCenter="0"  textColor="0x34e22c"/>
+	<components:IconButton id="btnGetDebris" x="522" y="783" source="common_json.img_getRes_png"  anchorOffsetX="34" anchorOffsetY="33" rotation="359.05"/>
+	<components:SnapButton id="btnUpgrade" label="升级" y="843" anchorOffsetX="82"
+	                       skinName="skins.SnapButtonDefaultSkin"  icon="img_warn_png" anchorOffsetY="27" x="301"/>
+	<e:Image id="starBox0" x="96" y="322" source="role_json.img_startbg_png" anchorOffsetX="31" anchorOffsetY="36"/>
+	<e:Image id="starBox1" source="role_json.img_startbg_png" x="111.14" y="224" anchorOffsetX="31" anchorOffsetY="36"/>
+	<e:Image id="starBox2" source="role_json.img_startbg_png" x="165.29" y="148" anchorOffsetX="31" anchorOffsetY="36"/>
+	<e:Image id="starBox3" source="role_json.img_startbg_png" x="254.43" y="104" anchorOffsetX="31" anchorOffsetY="36"/>
+	<e:Image id="starBox4" source="role_json.img_startbg_png" x="348.57" y="104" anchorOffsetX="31" anchorOffsetY="36"/>
+	<e:Image id="starBox5" source="role_json.img_startbg_png" x="437.71" y="148" anchorOffsetX="31" anchorOffsetY="36"/>
+	<e:Image id="starBox6" source="role_json.img_startbg_png" x="491.86" y="224" anchorOffsetX="31" anchorOffsetY="36"/>
+	<e:Image id="starBox7" source="role_json.img_startbg_png" y="322" x="505" anchorOffsetX="31" anchorOffsetY="36"/>
+	<e:BitmapLabel id="blabStep" x="81" y="59" font="step_font_fnt" text="1阶"/>
+	<item:PropertyItemBox id="propertyBox" y="480" skinName="normal.PropertyItemBoxSkin" horizontalCenter="0"/>
+	<e:Image source="common_fightBg_png" y="394.96" horizontalCenter="0"/>
+	<e:Image x="214.94" y="403.63" source="common_json.img_fight_png" width="57" height="31"/>
+	<e:BitmapLabel id="labFight" y="405.15" anchorOffsetX="0" anchorOffsetY="0" text="7200" touchEnabled="false" left="281" font="fight_font2_fnt"/>
+</e:Skin>

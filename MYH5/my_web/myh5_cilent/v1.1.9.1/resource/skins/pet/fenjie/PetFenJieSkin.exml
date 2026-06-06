@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.PetFenJieSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="ui.*" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" xmlns:base="base.*" xmlns:components="components.*" width="600" height="867">
+	<e:Image y="21" anchorOffsetX="0" width="600" anchorOffsetY="0" height="743" horizontalCenter="0" source="common_json.img_inbg_png" scale9Grid="5,6,18,15"/>
+
+    <e:Scroller id="scrollerFenjie" width="590.33" height="731.67" y="25.67" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="auto" scrollPolicyV="auto" x="4.67">
+			<e:List id="listFenjie" itemRenderer="PetFenJieRenderer" anchorOffsetY="0" height="732.67" x="1" itemRendererSkinName="renderer.PetFenJieRendererSkin" anchorOffsetX="0" width="590.33">
+				<e:layout>
+					<e:VerticalLayout gap="2" paddingLeft="0"/>
+				</e:layout>
+			</e:List>
+	</e:Scroller>
+	<e:Image height="101" anchorOffsetX="0" horizontalCenter="0" anchorOffsetY="0" source="common_implementbar_png" scale9Grid="0,12,640,16" bottom="0"/>
+	<e:Image source="common_json.img_qlt_1_png" x="23" y="774" visible="false"/>
+	<e:Image source="common_json.img_qlt_1_png" x="362" y="774" visible="false"/>
+	<e:Image source="common_json.img_numbg_png" x="112" y="803" scale9Grid="7,7,47,11" anchorOffsetX="0" width="110" anchorOffsetY="0" height="35" visible="false"/>
+	<e:Image source="common_json.img_numbg_png" x="452" y="803" width="110" height="35" scale9Grid="7,8,47,7" visible="false"/>
+	<components:Icon id="imgIcon1" width="80" height="80" x="144" y="796" touchEnabled="true" scaleX="0.5" scaleY="0.5"/>
+	<components:Icon id="imgIcon2" width="80" height="80" x="367" y="796" touchEnabled="true" scaleX="0.5" scaleY="0.5"/>
+	<e:Label id="lab1" text="Label" y="806" size="20" verticalAlign="middle" textAlign="left" textColor="0xc6b59e" x="198"/>
+	<e:Label id="lab2" text="Label" y="806" size="20" verticalAlign="middle" textAlign="left" textColor="0xc6b59e" x="423"/>
+	<e:Label id="labNoFenjie" text="没有可分解的幻兽。" y="364" horizontalCenter="0" size="20" textColor="0x7d6a52"/>
+</e:Skin>

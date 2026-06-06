@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.RolePhantomSkin" width="600" height="916" currentState="activate" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:item="item.*" xmlns:components="components.*" states="unactivate,activate"  width.activate="600" width.unactivate="600" height.activate="916">
+	<e:Image source="role_huanwubg_jpg" y="0" touchEnabled.activate="false" horizontalCenter.activate="0" horizontalCenter.unactivate="0" horizontalCenter="0"/>
+	<e:Image y="650" anchorOffsetY="0" height="185" source="common_infobar_png" scale9Grid="0,25,587,9" anchorOffsetX="0" horizontalCenter="0.5" horizontalCenter.activate="0" horizontalCenter.unactivate="0.5" y.unactivate="650" y.activate="650"/>
+	<e:Image source="common_implementbar_png" anchorOffsetY="0" height="131" scale9Grid="80,15,480,14" y="787" horizontalCenter.unactivate="0" y.activate="787" horizontalCenter.activate="0" horizontalCenter="0" y.unactivate="787"/>
+	<e:Image source="common_shubar_png" x="509" y="197" touchEnabled.activate="false"/>
+	<e:Image source="common_json.img_numbg_png" y="800" anchorOffsetY="0" height="42" anchorOffsetX="0" width="108" horizontalCenter="36" scale9Grid="11,5,40,12" includeIn="activate" touchEnabled="false"/>
+	<e:Image y="122.17" source="common_fightBg_png" horizontalCenter="0" touchEnabled.activate="false" horizontalCenter.activate="0"/>
+	<e:Image x="205" y="128" source="common_json.img_fight_png" width="57" height="31" touchEnabled.activate="false"/>
+	<e:Image x="488" y="147" includeIn="activate" touchEnabled="false" source="rolePhantom_json.role_phantom_jie_png"/>
+	<e:Image id="imgSelect" source="explore_json.img_circle_gold" x="80" y="47" anchorOffsetX="43" anchorOffsetY="43" width="83" height="83"/>
+	<item:PropertyItemBox id="propertyBox" y="670" skinName="normal.PropertyItemBoxSkin" horizontalCenter="0" horizontalCenter.activate="0" y.activate="670" y.unactivate="670" touchChildren.activate="false" horizontalCenter.unactivate="0"/>
+	<components:SnapButton id="btnState" label="激活" y="860" anchorOffsetX="81" width="162" skinName="skins.SnapButtonDefaultSkin"  y.activate="878" y.unactivate="860" horizontalCenter.unactivate="0" anchorOffsetX.unactivate="81" anchorOffsetY.unactivate="26" anchorOffsetX.activate="81" anchorOffsetY.activate="26" horizontalCenter.activate="0" anchorOffsetY="26" horizontalCenter="0"/>
+	<components:SnapButton id="btnFinght" label="出战" anchorOffsetX="65" skinName="skins.SnapOrangeButtonSkin" anchorOffsetY="26" y="537" includeIn="activate" width="130" height="52" horizontalCenter="0"/>
+	<components:IconButton id="btnGetMaterial" x="483" y="828.5" source="common_json.img_getRes_png" anchorOffsetX="38" anchorOffsetY="36" includeIn="activate"/>
+	<e:BitmapLabel id="blabFight" y="129.8" text="8765199" touchEnabled="false" x="272.96" font="fight_font2_fnt"/>
+	<e:BitmapLabel id="blabNum" width="53" height="30" x="489" y="154" text="20" anchorOffsetY="0" anchorOffsetX="0" touchEnabled.activate="false" letterSpacing="-10" textAlign="center" includeIn="activate" font="rolePhantom_font_fnt"/>
+	<item:RolePhantomStar id="star" y="612" skinName="item.RolePhantomStarSkin" horizontalCenter="0" includeIn="activate"/>
+	<item:RolePhantomHeadIcon id="headIcon0" x="39" y="7" skinName="normal.RolePhantomHeadIconSkin" y.unactivate="7" y.activate="7"/>
+	<item:RolePhantomHeadIcon id="headIcon1" x="129" y="7" skinName="normal.RolePhantomHeadIconSkin" y.unactivate="7" y.activate="7"/>
+	<item:RolePhantomHeadIcon x="219" y="7" skinName="normal.RolePhantomHeadIconSkin" id="headIcon2" y.unactivate="7" y.activate="7"/>
+	<item:RolePhantomHeadIcon x="309" y="7" skinName="normal.RolePhantomHeadIconSkin" id="headIcon3" y.unactivate="7" y.activate="7"/>
+	<item:RolePhantomHeadIcon x="399" y="7" skinName="normal.RolePhantomHeadIconSkin" id="headIcon4" y.unactivate="7" y.activate="7"/>
+	<item:RolePhantomHeadIcon x="489" y="7" skinName="normal.RolePhantomHeadIconSkin" id="headIcon5" y.unactivate="7" y.activate="7"/>
+	<e:Label id="labDes" text="增加角色攻防固定值，外加幻武培养总属性的50%，外加幻武培养总属性的50%" y="573" size="18" anchorOffsetY="0" height="41" anchorOffsetX="0" width="470" verticalAlign="top" textAlign="left" touchEnabled.activate="false" y.activate="573" y.unactivate="573" textColor="0xcfc9be" horizontalCenter="22"/>
+	<e:Label id="labName" text="亚特之心" x="522" y="249" size="20" anchorOffsetY="0" height="88" anchorOffsetX="0" width="24" stroke="2" strokeColor="0x783510" touchEnabled.activate="false" height.activate="130" y.activate="233" verticalAlign.activate="middle" y.unactivate="233" height.unactivate="130" textAlign.unactivate="center" verticalAlign.unactivate="middle" textAlign.activate="center"/>
+	<e:Label id="labNeed" text="消耗幻武之石 : " x="113" y="809" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xCFC9BE" includeIn="activate" textAlign="right" touchEnabled="false" anchorOffsetX="0" width="169"/>
+	<e:Label id="labCount" text="8000/8000" y="808" size="20" anchorOffsetX="0" textAlign="center" horizontalCenter="35.5" textColor="0x34E22C" includeIn="activate" touchEnabled="false"/>
+	<e:Label id="labOpen" text="消耗幻武之石 : " y="845" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textAlign="center" touchEnabled="false" anchorOffsetX="0" width="169" includeIn="unactivate" horizontalCenter="0" textColor="0xff0000"/>
+	<components:Icon id="imgWarn" source="common_json.img_warn_png" x="219" y="833" y.activate="851" x.activate="219" y.unactivate="833" x.unactivate="219"/>
+	<components:IconButton id="btnPart" x="127" y="520" anchorOffsetX="68" anchorOffsetY="32" includeIn="activate" source="rolePhantom_json.role_phantom_part_btn_png"/>
+	<components:Icon id="imgPartWarn" source="common_json.img_warn_png" x="59" y="488" includeIn="activate"/>
+	<e:Label id="labUnactive" text="(未激活)" x="87" y="551" size="18" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xB6281A" y.activate="551" x.activate="87"/>
+</e:Skin>

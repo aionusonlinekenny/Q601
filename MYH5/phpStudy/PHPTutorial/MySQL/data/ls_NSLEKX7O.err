@@ -1,0 +1,19 @@
+230919 13:57:57 [Note] Plugin 'FEDERATED' is disabled.
+230919 13:57:57 InnoDB: The InnoDB memory heap is disabled
+230919 13:57:57 InnoDB: Mutexes and rw_locks use Windows interlocked functions
+230919 13:57:57 InnoDB: Compressed tables use zlib 1.2.3
+230919 13:57:57 InnoDB: Initializing buffer pool, size = 47.0M
+230919 13:57:57 InnoDB: Completed initialization of buffer pool
+230919 13:57:57 InnoDB: highest supported file format is Barracuda.
+InnoDB: The log sequence number in ibdata files does not match
+InnoDB: the log sequence number in the ib_logfiles!
+230919 13:57:57  InnoDB: Database was not shut down normally!
+InnoDB: Starting crash recovery.
+InnoDB: Reading tablespace information from the .ibd files...
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+230919 13:57:57  InnoDB: Waiting for the background threads to start
+230919 13:57:58 InnoDB: 5.5.53 started; log sequence number 46275203
+230919 13:57:58 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+230919 13:57:58 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+230919 13:57:58 [Note] Server socket created on IP: '0.0.0.0'.

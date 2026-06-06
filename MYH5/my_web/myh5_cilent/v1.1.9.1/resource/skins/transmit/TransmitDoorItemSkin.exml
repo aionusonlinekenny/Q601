@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.TransmitDoorItemSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*"  width="90" height="105">
+	<e:Image id="imgQuality" y="0" source="common_json.img_qlt_1_png" x="0"/>
+	<components:Icon id="imgIcon" y="3" width="80" height="80" x="5" source=""/>
+	<e:Label id="labName" text="11111" size="16" verticalAlign="middle" textAlign="center" horizontalCenter="0" y="88" textColor="0xc6b59e" stroke="2"/>
+	<e:Label id="labCount" text="11111" size="16" verticalAlign="middle" y="66" textColor="0xC6B59E" textAlign="right" right="8" stroke="2"/>
+</e:Skin>

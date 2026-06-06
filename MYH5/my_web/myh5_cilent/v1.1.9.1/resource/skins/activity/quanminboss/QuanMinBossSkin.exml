@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.QuanMinBossSkin" width="600" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" height="850">
+	<e:Image id="img0" x="35.5" y="229" anchorOffsetY="0" anchorOffsetX="0" scale9Grid="27,89,47,16" height="150" source="activity_every_json.activity_every_boss_bg"/>
+	<e:Image id="img1" x="143" y="229" anchorOffsetY="0" anchorOffsetX="0" scale9Grid="27,89,47,16" height="150" source="activity_every_json.activity_every_boss_bg"/>
+	<e:Image id="img2" x="250.5" y="229" anchorOffsetY="0" anchorOffsetX="0" scale9Grid="27,89,47,16" height="150" source="activity_every_json.activity_every_boss_bg"/>
+	<e:Image id="img3" x="358" y="229" anchorOffsetY="0" anchorOffsetX="0" scale9Grid="27,89,47,16" height="150" source="activity_every_json.activity_every_boss_bg"/>
+	<e:Image id="img4" x="465.5" y="229" anchorOffsetY="0" anchorOffsetX="0" scale9Grid="27,89,47,16" height="150" source="activity_every_json.activity_every_boss_bg"/>
+	<e:Button id="btn0" label="" icon="img_warn_png" anchorOffsetX="47" anchorOffsetY="38" x="88" y="281" width="92">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="activity_every_json.activity_every_boss1"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="btn1" label="" icon="img_warn_png" anchorOffsetX="47" anchorOffsetY="38" x="197" y="281">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="activity_every_json.activity_every_boss2"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="btn2" label="" icon="img_warn_png" anchorOffsetX="47" anchorOffsetY="38" x="303" y="281">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="activity_every_json.activity_every_boss3"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="btn3" label="" icon="img_warn_png" anchorOffsetX="47" anchorOffsetY="38" x="432" y="281">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="activity_every_json.activity_every_boss4"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="btn4" label="" icon="img_warn_png" anchorOffsetX="47" anchorOffsetY="38" x="514" y="281">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="activity_every_json.activity_every_boss5"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<components:SnapButton id="btnGet" label="领取" y="816" anchorOffsetX="82" icon="img_warn_png" anchorOffsetY="27" width="162" skinName="skins.SnapButtonDefaultSkin" x="301"/>
+	<e:Label text="击杀全部指定BOSS即可领取永久属性称号" y="554" size="20" textColor="0x34e22c" x="112"/>
+	<e:Label text="通杀大礼包" y="646" size="20" textColor="0xffb200" x="250"/>
+	<components:RewardItemBox id="reward0" y="677" skinName="components.ItemBoxSkin" x="85"/>
+	<components:RewardItemBox id="reward1" x="198" y="677" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward2" x="311" y="677" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward3" y="677" skinName="components.ItemBoxSkin" x="425"/>
+	<e:Image y="0" x="19" source="img_activity_QMBoss_title_bg_jpg"/>
+	<e:Image x="69" y="36" source="activity_json.quanMingBoss_title"/>
+	<e:Label id="labDate" text="2018年12月12日 " x="142" y="124" size="18" textColor="0x34E22C"/>
+	<e:Label id="labDesc" text="活动期间幻兽总战力排行" x="142" y="151" size="16" width="197" height="65" lineSpacing="5" textColor="0xC6B59E" textAlign="left"/>
+	<e:Label text="截止时间 : " x="46" y="122" size="18" textColor="0xEDC839"/>
+	<e:Label text="活动说明 : " x="46" y="151" size="18" textColor="0xEDC839"/>
+	<e:Label text="新手BOSS" x="47" y="353" size="16" textColor="0x34e22c" touchEnabled="false"/>
+	<e:Label text="初级BOSS" x="155" y="353" size="16" textColor="0x1d85f4" touchEnabled="false"/>
+	<e:Label text="高级BOSS" x="263" y="353" size="16" textColor="0xb93bdd" touchEnabled="false"/>
+	<e:Label text="精英BOSS" x="371" y="353" size="16" textColor="0xe87b37" touchEnabled="false"/>
+	<e:Label text="稀有BOSS" x="479" y="353" size="16" textColor="0xed0e0e" touchEnabled="false"/>
+	<e:Image id="imgRenWu" y="391" x="31" source="activity_every_group_boss1_jpg"/>
+	<e:Image id="imgRed" x="37" y="231" source="activity_every_json.activity_every_boss_select"/>
+	<e:Image id="imgKilled0" source="img_activity_bossKilled1_png" x="30" y="391" touchEnabled="false"/>
+	<e:Image id="imgKilled1" source="img_activity_bossKilled2_png" x="210" y="390" touchEnabled="false"/>
+	<e:Image id="imgKilled2" source="img_activity_bossKilled3_png" x="353" y="391" touchEnabled="false"/>
+	<e:Image id="imgKilledAll0" source="img_activity_bossKilledAll_png" x="37" y="224" touchEnabled="false"/>
+	<e:Image id="imgKilledAll1" source="img_activity_bossKilledAll_png" x="143" y="224" touchEnabled="false"/>
+	<e:Image id="imgKilledAll2" source="img_activity_bossKilledAll_png" x="253" y="224" touchEnabled="false"/>
+	<e:Image id="imgKilledAll3" source="img_activity_bossKilledAll_png" x="358" y="224" touchEnabled="false"/>
+	<e:Image id="imgKilledAll4" source="img_activity_bossKilledAll_png" x="466" y="224" touchEnabled="false"/>
+	<e:Image id="imgTitle" horizontalCenter="0" verticalCenter="179"/>
+</e:Skin>

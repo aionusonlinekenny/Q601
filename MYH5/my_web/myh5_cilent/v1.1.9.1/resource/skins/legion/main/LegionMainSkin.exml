@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LegionMainSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" width="600" height="916">
+	<e:Image width="550" anchorOffsetX="0" anchorOffsetY="0" y="853" source="common_json.img_normal_line_png" x="25"/>
+	<e:Image y="234" anchorOffsetX="0" width="580" anchorOffsetY="0" height="168" source="union_json.img_union_tbg_png" x="10" scale9Grid="7,5,10,12"/>
+	<e:Image y="-0.01" horizontalCenter="0" source="img_union_Notice_png"/>
+	<e:Image source="union_json.img_union_titlebg_png" x="13" y="226" scale9Grid="91,3,93,18"/>
+	<e:ProgressBar id="proPrestige" x="394" y="307" value="100" anchorOffsetX="0" width="150">
+		<e:skinName>
+			<e:Skin minWidth="30" minHeight="18" width="150">
+			<e:Image scale9Grid="6,6,85,8" width="100%" source="union_json.img_union_pro1_png" verticalCenter="0"/>
+			<e:Image id="thumb" width="145" source="union_json.img_union_pro_png" y="2.66" x="1.99" scale9Grid="13,4,60,5" anchorOffsetX="0" anchorOffsetY="0" height="12.67"/>
+			<e:Label id="labelDisplay" textAlign="center" verticalAlign="middle" size="8" fontFamily="Tahoma" horizontalCenter="0.16499999999999915" verticalCenter="-2" text="10/20" textColor="0xffffff"/>
+			</e:Skin>
+		</e:skinName>
+	</e:ProgressBar>
+	<e:Label id="labNotice" text="让我们一起建设强大得军团吧！" y="74.32" anchorOffsetX="0" width="332" anchorOffsetY="0" height="118" size="20" textAlign="left" left="222" verticalAlign="top" lineSpacing="8" textColor="0xc6b59e"/>
+	<components:SnapButton id="btnManage" label="军团管理" x="176" y="369.76" width="135" skinName="skins.SnapOrangeButtonSkin" anchorOffsetY="26" anchorOffsetX="67" height="55" icon="img_warn_png"/>
+	<components:SnapButton id="btnDynamic" label="军团动态" x="405.21" y="369.76" width="135" skinName="skins.SnapOrangeButtonSkin" height="55" icon="img_warn_png" anchorOffsetX="69" anchorOffsetY="27"/>
+	<components:IconButton id="btnChange" x="495.66" y="195.32" source="union_json.btn_union_changhe_png"/>
+	<components:IconButton id="btnHelp" x="544" y="294" source="union_json.img_union_help_png"/>
+	<e:Label id="labName" text="安神颗粒广泛" y="230" size="18" verticalAlign="middle" x="100" italic="true" textAlign="left" textColor="0xedc839"/>
+	<e:Label text="团  长 : " y="267" size="22" verticalAlign="middle" textAlign="left" x="26" textColor="0xc6b59e"/>
+	<e:Label text="人  数 : " y="305" size="22" verticalAlign="middle" textAlign="left" x="26" textColor="0xc6b59e"/>
+	<e:Label text="军团战力 : " y="267" size="22" verticalAlign="middle" textAlign="left" x="262" textColor="0xc6b59e"/>
+	<e:Label text="等  级 : " y="305" size="22" verticalAlign="middle" textAlign="left" x="262" textColor="0xc6b59e"/>
+	<e:Label id="labHead" text="是空号就" y="268" size="20" verticalAlign="middle" x="102" textColor="0xc6b59e" textAlign="left"/>
+	<e:Label id="labCount" text="1/30" y="306" size="20" verticalAlign="middle" x="102" textColor="0xc6b59e" textAlign="left"/>
+	<e:Label id="labPower" text="49864654" y="268" size="20" verticalAlign="middle" x="368" textAlign="left" textColor="0xc6b59e"/>
+	<e:Label id="labLv" text="lv1" y="306" size="20" verticalAlign="middle" x="342" textAlign="left" textColor="0x34e22c"/>
+	<e:Group id="group1" x="10.33" y="411.32" anchorOffsetY="0" height="434">
+		<e:Image id="img_icon0" x="5" y="5" source="img_union_icon1_png"/>
+		<e:Image id="img_icon1" x="298" y="5" source="img_union_icon5_png"/>
+		<e:Image id="img_icon2" x="5" y="223.65" source="img_union_icon6_png"/>
+		<e:Image id="img_icon3" x="302.31" y="223.65" source="img_union_iconNo_png"/>
+		<e:Image id="imgPoint0" x="20" y="12" source="common_json.img_warn_png" visible="false"/>
+		<e:Image id="imgPoint1" x="321" y="12" source="common_json.img_warn_png" visible="false"/>
+		<e:Image id="imgPoint2" x="23" y="231" source="common_json.img_warn_png" visible="false"/>
+		<e:Image id="imgPoint3" x="316" y="232" source="common_json.img_warn_png" visible="false"/>
+	</e:Group>
+	<e:Group id="group2" x="10.33" y="411.32" anchorOffsetY="0" height="434" visible="false">
+		<e:Image id="img_icon00" x="5" y="5" source="img_union_icon0_png"/>
+		<e:Image id="img_icon01" x="298" y="5" source="img_union_icon4_png"/>
+		<e:Image id="img_icon02" x="5" y="223.65" source="img_union_iconNo_png"/>
+		<e:Image id="img_icon03" x="302.31" y="223.65" source="img_union_iconNo_png"/>
+		<e:Image id="imgPoint00" x="20" y="12" source="common_json.img_warn_png" visible="false"/>
+		<e:Image id="imgPoint01" x="321" y="12" source="common_json.img_warn_png" visible="false"/>
+		<e:Image id="imgPoint02" x="23" y="231" source="common_json.img_warn_png" visible="false"/>
+		<e:Image id="imgPoint03" x="316" y="233" source="common_json.img_warn_png" visible="false"/>
+	</e:Group>
+	<e:Image x="15.32" y="633.67" scale9Grid="32,30,20,11" width="275" height="205" touchEnabled="false" source="img_union_kuang_png"/>
+	<e:Image y="416" scale9Grid="32,30,20,11" width="275" height="205" touchEnabled="false" source="img_union_kuang_png" x="14"/>
+	<e:Image y="416" scale9Grid="32,30,20,11" width="275" height="205" touchEnabled="false" source="img_union_kuang_png" x="311"/>
+	<e:Image x="310.67" y="634.67" width="275" height="205" touchEnabled="false" scale9Grid="54,30,26,34" anchorOffsetY="0" source="img_union_kuang_png"/>
+	<e:Button id="btnDaily" label="日常" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0" x="180"/>
+	<e:Button id="btnWelfare" label="福利" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0" x="300"/>
+</e:Skin>

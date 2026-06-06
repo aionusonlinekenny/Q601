@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ChestPreviewSkin" width="543" height="405" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing" xmlns:treasure="treasure.*" states="normal,noend" >
+	<e:Image x="0" y="0" source="common_json.img_tips_bg_png" anchorOffsetX="0" width="543" height="405" scale9Grid="22,26,21,15" anchorOffsetY="0"/>
+	<e:Image x="153" y="38" source="explore_json.img_rewardBg"/>
+	<e:Image source="common_json.img_normal_line_png" y="100" x="17" width="509"/>
+	<e:Label id="labTitle" text="奖励预览" x="222" y="42" size="26" textColor="0xedc839"/>
+	<e:Label id="labTip" text="VIP3 级可以免费获取双倍奖励" includeIn="noend" y="352" anchorOffsetX="0" width="252" size="18" x="146" textColor="0x34e22c"/>
+	<components:IconButton id="btnBack" source="common_json.btn_back_png" y="361" x="498" anchorOffsetX="37" anchorOffsetY="36"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="26" anchorOffsetY="27" x="510" y="32"/>
+	<treasure:TreasureIcon id="prop1" x="41" y="141" skinName="renderer.TreasureIconSkin" y.noend="126"/>
+	<treasure:TreasureIcon id="prop2" x="165" y="141" skinName="renderer.TreasureIconSkin" y.noend="126"/>
+	<treasure:TreasureIcon id="prop3" x="288" y="141" skinName="renderer.TreasureIconSkin" y.noend="126"/>
+	<treasure:TreasureIcon id="prop4" x="417" y="141" skinName="renderer.TreasureIconSkin" y.noend="126"/>
+	<components:SnapButton id="btnDoubleBuy" label="双倍领取" x="398" y="281" anchorOffsetX="81" anchorOffsetY="26" skinName="skins.SnapButtonDefaultSkin" includeIn="noend"/>
+	<components:SnapButton id="btnBuy" label="单倍领取" x="148" y="281" anchorOffsetX="81" anchorOffsetY="26" skinName="skins.SnapButtonDefaultSkin" x.normal="272" y.normal="324" includeIn="noend"/>
+</e:Skin>

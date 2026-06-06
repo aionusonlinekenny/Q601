@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.FightTipSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" width="386">
+	<e:Image source="common_fightChangeBg_png" x="0" y="0" anchorOffsetY="0" height="64"/>
+	<e:Image x="69" y="8" source="common_json.img_fight_png"/>
+	<e:BitmapLabel id="blabFight" x="154" y="14" anchorOffsetX="0" anchorOffsetY="0" font="fight_font_fnt" text="200"/>
+	<e:BitmapLabel id="blabChange" x="252.67" y="22" anchorOffsetX="0" anchorOffsetY="0" text="+1000" font="green_font_fnt"/>
+</e:Skin>

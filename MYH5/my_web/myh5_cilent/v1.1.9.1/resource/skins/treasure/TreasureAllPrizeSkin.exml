@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.TreasureAllPrizeSkin" width="626" height="823" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image source="common_json.img_prompt_bg_png" x="0" y="0" scale9Grid="35,79,27,18" width="626" height="823"/>
+	<e:Image horizontalCenter="0" y="14" source="treasure_json.img_preview"/>
+	<e:Image source="common_json.img_inbg_png" x="32" y="75" anchorOffsetX="0" width="562" anchorOffsetY="0" height="646" scale9Grid="5,6,18,15"/>
+	<e:Image y="0" horizontalCenter="0" source="common_json.img_titlePoint_png"/>
+	<e:Scroller id="scrollerAllPrize" width="511" height="580" y="107" anchorOffsetY="0" scrollPolicyH="off" scrollPolicyV="auto" x="58">
+		<e:List id="listAllPrize" x="41.33" itemRenderer="treasure.TreasureIcon" top="136">
+		<e:layout>
+			<e:TileLayout horizontalAlign="left" verticalAlign="top" requestedColumnCount="5" rowAlign="top" columnAlign="left" verticalGap="7" horizontalGap="15"/>
+		</e:layout>
+		</e:List>
+	</e:Scroller>
+	<components:IconButton id="btnBack" source="common_json.btn_back_png" anchorOffsetX="36" anchorOffsetY="36" x="588" y="785"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="24" anchorOffsetY="26" x="596" y="26"/>
+</e:Skin>

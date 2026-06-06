@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.ExploreViewSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" width="600" height="916">
+	<e:Image id="imgBackBg" y="24" x="13" source="img_explore_bg_jpg"/>
+	
+	<e:Group id="mainGroup" x="13" y="24" width="574" height="891">
+		<components:SnapButton id="btnNoEnd" label="" anchorOffsetX="76" anchorOffsetY="125" icon="uiMain_json.img_main_red" x="167" y="532">
+			<components:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="137" height="201" source="explore_json.btn_explore_wujin"/>
+				</e:Skin>
+			</components:skinName>
+		</components:SnapButton>
+		<components:SnapButton id="btnDreamLand" label="" anchorOffsetX="86" anchorOffsetY="81" icon="uiMain_json.img_main_red" x="358.5" y="113.5">
+			<components:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image source="explore_json.btn_explore_kuangdong" width="204" x="204" height="205" y="0" skewY="180"/>
+	<e:Image id="iconDisplay" x="171" y="32" source="uiMain_json.img_main_red" visible="false"/>
+				</e:Skin>
+			</components:skinName>
+		</components:SnapButton>
+		<components:SnapButton id="btnXianShi" label="" anchorOffsetX="86" anchorOffsetY="81" icon="uiMain_json.img_main_red" x="342.5" y="346.5">
+			<components:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="explore_json.btn_explore_xianshi"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+				</e:Skin>
+			</components:skinName>
+		</components:SnapButton>
+		<components:SnapButton id="btnLockDemon" label="" anchorOffsetX="125" anchorOffsetY="128" icon="uiMain_json.img_main_red" x="103" y="255">
+			<components:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="explore_json.btn_explore_suoyao"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+				</e:Skin>
+			</components:skinName>
+		</components:SnapButton>
+		<components:SnapButton id="btnAnimalPagoda" label="" anchorOffsetX="96" anchorOffsetY="89" icon="uiMain_json.img_main_red" x="443" y="522">
+			<components:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="explore_json.btn_explore_huanshou"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+				</e:Skin>
+			</components:skinName>
+		</components:SnapButton>
+		<components:SnapButton id="btnRuins" label="" anchorOffsetX="96" anchorOffsetY="89" icon="uiMain_json.img_main_red" x="125" y="699">
+			<components:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="explore_json.btn_explore_ruins"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+				</e:Skin>
+			</components:skinName>
+		</components:SnapButton>
+		<e:Image source="explore_json.img_explore_name_xianshi" x="393" y="290"/>
+		<e:Image source="explore_json.img_explore_namebg" x="93.33" y="418.01" touchEnabled="false"/>
+		<e:Image source="explore_json.img_explore_namebg" x="497.66" y="445.34" touchEnabled="false"/>
+		<e:Image source="explore_json.img_explore_namebg" x="432.33" y="49" touchEnabled="false"/>
+		<e:Image source="explore_json.img_explore_namebg" x="152" y="107" touchEnabled="false"/>
+		<e:Image source="explore_json.img_explore_name_wujin" x="95.66" y="445.01" touchEnabled="false"/>
+		<e:Image source="explore_json.img_explore_name_suoyao" x="156.33" y="137.67" touchEnabled="false"/>
+		<e:Image source="explore_json.img_explore_name_kuangdong" x="436.33" y="76" touchEnabled="false"/>
+		<e:Image source="explore_json.img_explore_name_huanshou" x="501.66" y="485.34" touchEnabled="false"/>
+		<e:Image x="191.66" y="628.34" touchEnabled="false" source="explore_json.img_explore_name_ruins"/>
+		<e:Image id="redNoEnd" x="96" y="410" source="uiMain_json.img_main_red"/>
+		<e:Image id="redGodRuins" x="197" y="639" source="uiMain_json.img_main_red" visible="false"/>
+		<e:Image id="redPagoda" x="503" y="456" source="uiMain_json.img_main_red" visible="false"/>
+		<e:Image id="redLockDemon" x="158" y="111" source="uiMain_json.img_main_red" visible="false"/>
+		<e:Image id="redDreamLand" x="438" y="49" source="uiMain_json.img_main_red"/>
+		<e:Image id="redXianShi" x="398" y="292" source="uiMain_json.img_main_red" visible="false"/>
+	</e:Group>
+</e:Skin>

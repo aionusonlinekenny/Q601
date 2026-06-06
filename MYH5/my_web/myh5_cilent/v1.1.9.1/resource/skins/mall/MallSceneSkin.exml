@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.MallSceneSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:tips="tips.*"  states="shenmi,daoju,rongyu,jifen,moshi"  width="600" height="916">
+	<e:Scroller id="scrollerJiFenShop" width="561" height="692" y="58" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="off" scrollPolicyV="on" includeIn="jifen" horizontalCenter="0">
+		<e:List id="jiFenShopList" itemRenderer="MallSkillRenderer" y="716" anchorOffsetX="0" anchorOffsetY="0" x="-40">
+		<e:layout>
+			<e:TileLayout requestedColumnCount="3" horizontalAlign="left" verticalAlign="top"/>
+		</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:Scroller id="scrollerrongyuShop" width="561" height="692" includeIn="rongyu" y="58" anchorOffsetY="0" anchorOffsetX="0" scrollPolicyH="off" scrollPolicyV="on" horizontalCenter="0">
+		<e:List id="rongyulist" x="0" y="0" anchorOffsetY="0" anchorOffsetX="0" itemRenderer="MallSkillRenderer">
+			<e:layout>
+				<e:TileLayout requestedColumnCount="3" verticalAlign="top" horizontalAlign="left"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:Scroller id="scrollerdaojuShop" width="561" height="800" y="58" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="off" scrollPolicyV="on" includeIn="daoju" horizontalCenter="0">
+		<e:List id="daojushopList" itemRenderer="MallSkillRenderer" y="1" anchorOffsetX="0" anchorOffsetY="0" height="777">
+			<e:layout>
+				<e:TileLayout requestedColumnCount="3" horizontalAlign="left" verticalAlign="top"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:Scroller id="scrollerShop" width="561" height="692" y="58" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="off" scrollPolicyV="on" height.daoju="869" includeIn="shenmi" horizontalCenter="0">
+		<e:List id="shopList" itemRenderer="MallSkillRenderer" anchorOffsetX="0" anchorOffsetY="0" itemRendererSkinName="renderer.MallSkillRendererSkin" x="0" y="0" height="716">
+			<e:layout>
+				<e:TileLayout requestedColumnCount="3" rowAlign="top" columnAlign="left" horizontalAlign="left" verticalAlign="top" horizontalGap="6" verticalGap="6"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:Image y="0" touchEnabled="false" x="1" source="img_goldbg_png"/>
+	<e:Image id="n"  y="772" anchorOffsetX="0" anchorOffsetY="0" height="90" includeIn="shenmi,rongyu,jifen" source="common_implementbar_png" x="-27.5" horizontalCenter="0" scale9Grid="88,12,435,16" />
+	<e:ToggleButton id="btnShenmi" label="神秘商城" skinName="skins.TabButtonDefaultSkin" y="862" x="4"/>
+	<e:ToggleButton id="btnDaoju" label="道具商城" skinName="skins.TabButtonDefaultSkin" y="862" x="122"/>
+	<e:ToggleButton id="btnRongyu" label="功勋商城" skinName="skins.TabButtonDefaultSkin" y="862" x="240" x.rongyu="240"/>
+	<e:ToggleButton id="btnJiFen" label="积分商城" skinName="skins.TabButtonDefaultSkin" y="862" x="358"/>
+	<e:ToggleButton id="btnMoShi" label="魔石商城" skinName="skins.TabButtonDefaultSkin" y="862" x="476"/>
+	<e:Label text="每周一00 : 00刷新道具及限购次数" includeIn="rongyu" y="830" size="20" textColor="0x34e22c" horizontalCenter="0" text.jifen="每充值100魔石增加1点积分" horizontalCenter.jifen="0.5" y.jifen="831.48" textColor.rongyu="0x34e22c" textColor.jifen="0x34e22c"/>
+
+	<e:Label id="lblUpTime" text="0 : 0 : 0" y="809.48" anchorOffsetX="0" width="168.79" size="20" verticalAlign="middle" anchorOffsetY="0" height="27.21" includeIn="shenmi" textColor="0x34e22c" textAlign="center" x="43"/>
+	<e:Label text="刷新时间倒计时 : " y="777" anchorOffsetX="0" width="168" size="20" verticalAlign="middle" anchorOffsetY="0" height="27" includeIn="shenmi" textAlign="center" x="43" textColor="0xc6b59e"/>
+	<e:Image id="imgUpCostType" includeIn="shenmi" x="427" y="801" anchorOffsetX="0" width="41" anchorOffsetY="0" height="34" source="common_json.img_diamonds_png"/>
+	<e:Label id="imgUpCostCount" text="1000" includeIn="shenmi" x="470" y="808.48" size="20" textColor="0xc6b59e"/>
+	<components:SnapButton id="btnUpdate" label="刷新" includeIn="shenmi" y="792" skinName="skins.SnapButtonDefaultSkin" x="220"/>
+	<tips:GoldAndDiamonds id="goldTips" skinName="normal.GoldAndDiamondsSkin" y="3" x="336"/>
+	<e:Image source="common_inbar_png" y="1" width="700" horizontalCenter="0" scale9Grid="90,12,22,16" anchorOffsetY="0" height="89" includeIn="moshi"/>
+	<e:Scroller id="scrollerMoShi" y="91" anchorOffsetX="0" anchorOffsetY="0" width="600" includeIn="moshi" height="767">
+		<e:List id="listMoShi" itemRendererSkinName="renderer.RechargeItemSkin" anchorOffsetX="0" x="-1" y="1" anchorOffsetY="0" height="766">
+		<e:layout>
+			<e:TileLayout requestedColumnCount="2" requestedRowCount="5"/>
+		</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:Image id="imgLevel" source="vip_json.img_vip1" x="36" y="44" includeIn="moshi"/>
+	<components:SnapButton id="btnVip" label="VIP特权" anchorOffsetX="66" skinName="skins.SnapOrangeButtonSkin" y="52" x="514" anchorOffsetY="27" includeIn="moshi"/>
+	<e:ProgressBar id="expBar" y="41" anchorOffsetX="0" value="50" x="113" includeIn="moshi">
+		<e:skinName>
+		<e:Skin minWidth="30" minHeight="18" xmlns:item="item.*">
+			<e:Image verticalCenter="0" width="322" anchorOffsetX="0" anchorOffsetY="0" source="treasure_json.img_progress_out" scale9Grid="53,10,42,7"/>
+			<e:Image id="thumb" y="5.5" anchorOffsetX="0" anchorOffsetY="0" width="322" source="treasure_json.img_progress_in" scale9Grid="35,1,76,12"/>
+			<e:Label id="labelDisplay" textAlign="center" verticalAlign="middle" size="16" horizontalCenter="0" verticalCenter="0" text="10/20" textColor="0xcfc9be"/>
+		</e:Skin>
+		</e:skinName>
+	</e:ProgressBar>
+	<e:Label id="labUpgradeNeed" text="再充值1000魔石成为VIP1" y="16" size="20" textColor="0xFFB200" horizontalCenter="0" includeIn="moshi"/>
+	<e:BitmapLabel id="blabLevel" x="83" y="42" font="vip_font1_fnt" text="0" includeIn="moshi"/>
+	<components:IconButton id="btnGetRongyi" includeIn="rongyu,jifen" x="504" y="780" source="common_json.img_getRes_png"/>
+	<e:Group y="779" includeIn="shenmi,daoju,rongyu,jifen" x.rongyu="205" horizontalCenter="0">
+		<e:Label id="labMyRongYu" text="我的功勋 : 111" includeIn="rongyu,jifen" size="20" verticalAlign="middle" textAlign="center" textColor="0xcfc9be" bold="true" x="56" verticalCenter="0"/>
+		<components:Icon includeIn="rongyu,jifen" width="52" height="53" source.rongyu="801" source.jifen="1501"/>
+	</e:Group>
+</e:Skin>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.TaLuoAndZhongshenRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="559" height="142">
+	<e:Image x="10" anchorOffsetX="0" width="539" anchorOffsetY="0" height="137" source="activity_red_bg_png" scale9Grid="1,0,4,5" y="3"/>
+	<e:Group id="boxGroup" right="10" verticalCenter="14">
+		<components:RewardItemBox id="reward1" x="112" skinName="components.ItemBoxSkin"/>
+		<components:RewardItemBox id="reward0" x="0" skinName="components.ItemBoxSkin"/>
+	</e:Group>
+	<e:Image id="imgRanking" anchorOffsetX="0" anchorOffsetY="0" source="ladder_json.img_rank_2" verticalCenter="9" scaleX="0.8" scaleY="0.8" left="32"/>
+	<e:Image id="imgHead" x="109" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="1,0,4,5" source="player_icon_circle_json.job_1" verticalCenter="10"/>
+	<e:Label id="labRanking" text="4" size="30" textAlign="center" anchorOffsetX="0" anchorOffsetY="0" bold="true" textColor="0xC6B59E" verticalCenter="0" left="57"/>
+	<e:Label id="labName" text="40000000" size="20" anchorOffsetX="0" anchorOffsetY="0" textColor="0xC6B59E" verticalCenter="-19" left="201"/>
+	<e:Label id="labScore" text="抽奖次数" size="20" textAlign="center" anchorOffsetX="0" anchorOffsetY="0" bold="true" textColor="0xC6B59E" verticalCenter="31" left="201"/>
+</e:Skin>

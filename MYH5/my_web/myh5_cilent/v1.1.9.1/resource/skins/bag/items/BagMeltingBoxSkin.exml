@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.BagMeltingBoxSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"    states="normal,add" >
+	<e:Image source="common_json.img_qlt_1_png" includeIn="add" x="0" y="0"/>
+	<e:Image source="common_json.img_add_png" includeIn="add" horizontalCenter="0" verticalCenter="0" visible="false"/>
+	<e:Image id="imgQuility" x="0" y="0" source="common_json.img_qlt_1_png"  includeIn="normal"/>
+	<e:Image id="imgIcon" source=""  x="5" y="3" width="80" height="80" includeIn="normal"/>
+	<e:Image id="imgJob" source="common_json.img_job_1_png"  right="0" top="0" includeIn="normal"/>
+	<e:Label id="labLv" text="lv.100" y="90" size="20" textAlign="center"  anchorOffsetX="0" horizontalCenter="0" includeIn="normal" textColor="0xc6b59e"/>
+</e:Skin>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="item.RolePhantomStarSkin" width="304" height="34" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image id="star1" x="0" y="3" source="rolePhantom_json.role_phantom_star2_png"/>
+	<e:Image id="star2" source="rolePhantom_json.role_phantom_star2_png" x="30" y="3"/>
+	<e:Image id="star3" source="rolePhantom_json.role_phantom_star2_png" x="60" y="3"/>
+	<e:Image id="star4" source="rolePhantom_json.role_phantom_star2_png" x="90" y="3"/>
+	<e:Image id="star5" source="rolePhantom_json.role_phantom_star2_png" x="120" y="3"/>
+	<e:Image id="star6" source="rolePhantom_json.role_phantom_star2_png" x="150" y="3"/>
+	<e:Image id="star7" source="rolePhantom_json.role_phantom_star2_png" x="180" y="3"/>
+	<e:Image id="star8" source="rolePhantom_json.role_phantom_star2_png" x="210" y="3"/>
+	<e:Image id="star9" source="rolePhantom_json.role_phantom_star2_png" x="240" y="3"/>
+	<e:Image id="star10" source="rolePhantom_json.role_phantom_star1_png" x="270" y="0"/>
+</e:Skin>

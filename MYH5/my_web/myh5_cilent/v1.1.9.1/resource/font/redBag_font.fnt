@@ -1,0 +1,11 @@
+{"file":"redBag_font.png","frames":{
+"2":{"x":74,"y":1,"w":70,"h":95,"offX":1,"offY":1,"sourceW":71,"sourceH":96},
+"3":{"x":139,"y":99,"w":67,"h":96,"offX":2,"offY":0,"sourceW":71,"sourceH":96},
+"4":{"x":1,"y":1,"w":71,"h":94,"offX":0,"offY":2,"sourceW":71,"sourceH":96},
+"5":{"x":70,"y":196,"w":66,"h":96,"offX":3,"offY":0,"sourceW":71,"sourceH":96},
+"6":{"x":1,"y":97,"w":67,"h":96,"offX":2,"offY":0,"sourceW":71,"sourceH":96},
+"7":{"x":138,"y":197,"w":64,"h":94,"offX":4,"offY":2,"sourceW":71,"sourceH":96},
+"8":{"x":1,"y":195,"w":67,"h":96,"offX":2,"offY":0,"sourceW":71,"sourceH":96},
+"9":{"x":70,"y":98,"w":67,"h":96,"offX":2,"offY":0,"sourceW":71,"sourceH":96},
+"0":{"x":146,"y":1,"w":68,"h":96,"offX":2,"offY":0,"sourceW":71,"sourceH":96},
+"1":{"x":208,"y":99,"w":45,"h":96,"offX":13,"offY":0,"sourceW":71,"sourceH":96}}}

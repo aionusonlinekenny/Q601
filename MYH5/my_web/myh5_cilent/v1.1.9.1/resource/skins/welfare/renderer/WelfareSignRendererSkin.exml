@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.WelfareSignRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:treasure="treasure.*" states="1,2,3"  height="368">
+	<e:Image x="0" anchorOffsetY="0" source="up_png" source.1="down_png" height="368" width="564" y="0" height.1="370.5" anchorOffsetX="0"/>
+	<item:WelfareUpGod id="grade0" skinName="item.WelfareUpGodSkin" x="466.67" y="234.76" x.1="71" y.1="245.09" x.2="454.67" y.2="245.76"/>
+	<item:WelfareUpGod id="grade1" x.1="146.15" y.1="192.57" skinName="item.WelfareUpGodSkin" x="358.82" y="206.24"/>
+	<item:WelfareUpGod id="grade2" x.1="258.54" y.1="112.03" skinName="item.WelfareUpGodSkin" x="221.87" y="176.36"/>
+	<item:WelfareUpGod id="grade3" x.1="359.52" y.1="77.63" skinName="item.WelfareUpGodSkin" x="106.52" y="111.3"/>
+	<item:WelfareUpGod id="grade4" x.1="428.67" skinName="item.WelfareUpGodSkin" y.1="3.33" x="86.67" y="1.33"/>
+	<e:Image id="imgPlayer" x="475" y="216" includeIn="3" source="welfare_json.img_head_fashi"/>
+</e:Skin>

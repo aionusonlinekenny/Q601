@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.MallBuyPopSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image anchorOffsetX="0" width="528" anchorOffsetY="0" height="444" scale9Grid="22,26,21,15" source="common_json.img_tips_bg_png"/>
+	<e:Image id="imgQuality" x="71" y="78" source="common_json.img_qlt_3_png"/>
+	<components:Icon id="imgIcon" verticalCenter="-101" horizontalCenter="-149.5" source="" width="80" height="80"/>
+	<e:Label id="labName" text="经脉丹" y="91" size="22" anchorOffsetX="0" width="337.5" textColor="0xcdc6ac" verticalAlign="middle" textAlign="left" left="169" anchorOffsetY="0" height="23"/>
+	<e:Image x="35" y="214" anchorOffsetX="0" width="470" anchorOffsetY="0" source="common_json.img_normal_line_png"/>
+	<e:TextInput id="textInputNum" width="125" height="30" y="254" anchorOffsetX="0" anchorOffsetY="0" text="1" textColor="0xcbc6ac" restrict="0-9" x="203">
+		<e:skinName>
+			<e:Skin minHeight="40" minWidth="300" states="normal,disabled,normalWithPrompt,disabledWithPrompt" width="130" height="38">
+			<e:Image x="-3" y="-2" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_numbg_png" width="132" height="40" scale9Grid="7,6,41,12"/>
+			<e:Rect height="38" width="132" fillColor="0x000000" fillAlpha="0" anchorOffsetX="0" anchorOffsetY="0" x="-2" y="-1"/>
+			<e:EditableText id="textDisplay" verticalCenter="0.5" left="-1" right="2" textColor.disabled="0xff0000" width="100%" height="37" size="20" textColor="0xddc235" anchorOffsetX="0" anchorOffsetY="0" verticalAlign="middle" textAlign="left" width.normal="100%" verticalCenter.normal="0" textAlign.normal="center" left.normal="-1"/>
+			<e:Label id="promptDisplay" verticalCenter="0" textColor="0xa9a9a9" width="90%" height="36" size="20" touchEnabled="false" includeIn="normalWithPrompt,disabledWithPrompt" anchorOffsetX="0" anchorOffsetY="0" verticalAlign="middle" text="" textAlign="center" horizontalCenter="0" left.normalWithPrompt="-1" right.normalWithPrompt="2" left.disabledWithPrompt="-1" right.disabledWithPrompt="2"/>
+			</e:Skin>
+		</e:skinName>
+	</e:TextInput>
+	<e:Label id="lblTatolPrice" text="515" y="311" textAlign="left" verticalAlign="middle" anchorOffsetX="0" width="126" size="22" anchorOffsetY="0" height="26" textColor="0xc6b59e" x="297"/>
+	<e:Label id="lblCount" text="5" y="139.33" textAlign="right" verticalAlign="middle" anchorOffsetX="0" size="20" anchorOffsetY="0" textColor="0xC6B59E" right="378" strokeColor="0x000000" stroke="3"/>
+	<e:Label id="lblPrice" text="10" y="127" anchorOffsetX="0" width="207" anchorOffsetY="0" height="34" size="22" textAlign="left" verticalAlign="middle" left="206" textColor="0xc6b59e"/>
+	<e:Image id="imgTatolPayType" x="258" y="310" source="common_json.img_diamonds_png" width="28" height="25"/>
+	<e:Label text="总价:" x="191" y="313" size="22" textColor="0xedc839"/>
+	<e:Image id="imgPayType" x="169" y="131" source="common_json.img_diamonds_png" width="28" height="25"/>
+	<components:IconButton id="btnJia" y="271" source="common_json.btn_jia_png" x="363" anchorOffsetX="23" anchorOffsetY="21"/>
+	<components:IconButton id="btnJian" y="272" source="common_json.btn_jian_png" x="168" anchorOffsetX="23" anchorOffsetY="22"/>
+	<components:SnapButton id="btnBuy" label="购买" y="378" skinName="skins.SnapOrangeButtonSkin" anchorOffsetX="81.23" anchorOffsetY="26" width="160" horizontalCenter="0.5"/>
+	<components:SnapButton id="btnJiaTen" label="+10" y="271" skinName="skins.SnapRedButtonSkin" x="433" anchorOffsetX="45" width="92" anchorOffsetY="23"/>
+	<components:SnapButton id="btnJianTen" label="-10" y="272" skinName="skins.SnapRedButtonSkin" x="96" anchorOffsetX="44" width="91" anchorOffsetY="24"/>
+</e:Skin>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.RedBagSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" xmlns:components="components.*">
+	<e:Image id="imgIcon" source="btn_redbag_icon_png" anchorOffsetX="42" anchorOffsetY="65" x="42" y="65"/>
+</e:Skin>

@@ -1,0 +1,14 @@
+{"file":"recharge.png","frames":{
+"img_recharge_¥10":{"x":41,"y":93,"w":36,"h":17,"offX":0,"offY":0,"sourceW":36,"sourceH":17},
+"img_recharge_¥20":{"x":184,"y":74,"w":38,"h":20,"offX":0,"offY":0,"sourceW":38,"sourceH":20},
+"img_recharge_¥50":{"x":1,"y":85,"w":38,"h":19,"offX":0,"offY":0,"sourceW":38,"sourceH":19},
+"img_recharge_¥100":{"x":133,"y":74,"w":49,"h":17,"offX":0,"offY":0,"sourceW":49,"sourceH":17},
+"img_recharge_¥200":{"x":194,"y":31,"w":52,"h":20,"offX":0,"offY":0,"sourceW":52,"sourceH":20},
+"img_recharge_¥500":{"x":194,"y":53,"w":51,"h":19,"offX":0,"offY":0,"sourceW":51,"sourceH":19},
+"img_recharge_¥1000":{"x":68,"y":74,"w":63,"h":17,"offX":0,"offY":0,"sourceW":63,"sourceH":17},
+"img_recharge_¥2000":{"x":127,"y":31,"w":65,"h":20,"offX":0,"offY":0,"sourceW":65,"sourceH":20},
+"img_recharge_¥3000":{"x":127,"y":53,"w":65,"h":19,"offX":0,"offY":0,"sourceW":65,"sourceH":19},
+"img_recharge_¥5000":{"x":1,"y":64,"w":65,"h":19,"offX":0,"offY":0,"sourceW":65,"sourceH":19},
+"img_recharge_fcflag":{"x":64,"y":1,"w":61,"h":61,"offX":0,"offY":0,"sourceW":61,"sourceH":61},
+"img_recharge_MJflag":{"x":1,"y":1,"w":61,"h":61,"offX":0,"offY":0,"sourceW":61,"sourceH":61},
+"img_recharge_song":{"x":127,"y":1,"w":116,"h":28,"offX":0,"offY":0,"sourceW":116,"sourceH":28}}}

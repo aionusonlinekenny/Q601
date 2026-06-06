@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.OrangeEquipItemRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing" xmlns:base="base.*" xmlns:components="components.*">
+	<e:Image x="0" y="0" anchorOffsetX="0" width="558" touchEnabled="false" scale9Grid="46,0,50,114" source="role_json.img_role_fenjielistbg_png"/>
+	<e:Label id="labName" text="装备名字" size="20" touchEnabled="false" x="121" y="25" textColor="0xdf660e"/>
+	<e:Label id="labTip" text="(推荐分解)" y="25" size="20" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false" textColor="0xEDC839" x="231"/>
+	<e:Label text="获得 : 橙装碎片X" x="121" y="61" size="20" anchorOffsetX="0" anchorOffsetY="0" cacheAsBitmap="true" touchEnabled="false" textColor="0xc6b59e"/>
+	<e:Label id="labCount" x="277" y="61" size="20" anchorOffsetX="0" width="49" anchorOffsetY="0" text="100" touchEnabled="false" textColor="0xc6b59e"/>
+	<ns1:ItemIcon id="item" x="20" skinName="itemIcon.ItemIconSkin" touchEnabled="false" y="15" anchorOffsetY="0" height="89"/>
+	<components:SnapButton id="btnDebrs" label="分解" anchorOffsetX="52" x="466" skinName="skins.SnapOrangeButtonSkin" y="61" anchorOffsetY="25"/>
+</e:Skin>

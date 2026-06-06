@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="XingYingLunPanGetAlertSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" width="600" height="459">
+	<e:Image anchorOffsetX="0" anchorOffsetY="0" scale9Grid="22,26,21,15" source="img_gongxi_bg_png" y="0" horizontalCenter="0"/>
+	<e:Label id="labCount" text="480" y="369" size="18" textColor="0x2FF8FF" stroke="2" verticalAlign="middle" textAlign="left" left="453"/>
+	<e:Label text="消耗魔石：" x="366.12" y="369" size="18" textColor="0x848790" stroke="2"/>
+	<e:Label id="getNum" text="0" y="306" anchorOffsetX="0" textColor="0x34E22C" textAlign="center" size="22" horizontalCenter="0" verticalAlign="middle"/>
+	<components:SnapButton id="btnCanel" label="取消" y="419" anchorOffsetX="69.78" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="27" width="133" x="183"/>
+	<components:SnapButton id="btnAngin" label="再抽一次" y="419" anchorOffsetX="69.78" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="27" width="133" x="435"/>
+	<e:Image source="img_gongxi_get_png" y="59" horizontalCenter="0.5"/>
+	<e:Image id="imgbg0" source="common_json.img_qlt_1_png" x="83" y="196" width="70" height="70"/>
+	<e:Image id="imgbg4" source="common_json.img_qlt_1_png" x="449" y="196" width="70" height="70"/>
+	<e:Image id="imgbg1" source="common_json.img_qlt_1_png" x="175" y="196" width="70" height="70"/>
+	<e:Image id="imgbg2" source="common_json.img_qlt_1_png" x="266" y="196" width="70" height="70"/>
+	<e:Image id="imgbg3" source="common_json.img_qlt_1_png" x="358" y="196" width="70" height="70"/>
+	<e:Image id="icon0" x="88" y="200" source="activitySummer_json.imgIcon9"/>
+	<e:Image id="icon1" x="180" y="200" source="activitySummer_json.imgIcon9"/>
+	<e:Image id="icon2" x="271" y="200" source="activitySummer_json.imgIcon9"/>
+	<e:Image id="icon3" x="363" y="200" source="activitySummer_json.imgIcon9"/>
+	<e:Image id="icon4" x="454" y="200" source="activitySummer_json.imgIcon9"/>
+	<e:Label id="lab4" text="XXX" y="244" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="86"/>
+	<e:Label id="lab3" text="XXX" y="244" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="177"/>
+	<e:Label id="lab2" text="XXX" y="244" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="269"/>
+	<e:Label id="lab1" text="XXX" y="244" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="361"/>
+	<e:Label id="lab0" text="XXX" y="244" size="16" verticalAlign="middle" textAlign="right" stroke="2" right="454"/>
+</e:Skin>

@@ -1,0 +1,5 @@
+{"file":"fire.png","frames":{
+"fire1_png":{"x":1,"y":18,"w":8,"h":15,"offX":2,"offY":2,"sourceW":12,"sourceH":18},
+"fire2_png":{"x":12,"y":1,"w":9,"h":15,"offX":1,"offY":2,"sourceW":12,"sourceH":18},
+"fire3_png":{"x":23,"y":1,"w":8,"h":15,"offX":2,"offY":2,"sourceW":12,"sourceH":18},
+"fire4_png":{"x":1,"y":1,"w":9,"h":15,"offX":1,"offY":2,"sourceW":12,"sourceH":18}}}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.LegionRegisterPetRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image id="imgbg" width="562" height="120" anchorOffsetX="0" anchorOffsetY="0" x="0" y="0" scale9Grid="12,25,15,19" source="img_union_list_png"/>
+	<e:Label id="labName" text="大手动阀十分大方" y="25" size="24" left="104" verticalAlign="middle" textAlign="left" textColor="0xedc839"/>
+	<components:SnapButton id="btnDengJi" label="登记" x="491" y="65" skinName="skins.SnapOrangeButtonSkin" anchorOffsetX="67" anchorOffsetY="25"/>
+	<e:Group id="group" x="6" y="15">
+		<e:Image id="img" x="0" y="0" source="common_json.img_qlt_1_png"/>
+		<components:Icon id="imgIcon" width="80" height="80" x="5" y="3"/>
+	</e:Group>
+	<e:Label id="labGift" text="图腾等级 : 1级    军团贡献 : +9999" y="65" size="20" verticalAlign="middle" textAlign="left" left="103" textColor="0xc6b59e"/>
+	<e:Image id="imgFinsh" source="union_json.img_union_dengji_png" x="459" y="15" visible="false"/>
+</e:Skin>

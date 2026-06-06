@@ -1,0 +1,37 @@
+[
+    {
+        "id":1,
+        "name":"哥伦布",
+        "nextIdPR":5000,
+        "consume":"201_100",
+        "itemLootId":"699501"
+    },
+    {
+        "id":2,
+        "name":"麦哲伦",
+        "nextIdPR":4000,
+        "consume":"201_200",
+        "itemLootId":"699502"
+    },
+    {
+        "id":3,
+        "name":"史密斯",
+        "nextIdPR":2000,
+        "consume":"201_400",
+        "itemLootId":"699503"
+    },
+    {
+        "id":4,
+        "name":"达·伽马",
+        "nextIdPR":2500,
+        "consume":"201_800",
+        "itemLootId":"699504"
+    },
+    {
+        "id":5,
+        "name":"德雷克",
+        "nextIdPR":0,
+        "consume":"201_1500",
+        "itemLootId":"699505"
+    }
+]

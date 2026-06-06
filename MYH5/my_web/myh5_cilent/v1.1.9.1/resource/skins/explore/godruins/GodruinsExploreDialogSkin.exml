@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.GodruinsExploreDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:ns1="*" height="744.73" width="562">
+	<e:Image x="-1" anchorOffsetX="0" width="564.42" anchorOffsetY="0" height="739.27" source="common_json.img_tips_bg_png" scale9Grid="22,26,21,15" y="0"/>
+	<components:IconButton id="btnBack" x="515" y="690" anchorOffsetX="37" anchorOffsetY="32" source="common_json.btn_back_png"/>
+	<components:IconButton id="btnClose" x="528" y="30" source="common_json.btn_close_png" anchorOffsetX="28" anchorOffsetY="25"/>
+	<e:Group id="giftGroup0" x="110" y="356">
+		<e:Image id="imgQualityGift0" source="common_json.img_qlt_1_png" x="0" y="0"/>
+		<components:Icon id="imgIconGift0" width="80" height="80" x="4" y="4"/>
+		<e:Label id="labGiftName0" text="Label" y="88" size="16" horizontalCenter="0" verticalAlign="middle" textAlign="center" textColor="0xc6b59e"/>
+		<e:Label id="labGiftLv0" text="Label" y="66" size="16" textAlign="right" verticalAlign="middle" right="8" textColor="0xc6b59e"/>
+	</e:Group>
+	<e:Group id="giftGroup1" x="241" y="356">
+		<e:Image id="imgQualityGift1" source="common_json.img_qlt_1_png" x="0" y="0"/>
+		<components:Icon id="imgIconGift1" width="80" height="80" x="4" y="4"/>
+		<e:Label id="labGiftName1" text="Label" y="88" size="16" horizontalCenter="0" verticalAlign="middle" textAlign="center" textColor="0xc6b59e"/>
+		<e:Label id="labGiftLv1" text="Label" y="66" size="16" textAlign="right" verticalAlign="middle" right="8" textColor="0xc6b59e"/>
+	</e:Group>
+	<e:Group id="giftGroup2" x="371" y="356">
+		<e:Image id="imgQualityGift2" source="common_json.img_qlt_1_png" x="0" y="0"/>
+		<components:Icon id="imgIconGift2" width="80" height="80" x="4" y="4"/>
+		<e:Label id="labGiftName2" text="Label" y="88" size="16" horizontalCenter="0" verticalAlign="middle" textAlign="center" textColor="0xc6b59e"/>
+		<e:Label id="labGiftLv2" text="Label" y="66" size="16" textAlign="right" verticalAlign="middle" right="8" textColor="0xc6b59e"/>
+	</e:Group>
+	<components:SnapButton id="btnExplore" label="探索" y="598" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" x="283"/>
+	<components:SnapButton id="btnExploreAngin" label="再次探索" y="598" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" x="438"/>
+	<components:SnapButton id="btnExploreFinsh" label="完成探索" y="598" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" x="129"/>
+	<e:Image source="tips_json.img_tips_title_shuxing" y="260" horizontalCenter="0.5"/>
+	<e:Image source="tips_json.img_tips_namebg" y="24" horizontalCenter="0"/>
+	<e:Image y="256" source="godruins_json.godruins_explore" horizontalCenter="0.5"/>
+	<e:Label text="每多增加一个幻兽，奖励即可增加1倍" y="310" size="20" horizontalCenter="0" verticalAlign="middle" textAlign="center" textColor="0xb4e224"/>
+	<e:Label id="labName" text="只有上阵幻兽可" y="30" size="20" verticalAlign="middle" textAlign="center" textColor="0xB4E224" horizontalCenter="0"/>
+	<e:Image x="69" y="107" source="godruins_json.godruins_add_pet"/>
+	<e:Label id="labTime" text="探索倒计时 : 0 : 0 : 0" x="76" y="523" size="20" stroke="2" textColor="0xf23a0e"/>
+	<e:Label id="labshow" text="当前获得1倍探索奖励（最高3倍奖励）" y="480" size="20" stroke="2" verticalAlign="middle" textAlign="center" textColor="0xc6b59e" horizontalCenter="0"/>
+	<e:Label text="至尊卡可获得双倍金币收益" x="103" y="680" size="20" textColor="0xedc839"/>
+	<e:Label id="labGo" text="前往购卡" x="357" y="680" size="20" textColor="0x34e22c"/>
+	<e:Label id="labVip" text="（VIP可减短探索时间）" x="293" y="523" size="20" textColor="0xedc839"/>
+	<ns1:ChangePetItemBox id="changePet0" x="107" y="102" skinName="normal.ChangePetItemBoxSkin"/>
+	<ns1:ChangePetItemBox id="changePet1" x="241" y="102" skinName="normal.ChangePetItemBoxSkin"/>
+	<ns1:ChangePetItemBox id="changePet2" x="375" y="102" skinName="normal.ChangePetItemBoxSkin"/>
+</e:Skin>

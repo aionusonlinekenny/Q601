@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin width="123" height="166" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" class="skin.MainChapterSkin">
+	<components:IconButton id="btnBoss" source="uiMain_json.main_icon_boss" anchorOffsetX="56" anchorOffsetY="51" y="61" scaleX="1" scaleY="1" x="66"/>
+	<components:IconButton id="btnBoss0" source="uiMain_json.main_icon_boss" anchorOffsetX="56" anchorOffsetY="51" touchEnabled="false" y="59" scaleX="1" scaleY="1" x="66"/>
+	<components:IconButton id="btnBossHelp" width="41" height="41" source="uiMain_json.img_boss_help" x="0" y="3" scaleX="1" scaleY="1"/>
+	<e:Group id="autoFightGroup" x="62" y="127" scaleX="1" scaleY="1">
+		<components:SnapButton id="btnAutoFight" anchorOffsetX="58" anchorOffsetY="20" icon="uiMain_json.img_main_red" y="18" x="0">
+		<components:skinName>
+			<e:Skin states="up,down,disabled" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+			<e:Image width="100%" height="100%" source="uiMain_json.btn_main_autoFight"/>
+			<e:Image id="iconDisplay" x="0" y="0" source="uiMain_json.img_main_red" visible="false"/>
+			</e:Skin>
+		</components:skinName>
+		</components:SnapButton>
+		<components:SnapButton id="btnAutoFighting" anchorOffsetX="58" anchorOffsetY="20" icon="uiMain_json.img_main_red" y="18" x="0">
+		<components:skinName>
+			<e:Skin states="up,down,disabled" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+			<e:Image width="100%" height="100%" source="uiMain_json.btn_main_autoFighting"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</components:skinName>
+		</components:SnapButton>
+	</e:Group>
+	<e:ProgressBar id="progress" height="20" value="100" touchEnabled="false" touchChildren="false" scaleX="1" scaleY="1" y="105" x="8">
+		<e:skinName>
+		<e:Skin minWidth="30" minHeight="18" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+			<e:Image verticalCenter="0" scale9Grid="5,5,86,7" source="uiMain_json.main_boss_progressbar"/>
+			<e:Image id="thumb" x="3" y="5" anchorOffsetX="0" anchorOffsetY="0" source="uiMain_json.main_boss_progress" width="104" scale9Grid="3,0,94,13"/>
+		</e:Skin>
+		</e:skinName>
+	</e:ProgressBar>
+</e:Skin>

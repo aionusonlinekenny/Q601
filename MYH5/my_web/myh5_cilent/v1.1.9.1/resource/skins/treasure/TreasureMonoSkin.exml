@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.TreasureMonoSkin" width="578" height="867" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:treasure="treasure.*">
+	<e:Image id="imgBackBg" anchorOffsetX="0" anchorOffsetY="0" source="role_orangebg_jpg" horizontalCenter="0" alpha="1" height="641.33" y="22.67"/>
+	<e:Image anchorOffsetX="0" anchorOffsetY="0" height="120" source="common_implementbar_png" y="746" scale9Grid="80,7,480,4" horizontalCenter="0"/>
+	<e:Image y="542" anchorOffsetX="0" anchorOffsetY="0" source="common_fightBg_png" x="78"/>
+	<e:Image source="common_infobar_png" y="590" anchorOffsetY="0" height="161" scale9Grid="79,28,477,6" horizontalCenter="0.5"/>
+	<e:Image source="common_json.img_labBg_png" x="317" y="760.59" scale9Grid="8,8,8,8" anchorOffsetX="0" width="115"/>
+	<e:Group id="gpIcons" y="26.86" x="67">
+		<treasure:TreasureIcon id="treasureSword" x="0" y="0" skinName="renderer.TreasureIconSkin"/>
+		<treasure:TreasureIcon id="treasureNail" x="118" y="0" skinName="renderer.TreasureIconSkin"/>
+		<treasure:TreasureIcon id="treasureHelmet" x="236" y="0" skinName="renderer.TreasureIconSkin"/>
+		<treasure:TreasureIcon id="treasureChain" x="354" y="0" skinName="renderer.TreasureIconSkin"/>
+	</e:Group>
+	<e:Label id="labPropName" text="消耗魔龙碎片 : " x="58" y="766.59" size="20" width="252" textAlign="right" textColor="0xc6b59e"/>
+	<e:Group y="549" x="211">
+		<e:Image x="2" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_fight_png" width="57" height="31"/>
+		<e:BitmapLabel id="labScore" text="9999" anchorOffsetX="0" anchorOffsetY="0" font="fight_font2_fnt" left="60" scaleX="1.2" scaleY="1.2"/>
+	</e:Group>
+	<e:Label id="labConsume" text="200000/20" x="321.88" y="766.59" size="20" textColor="0x2b8c25" width="101" textAlign="center" anchorOffsetX="0"/>
+	<e:Group y="619.31" x="7" width="564" height="117" anchorOffsetY="0">
+		<e:Group id="gpNowAttributes" anchorOffsetX="0" anchorOffsetY="0" verticalCenter="0" right="325">
+			<e:layout>
+				<e:VerticalLayout/>
+			</e:layout>
+		</e:Group>
+		<e:Group id="gpNextAttributes" anchorOffsetX="0" anchorOffsetY="0" left="325" verticalCenter="0">
+			<e:layout>
+				<e:VerticalLayout/>
+			</e:layout>
+		</e:Group>
+		<e:Image id="imgArrow" source="common_json.img_arrow_green_png" horizontalCenter="0.5" y="49"/>
+	</e:Group>
+	<components:SnapButton id="btnFit" label="合成" y="824" icon="img_warn_png" skinName="skins.SnapTreasureSkin" anchorOffsetY="24" anchorOffsetX="89" x="289"/>
+	<components:IconButton id="imgGetProp" x="476.5" y="780.72" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_getRes_png"/>
+	<e:Group x="36" y="163" width="48" height="188">
+		<e:Image source="common_shubar_png"/>
+		<e:Label id="equipName" text="魔龙武器" y="38" anchorOffsetX="0" width="23" anchorOffsetY="0" height="81" size="20" textColor="0xc6b59e" bold="true" strokeColor="0x000000" x="13"/>
+		<e:Image y="131" anchorOffsetX="0" anchorOffsetY="0" source="treasure_json.img_treasure_god" x="11"/>
+		<e:BitmapLabel id="labGrade" y="156.67" anchorOffsetX="0" anchorOffsetY="0" text="12" horizontalCenter="0" font="fight_font2_fnt"/>
+	</e:Group>
+</e:Skin>

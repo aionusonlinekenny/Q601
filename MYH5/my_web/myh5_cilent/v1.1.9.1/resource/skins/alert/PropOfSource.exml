@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.PropOfSource" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" xmlns:components="components.*">
+	<e:Image id="imgBg" x="0" y="0" anchorOffsetX="0" width="528" anchorOffsetY="0" height="590" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
+	<e:Group id="buyGroup" x="24" y="285" anchorOffsetX="0" width="487" anchorOffsetY="0" height="150">
+		<e:TextInput id="textInputNum" width="125" height="30" y="6" anchorOffsetX="0" anchorOffsetY="0" text="1" textColor="0xcbc6ac" restrict="0-9" x="173">
+			<e:skinName>
+			<e:Skin minHeight="40" minWidth="300" states="normal,disabled,normalWithPrompt,disabledWithPrompt" width="130" height="38">
+				<e:Image x="-3" y="-2" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_numbg_png" width="132" height="40" scale9Grid="7,6,41,12"/>
+				<e:Rect height="38" width="132" fillColor="0x000000" fillAlpha="0" anchorOffsetX="0" anchorOffsetY="0" x="-2" y="-1"/>
+				<e:EditableText id="textDisplay" verticalCenter="0.5" left="-1" right="2" textColor.disabled="0xff0000" width="100%" height="37" size="20" textColor="0xddc235" anchorOffsetX="0" anchorOffsetY="0" verticalAlign="middle" textAlign="left" width.normal="100%" verticalCenter.normal="0" textAlign.normal="center" left.normal="-1"/>
+				<e:Label id="promptDisplay" verticalCenter="0" textColor="0xa9a9a9" width="90%" height="36" size="20" touchEnabled="false" includeIn="normalWithPrompt,disabledWithPrompt" anchorOffsetX="0" anchorOffsetY="0" verticalAlign="middle" text="" textAlign="center" horizontalCenter="0" left.normalWithPrompt="-1" right.normalWithPrompt="2" left.disabledWithPrompt="-1" right.disabledWithPrompt="2"/>
+			</e:Skin>
+			</e:skinName>
+		</e:TextInput>
+		<e:Label id="lblTatolPrice" text="515" y="58" textAlign="left" verticalAlign="middle" anchorOffsetX="0" width="126" size="22" anchorOffsetY="0" height="26" textColor="0xC6B59E" x="258"/>
+		<e:Image id="imgTatolPayType" x="219" y="57" source="common_json.img_diamonds_png" width="28" height="25"/>
+		<e:Label text="总价:" x="152" y="60" size="22" textColor="0xEDC839"/>
+		<components:IconButton id="btnJia" y="22" source="common_json.btn_jia_png" x="331" anchorOffsetX="23" anchorOffsetY="21"/>
+		<components:IconButton id="btnJian" y="22" source="common_json.btn_jian_png" x="142" anchorOffsetX="23" anchorOffsetY="22"/>
+		<components:SnapButton id="btnBuy" label="购买" y="117" skinName="skins.SnapOrangeButtonSkin" anchorOffsetX="81.23" anchorOffsetY="26" width="160" x="247"/>
+		<components:SnapButton id="btnJiaTen" label="+10" y="22" skinName="skins.SnapRedButtonSkin" x="407" anchorOffsetX="45" width="92" anchorOffsetY="23"/>
+		<components:SnapButton id="btnJianTen" label="-10" y="22" skinName="skins.SnapRedButtonSkin" x="73" anchorOffsetX="44" width="91" anchorOffsetY="24"/>
+	</e:Group>
+	<e:Image id="imgTitle" source="common_closetip_png" y="602.46" x="266" anchorOffsetX="143" anchorOffsetY="14"/>
+	<e:List id="listSource" y="450" anchorOffsetY="0" width="500" x="15" itemRenderer="PropOfSourceRenderer" itemRendererSkinName="renderer.PropOfSourceRendererSkin">
+		<!--<e:itemRendererSkinName>
+		<e:Skin states="up,down,disabled" minHeight="50" minWidth="100" height="60" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing" width="300">
+			<e:Label textFlow="{data.des}" size="20" anchorOffsetX="0" anchorOffsetY="0" textAlign="left" y="22" x="84" textColor="0x2b8c25"/>
+	<e:Image x="0" y="6" source="common_json.img_bagIcon_png"/>
+		</e:Skin>
+		</e:itemRendererSkinName>-->
+	</e:List>
+	<e:Image y="7" horizontalCenter="0" source="img_title_getRes_png"/>
+	<e:Label id="labDesc" text="材料不足，通过以下方式获取" y="66.5" size="20" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="4" textColor="0xedc839"/>
+	<e:Label text="获取途径" y="253.5" size="18" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" textColor="0xc6b59e"/>
+	<ns1:ItemIcon id="prop" y="112" skinName="itemIcon.ItemIconSkin" horizontalCenter="1"/>
+	<e:Image id="imgSale" source="activity_json.img_activity_salebg" y="113" horizontalCenter="-23.5" anchorOffsetY="0" height="56" anchorOffsetX="0" width="35"/>
+	<e:BitmapLabel id="blabSale" y="115" font="sale_font_fnt" text="44" horizontalCenter="-24.5" anchorOffsetY="0" anchorOffsetX="0" scaleX="0.8" scaleY="0.8"/>
+	<e:Image source="common_json.img_line_right_png" x="302" y="256"/>
+	<e:Image source="common_json.img_line_right_png" x="224" y="256" scaleX="-1"/>
+</e:Skin>

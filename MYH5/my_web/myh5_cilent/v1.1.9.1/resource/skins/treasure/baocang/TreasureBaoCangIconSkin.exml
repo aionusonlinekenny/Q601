@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.TreasureBaoCangIconSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" width="74" height="92">
+	<e:Image id="imgQuality" source="common_json.img_qlt_1_png" width="74" height="74" horizontalCenter="0" verticalCenter="-9"/>
+	<e:Label id="labName" text="Label" y="72" size="18" horizontalCenter="-0.5" verticalAlign="middle" textAlign="center"/>
+	<components:Icon id="imgIcon" width="62" height="62" y="5" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0"/>
+</e:Skin>

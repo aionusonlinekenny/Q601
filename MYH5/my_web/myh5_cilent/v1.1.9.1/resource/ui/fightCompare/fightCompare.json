@@ -1,0 +1,12 @@
+{"file":"fightCompare.png","frames":{
+"img_fightCompare_bg_line":{"x":236,"y":1,"w":13,"h":11,"offX":0,"offY":0,"sourceW":13,"sourceH":11},
+"img_fightCompare_centre":{"x":98,"y":40,"w":20,"h":14,"offX":0,"offY":0,"sourceW":20,"sourceH":14},
+"img_fightCompare_down":{"x":236,"y":27,"w":11,"h":11,"offX":0,"offY":0,"sourceW":11,"sourceH":11},
+"img_fightCompare_other_line":{"x":120,"y":40,"w":14,"h":3,"offX":0,"offY":0,"sourceW":14,"sourceH":3},
+"img_fightCompare_pet":{"x":136,"y":31,"w":98,"h":28,"offX":0,"offY":0,"sourceW":98,"sourceH":28},
+"img_fightCompare_role":{"x":136,"y":1,"w":98,"h":28,"offX":0,"offY":0,"sourceW":98,"sourceH":28},
+"img_fightCompare_self_line":{"x":236,"y":40,"w":14,"h":3,"offX":0,"offY":0,"sourceW":14,"sourceH":3},
+"img_fightCompare_up":{"x":236,"y":14,"w":11,"h":11,"offX":0,"offY":0,"sourceW":11,"sourceH":11},
+"btn_fightCompare":{"x":1,"y":40,"w":65,"h":33,"offX":0,"offY":0,"sourceW":65,"sourceH":33},
+"btn_fightCompare_go":{"x":68,"y":40,"w":28,"h":28,"offX":0,"offY":0,"sourceW":28,"sourceH":28},
+"img_fightCompare_bg":{"x":1,"y":1,"w":133,"h":37,"offX":0,"offY":0,"sourceW":133,"sourceH":37}}}

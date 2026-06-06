@@ -1,0 +1,20 @@
+<e:Skin class="normal.WilderfightGiftSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" height="823">
+	<e:Image width="626" height="823" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
+	<e:Image width="582.98" height="669.67" x="21.87" y="64.83" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_inbg_png" scale9Grid="5,6,18,15"/>
+	<e:Scroller id="scrollerGift" width="570.33" height="617.33" x="27.34" y="113" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="off" scrollPolicyV="on">
+		<e:List id="list" anchorOffsetY="0" height="563.33" itemRendererSkinName="renderer.WilderfightGiftRendererSkin" itemRenderer="renderer.WilderfightGiftRenderer" x="0" y="196">
+			<e:layout>
+				<e:VerticalLayout paddingLeft="5"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="597" y="34" anchorOffsetX="25" anchorOffsetY="24"/>
+	<components:IconButton id="btnBack" source="common_json.btn_back_png" x="565.67" y="769.33" anchorOffsetX="36" anchorOffsetY="30"/>
+	<e:Image x="185" y="9" source="wilderfight_json.btn_gift_title_png"/>
+	<e:Label id="labMyRank" text="我的当前排名" x="47" y="760" size="20" textColor="0xc6b59e"/>
+	<e:Label text="每日0点重置奖励" x="361" y="760" size="20" textColor="0xc6b59e"/>
+	<e:Image width="572" height="44" x="27" y="69" scale9Grid="7,7,5,30" anchorOffsetX="0" anchorOffsetY="0" source="union_json.img_union_up_png"/>
+	<e:Image x="251" y="69" source="union_json.img_union_line_png" height="39"/>
+	<e:Label text="排名" y="77" size="25" verticalAlign="middle" textAlign="center" horizontalCenter="-174" textColor="0xedc839"/>
+	<e:Label text="奖励" y="77" size="25" textAlign="center" verticalAlign="middle" horizontalCenter="118" textColor="0xedc839"/>
+</e:Skin>

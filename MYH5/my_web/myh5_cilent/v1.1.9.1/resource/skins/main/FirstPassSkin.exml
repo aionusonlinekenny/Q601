@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="FirstPassSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*">
+	<e:Image x="0" y="0" scale9Grid="0,54,142,10" height="166" source="img_firstpassbg_png"/>
+	<components:RewardItemBox id="reward" y="46.53" skinName="components.ItemBoxSkin" x="26"/>
+</e:Skin>

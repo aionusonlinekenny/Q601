@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.ActivityRankRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image x="0" y="0" anchorOffsetX="0" width="520" anchorOffsetY="0" height="131" scale9Grid="17,14,31,33" source="common_exchange_item_png"/>
+	<components:RewardItemBox id="reward0" x="86.21" y="9" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward1" x="186.21" y="9" skinName="components.ItemBoxSkin"/>
+	<e:BitmapLabel id="blabRank" x="33" y="50" text="1" font="pkMing_fnt"/>
+	<e:Label id="labName" text="名字是六个字" x="315" y="28.99" size="20" textColor="0xedc839"/>
+	<e:Label id="labContent" text="战斗力 : 9999999" x="315" y="67.33" size="20" textColor="0xc6b59e"/>
+</e:Skin>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.LegionWarSelectRewardCellSkin" width="580" height="60" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="rankings_json.img_rankMan_base" x="0" y="0" scale9Grid="13,13,59,38" width="580" height="64"/>
+	<e:Label id="labName" text="" x="10" size="16" textAlign="center" width="131" anchorOffsetX="0" anchorOffsetY="0" height="19" textColor="0xC6B59E" fontFamily="SimSun" verticalCenter="0.5"/>
+	<e:Label id="labJob" text="" x="150" size="16" textAlign="center" width="90" anchorOffsetX="0" anchorOffsetY="0" height="19" textColor="0xc6b59e" fontFamily="SimSun" verticalCenter="0.5"/>
+	<e:Label id="labFight" text="" x="260" size="16" textAlign="center" width="120" anchorOffsetX="0" textColor="0xC6B59E" bold="true" verticalCenter="0"/>
+	<e:Label id="labScore" text="" x="380" size="16" textAlign="center" width="120" anchorOffsetX="0" textColor="0xc6b59e" bold="true" verticalCenter="0"/>
+	<e:CheckBox id="boxChecked" label="" x="520" verticalCenter="0">
+		<e:skinName>
+		<e:Skin states="up,down,disabled" xmlns:components="components.*">
+			<e:Image width="100%" height="100%" source="common_json.img_checkbox_unselect_png" source.down="common_json.img_checkbox_select_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+		</e:Skin>
+		</e:skinName>
+	</e:CheckBox>
+</e:Skin>

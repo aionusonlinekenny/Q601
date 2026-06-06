@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin.MainGoddessSkin" width="216" height="141" xmlns:e="http://ns.egret.com/eui">
+	<e:Image id="imgGoddess" source="uiMain_goddess_json.main_goddess_1" x="0" y="0"/>
+	<e:Image id="imgGoddessAgain" source="uiMain_goddess_json.main_goddess_text" x="115.34" y="119"/>
+	<e:Image id="imgGoddessActive" source="uiMain_goddess_json.main_goddess_active" x="121.5" y="118"/>
+	<e:BitmapLabel id="blabGoddessValue" text="1500" width="60" textAlign="left" anchorOffsetX="0" touchEnabled="false" font="goddess_font_fnt" x="154" y="98"/>
+	<e:BitmapLabel id="blabGoddessChapter" text="15" width="40" textAlign="center" anchorOffsetX="0" touchEnabled="false" font="goddess_font_fnt" x="136" y="118"/>
+	<e:Image id="imgRed" x="97.06" y="58.83" source="uiMain_json.img_main_red"/>
+</e:Skin>

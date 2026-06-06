@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.GoddessSkillSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" xmlns:item="item.*" width="600" height="867">
+	<e:Image source="common_implementbar_png" anchorOffsetY="0" height="145" scale9Grid="80,15,480,14" horizontalCenter="0" y="722"/>
+	<e:Image y="628.66" anchorOffsetY="0" horizontalCenter="0.5" height="115" source="common_infobar_png" scale9Grid="0,29,587,7"/>
+	<e:Scroller width="578" height="504" x="11" y="33" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="on" scrollPolicyV="off">
+			<e:List id="listGoddess" x="123" y="-8" itemRendererSkinName="renderer.GoddessRendererSkin" anchorOffsetY="0" height="459">
+				<e:layout>
+					<e:HorizontalLayout/>
+				</e:layout>
+			</e:List>
+	</e:Scroller>
+	<e:Label id="labStep" text="生命女神圣阶 : 10" y="547.42" size="22" anchorOffsetX="0" textAlign="center" horizontalCenter="0.5" textColor="0xedc839"/>
+	<item:PropertyItemBox id="propertyBox" y="665.66" horizontalCenter="0">
+		<item:skinName>
+			<e:Skin>
+			<item:PropertyChangeItem id="item0" x="0" y="0">
+				<item:skinName>
+					<e:Skin>
+					<e:Label id="labProperty" text="攻击 : 1999" x="0" y="0" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xc6b59e"/>
+					<e:Label id="labAdd" text="400000" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" y="1" textColor="0x34e22c" x="273"/>
+					<e:Image id="imgArrow" y="1" source="common_json.img_arrow_green_png" x="221"/>
+					</e:Skin>
+				</item:skinName>
+			</item:PropertyChangeItem>
+			</e:Skin>
+		</item:skinName>
+	</item:PropertyItemBox>
+	<e:Group y="736" horizontalCenter="-0.5">
+		<e:Label id="labNeed" text="进阶消耗1级生命结晶 : " x="0" y="18.66" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xCFC9BE"/>
+		<e:Label id="labCount" text="8000/8000" y="19.33" size="20" anchorOffsetX="0" textAlign="center" textColor="0x34e22c" x="206"/>
+	</e:Group>
+	<components:IconButton id="btnExchange" x="539" y="822" anchorOffsetX="38" anchorOffsetY="36" source="goddess_json.btn_goddess_exchange" visible="false"/>
+	<components:IconButton id="btnGetMaterial" x="508" y="768.49" source="common_json.img_getRes_png" anchorOffsetX="38" anchorOffsetY="36"/>
+	<components:SnapButton id="btnUpgrade" label="进阶" anchorOffsetX="81" horizontalCenter="0" y="814.66" width="162" anchorOffsetY="28" icon="img_warn_png">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image alpha.disabled="0.5" width="100%" height="100%" source="common_json.btnt_red_selected_png" source.up="common_json.btnt_red_selected_png" source.down="common_json.btnt_red_selected_png" source.disabled="common_json.btnt_red_selected_png" scale9Grid="12,0,15,52"/>
+			<e:Label id="labelDisplay" verticalAlign="middle" textAlign="center" size="22" width="100%" height="38" verticalCenter="-3" horizontalCenter="0" horizontalCenter.up="1" verticalCenter.up="-3" size.up="22" stroke.up="2" verticalCenter.down="-3" stroke.down="1" size.down="22" strokeColor.down="0x480302" strokeColor.up="0x320e02" horizontalCenter.down="0" textColor="0xe4d7b0" strokeColor="0x320e02" stroke="2" textColor.up="0xe4d7b0" textColor.down="0xe4d7b0" textColor.disabled="0xe4d7b0"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="common_json.img_warn_png" visible="false"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<e:Image source="common_fightBg_png" y="583.92" horizontalCenter="0"/>
+	<e:Image x="214.94" y="592.59" source="common_json.img_fight_png" width="57" height="31"/>
+	<e:BitmapLabel id="labFight" y="594.11" anchorOffsetX="0" anchorOffsetY="0" text="7200" touchEnabled="false" left="281" font="fight_font2_fnt"/>
+	<components:Icon id="imgWarn" source="common_json.img_warn_png" x="218.44" y="786.66"/>
+</e:Skin>

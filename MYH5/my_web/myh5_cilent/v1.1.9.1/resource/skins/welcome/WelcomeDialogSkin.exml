@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.WelcomeDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="600">
+	<e:Image source="welcome_json.welcomebg" y="0" x="-43"/>
+	<components:IconButton id="btnStart" source="welcome_json.btn_start" y="477" anchorOffsetX="94" anchorOffsetY="32" x="277"/>
+</e:Skin>

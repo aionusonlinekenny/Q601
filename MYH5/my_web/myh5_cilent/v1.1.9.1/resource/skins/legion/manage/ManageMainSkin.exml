@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.ManageMainSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" width="600" height="916">
+	<e:Image width="576" height="869" x="12" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_inbg_png" scale9Grid="5,6,18,15" y="47"/>
+	<e:Image width="568" height="41" x="14.98" y="53" scale9Grid="7,7,5,30" anchorOffsetX="0" source="union_json.img_union_up_png"/>
+	<e:Image x="10.33" y="849" anchorOffsetX="0" width="574.67" scale9Grid="232,5,152,35" anchorOffsetY="0" height="62" source="img_di_png"/>
+	<e:Scroller id="manageScro" width="563" height="750" y="94" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="auto" scrollPolicyV="auto" x="17">
+		<e:List id="manageList" itemRenderer="ManageMainRenderer" anchorOffsetY="0" x="0" y="45" anchorOffsetX="0" itemRendererSkinName="renderer.ManageMainRendererSkin" height="766" width="568">
+			<e:layout>
+				<e:VerticalLayout gap="2"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<components:SnapButton id="btnApplyList" label="申请列表" x="62" y="854" skinName="skins.SnapButtonDefaultSkin" width="120" icon="img_warn_png"/>
+	<components:SnapButton id="btnMemberMange" label="成员管理" x="181" y="854" skinName="skins.SnapButtonDefaultSkin" width="120" icon="img_warn_png"/>
+	<components:SnapButton id="btnLegionRank" label="军团排行" x="301" y="854" skinName="skins.SnapButtonDefaultSkin" width="120" icon="img_warn_png"/>
+	<components:SnapButton id="btnExitLegion" label="解散军团" x="420" y="854" skinName="skins.SnapButtonDefaultSkin" width="120" icon="img_warn_png"/>
+	<e:Image source="union_json.img_union_line_png" x="124" y="54" height="35"/>
+	<e:Image source="union_json.img_union_line_png" x="246" y="54" height="35"/>
+	<e:Image source="union_json.img_union_line_png" x="349" y="54" height="35"/>
+	<e:Image source="union_json.img_union_line_png" x="475" y="54" height="35"/>
+	<e:Label text="成员" x="47" y="62" size="20" textColor="0xedc839"/>
+	<e:Label text="职位" x="164" y="62" size="20" textColor="0xedc839"/>
+	<e:Label text="等级" x="278" y="62" size="20" textColor="0xedc839"/>
+	<e:Label text="战力" x="394" y="62" size="20" textColor="0xedc839"/>
+	<e:Label text="状态" x="507" y="62" size="20" fontFamily="Arial" textColor="0xedc839"/>
+</e:Skin>

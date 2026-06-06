@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ApplyConditionSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image width="528" height="378" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
+	<components:SnapButton id="btnSure" label="确定" x="195" y="296" skinName="skins.SnapButtonDefaultSkin"/>
+	<e:Label text="是否需要验证 : " x="73" y="142" size="20" textColor="0xedc839"/>
+	<e:Label text="最低等级要求 : " x="73" y="226" size="20" textColor="0xedc839"/>
+	<e:Image x="271" y="128" source="common_json.img_numbg_png" scale9Grid="7,8,47,9" width="150" height="50"/>
+	<e:Image x="273" y="215" source="common_json.img_numbg_png" scale9Grid="7,9,47,6" width="150" height="50"/>
+	<e:Label id="lab1" text="无需验证" y="140" size="24" textAlign="center" verticalAlign="middle" horizontalCenter="81" textColor="0xc6b59e"/>
+	<e:Label id="lab2" text="0级" y="227" size="24" verticalAlign="middle" textAlign="center" horizontalCenter="83" textColor="0xc6b59e"/>
+	<e:Button id="btnLeft1" label="" x="222" y="122">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="common_json.btn_left_default_png" source.down="common_json.btn_left_default_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="btnLeft2" label="" x="218" y="207">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="common_json.btn_left_default_png" source.down="common_json.btn_left_default_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="btnRigth1" label="" x="471" y="177" rotation="179.06">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="common_json.btn_left_default_png" source.down="common_json.btn_left_default_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="btnRigth2" label="" x="476" y="267" rotation="179.06">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="common_json.btn_left_default_png" source.down="common_json.btn_left_default_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<components:IconButton id="btnClose" x="466" y="3" source="common_json.btn_close_png"/>
+	<e:Image source="union_json.img_union_title13_png" x="168" y="6"/>
+</e:Skin>

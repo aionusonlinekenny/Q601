@@ -1,0 +1,107 @@
+{
+  "system_prompt_config_1": {
+    "property": {
+      "bricks": "%1$s被踢出军团！",
+      "description": "XXXX被踢出军团"
+    },
+    "refId": "system_prompt_config_1"
+  },
+  "system_prompt_config_2": {
+    "property": {
+      "bricks": "%1$s退出了军团！",
+      "description": "XXX退出了军团"
+    },
+    "refId": "system_prompt_config_2"
+  },
+  "system_prompt_config_3": {
+    "property": {
+      "bricks": "%1$s加入了军团！",
+      "description": "XXX加入了军团"
+    },
+    "refId": "system_prompt_config_3"
+  },
+  "system_prompt_config_4": {
+    "property": {
+      "bricks": "%1$s登记了幻兽%2$s，军团实力大涨！",
+      "description": "XXX登记了幻兽XX，军团实力大涨"
+    },
+    "refId": "system_prompt_config_4"
+  },
+  "system_prompt_config_5": {
+    "property": {
+      "bricks": "%1$s修改了军团公告！",
+      "description": "XXX修改了军团公告"
+    },
+    "refId": "system_prompt_config_5"
+  },
+  "system_prompt_config_6": {
+    "property": {
+      "bricks": "%1$s被任命为副团长！",
+      "description": "玩家XXXX被任命为副团长"
+    },
+    "refId": "system_prompt_config_6"
+  },
+  "system_prompt_config_7": {
+    "property": {
+      "bricks": "玩家%1$s放弃选择",
+      "description": "玩家XXXX放弃选择"
+    },
+    "refId": "system_prompt_config_7"
+  },
+  "system_prompt_config_8": {
+    "property": {
+      "bricks": "玩家%1$s拒绝了你的邀请",
+      "description": "玩家XXXX拒绝了你的邀请"
+    },
+    "refId": "system_prompt_config_8"
+  },
+  "system_prompt_config_9": {
+    "property": {
+      "bricks": "你成功退出了公会%1$s",
+      "description": "你成功退出了公会XXXX"
+    },
+    "refId": "system_prompt_config_9"
+  },
+  "system_prompt_config_10": {
+    "property": {
+      "bricks": "你已成功加入%1$s公会",
+      "description": "你已成功加入XXXX公会"
+    },
+    "refId": "system_prompt_config_10"
+  },
+  "system_prompt_config_11": {
+    "property": {
+      "bricks": "你被踢出公会%1$s",
+      "description": "你被踢出公会XXXX"
+    },
+    "refId": "system_prompt_config_11"
+  },
+  "system_prompt_config_12": {
+    "property": {
+      "bricks": "%1$s公会已经解散",
+      "description": "XXXX公会已经解散"
+    },
+    "refId": "system_prompt_config_12"
+  },
+  "system_prompt_config_13": {
+    "property": {
+      "bricks": "你对%1$s公会的申请被拒绝",
+      "description": "你对XXXX公会的申请被拒绝"
+    },
+    "refId": "system_prompt_config_13"
+  },
+  "system_prompt_config_14": {
+    "property": {
+      "bricks": "成功解散公会%1$s",
+      "description": "成功解散公会XXXX"
+    },
+    "refId": "system_prompt_config_14"
+  },
+  "system_prompt_config_15": {
+    "property": {
+      "bricks": "%1$s为军团捐献了%2$s钻石，获得了大量军团贡献！",
+      "description": "XXXX为军团捐献了XXXX钻石，获得了大量军团贡献！"
+    },
+    "refId": "system_prompt_config_15"
+  }
+}

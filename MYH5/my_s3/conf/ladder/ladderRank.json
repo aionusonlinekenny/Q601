@@ -1,0 +1,18 @@
+[
+    {
+        "id":1,
+        "name":"冠军",
+        "des":"天下第一",
+        "rankMin":1,
+        "rankMax":1,
+        "rewards":"281006_1"
+    },
+    {
+        "id":2,
+        "name":"亚军",
+        "des":"暗影之裔",
+        "rankMin":2,
+        "rankMax":5,
+        "rewards":"281016_1"
+    }
+]

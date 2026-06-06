@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.RoleInfoTipSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image x="-1.33" y="0"  width="544"  height="730" source="common_json.img_tips_bg_png" scale9Grid="22,26,21,15"/>
+	<e:Image source="tips_json.img_tips_namebg" y="25" horizontalCenter="0"/>
+	<e:Label id="labName" text="名字是六个字" y="31" size="24" textAlign="center"  width="160"  height="24" horizontalCenter="0" textColor="0xc6b59e"/>
+	<e:Label text="生       命 : " x="32" y="168" size="20" textAlign="left"   height="24" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+	<e:Label text="物       防 : " x="32" y="209" size="20" textAlign="left"   height="24" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+	<e:Label text="物       穿 : " x="32" y="250" size="20" textAlign="left"   height="24" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+	<e:Label id="labSM" text="222" x="140" y="168" size="20" textAlign="left"   height="24" textColor="0xc6b59e"/>
+	<e:Label id="labWF" text="333" x="140" y="209" size="20" textAlign="left"  width="100"  height="24" textColor="0xc6b59e"/>
+	<e:Label id="labWFCT" text="444" x="140" y="250" size="20" textAlign="left"  width="100"  height="24" textColor="0xc6b59e"/>
+	<e:Label text="攻       击 : " x="302" y="168" size="20" textAlign="left"   height="24" anchorOffsetX="0" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+	<e:Label text="法       防 : " x="302" y="209" size="20" textAlign="left"   height="24" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+	<e:Label text="法       穿 : " x="302" y="250" size="20" textAlign="left"   height="24" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+	<e:Label id="labGJ" text="222" x="411" y="168" size="20" textAlign="left"   height="24" textColor="0xc6b59e"/>
+	<e:Label id="labFF" text="333" x="411" y="209" size="20" textAlign="left"   height="24" textColor="0xc6b59e"/>
+	<e:Label id="labFFCT" text="444" x="411" y="250" size="20" textAlign="left"   height="24" textColor="0xc6b59e"/>
+	<e:Label text="命       中 : " x="32" y="336" size="20" textAlign="left"   height="24" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+	<e:Label text="暴       伤 : " x="32" y="418" size="20" textAlign="left"   height="24" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+	<e:Label text="暴       击 : " x="32" y="377" size="20" textAlign="left"   height="24" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+	<e:Label id="labBJ" text="222" x="140" y="377" size="20" textAlign="left"  width="100"  height="24" textColor="0xc6b59e"/>
+	<e:Label id="labSB" text="333" x="411" y="336" size="20" textAlign="left"  width="100"  height="24" textColor="0xc6b59e"/>
+	<e:Label id="labKB" text="444" x="411" y="377" size="20" textAlign="left"  width="100"  height="24" textColor="0xc6b59e"/>
+	<e:Label text="闪       避 : " x="302" y="336" size="20" textAlign="left"   height="24" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+	<e:Label text="抗       暴 : " x="302" y="377" size="20" textAlign="left"   height="24" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+	<e:Label text="韧       性 : " x="302" y="418" size="20" textAlign="left"   height="24" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+	<e:Label id="labBJSH" text="222" x="140" y="418" size="20" textAlign="left"  width="100"  height="24" textColor="0xc6b59e"/>
+	<e:Label id="labBJDK" text="333" x="411" y="418" size="20" textAlign="left"  width="100"  height="24" textColor="0xc6b59e"/>
+	<e:Label id="labMZ" text="444" x="140" y="336" size="20" textAlign="left"  width="100"  height="24" textColor="0xc6b59e"/>
+	<e:Label text="伤害加深 : " x="32" y="506" size="20" textAlign="left"   height="24" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
+	<e:Label text="生命回复 : " x="32" y="547" size="20" textAlign="left"   height="24" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
+	<e:Label id="labSHJS" text="222" x="140" y="508" size="20" textAlign="left"  width="100"  height="24" textColor="0xc6b59e"/>
+	<e:Label id="labSMHF" text="333" x="140" y="548" size="20" textAlign="left"  width="100"  height="24" textColor="0xc6b59e"/>
+	<e:Label text="伤害减免 : " x="302" y="506" size="20" textAlign="left"   height="24" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
+	<e:Label id="labSHJM" text="222" x="411" y="506" size="20" textAlign="left"  width="100"  height="24" textColor="0xc6b59e"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="25" anchorOffsetY="24" y="29" x="510"/>
+	<components:IconButton id="btnBack" source="common_json.btn_back_png" anchorOffsetX="36" anchorOffsetY="35" x="495" y="681"/>
+	<e:Image id="imgJob" source="common_json.img_jobName_1_png" y="73.5" horizontalCenter="0"/>
+	<e:Image source="tips_json.img_tips_title_shuxing" y="121" horizontalCenter="0"/>
+	<e:Image source="tips_json.img_tips_title_shuxing" y="299" horizontalCenter="0"/>
+	<e:Image source="tips_json.img_tips_title_shuxing" y="462" horizontalCenter="0"/>
+	<e:Image source="tips_json.img_tips_putong" y="117" horizontalCenter="0"/>
+	<e:Image source="tips_json.img_tips_gaoji" y="292" horizontalCenter="0"/>
+	<e:Image source="tips_json.img_tips_teshu" y="455" horizontalCenter="0"/>
+</e:Skin>

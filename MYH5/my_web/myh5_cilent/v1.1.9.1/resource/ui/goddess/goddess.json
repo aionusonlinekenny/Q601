@@ -1,0 +1,9 @@
+{"file":"goddess.png","frames":{
+"img_goddess_name_2":{"x":76,"y":152,"w":157,"h":25,"offX":0,"offY":0,"sourceW":158,"sourceH":26},
+"img_goddess_name_3":{"x":1,"y":226,"w":181,"h":24,"offX":0,"offY":0,"sourceW":182,"sourceH":25},
+"img_goddess_name_4":{"x":1,"y":199,"w":182,"h":25,"offX":0,"offY":0,"sourceW":182,"sourceH":25},
+"btn_goddess_exchange":{"x":1,"y":124,"w":73,"h":73,"offX":0,"offY":0,"sourceW":73,"sourceH":73},
+"img_consume_icon":{"x":211,"y":1,"w":27,"h":34,"offX":0,"offY":0,"sourceW":27,"sourceH":36},
+"img_goddess_inbg":{"x":185,"y":179,"w":64,"h":58,"offX":0,"offY":0,"sourceW":64,"sourceH":58},
+"img_goddess_lock":{"x":1,"y":1,"w":208,"h":121,"offX":0,"offY":1,"sourceW":209,"sourceH":122},
+"img_goddess_name_1":{"x":76,"y":124,"w":158,"h":26,"offX":0,"offY":0,"sourceW":159,"sourceH":27}}}

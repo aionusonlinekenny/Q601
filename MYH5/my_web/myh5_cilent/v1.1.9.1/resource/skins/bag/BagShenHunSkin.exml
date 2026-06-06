@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.BagShenHunSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" width="600" height="916">
+	<e:Image source="common_json.img_inbg_png" x="11" y="0" anchorOffsetX="0" width="578" anchorOffsetY="0" height="667" scale9Grid="5,6,18,15"/>
+	<e:Image x="11" y="725.4" anchorOffsetX="0" width="578" anchorOffsetY="0" height="66" source="common_inbar_png" scale9Grid="95,9,20,14"/>
+	<e:Scroller id="scroller" y="15" height="635" width="530" horizontalCenter="0">
+		<e:List id="listShenHun" x="0" y="0" itemRendererSkinName="renderer.BagShenHunRendererSkin" allowMultipleSelection="true">
+			<e:layout>
+			<e:TileLayout orientation="rows" requestedColumnCount="5" horizontalGap="20" paddingLeft="0" verticalGap="5"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:CheckBox id="typeGreen" label="绿品" y="744" x="50">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image source="img_checkbox_unselect_png" source.down="img_checkbox_select_png"/>
+			<e:Label id="labelDisplay" x="36" size="20" verticalCenter="-2.5" textColor="0x2b8c25"/>
+			</e:Skin>
+		</e:skinName>
+	</e:CheckBox>
+	<e:CheckBox id="typeBule" label="蓝品" y="744" x="158.25">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image source="img_checkbox_unselect_png" source.down="img_checkbox_select_png"/>
+			<e:Label id="labelDisplay" x="36" size="20" verticalCenter="-2.5" textColor="0x1c5fd4"/>
+		</e:Skin>
+		</e:skinName>
+	</e:CheckBox>
+	<e:CheckBox id="typePurple" label="紫品" y="744" x="269.5">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image source="img_checkbox_unselect_png" source.down="img_checkbox_select_png"/>
+			<e:Label id="labelDisplay" x="36" size="20" verticalCenter="-2.5" textColor="0x8425cb"/>
+		</e:Skin>
+		</e:skinName>
+	</e:CheckBox>
+	<e:CheckBox id="typeOrange" label="橙品" y="744" x="378.75">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image source="img_checkbox_unselect_png" source.down="img_checkbox_select_png"/>
+			<e:Label id="labelDisplay" x="36" size="20" verticalCenter="-2.5" textColor="0xe17123"/>
+		</e:Skin>
+		</e:skinName>
+	</e:CheckBox>
+	<e:CheckBox id="typeRed" label="红品" y="744" x="487">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image source="img_checkbox_unselect_png" source.down="img_checkbox_select_png"/>
+			<e:Label id="labelDisplay" x="36" size="20" verticalCenter="-2.5" textColor="0xB72A0F"/>
+		</e:Skin>
+		</e:skinName>
+	</e:CheckBox>
+	<components:SnapButton id="btnFenjie" label="一键分解" y="806" anchorOffsetX="0" width="168" skinName="skins.SnapButtonDefaultSkin" horizontalCenter="0"/>
+	<e:Label id="labDebris" text="" x="344" y="686" size="18" textColor="0x2b8c25" width="100" height="18"/>
+	<e:Label text="分解可获得 : " x="194" y="686" size="18" textColor="0xc6b59e"/>
+	<e:Image x="307" y="681" width="30" height="30" source="bag_json.img_godSoulIcon"/>
+</e:Skin>

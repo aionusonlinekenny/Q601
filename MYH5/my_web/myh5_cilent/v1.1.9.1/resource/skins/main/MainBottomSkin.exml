@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin width="600" height="114" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" class="skin.MainBottomSkin">
+	<e:Image id="bottomback" horizontalCenter="0" source="uiMain_json.img_main_bottombg" bottom="10" touchEnabled="false" scale9Grid="137,0,91,98" width="750"/>
+	<e:ProgressBar id="expBar" value="70" width="100%" bottom="0" touchChildren="false" touchEnabled="false" x="0">
+		<e:skinName>
+		<e:Skin minWidth="30" xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+			<e:Image width="100%" source="uiMain_json.img_main_expbarbg" scale9Grid="4,0,11,11"/>
+			<e:Image id="thumb" width="100%" x="0" y="4" source="uiMain_json.img_main_expbar"/>
+		</e:Skin>
+		</e:skinName>
+	</e:ProgressBar>
+	<e:Group id="bottomGroup" horizontalCenter="-33" bottom="19" width="500" height="94">
+		<e:Group id="backXpGroup" anchorOffsetX="44" anchorOffsetY="43.5" x="535.34" y="53.66" width="82" height="82">
+		<e:Image id="imgXpBar" source="uiMain_json.img_main_xpprogress" x="0" y="0" width="82" height="82"/>
+		<e:Image id="xpIcon" x="15" y="13" anchorOffsetX="0" anchorOffsetY="0" source="uiMain_json.main_xp_fa"/>
+		<e:Image id="imgBack" source="uiMain_json.btn_main_back" x="5.65" y="6"/>
+		</e:Group>
+		<components:SnapButton id="btnRole" xmlns:components="components.*" label="" anchorOffsetX="36" anchorOffsetY="41" icon="uiMain_json.img_main_red" isWarn="false" y="50" x="36">
+		<components:skinName>
+			<e:Skin states="up,down,disabled" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+			<e:Image width="100%" height="100%" source="uiMain_json.main_icon_role" y="0"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="uiMain_json.img_main_red" visible="false"/>
+			</e:Skin>
+		</components:skinName>
+		</components:SnapButton>
+		<components:SnapButton id="btnBag" xmlns:components="components.*" label="" anchorOffsetX="36" anchorOffsetY="43.29" icon="uiMain_json.img_main_red" isWarn="false" x="118" y="46">
+		<components:skinName>
+			<e:Skin states="up,down,disabled" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+			<e:Image width="100%" height="100%" source="uiMain_json.main_icon_bag" y="3"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="uiMain_json.img_main_red" visible="false"/>
+			</e:Skin>
+		</components:skinName>
+		</components:SnapButton>
+		<components:SnapButton id="btnForging" xmlns:components="components.*" label="" anchorOffsetX="36" anchorOffsetY="45" icon="uiMain_json.img_main_red" isWarn="false" x="201" y="50">
+		<components:skinName>
+			<e:Skin states="up,down,disabled" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+			<e:Image width="100%" height="100%" source="uiMain_json.main_icon_forge" y="2"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="uiMain_json.img_main_red" visible="false"/>
+			</e:Skin>
+		</components:skinName>
+		</components:SnapButton>
+		<components:SnapButton id="btnExploration" xmlns:components="components.*" label="" anchorOffsetX="37" anchorOffsetY="45" icon="uiMain_json.img_main_red" isWarn="false" x="284" y="49">
+		<components:skinName>
+			<e:Skin states="up,down,disabled" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+			<e:Image width="100%" height="100%" source="uiMain_json.main_icon_exploration" y="3"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="uiMain_json.img_main_red" visible="false"/>
+			</e:Skin>
+		</components:skinName>
+		</components:SnapButton>
+		<components:SnapButton id="btnCorps" xmlns:components="components.*" label="" anchorOffsetX="37" anchorOffsetY="45" icon="uiMain_json.img_main_red" isWarn="false" y="48" x="365">
+		<components:skinName>
+			<e:Skin states="up,down,disabled" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+			<e:Image width="100%" height="100%" source="uiMain_json.main_icon_corps" y="3"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="uiMain_json.img_main_red" visible="false"/>
+			</e:Skin>
+		</components:skinName>
+		</components:SnapButton>
+		<components:SnapButton id="btnEudemons" xmlns:components="components.*" label="" anchorOffsetX="37" anchorOffsetY="48" icon="uiMain_json.img_main_red" isWarn="false" y="53" x="444">
+		<components:skinName>
+			<e:Skin states="up,down,disabled" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+			<e:Image width="100%" height="100%" source="uiMain_json.main_icon_eudemons" y="3"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="uiMain_json.img_main_red" visible="false"/>
+			</e:Skin>
+		</components:skinName>
+		</components:SnapButton>
+		<e:Image id="tipBag" x="129" y="7" anchorOffsetX="0" anchorOffsetY="0" source="uiMain_json.main_man" scale9Grid="6,7,25,26"/>
+	</e:Group>
+	<e:Label id="labExp" text="30%" size="11" horizontalCenter="0.5" textAlign="center" stroke="1" textColor="0xFFFFFF" bottom="1"/>
+</e:Skin>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.TreasureTarotSkin" width="578" currentState="taroGame" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:tips="tips.*" xmlns:treasure="treasure.*" xmlns:item="item.*" states="taroInitial,taroGame,taroGameOver"  height="867">
+	<e:Image height="113" anchorOffsetX="0" anchorOffsetY="0" source="common_implementbar_png" y="754" horizontalCenter="0" scale9Grid="80,7,480,4"/>
+	<e:Image x="4" y="38.38" anchorOffsetY="0" height="118" source="img_labFloor_png"/>
+	<e:Image id="imgMoShi" x.taroGame="404" y.taroGame="774" x.taroGameOver="232" y.taroGameOver="767" x="191.94" y="778.27" source="common_json.img_diamonds_png" x.taroInitial="462" y.taroInitial="770.43"/>
+	<components:Icon id="imgProp" includeIn="taroGame,taroGameOver" anchorOffsetX="0" anchorOffsetY="0" x.taroGameOver="229" y.taroGameOver="808" width="36" height="38" y="812" x="345" x.taroGame="401" source=""/>
+	<e:Image x="4" y="312" source.taroGameOver="treasure_json.img_exp" source.taroGame="treasure_json.img_exp" source.taroInitial="treasure_json.img_exp" source="treasure_json.img_exp"/>
+	<e:Image source="common_json.img_normal_line_png" width="418" y="146" x="80"/>
+	<e:Image source="common_json.img_normal_line_png" width="418" y="383" x="80" y.taroGameOver="385"/>
+	<item:PrizeProgress id="prizeProgress" x="68" y="248" skinName="item.PrizeProgressSkin"/>
+	<e:Label id="labDiamonds" text="20" size="20" x.taroGame="448" y.taroGame="776" y.taroGameOver="771" x.taroGameOver="277" textColor="0xc6b59e" y="826" y.taroInitial="775" x.taroInitial="497" />
+	<e:Image id="imgMoShi1" x="431" y="825" source="common_json.img_diamonds_png" includeIn="taroGameOver" visible="false"/>
+	<e:Label id="labDiamonds1" text="20" size="20" y="829" x="476" textColor="0xC6B59E" includeIn="taroGameOver" visible="false"/>
+	<e:Label id="labPrompt" text="0" size="18" y.taroGameOver="819" x.taroGameOver="277" includeIn="taroGame,taroGameOver" y="821.09" x="400" x.taroGame="448" textColor="0xc6b59e" y.taroGame="821"/>
+	<e:Label id="labText2" text="经验值满就送顶级橙宠庇佑者莉亚，并开启至尊塔罗					" y="363" size="18" fontFamily="Microsoft YaHei" textColor="0xCAB59E" textAlign="center" horizontalCenter="0.5" stroke="1"/>
+	<e:Label id="labPrizeProgress" text="144/600" y="316" size="18" fontFamily="Microsoft YaHei" textColor="0xCAB59E" textAlign="center" anchorOffsetX="0" width="466" anchorOffsetY="0" height="19" stroke="1" x="82"/>
+	<e:Label id="labCritical" text="下次经验值暴击几率 : 50%" x="183" y="773" size="18" textColor="0xeffb8a" stroke="1" strokeColor="0x6fc400" anchorOffsetX="0" width="218" anchorOffsetY="0" height="20" verticalAlign="justify" textAlign="center" x.taroGameOver="0" y.taroGameOver="767" x.taroGame="177"/>
+	<e:Group x="69" y="150" y.taroGameOver="150" x.taroGameOver="69" x.taroGame="69" y.taroGame="150" x.taroInitial="69" y.taroInitial="150">
+		<treasure:TreasureIcon id="treasure1" x="0" y="0" skinName="renderer.TreasureIconSkin"/>
+		<treasure:TreasureIcon id="treasure2" x="115" y="0" skinName="renderer.TreasureIconSkin"/>
+		<treasure:TreasureIcon id="treasure3" x="230" y="0" skinName="renderer.TreasureIconSkin"/>
+		<treasure:TreasureIcon id="treasure4" x="345" y="0" skinName="renderer.TreasureIconSkin"/>
+	</e:Group>
+	<e:Group id="gpCards" anchorOffsetX="0" anchorOffsetY="0" height="310" width="548" y="393" x="15">
+		<treasure:TreasureCard id="imgCard1" width="20" height="20" skinName="skins.TreasureCardSkin" anchorOffsetX="66" y="1.52" x="65"/>
+		<treasure:TreasureCard id="imgCard2" width="20" height="20" skinName="skins.TreasureCardSkin" anchorOffsetX="66" x="204" y="1.52"/>
+		<treasure:TreasureCard id="imgCard3" width="20" height="20" skinName="skins.TreasureCardSkin" anchorOffsetX="66" x="343" y="1.52"/>
+		<treasure:TreasureCard id="imgCard4" width="20" height="20" skinName="skins.TreasureCardSkin" anchorOffsetX="66" x="482.5" y="1.52"/>
+		<treasure:TreasureCard id="imgCard5" width="20" height="20" skinName="skins.TreasureCardSkin" anchorOffsetX="66" y="184" x="65"/>
+		<treasure:TreasureCard id="imgCard6" width="20" height="20" skinName="skins.TreasureCardSkin" anchorOffsetX="66" y="184" x="204"/>
+		<treasure:TreasureCard id="imgCard7" width="20" height="20" skinName="skins.TreasureCardSkin" anchorOffsetX="66" y="184" x="343"/>
+		<treasure:TreasureCard id="imgCard8" width="20" height="20" skinName="skins.TreasureCardSkin" anchorOffsetX="66" y="184" x="482.5"/>
+	</e:Group>
+	<components:SnapButton id="btnUpdateTaro" label="刷新" x.taroGameOver="15" width="150" icon="img_warn_png" y="780" x.taroInitial="432" anchorOffsetX.taroInitial="0" width.taroInitial="129" y.taroInitial="795.43" skinName="skins.SnapTreasureSkin" skinName.taroInitial="skins.SnapTreasureSkin" anchorOffsetY.taroInitial="0" height.taroInitial="43" width.taroGame="210" height.taroGame="60" horizontalCenter.taroGame="0" width.taroGameOver="180" y.taroGame="796" y.taroGameOver="798"/>
+	<components:SnapButton id="btnBeginTrao" label="开始游戏" x.taroGameOver="381" width="150" label.taroGameOver="重置" includeIn="taroInitial,taroGameOver" icon="img_warn_png" y="771" x="214" y.taroGameOver="798" y.taroInitial="795.5" skinName="skins.SnapTreasureSkin" anchorOffsetX.taroInitial="0" width.taroInitial="210" anchorOffsetY.taroInitial="0" height.taroInitial="60" horizontalCenter.taroInitial="0" width.taroGameOver="180"/>
+	<components:SnapButton id="btnWareHouse" x="500" y="43" icon="uiMain_json.img_main_red" width="73" height="73">
+		<components:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="treasure_json.img_wareHouse"/>
+	<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="uiMain_json.img_main_red" visible="false"/>
+			</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnAllPrize" x="510" y="160" icon="uiMain_json.img_main_red" width="73" height="73" x.taroGameOver="547" y.taroGameOver="193" anchorOffsetX.taroGameOver="37" anchorOffsetY.taroGameOver="33" x.taroGame="510" y.taroGame="160" y.taroInitial="160" x.taroInitial="510">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="treasure_json.img_treasure_prize"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<e:Scroller id="scrollerTreasure" anchorOffsetY="0" anchorOffsetX="0" scrollPolicyH="off" scrollPolicyV="auto" y="39" height="101" width="328" x="125">
+		<e:List id="listTreasure" anchorOffsetY="0" top="0" itemRenderer="treasure.TreasureListRanking" anchorOffsetX="0" height="124" width="343" x="40"/>
+	</e:Scroller>
+	<tips:GoldAndDiamonds id="goldTips" skinName="normal.GoldAndDiamondsSkin" right="0" y="6"/>
+	<e:Image id="imgTartoUp" source="img_tarot_update_png" y="500" horizontalCenter="0"/>
+	<e:Image id="imgCritical" source="treasure_json.img_treasure_baoji2" anchorOffsetX="124" anchorOffsetY="39" verticalCenter="-112.5" x="290"/>
+	<treasure:TreasureTarotAddExp id="criticalAddExp" y="380" skinName="item.TreasureTarotAddExpSkin" x="290" anchorOffsetX="110" anchorOffsetY="19"/>
+	<e:Image id="imgDiscountInitial" source="treasure_json.img_discoount2" includeIn="taroInitial" x="17" y="757"/>
+	<e:Image id="imgDiscount" source="treasure_json.img_discoount" includeIn="taroGame,taroGameOver" x="481" y="774" x.taroGameOver="321" y.taroGameOver="770" x.taroGame="502"/>
+</e:Skin>

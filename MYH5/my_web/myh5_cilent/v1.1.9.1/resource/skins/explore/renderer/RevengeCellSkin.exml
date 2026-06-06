@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.RevengeCellSkin" width="568" height="128" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="common_json.img_normal_line_png" y="120" x="30" width="509"/>
+	<components:SnapButton id="btnHire" label="复仇" y="36" anchorOffsetX="0" width="128" skinName="skins.SnapButtonDefaultSkin" x="430.18"/>
+	<e:Label id="labTime" text="2018-1-30   11 : 19 : 34" x="29" y="26" size="22" fontFamily="Microsoft JhengHei" bold="true" textColor="0xc6b59e"/>
+	<e:Label id="labInfo" text="第一势力S葬" x="25.33" y="71.66" anchorOffsetX="0" width="439.67" size="22" textColor="0xc6b59e"/>
+</e:Skin>

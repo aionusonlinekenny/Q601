@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin width="460" height="38" xmlns:e="http://ns.egret.com/eui" class="skin.MainFirstRechargeTipSkin">
+	<e:Image id="firstRechargeTips" source="main_main_tip1_png"/>
+</e:Skin>

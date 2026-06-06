@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.TreasureBaoCangCardSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing" xmlns:treasure="treasure.*" states="card,cardBack" width="132" height="177">
+	<e:Image includeIn="cardBack" x="132" y="0" skewY="180" source="img_cardBack1_png"/>
+	<e:Image includeIn="card" x="0" y="0" source="img_card_png"/>
+	<treasure:TreasureIcon id="icon" includeIn="card" x="21" y="39" skinName="renderer.TreasureIconSkin"/>
+	
+</e:Skin>

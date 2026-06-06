@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.RoleUseShenhunDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="626" height="916">
+	<e:Image y="14" source="common_json.img_inbg_png" width="590" height="741" scale9Grid="5,6,18,15" x="18"/>
+	<e:Scroller width="578" height="729" x="24" y="20">
+		<e:List id="listItem" x="0" y="-62" height="743" itemRendererSkinName="renderer.UseShenhunRenderer">
+		<e:layout>
+			<e:VerticalLayout gap="1"/>
+		</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:Label text="同种类型的神魂只能装备一个" y="792" textColor="0x34e22c" size="20" x="183" touchEnabled="false"/>
+</e:Skin>

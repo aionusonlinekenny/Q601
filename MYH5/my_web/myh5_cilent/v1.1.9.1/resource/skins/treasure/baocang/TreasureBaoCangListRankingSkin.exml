@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.TreasureBaoCangListRankingSkin" width="464" height="30" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Label id="labInfo" text="Label" y="5" size="20" textColor="0xc6b59e" horizontalCenter="0"/>
+</e:Skin>

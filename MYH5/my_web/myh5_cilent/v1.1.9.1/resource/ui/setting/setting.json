@@ -1,0 +1,5 @@
+{"file":"setting.png","frames":{
+"setting_toggle_bar":{"x":165,"y":1,"w":51,"h":51,"offX":0,"offY":0,"sourceW":51,"sourceH":51},
+"setting_btn_rename":{"x":1,"y":1,"w":73,"h":73,"offX":0,"offY":0,"sourceW":73,"sourceH":73},
+"setting_toggle_back":{"x":1,"y":76,"w":87,"h":50,"offX":0,"offY":0,"sourceW":87,"sourceH":50},
+"setting_toggle_back_disable":{"x":76,"y":1,"w":87,"h":50,"offX":0,"offY":0,"sourceW":87,"sourceH":50}}}

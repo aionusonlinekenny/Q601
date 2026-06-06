@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.JinHuaItemBoxSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*"  width="90" height="108">
+	<e:Image id="imgQuality" y="0" source="common_json.img_qlt_1_png" x="0"/>
+	<components:Icon id="imgIcon" y="3" width="80" height="80" x="5" source=""/>
+	<e:Image id="imgbg" source="common_json.img_qlt_lv_1_png" x="83" y="23" anchorOffsetX="0" width="44" anchorOffsetY="0" height="18" rotation="179.63"/>
+	<e:Label id="labName" text="11111" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="0" y="88" textColor="0xc6b59e"/>
+	<e:Label id="labStep" text="+10" size="20" verticalAlign="middle" y="5" textAlign="right" right="11" textColor="0xedc839" stroke="2"/>
+	<e:Image id="imgLock" width="80" height="80" x="5" y="3" source="common_json.img_lock_png" visible="false"/>
+	<e:Image id="imgAdd" width="80" height="80" x="5" y="3" source="pet_json.img_pet_add_png" visible="false"/>
+</e:Skin>

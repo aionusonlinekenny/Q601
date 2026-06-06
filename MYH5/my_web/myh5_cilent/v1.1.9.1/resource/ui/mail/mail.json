@@ -1,0 +1,7 @@
+{"file":"mail.png","frames":{
+"img_wordsetting":{"x":1,"y":87,"w":210,"h":36,"offX":0,"offY":0,"sourceW":210,"sourceH":36},
+"img_mail":{"x":175,"y":1,"w":78,"h":73,"offX":1,"offY":0,"sourceW":79,"sourceH":73},
+"img_mail_box":{"x":1,"y":1,"w":92,"h":84,"offX":2,"offY":1,"sourceW":95,"sourceH":86},
+"img_mail_open":{"x":95,"y":1,"w":78,"h":83,"offX":1,"offY":1,"sourceW":80,"sourceH":86},
+"img_new":{"x":213,"y":76,"w":36,"h":48,"offX":0,"offY":0,"sourceW":36,"sourceH":49},
+"img_sigh":{"x":251,"y":76,"w":4,"h":17,"offX":0,"offY":0,"sourceW":4,"sourceH":17}}}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.ResolveOrangeDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*"
+        xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" width="600" height="916">
+	<e:Image x="12" y="75" source="common_json.img_inbg_png" anchorOffsetX="0" width="578" anchorOffsetY="0" height="645.45" scale9Grid="5,6,18,15"/>
+	<e:Scroller height="638" y="78" anchorOffsetY="0" x="12" width="578">
+		<e:List id="listEquips" x="-11" y="76" anchorOffsetX="0" itemRenderer="OrangeEquipItemRenderer" itemRendererSkinName="renderer.OrangeEquipItemRendererSkin" anchorOffsetY="0" height="466">
+		<e:layout>
+			<e:VerticalLayout paddingTop="5" paddingLeft="10"/>
+		</e:layout>
+		</e:List>
+	</e:Scroller>
+	
+	<e:Label text="获取橙装碎片" y="730" size="20" anchorOffsetX="0" anchorOffsetY="0" textAlign="center" textColor="0xedc839" x="240"/>
+	<e:List id="listSource" y="747" anchorOffsetY="0" height="179" x="151">
+		<e:itemRendererSkinName>
+		<e:Skin states="up,down,disabled" minHeight="50" minWidth="100" height="60" width="300">
+			<e:Label textFlow="{data.des}" size="20" anchorOffsetX="0" anchorOffsetY="0" textAlign="left" y="22" x="84" textColor="0x2b8c25"/>
+			<e:Image x="0" y="6" source="common_json.img_bagIcon_png"/>
+		</e:Skin>
+		</e:itemRendererSkinName>
+	</e:List>
+</e:Skin>

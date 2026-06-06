@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.ExchangeDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="600" height="916">
+	<e:Image source="common_json.img__list_bg_png" x="0" y="12" width="600" anchorOffsetY="0" height="851" scale9Grid="12,11,27,29"/>
+	<e:Scroller width="578" height="833" x="11" y="24" anchorOffsetX="0" anchorOffsetY="0">
+		<e:List id="listItem" x="-12" y="1" itemRendererSkinName="renderer.ExchangeRendererSkin" anchorOffsetY="0" height="779.33">
+		<e:layout>
+			<e:VerticalLayout gap="1"/>
+		</e:layout>
+		</e:List>
+	</e:Scroller>
+</e:Skin>

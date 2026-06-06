@@ -1,0 +1,7 @@
+{"file":"uiMain_goddess.png","frames":{
+"main_goddess_4":{"x":1,"y":1,"w":215,"h":141,"offX":1,"offY":0,"sourceW":216,"sourceH":141},
+"main_goddess_active":{"x":436,"y":18,"w":58,"h":17,"offX":0,"offY":0,"sourceW":58,"sourceH":17},
+"main_goddess_text":{"x":436,"y":1,"w":71,"h":15,"offX":0,"offY":0,"sourceW":71,"sourceH":15},
+"main_goddess_1":{"x":1,"y":144,"w":211,"h":123,"offX":5,"offY":18,"sourceW":216,"sourceH":141},
+"main_goddess_2":{"x":218,"y":134,"w":205,"h":129,"offX":11,"offY":12,"sourceW":216,"sourceH":141},
+"main_goddess_3":{"x":218,"y":1,"w":216,"h":131,"offX":0,"offY":10,"sourceW":216,"sourceH":141}}}

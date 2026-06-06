@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.JingJiPaiHangSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" width="600">
+	<e:Image y="175" source="img_activity_jingji_bg_jpg" x="19"/>
+	<e:Image y="0" source="img_activity_jingjipaihang_bg_jpg" x="19"/>
+	<e:Image source="activity_json.jingjiRank_1" y="242" horizontalCenter="8"/>
+	<e:Image y="181" source="activity_json.jingjiRank_3" scaleX="0.8" scaleY="0.8" horizontalCenter="151"/>
+	<e:Image y="181" source="activity_json.jingjiRank_2" scaleX="0.8" scaleY="0.8" horizontalCenter="-158"/>
+	<e:Image id="imgRankTitle" y="51" anchorOffsetX="63" anchorOffsetY="19" source="activity_rank_4_png" x="163"/>
+	<e:Image id="imgReceived" source="activity_json.img_activity_yilingqu" x="443" y="737"/>
+	<e:Label text="截止时间 : " x="37" y="113" size="18" textColor="0xEDC839"/>
+	<e:Label text="活动说明 : " x="37" y="142" size="18" textColor="0xEDC839"/>
+	<e:Label id="labRankValue" text="999999 " x="128" y="776" size="16" textColor="0xedc839"/>
+	<e:Label id="labDate" text="2018年12月12日 " x="133" y="115" size="18" textColor="0x34E22C"/>
+	<e:Label id="labDesc" text="活动期间幻兽总战力排行" x="133" y="142" size="16" width="437" lineSpacing="5" textColor="0xC6B59E" textAlign="left"/>
+	<e:Image x="361" y="455" source="common_inbar_png" scale9Grid="47,9,122,18" height="32" width="180"/>
+	<e:Image x="52" y="455" source="common_inbar_png" scale9Grid="47,9,122,18" height="32" width="180"/>
+	<e:Image y="681" source="common_inbar_png" scale9Grid="47,9,122,18" height="32" width="180" x="219"/>
+	<e:Image y="644" source="common_inbar_png" scale9Grid="47,9,122,18" height="32" x="372"/>
+	<e:Label id="labName1" text="1111" y="688" size="16" width="160" textAlign="center" x="229" textColor="0xd1a765"/>
+	<e:Label id="labName2" text="1111" y="462" size="16" width="160" textAlign="center" textColor="0xD1A765" x="62"/>
+	<e:Label id="labName3" text="1111" y="462" size="16" width="160" textAlign="center" textColor="0xD1A765" x="371"/>
+	<e:Label id="labLinkUpdate" text="快速提升" x="87" y="811" size="20" textColor="0x34e22c"/>
+	<e:Label id="labTergetName" text="我的战力:" x="47" y="743" size="18" textColor="0xC6B59E"/>
+	<e:Label id="labRankName" text="我的战力:" x="47" y="774" size="18" textColor="0xC6B59E"/>
+	<e:Label id="labTergetValue" text="999999 " x="128" y="745" size="16" textColor="0xEDC839"/>
+	<components:RewardItemBox id="reward0" y="559" skinName="components.ItemBoxSkin" x="390"/>
+	<components:RewardItemBox id="reward1" y="559" skinName="components.ItemBoxSkin" x="484.5"/>
+	<components:RewardItemBox id="itemReward" y="726" skinName="components.ItemBoxSkin" x="290"/>
+	<components:SnapButton id="btnGet" label="立即领取" y="787" anchorOffsetX="64" width="127" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="27" x="492"/>
+	<components:IconButton id="btnRank" anchorOffsetX="37" anchorOffsetY="36" x="84" y="684" source="common_json.btn_search_png"/>
+	<e:Image source="activity_json.img_activity_complete" x="306" y="720"/>
+</e:Skin>

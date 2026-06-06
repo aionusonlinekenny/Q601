@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LegionShopSkin" currentState="xiangou" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:ns1="*" states="xiangou,daoju"  width="600" height="916">
+	<e:Image width="576" height="780" x="10" y="45" anchorOffsetX="0" anchorOffsetY="0" source="img_shop_in_png" scale9Grid="4,5,6,6"/>
+	<e:Scroller id="xiangouscroller" height="770" anchorOffsetX="0" anchorOffsetY="0" y="51" scrollPolicyH="auto" scrollPolicyV="auto" width="565" x="16" includeIn="xiangou">
+		<e:List id="xiangoulist" itemRenderer="LegionShopRenderer" anchorOffsetY="0" height="777">
+			<e:layout>
+				<e:VerticalLayout gap="2"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:Scroller id="daojuscroller" height="770" anchorOffsetX="0" anchorOffsetY="0" y="51" scrollPolicyH="auto" scrollPolicyV="auto" width="565" x="16" includeIn="daoju">
+		<e:List id="daojulist" itemRenderer="LegionShopRenderer" anchorOffsetY="0" height="773">
+		<e:layout>
+			<e:VerticalLayout gap="2"/>
+		</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:Image height="93" y="824" anchorOffsetX="0" anchorOffsetY="0" source="common_implementbar_png" horizontalCenter="0" scale9Grid="90,12,473,16"/>
+	<e:Label text="我的军团贡献 : " x="185" y="837" size="20" textColor="0xc6b59e"/>
+	<e:Label id="labMy" text="Label" y="837" size="20" verticalAlign="middle" textAlign="left" left="323" textColor="0xedc839"/>
+	<e:Label id="labDes" text="限购商店的物品与限购次数不会刷新。" y="870" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="-15" text.daoju="商店的限购次数每天24点整刷新。" horizontalCenter.daoju="-12" textColor="0xc6b59e"/>
+	<components:IconButton id="btnGetData" x="506" y="832" source="common_json.img_getRes_png"/>
+	<components:SnapButton id="btnDaoju" label="道具商店" x="33" y="900" skinName="skins.TabButtonDefaultSkin" visible="false"/>
+	<components:SnapButton id="btnXiangou" label="限购商店" x="149" y="900" skinName="skins.TabButtonDefaultSkin" visible="false"/>
+	<e:Image x="7" y="41" touchEnabled="false" anchorOffsetX="0" width="585" source="img_shop_png"/>
+</e:Skin>

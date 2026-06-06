@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.PrivilegeDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" states="zuhe,yueka,zhizun"  width="600" height="991">
+	<e:Image id="imgBackBg" y="0" horizontalCenter="0" scale9Grid="0,176,599,88" anchorOffsetY="0" source="img_firstR_top_bg_png" height="100%"/>
+	<e:Image y="32" source="vip_json.img_mouthcard" horizontalCenter.zuhe="0" x="270" y.zhizun="34"/>
+	<e:Image id="imgTab0" y="751" source="img_tabbg_png" x="26"/>
+	<e:Image id="imgTab1" y="751" source="img_tabbg_png" x="210"/>
+	<e:Image id="imgTab2" y="751" source="img_tabbg_png" x="393"/>
+	<e:Image y="781.29" touchEnabled="false" x="47" source="vip_json.img_tqbao"/>
+	<e:Image source="vip_json.img_tequan" y="781.29" touchEnabled="false" x="410"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="26" anchorOffsetY="26" x="545" y="41" width="54" height="55"/>
+	<e:Image source="img_privilege_select_png" y="751" x.zhizun="393"  x.yueka="210" x="25"/>
+	<e:Image source="vip_json.img_jia" y="132.34" includeIn="zuhe" horizontalCenter="0"/>
+	<e:Image source="vip_json.img_dixiao" y="183" includeIn="zuhe" x="139"/>
+	<e:Image source="vip_json.img_dixiao" y="183" includeIn="zuhe" x="338"/>
+	<e:Image source="vip_json.img_dixiao" y="183" includeIn="zuhe" x="139" width="121" height="53"/>
+	<e:Image source="vip_json.img_dixiao" y="183" includeIn="zuhe" x="338" width="121" height="53"/>
+	<e:Image source="vip_json.img_yuexiao" y="104.34" includeIn="zuhe" x="152"/>
+	<e:Image source="vip_json.img_zunxiao" y="104.34" includeIn="zuhe" right="157"/>
+	<e:Image source="img_zuhechat_png" y="400" includeIn="zuhe" horizontalCenter="0"/>
+	<components:IconButton id="btnZuhe" anchorOffsetX="74" anchorOffsetY="25" y="889" source="vip_json.btn_vip_bg" x="117"/>
+	<components:IconButton id="btnYueka" anchorOffsetX="74" anchorOffsetY="25" y="889" source="vip_json.btn_vip_bg" x="300"/>
+	<components:IconButton id="btnZhizun" anchorOffsetX="74" anchorOffsetY="25" y="889" source="vip_json.btn_vip_bg" x="483"/>
+	<e:Image source="img_tequanchat_png" includeIn="zhizun" x="47" y="355"/>
+	<e:Image source="img_vip_di_png" includeIn="zhizun" x="279" y="531.34"/>
+	<e:Image source="img_vip_zun_png" includeIn="zhizun" x="361" y="390.34"/>
+	<e:Image source="img_vip_di_png" includeIn="yueka" y="232.37" x="135"/>
+	<e:Image includeIn="yueka" y="99.37" x="208.01" source="img_vip_yue_png"/>
+	<e:Image source="img_yuekachat_png" includeIn="yueka" y="385" horizontalCenter="0.5"/>
+	<e:Image source="vip_json.img_yueka" y="781.29" touchEnabled="false" x.zuhe="220" x="220"/>
+	<e:Group id="imgbtnLab0" y="873" touchEnabled="false" touchChildren="false" x="84">
+		<e:Image touchEnabled="false" scaleX="1" scaleY="1" source="vip_json.img_vip_money"/>
+		<e:Label text="100" x="18" size="28" stroke="1" strokeColor="0xf1cf7e" textColor="0x452624" bold="true"/>
+	</e:Group>
+	<e:Group id="imgbtnLab1" y="873" touchEnabled="false" touchChildren="false" x="275">
+		<e:Image touchEnabled="false" scaleX="1" scaleY="1" source="vip_json.img_vip_money"/>
+		<e:Label text="30" x="18" size="28" stroke="1" strokeColor="0xF1CF7E" textColor="0x452624" bold="true"/>
+	</e:Group>
+	<e:Group id="imgbtnLab2" y="873" touchEnabled="false" touchChildren="false" x="451">
+		<e:Image touchEnabled="false" scaleX="1" scaleY="1" source="vip_json.img_vip_money"/>
+		<e:Label text="100" x="18" size="28" stroke="1" strokeColor="0xF1CF7E" textColor="0x452624" bold="true"/>
+	</e:Group>
+	<e:Image source="vip_json.img_title_chat" includeIn="zuhe" y="248.65" horizontalCenter="0.5"/>
+	<e:Label id="imgReceive0" text="领取" y="873" size="28" textColor="0x452624" stroke="1" strokeColor="0xf1cf7e" bold="true" x="88" touchEnabled="false" visible="false"/>
+	<e:Label id="imgReceive1" text="领取" y="873" size="28" textColor="0x452624" stroke="1" strokeColor="0xF1CF7E" bold="true" x="271" touchEnabled="false" visible="false"/>
+	<e:Label id="imgReceive2" text="领取" y="873" size="28" textColor="0x452624" stroke="1" strokeColor="0xF1CF7E" bold="true" x="455" touchEnabled="false" visible="false"/>
+	<e:Image source="vip_json.img_title_chat" includeIn="zhizun" y="239.34" horizontalCenter.zhizun="0.5" y.zhizun="150.33" horizontalCenter.zuhe="0" y.zuhe="254" horizontalCenter="0"/>
+	<e:Image source="vip_json.img_xianshi" x="14.81" y="725.29" touchEnabled="false"/>
+	<e:Label text="购买月卡和特权不计入VIP和首充" x="140" y="937" size="22" textColor="0xce800a" fontFamily="Microsoft YaHei"/>
+	<e:Label id="labmothCardTime" text="剩余 : XX天" x="295" y="835" size="14" fontFamily="Microsoft YaHei" stroke="1" textColor="0xedc839" textAlign="center"/>
+	<e:Label id="labsuperMothCardTime" text="剩余 : XX天" x="480" y="835" size="14" fontFamily="Microsoft YaHei" stroke="1" textColor="0xedc839" textAlign="center"/>
+	<e:Image includeIn="zuhe,zhizun" y="368" anchorOffsetX="0" anchorOffsetY="0" source="img_vip_zlts_bg_png" x.zhizun="133" y.zhizun="307" x.zuhe="133" y.zuhe="363"/>
+	<e:Group includeIn="zuhe,zhizun" y="366" y.zhizun="309" y.zuhe="365" horizontalCenter="0" horizontalCenter.zhizun="0.5">
+		<e:Image includeIn="zuhe,zhizun" source="vip_json.img_vip_zlts" left="0" bottom="0"/>
+		<e:BitmapLabel id="labUp" includeIn="zuhe,zhizun" anchorOffsetX="0" anchorOffsetY="0" text="333333" left="119" font="fight_font_fnt" verticalCenter="0" scaleX="0.8" scaleY="0.8"/>
+	</e:Group>
+	<e:Image id="imgTitle" x="293" y="296" horizontalCenter="0" includeIn="zuhe,zhizun" y.zhizun="200" y.zuhe="276"/>
+</e:Skin>

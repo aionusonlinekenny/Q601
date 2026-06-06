@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="FirstRechargeTransferSkin" width="600" height="1074" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image id="imgBackBg" source="img_firstinbg_png" horizontalCenter="-6.5" anchorOffsetY="0" height="796" scale9Grid="75,537,450,37" y="30"/>
+	<e:Image y="675.14" source="firstrecharge_json.lab_vip1_get" x="166"/>
+	<e:Image source="firstrecharge_json.lab_firstrecharge_tishi" x="264.66" y="172.08"/>
+	<components:RewardItemBox id="reward0" y="538.14" skinName="components.ItemBoxSkin" x="25"/>
+	<components:RewardItemBox id="reward1" y="538.14" skinName="components.ItemBoxSkin" x="117"/>
+	<components:RewardItemBox id="reward2" y="538.14" skinName="components.ItemBoxSkin" x="209"/>
+	<components:RewardItemBox id="reward3" y="538.14" skinName="components.ItemBoxSkin" x="301"/>
+	<components:RewardItemBox id="reward4" y="538.14" skinName="components.ItemBoxSkin" x="393"/>
+	<components:RewardItemBox id="reward5" y="538.14" skinName="components.ItemBoxSkin" x="485"/>
+	<components:SnapButton id="btnGetOne" label="Button" x="94" y="724">
+		<components:skinName>
+			<e:Skin states="up,down,disabled">
+	<e:Image source="vip_json.btn_tequan" x="0" y="0"/>
+	<e:Image source="firstrecharge_json.lab_get_one" x="34" y="13"/>
+			</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnLookActivity" label="Button" x="351" y="723">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+	<e:Image source="vip_json.btn_tequan" x="0" y="0"/>
+			<e:Image x="34" y="13" source="firstrecharge_json.lab_activity_look"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+</e:Skin>

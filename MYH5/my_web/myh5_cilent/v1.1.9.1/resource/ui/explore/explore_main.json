@@ -1,0 +1,14 @@
+{"file":"explore_main.png","frames":{
+"btn_explore_huanshou":{"x":428,"y":242,"w":182,"h":171,"offX":1,"offY":1,"sourceW":184,"sourceH":172},
+"btn_explore_kuangdong":{"x":222,"y":242,"w":204,"h":205,"offX":0,"offY":0,"sourceW":204,"sourceH":205},
+"btn_explore_ruins":{"x":1,"y":242,"w":219,"h":192,"offX":0,"offY":0,"sourceW":219,"sourceH":192},
+"btn_explore_wujin":{"x":760,"y":242,"w":133,"h":199,"offX":3,"offY":1,"sourceW":137,"sourceH":201},
+"btn_explore_xianshi":{"x":612,"y":242,"w":146,"h":197,"offX":0,"offY":0,"sourceW":146,"sourceH":197},
+"img_explore_namebg":{"x":895,"y":242,"w":35,"h":156,"offX":0,"offY":0,"sourceW":35,"sourceH":156},
+"img_explore_name_huanshou":{"x":970,"y":400,"w":23,"h":68,"offX":2,"offY":2,"sourceW":27,"sourceH":72},
+"img_explore_name_kuangdong":{"x":920,"y":400,"w":23,"h":91,"offX":2,"offY":2,"sourceW":27,"sourceH":95},
+"img_explore_name_ruins":{"x":969,"y":1,"w":35,"h":156,"offX":0,"offY":0,"sourceW":35,"sourceH":156},
+"img_explore_name_suoyao":{"x":895,"y":400,"w":23,"h":91,"offX":2,"offY":2,"sourceW":27,"sourceH":95},
+"img_explore_name_wujin":{"x":945,"y":400,"w":23,"h":90,"offX":2,"offY":2,"sourceW":27,"sourceH":94},
+"img_explore_name_xianshi":{"x":932,"y":242,"w":35,"h":156,"offX":0,"offY":0,"sourceW":35,"sourceH":156},
+"btn_explore_suoyao":{"x":1,"y":1,"w":259,"h":239,"offX":0,"offY":0,"sourceW":260,"sourceH":240}}}

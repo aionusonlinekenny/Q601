@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.BubblePropertyTipSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" height="61">
+	<e:Image id="imgBg" source="tips_json.img_propertytip_bg" x="0" y="0" scale9Grid="102,0,186,46"/>
+	<e:Image id="imgProperty" x="26" y="5" source="tips_json.property_171"/>
+	<e:BitmapLabel id="blabNum" y="8" text="+10.1%" x="192" letterSpacing="-5"/>
+</e:Skin>

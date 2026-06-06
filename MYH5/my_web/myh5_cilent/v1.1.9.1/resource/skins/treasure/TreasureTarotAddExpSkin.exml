@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="item.TreasureTarotAddExpSkin" width="220" height="37" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image x="0" y="0" source="treasure_json.img_treasure_addexp"/>
+	<e:BitmapLabel id="blabExp" width="130" height="33" x="160" text="1000" anchorOffsetX="71" anchorOffsetY="17" verticalCenter="-1" font="discount_font_fnt"/>
+</e:Skin>

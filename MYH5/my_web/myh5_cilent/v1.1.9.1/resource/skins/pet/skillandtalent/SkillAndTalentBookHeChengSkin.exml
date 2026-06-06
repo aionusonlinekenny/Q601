@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="SkillAndTalentBookHeChengSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image width="626" height="969" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
+	<e:Image width="582.98" height="800.53" x="21.87" y="63.16" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_inbg_png" scale9Grid="5,6,18,15"/>
+	<e:Image width="553" height="141" x="38.5" y="637" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_prompt_nei_bg_png" scale9Grid="13,23,2,4"/>
+	<e:Image id="imgSelecd" source="common_json.img_selectFrame_png" x="81" y="81" anchorOffsetX="14" anchorOffsetY="13"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="597" y="34" anchorOffsetX="25" anchorOffsetY="24"/>
+	<components:IconButton id="btnBack" source="common_json.btn_back_png" x="563" y="915" anchorOffsetX="36" anchorOffsetY="30"/>
+	<e:Image y="9" source="img_hecheng_title_png" x="282"/>
+	<e:Image id="btnIcon0" source="common_json.img_qlt_1_png" x="71" y="73" width="80" height="80"/>
+	<e:Image id="btnIcon1" source="common_json.img_qlt_1_png" x="205" y="73" width="80" height="80"/>
+	<e:Image id="btnIcon2" source="common_json.img_qlt_1_png" x="340" y="73" width="80" height="80"/>
+	<e:Image id="btnIcon3" source="common_json.img_qlt_1_png" x="474" y="73" width="80" height="80"/>
+	<e:Image id="imgIcon0" source="pet_json.btn_zuhe_icon1_png" x="80" y="81" touchEnabled="false"/>
+	<e:Image id="imgIcon1" source="pet_json.btn_zuhe_icon2_png" x="215" y="81" touchEnabled="false"/>
+	<e:Image id="imgIcon2" source="pet_json.btn_zuhe_icon3_png" x="350" y="81" touchEnabled="false"/>
+	<e:Image id="imgIcon3" source="pet_json.btn_zuhe_icon4_png" x="485" y="81" touchEnabled="false"/>
+	<e:Image source="role_phantom_part_bg_png" y="195" x="94"/>
+	<e:Image y="227" horizontalCenter="0" source="img_quan_png"/>
+	<e:Image id="imgZhongXinDi" source="pet_json.img_book_di_png" y="311" x="256"/>
+	<e:Image id="itemDi0" source="common_json.img_qlt_1_png" y="179" x="268"/>
+	<e:Image id="itemDi1" source="common_json.img_qlt_1_png" x="427" y="410"/>
+	<e:Image id="itemDi2" source="common_json.img_qlt_1_png" x="116" y="410"/>
+	<e:Image id="imgZhongXinIcon" source="pet_json.btn_zuhe_icon1_png" x="284" y="337" touchEnabled="false"/>
+	<components:Icon id="itemIcon0" x="272" y="181" touchEnabled="false" width="80" height="80" source=""/>
+	<components:Icon id="itemIcon1" y="412" touchEnabled="false" width="80" height="80" x="432" source=""/>
+	<components:Icon id="itemIcon2" y="412" touchEnabled="false" width="80" height="80" x="121" source=""/>
+	<e:Image source="pet_json.img_kailv_di_png" y="600" horizontalCenter="0"/>
+	<e:Label text="基础技能书" x="77" y="132" size="14" textColor="0xc6b59e" stroke="2" touchEnabled="false"/>
+	<e:Label text="特殊技能书" x="211" y="132" size="14" textColor="0xc6b59e" stroke="2" touchEnabled="false"/>
+	<e:Label text="中级天赋书" x="346" y="132" size="14" textColor="0xc6b59e" stroke="2" touchEnabled="false"/>
+	<e:Label text="高级天赋书" x="479" y="132" size="14" textColor="0xc6b59e" stroke="2" touchEnabled="false"/>
+	<e:Label id="labZhongXinName" text="xxxxxx" y="431" size="20" textColor="0x34e22c" verticalAlign="middle" textAlign="center" horizontalCenter="0"/>
+	<e:Label id="labItem0" text="基础技能书" y="270" size="14" textColor="0xC6B59E" stroke="2" touchEnabled="false" verticalAlign="middle" textAlign="center" horizontalCenter="-3"/>
+	<e:Label id="labItem1" text="基础技能书" y="501" size="14" stroke="2" touchEnabled="false" verticalAlign="middle" textAlign="center" horizontalCenter="157" textColor="0xc6b59e"/>
+	<e:Label id="labItem2" text="基础技能书" y="501" size="14" textColor="0xC6B59E" stroke="2" touchEnabled="false" verticalAlign="middle" textAlign="center" horizontalCenter="-154"/>
+	<e:Label id="labDes" text="xxxxx" y="559" textColor="0x34e22c" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="0"/>
+	<e:Label text="选择需要消耗的材料" y="606" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="0" textColor="0xf4af09"/>
+	<components:SnapButton id="btnOneKey" label="一键放入" y="820" anchorOffsetX="80" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" x="156"/>
+	<components:SnapButton id="btnHeCheng" label="重铸" y="820" anchorOffsetX="80" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" x="453"/>
+	<e:Scroller id="scroller" width="539" height="129" y="643" anchorOffsetX="0" anchorOffsetY="0" x="44" scrollPolicyH="on" scrollPolicyV="off">
+		<e:List id="list" itemRenderer="SkillAndTalentItem" itemRendererSkinName="renderer.SkillAndTalentItemSkin">
+			<e:ArrayCollection>
+				<e:Array>
+					<e:Object/>
+					<e:Object/>
+					<e:Object/>
+					<e:Object/>
+					<e:Object/>
+					<e:Object/>
+				</e:Array>
+			</e:ArrayCollection>
+			<e:layout>
+				<e:HorizontalLayout paddingTop="20" horizontalAlign="center" paddingLeft="10"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:Label id="labNo" text="没有可消耗的材料" y="695" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="0" textColor="0xc6b59e" stroke="2"/>
+</e:Skin>

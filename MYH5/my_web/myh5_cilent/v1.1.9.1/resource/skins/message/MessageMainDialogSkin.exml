@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.MessageMainDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:chat="view.chat.*" xmlns:w="http://ns.egret.com/wing" width="600" height="916">
+	<e:List id="tab" y="888" selectedIndex="0" x="181">
+		<e:itemRendererSkinName>
+		<e:Skin states="up,down,disabled" xmlns:w="http://ns.egret.com/wing">
+			<e:Image alpha.disabled="0.5" width="116" height="100%" source="common_json.btnt_red_png" source.down="common_json.btnt_red_selected_png" source.up="common_json.btnt_red_png" scale9Grid.down="12,0,15,52" scale9Grid.disabled="16,0,11,52" scale9Grid.up="16,0,11,52"/>
+			<e:Label id="labelDisplay" verticalAlign="middle" textAlign="center" size="20" width="100%" height="38" textColor="0xffdb89" verticalCenter="-2" horizontalCenter="0" horizontalCenter.up="0" verticalCenter.up="-2" size.up="22" textColor.up="0xa8733b" stroke.up="1" verticalCenter.down="-2" stroke.down="1" size.down="22" textColor.down="0xf7dca5" strokeColor.down="0x480302" horizontalCenter.down="0" text="{data.name}"/>
+		</e:Skin>
+		</e:itemRendererSkinName>
+		<e:ArrayCollection>
+			<e:Array>
+				<e:Object name="聊天"/>
+				<e:Object name="邮件"/>
+			</e:Array>
+		</e:ArrayCollection>
+		<e:layout>
+			<e:HorizontalLayout/>
+		</e:layout>
+	</e:List>
+</e:Skin>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.GetNewSkillTipSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" xmlns:components="components.*" width="510" height="168">
+	<e:Image source="tips_json.img_tips_chapter_bg" x="0" y="0" anchorOffsetY="0" height="168" scale9Grid="0,22,510,27"/>
+	<e:Image id="imgQuality" source="common_json.img_qlt_1_png" y="48" x="227"/>
+	<components:Icon id="imgSkill" y="51" x="232" width="80" height="80" source=""/>
+	<e:Image source="tips_json.img_chat_getnewskill" y="19" x="215"/>
+	<e:Label id="labName" text="飞天连斩" y="140" size="20" textColor="0xcfc9be" x="232"/>
+</e:Skin>

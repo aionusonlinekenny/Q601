@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin.GuideArrowUpSKin" width="234" height="121" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<e:Image id="back" horizontalCenter="0" verticalCenter="4.5" anchorOffsetY="0" height="64" scale9Grid="27,16,16,11" anchorOffsetX="0" width="191" source="uiMain_json.img_guide_bg"/>
+	<e:Image id="arrow" anchorOffsetX="-1" anchorOffsetY="26" rotation="90" y="0" horizontalCenter="0" source="uiMain_json.img_guide_arrow" width="36" height="53"/>
+	<e:Label id="lab" text="Label" size="18" verticalCenter="3" width="150" wordWrap="true" horizontalCenter="0.5" textAlign="center" textColor="0xfcd67d"/>
+</e:Skin>

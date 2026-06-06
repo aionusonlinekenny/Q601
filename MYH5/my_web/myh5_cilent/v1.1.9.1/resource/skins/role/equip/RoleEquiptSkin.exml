@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.RoleEquiptSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ui="ui.*" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" xmlns:base="base.*" xmlns:components="components.*" width="600" height="867">
+	<e:Image id="bg" source="role_equipbg_jpg" y="5" anchorOffsetY="0" horizontalCenter="0"/>
+	<e:Image anchorOffsetX="0" anchorOffsetY="0" height="103" horizontalCenter="0" bottom="0" source="common_implementbar_png" scale9Grid="122,42,373,23"/>
+	<components:SnapButton id="btnPhantom" label="" x="172" anchorOffsetX="36.91" anchorOffsetY="36" y="561" width="73" height="72" icon="img_warn_png">
+		<components:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="role_json.btn_phantom_png"/>
+	<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="common_json.img_warn_png" visible="false"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnWing" label="" x="430.4" anchorOffsetX="36.4" anchorOffsetY="37" y="561" width="72" height="72" icon="img_warn_png">
+		<components:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="72" height="72" source="role_json.btn_wing_png"/>
+	<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="common_json.img_warn_png" visible="false"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnDeityEquip" label="" x="301.4" anchorOffsetX="36.4" anchorOffsetY="37" y="561" width="72" height="72" icon="img_warn_png">
+		<components:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="role_json.btn_deityEquip_png"/>
+	<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="common_json.img_warn_png" visible="false"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnChengzhuang" label="" icon="img_warn_png" anchorOffsetX="45" anchorOffsetY="44" x="56" y="811">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="role_json.btn_orange_equip_png"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="common_json.img_warn_png" visible="false"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnImprint" label="" x="133" icon="img_warn_png" anchorOffsetX="45" anchorOffsetY="44" y="811">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="role_json.btn_Imprint_png"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="common_json.img_warn_png" visible="false"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnRunes" label="" x="216.14" icon="img_warn_png" anchorOffsetX="45" anchorOffsetY="44" y="811">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="role_json.btn_runes_png"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="common_json.img_warn_png" visible="false"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnFightingsoul" label="" x="299.29" icon="img_warn_png" anchorOffsetX="45" anchorOffsetY="44" y="811">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="role_json.btn_fightingSoul_png"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="common_json.img_warn_png" visible="false"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnPeerage" label="" x="382.43" icon="img_warn_png" anchorOffsetX="45" anchorOffsetY="44" y="811">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="role_json.btn_peerage_png"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="common_json.img_warn_png" visible="false"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnDragonTears" label="" icon="img_warn_png" anchorOffsetX="45" anchorOffsetY="44" x="465.57" y="811">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="role_json.btn_dragon_png"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="common_json.img_warn_png" visible="false"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnZhuangban" label="" x="548.71" anchorOffsetX="45" anchorOffsetY="44" y="811" icon="img_warn_png">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="role_json.btn_fashion_png"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="common_json.img_warn_png" visible="false"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<ns1:RoleEquipBox id="box1" y="86" anchorOffsetX="0" anchorOffsetY="0" skinName="tipIcon.EquiptBoxSkin" x="24"/>
+	<ns1:RoleEquipBox id="box3" x="24" y="220.54" anchorOffsetX="0" anchorOffsetY="0" skinName="tipIcon.EquiptBoxSkin"/>
+	<ns1:RoleEquipBox id="box5" x="24" y="354.95" anchorOffsetX="0" anchorOffsetY="0" skinName="tipIcon.EquiptBoxSkin"/>
+	<ns1:RoleEquipBox id="box7" x="24" y="490" anchorOffsetX="0" anchorOffsetY="0" skinName="tipIcon.EquiptBoxSkin"/>
+	<ns1:RoleEquipBox id="box2" y="86" anchorOffsetX="0" anchorOffsetY="0" skinName="tipIcon.EquiptBoxSkin" x="487"/>
+	<ns1:RoleEquipBox id="box4" y="220.31" anchorOffsetX="0" anchorOffsetY="0" skinName="tipIcon.EquiptBoxSkin" x="487"/>
+	<ns1:RoleEquipBox id="box6" y="354.97" anchorOffsetX="0" anchorOffsetY="0" skinName="tipIcon.EquiptBoxSkin" x="487"/>
+	<ns1:RoleEquipBox id="box8" y="490" anchorOffsetX="0" anchorOffsetY="0" skinName="tipIcon.EquiptBoxSkin" x="487"/>
+	<e:Image id="imgFightBg" y="50.17" source="common_fightBg_png" horizontalCenter="-10"/>
+	<e:BitmapLabel id="blabFight" y="58" text="8765199" touchEnabled="false" x="263" font="fight_font2_fnt"/>
+	<e:Image x="195.96" y="56.6" source="common_json.img_fight_png" width="57" height="31"/>f
+	<components:SnapButton id="btnUseEquips" label="一键换装" y="681" anchorOffsetX="84" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="26" x="304" width="160" height="56">
+	</components:SnapButton>
+	<components:IconButton id="imgInfo" x="456" y="73" anchorOffsetX="34" anchorOffsetY="35" source="common_json.btn_search_png"/>
+	<ns1:PetItem id="iconContract0" x="21" y="631" anchorOffsetX="0" anchorOffsetY="0" skinName="normal.PetItemSkin"/>
+	<ns1:PetItem id="iconContract1" x="121" y="631" anchorOffsetX="0" anchorOffsetY="0" skinName="normal.PetItemSkin"/>
+	<ns1:PetItem id="iconContract2" x="389" y="631" anchorOffsetX="0" anchorOffsetY="0" skinName="normal.PetItemSkin"/>
+	<ns1:PetItem id="iconContract3" x="489" y="631" anchorOffsetX="0" anchorOffsetY="0" skinName="normal.PetItemSkin"/>
+</e:Skin>

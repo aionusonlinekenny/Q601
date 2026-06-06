@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin.ChatSkin" width="600" height="360" currentState="default" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" states="default,open"  height.default="165" width.open="680" width.default="680" height.open="460">
+	<e:Image source="uiMain_json.main_chat_back" x="1" y.open="0" width="100%" height="100%" anchorOffsetY.default="0" height.default="166" x.default="0" x.open="0" source.default="uiMain_json.main_chat_back" source.open="uiMain_json.main_chat_back" verticalCenter.default="0" scale9Grid="33,7,38,10" scale9Grid.default="41,7,22,10" scale9Grid.open="37,7,35,10"/>
+	<e:Image source="uiMain_json.main_line_chat" x="135" y="0" height="300" x.open="145" height.default="75" x.default="116" y.default="7"/>
+	<e:TextInput id="input" width="466" height="36" x="42.5" anchorOffsetX="0" anchorOffsetY="0" y="312" includeIn="open" prompt="系统频道禁止发言">
+		<e:skinName>
+			<e:Skin minHeight="40" minWidth="300" states="normal,disabled,normalWithPrompt,disabledWithPrompt">
+			<e:Image x="0" y="0" anchorOffsetX="0" width="100%" source="uiMain_json.main_chat_back_input" scale9Grid="7,11,32,21" height="100%" alpha="0.5"/>
+			<e:Rect height="49" width="100%" fillColor="0x000000" fillAlpha="0" anchorOffsetY="0"/>
+			<e:EditableText id="textDisplay" verticalCenter="0" left="10" right="10" textColor.disabled="0xff0000" width="100%" height="24" size="20" textColor="0xddc235"/>
+			<e:Label id="promptDisplay" verticalCenter="0" left="10" right="10" textColor="0xa9a9a9" width="100%" height="24" size="20" touchEnabled="false" includeIn="normalWithPrompt,disabledWithPrompt"/>
+			</e:Skin>
+		</e:skinName>
+	</e:TextInput>
+	<e:Scroller id="scollerOpen" width="519" height="285" includeIn="open" x="152" y="10">
+		<e:List id="listOpen" width="520" itemRenderer="ui.ChatCell" itemRendererSkinName="skin.ChatCellSkin" useVirtualLayout="false">
+			<e:layout>
+				<e:VerticalLayout gap="8"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:Scroller id="scroll" height="60" y="5" x="132"  width="519" includeIn="default" anchorOffsetY="0">
+		<e:List id="list" itemRendererSkinName="skin.ChatCellSkin" itemRenderer="ui.ChatCell" width="520" anchorOffsetY="0" x="0" y="14">
+			<e:layout>
+				<e:VerticalLayout gap="8"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<components:SnapButton id="btnSend" label="发送" x="510" y="311" includeIn="open" anchorOffsetX="0" width="100" height="40">
+		<components:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="uiMain_json.main_chat_btn_send"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="20"/>
+			</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnYouJian" label="发送" x="59.5" y="198" anchorOffsetX="0" icon="uiMain_json.img_main_red" y.default="16" width.open="42" height.open="42">
+		<components:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="uiMain_json.main_chat_btn_mail"/>
+	<e:Image id="iconDisplay" includeIn="up,down" x="-10" y="-9" source="uiMain_json.img_main_red" visible="false"/>
+			</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnSet" label="" x="59.5" y="248"  y.default="38" icon.default="uiMain_json.img_main_red" icon="uiMain_json.img_main_red" width.open="42" height.open="42" visible.default="false">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="uiMain_json.main_chat_btn_setting"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+	<e:Image id="iconDisplay" x="-10" y="-9" source="uiMain_json.img_main_red" includeIn="up,down" visible="false"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:IconButton id="btnBiaoQing" x="391.5" source="uiMain_json.main_chat_btn_face" y="310" includeIn="open" visible="false"/>
+	<components:IconButton id="btnClose" x="592.08" y="1" includeIn="open" source="uiMain_json.main_chat_btn_close" anchorOffsetX="0" anchorOffsetY="0" rotation="360"/>
+	<e:ToggleButton id="btnZongHe" label="综合" includeIn="open" x="32" y="5" width="112">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="uiMain_json.main_chat_btn_normal" source.down="uiMain_json.main_chat_btn_select"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="18" textColor="0xfaf0df"/>
+		</e:Skin>
+		</e:skinName>
+	</e:ToggleButton>
+	<e:ToggleButton id="btnShiJie" label="世界" includeIn="open" x="32" y="51" width="112">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="uiMain_json.main_chat_btn_normal" source.down="uiMain_json.main_chat_btn_select"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="18" textColor="0xfaf0df"/>
+			</e:Skin>
+		</e:skinName>
+	</e:ToggleButton>
+	<e:ToggleButton id="btnJunTuan" label="军团" includeIn="open" x="32" y="99" width="112">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="uiMain_json.main_chat_btn_normal" source.down="uiMain_json.main_chat_btn_select"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="18" textColor="0xfaf0df"/>
+		</e:Skin>
+		</e:skinName>
+	</e:ToggleButton>
+	<e:ToggleButton id="btnXiTong" label="系统" includeIn="open" x="32" y="148" anchorOffsetX="0" width="112">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="uiMain_json.main_chat_btn_normal" source.down="uiMain_json.main_chat_btn_select"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="18" textColor="0xfaf0df"/>
+			</e:Skin>
+		</e:skinName>
+	</e:ToggleButton>
+</e:Skin>

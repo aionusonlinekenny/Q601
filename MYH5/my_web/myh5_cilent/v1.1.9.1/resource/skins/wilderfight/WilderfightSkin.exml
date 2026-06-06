@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.WilderfightSkin" width="600" height="867" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:renderer="renderer.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image anchorOffsetX="0" anchorOffsetY="0" width="700" x="-50" height="128" y="18" source="common_implementbar_png" scale9Grid="90,12,439,13"/>
+	<e:Image id="imgMyHeadBack" x="32" y="41.5" source="common_json.img_qlt_1_png"/>
+	<e:Image id="imgMyHead" width="80" height="80" x="37" y="45" anchorOffsetX="0" anchorOffsetY="0"/>
+	<e:Label text="我的排名 : " x="128" y="46.5" size="20" textColor="0xc6b59e"/>
+	<e:Label text="杀戮值 : " x="129" y="78.5" size="16" textColor="0xc6b59e"/>
+	<e:Label id="labGiftCount" text="每日获取奖励次数 : 20/20" x="128" y="107" size="16" textColor="0xc6b59e"/>
+	<e:Group x="22" y="145.63">
+		<renderer:WilderfightRenderer id="box0" skinName="renderer.WilderfightRendererSkin" y="0" x="3"/>
+		<renderer:WilderfightRenderer id="box1" skinName="renderer.WilderfightRendererSkin" y="132.7" x="3"/>
+		<renderer:WilderfightRenderer id="box2" skinName="renderer.WilderfightRendererSkin" y="284" x="0"/>
+		<renderer:WilderfightRenderer id="box3" skinName="renderer.WilderfightRendererSkin" y="407.33" x="11.67"/>
+		<renderer:WilderfightRenderer id="box4" skinName="renderer.WilderfightRendererSkin" y="511.33" x="5"/>
+		<renderer:WilderfightRenderer id="box5" skinName="renderer.WilderfightRendererSkin" y="521.3299999999999" x="15"/>
+		<e:layout>
+			<e:VerticalLayout gap="0"/>
+		</e:layout>
+	</e:Group>
+	<e:Group id="timeGroup" x="25" y="625.64" anchorOffsetY="0" height="117" anchorOffsetX="0" width="556">
+		<e:Image width="560" height="118" x="-2" y="0" source="wilderfight_json.wilderfight_back_png" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="15,31,47,46"/>
+		<e:Label id="lableftime" text="01:00:00 出现新的敌人" y="17.68" bold="true" size="20" anchorOffsetY="0" height="-33.52" verticalAlign="middle" textAlign="center" textColor="0xc6b59e" horizontalCenter="0"/>
+		<components:SnapButton id="btnUpdata" label="寻敌" y="50.5" skinName="skins.SnapButtonDefaultSkin" anchorOffsetX="0" width="155" horizontalCenter="0.5"/>
+	</e:Group>
+	<e:Label id="btnRank" text="50" y="49" size="20" verticalAlign="middle" textAlign="left" left="226" textColor="0xedc839"/>
+	<e:Label id="labShaNum" text="100" y="80" size="16" verticalAlign="middle" textAlign="left" left="192" textColor="0xedc839"/>
+	<components:IconButton id="btnGift" x="527" y="77" source="wilderfight_json.btn_gift_png" anchorOffsetX="41" anchorOffsetY="39"/>
+	<e:Label id="btnMyChou" text="我的仇人" x="248" y="81" size="16" textColor="0xe51616"/>
+</e:Skin>

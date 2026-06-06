@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin width="256" height="104" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" class="skin.MainTaskSkin">
+	<e:Image id="taskBack" anchorOffsetX="0" anchorOffsetY="0" source="uiMain_json.img_main_taskbg" horizontalCenter="0" width="256" height="82" y="20" x="0"/>
+	<e:Image id="imgTaskTitle" source="uiMain_json.img_task_uimain_title" x="102" y="0"/>
+	<e:Image source="uiMain_json.img_main_taskiconbg" x="1" y="30"/>
+	<components:Icon id="taskReward" x="5" y="34" source="" width="60" height="60"/>
+	<e:Label id="labTaskName" text="挑战封魔矿区" size="18" anchorOffsetX="0" textAlign="left" bold="true" touchEnabled="false" y="41.66" textColor="0xC6B59E" x="69"/>
+	<e:Label id="labTaskProgress" text="（0/1）" x="187.66" size="18" anchorOffsetX="0" textAlign="left" bold="true" touchEnabled="false" y="42.66" textColor="0x34E22C"/>
+	<e:Label id="labTaskContent" text="金币X20000000" size="16" anchorOffsetX="0" textAlign="left" bold="true" touchEnabled="false" y="71.33" x="69" textColor="0x7D6A52"/>
+
+</e:Skin>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.OpenBagRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Label id="lab" text="11" y="0" anchorOffsetX="0" width="223" size="20" textColor="0xd16868" verticalAlign="middle" textAlign="center" horizontalCenter="0"/>
+</e:Skin>

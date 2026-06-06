@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.OfflineDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image anchorOffsetY="0" anchorOffsetX="0" source="img_offlin_bg_png" width="543" height="500" scale9Grid="22,24,30,59"/>
+	<e:Image y="16" source="offline_json.img_titleB_offline" horizontalCenter="0"/>
+	<e:Image source="offline_json.img_offlin_inbg" y="277.33" anchorOffsetX="0" anchorOffsetY="0" width="238" height="115" horizontalCenter="-126.5" scale9Grid="21,18,59,9"/>
+	<e:Image source="offline_json.img_offlin_inbg" y="277.33" anchorOffsetX="0" anchorOffsetY="0" width="238" height="115" horizontalCenter="127.5" scale9Grid="45,17,13,11"/>
+	<e:Image source="tips_json.img_tip_exp" x="195" y="207.12" width="25" height="24"/>
+	<e:Image x="198" y="234.32" source="offline_json.img_offline_equip" width="20" height="24"/>
+	<e:Image source="tips_json.img_tip_gold" x="195" y="182.39" anchorOffsetX="0" anchorOffsetY="0" width="25" height="24"/>
+	<e:Image source="tips_json.img_tip_exp" x="82.46" y="341.78" width="25" height="24"/>
+	<e:Image source="tips_json.img_tip_gold" x="81.99" y="316" width="25" height="24"/>
+	<e:Image source="tips_json.img_tip_exp" x="335.67" y="342.46" width="25" height="24"/>
+	<e:Image source="tips_json.img_tip_gold" x="335.2" y="316" width="25" height="24"/>
+	<e:Image source="tips_json.img_tips_title_shuxing" y="160" x="80"/>
+	<e:Image y="156" anchorOffsetX="0" anchorOffsetY="0" source="offline_json.img_titleS_offline" horizontalCenter="0.5"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="489" y="1"/>
+	<components:IconButton id="btnBack" source="common_json.btn_back_png" x="469" y="426"/>
+	<e:Label id="labTime" text="离线时间 : 20小时20分20秒" y="68" size="18" horizontalCenter="0" textColor="0xedc839"/>
+	<e:Label text="最多累积24小时离线收益" y="104.33" size="14" horizontalCenter="0.5" fontFamily="Arial" textColor="0x7d6a52"/>
+	<e:Label text="离线超过8小时后，只能获得80%离线收益" y="122.65" size="14" horizontalCenter="0.5" textColor="0x7d6a52"/>
+	<e:Label text="月卡额外收益" y="291" size="14" x="103" textAlign="center" verticalAlign="middle" textColor="0x34e22c"/>
+	<e:Label text="圆桌骑士额外收益" y="291" size="14" textAlign="center" verticalAlign="middle" textColor="0x34e22c" x="343"/>
+	<e:Label text="金币 : " y="186" size="14" x="232.47" textColor="0x7d6a52"/>
+	<e:Label text="经验 : " y="213.33" size="14" x="232.47" textColor="0x7d6a52"/>
+	<e:Label text="装备 : " y="240.33" size="14" x="232.47" textColor="0x7d6a52"/>
+	<e:Label text="金币 : " y="321" size="14" x="126.46" textColor="0x7d6a52"/>
+	<e:Label text="经验 : " y="349" size="14" x="126.46" textColor="0x7d6a52"/>
+	<e:Label text="金币 : " y="321" size="14" x="379.67" textColor="0x7d6a52"/>
+	<e:Label text="经验 : " y="350" size="14" x="379.67" textColor="0x7d6a52"/>
+	<e:Group id="goldGp" x="177.13" y="186">
+		<e:Label id="labGold" text="0" y="0" size="14" x="113.87" textColor="0xc6b59e"/>
+		<e:Label id="labGold2" text="0" y="135" size="14" x="0" textColor="0x34e22c"/>
+		<e:Label id="labGold3" text="0" y="135" size="14" x="258.21" textColor="0x34e22c"/>
+	</e:Group>
+	<e:Group id="expGp" x="177.13" y="213.33">
+		<e:Label id="labExp" text="0" y="0" size="14" x="113.87" textColor="0xc6b59e"/>
+		<e:Label id="labExp2" text="0" y="136.67" size="14" x="0" textColor="0x34e22c"/>
+		<e:Label id="labExp3" text="0" y="136.67" size="14" x="258.21" textColor="0x34e22c"/>
+	</e:Group>
+	<e:Label id="labEquip" text="0" y="240.33" size="14" x="291" textColor="0xc6b59e"/>
+	<components:SnapButton id="btnGet" label="立即领取" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" y="414.69" horizontalCenter="0"/>
+</e:Skin>

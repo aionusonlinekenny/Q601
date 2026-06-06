@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.BossBloodCellSkin" currentState="up" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" states="up,down" width="167" height="85" width.down="187">
+	<e:Image id="imgup" includeIn="up" source="boss_json.btn_boss0" x="0" y="9"/>
+	<e:Image id="imgdown" anchorOffsetX="0" includeIn="down" source="boss_json.btn_boss1" x="15" y="9"/>
+	<components:Icon id="imglock" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false" source="boss_json.btn_boss2" x.up="1" y.up="9" x.down="15" y.down="9" x="0" y="9"/>
+	<e:Image id="imgNo" source="boss_json.img_boss_no" x="87" y="50" x.down="102"/>
+	<e:Label id="labtime" text="0" y="51" textColor="0x2ff8ff" size="14" stroke="1" verticalAlign="middle" textAlign="center" left="72" left.down="87"/>
+	<e:Label id="labLevel" text="10" y="23" size="14" textColor="0xc6cfaa" strokeColor="0x350e09" stroke="2" right="71" textAlign="right" right.down="71" right.up="71"/>
+	<e:Label id="labLv" text="10" y="23" size="14" textColor="0xc6cfaa" strokeColor="0x350e09" stroke="2" left="123" textAlign="left" left.down="125" left.up="110"/>
+	<e:Image id="imgShen" source="boss_json.img_boss_shen" x="108" y="16" x.down="123"/>
+	<e:BitmapLabel id="blabStepLevel" x="134" y="22.5" text="4" font="level_font_fnt" scaleX="0.8" scaleY="0.8" x.down="149"/>
+	<e:Image id="imgTime" source="boss_json.img_boss_time" x="17" y="50" x.down="32"/>
+</e:Skin>

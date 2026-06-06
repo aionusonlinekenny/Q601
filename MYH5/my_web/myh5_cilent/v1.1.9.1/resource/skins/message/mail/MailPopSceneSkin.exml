@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.MailPopSceneSkin" width="552" height="563" xmlns:e="http://ns.egret.com/eui" xmlns:ui="ui.*" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" xmlns:components="components.*" states="GetSighFile,deleteFile" >
+	<e:Group x="0" y="0" width="552" height="563">
+		<e:Image x="0" y="0" width="552" height="563" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
+		<e:Image y="405" y.GetSighFile="324.24" source="common_json.img_line_right_png" x.GetSighFile="321" x.deleteFile="331"/>
+		<e:Image y="405" y.GetSighFile="324.24" source="common_json.img_line_left_png" x.GetSighFile="117" x.deleteFile="107"/>
+		<e:Image y="5" x="212" source="mail_json.img_message_top"/>
+		<e:Label text="无附件" y="400" anchorOffsetX="0" width="65" anchorOffsetY="0" height="16" size="20" bold="true" horizontalCenter="0" y.GetSighFile="320.24" text.GetSighFile="附件" width.GetSighFile="42" textColor="0xd1a765" horizontalCenter.GetSighFile="0"/>
+		<e:Image source="common_json.img_prompt_nei_bg_png" y="80" anchorOffsetX="0" width="496" anchorOffsetY="0" height="231.94" x="28" height.deleteFile="278.94" scale9Grid="13,13,3,3"/>
+		<e:Scroller width="458.33" height="202.33" x.deleteFile="50" anchorOffsetX="0" anchorOffsetY="0" height.GetSighFile="206.45" y="95" y.deleteFile="96" horizontalCenter="0" height.deleteFile="246.33">
+			<e:Group anchorOffsetY.deleteFile="0">
+				<e:Label id="labelMailFile" text="Label" width="458" size="20" textColor.deleteFile="0xc6b59e"/>
+			</e:Group>
+		</e:Scroller>
+		<e:Group id="panelAppendix" width="420" height="117.76" y="345.27" anchorOffsetX="0" anchorOffsetY="0" includeIn="GetSighFile" x="66">
+		</e:Group>
+		<components:IconButton id="btnClose" source="common_json.btn_close_png" x="498" y="10"/>
+		<components:IconButton id="btnBack" source="common_json.btn_back_png" x="453" y="479"/>
+		<components:SnapButton id="btnDeleteFile" label="删除附件" y="509" skinName="skins.SnapButtonDefaultSkin" width="150" label.deleteFile="删除邮件" visible.GetSighFile="false" anchorOffsetX="75" anchorOffsetY="28" x="276"/>
+		<components:SnapButton id="btnGetSigh" label="领取附件" y="509" skinName="skins.SnapButtonDefaultSkin" width="150" includeIn="GetSighFile" anchorOffsetX="75" anchorOffsetY="28" x="276"/>
+	</e:Group>
+</e:Skin>

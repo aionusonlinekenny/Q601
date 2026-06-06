@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.LegionDynamicRendererSkin" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing">
+	<e:Image width="562" height="120" x="0" y="0" scale9Grid="12,25,15,19" source="img_union_list_png"/>
+	<e:Label id="labText" text="1月9号20 : 50 : 45，军团副团长珊哥哥为军团捐赠了500000金币" y="6" size="20" verticalAlign="middle"
+	         textAlign="left" bold="true"  anchorOffsetX="0" width="542" anchorOffsetY="0" height="105" left="10" lineSpacing="5" textColor="0xc6b59e"/>
+</e:Skin>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="AmplificationItem" width="119" height="126" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="img_midianbg_png" x="0" y="0"/>
+	<e:Label id="labUse" text="已使用:0/0" x="4" y="4" textColor="0xC6B59E" size="14" textAlign="center" anchorOffsetX="0" width="111" anchorOffsetY="0" height="17"/>
+	<e:Label id="labCondition" text="符文达到40阶激活" x="0" y="69" size="14" textAlign="center" anchorOffsetX="0" width="120" anchorOffsetY="0" height="18" textColor="0xB6281A"/>
+	<e:Label id="labProperty" text="幻舞全属性" x="4" y="86" size="16" textAlign="center" anchorOffsetX="0" width="108" anchorOffsetY="0" height="19" textColor="0xedc839"/>
+	<e:Label id="labNum" text="0%" x="6" y="103" size="16" textAlign="center" anchorOffsetX="0" width="108" anchorOffsetY="0" height="19" stroke="1" textColor="0x34e22c"/>
+	<e:Image id="icon" x="30" y="14" source="role_json.img_midian_0_png"/>
+	<e:Image id="icon0" x="1" y="-1" source="common_json.img_warn_png"/>
+</e:Skin>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="PlayInfoSkin" width="600" height="916" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing" states="player,pet" >
+	<e:Image id="bg" anchorOffsetY="0" horizontalCenter="0" source="role_equipbg_playInfo_jpg"/>
+	<e:Image anchorOffsetX="0" anchorOffsetY="0" height="153" horizontalCenter="0" bottom="132" source="common_implementbar_png" scale9Grid="122,9,373,7" y="679"/>
+	<ns1:RoleEquipBox id="box1" y="118" anchorOffsetX="0" anchorOffsetY="0" skinName="tipIcon.EquiptBoxSkin" x="24" includeIn="player"/>
+	<ns1:RoleEquipBox id="box3" x="24" y="244" anchorOffsetX="0" anchorOffsetY="0" skinName="tipIcon.EquiptBoxSkin" includeIn="player"/>
+	<ns1:RoleEquipBox id="box5" x="24" y="370" anchorOffsetX="0" anchorOffsetY="0" skinName="tipIcon.EquiptBoxSkin" includeIn="player"/>
+	<ns1:RoleEquipBox id="box7" x="24" y="496" anchorOffsetX="0" anchorOffsetY="0" skinName="tipIcon.EquiptBoxSkin" includeIn="player"/>
+	<ns1:RoleEquipBox id="box2" y="118" anchorOffsetX="0" anchorOffsetY="0" skinName="tipIcon.EquiptBoxSkin" x="487" includeIn="player"/>
+	<ns1:RoleEquipBox id="box4" y="244" anchorOffsetX="0" anchorOffsetY="0" skinName="tipIcon.EquiptBoxSkin" x="487" includeIn="player"/>
+	<ns1:RoleEquipBox id="box6" y="370" anchorOffsetX="0" anchorOffsetY="0" skinName="tipIcon.EquiptBoxSkin" x="487" includeIn="player"/>
+	<ns1:RoleEquipBox id="box8" y="496" anchorOffsetX="0" anchorOffsetY="0" skinName="tipIcon.EquiptBoxSkin" x="487" includeIn="player"/>
+	<e:Image id="imgFightBg" y="29" source="common_fightBg_png" horizontalCenter="-16"/>
+	<e:BitmapLabel id="blabFight" y="37" text="8765199" touchEnabled="false" x="259" font="fight_font2_fnt"/>
+	<e:Image x="191" y="35" source="common_json.img_fight_png" width="57" height="31"/>
+	<components:IconButton id="imgInfo" x="485" y="51" anchorOffsetX="34" anchorOffsetY="35" source="common_json.btn_search_png"/>
+	<ns1:PetItem id="iconContract0" y="655" anchorOffsetX="0" anchorOffsetY="0" skinName="normal.PetItemSkin" x.pet="24" y.pet="365" includeIn="player" x="52"/>
+	<ns1:PetItem id="iconContract1" x="187" y="655" anchorOffsetX="0" anchorOffsetY="0" skinName="normal.PetItemSkin" x.pet="24" y.pet="485" includeIn="player"/>
+	<ns1:PetItem id="iconContract2" x="323" y="655" anchorOffsetX="0" anchorOffsetY="0" skinName="normal.PetItemSkin" x.pet="487" y.pet="365" includeIn="player"/>
+	<ns1:PetItem id="iconContract3" y="655" anchorOffsetX="0" anchorOffsetY="0" skinName="normal.PetItemSkin" x.pet="487" y.pet="485" includeIn="player" x="458"/>
+	<components:HeadTab id="headTab" skinName="normal.HeadTabSkin" top="783" x="14"/>
+	<e:Image id="btnSkill0" x="25" y="663" touchEnabled="false" source="common_json.img_qlt_1_png" includeIn="pet"/>
+	<e:Image id="btnSkill1" x="142" y="663" touchEnabled="false" source="common_json.img_qlt_1_png" includeIn="pet"/>
+	<e:Image id="imgPetModel" x="24" y="107" source="" includeIn="pet"/>
+	<e:Image id="btnTalent0" x="268" y="663" touchEnabled="true" source="common_json.img_qlt_1_png" includeIn="pet"/>
+	<e:Image id="btnTalent2" x="487" y="663" touchEnabled="true" source="common_json.img_qlt_1_png" includeIn="pet"/>
+	<e:Image id="btnTalent1" x="378" y="663" touchEnabled="true" source="common_json.img_qlt_1_png" includeIn="pet"/>
+	<components:Icon id="imgSkill0" width="80" height="80" x="30" y="666" touchEnabled="false" source="common_json.img_lock_png" includeIn="pet"/>
+	<components:Icon id="imgSkill1" width="80" height="80" x="147" y="666" touchEnabled="false" source="common_json.img_lock_png" includeIn="pet"/>
+	<components:Icon id="imgTalent0" width="80" height="80" x="273" y="666" touchEnabled="false" includeIn="pet" source="common_json.img_lock_png"/>
+	<components:Icon id="imgTalent1" x="383" y="666" touchEnabled="false" width="80" height="80" includeIn="pet" source="common_json.img_lock_png"/>
+	<components:Icon id="imgTalent2" width="80" height="80" x="492" y="666" touchEnabled="false" includeIn="pet" source="common_json.img_lock_png"/>
+	<e:Image source="pet_json.img_pet_shu_png" x="243" y="656" scale9Grid="2,14,13,89" height="100" includeIn="pet"/>
+	<ns1:PetItem id="box00" x="24" y="111" anchorOffsetX="0" anchorOffsetY="0" skinName="normal.PetItemSkin" includeIn="pet"/>
+	<ns1:PetItem id="box02" x="24" y="236" skinName="normal.PetItemSkin" includeIn="pet"/>
+	<ns1:PetItem id="box10" x="24" y="363" anchorOffsetY="0" skinName="normal.PetItemSkin" includeIn="pet"/>
+	<ns1:PetItem id="box12" x="24" y="488" skinName="normal.PetItemSkin" includeIn="pet"/>
+	<ns1:PetItem id="box01" x="487" y="111" skinName="normal.PetItemSkin" includeIn="pet"/>
+	<ns1:PetItem id="box03" x="487" y="236" skinName="normal.PetItemSkin" includeIn="pet"/>
+	<ns1:PetItem id="box11" x="487" y="363" anchorOffsetY="0" skinName="normal.PetItemSkin" includeIn="pet"/>
+	<ns1:PetItem id="box13" x="487" y="488" skinName="normal.PetItemSkin" includeIn="pet"/>
+</e:Skin>

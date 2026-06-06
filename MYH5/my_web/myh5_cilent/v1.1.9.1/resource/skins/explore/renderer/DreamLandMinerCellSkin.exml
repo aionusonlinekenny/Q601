@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.DreamLandMinerCellSkin" width="568" height="160" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*">
+	<e:Image width="568" height="160" anchorOffsetX="0" anchorOffsetY="0" x="0" y="0" scale9Grid="12,25,15,19" source="img_union_list_png"/>
+	<e:Image source="mine_json.img_pet_base" x="8" y="8.97"/>
+	<e:Image id="imgCollier" x="2" y="14" anchorOffsetX="0" anchorOffsetY="0" scaleX="0.85" scaleY="0.85" source=""/>
+	<components:Icon x="491" y="107.64" anchorOffsetX="0" width="30" anchorOffsetY="0" height="30" source="201"/>
+	<ns1:ItemIcon id="item0" y="35.31" skinName="itemIcon.ItemIconSkin" x="132.66"/>
+	<ns1:ItemIcon id="item1" y="35.31" skinName="itemIcon.ItemIconSkin" x="232.66"/>
+	<e:Group id="specialItem" x="331" y="9">
+		<ns1:ItemIcon id="item2" y="26" skinName="itemIcon.ItemIconSkin" x="0"/>
+		<e:Image id="imgProbability" source="mine_json.img_get_probability" x="37.34" y="21" touchEnabled="false"/>
+		<e:Label text="不可被掠夺" x="2" y="0" size="18" textColor="0xedc839"/>
+	</e:Group>
+	<e:Label id="labMineType" text="顶级矿工" x="27.5" y="8.47" size="18" textColor="0xe17123"/>
+	<e:Label id="labMoshi" text="500" x="522" y="113.97" size="16" fontFamily="Microsoft JhengHei" textColor="0xc6b59e"/>
+	<e:Label text="消耗 : " x="444" y="113.97" size="16" textColor="0xd1a765"/>
+	<components:SnapButton id="btnHire" label="雇佣" y="50.64" anchorOffsetX="0" width="128" skinName="skins.SnapButtonDefaultSkin" x="427.67"/>
+</e:Skin>

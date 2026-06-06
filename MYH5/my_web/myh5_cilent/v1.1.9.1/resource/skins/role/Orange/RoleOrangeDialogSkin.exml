@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.RoleOrangeDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"
+        xmlns:ns1="*" xmlns:ui="ui.*" xmlns:components="components.*" xmlns:item="item.*" width="600" height="916">
+	<e:Image source="" y="-60" horizontalCenter="0" visible="false" />
+	<e:Image id="imgBackBg" y="32.84" anchorOffsetX="0" anchorOffsetY="0" source="role_orangebg_jpg"
+	         horizontalCenter="0" alpha="1" />
+	<e:Image source="common_infobar_png" y="606" anchorOffsetY="0" height="156" horizontalCenter="0.5" scale9Grid="79,28,477,6"/>
+	<e:Image source="common_implementbar_png" anchorOffsetY="0" height="152" horizontalCenter="0" scale9Grid="80,15,480,14" y="764"/>
+
+
+
+	<ui:ItemIconSkin id="equip1" y="50" skinName="itemIcon.ItemIconSkin" x="25" />
+
+
+	<ui:ItemIconSkin id="equip2" y="50" skinName="itemIcon.ItemIconSkin" x="485" />
+	<ui:ItemIconSkin id="equip3" x="25" y="190" skinName="itemIcon.ItemIconSkin" />
+	<ui:ItemIconSkin id="equip4" x="485" y="190" skinName="itemIcon.ItemIconSkin" />
+	<ui:ItemIconSkin id="equip5" x="25" y="331" skinName="itemIcon.ItemIconSkin"  width="90" height="107"/>
+	<ui:ItemIconSkin id="equip6" x="485" y="331" skinName="itemIcon.ItemIconSkin" />
+	<ui:ItemIconSkin id="equip7" x="25" y="471" skinName="itemIcon.ItemIconSkin" />
+	<ui:ItemIconSkin id="equip8" x="485" y="471" skinName="itemIcon.ItemIconSkin" />
+	<components:SnapButton id="btnCompose" label="锻  造" y="851" anchorOffsetX="81" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="27" icon="img_warn_png" width="162" height="52" horizontalCenter="0"/>
+	<components:SnapButton id="btnGetDebris" label="" y="804" anchorOffsetX="35" x="522" anchorOffsetY="34" icon="img_warn_png">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="common_json.img_getRes_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" visible="false"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<e:Image id="imgSelected" source="common_json.img_selectFrame_png" x="24" y="48.84" anchorOffsetX="-2" anchorOffsetY="0"
+	         touchEnabled="false" />
+	<e:Image source="common_shubar_png" x="411" y="256"/>
+	<item:PropertyItemBox id="propertyBox" y="635" skinName="normal.PropertyItemBoxSkin" horizontalCenter="-1" />
+
+	<e:Group y="788" horizontalCenter="0">
+		<e:Image source="common_json.img_numbg_png" y="0" anchorOffsetY="0" height="28" anchorOffsetX="0" width="111" scale9Grid="11,5,40,12" x="0" visible="false"/>
+		<e:Label text="需要橙装碎片:" x="0" y="0" size="20" textColor="0xc6b59e"/>
+		<e:Label id="labCount" text="8000/8000" x="131" y="0" size="20" textColor="0x2b8c25" textAlign="left" anchorOffsetX="0"/>
+	</e:Group>
+
+
+
+	<e:Label id="labName" text="橙装锻造" x="424" y="308" size="20" anchorOffsetY="0" height="88" anchorOffsetX="0" width="24" stroke="2" strokeColor="0x783510"/>
+</e:Skin>

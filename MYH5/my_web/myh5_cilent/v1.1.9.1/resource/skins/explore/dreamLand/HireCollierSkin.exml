@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.HireCollierSkin" width="600" height="916" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" xmlns:tips="tips.*">
+	<e:Scroller id="scroller" width="568" height="792" y="57.24" anchorOffsetY="0" scrollPolicyH="off" scrollPolicyV="auto" x="16">
+		<e:List id="listHireMine" itemRenderer="renderer.DreamLandMinerCell"/>
+	</e:Scroller>
+	<e:Label text="生产时间为1个小时" y="877.24" size="20" x="214" textColor="0x34e22c"/>
+	<tips:GoldAndDiamonds id="goldTips" skinName="normal.GoldAndDiamondsSkin" right="0" y="6"/>
+</e:Skin>

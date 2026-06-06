@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.RoleWingTypeIconSkin" width="70" height="88" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<components:Icon id="imgQuality" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="9,9,19,19" source="common_json.img_qlt_1_png" width="70" height="70"/>
+	<components:Icon id="imgWing" y="4" horizontalCenter="0" width="60" height="60" source=""/>
+	<e:Label id="labName" text="飞羽1阶" y="69" size="16" anchorOffsetX="0" width="70" textAlign="center" horizontalCenter="0" textColor="0xC6B59E" stroke="2"/>
+	<e:Label id="labLv" text="3阶" y="48" size="16" anchorOffsetX="0" width="63" textAlign="right" horizontalCenter="0.5" stroke="1" textColor="0x1291ce"/>
+	<components:Icon id="imgWarn" source="common_json.img_warn_png" x="0" y="0" visible="false"/>
+</e:Skin>

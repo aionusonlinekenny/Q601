@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="item.PrizeBoxMarkSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" states="hasMark,noMark" width.hasMark="75" height.hasMark="112" width="85" height="91">
+	<e:Label id="mark" text="12" y="98" size="14" bold="true" includeIn="hasMark" textColor="0xc6b59e" x="31"/>
+	<e:Image x="0" y="66" includeIn="noMark" source="ladder_json.img_exclusiveAward"/>
+	<components:IconButton id="box" y="35" anchorOffsetX="35" anchorOffsetY="35" source="explore_json.img_silver_box_close" width="75" height="75" x="45" x.hasMark="40"/>
+</e:Skin>

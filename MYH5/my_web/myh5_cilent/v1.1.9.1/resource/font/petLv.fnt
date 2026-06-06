@@ -1,0 +1,8 @@
+{"file":"petLv.png","frames":{
+"S":{"x":1,"y":43,"w":12,"h":18,"offX":2,"offY":0,"sourceW":16,"sourceH":18},
+"X":{"x":38,"y":1,"w":24,"h":20,"offX":0,"offY":0,"sourceW":24,"sourceH":20},
+"Y":{"x":1,"y":1,"w":35,"h":20,"offX":0,"offY":0,"sourceW":35,"sourceH":20},
+"A":{"x":1,"y":23,"w":16,"h":18,"offX":0,"offY":0,"sourceW":16,"sourceH":18},
+"B":{"x":15,"y":43,"w":12,"h":18,"offX":2,"offY":0,"sourceW":16,"sourceH":18},
+"C":{"x":36,"y":23,"w":14,"h":18,"offX":1,"offY":0,"sourceW":16,"sourceH":18},
+"D":{"x":19,"y":23,"w":15,"h":18,"offX":0,"offY":0,"sourceW":16,"sourceH":18}}}

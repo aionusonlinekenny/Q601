@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.LadderRankingCellSkin" width="568" height="129" xmlns:e="http://ns.egret.com/eui" xmlns:renderer="renderer.*" xmlns:w="http://ns.egret.com/wing" xmlns:item="item.*" xmlns:ui="ui.*" xmlns:components="components.*" states="hasReward,noPlayer,hasRewardArt,noReward" >
+	<e:Image width="568" height="129" anchorOffsetX="0" anchorOffsetY="0" x="0" y="1" scale9Grid="12,25,15,19" source="img_union_list_png"/>
+	<e:Image id="imgRanking" source="ladder_json.img_rank_2" includeIn="hasReward" y="13" horizontalCenter="-224"/>
+	<e:Image id="imgGrade" source="ladder_json.img_dan_dia" x="343" y="79" scaleX="0.65" scaleY="0.65" includeIn="hasReward,hasRewardArt,noReward"/>
+	<e:Image id="imgLv" x="390" y="81" source="gradeArt_json.04" includeIn="hasReward,hasRewardArt,noReward"/>
+	<e:Label id="labNameGrade" text="LV. 80   玩家名称" x="217" y="34" size="20" includeIn="hasReward,hasRewardArt,noReward" textColor="0xc6b59e"/>
+	<e:Label text="积分 : " x="217" y="79" size="20" text.noPlayer="虚位以待" size.noPlayer="36" x.noPlayer="212" y.noPlayer="47" textColor="0xedc839"/>
+	<e:Label id="labScore" text="1000" x="273" size="20" y="79" fontFamily="Arial" includeIn="hasReward,hasRewardArt,noReward" textColor="0xedc839"/>
+	<renderer:LadderIconItem id="icon" x="114" y="19" skinName="item.LadderIconSkin" includeIn="hasReward,hasRewardArt,noReward"/>
+	<e:BitmapLabel id="labRanking" text="25" y="48" includeIn="noPlayer,hasRewardArt,noReward" font="pkMing_fnt" scaleX="1.5" scaleY="1.5" letterSpacing="-3" horizontalCenter="-224"/>
+	<components:RewardItemBox id="reward" y="12" skinName="components.ItemBoxSkin" x="461" includeIn="hasReward,hasRewardArt"/>
+</e:Skin>

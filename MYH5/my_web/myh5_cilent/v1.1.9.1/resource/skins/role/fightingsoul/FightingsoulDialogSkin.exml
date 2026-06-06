@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.FightingsoulDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:item="item.*" width="600" height="916">
+	<e:Image id="imgBackBg" y="6" source="role_normalbg_jpg" x="3"/>
+	<e:Image x="10" y="538.8" anchorOffsetX="0" width="583" anchorOffsetY="0" height="191" source="common_infobar_png" scale9Grid="11,25,576,13"/>
+	<e:Image source="common_implementbar_png" anchorOffsetY="0" height="187" horizontalCenter="0" y="729" scale9Grid="80,15,480,5"/>
+	<e:Label id="labProperty0" text="角色和幻兽都享受加成" y="741.48" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" horizontalCenter="0" textColor="0x34e22c"/>
+	<components:SnapButton id="btnUpgrade" label="升级" y="850" anchorOffsetX="82" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="28" horizontalCenter="0"/>
+	<components:IconButton id="btnGetRes" x="522" y="783" anchorOffsetX="34" anchorOffsetY="34" source="common_json.img_getRes_png"/>
+	<e:Image x="71" y="391.08" source="role_json.img_fightingSoulDesc_png"/>
+	<e:Label id="labLevel" text="等级" y="30.83" size="24" anchorOffsetY="0" textAlign="center" horizontalCenter="0" textColor="0xedc839" stroke="2"/>
+	<e:Group y="781" horizontalCenter="0">
+		<e:Label text="需要战魂:" size="20" anchorOffsetY="0" textColor="0xc6b59e"/>
+		<e:Label id="labExp" text="10000/10" size="20" anchorOffsetY="0" textAlign="center" x="91" textColor="0x2b8c25"/>
+	</e:Group>
+	<item:PropertyItemBox id="propertyBox" y="571" skinName="normal.PropertyItemBoxSkin" horizontalCenter="0"/>
+	<e:Label text="不屈" x="170" y="404.46" size="20" textColor="0xc6b59e"/>
+	<e:Label text="被战魂低于自身的玩家攻击，" x="170" y="437.89" size="20" textColor="0xc6b59e"/>
+	<e:Label text="增加7％免伤" x="426" y="437.89" size="20" textColor="0x34E22C"/>
+	<e:Image source="common_fightBg_png" y="484.67" horizontalCenter="0"/>
+	<e:Image x="214.94" y="491.27" source="common_json.img_fight_png" width="57" height="31"/>
+	<e:BitmapLabel id="labFight" y="492.79" anchorOffsetX="0" anchorOffsetY="0" text="7200" touchEnabled="false" left="281" font="fight_font2_fnt"/>
+	<e:Group id="lossGroup" x="59" y="792">
+		<e:Image source="pet_json.img_huanhuaDI_png" x="9" y="3"/>
+		<e:Image id="imgMask" source="common_json.img__list_bg_png" x="41" y="27" anchorOffsetX="31" anchorOffsetY="25" width="62" height="50"/>
+		<e:Label id="labNum" text="100000" x="8" y="47" size="14" textColor="0xC6B59E" anchorOffsetX="0" width="61" anchorOffsetY="0" height="16" textAlign="center"/>
+		<e:Label text="已损失战魂" x="0" y="60" size="14" anchorOffsetX="0" width="81" anchorOffsetY="0" height="17" textAlign="center" textColor="0x1291ce"/>
+	</e:Group>
+</e:Skin>

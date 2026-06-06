@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.GodruinsExploreBoxSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" height="105" width="90">
+	<e:Image source="common_json.img_qlt_1_png" y="0" horizontalCenter="0"/>
+	<e:Image id="imgIcon" width="80" height="80" y="3" horizontalCenter="0" source="godruins_json.godruins_builder_1"/>
+	<e:Label id="labName" text="" y="87" size="18" verticalAlign="middle" textAlign="center" horizontalCenter="0" textColor="0xedc839" stroke="2"/>
+	<e:Label id="labTime" text="" y="60" size="18" verticalAlign="middle" textAlign="center" horizontalCenter="0" textColor="0x34e22c" stroke="2"/>
+</e:Skin>

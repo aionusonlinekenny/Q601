@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.ShenhunTipSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image id="imgBg" x="0" y="0" anchorOffsetX="0" width="544" anchorOffsetY="0" height="533" source="common_json.img_tips_bg_png" scale9Grid="30,26,5,15"/>
+	<e:Image id="imgQuality" source="common_json.img_qlt_1_png" x="68" y="55"/>
+	<components:Icon id="imgIcon" source="" width="80" height="80" x="73" y="58"/>
+	<e:Label id="labName" text="神魂" y="27" size="22" anchorOffsetX="0" textColor="0x8425cb" horizontalCenter="-159"/>
+	<e:Label text="等级 : " x="172.99" y="71" size="22" textColor="0xedc839"/>
+	<e:Label text="品质 : " x="172.99" y="99" size="22" textColor="0xedc839"/>
+	<e:Label id="labQuality" text="1" x="240" y="99" size="22" anchorOffsetX="0" textColor="0xc6b59e"/>
+	<e:Label id="labLevel" text="5" x="240" y="71" size="22" anchorOffsetX="0" anchorOffsetY="0" textColor="0xc6b59e"/>
+	<e:Label text="当前属性加成 : " x="71" y="183.5" size="22" anchorOffsetX="0" anchorOffsetY="0" wordWrap="true" textColor="0xedc839"/>
+	<e:Label id="labAtts" text="攻击 : 1000" x="71" y="219.5" size="22" anchorOffsetX="0" anchorOffsetY="0" wordWrap="true" textColor="0xc6b59e"/>
+	<e:Label id="labDesc" text="升级需消耗 : " x="71" y="453.5" size="22" anchorOffsetX="0" anchorOffsetY="0" wordWrap="true" textColor="0x34e22c"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" y="30" x="513" anchorOffsetX="27" anchorOffsetY="24"/>
+	<components:IconButton id="btnBack" source="common_json.btn_back_png" anchorOffsetX="35" anchorOffsetY="34" x="496" y="486"/>
+	<e:Image source="common_json.img_normal_line_png" y="164" width="450" x="47"/>
+	<e:Image source="common_json.img_normal_line_png" y="294" width="450" x="47"/>
+	<e:Label text="下级属性加成 : " x="71" y="314.5" size="22" anchorOffsetX="0" anchorOffsetY="0" wordWrap="true" textColor="0xedc839"/>
+	<e:Label id="labAtts1" text="攻击 : 1000" x="71" y="350.5" size="22" anchorOffsetX="0" anchorOffsetY="0" wordWrap="true" textColor="0xc6b59e"/>
+	<e:Image source="common_json.img_normal_line_png" y="425" width="450" x="47"/>
+</e:Skin>

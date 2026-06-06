@@ -1,0 +1,11 @@
+{"file":"ladder.png","frames":{
+"img_my_message":{"x":139,"y":1,"w":99,"h":29,"offX":0,"offY":0,"sourceW":99,"sourceH":29},
+"btn_reflesh":{"x":71,"y":37,"w":48,"h":26,"offX":0,"offY":0,"sourceW":48,"sourceH":26},
+"img_dan_bGold":{"x":71,"y":68,"w":68,"h":34,"offX":0,"offY":0,"sourceW":68,"sourceH":34},
+"img_dan_bronze":{"x":141,"y":68,"w":67,"h":34,"offX":0,"offY":0,"sourceW":67,"sourceH":34},
+"img_dan_dia":{"x":1,"y":37,"w":68,"h":34,"offX":0,"offY":0,"sourceW":68,"sourceH":34},
+"img_dan_god":{"x":1,"y":1,"w":136,"h":34,"offX":0,"offY":0,"sourceW":136,"sourceH":34},
+"img_dan_gold":{"x":1,"y":73,"w":68,"h":34,"offX":0,"offY":0,"sourceW":68,"sourceH":34},
+"img_dan_master":{"x":139,"y":32,"w":68,"h":34,"offX":0,"offY":0,"sourceW":68,"sourceH":34},
+"img_dan_silver":{"x":1,"y":109,"w":66,"h":34,"offX":0,"offY":0,"sourceW":66,"sourceH":34},
+"img_exclusiveAward":{"x":1,"y":145,"w":84,"h":24,"offX":0,"offY":0,"sourceW":85,"sourceH":25}}}

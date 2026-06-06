@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.WorshipDialogSkin" width="600" height="916" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" xmlns:renderer="renderer.*">
+	<e:Image source="img_worshipBg_jpg" horizontalCenter="0"/>
+	<e:Image id="imgShadow" source="img_legionwar_shadow_png" y="167" horizontalCenter="79.5"/>
+	<e:Image id="imgTitle" y="49" source="" horizontalCenter="0.5"/>
+	<e:Image y="410" horizontalCenter="-152.5" source="worship_json.btn_worship_getflower"/>
+	<e:Image y="417" horizontalCenter="168.5" source="worship_json.btn_worship_getegg"/>
+	<e:Image x="7" y="530" anchorOffsetX="0" width="67" source="union_json.img_union_up_png" scale9Grid="6,12,7,20" height="41"/>
+	<e:Image x="70" y="530" anchorOffsetX="0" width="131" scale9Grid="5,12,9,20" source="union_json.img_union_up_png" height="41"/>
+	<e:Image x="195" y="530" anchorOffsetX="0" width="131" scale9Grid="5,12,9,20" source="union_json.img_union_up_png" height="41"/>
+	<e:Image x="322" y="530" anchorOffsetX="0" width="109" source="union_json.img_union_up_png" scale9Grid="6,12,7,20" height="41"/>
+	<e:Image x="426" y="530" anchorOffsetX="0" width="170" source="union_json.img_union_up_png" scale9Grid="6,12,7,20" height="41"/>
+	<e:Image anchorOffsetX="0" anchorOffsetY="0" height="63" horizontalCenter="0" bottom="29" source="common_implementbar_png" scale9Grid="122,11,373,9" width="600"/>
+	<e:Label text="剩余鲜花：" x="23" y="8" size="14" textAlign="center" touchEnabled="false" textColor="0xC6B59E" stroke="1"/>
+	<e:Label text="剩余鸡蛋：" x="333" y="8" size="14" textAlign="center" touchEnabled="false" textColor="0xC6B59E" stroke="1"/>
+	<e:Label id="labFlowerNum" text="452222（00:00秒后增加1朵）" x="87" y="8" size="14" textAlign="center" touchEnabled="false" textColor="0xC6B59E"/>
+	<e:Label id="labEggNum" text="452222（00:00秒后增加1个）" x="397" y="8" size="14" textAlign="center" touchEnabled="false" textColor="0xC6B59E"/>
+	<e:Label text="排名" x="13" y="540" size="18" textAlign="center" width="60" touchEnabled="false" textColor="0xC6B59E"/>
+	<e:Label text="名称" x="81" y="540" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xC6B59E"/>
+	<e:Label text="军团" x="207" y="540" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xC6B59E"/>
+	<e:Label text="人气" x="331" y="540" size="18" textAlign="center" width="90" touchEnabled="false" textColor="0xC6B59E"/>
+	<e:Label text="操作" x="466" y="540" size="18" textAlign="center" width="100" touchEnabled="false" textColor="0xC6B59E"/>
+	<e:Label id="labLeaderName" text="玩家名字名字" y="136" size="20" verticalAlign="middle" textAlign="center" width="201" textColor="0x34E22C" horizontalCenter="0.5"/>
+	<e:Label id="labFirstFlower" text="9999" y="508" horizontalCenter="-152.5" size="20" textColor="0x05f7fc"/>
+	<e:Label id="labFirstEgg" text="9999" y="508" horizontalCenter="168.5" size="20" textColor="0x05F7FC"/>
+	<e:Scroller width="583" height="250" x="9" y="569" anchorOffsetX="0" anchorOffsetY="0">
+		<e:List id="listCell" itemRendererSkinName="renderer.WorshipDialogCellSkin" itemRenderer="renderer.WorshipDialogCell">
+			<e:layout>
+				<e:VerticalLayout gap="6"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<renderer:WorshipDialogCell id="MyRankItem" x="9" y="839" skinName="renderer.WorshipDialogCellSkin"/>
+	<e:Group id="barrageGroup" width="584" height="528" horizontalCenter="0" anchorOffsetY="0"/>
+</e:Skin>

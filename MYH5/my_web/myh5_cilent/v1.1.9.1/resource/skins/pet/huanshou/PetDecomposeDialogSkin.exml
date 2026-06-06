@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.PetDecomposeDialogSkin" width="620" height="969" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image width="626" height="969" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
+	<e:Image width="584" height="815" x="21" y="63" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_inbg_png" scale9Grid="5,6,18,15"/>
+	<e:Image source="img_title_fenjie_png" y="10" horizontalCenter="0"/>
+	<e:Scroller id="scroller" width="570" height="800" x="27" y="68" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="off" scrollPolicyV="on">
+		<e:List id="list" x="2" itemRenderer="renderer.PetDecomposeRenderer" itemRendererSkinName="renderer.PetDecomposeRendererSkin">
+		<e:layout>
+			<e:TileLayout orientation="rows" horizontalGap="0" paddingLeft="5" requestedColumnCount="1" verticalGap="5"/>
+		</e:layout>
+		</e:List>
+	</e:Scroller>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="589" y="29" anchorOffsetX="27" anchorOffsetY="27"/>
+	<components:IconButton id="btnBack" source="common_json.btn_back_png" x="568" y="922" anchorOffsetX="37" anchorOffsetY="37"/>
+	<e:Label id="labNoDec" text="当前没有可分解的材料" y="364" horizontalCenter="0" size="20" textColor="0x7D6A52"/>
+</e:Skin>

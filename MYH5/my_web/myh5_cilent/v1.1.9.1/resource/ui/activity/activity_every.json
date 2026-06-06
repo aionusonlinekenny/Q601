@@ -1,0 +1,8 @@
+{"file":"activity_every.png","frames":{
+"activity_every_boss_bg":{"x":1,"y":295,"w":99,"h":120,"offX":0,"offY":0,"sourceW":99,"sourceH":120},
+"activity_every_boss_select":{"x":1,"y":1,"w":100,"h":155,"offX":0,"offY":0,"sourceW":100,"sourceH":155},
+"activity_every_boss1":{"x":102,"y":290,"w":92,"h":114,"offX":0,"offY":0,"sourceW":92,"sourceH":114},
+"activity_every_boss2":{"x":103,"y":1,"w":87,"h":129,"offX":0,"offY":0,"sourceW":87,"sourceH":129},
+"activity_every_boss3":{"x":95,"y":158,"w":87,"h":130,"offX":0,"offY":0,"sourceW":87,"sourceH":130},
+"activity_every_boss4":{"x":184,"y":132,"w":47,"h":129,"offX":0,"offY":0,"sourceW":47,"sourceH":129},
+"activity_every_boss5":{"x":1,"y":158,"w":92,"h":135,"offX":0,"offY":0,"sourceW":92,"sourceH":135}}}

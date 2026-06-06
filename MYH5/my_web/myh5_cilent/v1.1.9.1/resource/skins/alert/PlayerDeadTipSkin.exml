@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin.PlayerDeadTipSkin" width="510" height="272" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image width="100%" height="100%" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="35,79,27,18" source="common_json.img_prompt_bg_png"/>
+	<e:Label id="labText" text="你被XX击败，10秒后自动复活！" y="102.5" size="20" textColor="0xc6b59e" horizontalCenter="0"/>
+	<e:Label id="labText0" text="复活提示" y="12.5" size="26" horizontalCenter="0" textColor="0xc6b59e" stroke="2" strokeColor="0x210a02"/>
+	<e:Image id="iconDiamend" y="152.33" source="uiMain_json.main_img_diamonds" x="99.07"/>
+	<e:Label id="labDiamond" text="98745632" y="155.33" anchorOffsetX="0" width="76" size="18" rotation="0.39" anchorOffsetY="0" height="19.95" x="132.07" textColor="0x34e22c"/>
+	<components:SnapButton id="btnRelife" label="原地复活" x="158.07" y="202.27" anchorOffsetX="69" anchorOffsetY="26" width="136">
+		<components:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="copy_json.boss_btn_playerrelift" scale9Grid="12,0,18,47"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="20" textColor="0xf4d47f"/>
+			</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnExit" label="退出副本" x="349.5" y="199.8" anchorOffsetX="68" anchorOffsetY="22" width="136">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="copy_json.boss_btn_playerrelift" scale9Grid="12,0,18,47"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="20" textColor="0xf4d47f"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+</e:Skin>

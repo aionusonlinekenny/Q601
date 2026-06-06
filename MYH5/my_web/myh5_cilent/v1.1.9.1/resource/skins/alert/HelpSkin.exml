@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.HelpSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image id="imgBg" x="0" y="0" anchorOffsetX="0" width="528" anchorOffsetY="0" height="590" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
+	<e:Label id="labContent" text="" x="20" y="66" anchorOffsetX="0" width="488" anchorOffsetY="0" size="20" lineSpacing="16" textColor="0xcfc9be" textAlign="left"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="500" y="26" anchorOffsetX="27" anchorOffsetY="24"/>
+	<e:Image source="union_json.img_union_title18_png" x="225" y="10"/>
+</e:Skin>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.TreasureBaoCangSkin" width="578" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:tips="tips.*" xmlns:treasure="treasure.*"  height="867">
+	<e:Image y="2" source="img_BaoCangbg_jpg"/>
+	<e:Image source="img_BaoCangTitlebg_png" y="517" horizontalCenter="0" anchorOffsetY="0" height="201" scale9Grid="68,32,414,88" anchorOffsetX="0" width="571"/>
+	<e:Image height="146" anchorOffsetX="0" anchorOffsetY="0" source="common_implementbar_png" y="721" horizontalCenter="0" scale9Grid="80,7,480,4"/>
+	<e:Image id="imgMoShiTen" x="350.94" y="827" source="common_json.img_diamonds_png"/>
+	<e:Label id="labDiamondsOne" text="500" size="20" x="116" textColor="0xC6B59E" y="830" verticalAlign="middle" textAlign="left"/>
+	<e:Image id="imgMoShiOne" x="84" y="826" source="common_json.img_diamonds_png"/>
+	<e:Label id="labYaoshiOne" text="1" size="20" x="211" textColor="0xC6B59E" y="830" verticalAlign="middle" textAlign="left"/>
+	<components:Icon id="imgYaoshiOne0" x="185" y="826" anchorOffsetX="0" width="25" anchorOffsetY="0" height="25" source=""/>
+	<e:Label id="labYaoshTen" text="10" size="20" x="480" textColor="0xC6B59E" y="830"/>
+	<components:Icon id="imgYaoshiTen0" x="456" y="826" anchorOffsetX="0" width="25" anchorOffsetY="0" height="25" source=""/>
+	<e:Label id="labDiamondsTen" text="4800" size="20" x="381" textColor="0xc6b59e" y="830"/>
+	<components:SnapButton id="btnXunOne" label="寻宝一次" x="154" icon="img_warn_png" y="790" skinName="skins.SnapTreasureSkin" anchorOffsetX="96" width="192" anchorOffsetY="22" height="52"/>
+	<components:SnapButton id="btnXunTen" label="寻宝十次" x="433" icon="img_warn_png" y="788" skinName="skins.SnapTreasureSkin" width="192" height="52" anchorOffsetX="96" anchorOffsetY="20"/>
+	<components:SnapButton id="btnWareHouse" x="527.5" y="628" icon="uiMain_json.img_main_red" width="73" height="73" anchorOffsetX="36" anchorOffsetY="35">
+		<components:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="treasure_json.img_wareHouse"/>
+	<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="uiMain_json.img_main_red" visible="false"/>
+			</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<e:Scroller id="scrollerBaoCang" anchorOffsetY="0" anchorOffsetX="0" scrollPolicyH="off" scrollPolicyV="auto" y="544" height="172" width="464" x="20">
+		<e:List id="listBaoCang" anchorOffsetY="0" top="0" itemRenderer="treasure.TreasureBaoCangListRanking" anchorOffsetX="0" height="206" width="343" x="-114"/>
+	</e:Scroller>
+	<tips:GoldAndDiamonds id="goldTips" skinName="normal.GoldAndDiamondsSkin" right="0" y="6"/>
+	<e:Image source="treasure_json.img_BaoCangtitle1" y="734" x="188"/>
+	<treasure:TreasureBaoCangIcon id="box16" skinName="renderer.TreasureBaoCangIconSkin" y="114" x="26" width="74" height="92"/>
+	<treasure:TreasureBaoCangIcon id="box3" skinName="renderer.TreasureBaoCangIconSkin" y="114" x="139" width="74" height="92"/>
+	<treasure:TreasureBaoCangIcon id="box4" skinName="renderer.TreasureBaoCangIconSkin" y="114" x="253" width="74" height="92"/>
+	<treasure:TreasureBaoCangIcon id="box6" skinName="renderer.TreasureBaoCangIconSkin" y="114" x="479" width="74" height="92"/>
+	<treasure:TreasureBaoCangIcon id="box9" skinName="renderer.TreasureBaoCangIconSkin" y="413" x="479" width="74" height="92"/>
+	<treasure:TreasureBaoCangIcon id="box8" skinName="renderer.TreasureBaoCangIconSkin" y="317" x="479" width="74" height="92"/>
+	<treasure:TreasureBaoCangIcon id="box14" skinName="renderer.TreasureBaoCangIconSkin" y="317" x="26" width="74" height="92"/>
+	<treasure:TreasureBaoCangIcon id="box7" skinName="renderer.TreasureBaoCangIconSkin" y="216" x="479" width="74" height="92"/>
+	<treasure:TreasureBaoCangIcon id="box15" skinName="renderer.TreasureBaoCangIconSkin" y="216" x="26" width="74" height="92"/>
+	<treasure:TreasureBaoCangIcon id="box13" skinName="renderer.TreasureBaoCangIconSkin" y="413" x="26" width="74" height="92"/>
+	<treasure:TreasureBaoCangIcon id="box12" skinName="renderer.TreasureBaoCangIconSkin" y="413" x="139" width="74" height="92"/>
+	<treasure:TreasureBaoCangIcon id="box11" skinName="renderer.TreasureBaoCangIconSkin" y="413" x="253" width="74" height="92"/>
+	<treasure:TreasureBaoCangIcon id="box10" skinName="renderer.TreasureBaoCangIconSkin" y="413" x="366" width="74" height="92"/>
+	<treasure:TreasureBaoCangIcon id="box5" skinName="renderer.TreasureBaoCangIconSkin" y="114" x="366" width="74" height="92"/>
+	<e:Group id="group0" x="105" y="238" width="117" height="134">
+		<e:Image id="imgQuality0" x="0" y="0" source="vip_json.img_qlt1"/>
+		<e:Label id="labName0" text="Label" y="114" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="0"/>
+		<components:Icon id="imgIcon0" width="80" height="80" x="18" y="16" touchEnabled="false"/>
+	</e:Group>
+	<e:Group id="group1" x="231" y="238" width="117" height="134">
+		<e:Image id="imgQuality1" x="0" y="0" source="vip_json.img_qlt1"/>
+		<e:Label id="labName1" text="Label" y="114" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="0"/>
+		<components:Icon id="imgIcon1" width="80" height="80" x="19" y="17" touchEnabled="false"/>
+	</e:Group>
+	<e:Group id="group2" x="356" y="238" width="117" height="134">
+		<e:Image id="imgQuality2" x="0" y="0" source="vip_json.img_qlt1"/>
+		<e:Label id="labName2" text="Label" y="114" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="0"/>
+		<components:Icon id="imgIcon2" width="80" height="80" x="19" y="16" touchEnabled="false"/>
+	</e:Group>
+	<e:Label text="或" x="155" y="830" size="20"/>
+	<e:Label text="或" x="430" y="830" size="20"/>
+	<e:Image source="img_BaoCangTitle_jpg" y="40" horizontalCenter="0"/>
+	<e:Image id="imgDiscount" source="treasure_json.img_discoount2" x="1" y="724"/>
+</e:Skin>

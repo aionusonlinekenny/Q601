@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.WriteLegionNameSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" height="419">
+	<e:Image x="1" y="0" anchorOffsetX="0" width="528" anchorOffsetY="0" height="421" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
+	<e:Image width="348" height="53" x="96" y="71" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_numbg_png" scale9Grid="23,6,18,11"/>
+	<e:TextInput id="labInput" width="323" height="36" anchorOffsetX="0" anchorOffsetY="0" enabled="true" y="79" textColor="0xcfc9be" horizontalCenter="4" maxChars="6" text="请输入军团名称，最多6个字！">
+		<e:skinName>
+			<e:Skin minHeight="40" minWidth="300" states="normal,disabled,normalWithPrompt,disabledWithPrompt" height="36">
+			<e:Image x="0" y="0" scale9Grid="17,0,105,43" anchorOffsetX="0" width="300" source=""/>
+			<e:Rect height="36" width="457" fillColor="0x000000" fillAlpha="0" anchorOffsetY="0" anchorOffsetX="0"/>
+			<e:EditableText id="textDisplay" textColor.disabled="0xff0000" size="20" top="3" left="4" anchorOffsetY="0" anchorOffsetX="0" width="453" height="33" textColor="0xa9a9a9" multiline="true" text=""/>
+			<e:Label id="promptDisplay" width="456" height="34" size="20" touchEnabled="false" includeIn="normalWithPrompt,disabledWithPrompt" left="1" top="1" textColor="0xa9a9a9" anchorOffsetY="0" anchorOffsetX="0" multiline="true" text=""/>
+			</e:Skin>
+		</e:skinName>
+	</e:TextInput>
+	<components:IconButton id="btnClose" x="474" y="1" source="common_json.btn_close_png"/>
+	<components:SnapButton id="btnSure" label="确定" x="194" y="323" skinName="skins.SnapButtonDefaultSkin" width="150"/>
+	<e:Image width="486" height="151" x="23" y="165" source="common_json.img_prompt_nei_bg_png" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="11,12,17,8"/>
+	<e:Image source="union_json.img_union_title3_png" x="211" y="9"/>
+	<e:Label text="VIP2才可以创建军团" y="133" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="-0.5" textColor="0xedc839"/>
+	<e:Image x="224" y="381" source="common_json.img_diamonds_png" visible="false"/>
+	<e:Label id="labPrice" text="100" y="384" size="20" verticalAlign="middle" textAlign="left" left="262" textColor="0xc6b59e" visible="false"/>
+	<e:Image id="imgbg0" source="common_json.img_qlt_1_png" x="60" y="205"/>
+	<e:Image id="imgbg1" source="common_json.img_qlt_1_png" x="221" y="205"/>
+	<e:Image id="imgbg2" source="common_json.img_qlt_1_png" x="390" y="205"/>
+	<components:Icon id="imgIcon0" width="80" height="80" x="65" y="208"/>
+	<components:Icon id="imgIcon1" width="80" height="80" x="226" y="208"/>
+	<components:Icon id="imgIcon2" width="80" height="80" x="395" y="208"/>
+	<e:Label id="labCount0" text="Label" y="271" size="18" verticalAlign="middle" textAlign="right" right="387" textColor="0xedc839"/>
+	<e:Label id="labName0" text="Label" y="291" size="18" verticalAlign="middle" textAlign="center" horizontalCenter="-162" textColor="0xc6b59e"/>
+	<e:Label id="labCount1" text="Label" y="271" size="18" verticalAlign="middle" textAlign="right" right="225" textColor="0xedc839"/>
+	<e:Label id="labName1" text="Label" y="291" size="18" verticalAlign="middle" textAlign="center" horizontalCenter="1.5" textColor="0xc6b59e"/>
+	<e:Label id="labCount2" text="Label" y="271" size="18" verticalAlign="middle" textAlign="right" right="57" textColor="0xedc839"/>
+	<e:Label id="labName2" text="Label" y="291" size="18" verticalAlign="middle" textAlign="center" horizontalCenter="169" textColor="0xc6b59e"/>
+	<e:Label text="首次创建军团奖励 : " x="60" y="172" size="20" textColor="0xedc839"/>
+</e:Skin>

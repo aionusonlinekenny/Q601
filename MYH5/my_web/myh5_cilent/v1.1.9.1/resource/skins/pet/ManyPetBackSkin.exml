@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ManyPetBackSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:ns1="*" height="745.82">
+	<e:Image width="592" height="742.76" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
+	<components:IconButton id="btnClose" x="530" y="2" source="common_json.btn_close_png"/>
+	<e:Image x="222" y="9" source="img_duoPet_title_png"/>
+	<e:Image source="firstrecharge_json.img_fr_line0" x="437" y="101"/>
+	<e:Image source="firstrecharge_json.img_fr_line1" x="13" y="101"/>
+	<e:Image x="169" y="94" source="pet_duoPet_zi1_png"/>
+	<e:Image id="img1" x="29" y="140" source="pet_duoPet_zi2_png"/>
+	<e:Image id="img2" x="29" y="426.3" source="pet_duoPet_zi3_png"/>
+	<components:SnapButton id="btnKai" label="打开会员界面" x="217" y="356" skinName="skins.SnapButtonDefaultSkin"/>
+	<components:SnapButton id="btnZuo" label="去做成就" x="217" y="676" skinName="skins.SnapButtonDefaultSkin"/>
+	<e:Image source="achieven_json.img_pet_bear" x="51" y="525" anchorOffsetY="0" height="118"/>
+	<e:Image source="achieven_json.img_unlock_pet" x="48" y="596"/>
+	<ns1:PetIcon id="petIcon2"  x="405" y="522" skinName="PetIconCell"/>
+	<e:Label id="labStudyValue" text="99999"  y="614.11" size="18" verticalAlign="middle" textAlign="center" x="324.83" fontFamily="Microsoft JhengHei" bold="true" textColor="0xc6b59e"/>
+	<e:Label text="学习值:"  x="261.83" y="614.11" size="18" textColor="0xD1A765"/>
+	<e:ProgressBar id="proCollege" height="27"  x="198" y="581" anchorOffsetX="0" anchorOffsetY="0" skinName="skins.ProgressBlueSkin" width="235" value="100"/>
+</e:Skin>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.PetListRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" width="278" height="119">
+	<e:Group id="petGroup" x="0" y="1" touchEnabled="true" width="278" height="118">
+		<e:Image id="imgBg" width="276" height="120" x="2" y="-2" anchorOffsetX="0" anchorOffsetY="0" source="pet_json.img_pet_list_png" scale9Grid="26,13,8,31"/>
+		<e:Image source="pet_json.img_pet_zidi1_png" x="115" y="12" touchEnabled="false"/>
+		<e:Label id="labHuanShouName" text="宠物名字" y="18" size="20" verticalAlign="top" textAlign="left" left="114" textColor="0xedc839" touchEnabled="false"/>
+		<e:Label id="labPower0" text="战力增加" y="49" size="20" textAlign="left" verticalAlign="middle" left="113" textColor="0xc6b59e" touchEnabled="false"/>
+		<e:Label id="labPower1" text="+0" y="72" size="20" textAlign="left" verticalAlign="middle" left="113" textColor="0xC6B59E" touchEnabled="false"/>
+		<e:Image id="imgHuanShouQuality" x="20" y="9" source="common_json.img_qlt_1_png" touchEnabled="false"/>
+		<e:Image id="imgHuanShouIcon" x="25" y="12" source="" width="80" height="80" touchEnabled="false"/>
+		<e:Label id="labStep" text="+0" y="17" size="20" left="242" verticalAlign="middle" textAlign="left" textColor="0x34e22c" touchEnabled="false"/>
+		<e:Image id="imgUp" source="pet_json.img_powerUp_png" x="248" y="58" visible="false"/>
+		<e:Image id="imgDown" source="pet_json.img_powerDown_png" x="248" y="58" visible="false"/>
+		<components:IconButton id="btnChange" x="205" y="55" source="btn_petChange_png"/>
+	</e:Group>
+</e:Skin>

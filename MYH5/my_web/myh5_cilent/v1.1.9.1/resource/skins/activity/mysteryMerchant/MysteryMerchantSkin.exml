@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.MysteryMerchantSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" height="942" width="600">
+	<e:Image id="imgBg" source="mysteryMerchant_img_bg_png" y="100"/>
+	<e:Image source="common_json.img_diamonds_png" scaleX="1" scaleY="1" x="439" y="479"/>
+	<e:Image source="activity_json.mysteryMerchant_img_title" horizontalCenter="30" y="136"/>
+	<e:Image horizontalCenter="-48" y="209" source="activity_json.mysteryMerchant_img_title2"/>
+	<e:Image horizontalCenter="86.5" y="241" source="activity_json.mysteryMerchant_img_title1"/>
+	<e:Image y="243" source="activity_json.mysteryMerchant_img_zhe" x="438"/>
+	<e:Image y="554.5" x="259.5" source="activity_json.img_activity_lijilingqu"/>
+	<e:Image source="common_json.img_grayBg_png" scale9Grid="4,4,24,24" anchorOffsetY="0" width="429" height="25" x="149" y="287" anchorOffsetX="0"/>
+	<e:Image y="479" x="378.5" source="activity_json.mysteryMerchant_img_currentPrice"/>
+	<e:BitmapLabel id="labCurrentPrice" x="470" y="482" font="price_font_fnt" text="700000"/>
+	<e:BitmapLabel id="labDiscount" x="411" y="242" font="discount_font_fnt" text="7"/>
+	<e:Group x="160" y="479">
+		<e:BitmapLabel id="labOriginalPrice" x="87" y="3" text="100000" font="price_font_fnt"/>
+		<e:Image y="0" x="0" source="activity_json.mysteryMerchant_img_originalPrice"/>
+		<e:Image source="common_json.img_diamonds_png" scaleX="1" scaleY="1" x="60"/>
+		<e:Image source="common_json.img_hongxian_png" right="-6" left="6" verticalCenter="0"/>
+	</e:Group>
+	<components:RewardItemBox id="reward0" skinName="components.RewardBoxSkin" y="330" x="120"/>
+	<components:RewardItemBox id="reward1" skinName="components.RewardBoxSkin" y="330" x="240.33333333333334"/>
+	<components:RewardItemBox id="reward2" skinName="components.RewardBoxSkin" y="330" x="360.6666666666667"/>
+	<components:RewardItemBox id="reward3" skinName="components.RewardBoxSkin" y="330" x="481"/>
+	<components:SnapButton id="btnGet" label="" y="567" anchorOffsetX="119" anchorOffsetY="32" horizontalCenter="30">
+		<components:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="activity_json.img_activity_xslbbtnbg"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+	<e:Image verticalCenter="-1.5" horizontalCenter="0" source="activity_json.img_activity_lijigoumai"/>
+			</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="25" anchorOffsetY="24" x="565" y="174.5" width="54" height="55"/>
+	<e:Label id="labRefreshTime" text="(02:59:59后可刷新折扣)" y="512" size="18" textColor="0x34e22c" textAlign="center" horizontalCenter="30.5"/>
+	<e:Label id="labCount" text="今日还能购买5次" y="560" size="18" textColor="0x34E22C" textAlign="center" right="10"/>
+	<e:Label id="rollLabel" text="" x="149" y="288" anchorOffsetX="0" height="20" size="20" textColor="0xCFC9BE"/>
+</e:Skin>

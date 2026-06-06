@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin.MainCityBossSkin" width="74" height="101" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="uiMain_cityBoss_json.main_cityBoss_img" x="1" y="1"/>
+	<e:Image id="img" x="38" y="37" anchorOffsetX="37" anchorOffsetY="36" scaleX="0.9" scaleY="0.9" source="boss_icon_circle_json.3017"/>
+	<e:Image id="cityBossProgress" source="uiMain_cityBoss_json.main_cityBoss_progress" x="0" y="0"/>
+	<e:Image source="uiMain_cityBoss_json.main_cityBoss_title" x="0" y="9"/>
+</e:Skin>

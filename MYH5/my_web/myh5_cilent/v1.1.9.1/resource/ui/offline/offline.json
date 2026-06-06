@@ -1,0 +1,5 @@
+{"file":"offline.png","frames":{
+"img_offlin_inbg":{"x":1,"y":1,"w":101,"h":48,"offX":0,"offY":0,"sourceW":101,"sourceH":48},
+"img_offline_equip":{"x":69,"y":84,"w":26,"h":33,"offX":0,"offY":0,"sourceW":26,"sourceH":33},
+"img_titleB_offline":{"x":1,"y":51,"w":107,"h":31,"offX":0,"offY":0,"sourceW":107,"sourceH":31},
+"img_titleS_offline":{"x":1,"y":84,"w":66,"h":19,"offX":0,"offY":0,"sourceW":66,"sourceH":19}}}

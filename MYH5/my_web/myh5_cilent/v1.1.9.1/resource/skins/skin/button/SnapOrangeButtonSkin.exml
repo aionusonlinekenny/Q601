@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<e:Skin class="skins.SnapOrangeButtonSkin" states="up,down,disabled" 
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" width="130">
+    <e:Image alpha.disabled="0.5"
+              width="100%" height="100%" source.up="common_json.btn_orange2_png" source.down="common_json.btn_orange2_png" source.disabled="common_json.btn_orange2_png" source="common_json.btn_orange2_png" scale9Grid="13,7,7,42"/>
+    <e:Label id="labelDisplay"
+             verticalAlign="middle" textAlign="center" size="24" width="100%" height="38" verticalCenter="-3" horizontalCenter="0" horizontalCenter.up="0" verticalCenter.up="-3" size.up="24" stroke.up="2" verticalCenter.down="-3" stroke.down="1" size.down="24" strokeColor.down="0x480302" textColor.up="0xffe79b" strokeColor.up="0x320e02" textColor="0xffe79b" textColor.down="0xffe79b" horizontalCenter.down="0"/>
+    <e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="img_warn_png"  visible="false"/>
+</e:Skin>
+

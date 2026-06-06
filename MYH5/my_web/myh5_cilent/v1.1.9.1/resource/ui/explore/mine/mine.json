@@ -1,0 +1,15 @@
+{"file":"mine.png","frames":{
+"img_exploit_over":{"x":118,"y":101,"w":127,"h":34,"offX":2,"offY":2,"sourceW":131,"sourceH":38},
+"img_get_probability":{"x":145,"y":170,"w":53,"h":61,"offX":0,"offY":0,"sourceW":53,"sourceH":62},
+"img_line":{"x":1,"y":149,"w":508,"h":19,"offX":0,"offY":0,"sourceW":508,"sourceH":19},
+"img_mine":{"x":247,"y":101,"w":127,"h":33,"offX":2,"offY":2,"sourceW":131,"sourceH":37},
+"img_mine_hire":{"x":380,"y":82,"w":129,"h":34,"offX":2,"offY":2,"sourceW":133,"sourceH":38},
+"img_mine_produce":{"x":380,"y":1,"w":79,"h":79,"offX":0,"offY":0,"sourceW":79,"sourceH":79},
+"img_mine_revenge":{"x":1,"y":170,"w":79,"h":79,"offX":0,"offY":0,"sourceW":79,"sourceH":79},
+"img_mine_stone1":{"x":291,"y":1,"w":87,"h":87,"offX":0,"offY":0,"sourceW":89,"sourceH":89},
+"img_mine_stone2":{"x":208,"y":1,"w":81,"h":98,"offX":0,"offY":0,"sourceW":84,"sourceH":99},
+"img_mine_stone3":{"x":82,"y":170,"w":61,"h":66,"offX":0,"offY":0,"sourceW":62,"sourceH":67},
+"img_pet_base":{"x":1,"y":1,"w":115,"h":146,"offX":0,"offY":0,"sourceW":115,"sourceH":146},
+"img_plunder":{"x":200,"y":170,"w":84,"h":33,"offX":2,"offY":2,"sourceW":88,"sourceH":37},
+"img_revenge":{"x":286,"y":170,"w":83,"h":32,"offX":2,"offY":2,"sourceW":87,"sourceH":36},
+"img_revenge_back":{"x":118,"y":1,"w":88,"h":97,"offX":0,"offY":0,"sourceW":88,"sourceH":97}}}

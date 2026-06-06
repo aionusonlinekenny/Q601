@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.SportsMainDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*"
+        xmlns:ui="ui.*" xmlns:components="components.*" width="600" height="916">
+	<e:Button id="btnYeZhan" label="野战" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" anchorOffsetX="60" anchorOffsetY="27" x="248.67" y="894"></e:Button>
+	<e:Button id="btnTianTi" label="天梯" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" anchorOffsetX="58" anchorOffsetY="27" x="361" y="894"></e:Button>
+</e:Skin>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.GodruinsRankRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" width="593" height="93">
+	<e:Image width="591" height="95" x="2" y="0" anchorOffsetX="0" anchorOffsetY="0" source="pet_json.img_pet_list_png" scale9Grid="26,13,8,31"/>
+	<e:BitmapLabel id="labRank" y="38" text="100-100" font="pkMing_fnt" horizontalCenter="-223"/>
+	<e:Image id="imgRanking" source="ladder_json.img_rank_2" y="-6" horizontalCenter="-235"/>
+	<e:BitmapLabel id="blabLevel" y="32.6" font="vip_font1_fnt" text="" left="226"/>
+	<e:Label id="labName" text="1dasda" y="34" size="20" verticalAlign="middle" textAlign="center" textColor="0xc6b59e" x="259"/>
+	<e:Label id="labCount" text="15" y="34" size="20" verticalAlign="middle" textAlign="center" textColor="0xc6b59e" horizontalCenter="203"/>
+	<e:Image id="imgVip" source="vip_json.img_vip2" x="174" y="32"/>
+</e:Skin>

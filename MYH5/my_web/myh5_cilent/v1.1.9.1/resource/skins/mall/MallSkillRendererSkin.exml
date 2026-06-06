@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.MallSkillRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Group id="listGroup" x="0" y="0" anchorOffsetY="0" anchorOffsetX="0" width="183">
+		<e:Image id="imgbg" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="47,8,48,6" source="img_shop_itembg_png"/>
+		<e:Label id="lblName" text="{data.name}" y="14" verticalAlign="middle" size="16" bold="true" textColor="0x8425cb" textAlign="left" stroke="1" horizontalCenter="0"/>
+		<e:Image id="imgDiscount" x="0" y="0" source="shop_json.img_salebg_png"/>
+		<e:Group id="iconGroup" y="68.5" touchEnabled="true" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0.5">
+			<e:Image id="imgQuility" y="0" anchorOffsetY="0" touchEnabled="true" anchorOffsetX="0" source="common_json.img_qlt_1_png" horizontalCenter="0"/>
+			<components:Icon id="imgIcon" width="80" height="80" anchorOffsetX="0" anchorOffsetY="0" source="" horizontalCenter="0" verticalCenter="0"/>
+			<e:Image id="imgJob" y="0" anchorOffsetY="0" anchorOffsetX="0" source="common_json.img_job_2_png" x="63"/>
+			<e:Label id="lblNum" text="50" y="63" size="20" anchorOffsetX="0" right="6" textAlign="right" stroke="3" textColor="0xc6b59e"/>
+		</e:Group>
+		<components:Icon id="imgPayType" x="45.5" y="162" width="28" height="25" source=""/>
+		<e:Label id="lblgold" text="{data.gold}" y="163.5" verticalAlign="middle" size="18" textAlign="left" left="84" textColor="0xc6b59e"/>
+		<e:Label id="labDisCount" text="5折" x="2.42" y="29.03" size="20" verticalAlign="middle" textAlign="center" bold="true" rotation="308.29" textColor="0x574125"/>
+		<e:Label id="labTitle" text="Label" y="47" size="16" textColor="0xfcd67d" horizontalCenter="0.5"/>
+	</e:Group>
+	<components:SnapButton id="btnBuy" label="购 买" y="191" skinName="skins.SnapOrangeButtonSkin" x="27"/>
+	<e:Label id="labCount" text="(限购 0/1)" y="244" size="14" verticalAlign="middle" textAlign="center" textColor="0x34e22c" horizontalCenter="0"/>
+	<e:Image id="img_buy" y="175.5" source="shop_json.img_buy_finsh_png" horizontalCenter="0"/>
+</e:Skin>

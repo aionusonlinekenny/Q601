@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.FashionItem" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="600" height="867">
+	<e:Image id="imgBg" source="role_equipbg_jpg" y="5" horizontalCenter="0"/>
+	<e:Image x="77" y="67" anchorOffsetX="0" anchorOffsetY="0" source="common_fightBg_png"/>
+	<e:Image source="img_goddess_namebg3_png" y="32" x="181"/>
+	<e:Image x="-53" source="common_inbar_png" width="700" anchorOffsetY="0" height="100" scale9Grid="90,12,22,16" y="767"/>
+	<e:Image source="fashion_json.img_fashion_chat_bg" x="421" y="110" anchorOffsetX="0" width="152" anchorOffsetY="0" height="94" scale9Grid="7,5,49,36"/>
+	<e:Image source="img_fashion_title_bg_png" x="38" y="108"/>
+	<e:Image x="209" y="73" source="common_json.img_fight_png" width="57" height="31"/>
+	<e:BitmapLabel id="bitMapPwore" y="75" text="0" anchorOffsetY="0" left="267" font="fight_font2_fnt"/>
+	<components:SnapButton id="btnState" label="卸下" y="563" anchorOffsetX="0" horizontalCenter="0" width="162" skinName="skins.SnapButtonDefaultSkin">
+	</components:SnapButton>
+	<components:SnapButton id="btnActivity" label="激活" y="563" anchorOffsetX="0" horizontalCenter="0" width="162" skinName="skins.SnapGreenButtonSkin"/>
+	<e:Label id="labTime" text="" y="121" size="20" textColor="0xffb200" x="43" textAlign="center" anchorOffsetX="0" width="104"/>
+	<e:Label id="labDesc" text="的点点滴滴多多多多多多" y="625" size="14" horizontalCenter="0" textColor="0xedc839"/>
+	<e:Label id="labName" text="" y="37" size="24" textColor="0xd1a765" horizontalCenter="0"/>
+	<e:Label id="labFight" text="" y="115.33" size="18" x="431.67" textAlign="left" textColor="0xffb200"/>
+	<e:Label id="labPropertys" text="" y="121.33" size="18" textColor="0x2b8c25" x="431.33" textAlign="left"/>
+	<components:SnapButton id="btnClothing" label="" x="61" y="816" anchorOffsetX="39" anchorOffsetY="39" icon="img_warn_png">
+		<components:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="fashion_json.img_fashion_clothing"/>
+	<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="common_json.img_warn_png" visible="false"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+		</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:SnapButton id="btnWeapon" label="" x="143" y="816" anchorOffsetX="39" anchorOffsetY="39" icon="img_warn_png">
+		<components:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="fashion_json.img_fashion_weapon"/>
+	<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="common_json.img_warn_png" visible="false"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</components:skinName>
+	</components:SnapButton>
+	<components:IconButton id="btnWing" x="225" y="816" source="fashion_json.img_fashion_wing" anchorOffsetX="39" anchorOffsetY="39"/>
+	<components:IconButton id="btnMounts" x="307" y="817" source="fashion_json.img_fashion_mounts" anchorOffsetX="39" anchorOffsetY="39"/>
+	<components:IconButton id="btnReset" x="531.67" y="592" anchorOffsetX="37" anchorOffsetY="36" source="fashion_json.btn_fashion_reset"/>
+	<e:Scroller width="544" height="108" y="650" anchorOffsetX="0" anchorOffsetY="0" x="28">
+		<e:List id="listFashion" x="2" y="-32" itemRendererSkinName="renderer.FashionRendererSkin" anchorOffsetX="0" width="601">
+			<e:layout>
+				<e:HorizontalLayout paddingTop="0" gap="-6"/>
+			</e:layout>
+			<e:ArrayCollection>
+				<e:Array>
+					<e:Object null=""/>
+					<e:Object null=""/>
+					<e:Object null=""/>
+					<e:Object null=""/>
+					<e:Object null=""/>
+					<e:Object null=""/>
+					<e:Object null=""/>
+				</e:Array>
+			</e:ArrayCollection>
+		</e:List>
+	</e:Scroller>
+	<e:Image id="imgSelected" source="img_fashion_selected_png" x="61" y="815" anchorOffsetX="45" anchorOffsetY="47"/>
+</e:Skin>

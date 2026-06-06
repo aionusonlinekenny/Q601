@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.RolePhantomHeadIconSkin" width="80" height="108" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image id="imgHead" source="rolePhantom_json.role_phantom_icon1_png" x="2" y="0"/>
+	<components:Icon id="imgWarn" source="common_json.img_warn_png" x="0" y="0"/>
+	<e:Image id="imgOpen" y="65" horizontalCenter="0" source="rolePhantom_json.role_phantom_open2_png"/>
+</e:Skin>

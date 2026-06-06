@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.TreasureIconSkin" width="90" height="108" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"  xmlns:components="components.*" states="noFragment,hasGrade">
+	<e:Image id="imgQuality" x="0" y="0" source="common_json.img_qlt_6_png"/>
+	<components:Icon id="imgFragment" width="80" height="80" x="5" y="3" anchorOffsetX="0" anchorOffsetY="0"/>
+	<e:Image id="imgRed1" x="0" y="0" source="common_json.img_warn_png" includeIn="hasGrade"/>
+	<e:Label id="labGrade" text="" y="89" size="14" horizontalCenter="0" textAlign="center" visible.noFragment="false" textColor="0xc6b59e" stroke="1"/>
+	<e:Image id="imgGod" x="0" y="0" source="common_json.img_selectFrame_png" includeIn="hasGrade" touchEnabled="false" visible="false"/>
+	<e:Label id="labNums" text="10" x="11" y="64" anchorOffsetX="0" width="70" anchorOffsetY="0" height="14" size="18" textAlign="right" stroke="2" textColor="0xc6b59e" visible="false"/>
+</e:Skin>

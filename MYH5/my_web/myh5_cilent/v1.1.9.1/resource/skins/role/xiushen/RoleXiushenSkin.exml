@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.RoleXiushenSkin" xmlns:e="http://ns.egret.com/eui"  xmlns:ui="ui.*" width="600" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:item="item.*" xmlns:tips="tips.*" height="867">
+	<e:Image source="common_implementbar_png" anchorOffsetY="0" height="145" scale9Grid="80,15,480,14" horizontalCenter="0" y="722"/>
+	<e:Image y="507.96" anchorOffsetY="0" height="212" source="common_infobar_png" scale9Grid="0,29,587,3" horizontalCenter="0.5"/>
+	<ui:XiushenItemSkin id="item2" y="186.46" skinName="normal.XiushenItemSkin" touchEnabled="false" x="19"/>
+	<ui:XiushenItemSkin id="item1" y="50.96" touchEnabled="false" x="19">
+		<ui:skinName>
+			<e:Skin xmlns:base="base.*" xmlns:components="components.*">
+			<e:Image x="0" y="0" width="558" scale9Grid="46,0,50,114" height="130" source="role_json.img_role_fenjielistbg_png"/>
+			<e:Label id="labdesc" text="装备名字" x="118" y="35" size="20" anchorOffsetX="0" anchorOffsetY="0" textColor="0xedc839"/>
+			<e:Label id="labName" text="神力结晶 : 角色降1级" x="118" y="72" size="20" textColor="0xCFC7B0" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false"/>
+			<e:Label id="labLimit" text="今日还可兑换     次" y="14" size="20" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false" textAlign="right" textColor="0xedc839" x="379"/>
+			<components:Icon id="imgQuality" x="18" y="21" source="common_json.img_qlt_1_png" touchEnabled="false"/>
+			<components:Icon id="imgIcon" source="" x="23" y="24" width="80" height="80" touchEnabled="true"/>
+			<components:SnapButton id="btnDebrs" label="兑换" anchorOffsetX="0" skinName="skins.SnapOrangeButtonSkin" y="47" x="405" icon="common_json.img_warn_png"/>
+			</e:Skin>
+		</ui:skinName>
+	</ui:XiushenItemSkin>
+	<ui:XiushenItemSkin id="item3" y="321.96" skinName="normal.XiushenItemSkin" touchEnabled="false" x="19"/>
+	<e:Image source="common_json.img_numbg_png" x="270" y="741" anchorOffsetY="0" height="41" anchorOffsetX="0" width="228" scale9Grid="7,4,39,14" visible="false"/>
+
+	<e:Group y="729.92" horizontalCenter="0">
+		<e:Label text="需要神力值 : " x="0" y="3.04" size="20" textColor="0xCFC7B0"/>
+		<e:Label id="labCount" text="9999999" x="126" y="3.04" size="20" textAlign="left" textColor="0x31ba0e"/>
+	</e:Group>
+	<e:Label id="labLv" text="当前神力等级 : 12" y="538.96" size="20" anchorOffsetX="0" textAlign="center" textColor="0xd1a765" horizontalCenter="-2.5"/>
+	<components:SnapButton id="btnUpgrade" label="提   升" y="788.4" anchorOffsetX="83" width="168" skinName="skins.SnapButtonDefaultSkin" x="300" icon="common_json.img_warn_png" anchorOffsetY="28"/>
+	<item:PropertyItemBox id="propertyBox" y="574.96" skinName="normal.PropertyItemBoxSkin" horizontalCenter="0"/>
+	<tips:GoldAndDiamonds id="goldTips" skinName="normal.GoldAndDiamondsSkin" y="6" right="0"/>
+	<e:Image source="common_fightBg_png" y="463.06" horizontalCenter="0"/>
+	<e:Image x="214.94" y="471.73" source="common_json.img_fight_png" width="57" height="31"/>
+	<e:BitmapLabel id="labFight" y="473.25" anchorOffsetX="0" anchorOffsetY="0" text="7200" touchEnabled="false" left="281" font="fight_font2_fnt"/>
+</e:Skin>

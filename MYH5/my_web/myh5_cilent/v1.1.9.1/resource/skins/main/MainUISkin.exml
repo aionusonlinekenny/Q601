@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="MainUISkin" width="600" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:main="main.*">
+	<e:Group id="chapterGroup" right="2" bottom="190" width="123" height="166">
+		<main:MainChapterView id="chapter" skinName="skin.MainChapterSkin"/>
+	</e:Group>
+	<e:Group id="taskGroup" horizontalCenter="0" bottom="189" width="256" height="104">
+		<main:MainTaskView id="task" skinName="skin.MainTaskSkin"/>
+	</e:Group>
+	<e:Group id="eudemonsGroup"  x="0" bottom="198" width="139" height="184">
+		<main:MainEudemonsView id="eudemons" skinName="skin.MainEudemonsSkin" width="139" height="184"/>
+	</e:Group>
+	<e:Group id="titleGroup" x="-1" y="-0.67" width="100%" touchEnabled="false" touchThrough="true">
+		<main:MainTopView id="title" skinName="skin.MainTopSkin" width="100%" touchEnabled="false"/>
+	</e:Group>
+	<e:Group id="activityIconGroup" x="0" y="131" touchThrough="true">
+		<main:MainActivityIconView id="activityIcon" skinName="skin.MainIconActivitySkin" y="-1"/>
+	</e:Group>
+	<e:Group id="copyIconGroup" right="0" bottom="418">
+		<main:MainCopyIconView id="copyIcon" skinName="skin.MainCopyIconSkin" width="136" height="209"/>
+	</e:Group>
+	<e:Group id="cityBossGroup" width="140" height="139" y="297" anchorOffsetX="0" anchorOffsetY="0" right="0">
+		<main:MainCityBossView id="cityBoss" width="77" height="75" x="72" y="74" skinName="skin.MainCityBossSkin" anchorOffsetX="40" anchorOffsetY="41"/>
+	</e:Group>
+	<e:Group id="goddessGroup" right="-7" verticalCenter="-200" width="216" height="141" touchEnabled="false">
+		<main:MainGoddessView id="goddess" skinName="skin.MainGoddessSkin" right="0" y="0"/>
+	</e:Group>
+	<e:Group id="copyGroup" touchEnabled="false" touchThrough="true"/>
+	<e:Group id="chatGroup" horizontalCenter="0" x="-40" bottom="14" touchThrough="true">
+		<main:MainChatView id="chat" skinName="skin.ChatSkin" y="0"/>
+	</e:Group>
+	<e:Group id="effectGroup"/>
+	<e:Group id="noticeGroup" touchEnabled="false"/>
+	<e:Group id="dialogGroup" y="0" x="0"/>
+	<e:Group id="dockGroup" horizontalCenter="0" bottom="0" width="100%">
+		<main:MainBottomView id="dock" skinName="skin.MainBottomSkin" width="100%" y="0"/>
+	</e:Group>
+
+	<main:MainFirstRechargeTip id="firstRechargeTips" skinName="skin.MainFirstRechargeTipSkin" horizontalCenter="0" x="70" bottom="297"/>
+	<e:Group id="activityNoticeGroup" y="218" right="0" width="143" height="101" touchEnabled="false" touchThrough="true">
+		<main:MainActivityNoticeView id="activityNotice" skinName="ActivityNoticeSkin" scaleX="1" scaleY="1"/>
+	</e:Group>
+</e:Skin>

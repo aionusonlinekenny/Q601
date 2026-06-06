@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.OpenRedBagSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" states="redBag,vipRedBag" >
+	<e:Image y="0" anchorOffsetX="0" anchorOffsetY="0" source="btn_redbag_bg_png" horizontalCenter="0"/>
+	<e:Image source="uiMain_json.img_main_graybg" x="20" y="298" anchorOffsetX="0" width="294" anchorOffsetY="0" height="147"/>
+	<e:BitmapLabel id="labConut" y="200" text="888" font="redBag_font_fnt" right="80"/>
+	<e:Scroller id="scroller" width="279" height="133" includeIn="redBag" x="32" y="306" anchorOffsetY="0" anchorOffsetX="0">
+		<e:List id="list" itemRenderer="OpenBagRenderer" itemRendererSkinName="renderer.OpenBagRendererSkin" x="-1">
+			<e:layout>
+				<e:VerticalLayout/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:Image source="btn_redbagVip1_png" includeIn="vipRedBag" y="315" horizontalCenter="0"/>
+	<e:Label id="labLeiji" text="已累计888魔石" includeIn="vipRedBag" y="366" size="20" horizontalCenter="0" verticalAlign="middle" textAlign="center"/>
+	<e:Image source="common_closetip_png" y="463.46" horizontalCenter="0.5"/>
+	<e:Label id="labName" text="" y="61" textColor="0x2bc8db" stroke="2" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="0"/>
+	<e:Image id="imgIcon" width="80" height="80" y="100" x="129"/>
+	<components:IconButton id="btnVip" anchorOffsetY="23" anchorOffsetX="26" y="442" source="btn_redbagVIp_png" x="156" includeIn="vipRedBag"/>
+</e:Skin>

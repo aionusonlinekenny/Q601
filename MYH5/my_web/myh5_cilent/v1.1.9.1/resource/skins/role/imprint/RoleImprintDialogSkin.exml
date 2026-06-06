@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.RoleImprintDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" xmlns:imprint="item.role.imprint.*" xmlns:explore="dialog.explore.*" xmlns:item="item.*" xmlns:components="components.*" width="600" height="916">
+	<e:Image id="imgbackBg" source="role_normalbg_jpg" y="116" x="3"/>
+	<e:Image source="common_implementbar_png" anchorOffsetY="0" height="204" horizontalCenter="0" scale9Grid="80,15,480,14" y="712"/>
+	<e:Image id="imgBg" y="527" anchorOffsetY="0" height="185" source="common_infobar_png" scale9Grid="0,25,587,9" anchorOffsetX="0" horizontalCenter="0.5"/>
+	<components:SnapButton id="btnUpgrade" label="升级" y="846" anchorOffsetX="81" skinName="skins.SnapButtonDefaultSkin" horizontalCenter="0" icon="img_warn_png" anchorOffsetY="27"/>
+	<components:IconButton id="btnGetDebris" x="522" y="783" source="common_json.img_getRes_png" anchorOffsetX="34" anchorOffsetY="33"/>
+	<components:HeadTab id="headTab" skinName="normal.HeadTabSkin" top="0" x="14"/>
+	<item:PropertyItemBox id="propertyBox" y="583" skinName="normal.PropertyItemBoxSkin" width="340" x="130"/>
+	<e:Group y="765" horizontalCenter="0">
+		<e:Label id="labConsume" text="消耗印记碎片:" x="0" y="6" size="20" textColor="0xc6b59e"/>
+		<e:Label id="labCount" text="8000/8000" y="6" size="20" textColor="0x2b8c25" anchorOffsetX="0" textAlign="center" x="130"/>
+	</e:Group>
+<e:Label id="labLevel" text="印记等级 : 12" y="130" size="24" horizontalCenter="0" textAlign="center" stroke="2" textColor="0xedc839"/>
+	<e:Image id="imgWarn" source="common_json.img_warn_png" x="212" y="814"/>
+	<e:Image source="common_fightBg_png" y="481.27" horizontalCenter="0"/>
+	<e:Image x="214.94" y="489.94" source="common_json.img_fight_png" width="57" height="31"/>
+	<e:BitmapLabel id="labFight" y="491.46" anchorOffsetX="0" anchorOffsetY="0" text="7200" touchEnabled="false" left="281" font="fight_font2_fnt"/>
+</e:Skin>

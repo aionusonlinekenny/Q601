@@ -1,0 +1,33 @@
+{
+  "width": 512,
+  "imagePath": "xp_yi_tex.png",
+  "height": 512,
+  "name": "xp_yi",
+  "SubTexture": [
+    {
+      "width": 334,
+      "y": 1,
+      "height": 93,
+      "name": "di1",
+      "x": 1
+    },
+    {
+      "y": 172,
+      "frameX": 0,
+      "frameY": -1,
+      "width": 222,
+      "frameWidth": 223,
+      "height": 91,
+      "name": "zi2",
+      "frameHeight": 93,
+      "x": 1
+    },
+    {
+      "width": 307,
+      "y": 96,
+      "height": 74,
+      "name": "light",
+      "x": 1
+    }
+  ]
+}

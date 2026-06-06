@@ -1,0 +1,15 @@
+<e:Skin class="normal.WilderfightRevengeSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image width="626" height="969" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
+	<e:Image width="582.98" height="814.86" x="21.87" y="64.83" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_inbg_png" scale9Grid="5,6,18,15"/>
+	<e:Scroller id="scrollerFanJi" width="570.33" height="799.33" x="27.34" y="73" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="off" scrollPolicyV="on">
+		<e:List id="list" itemRenderer="renderer.WilderfightRevengeRenderer" anchorOffsetY="0" height="796.33" itemRendererSkinName="renderer.WilderfightRevengeRendererSkin">
+			<e:layout>
+				<e:VerticalLayout paddingLeft="5"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="597" y="34" anchorOffsetX="25" anchorOffsetY="24"/>
+	<components:IconButton id="btnBack" source="common_json.btn_back_png" x="563" y="915" anchorOffsetX="36" anchorOffsetY="30"/>
+	<e:Image x="283" y="11" source="wilderfight_json.img_fanji_png"/>
+	<e:Label text="反击不限次数，击败仇人即可夺回损失。" y="913" size="20" horizontalCenter="0" textColor="0x34e22c"/>
+</e:Skin>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.CopyFailRenderSkin" width="439" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+    <e:Image id="imgIcon" scale9Grid="1,3,8,8" anchorOffsetX="0" anchorOffsetY="0" left="0"  verticalCenter="0" source=""/>
+    <e:Label id="labName" size="20" textColor="0xFFFFFF" textAlign="left" anchorOffsetX="0" text="" anchorOffsetY="0" height="24" width="235" x="73" verticalCenter="0" />
+    <components:SnapButton label="前往" skinName="skins.SnapOrangeButtonSkin" anchorOffsetX="54" anchorOffsetY="24" verticalCenter="0" right="0" />
+</e:Skin>

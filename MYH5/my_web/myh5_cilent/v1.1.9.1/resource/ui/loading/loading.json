@@ -1,0 +1,6 @@
+{"file":"loading.png","frames":{
+"img_loading_black":{"x":40,"y":1,"w":10,"h":10,"offX":0,"offY":0,"sourceW":10,"sourceH":10},
+"img_lodingProgress":{"x":30,"y":16,"w":23,"h":5,"offX":0,"offY":0,"sourceW":23,"sourceH":5},
+"img_lodingProgressBg":{"x":1,"y":1,"w":37,"h":13,"offX":0,"offY":0,"sourceW":37,"sourceH":13},
+"img_lodingProgressSmallBg":{"x":1,"y":16,"w":27,"h":9,"offX":0,"offY":0,"sourceW":27,"sourceH":9},
+"img_lodingSmallProgress":{"x":30,"y":23,"w":20,"h":3,"offX":0,"offY":0,"sourceW":20,"sourceH":3}}}

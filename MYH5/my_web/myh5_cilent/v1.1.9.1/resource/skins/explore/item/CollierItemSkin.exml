@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin.CollierItemSkin" width="167" height="205" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Label id="labCountTime" text="未开工" y="26.66" size="14" fontFamily="Microsoft JhengHei" bold="true" horizontalCenter="0" textColor="0xc6b59e"/>
+	<e:Label id="labMiner" text="每个玩家姓名的矿工" y="42" size="16" horizontalCenter="0" textColor="0xc6b59e"/>
+	<e:Label id="LabPlunder" text="可掠夺" y="5" size="15" bold="true" horizontalCenter="0" textColor="0x34e22c"/>
+</e:Skin>

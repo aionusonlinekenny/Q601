@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.LeiChongLiBaoSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="600" height="850">
+	<e:Image y="217" source="img_activity_leichong_bg_jpg" horizontalCenter="0"/>
+	<e:Image x="223" y="316" source="img_activity_inbg2_png" anchorOffsetX="0" width="355" anchorOffsetY="0" height="273"/>
+	<components:RewardItemBox id="reward0" x="239" y="325" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward1" x="355" y="325" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward2" x="472" y="325" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward3" x="239" y="475" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward4" x="355" y="475" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward5" x="472" y="475" skinName="components.ItemBoxSkin"/>
+	<components:SnapButton id="btnGet" label="领取" y="798.96" anchorOffsetX="85" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="27" horizontalCenter="0"/>
+	<e:Image id="imgDi" x="150" y="623" anchorOffsetX="128" width="253" anchorOffsetY="74" source=""/>
+	<e:Image id="imgTitel" horizontalCenter="-144" source="img_activity_LCLP_titel_png" bottom="211"/>
+	<e:Label id="labCount" text="已充值0/588888魔石" y="721.09" size="16" anchorOffsetX="0" anchorOffsetY="0" textColor="0xCFC9BE" horizontalCenter="0.5"/>
+	<e:ProgressBar id="progressBar" y="678.1" anchorOffsetX="0" width="372" horizontalCenter="0">
+		<e:skinName>
+		<e:Skin minWidth="30" minHeight="18" xmlns:item="item.*">
+			<e:Image verticalCenter="0" width="381.67" anchorOffsetX="0" source="treasure_json.img_progress_out" scale9Grid="52,9,39,9"/>
+			<e:Image id="thumb" x="0" y="5.99" anchorOffsetX="0" anchorOffsetY="0" source="treasure_json.img_progress_in" scale9Grid="33,1,78,12" width="381.6"/>
+		</e:Skin>
+		</e:skinName>
+	</e:ProgressBar>
+	<e:Image x="19" y="0" source="img_activity_title_bg_jpg"/>
+	<e:Image x="100" y="56" source="activity_json.leichonglibao_title"/>
+	<e:Label id="labDate" text="2018年12月12日 " x="142" y="129" size="18" textColor="0x34E22C"/>
+	<e:Label id="labDesc" text="活动期间幻兽总战力排行" x="142" y="164" size="16" width="191" height="64" lineSpacing="5" textColor="0xC6B59E" textAlign="left"/>
+	<e:Label text="截止时间 : " x="46" y="129" size="18" textColor="0xEDC839"/>
+	<e:Label text="活动说明 : " x="46" y="164" size="18" textColor="0xEDC839"/>
+</e:Skin>

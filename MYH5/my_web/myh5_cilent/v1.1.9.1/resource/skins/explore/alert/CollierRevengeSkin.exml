@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin.CollierRevengeSkin" width="558" height="565" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" xmlns:renderer="renderer.*">
+	<e:Image id="imgBg" x="0" y="0" anchorOffsetX="0" width="558" anchorOffsetY="0" height="565" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
+	<e:Image source="mine_json.img_revenge_back" y="84" scale9Grid="11,12,66,73" anchorOffsetX="0" width="494.67" anchorOffsetY="0" height="117" x="32"/>
+	<e:Image source="mine_json.img_revenge_back" y="213" scale9Grid="11,12,66,73" anchorOffsetX="0" width="494.67" anchorOffsetY="0" height="170" x="32"/>
+	<e:Image source="mine_json.img_revenge" x="236.5" y="9"/>
+	<e:Label id="labEnemyName" text="awdwd" x="246" y="109" size="22" textColor="0xedc839"/>
+	<e:Label id="labPower" text="123456" x="246" y="149" size="22" fontFamily="Microsoft JhengHei" bold="true" textColor="0xedc839"/>
+	<e:Label text="掠夺时间  : " x="43" y="224" size="22" textColor="0xc6b59e"/>
+	<e:Label text="掠夺者  : " x="157" y="109" size="22" textColor="0xc6b59e"/>
+	<e:Label text="战斗力  : " x="157" y="149" size="22" textColor="0xc6b59e"/>
+	<e:Label text="掠夺资源  : " x="43" y="263" size="22" textColor="0xc6b59e"/>
+	<e:Label id="labTime" text="2018-1-30" x="157" y="222" size="22" fontFamily="Microsoft JhengHei" bold="true" textColor="0xedc839"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="27" anchorOffsetY="28" x="517" y="29"/>
+	<components:SnapButton id="btnHire" label="复仇" y="438" anchorOffsetX="0" width="153" skinName="skins.SnapButtonDefaultSkin" x="203"/>
+	<ns1:ItemIcon id="item0" y="261" skinName="itemIcon.ItemIconSkin" x="179.33"/>
+	<ns1:ItemIcon id="item1" y="261" skinName="itemIcon.ItemIconSkin" x="298.99"/>
+	<renderer:LadderIconItem id="touXiang" width="88" height="86.67" x="46" y="99" anchorOffsetX="0" anchorOffsetY="0" skinName="item.LadderIconSkin"/>
+</e:Skin>

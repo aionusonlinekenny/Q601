@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.SettingSkin" width="560" height="650" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image x="0" y="0" width="100%" height="100%" anchorOffsetY="0" anchorOffsetX="0" source="common_json.img_prompt_bg_png" scale9Grid="30,75,47,34"/>
+	<e:Image y="11" horizontalCenter="0.5" source="setting_json.setting_title"/>
+	<e:Image x="30" y="75" anchorOffsetX="0" width="500" anchorOffsetY="0" height="131" source="common_json.img_prompt_nei_bg_png" scale9Grid="18,13,2,3"/>
+	<e:Image y="215" anchorOffsetX="0" width="500" anchorOffsetY="0" height="396" source="common_json.img_prompt_nei_bg_png" scale9Grid="8,14,2,2" x="31"/>
+	<e:TextInput id="input" anchorOffsetX="0" anchorOffsetY="0" width="43" text="30" height="40" textColor="0xffffff" restrict="0-9" y="451" x="335">
+		<e:skinName>
+		<e:Skin minHeight="40" minWidth="300" states="normal,disabled,normalWithPrompt,disabledWithPrompt" width="43" height="34">
+			<e:Image anchorOffsetX="0" width="40" source="create_json.btn_create_text_back" scale9Grid="17,11,11,27" anchorOffsetY="0" height="35" horizontalCenter="0" verticalCenter="0"/>
+			<e:Rect height="32" width="40" fillColor="0x000000" fillAlpha="0" anchorOffsetY="0" anchorOffsetX="0" horizontalCenter="0" verticalCenter="0"/>
+			<e:EditableText id="textDisplay" textColor.disabled="0xff0000" width="40" height="24" size="24" horizontalCenter="0" verticalAlign="middle" textAlign="center" text="" verticalCenter="0" anchorOffsetX="0" textColor="0xffffff"/>
+			<e:Label id="promptDisplay" width="40" height="24" size="20" touchEnabled="false" includeIn="normalWithPrompt,disabledWithPrompt" verticalAlign="middle" textAlign="center" horizontalCenter="0" verticalCenter="0" text="0" anchorOffsetX="0" textColor="0xffffff"/>
+		</e:Skin>
+		</e:skinName>
+	</e:TextInput>
+	<e:ToggleSwitch id="toggleSound" label="ToggleButton" x="145" y="255" enabled="true">
+		<e:skinName>
+		<e:Skin states="up,down,disabled,upAndSelected,downAndSelected,disabledAndSelected">
+			<e:Image source="on_png" source.up="setting_json.setting_toggle_back_disable" scale9Grid.up="26,0,36,50" source.down="setting_json.setting_toggle_back_disable" source.disabled="setting_json.setting_toggle_back_disable" source.upAndSelected="setting_json.setting_toggle_back" source.downAndSelected="setting_json.setting_toggle_back" source.disabledAndSelected="setting_json.setting_toggle_back"/>
+			<e:Image source="handle_png" horizontalCenter="-18" horizontalCenter.upAndSelected="18" horizontalCenter.downAndSelected="18" horizontalCenter.disabledAndSelected="18" verticalCenter="0" source.up="setting_json.setting_toggle_bar" verticalCenter.up="1" source.down="setting_json.setting_toggle_bar" verticalCenter.down="1" source.disabled="setting_json.setting_toggle_bar" verticalCenter.disabled="1" source.upAndSelected="setting_json.setting_toggle_bar" verticalCenter.upAndSelected="1" source.downAndSelected="setting_json.setting_toggle_bar" verticalCenter.downAndSelected="1" source.disabledAndSelected="setting_json.setting_toggle_bar" verticalCenter.disabledAndSelected="1"/>
+		</e:Skin>
+		</e:skinName>
+	</e:ToggleSwitch>
+	<e:ToggleSwitch id="toggleOtherPlayer" label="ToggleButton" x="145" y="332" enabled="true" visible="false">
+		<e:skinName>
+		<e:Skin states="up,down,disabled,upAndSelected,downAndSelected,disabledAndSelected">
+			<e:Image source="on_png" source.up="setting_json.setting_toggle_back_disable" scale9Grid.up="26,0,36,50" source.down="setting_json.setting_toggle_back_disable" source.disabled="setting_json.setting_toggle_back_disable" source.upAndSelected="setting_json.setting_toggle_back" source.downAndSelected="setting_json.setting_toggle_back" source.disabledAndSelected="setting_json.setting_toggle_back"/>
+			<e:Image source="handle_png" horizontalCenter="-18" horizontalCenter.upAndSelected="18" horizontalCenter.downAndSelected="18" horizontalCenter.disabledAndSelected="18" verticalCenter="0" source.up="setting_json.setting_toggle_bar" verticalCenter.up="1" source.down="setting_json.setting_toggle_bar" verticalCenter.down="1" source.disabled="setting_json.setting_toggle_bar" verticalCenter.disabled="1" source.upAndSelected="setting_json.setting_toggle_bar" verticalCenter.upAndSelected="1" source.downAndSelected="setting_json.setting_toggle_bar" verticalCenter.downAndSelected="1" source.disabledAndSelected="setting_json.setting_toggle_bar" verticalCenter.disabledAndSelected="1"/>
+		</e:Skin>
+		</e:skinName>
+	</e:ToggleSwitch>
+	<e:ToggleSwitch id="toggleAutoMerge" label="ToggleButton" x="145" y="438" enabled="true">
+		<e:skinName>
+		<e:Skin states="up,down,disabled,upAndSelected,downAndSelected,disabledAndSelected">
+			<e:Image source="on_png" source.up="setting_json.setting_toggle_back_disable" scale9Grid.up="26,0,36,50" source.down="setting_json.setting_toggle_back_disable" source.disabled="setting_json.setting_toggle_back_disable" source.upAndSelected="setting_json.setting_toggle_back" source.downAndSelected="setting_json.setting_toggle_back" source.disabledAndSelected="setting_json.setting_toggle_back"/>
+			<e:Image source="handle_png" horizontalCenter="-18" horizontalCenter.upAndSelected="18" horizontalCenter.downAndSelected="18" horizontalCenter.disabledAndSelected="18" verticalCenter="0" source.up="setting_json.setting_toggle_bar" verticalCenter.up="1" source.down="setting_json.setting_toggle_bar" verticalCenter.down="1" source.disabled="setting_json.setting_toggle_bar" verticalCenter.disabled="1" source.upAndSelected="setting_json.setting_toggle_bar" verticalCenter.upAndSelected="1" source.downAndSelected="setting_json.setting_toggle_bar" verticalCenter.downAndSelected="1" source.disabledAndSelected="setting_json.setting_toggle_bar" verticalCenter.disabledAndSelected="1"/>
+		</e:Skin>
+		</e:skinName>
+	</e:ToggleSwitch>
+	<e:ToggleSwitch id="toggleAutoXp" label="ToggleButton" x="145" y="511.5" enabled="true">
+		<e:skinName>
+		<e:Skin states="up,down,disabled,upAndSelected,downAndSelected,disabledAndSelected">
+			<e:Image source="on_png" source.up="setting_json.setting_toggle_back_disable" scale9Grid.up="26,0,36,50" source.down="setting_json.setting_toggle_back_disable" source.disabled="setting_json.setting_toggle_back_disable" source.upAndSelected="setting_json.setting_toggle_back" source.downAndSelected="setting_json.setting_toggle_back" source.disabledAndSelected="setting_json.setting_toggle_back"/>
+			<e:Image source="handle_png" horizontalCenter="-18" horizontalCenter.upAndSelected="18" horizontalCenter.downAndSelected="18" horizontalCenter.disabledAndSelected="18" verticalCenter="0" source.up="setting_json.setting_toggle_bar" verticalCenter.up="1" source.down="setting_json.setting_toggle_bar" verticalCenter.down="1" source.disabled="setting_json.setting_toggle_bar" verticalCenter.disabled="1" source.upAndSelected="setting_json.setting_toggle_bar" verticalCenter.upAndSelected="1" source.downAndSelected="setting_json.setting_toggle_bar" verticalCenter.downAndSelected="1" source.disabledAndSelected="setting_json.setting_toggle_bar" verticalCenter.disabledAndSelected="1"/>
+		</e:Skin>
+		</e:skinName>
+	</e:ToggleSwitch>
+	<e:Label text="声音开关" x="247" y="271"  size="20"  textColor="0xc6b59e"/>
+	<e:Label id="labName" text="玩家名字" x="164" y="109"  size="20"  textColor="0xc6b59e"/>
+	<e:Label id="labFightValue" text="当前战力:5466465" x="164" y="141"  size="18"  textColor="0xedc839"/>
+	<e:Label text="游戏基本设置" y="225" size="18" textColor="0x7d6a52" x="226"/>
+	<e:Label text="屏蔽其他玩家" x="247" y="348"  size="20"  textColor="0xc6b59e" visible="false"/>
+	<e:Label text="生命低于 " x="247" y="460" size="20" textColor="0xC6B59E"/>
+	<e:Label text="%自动合体" x="384" y="460" size="20" textColor="0xC6B59E"/>
+	<e:Label text="自动释放XP技能" x="247" y="534"  size="20"  textColor="0xc6b59e"/>
+	<e:Label id="labXpVipTip" text="VIP1开启" x="247" y="518" size="14" textColor="0x34e22c"/>
+	<e:Label id="labMergeTip" text="VIP3开启" x="247" y="444" size="14" textColor="0x34E22C"/>
+	<e:Label text="关闭可减少手机发热及电量消耗" x="247" y="355.5" size="14" textColor="0x34E22C"/>
+	<components:IconButton id="btnRename" x="388" y="139.5" source="setting_json.setting_btn_rename" anchorOffsetX="37" anchorOffsetY="35" visible="false"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="517" y="28" anchorOffsetX="26" anchorOffsetY="24"/>
+	<components:IconButton id="btnBack" source="common_json.btn_back_png" x="507" y="600" anchorOffsetX="37" anchorOffsetY="37"/>
+	<e:Image source="common_json.img_line_left_png" y="228" x="100"/>
+	<e:Image source="common_json.img_line_right_png" y="227" x="346"/>
+	<e:Label text="战斗设置" y="404" size="18" textColor="0x7D6A52" x="244"/>
+	<e:Image source="common_json.img_line_left_png" y="406" x="100"/>
+	<e:Image source="common_json.img_line_right_png" y="406" x="346"/>
+	<e:Image source="common_json.img_qlt_1_png" x="60" y="93"/>
+	<e:Image id="imgHead" x="64" y="95" source=""/>
+	<e:Image id="toggleAutoXpRed" top="510" left="141" source="common_json.img_warn_png"/>
+	<e:ToggleSwitch id="toggleHightRender" label="ToggleButton" x="145" y="329" enabled="true">
+		<e:skinName>
+		<e:Skin states="up,down,disabled,upAndSelected,downAndSelected,disabledAndSelected">
+			<e:Image source="on_png" source.up="setting_json.setting_toggle_back_disable" scale9Grid.up="26,0,36,50" source.down="setting_json.setting_toggle_back_disable" source.disabled="setting_json.setting_toggle_back_disable" source.upAndSelected="setting_json.setting_toggle_back" source.downAndSelected="setting_json.setting_toggle_back" source.disabledAndSelected="setting_json.setting_toggle_back"/>
+			<e:Image source="handle_png" horizontalCenter="-18" horizontalCenter.upAndSelected="18" horizontalCenter.downAndSelected="18" horizontalCenter.disabledAndSelected="18" verticalCenter="0" source.up="setting_json.setting_toggle_bar" verticalCenter.up="1" source.down="setting_json.setting_toggle_bar" verticalCenter.down="1" source.disabled="setting_json.setting_toggle_bar" verticalCenter.disabled="1" source.upAndSelected="setting_json.setting_toggle_bar" verticalCenter.upAndSelected="1" source.downAndSelected="setting_json.setting_toggle_bar" verticalCenter.downAndSelected="1" source.disabledAndSelected="setting_json.setting_toggle_bar" verticalCenter.disabledAndSelected="1"/>
+		</e:Skin>
+		</e:skinName>
+	</e:ToggleSwitch>
+	<e:Label text="高频渲染" x="247" y="333" size="20" textColor="0xC6B59E"/>
+	<e:Image id="toggleAutoMergeRed" top="432" left="141" source="common_json.img_warn_png"/>
+</e:Skin>

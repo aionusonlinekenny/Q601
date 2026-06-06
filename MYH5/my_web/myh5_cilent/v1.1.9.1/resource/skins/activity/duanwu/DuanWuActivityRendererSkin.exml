@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.DuanWuActivityRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="559" height="159">
+	<e:Image anchorOffsetX="0" anchorOffsetY="0" scale9Grid="1,0,4,5" source="img_activity_rendererBg_png" height="164" width="536"/>
+	<e:Label id="labDesc" text="等级达到100级" x="16" y="7" size="16" strokeColor="0x381515" stroke="2" textColor="0xeab779"/>
+	<e:Group id="boxGroup" y="39" left="33">
+		<components:RewardItemBox id="reward0" x="0" skinName="components.ItemBoxSkin"/>
+		<components:RewardItemBox id="reward1" x="112" skinName="components.ItemBoxSkin"/>
+		<components:RewardItemBox id="reward2" x="224" skinName="components.ItemBoxSkin"/>
+	</e:Group>
+	<components:SnapButton id="btnBuy" label="150000魔石" anchorOffsetX="64" width="150" icon="img_warn_png" anchorOffsetY="27" skinName="skins.SnapGreenButtonSkin" y="67" x="459"/>
+	<e:Label id="labCount" text="今日剩余99次" y="107" size="16" strokeColor="0x381515" stroke="2" textColor="0xEAB779" horizontalCenter="190"/>
+</e:Skin>

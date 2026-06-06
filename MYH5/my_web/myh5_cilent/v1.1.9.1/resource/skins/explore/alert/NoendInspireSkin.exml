@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="NoendInspireSkin" width="400" height="300" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" states="noend,petPagoda,demonPagoda" >
+	<e:Image x="0" y="0" width="400" height="300" source="common_json.img_prompt_bg_png" anchorOffsetY="0" scale9Grid="35,79,27,18"/>
+	<e:Image source="explore_json.img_inspire_title" y="7" x="134"/>
+	<e:Image x="171" y="170" width="90" height="32" source="common_json.img_numbg_png" scale9Grid="7,6,40,12"/>
+	<e:Label text.noend="每次祝福可增加10%伤害（上限100%）" y="80" size="18" textColor="0xcfc9be" horizontalCenter="0" text.petPagoda="祝福可增加20%的伤害加深属性" text.demonPagoda="祝福可增加20%的伤害减免属性"/>
+	<e:Label text="当前祝福" x="96" y="122" size="18" textColor="0xcfc9be" horizontalCenter.petPagoda="0" text.petPagoda="(祝福效果只生效与本次挑战)" size.petPagoda="14" horizontalCenter.demonPagoda="0" text.demonPagoda="(祝福效果只生效与本次挑战)" size.demonPagoda="14" y.petPagoda="124" y.demonPagoda="124"/>
+	<e:Label id="labDamageBonus" text="伤害+10%" x="224" y="122" size="18" textColor="0x34e22c" includeIn="noend"/>
+	<e:Label id="labMoshi" text="10" y="176" size="18" textColor="0xcfc9be" x="183" anchorOffsetX="0" width="66" textAlign="center"/>
+	<components:SnapButton id="btnSure" label="确 定" y="244" anchorOffsetX="82" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" horizontalCenter="0"/>
+	<e:Image id="imgMoShi" y="172" source="common_json.img_diamonds_png" x="138"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="26" anchorOffsetY="27" x="371" y="28"/>
+</e:Skin>

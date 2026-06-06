@@ -1,0 +1,12 @@
+{"file":"goddie.png","frames":{
+"goddie_award_img":{"x":171,"y":181,"w":87,"h":30,"offX":1,"offY":0,"sourceW":91,"sourceH":32},
+"goddie_boss_bg":{"x":1,"y":1,"w":168,"h":226,"offX":0,"offY":0,"sourceW":168,"sourceH":226},
+"goddie_boss_head":{"x":315,"y":87,"w":93,"h":94,"offX":0,"offY":0,"sourceW":93,"sourceH":94},
+"goddie_page_00":{"x":315,"y":1,"w":142,"h":84,"offX":0,"offY":11,"sourceW":142,"sourceH":103},
+"goddie_page_01":{"x":171,"y":1,"w":142,"h":92,"offX":0,"offY":11,"sourceW":142,"sourceH":103},
+"goddie_page_10":{"x":1,"y":417,"w":142,"h":84,"offX":0,"offY":11,"sourceW":142,"sourceH":103},
+"goddie_page_11":{"x":1,"y":229,"w":142,"h":92,"offX":0,"offY":11,"sourceW":142,"sourceH":103},
+"goddie_page_20":{"x":171,"y":95,"w":142,"h":84,"offX":0,"offY":11,"sourceW":142,"sourceH":103},
+"goddie_page_21":{"x":1,"y":323,"w":142,"h":92,"offX":0,"offY":11,"sourceW":142,"sourceH":103},
+"goddie_pilao":{"x":145,"y":229,"w":14,"h":10,"offX":0,"offY":0,"sourceW":14,"sourceH":10},
+"goddie_pilao_img":{"x":410,"y":87,"w":56,"h":67,"offX":0,"offY":0,"sourceW":56,"sourceH":67}}}

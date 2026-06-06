@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.CopyLockDemonSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" xmlns:tips="tips.*" height="916" width="600">
+	<e:Image id="imgBackBg" source="img_lock_demonbg_jpg" x="13" y="37"/>
+	<e:Image source="img_explore_reward_png" scaleX="1" scaleY="1" width="216" height="159" y="0" x="371"/>
+	<e:Group id="floorGroup" y="37" x="11" width="578">
+		<item:FloorItem id="floorItem2" x="300.16" y="208.3" skinName="item.FloorItemSkin"/>
+		<item:FloorItem id="floorItem3" x="-4.69" y="17.51" skinName="item.FloorItemSkin"/>
+		<item:FloorItem id="floorItem1" x="-1" y="381" skinName="item.FloorItemSkin"/>
+	</e:Group>
+	<e:Image anchorOffsetX="0" anchorOffsetY="0" height="170" y="745" source="common_implementbar_png" x="-20" scale9Grid="80,10,480,8"/>
+	<components:SnapButton id="btnEnter" label="挑战" x="385.33" y="849.36" anchorOffsetX="83" anchorOffsetY="34" skinName="skins.SnapButtonDefaultSkin"/>
+	<components:RewardItemBox id="drop1" x="59" y="789.38" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="drop2" x="164" y="789.38" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="drop3" x="379" y="45" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="drop4" x="484" y="45" skinName="components.ItemBoxSkin"/>
+	<e:Image id="imgHelp" x="545" y="869.36" source="explore_json.img_seeHelp" anchorOffsetX="40" anchorOffsetY="34"/>
+	<e:Label id="labReward" text="每日通关奖励 : " y="757.7" bold="true" size="20" horizontalCenter="-194.5" textColor="0xedc839"/>
+	<e:Label id="labCustoms" text="通关第100层奖励" x="406" y="15" size="18" touchEnabled="false" verticalAlign="middle" textColor="0xedc839"/>
+	<e:Image source="explore_json.img_probability" x="193" y="791.38"/>
+	<item:RankLook id="rankLook" x="11.31" y="2" skinName="item.RankLookSkin"/>
+</e:Skin>

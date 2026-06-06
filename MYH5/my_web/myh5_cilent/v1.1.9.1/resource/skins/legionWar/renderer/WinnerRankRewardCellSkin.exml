@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.WinnerRankRewardCellSkin" width="580" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="rankings_json.img_rankMan_base" x="0" y="24" scale9Grid="13,13,59,38" width="580" height="145"/>
+	<e:Image x="4" y="0" source="img_activity_labbg2_png" scale9Grid="12,3,76,18" width="200"/>
+	<e:Label id="labTitle" text="军团长奖励" x="12" y="5" size="14" textColor="0xC6B59E" textAlign="left"/>
+	<e:Label id="labCount" text="剩余次数" y="125" size="14" textColor="0xC6B59E" textAlign="center" horizontalCenter="212"/>
+	<components:RewardItemBox id="reward0" x="33" y="43" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward1" x="137.67" y="43" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward2" x="242.33" y="43" skinName="components.ItemBoxSkin"/>
+	<components:RewardItemBox id="reward3" x="347" y="43" skinName="components.ItemBoxSkin"/>
+	<components:SnapButton id="btnOpen" label="分配" y="87" anchorOffsetX="71.2" icon="common_json.img_warn_png" anchorOffsetY="26" skinName="skins.SnapGreenButtonSkin" width="110" x="518.2"/>
+</e:Skin>

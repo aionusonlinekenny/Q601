@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="dialog.TreasureTarotPrizeAlertSkin" width="543" height="453" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:treasure="treasure.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image x="0" y="0" anchorOffsetX="0" width="100%" anchorOffsetY="0" height="100%" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="26" anchorOffsetY="27" x="510" y="32"/>
+	<components:RewardItemBox id="drop0" y="131" skinName="components.ItemBoxSkin" x="264"/>
+	<components:RewardItemBox id="drop1" y="131" skinName="components.ItemBoxSkin" x="384"/>
+	<e:Label text="奖励预览" y="10" size="26" textColor="0xd6cab7" bold="false" fontFamily="Microsoft YaHei" horizontalCenter="0"/>
+	<e:Label id="labText" text="你被XX击败，10秒后自动复活！" y="83.5" size="20" textColor="0xdf660e" fontFamily="Microsoft YaHei" right="20"/>
+	<e:Label id="labText2" text="还差50塔罗经验，可以领取以上奖励" y="344" size="18" fontFamily="Microsoft YaHei" textColor="0xcab59e" right="60" textAlign="right"/>
+	<e:Image id="imgPetModel" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="35,79,27,18" source="" y="22" x="119"/>
+	<components:SnapButton id="btnGet" label="领取奖励" x="367" y="289" anchorOffsetX="81" anchorOffsetY="26" skinName="skins.SnapButtonDefaultSkin"/>
+	<components:IconButton id="btnBack" source="common_json.btn_back_png" y="412" x="500" anchorOffsetX="37" anchorOffsetY="36"/>
+</e:Skin>

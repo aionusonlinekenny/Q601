@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.PetHatchSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:tips="tips.*" width="600" height="940">
+	<e:Image y="66" anchorOffsetX="0" width="581" anchorOffsetY="0" height="820" horizontalCenter="1.5" source="common_json.img_inbg_png" scale9Grid="5,6,18,15" visible="false"/>
+	<item:HatchGrid id="grid0" x="20" y="61" skinName="normal.HatchGridSkin" currentState="working"/>
+	<item:HatchGrid id="grid1" y="61" skinName="normal.HatchGridSkin" x="309"/>
+	<item:HatchGrid id="grid2" x="20" y="471.84" skinName="normal.HatchGridSkin"/>
+	<item:HatchGrid id="grid3" y="471.84" skinName="normal.HatchGridSkin" x="309"/>
+	<e:Image y="13" source="pet_json.img_title_hatch_png" x="273" visible="false"/>
+	<e:Image y="0" source="common_json.img_titlePoint_png" x="302" visible="false"/>
+	<tips:GoldAndDiamonds id="goldTips" skinName="normal.GoldAndDiamondsSkin" y="18" right="0"/>
+</e:Skin>

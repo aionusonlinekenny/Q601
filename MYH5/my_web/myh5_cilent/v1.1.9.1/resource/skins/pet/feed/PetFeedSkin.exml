@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="PetFeedSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:item="item.*" xmlns:ui="ui.*">
+	<e:Image width="626" height="969" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_prompt_bg_png" horizontalCenter="0" verticalCenter="0" scale9Grid="35,79,38,18"/>
+	<e:Image y="7" horizontalCenter="0" source="img_title_petFeed_png"/>
+	<e:Image id="imgPetbg" y="46.52" horizontalCenter="0" source="pet_main_bg_jpg"/>
+	<e:Image anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_tabTitle_mid_png" x="319.6666666666667" y="46.33"/>
+	<e:Image anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_tabTitle_mid_png" y="46.33" x="198.33333333333334"/>
+	<e:Image anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_tabTitle_right_png" x="441" y="46.33"/>
+	<e:Image anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_tabTitle_left_png" x="95" y="46.33"/>
+	<e:Image id="imgPetModel" y="437" x="234.41" touchEnabled="false" source=""/>
+	<e:Group id="petGroup0" y="68.83" touchEnabled="false" width="92" height="106" x="153">
+		<e:Image id="btn0" x="0" y="0" touchEnabled="true" source="explore_json.img_circle_back" width="92" height="92"/>
+		<e:Image id="img0" touchEnabled="false" y="6" x="6" width="80" height="80" source="common_json.img_lock_circle_png"/>
+		<e:Image id="img_Highlight0" x="3.5" y="2" touchEnabled="false" source="explore_json.img_circle_gold" width="85" height="85"/>
+		<e:Group id="labLvGroup0" y="81.33" horizontalCenter="0" touchChildren="false" touchEnabled="false">
+		<e:BitmapLabel id="labLv0" x="18.41" y="0" text="3" font="level_font_fnt"/>
+		<e:Image x="0" y="5.99" source="common_json.img_Lv_png"/>
+		</e:Group>
+		<e:Label id="vipLock0" text="" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
+		<e:Label text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" id="labXueXi0" horizontalCenter="0" verticalCenter="-6.5" textColor="0xedc839" visible="false"/>
+	</e:Group>
+	<e:Group id="petGroup1" y="68.83" touchEnabled="false" width="92" height="106" x="274">
+		<e:Image id="btn1" x="0" y="0" touchEnabled="true" source="explore_json.img_circle_back"/>
+		<e:Image id="img1" width="80" height="80" y="6" touchEnabled="false" anchorOffsetX="0" anchorOffsetY="0" x="6" source="common_json.img_lock_circle_png"/>
+		<e:Image id="img_Highlight1" x="3.5" y="2" touchEnabled="false" source="explore_json.img_circle_gold" width="85" height="85"/>
+		<e:Group id="labLvGroup1" y="81.33" horizontalCenter="0" touchChildren="false" touchEnabled="false">
+		<e:BitmapLabel id="labLv1" x="18.41" y="0" text="33" font="level_font_fnt"/>
+		<e:Image x="0" y="5.99" source="common_json.img_Lv_png"/>
+		</e:Group>
+		<e:Label id="vipLock1" text="V2立即解锁" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
+		<e:Label text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" id="labXueXi1" horizontalCenter="0" verticalCenter="-6.5" textColor="0xedc839" visible="false"/>
+	</e:Group>
+	<e:Group id="petGroup2" y="68.83" touchEnabled="false" anchorOffsetX="0" width="92" height="106" x="395">
+		<e:Image id="btn2" x="0" y="0" touchEnabled="true" source="explore_json.img_circle_back"/>
+		<e:Image id="img2" width="80" height="80" x="6" y="6" touchEnabled="false" source="common_json.img_lock_circle_png"/>
+		<e:Image id="img_Highlight2" x="3.5" y="2" touchEnabled="false" source="explore_json.img_circle_gold" width="85" height="85"/>
+		<e:Group id="labLvGroup2" y="81.33" horizontalCenter="0" touchChildren="false" touchEnabled="false">
+		<e:BitmapLabel id="labLv2" x="18.41" y="0" text="333" font="level_font_fnt"/>
+		<e:Image x="0" y="5.99" source="common_json.img_Lv_png"/>
+		</e:Group>
+		<e:Label id="vipLock2" text="V4立即解锁" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
+		<e:Label text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" id="labXueXi2" horizontalCenter="0" verticalCenter="-6.5" textColor="0xedc839" visible="false"/>
+	</e:Group>
+	<e:Image anchorOffsetX="0" anchorOffsetY="0" source="common_implementbar_png" horizontalCenter="0" y="743" scale9Grid="80,7,480,2" height="149"/>
+	<e:Image id="imgBg" y="562" anchorOffsetY="0" height="183" anchorOffsetX="0" source="common_infobar_png" scale9Grid="0,25,587,11" horizontalCenter="0"/>
+	<components:IconButton id="btnGetData" x="580" y="775" source="common_json.img_getRes_png" anchorOffsetX="36" anchorOffsetY="35"/>
+	<item:PropertyItemBox id="propertyBox" y="594" horizontalCenter="0">
+		<item:skinName>
+			<e:Skin>
+			<item:PropertyChangeItem id="item0" y="0" horizontalCenter="0">
+				<item:skinName>
+					<e:Skin width="363">
+					<e:Label id="labProperty" text="攻击 : 1999" y="0" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xc6b59e" left="0"/>
+					<e:Label id="labAdd" text="400000" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" y="0" textColor="0x34e22c" left="269"/>
+					<e:Image id="imgArrow" y="1" source="common_json.img_arrow_green_png" horizontalCenter="4"/>
+					</e:Skin>
+				</item:skinName>
+			</item:PropertyChangeItem>
+			</e:Skin>
+		</item:skinName>
+	</item:PropertyItemBox>
+	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="597" y="30" anchorOffsetX="25" anchorOffsetY="24"/>
+	<components:IconButton id="btnBack" source="common_json.btn_back_png" x="585" y="925" anchorOffsetX="36" anchorOffsetY="30"/>
+	<e:Group y="754" x="46">
+		<e:Group id="group1" x="0" y="0" anchorOffsetY="0" width="120" height="131">
+			<e:Group horizontalCenter="0" top="0">
+			<e:Label text="经验" y="0" size="14" textColor="0xc6b59e" x="0"/>
+			<e:Label text="+1000000" y="0" size="14" textColor="0x34e22c" x="30"/>
+			</e:Group>
+			<e:Label text="免费" size="18" bottom="0" textColor="0xc6b59e" horizontalCenter="0"/>
+			<components:SnapButton id="btnUse1" label="" icon="common_json.img_warn_png" anchorOffsetX="46" anchorOffsetY="46" y="61" horizontalCenter="0">
+			<components:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="pet_json.img_title_feed_icon_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+				</e:Skin>
+			</components:skinName>
+			</components:SnapButton>
+			<e:Label id="labCount1" text="100" size="16" textAlign="left" verticalAlign="middle" textColor="0xedc839" horizontalCenter="0.5" y="92" touchEnabled="false"/>
+		</e:Group>
+		<e:Group id="group2" x="122" y="0" anchorOffsetY="0" width="120" height="131">
+			<e:Group horizontalCenter="0" top="0">
+			<e:Label text="经验" y="0" size="14" textColor="0xC6B59E" x="0"/>
+			<e:Label text="+2000000" y="0" size="14" textColor="0x34E22C" x="30"/>
+			</e:Group>
+			<e:Label id="labTiaoJian2" text="VIP1免费" size="18" horizontalCenter="0" bottom="0" textColor="0xc6b59e"/>
+			<components:SnapButton id="btnUse2" label="" icon="img_warn_png" anchorOffsetX="46" anchorOffsetY="46" y="61" horizontalCenter="0">
+			<components:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="pet_json.img_title_feed_icon_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+				</e:Skin>
+			</components:skinName>
+			</components:SnapButton>
+			<e:Label id="labCount0" text="100" size="16" textAlign="left" verticalAlign="middle" textColor="0xEDC839" horizontalCenter="0.5" y="92" touchEnabled="false" x="47" scaleX="1" scaleY="1"/>
+		</e:Group>
+		<e:Group id="group3" x="244" y="0" anchorOffsetY="0" height="131" width="120">
+			<e:Group horizontalCenter="0" x="10" top="0">
+			<e:Label text="经验" y="0" size="14" textColor="0xC6B59E" x="0"/>
+			<e:Label text="+8000000" y="0" size="14" textColor="0x34E22C" x="30"/>
+			</e:Group>
+			<components:SnapButton id="btnUse3" label="" icon="img_warn_png" anchorOffsetX="46" anchorOffsetY="46" y="61" horizontalCenter="0">
+			<components:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="pet_json.img_title_feed_icon_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+				</e:Skin>
+			</components:skinName>
+			</components:SnapButton>
+			<e:Label text="500" size="18" textColor="0xc6b59e" x="61" bottom="0"/>
+			<e:Image x="29" source="common_json.img_diamonds_png" bottom="-3"/>
+			<e:Label id="labCount2" text="100" size="16" textAlign="left" verticalAlign="middle" textColor="0xEDC839" horizontalCenter="0.5" y="92" touchEnabled="false" x="47" scaleX="1" scaleY="1"/>
+		</e:Group>
+		<e:Group id="group4" x="366" y="0" anchorOffsetY="0" height="131" width="120">
+			<e:Group horizontalCenter="0" x="10" top="0">
+			<e:Label text="经验" y="0" size="14" textColor="0xC6B59E" x="0"/>
+			<e:Label text="+16000000" y="0" size="14" textColor="0x34E22C" x="30"/>
+			</e:Group>
+			<components:SnapButton id="btnUse4" label="" icon="img_warn_png" anchorOffsetX="46" anchorOffsetY="46" y="61" horizontalCenter="0">
+			<components:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="pet_json.img_title_feed_icon_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+				</e:Skin>
+			</components:skinName>
+			</components:SnapButton>
+			<e:Label text="1000" size="18" textColor="0xC6B59E" x="56" bottom="0"/>
+			<e:Image x="24" source="common_json.img_diamonds_png" bottom="-3"/>
+			<e:Label id="labCount3" text="100" size="16" textAlign="left" verticalAlign="middle" textColor="0xEDC839" horizontalCenter="0.5" y="92" touchEnabled="false" x="-165" scaleX="1" scaleY="1"/>
+		</e:Group>
+	</e:Group>
+	<e:Group id="group" y="532" horizontalCenter="0">
+		<e:ProgressBar id="pro" y="0" value="100" anchorOffsetX="0" width="329" anchorOffsetY="0" height="30" x="67">
+			<e:skinName>
+			<e:Skin minWidth="30" minHeight="18">
+				<e:Image id="thumb" x="16" y="6" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_progress_inside_png" width="307" height="18"/>
+				<e:Image source="common_json.img_progress_frame_png" anchorOffsetX="0" width="333" x="-1" anchorOffsetY="0" scale9Grid="33,9,48,8" verticalCenter="0"/>
+				<e:Label id="labelDisplay" textAlign="center" verticalAlign="middle" size="14" fontFamily="Tahoma" horizontalCenter="0.5" text="10/20" bold="true" stroke="1" textColor="0xc6b59e" verticalCenter="-2.5"/>
+			</e:Skin>
+			</e:skinName>
+		</e:ProgressBar>
+		<e:Label text="Lv:" size="20" textColor="0xedc839" y="4"/>
+		<e:Label id="labLv" text="100" y="4" size="20" verticalAlign="middle" textAlign="left" textColor="0xedc839" x="27"/>
+	</e:Group>
+	<e:Label id="labManji" text="当前幻兽位置已满级" y="532" textColor="0xc6b59e" size="20" horizontalCenter="0"/>
+</e:Skin>

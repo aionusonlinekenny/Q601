@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="RankPetDetailedInfoSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing"  height="371">
+	<e:Image width="500" height="341" horizontalCenter="0" source="common_json.img_prompt_bg_png" scale9Grid="50,72,11,17"/>
+	<e:Image width="466" height="261" y="63" source="common_json.img_inbg_png" scale9Grid="5,6,18,15" horizontalCenter="0" anchorOffsetY="0"/>
+	<e:Image x="46" y="92" source="common_json.img_qlt_1_png"/>
+	<components:Icon id="imgIcon" x="51" y="95" width="80" height="80" source=""/>
+	<e:Label id="labName" text="大鹏展翅    Lv:5" y="155" size="20" verticalAlign="middle" textAlign="left" textColor="0xC6B59E" x="151"/>
+	<e:Label id="labCurr" text="对群里目标造成60%+50000点法术伤害，冷却时间1秒。" size="20" lineSpacing="5" textColor="0xC6B59E" horizontalCenter="0" width="416" y="218"/>
+	<e:Image id="imgTitle" y="6" source="img_pet_skillTitle_png" horizontalCenter="0"/>
+	<e:Image y="340" source="common_closetip_png" x="109"/>
+</e:Skin>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.WilderfightGiftRendererSkin" width="561" height="120" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image scale9Grid="15,15,54,68" anchorOffsetX="0" width="561" anchorOffsetY="0" height="120" source="wilderfight_json.wilderfight_back_png"/>
+	<e:Image id="imgRanking" source="ladder_json.img_rank_2" y="0" horizontalCenter="-168"/>
+	<e:Group id="group0" y="10" x="260">
+		<e:Image id="imgGiftBack0" source="common_json.img_qlt_1_png" x="0" y="0"/>
+		<components:Icon id="imgGift0" width="80" height="80" x="5" touchEnabled="false" y="3"/>
+		<e:Label id="labCount0" text="Label" y="65" size="16" touchEnabled="false" verticalAlign="middle" textAlign="right" right="6" textColor="0xc6b59e"/>
+		<e:Label id="labName0" text="Label" y="87" size="16" verticalAlign="middle" textAlign="center" textColor="0xc6b59e" horizontalCenter="0"/>
+	</e:Group>
+	<e:Group id="group1" x="360" y="10">
+		<e:Image id="imgGiftBack1" source="common_json.img_qlt_1_png" x="0" y="0"/>
+		<components:Icon id="imgGift1" width="80" height="80" x="5" y="3" touchEnabled="false"/>
+		<e:Label id="labCount1" text="Label" y="65" size="16" touchEnabled="false" verticalAlign="middle" textAlign="right" right="6" textColor="0xc6b59e"/>
+		<e:Label id="labName1" text="Label" y="87" size="16" verticalAlign="middle" textAlign="center" textColor="0xc6b59e" horizontalCenter="0"/>
+	</e:Group>
+	<e:Group id="group2" x="460" y="10">
+		<e:Image id="imgGiftBack2" source="common_json.img_qlt_1_png" x="0" y="0"/>
+		<components:Icon id="imgGift2" width="80" height="80" x="5" y="3" touchEnabled="false"/>
+		<e:Label id="labCount2" text="Label" y="65" size="16" touchEnabled="false" verticalAlign="middle" textAlign="right" textColor="0xc6b59e" right="6"/>
+		<e:Label id="labName2" text="Label" y="87" size="16" verticalAlign="middle" textAlign="center" textColor="0xC6B59E" horizontalCenter="0"/>
+	</e:Group>
+
+	<e:BitmapLabel id="labRank" y="47" text="100-100" font="pkMing_fnt" horizontalCenter="-168"/>
+</e:Skin>

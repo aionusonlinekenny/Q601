@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.TreasureWareHouseSkin" width="600" height="916" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
+	<e:Image source="common_inbar_png" y="810.24" height="105" anchorOffsetX="0" width="700" scale9Grid="90,12,22,16" x="-61"/>
+	<e:Image y="52.46" scale9Grid="11,11,6,7" anchorOffsetX="0" width="565" anchorOffsetY="0" height="758.78" x="18" source="common_json.img_inbg_png"/>
+	<components:SnapButton id="btnOneGet" label="全部取出" x="215" y="839.24" width="150" icon="common_json.img_warn_png" skinName="skins.SnapTreasureSkin"/>
+	<e:Scroller id="scrollerHouse" width="558" height="720" y="74" scrollPolicyH="off" scrollPolicyV="auto" anchorOffsetY="0" x="21">
+		<e:List id="listHouse" itemRenderer="treasure.TreasureIcon">
+			<e:layout>
+				<e:TileLayout horizontalGap="16" horizontalAlign="left" verticalAlign="top" requestedColumnCount="5" rowAlign="top" columnAlign="left" verticalGap="10" paddingLeft="24" paddingTop="5"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+</e:Skin>

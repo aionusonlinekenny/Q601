@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="renderer.ActivityLevelRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="559" height="170">
+	<e:Image x="9" anchorOffsetX="0" width="539" anchorOffsetY="0" height="137" source="activity_red_bg_png" scale9Grid="1,0,4,5" y="11"/>
+	<e:Image id="imgGive" x="231" y="8" source="activity_json.img_activity_give" scaleX="0.8" scaleY="0.8"/>
+	<e:Label id="labGive" text="价值xxx魔石大礼包" x="262" y="12" anchorOffsetX="0" width="272" size="16" anchorOffsetY="0" textColor="0xc6b59e" stroke="2"/>
+	<e:Label id="labDesc" text="等级达到100级" x="16" y="13" size="16" strokeColor="0x381515" stroke="2" textColor="0xeab779"/>
+	<e:Group id="boxGroup" y="50" left="33">
+		<components:RewardItemBox id="reward0" x="0" skinName="components.ItemBoxSkin" y="-13"/>
+		<components:RewardItemBox id="reward1" x="112" skinName="components.ItemBoxSkin" y="-13"/>
+		<components:RewardItemBox id="reward2" x="224" skinName="components.ItemBoxSkin" y="-13"/>
+	</e:Group>
+	<components:SnapButton id="btnGet" label="立即领取" y="89" anchorOffsetX="64" width="127" horizontalCenter="191" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="27"/>
+	<e:Image id="imgReceived" source="activity_json.img_activity_yilingqu" x="408" y="45" visible="false"/>
+</e:Skin>

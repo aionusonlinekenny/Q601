@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="legionWar.LegionWarSmallRankSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:legionWar="legionWar.*" states="small,big" >
+	<e:Image id="imgbg" anchorOffsetY="0" height.small="160" scaleX="1" scaleY="1" source="legionWar_json.img_legionwar_rankbg" scale9Grid="20,20,8,5" anchorOffsetX="0" width="242" height.big="309"/>
+	<e:Group id="myGroup" y="117" horizontalCenter="0" height="20" horizontalCenter.big="1" y.big="270">
+		<e:Label id="labMyRank" text="50" size="16" textAlign="center" width="40" anchorOffsetX="0" anchorOffsetY="0" height="17" textColor="0xC6B59E" x.big="0" scaleX="1" scaleY="1" verticalCenter="0" stroke="3" verticalCenter.small="0.5" width.small="40"/>
+		<e:Label id="labMyTitel" text="我的积分" x="40" size="16" textAlign="center" width="100" anchorOffsetX="0" anchorOffsetY="0" textColor="0x1291CE" scaleX="1" scaleY="1" verticalCenter="0" stroke="3" width.small="100" x.small="40"/>
+		<e:Label id="labMyScore" text="9999999" x="140" size="16" textAlign="center" width="100" anchorOffsetX="0" textColor="0x1291CE" scaleX="1" scaleY="1" verticalCenter="0" stroke="3" verticalCenter.small="0" x.small="140" width.small="100"/>
+	</e:Group>
+	<components:IconButton id="btnDown" y="139" source="legionWar_json.btn_legionwar_rankDown" horizontalCenter="0" height="17" horizontalCenter.big="0.5" y.big="302" includeIn="small"/>
+	<components:IconButton id="btnUp" y="139" source="legionWar_json.btn_legionwar_rankUp" horizontalCenter="0" height="17" horizontalCenter.big="0.5" y.big="292" includeIn="big"/>
+	<e:ToggleButton id="btnPerson" label="ToggleButton" x="5" y="1">
+		<e:skinName>
+			<e:Skin states="up,down">
+			<e:Image width="100%" height="100%" source="common_json.btn_red1_png" source.up="legionWar_json.img_legionwar_person2" source.down="legionWar_json.img_legionwar_person1"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="img_warn_png" visible="false"/>
+			</e:Skin>
+		</e:skinName>
+	</e:ToggleButton>
+	<e:ToggleButton id="btnLegion" label="ToggleButton" x="126" y="1">
+		<e:skinName>
+			<e:Skin states="up,down">
+			<e:Image width="100%" height="100%" source="common_json.btn_red1_png" source.up="legionWar_json.img_legionwar_legion2" source.down="legionWar_json.img_legionwar_legion1"/>
+			<e:Image id="iconDisplay" top="0" left="0" includeIn="up,down" source="img_warn_png" visible="false"/>
+			</e:Skin>
+		</e:skinName>
+	</e:ToggleButton>
+	<legionWar:LegionWarSmallRankCell id="item1" y="30" horizontalCenter="0" skinName="legionWar.LegionWarSmallRankCellSkin"/>
+	<legionWar:LegionWarSmallRankCell id="item2" y="54" skinName="legionWar.LegionWarSmallRankCellSkin" horizontalCenter="0"/>
+	<legionWar:LegionWarSmallRankCell id="item3" y="78" skinName="legionWar.LegionWarSmallRankCellSkin" horizontalCenter="0"/>
+	<legionWar:LegionWarSmallRankCell id="item4" y="102" skinName="legionWar.LegionWarSmallRankCellSkin" includeIn="big" horizontalCenter="0"/>
+	<legionWar:LegionWarSmallRankCell id="item5" y="126" skinName="legionWar.LegionWarSmallRankCellSkin" includeIn="big" horizontalCenter="0"/>
+	<legionWar:LegionWarSmallRankCell id="item6" y="150" skinName="legionWar.LegionWarSmallRankCellSkin" includeIn="big" horizontalCenter="0"/>
+	<legionWar:LegionWarSmallRankCell id="item7" y="174" skinName="legionWar.LegionWarSmallRankCellSkin" includeIn="big" horizontalCenter="0"/>
+	<legionWar:LegionWarSmallRankCell id="item8" y="198" skinName="legionWar.LegionWarSmallRankCellSkin" includeIn="big" horizontalCenter="0"/>
+	<legionWar:LegionWarSmallRankCell id="item9" y="222" skinName="legionWar.LegionWarSmallRankCellSkin" includeIn="big" horizontalCenter="0"/>
+	<legionWar:LegionWarSmallRankCell id="item10" y="247" skinName="legionWar.LegionWarSmallRankCellSkin" includeIn="big" horizontalCenter="0"/>
+</e:Skin>

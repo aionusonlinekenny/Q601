@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="normal.TianTianFanLiSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="600" height="850">
+	<e:Image y="0" source="img_activity_title_bg_jpg" x="19"/>
+	<e:Image x="100" y="56" source="activity_json.fanLiEveryDay_title"/>
+	<e:Image source="activity_black_bg_png" x="339" y="188"/>
+	<e:Label id="labDesc" text="0天" y="192" size="22" rotation="0.1" textColor="0x34e22c" x="467.04" stroke="1"/>
+	<e:Label text="已累计充值" x="357" y="192" size="22" textColor="0xE86927" stroke="1"/>
+	<e:Scroller width="559" height="625" y="220" x="21">
+		<e:List id="listReward" x="0" y="-19" itemRendererSkinName="renderer.ActivityLevelRendererSkin">
+		<e:layout>
+			<e:VerticalLayout gap="0"/>
+		</e:layout>
+		</e:List>
+	</e:Scroller>
+	<e:Image source="activity_json.lab_fanli" x="80" y="155"/>
+</e:Skin>

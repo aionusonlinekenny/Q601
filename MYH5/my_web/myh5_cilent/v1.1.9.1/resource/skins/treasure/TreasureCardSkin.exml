@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skins.TreasureCardSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing" xmlns:treasure="treasure.*" xmlns:components="components.*" states="card,cardBack" width="132" height="177">
+	<e:Image id="imgBgBack" includeIn="cardBack" x="132" y="0" skewY="180" source="img_cardBack_png"/>
+	<e:Image id="imgBack" includeIn="card" x="0" y="0" source="img_card_png"/>
+	<e:Image id="imgBaoshi" source="common_json.img_diamonds_png" x="95.2" includeIn="cardBack" skewY="180" y="79"/>
+	<components:Icon id="imgProp" x="92" y="79" width="25" height="25" skewY="180" source=""/>
+	<treasure:TreasureIcon id="icon" includeIn="card" x="21" y="39" skinName="renderer.TreasureIconSkin"/>
+	<e:Label id="labMoney" text="免费次数（2/2）" includeIn="cardBack" size="14" anchorOffsetX="164" stroke="2" strokeColor="0x2d1f03" skewY="180" wordWrap="false" multiline="false" anchorOffsetY="0" width="164" textAlign="center" x="-16" y="84" textColor="0xc6b59e"/>
+	<e:Image id="imgDiscount" source="treasure_json.img_discoount" y="0" x.cardBack="41" y.cardBack="157" skewY.cardBack="180" includeIn="cardBack" anchorOffsetX="30" anchorOffsetY="12"/>
+</e:Skin>

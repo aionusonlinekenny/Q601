@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="skin.MainTopSkin" width="600" height="129" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Image id="topBar" source="uiMain_json.main_top_title" width="100%" y="0" x="0" scale9Grid="200,0,131,127" touchEnabled="false"/>
+	<e:Image id="imgHead" x="4" y="7" touchEnabled="true" source="player_icon_circle_json.job_1" anchorOffsetX="0" width="81" anchorOffsetY="0" height="81"/>
+	<e:Image id="iconXPSettingRed" x="0" y="0" source="uiMain_json.img_main_red"/>
+	<e:Group x="-1" y="98.48">
+		<e:Image id="imgVip" source="uiMain_json.main_title_vip" x="0.67" y="0"/>
+		<e:BitmapLabel id="labVip" y="4.52" text="9" anchorOffsetX="0" letterSpacing="-5" font="pkMing_fnt" scaleX="0.8" scaleY="0.8" horizontalCenter="22.5"/>
+	</e:Group>
+	<e:Image id="imgLevelBack" source="uiMain_json.main_player_level_back" x="72" y="51"/>
+	<e:Image id="iconMoney" y="1" source="uiMain_json.main_img_gold" touchEnabled="false" right="254"/>
+	<e:Image id="iconDiamend" y="4" source="uiMain_json.main_img_diamonds" touchEnabled="false" right="117"/>
+	<e:Image id="fightText" x="105" y="-0.67" source="uiMain_json.img_main_zhanli"/>
+	<e:Button id="btnCity" label="" anchorOffsetX="36" anchorOffsetY="40" icon="uiMain_json.img_main_red" y="78.5" right="7">
+		<e:skinName>
+		<e:Skin states="up,down,disabled" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+			<e:Image width="100%" height="100%" source="uiMain_json.btn_main_city" source.down="uiMain_json.btn_main_city_s"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="-5" size="16" bold="true" textColor="0xf7c35b"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="btnBack" label="" anchorOffsetX="36" anchorOffsetY="40" icon="uiMain_json.img_main_red" y="78.5" right="7">
+		<e:skinName>
+		<e:Skin states="up,down,disabled" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+			<e:Image width="100%" height="100%" source="uiMain_json.btn_main_fight" source.down="uiMain_json.btn_main_fight_s"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="-5" size="16" bold="true" textColor="0xf7c35b"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:ProgressBar id="hpBar" x="95" y="38.01" value="100" anchorOffsetX="0" anchorOffsetY="0" width="79">
+		<e:skinName>
+		<e:Skin minWidth="30" minHeight="18" width="78" height="10" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ui="ui.*">
+			<e:Image id="thumb" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="uiMain_json.img_main_redbar_big" width="100%"/>
+		</e:Skin>
+		</e:skinName>
+	</e:ProgressBar>
+	<e:Group id="petGroup" x="184" y="37.23">
+		<item:MainPetItem id="pet1" xmlns:item="item.*" x="0" y="0" skinName="normal.MainPetItemSkin"/>
+		<item:MainPetItem id="pet2" xmlns:item="item.*" x="65" y="0" skinName="normal.MainPetItemSkin"/>
+		<item:MainPetItem id="pet3" xmlns:item="item.*" x="127" y="0" skinName="normal.MainPetItemSkin"/>
+	</e:Group>
+	<components:IconButton y="13" anchorOffsetX="13" anchorOffsetY="13" source="uiMain_json.btn_main_addMoshi" right="114"/>
+	<components:IconButton y="13" anchorOffsetX="13" anchorOffsetY="13" source="uiMain_json.btn_main_addMoshi" right="248"/>
+	<e:Label id="labLevel" text="150" x="80" y="64.5" size="16" stroke="2" strokeColor="0x000000" textColor="0x34E22C" textAlign="center" width="29"/>
+	<e:Label id="labExp" text="EXP 620万/分" y="65" size="14" anchorOffsetX="0" textAlign="right" width="142" textColor="0x34E22C" right="82" anchorOffsetY="0" height="15"/>
+	<e:Label id="labMapName" text="亚特兰蒂斯" y="39.23" size="14" anchorOffsetX="0" textAlign="center" strokeColor="0x161515" width="138.5" textColor="0xC6B59E" right="70"/>
+	<e:Label id="labMoney" text="1.5亿" y="10" anchorOffsetX="0" width="101" size="16" rotation="0.39" anchorOffsetY="0" touchEnabled="false" textColor="0xC6B59E" textAlign="center" right="162"/>
+	<e:Label id="labDiamond" text="98745632" y="10" anchorOffsetX="0" width="86" size="16" rotation="0.39" anchorOffsetY="0" touchEnabled="false" textColor="0xC6B59E" textAlign="center" right="33"/>
+	<e:BitmapLabel id="blabFight" height="20" x="155.3" y="4.53" text="123456789" anchorOffsetX="0" font="fight_font2_fnt" letterSpacing="-5"/>
+	<e:BitmapLabel id="blabStepLevel" x="141" y="54.5" text="3" font="level_font_fnt"/>
+	<e:Group id="btnGoldRecharge" width="105" height="29" y="1.6" right="177"/>
+	<e:Group id="btnRecharge" width="105" height="29" y="1.6" right="41"/>
+</e:Skin>

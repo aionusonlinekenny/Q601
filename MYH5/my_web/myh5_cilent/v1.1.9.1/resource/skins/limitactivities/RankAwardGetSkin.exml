@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="RankAwardGetSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="556" height="896">
+	<e:Group id="group" y="93" width="434" horizontalCenter="0">
+		<e:Image id="tag0" source="img_explore_win_png" y="-85" x="-77" width="588" height="874" scale9Grid="0,417,588,77"/>
+		<e:Image source="copy_json.boss_player_head_back"  y="134.72" scaleX="1.2" scaleY="1.2" x="164"/>
+		<e:Image id="imgHead0"  y="145.7" source="player_icon_circle_json.job_1" scaleX="1" scaleY="1" x="174"/>
+		<e:Scroller height="259" y="360" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="off" scrollPolicyV="on" width="413" horizontalCenter="0">
+		<e:List id="list0" x="-0.5" y="0" itemRenderer="components.RewardItemRenderer" anchorOffsetY="0" height="241" itemRendererSkinName="components.ItemBoxSkin">
+			<e:layout>
+			<e:TileLayout orientation="rows" requestedColumnCount="4" horizontalGap="16" paddingLeft="6" paddingTop="2" paddingRight="6" paddingBottom="2" columnWidth="90"/>
+			</e:layout>
+		</e:List>
+		</e:Scroller>
+		<components:SnapButton id="btnOK0" label="确   定" y="667" anchorOffsetX="75" width="150" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" x="217"/>
+		<e:Label id="labPrompt0" text="获得排名奖励如下:" x="12.52" y="314.08" size="20"  textColor="0x7D6A52"/>
+		<e:Label id="rankNum" text="第一名"  y="114.72" size="20" textColor="0xEDC839" width="157" textAlign="center" x="139"/>
+		<e:Label id="labPlayerName0" text="玩家名字维字"  y="249.08" size="20" textAlign="center" width="120" textColor="0x34E22C" x="157"/>
+	</e:Group>
+	<e:Label id="labTime" text="" y="829" size="20" touchEnabled="false" horizontalCenter="0"  textColor="0xC6B59E"/>
+</e:Skin>
