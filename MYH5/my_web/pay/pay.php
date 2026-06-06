@@ -20,7 +20,7 @@ $money = $paydata[4]; //金额
 <head>
 <!--QQ:1242821087-->
 	<meta charset="UTF-8">
-	<title>充值页面-Www.syymw.Com</title>
+	<title>Payment Page - MoYu H5</title>
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="black" name="apple-mobile-web-app-status-bar-style">
@@ -38,42 +38,42 @@ $money = $paydata[4]; //金额
     <form action="payto.php" method="post">
     <div class="weui-cells weui-cells_form">
   		<div class="weui-cell">
-		    <div class="weui-cell__hd"><label class="weui-label">角色账号：</label></div>
+		    <div class="weui-cell__hd"><label class="weui-label">Account ID:</label></div>
 		    <div class="weui-cell__bd">
 		      <strong class="lanse"><?php echo $roleId;?></strong>
 		  	</div>
 	    </div>
 	  <div class="weui-cell">
-		    <div class="weui-cell__hd"><label class="weui-label">角色名字：</label></div>
+		    <div class="weui-cell__hd"><label class="weui-label">Character Name:</label></div>
 		    <div class="weui-cell__bd">
 		      <strong class="lanse"><?php echo $username;?></strong>
 		  	</div>
 	    </div>
       <div class="weui-cell weui-cells_form">
-        <div class="weui-cell__hd"><label class="weui-label">游戏区服：</label></div>
+        <div class="weui-cell__hd"><label class="weui-label">Game Zone:</label></div>
         <div class="weui-cell__bd">
-        <strong class="lanse">魔域<?php echo $serverId;?>区</strong>  
+        <strong class="lanse">MoYu Zone <?php echo $serverId;?></strong>  
         </div>
       </div>
 	  <div class="weui-cell weui-cells_form">
-        <div class="weui-cell__hd"><label class="weui-label">商品名称：</label></div>
+        <div class="weui-cell__hd"><label class="weui-label">Product Name:</label></div>
         <div class="weui-cell__bd">
         <strong class="lanse"><?php echo $pname;?></strong>  
         </div>
       </div>
       <div class="weui-cell weui-cells_form">
-        <div class="weui-cell__hd"><label class="weui-label">充值金额：</label></div>
+        <div class="weui-cell__hd"><label class="weui-label">Recharge Amount:</label></div>
         <div class="weui-cell__bd">
-        <strong class="hongse"><?php echo $money;?>.00元</strong>  
+        <strong class="hongse"><?php echo $money;?>.00</strong>  
         </div>
       </div>
       
       <div class="weui-cell weui-cell_select weui-cell_select-after">
-        <div class="weui-cell__hd"><label class="weui-label">支付方式：</label></div>
+        <div class="weui-cell__hd"><label class="weui-label">Payment Method:</label></div>
         <div class="weui-cell__bd">
           <select class="weui-select" name="paytype">
-            <option selected="" value="2">支付宝支付</option>
-            <option value="4">微信手机支付</option>
+            <option selected="" value="2">Alipay</option>
+            <option value="4">WeChat Pay</option>
           </select>
         </div>
       </div>
@@ -81,7 +81,7 @@ $money = $paydata[4]; //金额
 		<input type="hidden" value="<?php echo $serverId;?>" name="serverId" />
 		<input type="hidden" value="<?php echo $goodsId;?>" name="goodsId" />
 		<input type="hidden" value="<?php echo $money;?>" name="money" />
-        <button type="submit" class="weui-btn weui-btn_primary">立即支付</button>
+        <button type="submit" class="weui-btn weui-btn_primary">Pay Now</button>
 	  
     </form>
 </body>
