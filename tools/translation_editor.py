@@ -1025,17 +1025,17 @@ class TranslationEditor:
             bbox = alpha.getbbox()  # None if fully transparent
             if bbox and bbox != (0, 0, new_img.width, new_img.height):
                 new_img = new_img.crop(bbox)
-            # Step 2: cover-fit into slot — scale so the object covers (w, h),
-            # then centre-crop any excess. Preserves aspect ratio, no distortion.
+            # Step 2: contain-fit — scale object so it fits entirely inside the
+            # slot (longest constraining dimension wins), then centre on a
+            # transparent canvas of exactly (w, h). No distortion, no cropping.
             ow, oh = new_img.size
-            if (ow, oh) != (w, h):
-                scale = max(w / ow, h / oh)
-                sw = max(1, int(ow * scale))
-                sh = max(1, int(oh * scale))
-                new_img = new_img.resize((sw, sh), Image.LANCZOS)
-                left = (sw - w) // 2
-                top  = (sh - h) // 2
-                new_img = new_img.crop((left, top, left + w, top + h))
+            scale = min(w / ow, h / oh)
+            sw = max(1, int(ow * scale))
+            sh = max(1, int(oh * scale))
+            new_img = new_img.resize((sw, sh), Image.LANCZOS)
+            canvas = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+            canvas.paste(new_img, ((w - sw) // 2, (h - sh) // 2))
+            new_img = canvas
 
         # Paste into atlas
         self.sprite_atlas_img.paste(new_img, (x, y))
