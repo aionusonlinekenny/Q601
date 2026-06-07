@@ -54,7 +54,7 @@
 	</e:Group>
 	<e:Group y="717.67" horizontalCenter="0.5">
 		<e:Label id="labName" text="Phantom Beast Advancement Stone Cost: " x="0" y="0" size="20" textColor="0xC6B59E"/>
-		<e:Label id="labCount" text="0/1" y="0" size="20" verticalAlign="middle" textAlign="left" x="161" textColor="0x34e22c"/>
+		<e:Label id="labCount" text="0/1" y="0" size="20" verticalAlign="middle" textAlign="left" x="385" textColor="0x34e22c"/>
 	</e:Group>
 	<e:Label id="labStep" text="Advance to tier 10 to activate the Phantom Beast's new appearance." y="493" size="20" horizontalCenter="0" textColor="0xc6b59e"/>
 	<e:Image id="imgArrow" y="163" source="common_json.img_arrow_green_png" horizontalCenter="0.5"/>

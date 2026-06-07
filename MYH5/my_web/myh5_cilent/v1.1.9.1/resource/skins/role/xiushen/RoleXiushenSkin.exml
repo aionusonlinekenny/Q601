@@ -21,7 +21,7 @@
 
 	<e:Group y="729.92" horizontalCenter="0">
 		<e:Label text="Divine Power Required: " x="0" y="3.04" size="20" textColor="0xCFC7B0"/>
-		<e:Label id="labCount" text="9999999" x="126" y="3.04" size="20" textAlign="left" textColor="0x31ba0e"/>
+		<e:Label id="labCount" text="9999999" x="235" y="3.04" size="20" textAlign="left" textColor="0x31ba0e"/>
 	</e:Group>
 	<e:Label id="labLv" text="Current Divine Power Level: 12" y="538.96" size="20" anchorOffsetX="0" textAlign="center" textColor="0xd1a765" horizontalCenter="-2.5"/>
 	<components:SnapButton id="btnUpgrade" label="Enhance" y="788.4" anchorOffsetX="83" width="168" skinName="skins.SnapButtonDefaultSkin" x="300" icon="common_json.img_warn_png" anchorOffsetY="28"/>

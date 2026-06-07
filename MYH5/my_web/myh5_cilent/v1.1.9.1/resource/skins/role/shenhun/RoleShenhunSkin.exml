@@ -23,10 +23,10 @@
 	<e:Image id="imgOrange" source="role_json.img_shenhun_purple_png" x="39" y="562" width="45" height="45"/>
 	<e:Image id="imgBg" y="636" height="119" source="common_infobar_png" horizontalCenter="0" scale9Grid="58,25,472,8"/>
 	<item:PropertyItemBox id="propertyBox" skinName="normal.PropertyItemBoxSkin" horizontalCenter="0" verticalCenter="256"/>
-	<e:Group x="285" y="758.74">
+	<e:Group x="260" y="758.74">
 		<e:Image source="bag_json.img_godSoulIcon_png" x="0" y="0" width="30" height="30"/>
-		<e:Label id="labCount" text="1000000/1000000" x="127" y="3" size="20" textColor="0xc6b59e"/>
 		<e:Label text="Divine Soul Essence: " x="30" y="3" size="20" textColor="0xc6b59e"/>
+		<e:Label id="labCount" text="1000000/1000000" x="240" y="3" size="20" textColor="0xc6b59e"/>
 	</e:Group>
 	<e:Label id="imgTipsChat" text="Please select a Divine Soul to proceed." y="729.43" textColor="0x34E22C" size="20" touchEnabled="false" horizontalCenter="1"/>
 	<e:Image source="common_fightBg_png" y="590.43" horizontalCenter="0"/>
