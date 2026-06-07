@@ -87,18 +87,18 @@ var shell;
         LoginServerView.prototype.initialize = function () {
             this.bntEnter.enabled = false;
             this.labBanSu.textAlign = "center";
-            var notice = '抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。\n适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。';
+            var notice = 'Please play responsibly. Enjoy games in moderation for a healthy lifestyle.';
             this.labBanSu.y = 960;
             if (platform.sdk && this.isBanshu(platform.sdk.type)) {
-                notice = '本应用由“杭州火娱网络有限公司”提供\n抵制不良游戏，拒绝盗版游戏。 注意自我保护，谨防受骗上当。\n适度游戏益脑，沉迷游戏伤身。 合理安排时间，享受健康生活。\n文网游备字[2016]M-RPG 2561号 出版物号 [ISBN]：978-7-7979-0207-6 \n新广出审[2016]1412号 出版单位：杭州群游科技有限公司 \n著作权人：安徽新媒互娱网络有限公司\n适龄提示：本游戏适合18周岁以上者参与';
+                notice = 'Please play responsibly. Enjoy games in moderation for a healthy lifestyle.';
                 this.labBanSu.y = 930;
             }
             else if (platform.sdk && platform.sdk.type == platform.KY) {
-                notice = '抵制不良游戏，拒绝盗版游戏。 注意自我保护，谨防受骗上当。\n适度游戏益脑，沉迷游戏伤身。 合理安排时间，享受健康生活。\n沪网文[2016]M-RPG 7350号 出版物号 [ISBN]:978-7-498-00775-9 \n新广出审[2017]7740号 出版单位：北京畅元国讯科技有限公司\n著作权人：北京梦幻果冻科技有限公司\n适龄提示：本游戏适合18周岁以上者参与';
+                notice = 'Please play responsibly. Enjoy games in moderation for a healthy lifestyle.';
                 this.labBanSu.y = 930;
             }
             else if (platform.sdk && (platform.sdk.type == platform.NN_H5 || platform.sdk.type == platform.NN_IOS || platform.sdk.type == platform.NN_ANDROID || platform.sdk.type == platform.NN_ZF || platform.sdk.type == platform.NN_ZF_H5)) {
-                notice = '抵制不良游戏，拒绝盗版游戏。 注意自我保护，谨防受骗上当。\n适度游戏益脑，沉迷游戏伤身。 合理安排时间，享受健康生活。\n文网游备字[2016]M-RPG 2561号 出版物号 [ISBN]：978-7-7979-0207-6 \n新广出审[2016]1412号 出版单位：杭州群游科技有限公司 \n著作权人：安徽新媒互娱网络有限公司\n适龄提示：本游戏适合18周岁以上者参与';
+                notice = 'Please play responsibly. Enjoy games in moderation for a healthy lifestyle.';
                 this.labBanSu.y = 930;
             }
             this.labBanSu.text = notice;
@@ -140,7 +140,7 @@ var shell;
         };
         LoginServerView.prototype.clickHandler = function (e) {
             if (shell.LoginData.instance.serverList.selected.status == 2) {
-                shell.tipManager.show("服务器维护中!	请稍后尝试...", 0xFF3300, 2000);
+                shell.tipManager.show("Server under maintenance! Please try again later...", 0xFF3300, 2000);
                 return;
             }
             this.bntEnter.enabled = false;
