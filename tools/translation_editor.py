@@ -1020,13 +1020,22 @@ class TranslationEditor:
             return
 
         if new_img.size != (w, h):
-            # If the image has transparent areas, crop to the bounding box of
-            # the visible (non-zero alpha) content before resizing.
+            # Step 1: crop to visible (non-transparent) content bounding box.
             alpha = new_img.split()[3]
             bbox = alpha.getbbox()  # None if fully transparent
             if bbox and bbox != (0, 0, new_img.width, new_img.height):
                 new_img = new_img.crop(bbox)
-            new_img = new_img.resize((w, h), Image.LANCZOS)
+            # Step 2: cover-fit into slot — scale so the object covers (w, h),
+            # then centre-crop any excess. Preserves aspect ratio, no distortion.
+            ow, oh = new_img.size
+            if (ow, oh) != (w, h):
+                scale = max(w / ow, h / oh)
+                sw = max(1, int(ow * scale))
+                sh = max(1, int(oh * scale))
+                new_img = new_img.resize((sw, sh), Image.LANCZOS)
+                left = (sw - w) // 2
+                top  = (sh - h) // 2
+                new_img = new_img.crop((left, top, left + w, top + h))
 
         # Paste into atlas
         self.sprite_atlas_img.paste(new_img, (x, y))
