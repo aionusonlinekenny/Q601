@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 """
 Game Translation Editor
 A desktop GUI for reviewing and editing translated strings in PHP mobile game config files.
