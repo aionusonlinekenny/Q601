@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="legionWar.LegionWarSmallRankCellSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Label id="labRank" text="10" size="14" width="40" fontFamily="Microsoft YaHei" textAlign="center" lineSpacing="6" textColor="0xEDC839"/>
-	<e:Label id="labName" text="名字六个字哈" size="14" width="100" fontFamily="Microsoft YaHei" lineSpacing="6" textColor="0xEDC839" x="40" textAlign="center"/>
+	<e:Label id="labName" text="Name (6 chars)" size="14" width="100" fontFamily="Microsoft YaHei" lineSpacing="6" textColor="0xEDC839" x="40" textAlign="center"/>
 	<e:Label id="labScore" text="9999999" size="14" width="100" fontFamily="Microsoft YaHei" lineSpacing="6" textColor="0xEDC839" x="140" textAlign="center"/>
 </e:Skin>

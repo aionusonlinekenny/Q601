@@ -151,13 +151,13 @@ var shell;
             var status = Number(shell.LoginData.instance.serverList.selected.status);
             switch (status) {
                 case shell.ServerItem.MAINTEN:
-                    this.labSeverName.text = shell.LoginData.instance.serverList.selected.name + "(维护中)";
+                    this.labSeverName.text = shell.LoginData.instance.serverList.selected.name + " (Maintenance)";
                     break;
                 case shell.ServerItem.STAYOPEN:
                     this.labSeverName.text = shell.LoginData.instance.serverList.selected.name;
                     break;
                 case shell.ServerItem.CLOSE:
-                    this.labSeverName.text = shell.LoginData.instance.serverList.selected.name + "(已关闭)";
+                    this.labSeverName.text = shell.LoginData.instance.serverList.selected.name + " (Closed)";
                     break;
                 default:
                     this.labSeverName.text = shell.LoginData.instance.serverList.selected.name;
@@ -680,7 +680,7 @@ var shell;
                                     return a.lastDate > b.lastDate ? -1 : 1;
                                 });
                                 var historyGroup = new ServerGroup();
-                                historyGroup.name = '最近登录服';
+                                historyGroup.name = 'Recent';
                                 historyGroup.list = items;
                                 this._serverList.addGroup(historyGroup);
                                 var testCount = 0;
@@ -697,14 +697,14 @@ var shell;
                                     var name = "";
                                     if (testCount > 0) {
                                         if (testCount < end) {
-                                            name = data.pre_normal_title + (start - testCount) + "-" + (end - testCount) + "服";
+                                            name = data.pre_normal_title + (start - testCount) + "-" + (end - testCount) ;
                                         }
                                         else {
-                                            name = data.pre_test_title + start + "-" + end + "服";
+                                            name = data.pre_test_title + start + "-" + end ;
                                         }
                                     }
                                     else {
-                                        name = start + "-" + end + "服";
+                                        name = start + "-" + end ;
                                     }
                                     groups.push(new ServerGroup(start, end, name));
                                 }
@@ -930,7 +930,7 @@ var shell;
                 this._name = name;
             }
             else {
-                this._name = start + "-" + end + "服";
+                this._name = start + "-" + end ;
             }
             this._start = start;
             this._end = end;
@@ -1146,7 +1146,7 @@ var shell;
                     case shell.ServerItem.MAINTEN:
                         this.imgLay.source = "img_login_lay_png";
                         this.btnStatus.filters = this.grayFilters;
-                        this.labelName.text = "" + serverData.name + "(维护中)";
+                        this.labelName.text = "" + serverData.name + " (Maintenance)";
                         break;
                     case shell.ServerItem.STAYOPEN:
                         this.imgLay.source = "img_login_stayopen_png";
@@ -1156,7 +1156,7 @@ var shell;
                     case shell.ServerItem.CLOSE:
                         this.imgLay.source = null;
                         this.btnStatus.filters = this.grayFilters;
-                        this.labelName.text = "" + serverData.name + "(已关闭)";
+                        this.labelName.text = "" + serverData.name + " (Closed)";
                         break;
                     default:
                         this.imgLay.source = null;
@@ -1544,7 +1544,7 @@ var shell;
             this.tip.text = content;
         };
         ShellLoading.prototype.showRefeshState = function () {
-            this.tip.text = "加载失败...请点击刷新页面重试...";
+            this.tip.text = "Loading failed... Click to refresh and retry...";
             shell.viewManager.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.refeshHandler, this);
         };
         ShellLoading.prototype.updateHandler = function () {
@@ -1767,7 +1767,7 @@ var Shell = (function (_super) {
                         else {
                             if (platform.sdk.type == platform.P9377) {
                                 if (!platform.sdk.verifyResult) {
-                                    shell.tipManager.show('验证失败,请刷新页面!', 0xFF0000, 2000, this, function () { });
+                                    shell.tipManager.show('Verification failed, please refresh the page!', 0xFF0000, 2000, this, function () { });
                                     return [2 /*return*/];
                                 }
                             }
@@ -1817,8 +1817,8 @@ var Shell = (function (_super) {
                     case 1:
                         authData = _a.sent();
                         if (authData.code != 0) {
-                            alert('验证错误...' + JSON.stringify(authData));
-                            egret.error('验证错误:', authData);
+                            alert('Verification error: ' + JSON.stringify(authData));
+                            egret.error('Verification error:', authData);
                             return [2 /*return*/];
                         }
                         return [4 /*yield*/, shell.LoginData.instance.requestServerList(platform.sdk ? platform.sdk.roleId : shell.LoginData.instance.authData.identityId)];
@@ -1826,7 +1826,7 @@ var Shell = (function (_super) {
                         first = _a.sent();
                         if (first) {
                             if (shell.LoginData.instance.serverList.selected.status != shell.ServerItem.OPEN) {
-                                shell.tipManager.show("服务器维护中!  请稍后尝试...", 0xFF3300, 2000);
+                                shell.tipManager.show("Server under maintenance! Please try again later...", 0xFF3300, 2000);
                                 this.showLoginServerView();
                                 return [2 /*return*/];
                             }
@@ -1889,7 +1889,7 @@ var Shell = (function (_super) {
                         for (key in manifest.game) {
                             manifest.game[key] = shell.ShellVersionControl.getInstance().getGameVirtualUrl(manifest.game[key], window.config.version_assets + "_" + window.config.version_assetscript);
                         }
-                        shell.ShellLoading.instance.show('加载游戏逻辑...');
+                        shell.ShellLoading.instance.show('Loading game logic...');
                         return [4 /*yield*/, this.loadGameScript(manifest)];
                     case 3:
                         _a.sent();
@@ -1897,7 +1897,7 @@ var Shell = (function (_super) {
                         window.config.resourceConfig = shell.resourceConfig;
                         window.config.stage = stage;
                         try {
-                            shell.ShellLoading.instance.showTip('正在初始化游戏...');
+                            shell.ShellLoading.instance.showTip('Initializing game...');
                             MainClass = egret.getDefinitionByName('game.Main');
                             main = new MainClass();
                             //shell.Loading.instance.hide();

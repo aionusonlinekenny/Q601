@@ -9,14 +9,14 @@
 				</e:layout>
 			</e:List>
 	</e:Scroller>
-	<e:Label id="labStep" text="生命女神圣阶 : 10" y="547.42" size="22" anchorOffsetX="0" textAlign="center" horizontalCenter="0.5" textColor="0xedc839"/>
+	<e:Label id="labStep" text="Life Goddess Sacred Tier: 10" y="547.42" size="22" anchorOffsetX="0" textAlign="center" horizontalCenter="0.5" textColor="0xedc839"/>
 	<item:PropertyItemBox id="propertyBox" y="665.66" horizontalCenter="0">
 		<item:skinName>
 			<e:Skin>
 			<item:PropertyChangeItem id="item0" x="0" y="0">
 				<item:skinName>
 					<e:Skin>
-					<e:Label id="labProperty" text="攻击 : 1999" x="0" y="0" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xc6b59e"/>
+					<e:Label id="labProperty" text="ATK: 1999" x="0" y="0" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xc6b59e"/>
 					<e:Label id="labAdd" text="400000" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" y="1" textColor="0x34e22c" x="273"/>
 					<e:Image id="imgArrow" y="1" source="common_json.img_arrow_green_png" x="221"/>
 					</e:Skin>
@@ -26,12 +26,12 @@
 		</item:skinName>
 	</item:PropertyItemBox>
 	<e:Group y="736" horizontalCenter="-0.5">
-		<e:Label id="labNeed" text="进阶消耗1级生命结晶 : " x="0" y="18.66" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xCFC9BE"/>
+		<e:Label id="labNeed" text="Advancement consumes Tier-1 Life Crystal: " x="0" y="18.66" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xCFC9BE"/>
 		<e:Label id="labCount" text="8000/8000" y="19.33" size="20" anchorOffsetX="0" textAlign="center" textColor="0x34e22c" x="206"/>
 	</e:Group>
 	<components:IconButton id="btnExchange" x="539" y="822" anchorOffsetX="38" anchorOffsetY="36" source="goddess_json.btn_goddess_exchange" visible="false"/>
 	<components:IconButton id="btnGetMaterial" x="508" y="768.49" source="common_json.img_getRes_png" anchorOffsetX="38" anchorOffsetY="36"/>
-	<components:SnapButton id="btnUpgrade" label="进阶" anchorOffsetX="81" horizontalCenter="0" y="814.66" width="162" anchorOffsetY="28" icon="img_warn_png">
+	<components:SnapButton id="btnUpgrade" label="Advance" anchorOffsetX="81" horizontalCenter="0" y="814.66" width="162" anchorOffsetY="28" icon="img_warn_png">
 		<components:skinName>
 		<e:Skin states="up,down,disabled">
 			<e:Image alpha.disabled="0.5" width="100%" height="100%" source="common_json.btnt_red_selected_png" source.up="common_json.btnt_red_selected_png" source.down="common_json.btnt_red_selected_png" source.disabled="common_json.btnt_red_selected_png" scale9Grid="12,0,15,52"/>

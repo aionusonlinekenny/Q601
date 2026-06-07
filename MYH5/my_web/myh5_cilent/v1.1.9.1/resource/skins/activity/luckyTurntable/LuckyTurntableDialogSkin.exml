@@ -14,14 +14,14 @@
 	</e:Group>
 	<e:Image id="imgSelect" source="img_activity_LTXZ_png" horizontalCenter="0" verticalCenter="-160" anchorOffsetX="234" anchorOffsetY="234"/>
 	<e:Image source="img_activity_LTZZ_png" horizontalCenter="0" verticalCenter="-172" anchorOffsetX="75" anchorOffsetY="87"/>
-	<e:Label id="labDate" text="2018年12月12日 " x="277" y="13" size="16" textColor="0x34E22C"/>
-	<e:Label text="截止时间 : " x="186" y="12" size="18" textColor="0xEDC839"/>
-	<e:Label text="投注" x="231" y="736" size="16" fontFamily="Microsoft YaHei" textColor="0xC6B59E"/>
-	<e:Label text="剩余次数 : " x="363" y="821" size="16" fontFamily="Microsoft YaHei" textColor="0xC6B59E"/>
-	<e:Label text="魔石" x="338" y="736" size="16" fontFamily="Microsoft YaHei" textColor="0xC6B59E"/>
+	<e:Label id="labDate" text="December 12, 2018 " x="277" y="13" size="16" textColor="0x34E22C"/>
+	<e:Label text="Deadline: " x="186" y="12" size="18" textColor="0xEDC839"/>
+	<e:Label text="Bet" x="231" y="736" size="16" fontFamily="Microsoft YaHei" textColor="0xC6B59E"/>
+	<e:Label text="Remaining Attempts: " x="363" y="821" size="16" fontFamily="Microsoft YaHei" textColor="0xC6B59E"/>
+	<e:Label text="Magic Stone" x="338" y="736" size="16" fontFamily="Microsoft YaHei" textColor="0xC6B59E"/>
 	<e:Label id="labBet" text="45000" x="268" y="735" size="18" textColor="0xEDC839" textAlign="center" width="65" fontFamily="Microsoft YaHei"/>
-	<e:Label id="labCanPay" text="充值充值xxx魔石可获得1次机会" y="821" size="16" textColor="0x34E22C" fontFamily="Microsoft YaHei" textAlign="center" horizontalCenter="-85"/>
-	<e:Label id="labTomrrowGold" text="1111魔石" x="243" y="548" size="16" textColor="0x34E22C" width="138" textAlign="center" fontFamily="Microsoft YaHei"/>
+	<e:Label id="labCanPay" text="Top up xxx Magic Stones to get 1 chance." y="821" size="16" textColor="0x34E22C" fontFamily="Microsoft YaHei" textAlign="center" horizontalCenter="-85"/>
+	<e:Label id="labTomrrowGold" text="1111 Magic Stones" x="243" y="548" size="16" textColor="0x34E22C" width="138" textAlign="center" fontFamily="Microsoft YaHei"/>
 	<e:Label id="labHaveCount" text="5" x="443" y="821" size="16" textColor="0x34E22C" fontFamily="Microsoft YaHei"/>
 	<e:Scroller width="530" height="102" y="624" anchorOffsetX="0" anchorOffsetY="0" x="35">
 		<e:List id="listContent" x="0" y="7" anchorOffsetX="0" width="528" itemRendererSkinName="renderer.LuckyTurntableRendererSkin" anchorOffsetY="0" height="92">

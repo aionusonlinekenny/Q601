@@ -4,8 +4,8 @@
 	<e:Image x="8" y="0" width="372" source="common_json.img_numbg_png" scale9Grid="10,6,33,11" height="39"/>
 	<e:Image y="36" width="584" height="765" x="8" source="common_json.img_inbg_png" scale9Grid="11,11,6,7"/>
 	<e:Image x="24" y="8" source="mail_json.img_sigh"/>
-	<e:Label text="未领取的邮件会为你保留7天，请注意查收邮件" x="38" y="9" size="16" textColor="0xc6b59e"/>
-	<e:Label id="labTipNoMail" text="暂无新邮件" y="446" size="20" textColor="0x4f402d" x="250"/>
+	<e:Label text="Unclaimed mail will be kept for 7 days. Please check your mailbox." x="38" y="9" size="16" textColor="0xc6b59e"/>
+	<e:Label id="labTipNoMail" text="No new mail." y="446" size="20" textColor="0x4f402d" x="250"/>
 	<e:Scroller id="scrMail" width="576" height="757" scrollPolicyH="off" scrollPolicyV="auto" y="41" x="12">
 		<e:List id="listMail" itemRenderer="MailListRenderer" x="0" top="1">
 		<e:layout>
@@ -13,9 +13,9 @@
 		</e:layout>
 		</e:List>
 	</e:Scroller>
-	<components:SnapButton id="btnOneGet" label="一键领取" y="852" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" anchorOffsetX="75" anchorOffsetY="28" x="162"/>
-	<components:SnapButton id="btnOneDelete" label="一键删除" y="852" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" anchorOffsetX="75" anchorOffsetY="28" x="438"/>
+	<components:SnapButton id="btnOneGet" label="One-tap Claim" y="852" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" anchorOffsetX="75" anchorOffsetY="28" x="162"/>
+	<components:SnapButton id="btnOneDelete" label="One-tap Delete" y="852" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" anchorOffsetX="75" anchorOffsetY="28" x="438"/>
 	<e:Label text="/50" y="10" size="20" right="22" textColor="0xc6b59e"/>
-	<e:Label text="邮件数量:" x="434" y="10" size="20" textColor="0xc6b59e"/>
+	<e:Label text="Mail Count:" x="434" y="10" size="20" textColor="0xc6b59e"/>
 	<e:Label id="mailCount" text="0" y="10" size="20" textAlign="right" textColor="0xc6b59e" right="51"/>
 </e:Skin>

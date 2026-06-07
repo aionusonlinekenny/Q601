@@ -26,19 +26,19 @@
 	<firstplayer:FirstPlayerRewardItem id="rewardItem1" x="341" y="495" skinName="skin.FirstPlayerRewardItemSkin"/>
 	<firstplayer:FirstPlayerRewardItem id="rewardItem2" x="146" y="655" skinName="skin.FirstPlayerRewardItemSkin"/>
 	<firstplayer:FirstPlayerRewardItem id="rewardItem3" x="341" y="655" skinName="skin.FirstPlayerRewardItemSkin"/>
-	<e:Label id="labTime" text="截至时间 : 2018年06月14日" x="288" y="406" textColor="0xedc839" size="16" verticalAlign="middle" textAlign="center"/>
-	<e:Label id="labAlready" text="您已领取了活动奖励！" x="161.01" y="907.27" size="16" verticalAlign="middle" textAlign="center" rotation="0.39" anchorOffsetX="0" width="374.98" anchorOffsetY="0" height="15.95" textColor="0xfc0f19"/>
-	<e:Label id="labName0" text="第1名" x="154" y="461" textColor="0xedc839" size="16"/>
-	<e:Label id="labName2" text="第11-50名" x="159" y="625" textColor="0xedc839" size="16"/>
-	<e:Label id="labName1" text="第2-10名" x="356" y="461" textColor="0xedc839" size="16"/>
-	<e:Label id="labName3" text="第51-999名" x="360" y="625" textColor="0xedc839" size="16"/>
-	<e:Label id="lab0" text="哦啊评价哦" y="461" verticalAlign="middle" textAlign="left" x="200" size="16" textColor="0x34e22c"/>
-	<e:Label id="lab1" text="剩余20份" y="461" verticalAlign="middle" textAlign="left" x="424" size="16" textColor="0x34e22c"/>
-	<e:Label id="lab2" text="剩余300份" x="236" y="625" verticalAlign="middle" textAlign="left" size="16" textColor="0x34e22c"/>
-	<e:Label id="lab3" text="剩余999份" x="448" y="625" verticalAlign="middle" textAlign="left" size="16" textColor="0x34e22c"/>
-	<e:Label text="黄铜钥匙" x="205" y="854" size="20" textColor="0xedc839"/>
-	<e:Label text="水晶钥匙" x="398" y="854" size="20" textColor="0x1291ce"/>
-	<e:Label text="翡翠钥匙" x="304" y="854" size="20" textColor="0x34e22c"/>
+	<e:Label id="labTime" text="Deadline: June 14, 2018" x="288" y="406" textColor="0xedc839" size="16" verticalAlign="middle" textAlign="center"/>
+	<e:Label id="labAlready" text="You have already claimed the event reward!" x="161.01" y="907.27" size="16" verticalAlign="middle" textAlign="center" rotation="0.39" anchorOffsetX="0" width="374.98" anchorOffsetY="0" height="15.95" textColor="0xfc0f19"/>
+	<e:Label id="labName0" text="Rank 1" x="154" y="461" textColor="0xedc839" size="16"/>
+	<e:Label id="labName2" text="Rank 11–50" x="159" y="625" textColor="0xedc839" size="16"/>
+	<e:Label id="labName1" text="Rank 2–10" x="356" y="461" textColor="0xedc839" size="16"/>
+	<e:Label id="labName3" text="Rank 51–999" x="360" y="625" textColor="0xedc839" size="16"/>
+	<e:Label id="lab0" text="Rating" y="461" verticalAlign="middle" textAlign="left" x="200" size="16" textColor="0x34e22c"/>
+	<e:Label id="lab1" text="20 remaining" y="461" verticalAlign="middle" textAlign="left" x="424" size="16" textColor="0x34e22c"/>
+	<e:Label id="lab2" text="300 remaining" x="236" y="625" verticalAlign="middle" textAlign="left" size="16" textColor="0x34e22c"/>
+	<e:Label id="lab3" text="999 remaining" x="448" y="625" verticalAlign="middle" textAlign="left" size="16" textColor="0x34e22c"/>
+	<e:Label text="Brass Key" x="205" y="854" size="20" textColor="0xedc839"/>
+	<e:Label text="Crystal Key" x="398" y="854" size="20" textColor="0x1291ce"/>
+	<e:Label text="Jade Key" x="304" y="854" size="20" textColor="0x34e22c"/>
 	<e:Label id="rollLabel" text="" x="111" y="419" anchorOffsetX="0" height="20" size="20" textColor="0xcfc9be"/>
 	<components:IconButton id="btnClose" x="546" y="120" source="common_json.btn_close_png" anchorOffsetX="27" anchorOffsetY="26"/>
 </e:Skin>

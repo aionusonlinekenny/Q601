@@ -7,8 +7,8 @@
 	<e:Image id="barMain" width="578" source="loading_json.img_lodingProgressBg" scale9Grid="30,0,27,29" anchorOffsetX="0" bottom="144" x="11"/>
 	<e:Image id="progressMain" width="516" source="loading_json.img_lodingProgress" scale9Grid="3,0,22,13" height="15" anchorOffsetX="0" anchorOffsetY="0" bottom="154" x="40"/>
 	<e:Image id="imglogo" horizontalCenter="0" source="" verticalCenter="0" visible="false"/>
-	<e:Label text="抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。" size="18" textColor="0xc6b59e" width="504" lineSpacing="5" horizontalCenter="0" bottom="41" textAlign="center"/>
-	<e:Label id="labTip" text="众神正在亚特大陆散播谣言" size="14" horizontalCenter="0" bottom="185" textColor="0xC6B59E" width="502" textAlign="center"/>
-	<e:Label id="labTipRefesh" text="如果加载时间过长，请点击重试" size="14" horizontalCenter="-4" bottom="103" width="502" textAlign="center" textColor="0x34e22c"/>
+	<e:Label text="Resist bad games, reject pirated games. Protect yourself, beware of scams. Moderate gaming is brain-healthy; addiction is harmful. Arrange time wisely and enjoy a healthy life." size="18" textColor="0xc6b59e" width="504" lineSpacing="5" horizontalCenter="0" bottom="41" textAlign="center"/>
+	<e:Label id="labTip" text="The gods are spreading rumors across the Atlan continent." size="14" horizontalCenter="0" bottom="185" textColor="0xC6B59E" width="502" textAlign="center"/>
+	<e:Label id="labTipRefesh" text="If loading takes too long, click Retry" size="14" horizontalCenter="-4" bottom="103" width="502" textAlign="center" textColor="0x34e22c"/>
 	<e:Label id="labValueMain" text="100%" size="14" horizontalCenter="0" bottom="155" textColor="0xC6B59E"/>
 </e:Skin>

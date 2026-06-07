@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="dialog.RoleWingGodConcumeAlertSkin" width="528" height="550" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Image x="0" y="0" anchorOffsetX="0" width="100%" anchorOffsetY="0" height="100%" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
-	<components:SnapButton id="btnOk" label="确定" y="496" skinName="skins.SnapButtonDefaultSkin" anchorOffsetX="80" anchorOffsetY="28" horizontalCenter="0"/>
-	<e:Label text="选择消耗神羽" y="15" size="24" horizontalCenter="0" textColor="0xD6CAB7" bold="true"/>
-	<e:Label id="labNo" text="没有多余的神羽" y="229" size="24" horizontalCenter="1" textColor="0xD6CAB7" bold="true"/>
+	<components:SnapButton id="btnOk" label="Confirm" y="496" skinName="skins.SnapButtonDefaultSkin" anchorOffsetX="80" anchorOffsetY="28" horizontalCenter="0"/>
+	<e:Label text="Select Divine Feather to Consume" y="15" size="24" horizontalCenter="0" textColor="0xD6CAB7" bold="true"/>
+	<e:Label id="labNo" text="No extra Divine Feathers." y="229" size="24" horizontalCenter="1" textColor="0xD6CAB7" bold="true"/>
 	<e:Scroller width="420" height="380" y="67" anchorOffsetX="0" horizontalCenter="0">
 		<e:List id="list" itemRenderer="renderer.RoleWingGodIconRenderer" itemRendererSkinName="renderer.RoleWingGodIconRendererSkin" x="23" width="420" height="380">
 			<e:layout>

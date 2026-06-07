@@ -8,6 +8,6 @@
 			</e:layout>
 		</e:List>
 	</e:Scroller>
-	<e:Label text="我的军团贡献 : " x="212" y="882" size="20" textColor="0xc6b59e"/>
+	<e:Label text="My Guild Contribution: " x="212" y="882" size="20" textColor="0xc6b59e"/>
 	<e:Label id="labMy" text="Label" y="882" size="20" verticalAlign="middle" textAlign="left" left="350" textColor="0xedc839"/>
 </e:Skin>

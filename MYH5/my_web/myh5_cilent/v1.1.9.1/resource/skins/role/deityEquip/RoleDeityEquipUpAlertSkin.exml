@@ -30,14 +30,14 @@
 	<item:PropertyItemBox id="propertyBox" y="645" skinName="normal.PropertyItemBoxSkin" horizontalCenter="0" />
 	<e:Group x="470" y="226">
 		<e:Image source="common_shubar_png" x="0" y="0"/>
-		<e:Label id="labName" text="橙装锻造" x="13" y="35" size="20" anchorOffsetY="0" height="88" anchorOffsetX="0" width="24" stroke="2" strokeColor="0x783510"/>
+		<e:Label id="labName" text="Orange Gear Forging" x="13" y="35" size="20" anchorOffsetY="0" height="88" anchorOffsetX="0" width="24" stroke="2" strokeColor="0x783510"/>
 		<e:Image y="132" anchorOffsetX="0" anchorOffsetY="0" source="treasure_json.img_treasure_god" x="12"/>
 		<e:BitmapLabel id="labGrade" y="160" anchorOffsetX="0" anchorOffsetY="0" text="12" font="fight_font2_fnt" horizontalCenter="0"/>
 	</e:Group>
 
 	<e:Group y="788" horizontalCenter="0">
 
-		<e:Label id="labTypeName" text="需要橙装碎片:" x="0" y="0" size="20" textColor="0xc6b59e"/>
+		<e:Label id="labTypeName" text="Orange Gear Fragments Required:" x="0" y="0" size="20" textColor="0xc6b59e"/>
 		<e:Label id="labCount" text="8000/8000" x="131" y="0" size="20" textColor="0x2b8c25" textAlign="left" anchorOffsetX="0"/>
 	</e:Group>
 
@@ -45,7 +45,7 @@
 
 
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="533" y="22" anchorOffsetX="25" anchorOffsetY="25"/>
-	<components:SnapButton id="btnCompose" label="激 活" y="851" anchorOffsetX="81" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="27" icon="img_warn_png" width="162" height="52" horizontalCenter="1"/>
+	<components:SnapButton id="btnCompose" label="Activate" y="851" anchorOffsetX="81" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="27" icon="img_warn_png" width="162" height="52" horizontalCenter="1"/>
 	<components:SnapButton id="btnGetDebris" label="" y="804" anchorOffsetX="35" x="462" anchorOffsetY="34" icon="img_warn_png">
 		<components:skinName>
 		<e:Skin states="up,down,disabled">

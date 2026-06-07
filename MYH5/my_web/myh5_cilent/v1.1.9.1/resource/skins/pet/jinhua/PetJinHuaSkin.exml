@@ -5,8 +5,8 @@
 	<e:Image anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_tabTitle_right_png" top="0" x="421"/>
 	<e:Image anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_tabTitle_left_png" top="0" x="75"/>
 	<e:Image anchorOffsetY="0" height="339" source="common_implementbar_png" anchorOffsetX="0" horizontalCenter="0" scale9Grid="1,12,639,16" bottom="0"/>
-	<e:Label id="labName0" text="可在分解界面免费重生，重生返还所有进阶消耗！" y="822.67" size="18" textColor="0xff0000" horizontalCenter="0"/>
-	<components:SnapButton id="btnJinJie" label="进阶" y="774.02" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" anchorOffsetX="77" anchorOffsetY="23" horizontalCenter="0"/>
+	<e:Label id="labName0" text="Free Rebirth available in Decompose. Rebirth refunds all Advance Costs!" y="822.67" size="18" textColor="0xff0000" horizontalCenter="0"/>
+	<components:SnapButton id="btnJinJie" label="Advance" y="774.02" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" anchorOffsetX="77" anchorOffsetY="23" horizontalCenter="0"/>
 	<e:Image y="326.73" anchorOffsetX="0" anchorOffsetY="0" height="202.94" source="common_infobar_png" scale9Grid="3,28,584,10" x="7"/>
 	<item:PropertyItemBox id="propertyBox" y="359" horizontalCenter="0">
 		<item:skinName>
@@ -24,39 +24,39 @@
 		<e:Image id="img_Highlight1" x="3.5" y="2" touchEnabled="false" source="explore_json.img_circle_gold" width="85" height="85"/>
 		<e:Image id="imgPoint1" source="common_json.img_warn_png" x="0" y="0" visible="false"/>
 		<e:Label id="vipLock1" text="" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
-		<e:Label text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" id="labXueXi1" horizontalCenter="0" verticalCenter="0" textColor="0xedc839" visible="false"/>
+		<e:Label text="Learn Value Unlock" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" id="labXueXi1" horizontalCenter="0" verticalCenter="0" textColor="0xedc839" visible="false"/>
 	</e:Group>
 	<e:Group id="group2" y="22.5" touchEnabled="false" x="254">
 		<e:Image id="btn2" x="0" y="0" source="explore_json.img_circle_back"/>
 		<e:Image id="img02" x="6" y="6" touchEnabled="false" source="" width="80" height="80"/>
 		<e:Image id="img_Highlight2" x="3.5" y="2" touchEnabled="false" source="explore_json.img_circle_gold" width="85" height="85"/>
 		<e:Image id="imgPoint2" source="common_json.img_warn_png" x="0" y="0" visible="false"/>
-		<e:Label id="vipLock2" text="V2立即解锁" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
-		<e:Label id="labXueXi2" text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" horizontalCenter="0" textColor="0xedc839" y="25" visible="false"/>
+		<e:Label id="vipLock2" text="V2 Unlock Now" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
+		<e:Label id="labXueXi2" text="Learn Value Unlock" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" horizontalCenter="0" textColor="0xedc839" y="25" visible="false"/>
 	</e:Group>
 	<e:Group id="group3" x="375" y="22.5" touchEnabled="false">
 		<e:Image id="btn3" x="0" y="0" source="explore_json.img_circle_back"/>
 		<e:Image id="img03" x="6" y="6" touchEnabled="false" source="" width="80" height="80"/>
 		<e:Image id="img_Highlight3" x="3.5" y="2" touchEnabled="false" source="explore_json.img_circle_gold" width="85" height="85"/>
 		<e:Image id="imgPoint3" source="common_json.img_warn_png" x="0" y="0" visible="false"/>
-		<e:Label id="vipLock3" text="V4立即解锁" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
-		<e:Label id="labXueXi3" text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" horizontalCenter="0" textColor="0xedc839" y="25" visible="false"/>
+		<e:Label id="vipLock3" text="V4 Unlock Now" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
+		<e:Label id="labXueXi3" text="Learn Value Unlock" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" horizontalCenter="0" textColor="0xedc839" y="25" visible="false"/>
 	</e:Group>
 	<ns1:JinHuaItemBox id="ItemBox0" skinName="normal.JinHuaItemBoxSkin" y="157" x="155"/>
 	<ns1:JinHuaItemBox id="ItemBox1" skinName="normal.JinHuaItemBoxSkin" y="157" x="355"/>
 	<components:IconButton id="btnGetData" x="471.18" y="726" source="common_json.img_getRes_png" anchorOffsetX="36" anchorOffsetY="35"/>
 	<e:Group id="manjiGroup" y="547.33" x="43">
-		<e:Label text="进阶消耗材料 : " x="1.18" y="0" size="20" textColor="0xc6b59e"/>
+		<e:Label text="Advancement material cost: " x="1.18" y="0" size="20" textColor="0xc6b59e"/>
 		<ns1:JinHuaItemBox id="PropItemBox0" skinName="normal.JinHuaItemBoxSkin" x="0" y="32.67" scaleX="1" scaleY="1"/>
 		<ns1:JinHuaItemBox id="PropItemBox1" skinName="normal.JinHuaItemBoxSkin" x="141.18" y="32.67" scaleX="1" scaleY="1"/>
 		<ns1:JinHuaItemBox id="PropItemBox2" skinName="normal.JinHuaItemBoxSkin" x="282.18" y="32.67" scaleX="1" scaleY="1"/>
 		<ns1:JinHuaItemBox id="PropItemBox3" skinName="normal.JinHuaItemBoxSkin" x="423.94" y="35.67" scaleX="1" scaleY="1"/>
 	</e:Group>
 	<e:Group y="717.67" horizontalCenter="0.5">
-		<e:Label id="labName" text="消耗幻兽进阶石 : " x="0" y="0" size="20" textColor="0xC6B59E"/>
+		<e:Label id="labName" text="Phantom Beast Advancement Stone Cost: " x="0" y="0" size="20" textColor="0xC6B59E"/>
 		<e:Label id="labCount" text="0/1" y="0" size="20" verticalAlign="middle" textAlign="left" x="161" textColor="0x34e22c"/>
 	</e:Group>
-	<e:Label id="labStep" text="进阶至10阶可激活幻兽全新形象" y="493" size="20" horizontalCenter="0" textColor="0xc6b59e"/>
+	<e:Label id="labStep" text="Advance to tier 10 to activate the Phantom Beast's new appearance." y="493" size="20" horizontalCenter="0" textColor="0xc6b59e"/>
 	<e:Image id="imgArrow" y="163" source="common_json.img_arrow_green_png" horizontalCenter="0.5"/>
 	<e:Image id="imgArrow0" y="217" source="common_json.img_arrow_green_png" horizontalCenter="0.5"/>
 </e:Skin>

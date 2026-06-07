@@ -8,8 +8,8 @@
 			</e:layout>
 		</e:List>
 	</e:Scroller>
-	<components:SnapButton id="btnDengji" label="登记幻兽" x="214" y="846" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png"/>
-	<components:SnapButton id="btnFenxiang" label="战力分享" x="225" y="884" skinName="skins.SnapButtonDefaultSkin" width="150" visible="false"/>
+	<components:SnapButton id="btnDengji" label="Register Phantom Beast" x="214" y="846" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png"/>
+	<components:SnapButton id="btnFenxiang" label="Power Share" x="225" y="884" skinName="skins.SnapButtonDefaultSkin" width="150" visible="false"/>
 	<components:SnapButton id="btnHelp" label="" x="51" y="868" anchorOffsetX="34" anchorOffsetY="33">
 		<components:skinName>
 			<e:Skin states="up,down,disabled">

@@ -9,7 +9,7 @@
 	<e:Image y="473" anchorOffsetX="0" anchorOffsetY="0" height="281" source="common_infobar_png" horizontalCenter="0" scale9Grid="11,30,576,3"/>
 	<item:PropertyItemBox id="propertyBox" y="515" skinName="normal.PropertyItemBoxSkin" horizontalCenter="0.5"/>
 	<e:Image y="753" anchorOffsetX="0" anchorOffsetY="0" height="160" source="common_implementbar_png" horizontalCenter="0" scale9Grid="198,12,323,16"/>
-	<components:SnapButton id="btnLearn" label="学 习" x="230" y="835" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png"/>
+	<components:SnapButton id="btnLearn" label="Learn" x="230" y="835" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png"/>
 	<e:Image width="700" height="115" y="181" anchorOffsetY="0" anchorOffsetX="0" source="common_implementbar_png" scale9Grid="40,12,560,6" horizontalCenter="0"/>
 	<ns1:LegionItemSkill id="imgPlayerIcon" x="72" y="22.5" skinName="LegionCircleItemSkin"/>
 	<ns1:LegionItemSkill id="imgPetIcon0" x="193" y="22.5" skinName="LegionCircleItemSkin"/>
@@ -19,7 +19,7 @@
 	<components:Icon id="imgSkillIcon" width="80" height="80" x="55" y="346"/>
 	<e:Label id="skillName" text="Label" y="358" size="20" verticalAlign="middle" textAlign="left" left="153" textColor="0xc6b59e"/>
 	<e:Label id="skillDes" text="Label" y="394" size="20" verticalAlign="middle" textAlign="left" left="153" textColor="0xc6b59e"/>
-	<e:Label text="消耗贡献 : " x="151" y="774" size="20" textColor="0xc6b59e"/>
+	<e:Label text="Contribution Cost: " x="151" y="774" size="20" textColor="0xc6b59e"/>
 	<e:Image width="150" height="35" x="253" y="769" source="common_json.img_numbg_png" scale9Grid="7,8,41,9"/>
 	<e:Label id="labData" text="Label" x="260" y="774" size="20" textColor="0x34e22c"/>
 	<e:Image id="imgSelectHead" x="72" y="22.5" touchEnabled="false" anchorOffsetX="-3.5" anchorOffsetY="-2" source="explore_json.img_circle_gold" width="85" height="85"/>

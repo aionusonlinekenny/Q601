@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="ActivityNoticeSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="143" height="101">
 	<e:Image id="imgIcon" horizontalCenter="0" source="uiMain_activityNotice_json.main_activityNotice_icon1"/>
-	<e:Label id="countLabel" text="05:00后开启" y="93" anchorOffsetY="10" height="18" textColor="0x34e22c" size="18" anchorOffsetX="71.5" width="143" textAlign="center" horizontalCenter="0"/>
+	<e:Label id="countLabel" text="Opens in 05:00" y="93" anchorOffsetY="10" height="18" textColor="0x34e22c" size="18" anchorOffsetX="71.5" width="143" textAlign="center" horizontalCenter="0"/>
 </e:Skin>

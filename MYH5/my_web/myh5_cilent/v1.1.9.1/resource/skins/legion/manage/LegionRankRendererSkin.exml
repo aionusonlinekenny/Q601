@@ -3,11 +3,11 @@
         xmlns:w="http://ns.egret.com/wing">
 	<e:Image id="imgbg" width="562" height="120" anchorOffsetX="0" anchorOffsetY="0"
 	          x="0" y="0" scale9Grid="12,25,15,19" source="img_union_list_png"/>
-	<e:Label id="labName" text="珊哥哥军团  Lv:10" y="18" size="20" verticalAlign="middle" textAlign="left"
+	<e:Label id="labName" text="Sange Guild  Lv:10" y="18" size="20" verticalAlign="middle" textAlign="left"
 	         left="66"  textColor="0xedc839"/>
-	<e:Label id="labNickname" text="会长 : 珊珊    人数 : 28/30" y="52.32" size="20" verticalAlign="middle"
+	<e:Label id="labNickname" text="President: Shanshan    Members: 28/30" y="52.32" size="20" verticalAlign="middle"
 	         textAlign="left" left="64"  textColor="0xc6b59e"/>
-	<e:Label id="labPwore" text="军团战斗力 : 4656" y="86.99" size="20" verticalAlign="middle"
+	<e:Label id="labPwore" text="Guild Combat Power: 4656" y="86.99" size="20" verticalAlign="middle"
 	         textAlign="left" left="62"  textColor="0xc6b59e"/>
 	<e:BitmapLabel id="labRank" x="20" y="53" text="1" font="pkMing_fnt"/>
 </e:Skin>

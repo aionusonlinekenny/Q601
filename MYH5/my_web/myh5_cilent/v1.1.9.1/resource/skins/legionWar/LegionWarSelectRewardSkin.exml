@@ -6,14 +6,14 @@
 	<e:Image x="269" y="56" anchorOffsetX="0" width="120" scale9Grid="5,12,9,20" source="union_json.img_union_up_png" height="41"/>
 	<e:Image x="385" y="56" anchorOffsetX="0" width="120" source="union_json.img_union_up_png" scale9Grid="6,12,7,20" height="41"/>
 	<e:Image x="501" y="56" anchorOffsetX="0" width="90" source="union_json.img_union_up_png" scale9Grid="6,12,7,20" height="41"/>
-	<e:Label text="成员" x="13" y="66" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xC6B59E" fontFamily="Microsoft YaHei"/>
-	<e:Label text="职位" x="160" y="66" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xC6B59E" fontFamily="Microsoft YaHei"/>
-	<e:Label text="战力" x="277" y="66" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xC6B59E" fontFamily="Microsoft YaHei"/>
-	<e:Label text="积分" x="394" y="66" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xC6B59E" fontFamily="Microsoft YaHei"/>
-	<e:Label id="labCount" text="剩余次数" y="798" size="14" textColor="0xC6B59E" textAlign="center" horizontalCenter="0"/>
+	<e:Label text="Member" x="13" y="66" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xC6B59E" fontFamily="Microsoft YaHei"/>
+	<e:Label text="Position" x="160" y="66" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xC6B59E" fontFamily="Microsoft YaHei"/>
+	<e:Label text="Power" x="277" y="66" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xC6B59E" fontFamily="Microsoft YaHei"/>
+	<e:Label text="Points" x="394" y="66" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xC6B59E" fontFamily="Microsoft YaHei"/>
+	<e:Label id="labCount" text="Remaining Attempts" y="798" size="14" textColor="0xC6B59E" textAlign="center" horizontalCenter="0"/>
 	<e:Scroller width="580" height="651" x="10" y="94" anchorOffsetY="0">
 		<e:List id="listCell" itemRenderer="renderer.LegionWarSelectRewardCell" itemRendererSkinName="renderer.LegionWarSelectRewardCellSkin"/>
 	</e:Scroller>
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="27" anchorOffsetY="28" x="571" y="30"/>
-	<components:SnapButton id="btnGive" label="发 放" y="777" anchorOffsetX="71.2" icon="common_json.img_warn_png" anchorOffsetY="26" width="140" skinName="skins.SnapButtonDefaultSkin" height="45" horizontalCenter="0"/>
+	<components:SnapButton id="btnGive" label="Distribute" y="777" anchorOffsetX="71.2" icon="common_json.img_warn_png" anchorOffsetY="26" width="140" skinName="skins.SnapButtonDefaultSkin" height="45" horizontalCenter="0"/>
 </e:Skin>

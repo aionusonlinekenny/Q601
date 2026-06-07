@@ -31,7 +31,7 @@
 		</components:skinName>
 	</components:SnapButton>
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="25" anchorOffsetY="24" x="565" y="174.5" width="54" height="55"/>
-	<e:Label id="labRefreshTime" text="(02:59:59后可刷新折扣)" y="512" size="18" textColor="0x34e22c" textAlign="center" horizontalCenter="30.5"/>
-	<e:Label id="labCount" text="今日还能购买5次" y="560" size="18" textColor="0x34E22C" textAlign="center" right="10"/>
+	<e:Label id="labRefreshTime" text="(Discount refreshes in 02:59:59)" y="512" size="18" textColor="0x34e22c" textAlign="center" horizontalCenter="30.5"/>
+	<e:Label id="labCount" text="Can still purchase 5 times today." y="560" size="18" textColor="0x34E22C" textAlign="center" right="10"/>
 	<e:Label id="rollLabel" text="" x="149" y="288" anchorOffsetX="0" height="20" size="20" textColor="0xCFC9BE"/>
 </e:Skin>

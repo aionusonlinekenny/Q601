@@ -3,5 +3,5 @@
 	<e:Scroller id="scroller" width="578" height="815" y="48" anchorOffsetY="0" x="11" scrollPolicyH="off" scrollPolicyV="auto">
 		<e:List id="listRevengeMine" itemRenderer="renderer.DreamRevengeCell"/>
 	</e:Scroller>
-	<e:Label id="labNohave" text="您还没有仇人！" y="400" size="20" verticalAlign="middle" textAlign="center" textColor="0xC6B59E" x="230"/>
+	<e:Label id="labNohave" text="You have no enemies yet!" y="400" size="20" verticalAlign="middle" textAlign="center" textColor="0xC6B59E" x="230"/>
 </e:Skin>

@@ -3,12 +3,12 @@
 	<e:Image anchorOffsetX="0" anchorOffsetY="0" width="700" x="-50" height="128" y="739" source="common_implementbar_png" scale9Grid="90,12,439,13"/>
 	<e:Image x="253" y="780.11" height="43" source="common_json.img_numbg_png" scale9Grid="6,6,43,14" anchorOffsetX="0" width="122"/>
 	<e:Image id="imgHelp" x="18" y="39" source="union_json.img_union_help_png"/>
-	<e:Label text="挑战次数:" y="790.01" size="20" x="156" textColor="0xcfc9be"/>
+	<e:Label text="Challenge Attempts:" y="790.01" size="20" x="156" textColor="0xcfc9be"/>
 	<e:Label id="labFightNum" text="5" y="790.01" size="20" x="289" anchorOffsetX="0" width="51.33" textAlign="center" textColor="0x34e22c"/>
-	<e:Label text="当前活跃度:" x="42.37" y="170.81" size="18" textColor="0xc6b59e"/>
+	<e:Label text="Current Activity:" x="42.37" y="170.81" size="18" textColor="0xc6b59e"/>
 	<e:Label id="labXunZhangNum" text="Label" x="149.37" y="170.81" size="18" bold="true" textColor="0xedc839"/>
-	<e:Label text="（每日0点重置）" y="172.81" size="18" anchorOffsetY="0" height="-33.52" x="429" textColor="0x34e22c"/>
-	<e:Label id="labTimeCount" text="(每2小时恢复一次)" y="825.08" bold="true" size="18" horizontalCenter="0" anchorOffsetY="0" height="-33.52" textColor="0x34e22c"/>
+	<e:Label text="(Resets daily at midnight)" y="172.81" size="18" anchorOffsetY="0" height="-33.52" x="429" textColor="0x34e22c"/>
+	<e:Label id="labTimeCount" text="(Recovers once every 2 hours)" y="825.08" bold="true" size="18" horizontalCenter="0" anchorOffsetY="0" height="-33.52" textColor="0x34e22c"/>
 	<components:SnapButton id="btnRank" label="" anchorOffsetX="34" anchorOffsetY="34" icon="uiMain_json.img_main_red" x="62" y="799" width="73" height="73">
 		<components:skinName>
 		<e:Skin states="up,down,disabled">

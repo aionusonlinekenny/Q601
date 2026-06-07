@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="dialog.BagMeltingSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:item="item.*" xmlns:ui="ui.*" width="600" height="916">
 	<e:Image y="298" horizontalCenter="0" source="bag_ronglianbg_jpg" width="600"/>
-	<components:SnapButton id="btnMelting" label="熔炼" y="839" anchorOffsetX="76" width="150" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="27" height="56" x="301" icon="img_warn_png"/>
+	<components:SnapButton id="btnMelting" label="Smelting" y="839" anchorOffsetX="76" width="150" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="27" height="56" x="301" icon="img_warn_png"/>
 	<item:BagMeltingBox id="box0" y="59" skinName="normal.BagMeltingBoxSkin" x="65"/>
 	<item:BagMeltingBox id="box1" x="192" y="59" skinName="normal.BagMeltingBoxSkin"/>
 	<item:BagMeltingBox id="box2" x="318" y="59" skinName="normal.BagMeltingBoxSkin"/>
@@ -12,7 +12,7 @@
 	<item:BagMeltingBox id="box7" y="320" skinName="normal.BagMeltingBoxSkin" x="192"/>
 	<item:BagMeltingBox id="box8" x="318" y="320" skinName="normal.BagMeltingBoxSkin"/>
 	<e:Group id="rongluGroup" x="306" y="567"/>
-	<e:Label id="labLink" text="月卡可提升背包上限" y="769" size="20" anchorOffsetX="0" textAlign="center" horizontalCenter="0" textColor="0x34e22c"/>
+	<e:Label id="labLink" text="Monthly Card increases the bag capacity limit." y="769" size="20" anchorOffsetX="0" textAlign="center" horizontalCenter="0" textColor="0x34e22c"/>
 
 	
 </e:Skin>

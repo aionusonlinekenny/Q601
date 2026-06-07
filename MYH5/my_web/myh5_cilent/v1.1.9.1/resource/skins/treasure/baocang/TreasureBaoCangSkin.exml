@@ -11,8 +11,8 @@
 	<e:Label id="labYaoshTen" text="10" size="20" x="480" textColor="0xC6B59E" y="830"/>
 	<components:Icon id="imgYaoshiTen0" x="456" y="826" anchorOffsetX="0" width="25" anchorOffsetY="0" height="25" source=""/>
 	<e:Label id="labDiamondsTen" text="4800" size="20" x="381" textColor="0xc6b59e" y="830"/>
-	<components:SnapButton id="btnXunOne" label="寻宝一次" x="154" icon="img_warn_png" y="790" skinName="skins.SnapTreasureSkin" anchorOffsetX="96" width="192" anchorOffsetY="22" height="52"/>
-	<components:SnapButton id="btnXunTen" label="寻宝十次" x="433" icon="img_warn_png" y="788" skinName="skins.SnapTreasureSkin" width="192" height="52" anchorOffsetX="96" anchorOffsetY="20"/>
+	<components:SnapButton id="btnXunOne" label="Treasure Hunt x1" x="154" icon="img_warn_png" y="790" skinName="skins.SnapTreasureSkin" anchorOffsetX="96" width="192" anchorOffsetY="22" height="52"/>
+	<components:SnapButton id="btnXunTen" label="Treasure Hunt x10" x="433" icon="img_warn_png" y="788" skinName="skins.SnapTreasureSkin" width="192" height="52" anchorOffsetX="96" anchorOffsetY="20"/>
 	<components:SnapButton id="btnWareHouse" x="527.5" y="628" icon="uiMain_json.img_main_red" width="73" height="73" anchorOffsetX="36" anchorOffsetY="35">
 		<components:skinName>
 			<e:Skin states="up,down,disabled">
@@ -55,8 +55,8 @@
 		<e:Label id="labName2" text="Label" y="114" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="0"/>
 		<components:Icon id="imgIcon2" width="80" height="80" x="19" y="16" touchEnabled="false"/>
 	</e:Group>
-	<e:Label text="或" x="155" y="830" size="20"/>
-	<e:Label text="或" x="430" y="830" size="20"/>
+	<e:Label text="Or" x="155" y="830" size="20"/>
+	<e:Label text="Or" x="430" y="830" size="20"/>
 	<e:Image source="img_BaoCangTitle_jpg" y="40" horizontalCenter="0"/>
 	<e:Image id="imgDiscount" source="treasure_json.img_discoount2" x="1" y="724"/>
 </e:Skin>

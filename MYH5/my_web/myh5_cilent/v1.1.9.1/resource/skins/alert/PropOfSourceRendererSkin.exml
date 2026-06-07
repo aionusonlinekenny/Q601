@@ -2,6 +2,6 @@
 <e:Skin class="renderer.PropOfSourceRendererSkin" width="500" height="50" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Image width="497" height="50" anchorOffsetX="0" anchorOffsetY="0" x="2" y="0" source="img_union_list_png" scale9Grid="11,9,55,38"/>
 	<e:Image source="common_json.img_arrow_green_png" x="465" y="14" anchorOffsetY="0" height="27" width="27" touchEnabled="false"/>
-	<e:Label text="前往" x="423" y="13" textColor="0xedc839" size="22" touchEnabled="false"/>
+	<e:Label text="Go To" x="423" y="13" textColor="0xedc839" size="22" touchEnabled="false"/>
 	<e:Label id="labFun" text="Label" y="13" textColor="0x34e22c" size="22" verticalAlign="middle" textAlign="left" touchEnabled="false" x="12"/>
 </e:Skin>

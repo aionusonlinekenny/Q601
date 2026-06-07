@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skins.TreasureBaoCangGiftSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" xmlns:treasure="treasure.*" width="556" height="800">
 	<e:Image id="imgBg" source="common_closetip_png" x="141" y="547.46"/>
-	<components:SnapButton id="btnSure" label="确定" y="644" width="140" x="84" skinName="skins.SnapTreasureSkin"/>
-	<components:SnapButton id="btnAngin" label="再来一次" y="644" anchorOffsetX="0" width="140" x="334" skinName="skins.SnapTreasureSkin"/>
+	<components:SnapButton id="btnSure" label="Confirm" y="644" width="140" x="84" skinName="skins.SnapTreasureSkin"/>
+	<components:SnapButton id="btnAngin" label="Try Again" y="644" anchorOffsetX="0" width="140" x="334" skinName="skins.SnapTreasureSkin"/>
 	<treasure:TreasureBaoCangCard id="card" skinName="skins.TreasureBaoCangCardSkin" y="254" anchorOffsetX="66" anchorOffsetY="0" x="278" width="132" height="177"/>
 	<treasure:TreasureIcon id="icon0" skinName="renderer.TreasureIconSkin" x="234" y="8"/>
 	<treasure:TreasureIcon id="icon1" skinName="renderer.TreasureIconSkin" x="234" y="8"/>
@@ -19,7 +19,7 @@
 		<e:Label id="labYaoshi" text="10" size="20" x="192.06" textColor="0xC6B59E" y="4"/>
 		<components:Icon id="imgYaoshiTen0" x="169" y="0" anchorOffsetX="0" width="25" anchorOffsetY="0" height="25" source=""/>
 		<e:Label id="labDiamonds" text="500" size="20" x="93.06" textColor="0xC6B59E" y="4"/>
-		<e:Label text="或" x="139.06" y="4" size="20"/>
+		<e:Label text="Or" x="139.06" y="4" size="20"/>
 		<e:Image id="imgDiscount" source="treasure_json.img_discoount" x="0" y="3"/>
 	</e:Group>
 </e:Skin>

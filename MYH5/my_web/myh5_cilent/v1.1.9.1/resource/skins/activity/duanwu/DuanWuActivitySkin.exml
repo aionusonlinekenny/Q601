@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="normal.DuanWuActivitySkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" width="600" height="850">
 	<e:Image source="img_activity_title_duanwubg_jpg" x="20"/>
-	<e:Label id="labDate" text="2018年12月12日 " x="409" y="130" size="16" textColor="0x3bf8ff" strokeColor="0x213d26" stroke="2"/>
-	<e:Label id="labDesc" text="活动期间幻兽总战力排行" x="410" y="157" size="14" width="158" height="72" lineSpacing="5" textAlign="left" textColor="0xdbf7ae" strokeColor="0x213d26" stroke="2"/>
+	<e:Label id="labDate" text="December 12, 2018 " x="409" y="130" size="16" textColor="0x3bf8ff" strokeColor="0x213d26" stroke="2"/>
+	<e:Label id="labDesc" text="Total Phantom Beast Power Ranking (event period)" x="410" y="157" size="14" width="158" height="72" lineSpacing="5" textAlign="left" textColor="0xdbf7ae" strokeColor="0x213d26" stroke="2"/>
 	<e:Label id="labMyFight" text="" y="215" size="22" textColor="0x2B8C25" rotation="0.1" right="24"/>
 	<e:Scroller width="559" height="436" y="413" x="21" anchorOffsetY="0">
 		<e:List id="listReward" x="40" y="-31.33" itemRendererSkinName="renderer.DuanWuActivityRendererSkin" anchorOffsetY="0" height="444.66">

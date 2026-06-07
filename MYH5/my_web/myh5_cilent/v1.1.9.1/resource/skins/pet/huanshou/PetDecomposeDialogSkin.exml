@@ -12,5 +12,5 @@
 	</e:Scroller>
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="589" y="29" anchorOffsetX="27" anchorOffsetY="27"/>
 	<components:IconButton id="btnBack" source="common_json.btn_back_png" x="568" y="922" anchorOffsetX="37" anchorOffsetY="37"/>
-	<e:Label id="labNoDec" text="当前没有可分解的材料" y="364" horizontalCenter="0" size="20" textColor="0x7D6A52"/>
+	<e:Label id="labNoDec" text="No materials available to decompose currently." y="364" horizontalCenter="0" size="20" textColor="0x7D6A52"/>
 </e:Skin>

@@ -26,18 +26,18 @@
 	<components:Icon id="itemIcon1" y="412" touchEnabled="false" width="80" height="80" x="432" source=""/>
 	<components:Icon id="itemIcon2" y="412" touchEnabled="false" width="80" height="80" x="121" source=""/>
 	<e:Image source="pet_json.img_kailv_di_png" y="600" horizontalCenter="0"/>
-	<e:Label text="基础技能书" x="77" y="132" size="14" textColor="0xc6b59e" stroke="2" touchEnabled="false"/>
-	<e:Label text="特殊技能书" x="211" y="132" size="14" textColor="0xc6b59e" stroke="2" touchEnabled="false"/>
-	<e:Label text="中级天赋书" x="346" y="132" size="14" textColor="0xc6b59e" stroke="2" touchEnabled="false"/>
-	<e:Label text="高级天赋书" x="479" y="132" size="14" textColor="0xc6b59e" stroke="2" touchEnabled="false"/>
+	<e:Label text="Basic Skill Book" x="77" y="132" size="14" textColor="0xc6b59e" stroke="2" touchEnabled="false"/>
+	<e:Label text="Special Skill Book" x="211" y="132" size="14" textColor="0xc6b59e" stroke="2" touchEnabled="false"/>
+	<e:Label text="Intermediate Talent Book" x="346" y="132" size="14" textColor="0xc6b59e" stroke="2" touchEnabled="false"/>
+	<e:Label text="Advanced Talent Book" x="479" y="132" size="14" textColor="0xc6b59e" stroke="2" touchEnabled="false"/>
 	<e:Label id="labZhongXinName" text="xxxxxx" y="431" size="20" textColor="0x34e22c" verticalAlign="middle" textAlign="center" horizontalCenter="0"/>
-	<e:Label id="labItem0" text="基础技能书" y="270" size="14" textColor="0xC6B59E" stroke="2" touchEnabled="false" verticalAlign="middle" textAlign="center" horizontalCenter="-3"/>
-	<e:Label id="labItem1" text="基础技能书" y="501" size="14" stroke="2" touchEnabled="false" verticalAlign="middle" textAlign="center" horizontalCenter="157" textColor="0xc6b59e"/>
-	<e:Label id="labItem2" text="基础技能书" y="501" size="14" textColor="0xC6B59E" stroke="2" touchEnabled="false" verticalAlign="middle" textAlign="center" horizontalCenter="-154"/>
+	<e:Label id="labItem0" text="Basic Skill Book" y="270" size="14" textColor="0xC6B59E" stroke="2" touchEnabled="false" verticalAlign="middle" textAlign="center" horizontalCenter="-3"/>
+	<e:Label id="labItem1" text="Basic Skill Book" y="501" size="14" stroke="2" touchEnabled="false" verticalAlign="middle" textAlign="center" horizontalCenter="157" textColor="0xc6b59e"/>
+	<e:Label id="labItem2" text="Basic Skill Book" y="501" size="14" textColor="0xC6B59E" stroke="2" touchEnabled="false" verticalAlign="middle" textAlign="center" horizontalCenter="-154"/>
 	<e:Label id="labDes" text="xxxxx" y="559" textColor="0x34e22c" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="0"/>
-	<e:Label text="选择需要消耗的材料" y="606" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="0" textColor="0xf4af09"/>
-	<components:SnapButton id="btnOneKey" label="一键放入" y="820" anchorOffsetX="80" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" x="156"/>
-	<components:SnapButton id="btnHeCheng" label="重铸" y="820" anchorOffsetX="80" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" x="453"/>
+	<e:Label text="Select Material to Consume" y="606" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="0" textColor="0xf4af09"/>
+	<components:SnapButton id="btnOneKey" label="One-tap Insert" y="820" anchorOffsetX="80" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" x="156"/>
+	<components:SnapButton id="btnHeCheng" label="Reforge" y="820" anchorOffsetX="80" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" x="453"/>
 	<e:Scroller id="scroller" width="539" height="129" y="643" anchorOffsetX="0" anchorOffsetY="0" x="44" scrollPolicyH="on" scrollPolicyV="off">
 		<e:List id="list" itemRenderer="SkillAndTalentItem" itemRendererSkinName="renderer.SkillAndTalentItemSkin">
 			<e:ArrayCollection>
@@ -55,5 +55,5 @@
 			</e:layout>
 		</e:List>
 	</e:Scroller>
-	<e:Label id="labNo" text="没有可消耗的材料" y="695" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="0" textColor="0xc6b59e" stroke="2"/>
+	<e:Label id="labNo" text="No consumable materials" y="695" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="0" textColor="0xc6b59e" stroke="2"/>
 </e:Skin>

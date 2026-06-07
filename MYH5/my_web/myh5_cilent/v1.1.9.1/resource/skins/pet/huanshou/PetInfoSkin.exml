@@ -10,12 +10,12 @@
 	<e:BitmapLabel id="labValue4" x="345" y="501" font="petLv_fnt" text="S" lineSpacing="10"/>
 	<e:BitmapLabel id="labValue5" x="345" y="534.46" font="petLv_fnt" text="S" lineSpacing="10"/>
 	<e:Image source="tips_json.img_tips_namebg" y="73" horizontalCenter="0"/>
-	<e:Label id="labName" text="宠物名字" size="24" textAlign="center" y="77" verticalAlign="bottom" textColor="0xc6b59e" horizontalCenter="0.5"/>
-	<e:Label id="labName0" text="类型 : " size="20" textAlign="center" y="183" verticalAlign="bottom" x="375" textColor="0xedc839"/>
-	<e:Label id="labName1" text="品质 : " size="20" textAlign="center" y="230" verticalAlign="bottom" x="375" textColor="0xedc839"/>
-	<e:Label id="labName2" text="进阶 : " size="20" textAlign="center" y="276" verticalAlign="bottom" x="375" textColor="0xedc839"/>
-	<e:Label id="labName3" text="战力 : " size="20" textAlign="center" y="323" verticalAlign="bottom" x="375" textColor="0xedc839"/>
-	<e:Label id="labType" text="物理攻击型" x="440" y="183" size="20" verticalAlign="middle" textColor="0xc6b59e" textAlign="left"/>
+	<e:Label id="labName" text="Pet Name" size="24" textAlign="center" y="77" verticalAlign="bottom" textColor="0xc6b59e" horizontalCenter="0.5"/>
+	<e:Label id="labName0" text="Type: " size="20" textAlign="center" y="183" verticalAlign="bottom" x="375" textColor="0xedc839"/>
+	<e:Label id="labName1" text="Quality: " size="20" textAlign="center" y="230" verticalAlign="bottom" x="375" textColor="0xedc839"/>
+	<e:Label id="labName2" text="Advancement: " size="20" textAlign="center" y="276" verticalAlign="bottom" x="375" textColor="0xedc839"/>
+	<e:Label id="labName3" text="Power: " size="20" textAlign="center" y="323" verticalAlign="bottom" x="375" textColor="0xedc839"/>
+	<e:Label id="labType" text="Physical Attack" x="440" y="183" size="20" verticalAlign="middle" textColor="0xc6b59e" textAlign="left"/>
 	<e:Label id="labQuailty" text="0" x="440" y="230" size="20" verticalAlign="middle" textAlign="left" textColor="0xc6b59e"/>
 	<e:Label id="labStep" text="0" x="440" y="276" size="20" verticalAlign="middle" textAlign="left" textColor="0xC6B59E"/>
 	<e:Label id="labPower" text="0" x="440" y="323" size="20" verticalAlign="middle" textAlign="left" textColor="0x34e22c"/>
@@ -26,20 +26,20 @@
 		<e:Label id="lab5" text="555555" y="74" size="20" verticalAlign="middle" textAlign="left" left="404" textColor="0xc6b59e"/>
 		<e:Label id="lab3" text="555555" y="108" size="20" verticalAlign="middle" textAlign="left" left="119" textColor="0xc6b59e"/>
 		<e:Label id="lab6" text="555555" y="108" size="20" verticalAlign="middle" textAlign="left" left="403" textColor="0xc6b59e"/>
-		<e:Label text="生       命 : " x="21" y="41"  size="20" fontFamily="Microsoft YaHei" textColor="0xc6b59e"/>
-		<e:Label text="物       防 : " x="21" y="74" size="20" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
-		<e:Label text="物       穿 : " x="22" y="108" size="20" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
-		<e:Label text="攻       击 : " x="301" y="41" size="20" fontFamily="Microsoft YaHei" textColor="0xc6b59e"/>
-		<e:Label text="法       防 : " x="301" y="74" size="20" fontFamily="Microsoft YaHei" textColor="0xc6b59e"/>
-		<e:Label text="法       穿 : " x="301" y="108" size="20" fontFamily="Microsoft YaHei" textColor="0xc6b59e"/>
+		<e:Label text="HP: " x="21" y="41"  size="20" fontFamily="Microsoft YaHei" textColor="0xc6b59e"/>
+		<e:Label text="Phys DEF: " x="21" y="74" size="20" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+		<e:Label text="Phys Pen: " x="22" y="108" size="20" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+		<e:Label text="ATK: " x="301" y="41" size="20" fontFamily="Microsoft YaHei" textColor="0xc6b59e"/>
+		<e:Label text="Magic DEF: " x="301" y="74" size="20" fontFamily="Microsoft YaHei" textColor="0xc6b59e"/>
+		<e:Label text="Magic Pen: " x="301" y="108" size="20" fontFamily="Microsoft YaHei" textColor="0xc6b59e"/>
 	</e:Group>
 	<e:Group id="gaojiGroup" y="589"  horizontalCenter="0" anchorOffsetX="0" width="499" anchorOffsetY="0" height="143">
-		<e:Label text="命       中 : " x="26" y="39" size="20" verticalAlign="middle" textAlign="right" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
-		<e:Label text="闪       避 : " x="302" y="39" size="20" verticalAlign="middle" textAlign="left" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
-		<e:Label text="暴       击 : " x="26" y="75" size="20" verticalAlign="middle" textAlign="right" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
-		<e:Label text="抗       暴 : " x="302" y="75" size="20" verticalAlign="middle" textAlign="left" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
-		<e:Label text="暴       伤 : " x="26" y="110" size="20" verticalAlign="middle" textAlign="right" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
-		<e:Label text="韧       性 : " x="301" y="110" size="20" verticalAlign="middle" textAlign="left" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+		<e:Label text="HIT: " x="26" y="39" size="20" verticalAlign="middle" textAlign="right" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+		<e:Label text="Dodge: " x="302" y="39" size="20" verticalAlign="middle" textAlign="left" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+		<e:Label text="Crit Rate: " x="26" y="75" size="20" verticalAlign="middle" textAlign="right" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+		<e:Label text="Crit Resist: " x="302" y="75" size="20" verticalAlign="middle" textAlign="left" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+		<e:Label text="Crit DMG: " x="26" y="110" size="20" verticalAlign="middle" textAlign="right" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
+		<e:Label text="Tenacity: " x="301" y="110" size="20" verticalAlign="middle" textAlign="left" textColor="0xc6b59e" fontFamily="Microsoft YaHei"/>
 		<e:Label id="lab7" text="Label" y="74" size="20" verticalAlign="middle" textAlign="left" textColor="0xc6b59e" x="126"/>
 		<e:Label id="lab8" text="Label" y="74" size="20" verticalAlign="middle" textAlign="left" textColor="0xc6b59e" x="404"/>
 		<e:Label id="lab9" text="Label" y="38" size="20" verticalAlign="middle" textAlign="left" textColor="0xc6b59e" x="404"/>
@@ -48,9 +48,9 @@
 		<e:Label id="lab12" text="Label" x="126" y="38" size="20" textColor="0xc6b59e"/>
 	</e:Group>
 	<e:Group id="teshuGroup" y="766"  anchorOffsetY="0" height="114" anchorOffsetX="0" width="503" horizontalCenter="0">
-		<e:Label text="伤害加深 : " x="27" y="37" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
-		<e:Label text="伤害减免 : " x="307" y="38" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
-		<e:Label text="生命回复 : " x="27" y="72" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
+		<e:Label text="Damage Amplification: " x="27" y="37" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
+		<e:Label text="Damage Reduction: " x="307" y="38" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
+		<e:Label text="HP Regen: " x="27" y="72" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
 		<e:Label id="lab13" text="Label" x="130" y="34" size="20" textColor="0xc6b59e"/>
 		<e:Label id="lab14" text="Label" x="131" y="73" size="20" fontFamily="Microsoft JhengHei" textColor="0xc6b59e"/>
 		<e:Label id="lab15" text="Label" x="406" y="37" size="20" textColor="0xc6b59e"/>

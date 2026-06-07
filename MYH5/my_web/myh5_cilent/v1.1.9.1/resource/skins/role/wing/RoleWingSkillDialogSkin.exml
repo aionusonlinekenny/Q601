@@ -17,17 +17,17 @@
 	<e:Group id="consumeGroup" x="133" y="795">
 		<e:Image source="common_json.img_numbg_png" y="5" anchorOffsetY="0" height="42" anchorOffsetX="0" width="108" scale9Grid="11,5,40,12" touchEnabled="false" x="169"/>
 		<components:IconButton id="btnGetMaterial" x="358" y="37" source="common_json.img_getRes_png" anchorOffsetX="34" anchorOffsetY="35"/>
-		<e:Label id="labNeed" text="消耗道具 : " x="0" y="14" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xCFC9BE" textAlign="right" touchEnabled="false" anchorOffsetX="0" width="169"/>
+		<e:Label id="labNeed" text="Item Cost: " x="0" y="14" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xCFC9BE" textAlign="right" touchEnabled="false" anchorOffsetX="0" width="169"/>
 		<e:Label id="labCount" text="8000/8000" y="13" size="20" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="175" width="96"/>
 		<components:Icon id="imgWarnActive" source="common_json.img_warn_png" x="89" y="55"/>
 	</e:Group>
 	<e:Group id="groupNextSkill" x="244" y="587">
-		<e:Label text="下一级属性" y="0" size="18" anchorOffsetX="0" textAlign="center" touchEnabled="false" x="123.5" textColor="0xDF660E"/>
-		<e:Label id="labDes1" text="增加角色攻防固定值，外加幻武培养总属性的50%，外加幻武培养总属性的50%" x="56" y="27" size="16" textColor="0xCFC9BE" anchorOffsetY="0" height="83" anchorOffsetX="0" width="243" verticalAlign="top" textAlign="left" lineSpacing="5"/>
+		<e:Label text="Next Level Attributes" y="0" size="18" anchorOffsetX="0" textAlign="center" touchEnabled="false" x="123.5" textColor="0xDF660E"/>
+		<e:Label id="labDes1" text="Increases character ATK/DEF by fixed amount, plus 50% of Phantom Weapon total attributes" x="56" y="27" size="16" textColor="0xCFC9BE" anchorOffsetY="0" height="83" anchorOffsetX="0" width="243" verticalAlign="top" textAlign="left" lineSpacing="5"/>
 		<e:Image y="-85" x="172" rotation="90" anchorOffsetX="21" anchorOffsetY="15" scaleX="1" scaleY="1" source="rolePhantom_json.role_phantom_part_next_png"/>
 	</e:Group>
-	<components:SnapButton id="btnUpgrade" label="提升" y="875" anchorOffsetX="81" width="162" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" horizontalCenter="0"/>
+	<components:SnapButton id="btnUpgrade" label="Enhance" y="875" anchorOffsetX="81" width="162" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" horizontalCenter="0"/>
 	<components:Icon id="imgWarn" source="common_json.img_warn_png" x="219" y="848"/>
-	<e:Label text="当前属性" y="318" size="18" anchorOffsetX="0" textAlign="center" touchEnabled="false" x="376.5" textColor="0xdf660e"/>
-	<e:Label id="labDes0" text="增加角色攻防固定值，外加幻武培养总属性的50%，外加幻武培养总属性的50%" x="299" y="351" size="16" anchorOffsetY="0" height="84" anchorOffsetX="0" width="243" textAlign="left" textColor="0xcfc9be" lineSpacing="5"/>
+	<e:Label text="Current Attributes" y="318" size="18" anchorOffsetX="0" textAlign="center" touchEnabled="false" x="376.5" textColor="0xdf660e"/>
+	<e:Label id="labDes0" text="Increases character ATK/DEF by fixed amount, plus 50% of Phantom Weapon total attributes" x="299" y="351" size="16" anchorOffsetY="0" height="84" anchorOffsetX="0" width="243" textAlign="left" textColor="0xcfc9be" lineSpacing="5"/>
 </e:Skin>

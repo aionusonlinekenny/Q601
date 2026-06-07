@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="dialog.SelectPropSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:treasure="treasure.*" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*">
 	<e:Image width="528" height="490" source="common_json.img_tips_bg_png" scale9Grid="22,26,21,15"/>
-	<e:Button id="btnUse" label="使 用" y="402" skinName="skins.SnapButtonDefaultSkin" width="168" anchorOffsetX="84" anchorOffsetY="28" enabled="true" x="264"/>
+	<e:Button id="btnUse" label="Use" y="402" skinName="skins.SnapButtonDefaultSkin" width="168" anchorOffsetX="84" anchorOffsetY="28" enabled="true" x="264"/>
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="493" y="32" anchorOffsetX="25" anchorOffsetY="25"/>
 	<components:IconButton id="btnBack" source="common_json.btn_back_png" y="438" x="480" anchorOffsetX="37" anchorOffsetY="32"/>
 	<e:Image source="tips_json.img_tips_namebg" y="26" horizontalCenter="0"/>
@@ -22,12 +22,12 @@
 		</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Label text="使用后获得选中的道具" y="265" size="18" textColor="0x34e22c" x="174"/>
-	<e:Label id="labCount" text="数量:10" y="450" size="18" horizontalCenter="0" textColor="0xedc839"/>
+	<e:Label text="Obtain selected items after use" y="265" size="18" textColor="0x34e22c" x="174"/>
+	<e:Label id="labCount" text="Quantity: 10" y="450" size="18" horizontalCenter="0" textColor="0xedc839"/>
 	<e:Group width="470" height="45" y="294" anchorOffsetY="0" anchorOffsetX="0" x="29">
 		<e:Image y="5" height="40" width="152" source="common_json.img_numbg_png" scale9Grid="17,8,19,8" x="159"/>
-		<e:Button id="btnXiao" label="最小" skinName="skins.SnapRedButtonSkin" anchorOffsetX="45" width="90" anchorOffsetY="22" y="21" x="50"/>
-		<e:Button id="btnDa" label="最大" y="21" skinName="skins.SnapRedButtonSkin" anchorOffsetX="44" width="90" anchorOffsetY="22" x="419"/>
+		<e:Button id="btnXiao" label="Min" skinName="skins.SnapRedButtonSkin" anchorOffsetX="45" width="90" anchorOffsetY="22" y="21" x="50"/>
+		<e:Button id="btnDa" label="Max" y="21" skinName="skins.SnapRedButtonSkin" anchorOffsetX="44" width="90" anchorOffsetY="22" x="419"/>
 		<components:IconButton id="btnJian" source="common_json.btn_jian_png" anchorOffsetX="22" anchorOffsetY="22" y="23" x="121"/>
 		<components:IconButton id="btnJia" y="23" source="common_json.btn_jia_png" anchorOffsetX="23" anchorOffsetY="22" x="347"/>
 		<e:Label id="labUseCount" text="1000" y="13" size="20" textAlign="center" width="140" textColor="0xC6B59E" x="165"/>

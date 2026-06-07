@@ -6,14 +6,14 @@
 	<e:Image source="tips_json.img_tips_namebg" y="26" horizontalCenter="0"/>
 	<e:Image id="imgQuality" source="common_json.img_qlt_1_png" x="34" y="104"/>
 	<components:Icon id="imgIcon" x="39" y="107" width="80" height="80" source=""/>
-	<e:Label id="labName" text="极品暮光之杖" y="34" size="20" textColor="0x7B0CA6" anchorOffsetX="0" textAlign="center" width="245" horizontalCenter="0"/>
-	<e:Label text="类型 : " x="138" y="107" size="20"  textColor="0xedc839"/>
-	<e:Label text="职业 : " x="138" y="137" size="20"  textColor="0xedc839"/>
-	<e:Label text="等级 : " x="138" y="165" size="20"  textColor="0xedc839"/>
-	<e:Label id="labJob" text="异能者" x="193" y="137" size="20" anchorOffsetX="0" anchorOffsetY="0" textColor="0xc6b59e"/>
-	<e:Label id="labStep" text="神1" x="195" y="165" size="20" anchorOffsetX="0" textColor="0xc6b59e"/>
-	<e:Label id="labPropertys" text="基础属性" x="37" y="242" size="20" textColor="0x34e22c"/>
-	<e:Label id="labType" text="武器" x="193" y="107" size="20" anchorOffsetX="0" textColor="0xc6b59e"/>
+	<e:Label id="labName" text="Ultimate Twilight Staff" y="34" size="20" textColor="0x7B0CA6" anchorOffsetX="0" textAlign="center" width="245" horizontalCenter="0"/>
+	<e:Label text="Type: " x="138" y="107" size="20"  textColor="0xedc839"/>
+	<e:Label text="Class: " x="138" y="137" size="20"  textColor="0xedc839"/>
+	<e:Label text="Level: " x="138" y="165" size="20"  textColor="0xedc839"/>
+	<e:Label id="labJob" text="Esper" x="193" y="137" size="20" anchorOffsetX="0" anchorOffsetY="0" textColor="0xc6b59e"/>
+	<e:Label id="labStep" text="Divine 1" x="195" y="165" size="20" anchorOffsetX="0" textColor="0xc6b59e"/>
+	<e:Label id="labPropertys" text="Basic Attributes" x="37" y="242" size="20" textColor="0x34e22c"/>
+	<e:Label id="labType" text="Weapon" x="193" y="107" size="20" anchorOffsetX="0" textColor="0xc6b59e"/>
 	<e:Label id="labFight" text="99999999" x="428" y="168" size="20" anchorOffsetX="0" textColor="0x34e22c"/>
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetY="23" anchorOffsetX="26" x="514" y="29"/>
 	<components:IconButton id="btnBack" source="common_json.btn_back_png" anchorOffsetX="35" anchorOffsetY="35" x="498" bottom="10"/>

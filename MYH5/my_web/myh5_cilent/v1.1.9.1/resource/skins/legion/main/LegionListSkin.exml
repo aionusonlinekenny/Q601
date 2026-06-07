@@ -9,8 +9,8 @@
 			</e:layout>
 		</e:List>
 	</e:Scroller>
-	<e:Label id="labNohave" text="暂没有军团，赶快去创建吧！" x="166" y="413" size="20" verticalAlign="middle" textAlign="center" textColor="0xc6b59e"/>
-	<components:SnapButton id="btnCreatLegion" label="创建军团" x="309" y="843" width="150" anchorOffsetX="77" anchorOffsetY="25">
+	<e:Label id="labNohave" text="No Guild yet — go create one now!" x="166" y="413" size="20" verticalAlign="middle" textAlign="center" textColor="0xc6b59e"/>
+	<components:SnapButton id="btnCreatLegion" label="Create Guild" x="309" y="843" width="150" anchorOffsetX="77" anchorOffsetY="25">
 		<components:skinName>
 			<e:Skin states="up,down,disabled">
 			<e:Image alpha.disabled="0.5" width="100%" height="100%" source="common_json.btnt_red_selected_png" source.up="common_json.btnt_red_selected_png" source.down="common_json.btnt_red_selected_png" source.disabled="common_json.btnt_red_selected_png" scale9Grid="12,0,15,52"/>

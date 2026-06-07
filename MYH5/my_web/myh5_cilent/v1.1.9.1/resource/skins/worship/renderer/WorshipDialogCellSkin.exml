@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="renderer.WorshipDialogCellSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="583">
 	<e:Label id="labRank" text="1" size="18" textAlign="center" touchEnabled="false" textColor="0xC6B59E" x="29" y="8"/>
-	<e:Label id="labName" text="玩家名称六字" size="18" textAlign="center" touchEnabled="false" textColor="0xC6B59E" fontFamily="Microsoft YaHei" x="72" y="8"/>
-	<e:Label id="labLegion" text="军团名称六字" size="18" textAlign="center" touchEnabled="false" textColor="0xC6B59E" fontFamily="Microsoft YaHei" x="200" y="8"/>
+	<e:Label id="labName" text="Player Name (6 chars)" size="18" textAlign="center" touchEnabled="false" textColor="0xC6B59E" fontFamily="Microsoft YaHei" x="72" y="8"/>
+	<e:Label id="labLegion" text="Guild Name (6 chars)" size="18" textAlign="center" touchEnabled="false" textColor="0xC6B59E" fontFamily="Microsoft YaHei" x="200" y="8"/>
 	<e:Label id="labScore" text="999977799" size="18" textAlign="center" touchEnabled="false" textColor="0xC6B59E" x="321" y="8"/>
 	<components:IconButton id="btnEgg" anchorOffsetX="32" anchorOffsetY="16" source="worship_json.btn_worship_egg" x="540" y="16"/>
 	<components:IconButton id="btnFlower" anchorOffsetX="32" anchorOffsetY="16" source="worship_json.btn_worship_flower" y="16" x="460"/>

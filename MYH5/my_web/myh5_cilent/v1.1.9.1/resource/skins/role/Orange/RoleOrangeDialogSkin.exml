@@ -19,7 +19,7 @@
 	<ui:ItemIconSkin id="equip6" x="485" y="331" skinName="itemIcon.ItemIconSkin" />
 	<ui:ItemIconSkin id="equip7" x="25" y="471" skinName="itemIcon.ItemIconSkin" />
 	<ui:ItemIconSkin id="equip8" x="485" y="471" skinName="itemIcon.ItemIconSkin" />
-	<components:SnapButton id="btnCompose" label="锻  造" y="851" anchorOffsetX="81" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="27" icon="img_warn_png" width="162" height="52" horizontalCenter="0"/>
+	<components:SnapButton id="btnCompose" label="Forge" y="851" anchorOffsetX="81" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="27" icon="img_warn_png" width="162" height="52" horizontalCenter="0"/>
 	<components:SnapButton id="btnGetDebris" label="" y="804" anchorOffsetX="35" x="522" anchorOffsetY="34" icon="img_warn_png">
 		<components:skinName>
 		<e:Skin states="up,down,disabled">
@@ -36,11 +36,11 @@
 
 	<e:Group y="788" horizontalCenter="0">
 		<e:Image source="common_json.img_numbg_png" y="0" anchorOffsetY="0" height="28" anchorOffsetX="0" width="111" scale9Grid="11,5,40,12" x="0" visible="false"/>
-		<e:Label text="需要橙装碎片:" x="0" y="0" size="20" textColor="0xc6b59e"/>
+		<e:Label text="Orange Gear Fragments Required:" x="0" y="0" size="20" textColor="0xc6b59e"/>
 		<e:Label id="labCount" text="8000/8000" x="131" y="0" size="20" textColor="0x2b8c25" textAlign="left" anchorOffsetX="0"/>
 	</e:Group>
 
 
 
-	<e:Label id="labName" text="橙装锻造" x="424" y="308" size="20" anchorOffsetY="0" height="88" anchorOffsetX="0" width="24" stroke="2" strokeColor="0x783510"/>
+	<e:Label id="labName" text="Orange Gear Forging" x="424" y="308" size="20" anchorOffsetY="0" height="88" anchorOffsetX="0" width="24" stroke="2" strokeColor="0x783510"/>
 </e:Skin>

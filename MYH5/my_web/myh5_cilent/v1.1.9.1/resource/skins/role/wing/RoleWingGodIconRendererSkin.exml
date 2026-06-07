@@ -3,7 +3,7 @@
 	<e:Image id="imgSelect" source="common_json.img_selectFrame_png" width="74" height="74"/>
 	<components:Icon id="imgQuality" x="2" y="3" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="9,9,19,19" source="common_json.img_qlt_1_png" width="70" height="70"/>
 	<components:Icon id="imgWing" y="7" width="60" height="60" source="" horizontalCenter="0"/>
-	<e:Label id="labName" text="飞羽1阶" y="73" size="16" anchorOffsetX="0" width="70" textAlign="center" textColor="0xC6B59E" stroke="2" x="2"/>
-	<e:Label id="labLv" text="3阶" y="8" size="16" anchorOffsetX="0" width="63" textAlign="left" stroke="1" textColor="0x1291CE" x="7"/>
+	<e:Label id="labName" text="Flying Feather Tier 1" y="73" size="16" anchorOffsetX="0" width="70" textAlign="center" textColor="0xC6B59E" stroke="2" x="2"/>
+	<e:Label id="labLv" text="Tier 3" y="8" size="16" anchorOffsetX="0" width="63" textAlign="left" stroke="1" textColor="0x1291CE" x="7"/>
 	<e:Label id="labNum" text="100" y="51" size="16" anchorOffsetX="0" width="63" textAlign="right" stroke="1" x="3" textColor="0xc6b59e"/>
 </e:Skin>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="LegionHelpSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
 	<e:Image width="525" height="378" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
-	<components:SnapButton id="btnRegister" label="前往登记" x="195" y="292" skinName="skins.SnapButtonDefaultSkin" width="150"/>
-	<e:Label text="在图腾登记中登记幻兽可以增加军团声望。" y="100" size="20" verticalAlign="top" textAlign="left" x="91" anchorOffsetY="0" anchorOffsetX="0" textColor="0xc6b59e"/>
-	<e:Label text="军团声望达到要求即可升级军团。" y="138" size="20" verticalAlign="top" textAlign="left" anchorOffsetX="0" anchorOffsetY="0" x="91" textColor="0xc6b59e"/>
-	<e:Label text="升级军团可以解锁新的军团技能，提高军团技能升级上限。" y="168" size="20" verticalAlign="middle" textAlign="left" x="91" anchorOffsetX="0" width="404" anchorOffsetY="0" height="57" textColor="0xc6b59e"/>
+	<components:SnapButton id="btnRegister" label="Go to Register" x="195" y="292" skinName="skins.SnapButtonDefaultSkin" width="150"/>
+	<e:Label text="Registering Phantom Beasts in Totem Registration increases Guild Prestige." y="100" size="20" verticalAlign="top" textAlign="left" x="91" anchorOffsetY="0" anchorOffsetX="0" textColor="0xc6b59e"/>
+	<e:Label text="Reach the required Guild Prestige to upgrade the Guild." y="138" size="20" verticalAlign="top" textAlign="left" anchorOffsetX="0" anchorOffsetY="0" x="91" textColor="0xc6b59e"/>
+	<e:Label text="Upgrading the Guild unlocks new Guild skills and raises the skill upgrade cap." y="168" size="20" verticalAlign="middle" textAlign="left" x="91" anchorOffsetX="0" width="404" anchorOffsetY="0" height="57" textColor="0xc6b59e"/>
 	<components:IconButton id="btnClose" x="495" y="28" source="common_json.btn_close_png" anchorOffsetX="27" anchorOffsetY="23"/>
 	<e:Image source="union_json.img_union_title18_png" x="225" y="9"/>
 	<e:Image source="common_json.img_titlePoint_png" x="54" y="103"/>

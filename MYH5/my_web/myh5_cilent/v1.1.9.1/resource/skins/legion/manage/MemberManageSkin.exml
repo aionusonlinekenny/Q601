@@ -10,18 +10,18 @@
 			</e:layout>
 		</e:List>
 	</e:Scroller>
-	<components:SnapButton id="btnTurn" label="转让团长" x="62" y="854" skinName="skins.SnapButtonDefaultSkin" width="120" scaleX="1" scaleY="1"/>
-	<components:SnapButton id="btnAppointment" label="任命副团" x="181" y="854" width="120" skinName="skins.SnapButtonDefaultSkin">
+	<components:SnapButton id="btnTurn" label="Transfer Leadership" x="62" y="854" skinName="skins.SnapButtonDefaultSkin" width="120" scaleX="1" scaleY="1"/>
+	<components:SnapButton id="btnAppointment" label="Appoint Vice Leader" x="181" y="854" width="120" skinName="skins.SnapButtonDefaultSkin">
 	</components:SnapButton>
-	<components:SnapButton id="btnRecall" label="罢免职位" x="300" y="854" skinName="skins.SnapButtonDefaultSkin" width="120"/>
-	<components:SnapButton id="btnPlay" label="踢出军团" x="420" y="854" skinName="skins.SnapButtonDefaultSkin" width="120"/>
+	<components:SnapButton id="btnRecall" label="Remove from Position" x="300" y="854" skinName="skins.SnapButtonDefaultSkin" width="120"/>
+	<components:SnapButton id="btnPlay" label="Kick from Guild" x="420" y="854" skinName="skins.SnapButtonDefaultSkin" width="120"/>
 	<e:Image source="union_json.img_union_line_png" x="158" y="54" height="35"/>
 	<e:Image source="union_json.img_union_line_png" x="237" y="54" height="35"/>
 	<e:Image source="union_json.img_union_line_png" x="313" y="54" height="35"/>
 	<e:Image source="union_json.img_union_line_png" x="438" y="54" height="35"/>
-	<e:Label text="成员" x="63" y="62" size="20" textColor="0xedc839"/>
-	<e:Label text="职位" x="180" y="62" size="20" textColor="0xedc839"/>
-	<e:Label text="等级" x="257" y="62" size="20" textColor="0xedc839"/>
-	<e:Label text="战力" x="351" y="62" size="20" textColor="0xedc839"/>
-	<e:Label text="状态" x="487" y="62" size="20" textColor="0xedc839"/>
+	<e:Label text="Member" x="63" y="62" size="20" textColor="0xedc839"/>
+	<e:Label text="Position" x="180" y="62" size="20" textColor="0xedc839"/>
+	<e:Label text="Level" x="257" y="62" size="20" textColor="0xedc839"/>
+	<e:Label text="Power" x="351" y="62" size="20" textColor="0xedc839"/>
+	<e:Label text="Status" x="487" y="62" size="20" textColor="0xedc839"/>
 </e:Skin>

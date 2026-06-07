@@ -2,8 +2,8 @@
 <e:Skin class="renderer.JifenShangDianRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
 	<e:Image source="img_summer_jifen_bg_png" scale9Grid="8,47,158,48" anchorOffsetY="0" height="272" anchorOffsetX="0" width="183" x="0" y="0"/>
 	<e:Label id="lblgold" text="{data.gold}" y="165.5" verticalAlign="middle" size="18" textAlign="left" textColor="0xC6B59E" horizontalCenter="0"/>
-	<components:SnapButton id="btnBuy" label="兑换" y="191" skinName="skins.SnapOrangeButtonSkin" x="27"/>
-	<e:Label id="labCount" text="(限购 0/1)" y="249" size="14" verticalAlign="middle" textAlign="center" textColor="0x34E22C" horizontalCenter="0.5"/>
+	<components:SnapButton id="btnBuy" label="Exchange" y="191" skinName="skins.SnapOrangeButtonSkin" x="27"/>
+	<e:Label id="labCount" text="(Limited: 0/1)" y="249" size="14" verticalAlign="middle" textAlign="center" textColor="0x34E22C" horizontalCenter="0.5"/>
 	<e:Group id="iconGroup" y="68.5" touchEnabled="true" anchorOffsetX="0" anchorOffsetY="0" x="47">
 		<e:Image id="imgQuility" y="0" anchorOffsetY="0" touchEnabled="true" anchorOffsetX="0" source="common_json.img_qlt_1_png" horizontalCenter="0"/>
 		<components:Icon id="imgIcon" width="80" height="80" anchorOffsetX="0" anchorOffsetY="0" source="" horizontalCenter="0" verticalCenter="0"/>

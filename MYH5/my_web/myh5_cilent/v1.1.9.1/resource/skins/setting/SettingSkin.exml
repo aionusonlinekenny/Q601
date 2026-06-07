@@ -46,23 +46,23 @@
 		</e:Skin>
 		</e:skinName>
 	</e:ToggleSwitch>
-	<e:Label text="声音开关" x="247" y="271"  size="20"  textColor="0xc6b59e"/>
-	<e:Label id="labName" text="玩家名字" x="164" y="109"  size="20"  textColor="0xc6b59e"/>
-	<e:Label id="labFightValue" text="当前战力:5466465" x="164" y="141"  size="18"  textColor="0xedc839"/>
-	<e:Label text="游戏基本设置" y="225" size="18" textColor="0x7d6a52" x="226"/>
-	<e:Label text="屏蔽其他玩家" x="247" y="348"  size="20"  textColor="0xc6b59e" visible="false"/>
-	<e:Label text="生命低于 " x="247" y="460" size="20" textColor="0xC6B59E"/>
-	<e:Label text="%自动合体" x="384" y="460" size="20" textColor="0xC6B59E"/>
-	<e:Label text="自动释放XP技能" x="247" y="534"  size="20"  textColor="0xc6b59e"/>
-	<e:Label id="labXpVipTip" text="VIP1开启" x="247" y="518" size="14" textColor="0x34e22c"/>
-	<e:Label id="labMergeTip" text="VIP3开启" x="247" y="444" size="14" textColor="0x34E22C"/>
-	<e:Label text="关闭可减少手机发热及电量消耗" x="247" y="355.5" size="14" textColor="0x34E22C"/>
+	<e:Label text="Sound Toggle" x="247" y="271"  size="20"  textColor="0xc6b59e"/>
+	<e:Label id="labName" text="Player Name" x="164" y="109"  size="20"  textColor="0xc6b59e"/>
+	<e:Label id="labFightValue" text="Current Power: 5466465" x="164" y="141"  size="18"  textColor="0xedc839"/>
+	<e:Label text="Basic Game Settings" y="225" size="18" textColor="0x7d6a52" x="226"/>
+	<e:Label text="Block Other Players" x="247" y="348"  size="20"  textColor="0xc6b59e" visible="false"/>
+	<e:Label text="HP below " x="247" y="460" size="20" textColor="0xC6B59E"/>
+	<e:Label text="% Auto Merge" x="384" y="460" size="20" textColor="0xC6B59E"/>
+	<e:Label text="Auto-cast XP Skill" x="247" y="534"  size="20"  textColor="0xc6b59e"/>
+	<e:Label id="labXpVipTip" text="VIP1 Unlocked" x="247" y="518" size="14" textColor="0x34e22c"/>
+	<e:Label id="labMergeTip" text="VIP3 Unlocked" x="247" y="444" size="14" textColor="0x34E22C"/>
+	<e:Label text="Disabling this reduces phone heat and battery consumption." x="247" y="355.5" size="14" textColor="0x34E22C"/>
 	<components:IconButton id="btnRename" x="388" y="139.5" source="setting_json.setting_btn_rename" anchorOffsetX="37" anchorOffsetY="35" visible="false"/>
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="517" y="28" anchorOffsetX="26" anchorOffsetY="24"/>
 	<components:IconButton id="btnBack" source="common_json.btn_back_png" x="507" y="600" anchorOffsetX="37" anchorOffsetY="37"/>
 	<e:Image source="common_json.img_line_left_png" y="228" x="100"/>
 	<e:Image source="common_json.img_line_right_png" y="227" x="346"/>
-	<e:Label text="战斗设置" y="404" size="18" textColor="0x7D6A52" x="244"/>
+	<e:Label text="Battle Settings" y="404" size="18" textColor="0x7D6A52" x="244"/>
 	<e:Image source="common_json.img_line_left_png" y="406" x="100"/>
 	<e:Image source="common_json.img_line_right_png" y="406" x="346"/>
 	<e:Image source="common_json.img_qlt_1_png" x="60" y="93"/>
@@ -76,6 +76,6 @@
 		</e:Skin>
 		</e:skinName>
 	</e:ToggleSwitch>
-	<e:Label text="高频渲染" x="247" y="333" size="20" textColor="0xC6B59E"/>
+	<e:Label text="High-frequency Rendering" x="247" y="333" size="20" textColor="0xC6B59E"/>
 	<e:Image id="toggleAutoMergeRed" top="432" left="141" source="common_json.img_warn_png"/>
 </e:Skin>
