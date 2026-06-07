@@ -1,330 +1,308 @@
 #!/usr/bin/env python
 """
 Game Translation Editor
-A desktop GUI for reviewing and editing translated strings in PHP mobile game config files.
+Browse and edit translated strings in config.nncc, equipItem.json, propsItem.json
 """
 
 import tkinter as tk
-from tkinter import ttk, messagebox
+from tkinter import ttk, messagebox, filedialog
 import json
 import re
 import shutil
+import os
 from pathlib import Path
 
-# ---------------------------------------------------------------------------
-# Paths
-# ---------------------------------------------------------------------------
-BASE = Path(__file__).parent.parent  # /home/user/Q601
-
-CONFIG_PATH = BASE / "MYH5/my_web/myh5_cilent/v1.1.9.1/resource/data/config.nncc"
-
-EQUIP_PATHS = {
-    "s1": BASE / "MYH5/my_s1/conf/item/equipItem.json",
-    "s2": BASE / "MYH5/my_s2/conf/item/equipItem.json",
-    "s3": BASE / "MYH5/my_s3/conf/item/equipItem.json",
-}
-
-PROPS_PATHS = {
-    "s1": BASE / "MYH5/my_s1/conf/item/propsItem.json",
-    "s2": BASE / "MYH5/my_s2/conf/item/propsItem.json",
-    "s3": BASE / "MYH5/my_s3/conf/item/propsItem.json",
-}
-
-# ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
 _CHINESE_RE = re.compile(r"[一-鿿㐀-䶿]")
 
 
-def has_chinese(s: object) -> bool:
+def has_chinese(s):
     return bool(_CHINESE_RE.search(str(s)))
 
 
-def truncate(s: str, max_len: int = 80) -> str:
+def truncate(s, max_len=80):
     s = str(s).replace("\r\n", " ").replace("\n", " ")
-    if len(s) > max_len:
-        return s[:max_len - 1] + "…"
-    return s
+    return (s[:max_len - 1] + "…") if len(s) > max_len else s
 
 
-# ---------------------------------------------------------------------------
-# Main application
 # ---------------------------------------------------------------------------
 class TranslationEditor:
-    def __init__(self, root: tk.Tk):
+    def __init__(self, root):
         self.root = root
         self.root.title("Game Translation Editor")
-        self.root.geometry("1200x800")
-        self.root.minsize(1000, 700)
+        self.root.geometry("1200x820")
+        self.root.minsize(900, 600)
 
-        # In-memory data stores
-        self.config_data: dict | None = None        # full config.nncc dict
-        self.equip_data: dict | None = None         # full equipItem.json dict
-        self.props_data: dict | None = None         # full propsItem.json dict
+        # Active file paths (set when user browses)
+        self.config_path = None
+        self.equip_path = None   # always s1
+        self.props_path = None   # always s1
 
-        # Current state for config tab
-        self.config_current_section: str | None = None
-        self.config_filtered_indices: list[int] = []  # indices into section list
+        # In-memory data
+        self.config_data = None
+        self.equip_data = None
+        self.props_data = None
 
-        # Current state for item tabs
-        self.equip_filtered_ids: list[str] = []
-        self.props_filtered_ids: list[str] = []
+        self.config_current_section = None
+        self.config_filtered_indices = []
+        self.equip_filtered_ids = []
+        self.props_filtered_ids = []
 
         self._build_ui()
-        self._bind_tab_change()
 
     # -----------------------------------------------------------------------
-    # UI Construction
+    # UI
     # -----------------------------------------------------------------------
-
     def _build_ui(self):
-        # Notebook tabs
         self.notebook = ttk.Notebook(self.root)
         self.notebook.pack(fill=tk.BOTH, expand=True, padx=4, pady=4)
 
         self.tab_config = ttk.Frame(self.notebook)
-        self.tab_equip = ttk.Frame(self.notebook)
-        self.tab_props = ttk.Frame(self.notebook)
+        self.tab_equip  = ttk.Frame(self.notebook)
+        self.tab_props  = ttk.Frame(self.notebook)
 
         self.notebook.add(self.tab_config, text="Config (config.nncc)")
-        self.notebook.add(self.tab_equip, text="Equipment Items")
-        self.notebook.add(self.tab_props, text="Prop Items")
+        self.notebook.add(self.tab_equip,  text="Equipment Items")
+        self.notebook.add(self.tab_props,  text="Prop Items")
 
         self._build_config_tab()
-        self._build_item_tab(
-            parent=self.tab_equip,
-            prefix="equip",
-            paths=EQUIP_PATHS,
-        )
-        self._build_item_tab(
-            parent=self.tab_props,
-            prefix="props",
-            paths=PROPS_PATHS,
-        )
+        self._build_item_tab(self.tab_equip, "equip", "equipItem.json")
+        self._build_item_tab(self.tab_props, "props", "propsItem.json")
 
-        # Global status bar
-        self.status_var = tk.StringVar(value="Ready. Select a tab to load data.")
-        status_bar = ttk.Label(self.root, textvariable=self.status_var,
-                               relief=tk.SUNKEN, anchor=tk.W, padding=(6, 2))
-        status_bar.pack(side=tk.BOTTOM, fill=tk.X)
+        self.status_var = tk.StringVar(value="Use Browse to open a file.")
+        ttk.Label(self.root, textvariable=self.status_var,
+                  relief=tk.SUNKEN, anchor=tk.W, padding=(6, 2)
+                  ).pack(side=tk.BOTTOM, fill=tk.X)
 
     # --- Config tab ---------------------------------------------------------
-
     def _build_config_tab(self):
         tab = self.tab_config
 
-        # Toolbar
-        toolbar = ttk.Frame(tab)
-        toolbar.pack(side=tk.TOP, fill=tk.X, padx=4, pady=(4, 0))
+        # Toolbar row 1: file path
+        bar1 = ttk.Frame(tab)
+        bar1.pack(side=tk.TOP, fill=tk.X, padx=4, pady=(4, 0))
+
+        ttk.Label(bar1, text="File:").pack(side=tk.LEFT)
+        self.config_path_var = tk.StringVar(value="(no file loaded)")
+        ttk.Entry(bar1, textvariable=self.config_path_var, state="readonly",
+                  width=60).pack(side=tk.LEFT, padx=(4, 4), fill=tk.X, expand=True)
+        ttk.Button(bar1, text="Browse…", command=self._config_browse).pack(side=tk.LEFT)
+        ttk.Button(bar1, text="Reload",  command=self._config_reload).pack(side=tk.LEFT, padx=(4, 0))
+        ttk.Button(bar1, text="Save",    command=self._config_save).pack(side=tk.LEFT, padx=(4, 0))
+
+        # Toolbar row 2: search / filter
+        bar2 = ttk.Frame(tab)
+        bar2.pack(side=tk.TOP, fill=tk.X, padx=4, pady=(2, 0))
 
         self.config_search_var = tk.StringVar()
         self.config_search_var.trace_add("write", lambda *_: self._config_apply_filter())
-        ttk.Label(toolbar, text="Search:").pack(side=tk.LEFT)
-        ttk.Entry(toolbar, textvariable=self.config_search_var, width=28).pack(side=tk.LEFT, padx=(2, 8))
+        ttk.Label(bar2, text="Search:").pack(side=tk.LEFT)
+        ttk.Entry(bar2, textvariable=self.config_search_var, width=30
+                  ).pack(side=tk.LEFT, padx=(2, 8))
 
         self.config_filter_var = tk.StringVar(value="All")
-        filter_cb = ttk.Combobox(toolbar, textvariable=self.config_filter_var,
-                                 values=["All", "Has Chinese", "No Chinese"],
-                                 width=14, state="readonly")
-        filter_cb.pack(side=tk.LEFT, padx=(0, 8))
-        filter_cb.bind("<<ComboboxSelected>>", lambda _e: self._config_apply_filter())
+        cb = ttk.Combobox(bar2, textvariable=self.config_filter_var,
+                          values=["All", "Has Chinese", "No Chinese"],
+                          width=14, state="readonly")
+        cb.pack(side=tk.LEFT)
+        cb.bind("<<ComboboxSelected>>", lambda _: self._config_apply_filter())
 
-        ttk.Button(toolbar, text="Reload", command=self._config_reload).pack(side=tk.LEFT, padx=2)
-        ttk.Button(toolbar, text="Save", command=self._config_save).pack(side=tk.LEFT, padx=2)
-
-        # PanedWindow: left=section list, right=entries
+        # PanedWindow
         paned = ttk.PanedWindow(tab, orient=tk.HORIZONTAL)
         paned.pack(fill=tk.BOTH, expand=True, padx=4, pady=4)
 
-        # --- Left panel: section list
-        left_frame = ttk.Frame(paned, width=260)
-        left_frame.pack_propagate(False)
-        paned.add(left_frame, weight=1)
-
-        ttk.Label(left_frame, text="Sections", font=("TkDefaultFont", 9, "bold")).pack(anchor=tk.W, padx=4, pady=(4, 0))
-        self.config_section_lb = tk.Listbox(left_frame, exportselection=False, activestyle="dotbox")
-        sect_scroll = ttk.Scrollbar(left_frame, orient=tk.VERTICAL, command=self.config_section_lb.yview)
-        self.config_section_lb.configure(yscrollcommand=sect_scroll.set)
-        sect_scroll.pack(side=tk.RIGHT, fill=tk.Y)
+        # Left: section list
+        lf = ttk.Frame(paned, width=220)
+        lf.pack_propagate(False)
+        paned.add(lf, weight=1)
+        ttk.Label(lf, text="Sections", font=("TkDefaultFont", 9, "bold")
+                  ).pack(anchor=tk.W, padx=4, pady=(4, 0))
+        self.config_section_lb = tk.Listbox(lf, exportselection=False, activestyle="dotbox")
+        sc = ttk.Scrollbar(lf, orient=tk.VERTICAL, command=self.config_section_lb.yview)
+        self.config_section_lb.configure(yscrollcommand=sc.set)
+        sc.pack(side=tk.RIGHT, fill=tk.Y)
         self.config_section_lb.pack(fill=tk.BOTH, expand=True, padx=(4, 0), pady=4)
         self.config_section_lb.bind("<<ListboxSelect>>", self._config_section_selected)
 
-        # --- Right panel: entry table + edit area
-        right_frame = ttk.Frame(paned)
-        paned.add(right_frame, weight=4)
+        # Right: tree + edit
+        rf = ttk.Frame(paned)
+        paned.add(rf, weight=4)
 
-        # Treeview
         cols = ("index", "value", "chinese")
-        self.config_tree = ttk.Treeview(right_frame, columns=cols, show="headings", height=18)
-        self.config_tree.heading("index", text="Index")
-        self.config_tree.heading("value", text="Value")
+        self.config_tree = ttk.Treeview(rf, columns=cols, show="headings", height=18)
+        self.config_tree.heading("index",   text="Index")
+        self.config_tree.heading("value",   text="Value")
         self.config_tree.heading("chinese", text="Chinese?")
-        self.config_tree.column("index", width=55, minwidth=40, anchor=tk.CENTER)
-        self.config_tree.column("value", width=620, minwidth=200)
-        self.config_tree.column("chinese", width=70, minwidth=60, anchor=tk.CENTER)
+        self.config_tree.column("index",   width=55,  anchor=tk.CENTER)
+        self.config_tree.column("value",   width=600)
+        self.config_tree.column("chinese", width=70,  anchor=tk.CENTER)
         self.config_tree.tag_configure("chinese", background="#FFF3CD")
-
-        tree_scroll_y = ttk.Scrollbar(right_frame, orient=tk.VERTICAL, command=self.config_tree.yview)
-        tree_scroll_x = ttk.Scrollbar(right_frame, orient=tk.HORIZONTAL, command=self.config_tree.xview)
-        self.config_tree.configure(yscrollcommand=tree_scroll_y.set, xscrollcommand=tree_scroll_x.set)
-
-        tree_scroll_y.pack(side=tk.RIGHT, fill=tk.Y)
+        sy = ttk.Scrollbar(rf, orient=tk.VERTICAL,   command=self.config_tree.yview)
+        sx = ttk.Scrollbar(rf, orient=tk.HORIZONTAL, command=self.config_tree.xview)
+        self.config_tree.configure(yscrollcommand=sy.set, xscrollcommand=sx.set)
+        sy.pack(side=tk.RIGHT, fill=tk.Y)
         self.config_tree.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
-        tree_scroll_x.pack(side=tk.TOP, fill=tk.X)
-
+        sx.pack(side=tk.TOP, fill=tk.X)
         self.config_tree.bind("<<TreeviewSelect>>", self._config_row_selected)
 
-        # Edit area
-        edit_frame = ttk.LabelFrame(right_frame, text="Edit Value", padding=4)
-        edit_frame.pack(fill=tk.X, padx=0, pady=(4, 0))
+        ef = ttk.LabelFrame(rf, text="Edit Value", padding=4)
+        ef.pack(fill=tk.X, pady=(4, 0))
+        self.config_edit_text = tk.Text(ef, height=5, wrap=tk.WORD, font=("TkFixedFont", 10))
+        es = ttk.Scrollbar(ef, orient=tk.VERTICAL, command=self.config_edit_text.yview)
+        self.config_edit_text.configure(yscrollcommand=es.set)
+        es.pack(side=tk.RIGHT, fill=tk.Y)
+        self.config_edit_text.pack(fill=tk.BOTH, expand=True)
 
-        self.config_edit_text = tk.Text(edit_frame, height=5, wrap=tk.WORD,
-                                        font=("TkFixedFont", 10))
-        edit_scroll = ttk.Scrollbar(edit_frame, orient=tk.VERTICAL, command=self.config_edit_text.yview)
-        self.config_edit_text.configure(yscrollcommand=edit_scroll.set)
-        edit_scroll.pack(side=tk.RIGHT, fill=tk.Y)
-        self.config_edit_text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-
-        btn_row = ttk.Frame(right_frame)
-        btn_row.pack(fill=tk.X, pady=(2, 0))
-        self.config_pos_label = ttk.Label(btn_row, text="", foreground="gray")
+        br = ttk.Frame(rf)
+        br.pack(fill=tk.X, pady=(2, 0))
+        self.config_pos_label = ttk.Label(br, text="", foreground="gray")
         self.config_pos_label.pack(side=tk.LEFT, padx=4)
-        ttk.Button(btn_row, text="Apply Change", command=self._config_apply_edit).pack(side=tk.RIGHT, padx=4)
+        ttk.Button(br, text="Apply Change", command=self._config_apply_edit
+                   ).pack(side=tk.RIGHT, padx=4)
 
-    # --- Item tab (shared for equip and props) --------------------------------
+    # --- Item tab (shared) --------------------------------------------------
+    def _build_item_tab(self, parent, prefix, default_filename):
+        # Toolbar row 1: file path
+        bar1 = ttk.Frame(parent)
+        bar1.pack(side=tk.TOP, fill=tk.X, padx=4, pady=(4, 0))
 
-    def _build_item_tab(self, parent: ttk.Frame, prefix: str, paths: dict):
-        """Build an equipment or props tab. prefix is 'equip' or 'props'."""
+        ttk.Label(bar1, text="File (s1):").pack(side=tk.LEFT)
+        path_var = tk.StringVar(value="(no file loaded)")
+        setattr(self, f"{prefix}_path_var", path_var)
+        ttk.Entry(bar1, textvariable=path_var, state="readonly",
+                  width=55).pack(side=tk.LEFT, padx=(4, 4), fill=tk.X, expand=True)
+        ttk.Button(bar1, text="Browse…",
+                   command=lambda p=prefix, fn=default_filename: self._item_browse(p, fn)
+                   ).pack(side=tk.LEFT)
+        ttk.Button(bar1, text="Reload",
+                   command=lambda p=prefix: self._item_reload(p)
+                   ).pack(side=tk.LEFT, padx=(4, 0))
+        ttk.Button(bar1, text="Save (+ mirror s2/s3)",
+                   command=lambda p=prefix: self._item_save(p)
+                   ).pack(side=tk.LEFT, padx=(4, 0))
 
-        # Toolbar
-        toolbar = ttk.Frame(parent)
-        toolbar.pack(side=tk.TOP, fill=tk.X, padx=4, pady=(4, 0))
+        # Toolbar row 2: search / filter
+        bar2 = ttk.Frame(parent)
+        bar2.pack(side=tk.TOP, fill=tk.X, padx=4, pady=(2, 0))
 
         search_var = tk.StringVar()
         filter_var = tk.StringVar(value="All")
-
         setattr(self, f"{prefix}_search_var", search_var)
         setattr(self, f"{prefix}_filter_var", filter_var)
-
-        ttk.Label(toolbar, text="Search:").pack(side=tk.LEFT)
-        search_entry = ttk.Entry(toolbar, textvariable=search_var, width=28)
-        search_entry.pack(side=tk.LEFT, padx=(2, 8))
-        search_var.trace_add("write", lambda *_: self._item_apply_filter(prefix))
-
-        filter_cb = ttk.Combobox(toolbar, textvariable=filter_var,
-                                 values=["All", "Has Chinese", "No Chinese"],
-                                 width=14, state="readonly")
-        filter_cb.pack(side=tk.LEFT, padx=(0, 8))
-        filter_cb.bind("<<ComboboxSelected>>", lambda _e: self._item_apply_filter(prefix))
-
-        ttk.Button(toolbar, text="Reload",
-                   command=lambda p=prefix: self._item_reload(p)).pack(side=tk.LEFT, padx=2)
-        ttk.Button(toolbar, text="Save",
-                   command=lambda p=prefix, ps=paths: self._item_save(p, ps)).pack(side=tk.LEFT, padx=2)
+        ttk.Label(bar2, text="Search:").pack(side=tk.LEFT)
+        ttk.Entry(bar2, textvariable=search_var, width=30
+                  ).pack(side=tk.LEFT, padx=(2, 8))
+        search_var.trace_add("write", lambda *_, p=prefix: self._item_apply_filter(p))
+        cb = ttk.Combobox(bar2, textvariable=filter_var,
+                          values=["All", "Has Chinese", "No Chinese"],
+                          width=14, state="readonly")
+        cb.pack(side=tk.LEFT)
+        cb.bind("<<ComboboxSelected>>", lambda _, p=prefix: self._item_apply_filter(p))
 
         # PanedWindow
         paned = ttk.PanedWindow(parent, orient=tk.HORIZONTAL)
         paned.pack(fill=tk.BOTH, expand=True, padx=4, pady=4)
 
-        # --- Left panel: item list
-        left_frame = ttk.Frame(paned, width=260)
-        left_frame.pack_propagate(False)
-        paned.add(left_frame, weight=1)
+        # Left: item list
+        lf = ttk.Frame(paned, width=240)
+        lf.pack_propagate(False)
+        paned.add(lf, weight=1)
+        ttk.Label(lf, text="Items (ID: Name)", font=("TkDefaultFont", 9, "bold")
+                  ).pack(anchor=tk.W, padx=4, pady=(4, 0))
+        lb = tk.Listbox(lf, exportselection=False, activestyle="dotbox", font=("TkFixedFont", 9))
+        sc = ttk.Scrollbar(lf, orient=tk.VERTICAL, command=lb.yview)
+        lb.configure(yscrollcommand=sc.set)
+        sc.pack(side=tk.RIGHT, fill=tk.Y)
+        lb.pack(fill=tk.BOTH, expand=True, padx=(4, 0), pady=4)
+        setattr(self, f"{prefix}_item_lb", lb)
+        lb.bind("<<ListboxSelect>>", lambda e, p=prefix: self._item_lb_selected(p))
 
-        ttk.Label(left_frame, text="Items (ID: Name)", font=("TkDefaultFont", 9, "bold")).pack(
-            anchor=tk.W, padx=4, pady=(4, 0))
-        item_lb = tk.Listbox(left_frame, exportselection=False, activestyle="dotbox",
-                             font=("TkFixedFont", 9))
-        item_scroll = ttk.Scrollbar(left_frame, orient=tk.VERTICAL, command=item_lb.yview)
-        item_lb.configure(yscrollcommand=item_scroll.set)
-        item_scroll.pack(side=tk.RIGHT, fill=tk.Y)
-        item_lb.pack(fill=tk.BOTH, expand=True, padx=(4, 0), pady=4)
+        # Right: tree + edit
+        rf = ttk.Frame(paned)
+        paned.add(rf, weight=4)
 
-        setattr(self, f"{prefix}_item_lb", item_lb)
-        item_lb.bind("<<ListboxSelect>>",
-                     lambda e, p=prefix: self._item_lb_selected(p))
-
-        # --- Right panel
-        right_frame = ttk.Frame(paned)
-        paned.add(right_frame, weight=4)
-
-        # Treeview
         cols = ("id", "name", "description", "chinese")
-        tree = ttk.Treeview(right_frame, columns=cols, show="headings", height=18)
-        tree.heading("id", text="ID")
-        tree.heading("name", text="Name")
+        tree = ttk.Treeview(rf, columns=cols, show="headings", height=18)
+        tree.heading("id",          text="ID")
+        tree.heading("name",        text="Name")
         tree.heading("description", text="Description")
-        tree.heading("chinese", text="Chinese?")
-        tree.column("id", width=80, minwidth=60, anchor=tk.CENTER)
-        tree.column("name", width=200, minwidth=100)
-        tree.column("description", width=400, minwidth=150)
-        tree.column("chinese", width=70, minwidth=60, anchor=tk.CENTER)
+        tree.heading("chinese",     text="Chinese?")
+        tree.column("id",          width=80,  anchor=tk.CENTER)
+        tree.column("name",        width=200)
+        tree.column("description", width=420)
+        tree.column("chinese",     width=70,  anchor=tk.CENTER)
         tree.tag_configure("chinese", background="#FFF3CD")
-
-        tree_sy = ttk.Scrollbar(right_frame, orient=tk.VERTICAL, command=tree.yview)
-        tree_sx = ttk.Scrollbar(right_frame, orient=tk.HORIZONTAL, command=tree.xview)
-        tree.configure(yscrollcommand=tree_sy.set, xscrollcommand=tree_sx.set)
-
-        tree_sy.pack(side=tk.RIGHT, fill=tk.Y)
+        sy = ttk.Scrollbar(rf, orient=tk.VERTICAL,   command=tree.yview)
+        sx = ttk.Scrollbar(rf, orient=tk.HORIZONTAL, command=tree.xview)
+        tree.configure(yscrollcommand=sy.set, xscrollcommand=sx.set)
+        sy.pack(side=tk.RIGHT, fill=tk.Y)
         tree.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
-        tree_sx.pack(side=tk.TOP, fill=tk.X)
-
+        sx.pack(side=tk.TOP, fill=tk.X)
         tree.bind("<<TreeviewSelect>>", lambda e, p=prefix: self._item_row_selected(p))
         setattr(self, f"{prefix}_tree", tree)
 
-        # Edit area — two labeled fields
-        edit_frame = ttk.LabelFrame(right_frame, text="Edit Name / Description", padding=4)
-        edit_frame.pack(fill=tk.X, padx=0, pady=(4, 0))
+        # Edit area
+        ef = ttk.LabelFrame(rf, text="Edit Name / Description", padding=4)
+        ef.pack(fill=tk.X, pady=(4, 0))
+        ef.columnconfigure(1, weight=1)
 
-        edit_frame.columnconfigure(1, weight=1)
+        ttk.Label(ef, text="Name:").grid(row=0, column=0, sticky=tk.NW, padx=(0, 4))
+        nt = tk.Text(ef, height=2, wrap=tk.WORD, font=("TkFixedFont", 10))
+        ns = ttk.Scrollbar(ef, orient=tk.VERTICAL, command=nt.yview)
+        nt.configure(yscrollcommand=ns.set)
+        ns.grid(row=0, column=2, sticky=tk.NS)
+        nt.grid(row=0, column=1, sticky=tk.EW, pady=(0, 4))
+        setattr(self, f"{prefix}_name_text", nt)
 
-        ttk.Label(edit_frame, text="Name:").grid(row=0, column=0, sticky=tk.NW, padx=(0, 4))
-        name_text = tk.Text(edit_frame, height=2, wrap=tk.WORD, font=("TkFixedFont", 10))
-        name_scroll = ttk.Scrollbar(edit_frame, orient=tk.VERTICAL, command=name_text.yview)
-        name_text.configure(yscrollcommand=name_scroll.set)
-        name_scroll.grid(row=0, column=2, sticky=tk.NS)
-        name_text.grid(row=0, column=1, sticky=tk.EW, pady=(0, 4))
-        setattr(self, f"{prefix}_name_text", name_text)
+        ttk.Label(ef, text="Desc:").grid(row=1, column=0, sticky=tk.NW, padx=(0, 4))
+        dt = tk.Text(ef, height=3, wrap=tk.WORD, font=("TkFixedFont", 10))
+        ds = ttk.Scrollbar(ef, orient=tk.VERTICAL, command=dt.yview)
+        dt.configure(yscrollcommand=ds.set)
+        ds.grid(row=1, column=2, sticky=tk.NS)
+        dt.grid(row=1, column=1, sticky=tk.EW)
+        setattr(self, f"{prefix}_desc_text", dt)
 
-        ttk.Label(edit_frame, text="Description:").grid(row=1, column=0, sticky=tk.NW, padx=(0, 4))
-        desc_text = tk.Text(edit_frame, height=3, wrap=tk.WORD, font=("TkFixedFont", 10))
-        desc_scroll = ttk.Scrollbar(edit_frame, orient=tk.VERTICAL, command=desc_text.yview)
-        desc_text.configure(yscrollcommand=desc_scroll.set)
-        desc_scroll.grid(row=1, column=2, sticky=tk.NS)
-        desc_text.grid(row=1, column=1, sticky=tk.EW)
-        setattr(self, f"{prefix}_desc_text", desc_text)
-
-        btn_row = ttk.Frame(right_frame)
-        btn_row.pack(fill=tk.X, pady=(2, 0))
-        pos_label = ttk.Label(btn_row, text="", foreground="gray")
-        pos_label.pack(side=tk.LEFT, padx=4)
-        setattr(self, f"{prefix}_pos_label", pos_label)
-        ttk.Button(btn_row, text="Apply Change",
-                   command=lambda p=prefix: self._item_apply_edit(p)).pack(side=tk.RIGHT, padx=4)
+        br = ttk.Frame(rf)
+        br.pack(fill=tk.X, pady=(2, 0))
+        pl = ttk.Label(br, text="", foreground="gray")
+        pl.pack(side=tk.LEFT, padx=4)
+        setattr(self, f"{prefix}_pos_label", pl)
+        ttk.Button(br, text="Apply Change",
+                   command=lambda p=prefix: self._item_apply_edit(p)
+                   ).pack(side=tk.RIGHT, padx=4)
 
     # -----------------------------------------------------------------------
-    # Tab change binding — lazy load
+    # Browse helpers
     # -----------------------------------------------------------------------
-
-    def _bind_tab_change(self):
-        self.notebook.bind("<<NotebookTabChanged>>", self._on_tab_changed)
-
-    def _on_tab_changed(self, _event=None):
-        idx = self.notebook.index(self.notebook.select())
-        if idx == 0 and self.config_data is None:
+    def _config_browse(self):
+        path = filedialog.askopenfilename(
+            title="Open config.nncc",
+            filetypes=[("Game config", "*.nncc"), ("JSON files", "*.json"), ("All files", "*.*")]
+        )
+        if path:
+            self.config_path = Path(path)
+            self.config_path_var.set(str(self.config_path))
             self._config_reload()
-        elif idx == 1 and self.equip_data is None:
-            self._item_reload("equip")
-        elif idx == 2 and self.props_data is None:
-            self._item_reload("props")
+
+    def _item_browse(self, prefix, default_filename):
+        path = filedialog.askopenfilename(
+            title=f"Open {default_filename}",
+            filetypes=[("JSON files", "*.json"), ("All files", "*.*")]
+        )
+        if path:
+            p = Path(path)
+            setattr(self, f"{prefix}_path", p)
+            getattr(self, f"{prefix}_path_var").set(str(p))
+            self._item_reload(prefix)
 
     # -----------------------------------------------------------------------
-    # Config tab logic
+    # Config logic
     # -----------------------------------------------------------------------
-
     def _config_reload(self):
+        if not self.config_path:
+            messagebox.showinfo("No File", "Click Browse… to select config.nncc first.")
+            return
         try:
-            with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+            with open(self.config_path, "r", encoding="utf-8") as f:
                 self.config_data = json.load(f)
         except Exception as e:
             messagebox.showerror("Load Error", f"Cannot load config.nncc:\n{e}")
@@ -336,15 +314,13 @@ class TranslationEditor:
 
         self.config_current_section = None
         self._config_clear_tree()
-        n_sections = len(self.config_data)
-        self.status_var.set(f"config.nncc loaded — {n_sections} sections.")
+        self.status_var.set(f"Loaded {self.config_path.name} — {len(self.config_data)} sections.")
 
     def _config_section_selected(self, _event=None):
         sel = self.config_section_lb.curselection()
         if not sel:
             return
-        section = self.config_section_lb.get(sel[0])
-        self.config_current_section = section
+        self.config_current_section = self.config_section_lb.get(sel[0])
         self._config_apply_filter()
 
     def _config_apply_filter(self):
@@ -352,7 +328,6 @@ class TranslationEditor:
             return
         section = self.config_current_section
         items = self.config_data.get(section, [])
-
         search = self.config_search_var.get().strip().lower()
         flt = self.config_filter_var.get()
 
@@ -361,30 +336,27 @@ class TranslationEditor:
             text = str(item)
             if search and search not in text.lower():
                 continue
-            chinese = has_chinese(text)
-            if flt == "Has Chinese" and not chinese:
+            ch = has_chinese(text)
+            if flt == "Has Chinese" and not ch:
                 continue
-            if flt == "No Chinese" and chinese:
+            if flt == "No Chinese" and ch:
                 continue
             self.config_filtered_indices.append(i)
 
         self._config_populate_tree(section, items)
 
-    def _config_populate_tree(self, section: str, items: list):
+    def _config_populate_tree(self, section, items):
         self._config_clear_tree()
         for i in self.config_filtered_indices:
             item = items[i]
-            val_str = truncate(str(item))
-            chinese = has_chinese(str(item))
-            tag = ("chinese",) if chinese else ()
+            ch = has_chinese(str(item))
+            tag = ("chinese",) if ch else ()
             self.config_tree.insert("", tk.END, iid=str(i),
-                                    values=(i, val_str, "Yes" if chinese else ""),
+                                    values=(i, truncate(str(item)), "Yes" if ch else ""),
                                     tags=tag)
-
-        n_total = len(items)
-        n_chinese = sum(1 for it in items if has_chinese(str(it)))
+        n_ch = sum(1 for it in items if has_chinese(str(it)))
         self.status_var.set(
-            f"Section '{section}': {n_total} items, {n_chinese} have Chinese  |  "
+            f"Section '{section}': {len(items)} items, {n_ch} Chinese  |  "
             f"Showing {len(self.config_filtered_indices)}"
         )
 
@@ -398,16 +370,15 @@ class TranslationEditor:
         sel = self.config_tree.selection()
         if not sel:
             return
-        iid = sel[0]
-        idx = int(iid)
-        section = self.config_current_section
-        if section is None or self.config_data is None:
+        idx = int(sel[0])
+        if self.config_data is None or self.config_current_section is None:
             return
-        item = self.config_data[section][idx]
-
+        item = self.config_data[self.config_current_section][idx]
         self.config_edit_text.delete("1.0", tk.END)
-        self.config_edit_text.insert("1.0", json.dumps(item, ensure_ascii=False))
-        self.config_pos_label.configure(text=f"Section: {section}  |  Index: {idx}")
+        self.config_edit_text.insert("1.0", json.dumps(item, ensure_ascii=False, indent=2)
+                                     if isinstance(item, list) else str(item))
+        self.config_pos_label.configure(
+            text=f"Section: {self.config_current_section}  |  Index: {idx}")
 
     def _config_apply_edit(self):
         sel = self.config_tree.selection()
@@ -415,62 +386,58 @@ class TranslationEditor:
             messagebox.showwarning("No Selection", "Select a row first.")
             return
         idx = int(sel[0])
-        section = self.config_current_section
-        if section is None or self.config_data is None:
+        if self.config_data is None or self.config_current_section is None:
             return
-
         raw = self.config_edit_text.get("1.0", tk.END).strip()
         try:
             new_val = json.loads(raw)
         except json.JSONDecodeError:
-            # Treat as plain string if JSON parse fails
             new_val = raw
-
-        self.config_data[section][idx] = new_val
-
-        # Refresh the treeview row
-        val_str = truncate(str(new_val))
-        chinese = has_chinese(str(new_val))
-        tag = ("chinese",) if chinese else ()
-        self.config_tree.item(str(idx), values=(idx, val_str, "Yes" if chinese else ""), tags=tag)
-        self.status_var.set(f"Updated section '{section}' index {idx}. (Unsaved)")
+        self.config_data[self.config_current_section][idx] = new_val
+        ch = has_chinese(str(new_val))
+        tag = ("chinese",) if ch else ()
+        self.config_tree.item(str(idx),
+                              values=(idx, truncate(str(new_val)), "Yes" if ch else ""),
+                              tags=tag)
+        self.status_var.set(f"Updated [{self.config_current_section}][{idx}] — unsaved.")
 
     def _config_save(self):
         if self.config_data is None:
-            messagebox.showwarning("Nothing Loaded", "No config data to save.")
+            messagebox.showwarning("Nothing Loaded", "No data to save.")
             return
         try:
-            with open(CONFIG_PATH, "w", encoding="utf-8") as f:
+            with open(self.config_path, "w", encoding="utf-8") as f:
                 json.dump(self.config_data, f, ensure_ascii=False, separators=(",", ":"))
-            self.status_var.set(f"Saved config.nncc — {CONFIG_PATH}")
+            self.status_var.set(f"Saved → {self.config_path}")
         except Exception as e:
-            messagebox.showerror("Save Error", f"Cannot save config.nncc:\n{e}")
+            messagebox.showerror("Save Error", str(e))
 
     # -----------------------------------------------------------------------
-    # Item tab logic (shared for equip and props)
+    # Item logic (shared)
     # -----------------------------------------------------------------------
-
-    def _get_item_data(self, prefix: str) -> dict | None:
+    def _get_item_data(self, prefix):
         return self.equip_data if prefix == "equip" else self.props_data
 
-    def _set_item_data(self, prefix: str, data: dict):
+    def _set_item_data(self, prefix, data):
         if prefix == "equip":
             self.equip_data = data
         else:
             self.props_data = data
 
-    def _get_filtered_ids(self, prefix: str) -> list[str]:
+    def _get_filtered_ids(self, prefix):
         return self.equip_filtered_ids if prefix == "equip" else self.props_filtered_ids
 
-    def _set_filtered_ids(self, prefix: str, ids: list[str]):
+    def _set_filtered_ids(self, prefix, ids):
         if prefix == "equip":
             self.equip_filtered_ids = ids
         else:
             self.props_filtered_ids = ids
 
-    def _item_reload(self, prefix: str):
-        paths = EQUIP_PATHS if prefix == "equip" else PROPS_PATHS
-        path = paths["s1"]
+    def _item_reload(self, prefix):
+        path = getattr(self, f"{prefix}_path", None)
+        if not path:
+            messagebox.showinfo("No File", "Click Browse… to select a file first.")
+            return
         try:
             with open(path, "r", encoding="utf-8") as f:
                 data = json.load(f)
@@ -479,87 +446,80 @@ class TranslationEditor:
             return
         self._set_item_data(prefix, data)
         self._item_apply_filter(prefix)
-        n_total = len(data)
-        n_chinese = sum(
+        n_ch = sum(
             1 for v in data.values()
             if has_chinese(v.get("property", {}).get("name", ""))
             or has_chinese(v.get("property", {}).get("description", ""))
         )
-        self.status_var.set(f"{path.name} loaded — {n_total} items, {n_chinese} have Chinese.")
+        self.status_var.set(f"Loaded {path.name} — {len(data)} items, {n_ch} Chinese.")
 
-    def _item_apply_filter(self, prefix: str):
+    def _item_apply_filter(self, prefix):
         data = self._get_item_data(prefix)
         if data is None:
             return
-        search_var: tk.StringVar = getattr(self, f"{prefix}_search_var")
-        filter_var: tk.StringVar = getattr(self, f"{prefix}_filter_var")
-        search = search_var.get().strip().lower()
-        flt = filter_var.get()
+        search = getattr(self, f"{prefix}_search_var").get().strip().lower()
+        flt    = getattr(self, f"{prefix}_filter_var").get()
 
-        filtered_ids = []
+        ids = []
         for item_id, entry in data.items():
             prop = entry.get("property", {})
             name = str(prop.get("name", ""))
             desc = str(prop.get("description", ""))
-            combined = f"{item_id} {name} {desc}".lower()
+            if search and search not in f"{item_id} {name} {desc}".lower():
+                continue
+            ch = has_chinese(name) or has_chinese(desc)
+            if flt == "Has Chinese" and not ch:
+                continue
+            if flt == "No Chinese" and ch:
+                continue
+            ids.append(item_id)
 
-            if search and search not in combined:
-                continue
-            chinese = has_chinese(name) or has_chinese(desc)
-            if flt == "Has Chinese" and not chinese:
-                continue
-            if flt == "No Chinese" and chinese:
-                continue
-            filtered_ids.append(item_id)
-
-        self._set_filtered_ids(prefix, filtered_ids)
+        self._set_filtered_ids(prefix, ids)
         self._item_populate_list(prefix)
         self._item_populate_tree(prefix)
 
-    def _item_populate_list(self, prefix: str):
-        lb: tk.Listbox = getattr(self, f"{prefix}_item_lb")
+    def _item_populate_list(self, prefix):
+        lb   = getattr(self, f"{prefix}_item_lb")
         data = self._get_item_data(prefix)
-        filtered_ids = self._get_filtered_ids(prefix)
+        ids  = self._get_filtered_ids(prefix)
         lb.delete(0, tk.END)
         if data is None:
             return
-        for item_id in filtered_ids:
+        for item_id in ids:
             prop = data[item_id].get("property", {})
             name = prop.get("name", "")
-            chinese = has_chinese(name) or has_chinese(prop.get("description", ""))
-            marker = "* " if chinese else "  "
-            lb.insert(tk.END, f"{marker}{item_id}: {name[:30]}")
+            ch = has_chinese(name) or has_chinese(prop.get("description", ""))
+            lb.insert(tk.END, ("* " if ch else "  ") + f"{item_id}: {name[:28]}")
 
-    def _item_populate_tree(self, prefix: str):
-        tree: ttk.Treeview = getattr(self, f"{prefix}_tree")
+    def _item_populate_tree(self, prefix):
+        tree = getattr(self, f"{prefix}_tree")
         data = self._get_item_data(prefix)
-        filtered_ids = self._get_filtered_ids(prefix)
+        ids  = self._get_filtered_ids(prefix)
         for row in tree.get_children():
             tree.delete(row)
         if data is None:
             return
-        for item_id in filtered_ids:
+        for item_id in ids:
             prop = data[item_id].get("property", {})
             name = str(prop.get("name", ""))
             desc = str(prop.get("description", ""))
-            chinese = has_chinese(name) or has_chinese(desc)
-            tag = ("chinese",) if chinese else ()
+            ch   = has_chinese(name) or has_chinese(desc)
+            tag  = ("chinese",) if ch else ()
             tree.insert("", tk.END, iid=item_id,
-                        values=(item_id, truncate(name, 50), truncate(desc, 80),
-                                "Yes" if chinese else ""),
+                        values=(item_id, truncate(name, 45), truncate(desc, 75),
+                                "Yes" if ch else ""),
                         tags=tag)
 
-    def _item_lb_selected(self, prefix: str):
-        lb: tk.Listbox = getattr(self, f"{prefix}_item_lb")
+    def _item_lb_selected(self, prefix):
+        lb  = getattr(self, f"{prefix}_item_lb")
         sel = lb.curselection()
         if not sel:
             return
-        filtered_ids = self._get_filtered_ids(prefix)
-        if sel[0] >= len(filtered_ids):
+        ids = self._get_filtered_ids(prefix)
+        if sel[0] >= len(ids):
             return
-        item_id = filtered_ids[sel[0]]
-        # Sync treeview selection
-        tree: ttk.Treeview = getattr(self, f"{prefix}_tree")
+        item_id = ids[sel[0]]
+        tree = getattr(self, f"{prefix}_tree")
         try:
             tree.selection_set(item_id)
             tree.see(item_id)
@@ -567,43 +527,38 @@ class TranslationEditor:
             pass
         self._item_load_edit(prefix, item_id)
 
-    def _item_row_selected(self, prefix: str):
-        tree: ttk.Treeview = getattr(self, f"{prefix}_tree")
-        sel = tree.selection()
+    def _item_row_selected(self, prefix):
+        tree = getattr(self, f"{prefix}_tree")
+        sel  = tree.selection()
         if not sel:
             return
         item_id = sel[0]
-        # Sync listbox selection
-        filtered_ids = self._get_filtered_ids(prefix)
-        if item_id in filtered_ids:
-            lb: tk.Listbox = getattr(self, f"{prefix}_item_lb")
-            idx = filtered_ids.index(item_id)
+        ids = self._get_filtered_ids(prefix)
+        if item_id in ids:
+            lb  = getattr(self, f"{prefix}_item_lb")
+            idx = ids.index(item_id)
             lb.selection_clear(0, tk.END)
             lb.selection_set(idx)
             lb.see(idx)
         self._item_load_edit(prefix, item_id)
 
-    def _item_load_edit(self, prefix: str, item_id: str):
+    def _item_load_edit(self, prefix, item_id):
         data = self._get_item_data(prefix)
         if data is None or item_id not in data:
             return
         prop = data[item_id].get("property", {})
         name = str(prop.get("name", ""))
         desc = str(prop.get("description", ""))
+        nt = getattr(self, f"{prefix}_name_text")
+        dt = getattr(self, f"{prefix}_desc_text")
+        pl = getattr(self, f"{prefix}_pos_label")
+        nt.delete("1.0", tk.END); nt.insert("1.0", name)
+        dt.delete("1.0", tk.END); dt.insert("1.0", desc)
+        pl.configure(text=f"Item ID: {item_id}")
 
-        name_text: tk.Text = getattr(self, f"{prefix}_name_text")
-        desc_text: tk.Text = getattr(self, f"{prefix}_desc_text")
-        pos_label: ttk.Label = getattr(self, f"{prefix}_pos_label")
-
-        name_text.delete("1.0", tk.END)
-        name_text.insert("1.0", name)
-        desc_text.delete("1.0", tk.END)
-        desc_text.insert("1.0", desc)
-        pos_label.configure(text=f"Item ID: {item_id}")
-
-    def _item_apply_edit(self, prefix: str):
-        tree: ttk.Treeview = getattr(self, f"{prefix}_tree")
-        sel = tree.selection()
+    def _item_apply_edit(self, prefix):
+        tree = getattr(self, f"{prefix}_tree")
+        sel  = tree.selection()
         if not sel:
             messagebox.showwarning("No Selection", "Select a row first.")
             return
@@ -611,80 +566,70 @@ class TranslationEditor:
         data = self._get_item_data(prefix)
         if data is None or item_id not in data:
             return
-
-        name_text: tk.Text = getattr(self, f"{prefix}_name_text")
-        desc_text: tk.Text = getattr(self, f"{prefix}_desc_text")
-
-        new_name = name_text.get("1.0", tk.END).rstrip("\n")
-        new_desc = desc_text.get("1.0", tk.END).rstrip("\n")
-
+        nt = getattr(self, f"{prefix}_name_text")
+        dt = getattr(self, f"{prefix}_desc_text")
+        new_name = nt.get("1.0", tk.END).rstrip("\n")
+        new_desc = dt.get("1.0", tk.END).rstrip("\n")
         data[item_id].setdefault("property", {})
-        data[item_id]["property"]["name"] = new_name
+        data[item_id]["property"]["name"]        = new_name
         data[item_id]["property"]["description"] = new_desc
-
-        # Refresh treeview row
-        chinese = has_chinese(new_name) or has_chinese(new_desc)
-        tag = ("chinese",) if chinese else ()
+        ch  = has_chinese(new_name) or has_chinese(new_desc)
+        tag = ("chinese",) if ch else ()
         tree.item(item_id,
-                  values=(item_id, truncate(new_name, 50), truncate(new_desc, 80),
-                          "Yes" if chinese else ""),
+                  values=(item_id, truncate(new_name, 45), truncate(new_desc, 75),
+                          "Yes" if ch else ""),
                   tags=tag)
+        lb  = getattr(self, f"{prefix}_item_lb")
+        ids = self._get_filtered_ids(prefix)
+        if item_id in ids:
+            li = ids.index(item_id)
+            lb.delete(li)
+            lb.insert(li, ("* " if ch else "  ") + f"{item_id}: {new_name[:28]}")
+            lb.selection_set(li)
+        self.status_var.set(f"Updated {item_id} — unsaved.")
 
-        # Refresh listbox entry
-        lb: tk.Listbox = getattr(self, f"{prefix}_item_lb")
-        filtered_ids = self._get_filtered_ids(prefix)
-        if item_id in filtered_ids:
-            list_idx = filtered_ids.index(item_id)
-            marker = "* " if chinese else "  "
-            lb.delete(list_idx)
-            lb.insert(list_idx, f"{marker}{item_id}: {new_name[:30]}")
-            lb.selection_set(list_idx)
-
-        self.status_var.set(f"Updated item {item_id}. (Unsaved)")
-
-    def _item_save(self, prefix: str, paths: dict):
+    def _item_save(self, prefix):
         data = self._get_item_data(prefix)
         if data is None:
-            messagebox.showwarning("Nothing Loaded", "No data loaded to save.")
+            messagebox.showwarning("Nothing Loaded", "No data loaded.")
             return
-        primary = paths["s1"]
+        path = getattr(self, f"{prefix}_path", None)
+        if not path:
+            messagebox.showwarning("No File", "No file path known.")
+            return
         try:
-            with open(primary, "w", encoding="utf-8") as f:
+            with open(path, "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
         except Exception as e:
-            messagebox.showerror("Save Error", f"Cannot save {primary.name}:\n{e}")
+            messagebox.showerror("Save Error", str(e))
             return
 
-        # Mirror to s2 and s3
-        copied = []
-        failed = []
-        for server in ("s2", "s3"):
-            dest = paths[server]
+        # Try to mirror to s2/s3 by substituting my_s1 → my_s2 / my_s3
+        copied, failed = [], []
+        for zone in ("my_s2", "my_s3"):
+            dest = Path(str(path).replace("my_s1", zone))
+            if dest == path:
+                continue  # path didn't contain my_s1
             try:
                 if dest.parent.exists():
-                    shutil.copy2(primary, dest)
-                    copied.append(server)
+                    shutil.copy2(path, dest)
+                    copied.append(zone)
                 else:
-                    failed.append(f"{server} (dir missing)")
+                    failed.append(f"{zone} (folder not found)")
             except Exception as e:
-                failed.append(f"{server} ({e})")
+                failed.append(f"{zone} ({e})")
 
-        msg = f"Saved {primary.name} to s1"
+        msg = f"Saved → {path}"
         if copied:
-            msg += f", copied to: {', '.join(copied)}"
+            msg += f"  |  Mirrored to: {', '.join(copied)}"
         if failed:
-            msg += f"  |  Could not copy to: {', '.join(failed)}"
+            msg += f"  |  Could not mirror: {', '.join(failed)}"
         self.status_var.set(msg)
 
 
 # ---------------------------------------------------------------------------
-# Entry point
-# ---------------------------------------------------------------------------
-
 def main():
     root = tk.Tk()
-
-    # Style tweaks
     style = ttk.Style()
     try:
         style.theme_use("clam")
@@ -692,12 +637,7 @@ def main():
         pass
     style.configure("Treeview", rowheight=22)
     style.configure("Treeview.Heading", font=("TkDefaultFont", 9, "bold"))
-
-    app = TranslationEditor(root)
-
-    # Load the first tab (config) immediately on startup
-    app._config_reload()
-
+    TranslationEditor(root)
     root.mainloop()
 
 
