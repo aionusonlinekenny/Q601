@@ -30605,7 +30605,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used to upgrade萌动乾坤SkillLevel.  |N|T:Suitable forPhantom Beast: |C:0xB6281A&T:Panda Bamboo Grove|T:. ",
+      "description": "Used to upgradeCute World Skill Level.  |N|T:Suitable forPhantom Beast: |C:0xB6281A&T:Panda Bamboo Grove|T:. ",
       "iconId": 299012,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -30810,7 +30810,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeLv RegenerationTalentLevel.  |N|T:Talent EffectLv.1: HPbelow |C:0x34E22C&T:40%|T: when,战斗 whenHPrecover|C:0x34E22C&T:4000|T: ptsHP, Interval|C:0x34E22C&T:1|T:s. |N|T:RecommendedPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
+      "description": "Used for ActivateandUpgradeLv RegenerationTalentLevel.  |N|T:Talent EffectLv.1: HPbelow |C:0x34E22C&T:40%|T: when,combat, HPrecover|C:0x34E22C&T:4000|T: ptsHP, Interval|C:0x34E22C&T:1|T:s. |N|T:RecommendedPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
       "iconId": 299103,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -31097,7 +31097,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgrade级CriticalTalentLevel.  |N|T:Talent EffectLv.1: PermanentUpgradeself|C:0x34E22C&T:1%|T:Critical. |N|T:RecommendedPhantom Beast Type: |C:0x34E22C&T:Attack Type|T:and|C:0x34E22C&T:All-Around Type|T:. ",
+      "description": "Used for ActivateandUpgradeLv Critical Talent Level.  |N|T:Talent EffectLv.1: PermanentUpgradeself|C:0x34E22C&T:1%|T:Critical. |N|T:RecommendedPhantom Beast Type: |C:0x34E22C&T:Attack Type|T:and|C:0x34E22C&T:All-Around Type|T:. ",
       "iconId": 299110,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -31261,7 +31261,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgrade级Sharp ClawTalentLevel.  |N|T:Talent EffectLv.1: Fusion whenattach self|C:0x34E22C&T:1%|T:Attack Power to character. |N|T:RecommendedPhantom Beast Type: |C:0x34E22C&T:|C:0x34E22C&T:All Phantom Beast Types|T:. ",
+      "description": "Used for ActivateandUpgradeLv Sharp Claw Talent Level.  |N|T:Talent EffectLv.1: Fusion whenattach self|C:0x34E22C&T:1%|T:Attack Power to character. |N|T:RecommendedPhantom Beast Type: |C:0x34E22C&T:|C:0x34E22C&T:All Phantom Beast Types|T:. ",
       "iconId": 299114,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -31466,7 +31466,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeAdvanced RegenerationTalentLevel.  |N|T:Talent EffectLv.1: HPbelow |C:0x34E22C&T:60%|T: when,战斗 whenHPrecover|C:0x34E22C&T:10000|T: ptsHP, Interval|C:0x34E22C&T:1|T:s. |N|T:RecommendedPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
+      "description": "Used for ActivateandUpgradeAdvanced RegenerationTalentLevel.  |N|T:Talent EffectLv.1: HPbelow |C:0x34E22C&T:60%|T: when,combat, HPrecover|C:0x34E22C&T:10000|T: ptsHP, Interval|C:0x34E22C&T:1|T:s. |N|T:RecommendedPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
       "iconId": 299203,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -31753,7 +31753,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgrade高级CriticalTalentLevel.  |N|T:Talent EffectLv.1: PermanentUpgradeself|C:0x34E22C&T:3%|T:Critical. |N|T:RecommendedPhantom Beast Type: |C:0x34E22C&T:Attack Type|T:and|C:0x34E22C&T:All-Around Type|T:. ",
+      "description": "Used for ActivateandUpgradeAdvanced Critical Talent Level.  |N|T:Talent EffectLv.1: PermanentUpgradeself|C:0x34E22C&T:3%|T:Critical. |N|T:RecommendedPhantom Beast Type: |C:0x34E22C&T:Attack Type|T:and|C:0x34E22C&T:All-Around Type|T:. ",
       "iconId": 299210,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -31917,7 +31917,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgrade高级Sharp ClawTalentLevel.  |N|T:Talent EffectLv.1: Fusion whenattach self|C:0x34E22C&T:3%|T:Attack Power to character. |N|T:RecommendedPhantom Beast Type: |C:0x34E22C&T:|C:0x34E22C&T:All Phantom Beast Types|T:. ",
+      "description": "Used for ActivateandUpgradeAdvanced Sharp Claw Talent Level.  |N|T:Talent EffectLv.1: Fusion whenattach self|C:0x34E22C&T:3%|T:Attack Power to character. |N|T:RecommendedPhantom Beast Type: |C:0x34E22C&T:|C:0x34E22C&T:All Phantom Beast Types|T:. ",
       "iconId": 299214,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -32040,7 +32040,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeIndestructibleTalentLevel.  |N|T:Talent EffectLv.1: Phantom Beastnear-death when, has5%Chanceapply a damage immunity Effect to characterin |C:0x34E22C&T:2|T:sreceive within Damage为0, Interval|C:0x34E22C&T:15|T: min. |N|T:RecommendedPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
+      "description": "Used for ActivateandUpgradeIndestructibleTalentLevel.  |N|T:Talent EffectLv.1: Phantom Beastnear-death when, has5%Chanceapply a damage immunity Effect to characterin |C:0x34E22C&T:2|T:sreceived within Damage is 0, Interval|C:0x34E22C&T:15|T: min. |N|T:RecommendedPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
       "iconId": 299351,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -32163,7 +32163,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeBully the WeakTalentLevel.  |N|T:Talent EffectLv.1: 对于HP value less than |C:0x34E22C&T:40%|T:target, DamageUpgrade|C:0x34E22C&T:10%|T:. |N|T:RecommendedPhantom Beast Type: |C:0x34E22C&T:Attack Type|T:and|C:0x34E22C&T:All-Around Type|T:. ",
+      "description": "Used for ActivateandUpgradeBully the WeakTalentLevel.  |N|T:Talent EffectLv.1: for targets with HP less than |C:0x34E22C&T:40%|T:target, DamageUpgrade|C:0x34E22C&T:10%|T:. |N|T:RecommendedPhantom Beast Type: |C:0x34E22C&T:Attack Type|T:and|C:0x34E22C&T:All-Around Type|T:. ",
       "iconId": 299354,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -32286,7 +32286,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeRejuvenationSkillLevel.  |N|T:apply to characterone-time recoverAttack Power|C:0x34E22C&T:150%|T:HP, Cooldown when间|C:0x34E22C&T:12|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
+      "description": "Used for ActivateandUpgradeRejuvenationSkillLevel.  |N|T:apply to characterone-time recoverAttack Power|C:0x34E22C&T:150%|T:HP, Cooldown|C:0x34E22C&T:12|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
       "iconId": 299501,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -32327,7 +32327,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeHP RevivalSkillLevel.  |N|T:apply to characterandAllPhantom Beast回复Attack Power|C:0x34E22C&T:80%|T:HP, Cooldown when间|C:0x34E22C&T:12|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
+      "description": "Used for ActivateandUpgradeHP RevivalSkillLevel.  |N|T:apply to characterandAllPhantom Beast, recoverAttack Power|C:0x34E22C&T:80%|T:HP, Cooldown|C:0x34E22C&T:12|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
       "iconId": 299502,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -32368,7 +32368,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeCorrosive StrikeSkillLevel.  |N|T:deal to targets in front range|C:0x34E22C&T:150%|T:AttackDamage, 并causetargetDefense降低|C:0x34E22C&T:15%|T:, Duration|C:0x34E22C&T:5|T:s, Cooldown when间|C:0x34E22C&T:12|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
+      "description": "Used for ActivateandUpgradeCorrosive StrikeSkillLevel.  |N|T:deal to targets in front range|C:0x34E22C&T:150%|T:AttackDamage, and causetarget Defense reduce by|C:0x34E22C&T:15%|T:, Duration|C:0x34E22C&T:5|T:s, Cooldown|C:0x34E22C&T:12|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
       "iconId": 299503,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -32409,7 +32409,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeCrippling StrikeSkillLevel.  |N|T:deal to targets in front range|C:0x34E22C&T:150%|T:AttackDamage, 并causetargetAttack降低|C:0x34E22C&T:15%|T:, Duration|C:0x34E22C&T:5|T:s, Cooldown when间|C:0x34E22C&T:12|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
+      "description": "Used for ActivateandUpgradeCrippling StrikeSkillLevel.  |N|T:deal to targets in front range|C:0x34E22C&T:150%|T:AttackDamage, and causetarget Attack reduce by|C:0x34E22C&T:15%|T:, Duration|C:0x34E22C&T:5|T:s, Cooldown|C:0x34E22C&T:12|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
       "iconId": 299504,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -32450,7 +32450,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeFlash StrikeSkillLevel.  |N|T:deal to targets in front range|C:0x34E22C&T:150%|T:AttackDamage, 并causetarget命降低|C:0x34E22C&T:15%|T:, Duration|C:0x34E22C&T:5|T:s, Cooldown when间|C:0x34E22C&T:12|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
+      "description": "Used for ActivateandUpgradeFlash StrikeSkillLevel.  |N|T:deal to targets in front range|C:0x34E22C&T:150%|T:AttackDamage, and causetarget Hit Rate reduce by|C:0x34E22C&T:15%|T:, Duration|C:0x34E22C&T:5|T:s, Cooldown|C:0x34E22C&T:12|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
       "iconId": 299505,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -32491,7 +32491,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeGiant Spirit StrikeSkillLevel.  |N|T:deal to targets in front range|C:0x34E22C&T:150%|T:AttackDamage, 并causecharacterDefenseIncrease|C:0x34E22C&T:15%|T:, Duration|C:0x34E22C&T:5|T:s, Cooldown when间|C:0x34E22C&T:12|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
+      "description": "Used for ActivateandUpgradeGiant Spirit StrikeSkillLevel.  |N|T:deal to targets in front range|C:0x34E22C&T:150%|T:AttackDamage, and causecharacterDefenseIncrease|C:0x34E22C&T:15%|T:, Duration|C:0x34E22C&T:5|T:s, Cooldown|C:0x34E22C&T:12|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
       "iconId": 299506,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -32532,7 +32532,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeThunderStrikeSkillLevel.  |N|T:deal to targets in front range|C:0x34E22C&T:120%|T:AttackDamage, 并has|C:0x34E22C&T:10%|T: probabilitycausetargetStun|C:0x34E22C&T:1|T:s, Cooldown when间|C:0x34E22C&T:12|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
+      "description": "Used for ActivateandUpgradeThunderStrikeSkillLevel.  |N|T:deal to targets in front range|C:0x34E22C&T:120%|T:AttackDamage, and has|C:0x34E22C&T:10%|T: probabilitycausetargetStun|C:0x34E22C&T:1|T:s, Cooldown|C:0x34E22C&T:12|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
       "iconId": 299507,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -32573,7 +32573,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeInvincible StrikeSkillLevel.  |N|T:causecharacterDamagereduceIncrease|C:0x34E22C&T:20%|T:, Duration|C:0x34E22C&T:5|T:s, Cooldown when间|C:0x34E22C&T:12|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
+      "description": "Used for ActivateandUpgradeInvincible StrikeSkillLevel.  |N|T:causecharacterDamagereduceIncrease|C:0x34E22C&T:20%|T:, Duration|C:0x34E22C&T:5|T:s, Cooldown|C:0x34E22C&T:12|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
       "iconId": 299508,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -32614,7 +32614,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeLightning StrikeSkillLevel.  |N|T:deal to single target|C:0x34E22C&T:220%|T:AttackDamage, Cooldown when间|C:0x34E22C&T:10|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
+      "description": "Used for ActivateandUpgradeLightning StrikeSkillLevel.  |N|T:deal to single target|C:0x34E22C&T:220%|T:AttackDamage, Cooldown|C:0x34E22C&T:10|T:s. |N|T:Suitable forPhantom Beast Type: |C:0x34E22C&T:All Phantom Beast Types|T:. ",
       "iconId": 299509,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -32658,7 +32658,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeTrue and False Monkey KingSkillLevel.  |N|T:Holy Walker大发Thunder, causeselfCriticalIncrease|C:0x34E22C&T:20%|T:, 暴伤Increase|C:0x34E22C&T:50%|T:, Duration|C:0x34E22C&T:6|T:s, 并deal to targets in front range|C:0x34E22C&T:120%|T:AttackDamage, Cooldown when间|C:0x34E22C&T:10|T:s. |N|C:0xB6281A&T:Holy Walker|T:Exclusive Skill. ",
+      "description": "Used for ActivateandUpgradeTrue and False Monkey KingSkillLevel.  |N|T:Holy Walkerunleashes Thunder, causeselfCriticalIncrease|C:0x34E22C&T:20%|T:, Critical Damage Increase|C:0x34E22C&T:50%|T:, Duration|C:0x34E22C&T:6|T:s, and deal to targets in front range|C:0x34E22C&T:120%|T:AttackDamage, Cooldown|C:0x34E22C&T:10|T:s. |N|C:0xB6281A&T:Holy Walker|T:Exclusive Skill. ",
       "iconId": 299510,
       "isCanSale": 0,
       "isNonPropertyItem": 0,
@@ -32702,7 +32702,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeGoddess WrathSkillLevel.  |N|T:ValkyriecauseselfAttackIncrease|C:0x34E22C&T:10%|T:, Damage amplifiedIncrease|C:0x34E22C&T:10%|T:, Duration|C:0x34E22C&T:6|T:s, Cooldown when间|C:0x34E22C&T:10|T:s. |N|C:0xB6281A&T:Valkyrie|T:Exclusive Skill. ",
+      "description": "Used for ActivateandUpgradeGoddess WrathSkillLevel.  |N|T:ValkyriecauseselfAttackIncrease|C:0x34E22C&T:10%|T:, Damage amplifiedIncrease|C:0x34E22C&T:10%|T:, Duration|C:0x34E22C&T:6|T:s, Cooldown|C:0x34E22C&T:10|T:s. |N|C:0xB6281A&T:Valkyrie|T:Exclusive Skill. ",
       "iconId": 299511,
       "isCanSale": 0,
       "isNonPropertyItem": 0,
@@ -32746,7 +32746,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeCharm WhipSkillLevel.  |N|T:Charm Whipdeal to single target|C:0x34E22C&T:200%|T:AttackDamage, and Stun target for|C:0x34E22C&T:1.5|T:s, Cooldown when间|C:0x34E22C&T:10|T:s. |N|C:0xB6281A&T:Xeris|T:Exclusive Skill. ",
+      "description": "Used for ActivateandUpgradeCharm WhipSkillLevel.  |N|T:Charm Whipdeal to single target|C:0x34E22C&T:200%|T:AttackDamage, and Stun target for|C:0x34E22C&T:1.5|T:s, Cooldown|C:0x34E22C&T:10|T:s. |N|C:0xB6281A&T:Xeris|T:Exclusive Skill. ",
       "iconId": 299512,
       "isCanSale": 0,
       "isNonPropertyItem": 0,
@@ -32790,7 +32790,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeVoid SlashSkillLevel.  |N|T:Void Slashignore target|C:0x34E22C&T:30%Defense|T:, simultaneously deal to target|C:0x34E22C&T:170%|T:AttackDamage, Cooldown when间|C:0x34E22C&T:10|T:s. |N|C:0xB6281A&T:Void Divine Messenger Reisuo|T:Exclusive Skill. ",
+      "description": "Used for ActivateandUpgradeVoid SlashSkillLevel.  |N|T:Void Slashignore target|C:0x34E22C&T:30%Defense|T:, simultaneously deal to target|C:0x34E22C&T:170%|T:AttackDamage, Cooldown|C:0x34E22C&T:10|T:s. |N|C:0xB6281A&T:Void Divine Messenger Reisuo|T:Exclusive Skill. ",
       "iconId": 299513,
       "isCanSale": 0,
       "isNonPropertyItem": 0,
@@ -32834,7 +32834,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradePhantom AssaultSkillLevel.  |N|T:perform on single target6 timesAttack, each Attack dealselfAttack|C:0x34E22C&T:40%|T:Damage, Cooldown when间|C:0x34E22C&T:10|T:s. |N|C:0xB6281A&T:Phantom Source Divine Messenger Nozhe|T:Exclusive Skill. ",
+      "description": "Used for ActivateandUpgradePhantom AssaultSkillLevel.  |N|T:perform on single target6 timesAttack, each Attack dealselfAttack|C:0x34E22C&T:40%|T:Damage, Cooldown|C:0x34E22C&T:10|T:s. |N|C:0xB6281A&T:Phantom Source Divine Messenger Nozhe|T:Exclusive Skill. ",
       "iconId": 299514,
       "isCanSale": 0,
       "isNonPropertyItem": 0,
@@ -32878,7 +32878,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeDragon Spirit GuardSkillLevel.  |N|T:deal to target|C:0x34E22C&T:150%|T:AttackDamage, and cause self andthe heroDamagereduceIncrease|C:0x34E22C&T:30%|T:, Duration|C:0x34E22C&T:6|T:s, Cooldown when间|C:0x34E22C&T:1|T: min. |N|C:0xB6281A&T:Ghost Dragon Ozachi|T:Exclusive Skill. ",
+      "description": "Used for ActivateandUpgradeDragon Spirit GuardSkillLevel.  |N|T:deal to target|C:0x34E22C&T:150%|T:AttackDamage, and cause self andthe heroDamagereduceIncrease|C:0x34E22C&T:30%|T:, Duration|C:0x34E22C&T:6|T:s, Cooldown|C:0x34E22C&T:1|T: min. |N|C:0xB6281A&T:Ghost Dragon Ozachi|T:Exclusive Skill. ",
       "iconId": 299517,
       "isCanSale": 0,
       "isNonPropertyItem": 0,
@@ -32960,7 +32960,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeWing StrikeLevel.  |N|T:EffectLv.1: receiveAttack when|C:0x34E22C&T:10%|T:Chance, deal|C:0x34E22C&T:10000|T: pts反击Damage, Interval|C:0x34E22C&T:30|T:s. |N|C:0xB6281A&T:Flowing Light Wings|T:Exclusive Skill. ",
+      "description": "Used for ActivateandUpgradeWing StrikeLevel.  |N|T:EffectLv.1: receiveAttack when|C:0x34E22C&T:10%|T:Chance, deal|C:0x34E22C&T:10000|T: pts counter Damage, Interval|C:0x34E22C&T:30|T:s. |N|C:0xB6281A&T:Flowing Light Wings|T:Exclusive Skill. ",
       "iconId": 299602,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -33083,7 +33083,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgrade星辰之 PowerLevel.  |N|T:EffectLv.1: receiveAttack when|C:0x34E22C&T:5%|T:ChancecauseselfDamagereduce|C:0x34E22C&T:10%|T:, Duration|C:0x34E22C&T:3|T:s, Interval|C:0x34E22C&T:30|T:s. |N|C:0xB6281A&T:Brilliant Morning Star Wings|T:Exclusive Skill. ",
+      "description": "Used for ActivateandUpgradeStarlight Power Level.  |N|T:EffectLv.1: receiveAttack when|C:0x34E22C&T:5%|T:ChancecauseselfDamagereduce|C:0x34E22C&T:10%|T:, Duration|C:0x34E22C&T:3|T:s, Interval|C:0x34E22C&T:30|T:s. |N|C:0xB6281A&T:Brilliant Morning Star Wings|T:Exclusive Skill. ",
       "iconId": 299605,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -33124,7 +33124,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Used for ActivateandUpgradeHP仲裁Level.  |N|T:EffectLv.1: near-death when, has|C:0x34E22C&T:10%|T:Chancetrigger, immediately recover|C:0x34E22C&T:10%|T:HP value . |N|C:0xB6281A&T:Sky Arbiter Wings|T:Exclusive Skill. ",
+      "description": "Used for ActivateandUpgradeHP Arbitration Level.  |N|T:EffectLv.1: near-death when, has|C:0x34E22C&T:10%|T:Chancetrigger, immediately recover|C:0x34E22C&T:10%|T:HP value   . |N|C:0xB6281A&T:Sky Arbiter Wings|T:Exclusive Skill. ",
       "iconId": 299606,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -35092,7 +35092,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "Open to randomly obtain: |C:0x34e22c&T:Gem Shard*1, Emperor Dragon Bag(小)*1, Rune*2, Sigil*2, XOStrange Egg*2|T: any one",
+      "description": "Open to randomly obtain: |C:0x34e22c&T:Gem Shard*1, Emperor Dragon Bag(S)*1, Rune*2, Sigil*2, XOStrange Egg*2|T: any one",
       "iconId": 510301,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -45957,7 +45957,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "has a Chanceobtain: Rune Shard*5 Sigil Shard*5 Emperor Dragon Bag(小)*2 Demon Soul Crystal Stone*100 any one",
+      "description": "has a Chanceobtain: Rune Shard*5 Sigil Shard*5 Emperor Dragon Bag(S)*2 Demon Soul Crystal Stone*100 any one",
       "iconId": 510101,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -45998,7 +45998,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "has a Chanceobtain: Rune Shard*10 Sigil Shard*10 Orange Equipment Shard*5 Battle Soul Bag(小)*5 any one",
+      "description": "has a Chanceobtain: Rune Shard*10 Sigil Shard*10 Orange Equipment Shard*5 Battle Soul Bag(S)*5 any one",
       "iconId": 510101,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
@@ -46039,7 +46039,7 @@
     "property": {
       "bindType": 0,
       "canBatchUse": 0,
-      "description": "has a Chanceobtain: Soul Contract*10 Gem Shard*10 Orange Equipment Shard*10 Emperor Dragon Bag(小)*10 any one",
+      "description": "has a Chanceobtain: Soul Contract*10 Gem Shard*10 Orange Equipment Shard*10 Emperor Dragon Bag(S)*10 any one",
       "iconId": 510101,
       "isCanSale": 0,
       "isNonPropertyItem": 1,
