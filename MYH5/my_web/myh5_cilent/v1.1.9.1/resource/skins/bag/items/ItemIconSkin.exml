@@ -3,6 +3,6 @@
   <e:Image id="imgQuality" x="0" y="0" source="common_json.img_qlt_3_png" width="90" height="90"/>
   <components:Icon id="imgIcon" source="" x="5" y="3" width="80" height="80"/>
   <e:Image id="imgJBiao" source="common_json.img_warn_png" right="0" top="0"/>
-  <e:Label id="labName" text="Orange Gear Fragment" y="90" size="16" textAlign="center" anchorOffsetX="0" horizontalCenter="0" bold="true" textColor="0xc6b59e"/>
+  <e:Label id="labName" text="Orange Gear Fragment" y="90" size="16" textAlign="center" anchorOffsetX="0" horizontalCenter="0" bold="true" textColor="0xc6b59e" width="90" truncateToFit="true"/>
   <e:Label id="labCount" text="99999" y="64.5" size="16" anchorOffsetX="0" textAlign="right" width="61" x="22" bold="true" textColor="0xc6b59e" stroke="2"/>
 </e:Skin>
