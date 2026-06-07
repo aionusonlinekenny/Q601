@@ -38,7 +38,7 @@
 	<e:Group y="788" horizontalCenter="0">
 
 		<e:Label id="labTypeName" text="Orange Gear Fragments Required:" x="0" y="0" size="20" textColor="0xc6b59e"/>
-		<e:Label id="labCount" text="8000/8000" x="131" y="0" size="20" textColor="0x2b8c25" textAlign="left" anchorOffsetX="0"/>
+		<e:Label id="labCount" text="8000/8000" x="330" y="0" size="20" textColor="0x2b8c25" textAlign="left" anchorOffsetX="0"/>
 	</e:Group>
 
 

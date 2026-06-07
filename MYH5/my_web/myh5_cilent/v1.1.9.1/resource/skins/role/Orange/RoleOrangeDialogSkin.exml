@@ -36,8 +36,8 @@
 
 	<e:Group y="788" horizontalCenter="0">
 		<e:Image source="common_json.img_numbg_png" y="0" anchorOffsetY="0" height="28" anchorOffsetX="0" width="111" scale9Grid="11,5,40,12" x="0" visible="false"/>
-		<e:Label text="Orange Gear Fragments Required:" x="0" y="0" size="20" textColor="0xc6b59e"/>
-		<e:Label id="labCount" text="8000/8000" x="131" y="0" size="20" textColor="0x2b8c25" textAlign="left" anchorOffsetX="0"/>
+		<e:Label text="Frags Required:" x="0" y="0" size="20" textColor="0xc6b59e"/>
+		<e:Label id="labCount" text="8000/8000" x="165" y="0" size="20" textColor="0x2b8c25" textAlign="left" anchorOffsetX="0"/>
 	</e:Group>
 
 

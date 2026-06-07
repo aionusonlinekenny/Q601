@@ -20,7 +20,7 @@
 	</e:ToggleButton>
 	<e:Group y="736" horizontalCenter="0">
 		<e:Label id="labPropName" text="Ultimate Fragment Required: " x="0" y="0" size="20" textAlign="left" textColor="0xcfc9be"/>
-		<e:Label id="labProp" text="0/0" y="0" size="20" anchorOffsetY="0" textColor="0xdd4f4f" textAlign="left" anchorOffsetX="0" x="136" x.zhuMo="155"/>
+		<e:Label id="labProp" text="0/0" y="0" size="20" anchorOffsetY="0" textColor="0xdd4f4f" textAlign="left" anchorOffsetX="0" x="295" x.zhuMo="295"/>
 	</e:Group>
 	<components:SnapButton id="btnForging" label="Enhance" y="794.52" skinName="skins.SnapButtonDefaultSkin" anchorOffsetX="74" label.fuMo="附  魔" label.zhuMo="注  灵" icon="img_warn_png" anchorOffsetY="26" width="160" height="56" x="294"/>
 	<components:IconButton id="imgGetProp" x="443" y="711" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_getRes_png"/>
