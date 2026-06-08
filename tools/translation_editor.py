@@ -1020,17 +1020,19 @@ class TranslationEditor:
             return
 
         src_w, src_h = new_img.size
-        debug_info = f"src={src_w}×{src_h}"
         if new_img.size != (w, h):
-            # Step 1: crop to visible (non-transparent) content bounding box.
+            # Use threshold alpha (≥10) to ignore near-transparent ChatGPT backgrounds
             alpha = new_img.split()[3]
-            bbox = alpha.getbbox()  # None if fully transparent
+            alpha_thresh = alpha.point(lambda p: 255 if p >= 10 else 0)
+            bbox = alpha_thresh.getbbox()
             if bbox and bbox != (0, 0, new_img.width, new_img.height):
                 new_img = new_img.crop(bbox)
-                debug_info += f" bbox={bbox[2]-bbox[0]}×{bbox[3]-bbox[1]}"
+                obj_w, obj_h = new_img.size
+                diag = f"src={src_w}×{src_h}  →  object={obj_w}×{obj_h}  →  slot={w}×{h}"
             else:
-                debug_info += f" NO-ALPHA(bbox={bbox})"
-            # Step 2: resize the cropped object directly to the sprite slot.
+                obj_w, obj_h = src_w, src_h
+                diag = f"src={src_w}×{src_h}  →  NO transparency found (bbox={bbox})  →  slot={w}×{h}"
+            messagebox.showinfo("Import Debug", diag)
             new_img = new_img.resize((w, h), Image.LANCZOS)
 
         # Paste into atlas
@@ -1039,7 +1041,7 @@ class TranslationEditor:
         self._sprite_show_preview(x, y, w, h)
         self._sprite_draw_atlas_thumb(highlight=(x, y, w, h))
         self.status_var.set(
-            f"Replaced '{name}' [{debug_info} → slot {w}×{h}] — click Save Atlas PNG to write to disk."
+            f"Replaced '{name}' at ({x},{y}) {w}×{h} — click Save Atlas PNG to write to disk."
         )
 
     # --- Save atlas ---------------------------------------------------------
