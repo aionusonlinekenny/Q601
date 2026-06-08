@@ -1021,19 +1021,26 @@ class TranslationEditor:
 
         src_w, src_h = new_img.size
         if new_img.size != (w, h):
-            # Use threshold alpha (≥10) to ignore near-transparent ChatGPT backgrounds
+            # Try alpha-bbox crop: only useful if transparency removes >20% in both dims.
             alpha = new_img.split()[3]
             alpha_thresh = alpha.point(lambda p: 255 if p >= 10 else 0)
             bbox = alpha_thresh.getbbox()
-            if bbox and bbox != (0, 0, new_img.width, new_img.height):
+            if (bbox and
+                    (bbox[2] - bbox[0]) < src_w * 0.8 and
+                    (bbox[3] - bbox[1]) < src_h * 0.8):
+                # Good transparency: crop to object, then resize to slot.
                 new_img = new_img.crop(bbox)
-                obj_w, obj_h = new_img.size
-                diag = f"src={src_w}×{src_h}  →  object={obj_w}×{obj_h}  →  slot={w}×{h}"
+                new_img = new_img.resize((w, h), Image.LANCZOS)
             else:
-                obj_w, obj_h = src_w, src_h
-                diag = f"src={src_w}×{src_h}  →  NO transparency found (bbox={bbox})  →  slot={w}×{h}"
-            messagebox.showinfo("Import Debug", diag)
-            new_img = new_img.resize((w, h), Image.LANCZOS)
+                # No useful transparency (e.g. ChatGPT solid background).
+                # Center cover-crop: scale so the slot fits, then crop the excess.
+                scale = max(w / src_w, h / src_h)
+                sw = max(1, int(src_w * scale))
+                sh = max(1, int(src_h * scale))
+                new_img = new_img.resize((sw, sh), Image.LANCZOS)
+                left = (sw - w) // 2
+                top  = (sh - h) // 2
+                new_img = new_img.crop((left, top, left + w, top + h))
 
         # Paste into atlas
         self.sprite_atlas_img.paste(new_img, (x, y))
