@@ -1021,16 +1021,24 @@ class TranslationEditor:
 
         src_w, src_h = new_img.size
         if new_img.size != (w, h):
-            # Try alpha-bbox crop: only useful if transparency removes >20% in both dims.
+            # Alpha-bbox crop: trigger if transparency removes >20% in EITHER dimension.
+            # This handles tall-but-narrow heroes (height fills image but width doesn't).
             alpha = new_img.split()[3]
             alpha_thresh = alpha.point(lambda p: 255 if p >= 10 else 0)
             bbox = alpha_thresh.getbbox()
             if (bbox and
-                    (bbox[2] - bbox[0]) < src_w * 0.8 and
-                    (bbox[3] - bbox[1]) < src_h * 0.8):
-                # Good transparency: crop to object, then resize to slot.
+                    ((bbox[2] - bbox[0]) < src_w * 0.8 or
+                     (bbox[3] - bbox[1]) < src_h * 0.8)):
+                # Transparent background: crop to visible object, then cover-fit to slot.
                 new_img = new_img.crop(bbox)
-                new_img = new_img.resize((w, h), Image.LANCZOS)
+                bw, bh = new_img.size
+                scale = max(w / bw, h / bh)
+                sw = max(1, int(bw * scale))
+                sh = max(1, int(bh * scale))
+                new_img = new_img.resize((sw, sh), Image.LANCZOS)
+                left = (sw - w) // 2
+                top  = (sh - h) // 2
+                new_img = new_img.crop((left, top, left + w, top + h))
             else:
                 # No useful transparency (e.g. ChatGPT solid background).
                 # Center cover-crop: scale so the slot fits, then crop the excess.
