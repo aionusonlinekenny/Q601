@@ -1042,16 +1042,19 @@ class TranslationEditor:
             if (bbox and
                     ((bbox[2] - bbox[0]) < src_w * 0.8 or
                      (bbox[3] - bbox[1]) < src_h * 0.8)):
-                # Transparent background: crop to visible object, then cover-fit to slot.
+                # Transparent background: crop to visible object, then FIT into slot.
+                # Use min() so the full object is visible with no edge clipping.
                 new_img = new_img.crop(bbox)
                 bw, bh = new_img.size
-                scale = max(w / bw, h / bh)
+                scale = min(w / bw, h / bh)
                 sw = max(1, int(bw * scale))
                 sh = max(1, int(bh * scale))
                 new_img = new_img.resize((sw, sh), Image.LANCZOS)
-                left = (sw - w) // 2
-                top  = (sh - h) // 2
-                new_img = new_img.crop((left, top, left + w, top + h))
+                canvas = Image.new('RGBA', (w, h), (0, 0, 0, 0))
+                paste_x = (w - sw) // 2
+                paste_y = (h - sh) // 2
+                canvas.paste(new_img, (paste_x, paste_y))
+                new_img = canvas
             else:
                 # No useful transparency (e.g. ChatGPT solid background).
                 # Center cover-crop: scale so the slot fits, then crop the excess.
