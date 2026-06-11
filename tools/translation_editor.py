@@ -69,6 +69,7 @@ class TranslationEditor:
         self.layout_current_skin = None
         self.layout_modified     = False
         self.layout_tree_rows    = {}   # iid → row dict
+        self.layout_search_results = []  # [(skin_name, row)] from content search
 
         self._build_ui()
 
@@ -1124,10 +1125,12 @@ class TranslationEditor:
         paned = ttk.PanedWindow(tab, orient=tk.HORIZONTAL)
         paned.pack(fill=tk.BOTH, expand=True, padx=4, pady=4)
 
-        # Left ─ skin search + listbox
+        # Left ─ skin search + listbox  /  content search
         lf = ttk.Frame(paned, width=240)
         lf.pack_propagate(False)
         paned.add(lf, weight=1)
+
+        # ── Skin name filter ─────────────────────────────────────────────────
         ttk.Label(lf, text="Skins",
                   font=("TkDefaultFont", 9, "bold")
                   ).pack(anchor=tk.W, padx=4, pady=(4, 0))
@@ -1136,8 +1139,13 @@ class TranslationEditor:
             "write", lambda *_: self._layout_filter_skins())
         ttk.Entry(lf, textvariable=self.layout_search_var
                   ).pack(fill=tk.X, padx=4, pady=(2, 2))
-        lb_fr = ttk.Frame(lf)
-        lb_fr.pack(fill=tk.BOTH, expand=True, padx=4, pady=(0, 4))
+
+        # Vertical paned: top = skin list, bottom = content search
+        lf_paned = ttk.PanedWindow(lf, orient=tk.VERTICAL)
+        lf_paned.pack(fill=tk.BOTH, expand=True, padx=0, pady=(0, 4))
+
+        lb_fr = ttk.Frame(lf_paned)
+        lf_paned.add(lb_fr, weight=2)
         self.layout_skin_lb = tk.Listbox(lb_fr, exportselection=False,
                                           activestyle="dotbox")
         sc = ttk.Scrollbar(lb_fr, orient=tk.VERTICAL,
@@ -1147,6 +1155,36 @@ class TranslationEditor:
         self.layout_skin_lb.pack(fill=tk.BOTH, expand=True)
         self.layout_skin_lb.bind("<<ListboxSelect>>",
                                   self._layout_skin_selected)
+
+        # ── Content keyword search ───────────────────────────────────────────
+        cs_outer = ttk.Frame(lf_paned)
+        lf_paned.add(cs_outer, weight=1)
+        ttk.Label(cs_outer, text="Find text / label:",
+                  font=("TkDefaultFont", 9, "bold")
+                  ).pack(anchor=tk.W, padx=4, pady=(4, 0))
+        cs_row = ttk.Frame(cs_outer)
+        cs_row.pack(fill=tk.X, padx=4, pady=(2, 0))
+        self.layout_content_search_var = tk.StringVar()
+        cs_entry = ttk.Entry(cs_row, textvariable=self.layout_content_search_var)
+        cs_entry.pack(side=tk.LEFT, fill=tk.X, expand=True)
+        cs_entry.bind("<Return>", lambda _e: self._layout_search_content())
+        ttk.Button(cs_row, text="Search",
+                   command=self._layout_search_content
+                   ).pack(side=tk.LEFT, padx=(4, 0))
+        self.layout_content_count_var = tk.StringVar(value="")
+        ttk.Label(cs_outer, textvariable=self.layout_content_count_var,
+                  foreground="gray").pack(anchor=tk.W, padx=4)
+        sr_fr = ttk.Frame(cs_outer)
+        sr_fr.pack(fill=tk.BOTH, expand=True, padx=4, pady=(2, 4))
+        self.layout_results_lb = tk.Listbox(sr_fr, exportselection=False,
+                                             activestyle="dotbox")
+        sr_sc = ttk.Scrollbar(sr_fr, orient=tk.VERTICAL,
+                               command=self.layout_results_lb.yview)
+        self.layout_results_lb.configure(yscrollcommand=sr_sc.set)
+        sr_sc.pack(side=tk.RIGHT, fill=tk.Y)
+        self.layout_results_lb.pack(fill=tk.BOTH, expand=True)
+        self.layout_results_lb.bind("<<ListboxSelect>>",
+                                     self._layout_search_result_selected)
 
         # Right ─ element treeview + edit panel
         rf = ttk.Frame(paned)
@@ -1422,6 +1460,62 @@ class TranslationEditor:
         name = self.layout_skin_names[idx]
         self.layout_current_skin = name
         self._layout_populate_tree(name)
+
+    # ── Content keyword search ────────────────────────────────────────────────
+
+    def _layout_search_content(self):
+        q = self.layout_content_search_var.get().strip().lower()
+        self.layout_results_lb.delete(0, tk.END)
+        self.layout_search_results = []
+        if not q or not self.layout_skins:
+            self.layout_content_count_var.set("")
+            return
+        for skin_name in sorted(self.layout_skins):
+            for row in self.layout_skins[skin_name]['rows']:
+                matched_val = None
+                if row['kind'] == 'elem':
+                    p = row['props']
+                    for key in ('text', 'label'):
+                        val = p.get(key, '')
+                        if q in val.lower():
+                            matched_val = val
+                            break
+                else:
+                    if row['prop'] in ('text', 'label') and q in row['value'].lower():
+                        matched_val = row['value']
+                if matched_val is not None:
+                    self.layout_search_results.append((skin_name, row))
+                    display = (f"{skin_name}  ›  "
+                               f"{row['elem_id']}: \"{matched_val}\"")
+                    self.layout_results_lb.insert(tk.END, display)
+        count = len(self.layout_search_results)
+        self.layout_content_count_var.set(
+            f"{count} match{'es' if count != 1 else ''}"
+            if count else "No matches found")
+
+    def _layout_search_result_selected(self, _event=None):
+        sel = self.layout_results_lb.curselection()
+        if not sel:
+            return
+        idx = sel[0]
+        if idx >= len(self.layout_search_results):
+            return
+        skin_name, target_row = self.layout_search_results[idx]
+        # Select skin in the skin listbox
+        if skin_name in self.layout_skin_names:
+            lb_idx = self.layout_skin_names.index(skin_name)
+            self.layout_skin_lb.selection_clear(0, tk.END)
+            self.layout_skin_lb.selection_set(lb_idx)
+            self.layout_skin_lb.see(lb_idx)
+        self.layout_current_skin = skin_name
+        self._layout_populate_tree(skin_name)
+        # Highlight matched element in treeview
+        for iid, row in self.layout_tree_rows.items():
+            if row is target_row:
+                self.layout_tree.selection_set(iid)
+                self.layout_tree.see(iid)
+                self._layout_populate_edit(row)
+                break
 
     # ── Element tree ──────────────────────────────────────────────────────────
 
