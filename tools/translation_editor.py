@@ -61,6 +61,15 @@ class TranslationEditor:
         self._sprite_tk_img     = None      # PhotoImage (prevent GC)
         self._sprite_full_tk_img = None
 
+        # Layout Editor tab state
+        self.layout_js_path      = None
+        self.layout_js_content   = ""
+        self.layout_skins        = {}   # {skin_name: {start, rows}}
+        self.layout_skin_names   = []   # filtered list shown in listbox
+        self.layout_current_skin = None
+        self.layout_modified     = False
+        self.layout_tree_rows    = {}   # iid → row dict
+
         self._build_ui()
 
     # -----------------------------------------------------------------------
@@ -74,16 +83,19 @@ class TranslationEditor:
         self.tab_equip   = ttk.Frame(self.notebook)
         self.tab_props   = ttk.Frame(self.notebook)
         self.tab_sprite  = ttk.Frame(self.notebook)
+        self.tab_layout  = ttk.Frame(self.notebook)
 
         self.notebook.add(self.tab_config,  text="Config (config.nncc)")
         self.notebook.add(self.tab_equip,   text="Equipment Items")
         self.notebook.add(self.tab_props,   text="Prop Items")
         self.notebook.add(self.tab_sprite,  text="Sprites")
+        self.notebook.add(self.tab_layout,  text="Layout Editor")
 
         self._build_config_tab()
         self._build_item_tab(self.tab_equip, "equip", "equipItem.json")
         self._build_item_tab(self.tab_props, "props", "propsItem.json")
         self._build_sprite_tab()
+        self._build_layout_tab()
 
         self.status_var = tk.StringVar(value="Use Browse to open a file.")
         ttk.Label(self.root, textvariable=self.status_var,
@@ -1078,6 +1090,549 @@ class TranslationEditor:
             self.status_var.set(f"Atlas saved → {self.sprite_atlas_path}")
         except Exception as e:
             messagebox.showerror("Save Error", str(e))
+
+
+    # =========================================================================
+    # Layout Editor tab
+    # =========================================================================
+
+    def _build_layout_tab(self):
+        tab = self.tab_layout
+
+        # ── Top bar ──────────────────────────────────────────────────────────
+        bar = ttk.Frame(tab)
+        bar.pack(side=tk.TOP, fill=tk.X, padx=4, pady=(4, 0))
+        ttk.Label(bar, text="JS:").pack(side=tk.LEFT)
+        self.layout_path_var = tk.StringVar(value="(no file loaded)")
+        ttk.Entry(bar, textvariable=self.layout_path_var,
+                  state="readonly", width=55
+                  ).pack(side=tk.LEFT, padx=(4, 4), fill=tk.X, expand=True)
+        ttk.Button(bar, text="Browse…",
+                   command=self._layout_browse).pack(side=tk.LEFT)
+        ttk.Button(bar, text="Reload",
+                   command=self._layout_reload).pack(side=tk.LEFT, padx=(4, 0))
+        self.layout_save_btn = ttk.Button(bar, text="Save JS",
+                                           command=self._layout_save)
+        self.layout_save_btn.pack(side=tk.LEFT, padx=(4, 0))
+
+        self.layout_info_var = tk.StringVar(value="")
+        ttk.Label(tab, textvariable=self.layout_info_var,
+                  foreground="gray").pack(side=tk.TOP, anchor=tk.W,
+                                          padx=6, pady=(2, 0))
+
+        # ── Paned: skin list | element table ─────────────────────────────────
+        paned = ttk.PanedWindow(tab, orient=tk.HORIZONTAL)
+        paned.pack(fill=tk.BOTH, expand=True, padx=4, pady=4)
+
+        # Left ─ skin search + listbox
+        lf = ttk.Frame(paned, width=240)
+        lf.pack_propagate(False)
+        paned.add(lf, weight=1)
+        ttk.Label(lf, text="Skins",
+                  font=("TkDefaultFont", 9, "bold")
+                  ).pack(anchor=tk.W, padx=4, pady=(4, 0))
+        self.layout_search_var = tk.StringVar()
+        self.layout_search_var.trace_add(
+            "write", lambda *_: self._layout_filter_skins())
+        ttk.Entry(lf, textvariable=self.layout_search_var
+                  ).pack(fill=tk.X, padx=4, pady=(2, 2))
+        lb_fr = ttk.Frame(lf)
+        lb_fr.pack(fill=tk.BOTH, expand=True, padx=4, pady=(0, 4))
+        self.layout_skin_lb = tk.Listbox(lb_fr, exportselection=False,
+                                          activestyle="dotbox")
+        sc = ttk.Scrollbar(lb_fr, orient=tk.VERTICAL,
+                            command=self.layout_skin_lb.yview)
+        self.layout_skin_lb.configure(yscrollcommand=sc.set)
+        sc.pack(side=tk.RIGHT, fill=tk.Y)
+        self.layout_skin_lb.pack(fill=tk.BOTH, expand=True)
+        self.layout_skin_lb.bind("<<ListboxSelect>>",
+                                  self._layout_skin_selected)
+
+        # Right ─ element treeview + edit panel
+        rf = ttk.Frame(paned)
+        paned.add(rf, weight=4)
+
+        tree_fr = ttk.Frame(rf)
+        tree_fr.pack(fill=tk.BOTH, expand=True, padx=4, pady=(4, 2))
+        cols = ("id", "type", "text", "x", "y", "size",
+                "hCenter", "left", "top", "right", "bottom")
+        self.layout_tree = ttk.Treeview(tree_fr, columns=cols,
+                                         show="headings", height=14)
+        for col, w, lbl in [
+            ("id",      175, "ID / state"),
+            ("type",     90, "Type"),
+            ("text",    200, "text / label"),
+            ("x",        48, "x"),
+            ("y",        48, "y"),
+            ("size",     40, "sz"),
+            ("hCenter",  55, "hCenter"),
+            ("left",     48, "left"),
+            ("top",      48, "top"),
+            ("right",    48, "right"),
+            ("bottom",   50, "bottom"),
+        ]:
+            self.layout_tree.heading(col, text=lbl)
+            self.layout_tree.column(
+                col, width=w,
+                anchor=tk.W if col in ("id", "type", "text") else tk.CENTER)
+        self.layout_tree.tag_configure("state_row", background="#FFF3CD")
+        sy = ttk.Scrollbar(tree_fr, orient=tk.VERTICAL,
+                            command=self.layout_tree.yview)
+        sx = ttk.Scrollbar(tree_fr, orient=tk.HORIZONTAL,
+                            command=self.layout_tree.xview)
+        self.layout_tree.configure(yscrollcommand=sy.set,
+                                    xscrollcommand=sx.set)
+        sy.pack(side=tk.RIGHT, fill=tk.Y)
+        self.layout_tree.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+        sx.pack(side=tk.TOP, fill=tk.X)
+        self.layout_tree.bind("<<TreeviewSelect>>",
+                               self._layout_elem_selected)
+
+        # Edit panel
+        ef = ttk.LabelFrame(rf, text="Edit Element", padding=5)
+        ef.pack(fill=tk.X, padx=4, pady=(0, 4))
+
+        r0 = ttk.Frame(ef)
+        r0.pack(fill=tk.X, pady=(0, 2))
+        ttk.Label(r0, text="text:", width=7, anchor=tk.E).pack(side=tk.LEFT)
+        self.layout_edit_text = tk.StringVar()
+        ttk.Entry(r0, textvariable=self.layout_edit_text, width=46
+                  ).pack(side=tk.LEFT, padx=(2, 10))
+        ttk.Label(r0, text="label:", width=6, anchor=tk.E
+                  ).pack(side=tk.LEFT)
+        self.layout_edit_label = tk.StringVar()
+        ttk.Entry(r0, textvariable=self.layout_edit_label, width=28
+                  ).pack(side=tk.LEFT, padx=(2, 0))
+
+        gf = ttk.Frame(ef)
+        gf.pack(fill=tk.X)
+        num_specs = [
+            ("x",       "x",               0, 0),
+            ("y",       "y",               0, 2),
+            ("size",    "size",            0, 4),
+            ("width",   "width",           0, 6),
+            ("height",  "height",          0, 8),
+            ("left",    "left",            1, 0),
+            ("right",   "right",           1, 2),
+            ("top",     "top",             1, 4),
+            ("bottom",  "bottom",          1, 6),
+            ("hCenter", "horizontalCenter",1, 8),
+            ("vCenter", "verticalCenter",  2, 0),
+        ]
+        self.layout_edit_vars = {}
+        for short_lbl, prop_full, row_n, col_n in num_specs:
+            ttk.Label(gf, text=f"{short_lbl}:", width=7, anchor=tk.E
+                      ).grid(row=row_n, column=col_n,
+                             sticky=tk.E, padx=(6, 0), pady=1)
+            var = tk.StringVar()
+            self.layout_edit_vars[prop_full] = var
+            ttk.Entry(gf, textvariable=var, width=8
+                      ).grid(row=row_n, column=col_n + 1,
+                             sticky=tk.W, padx=(1, 2))
+
+        bf = ttk.Frame(ef)
+        bf.pack(fill=tk.X, pady=(4, 0))
+        ttk.Button(bf, text="Apply Changes",
+                   command=self._layout_apply_edit).pack(side=tk.LEFT)
+        ttk.Button(bf, text="Clear",
+                   command=self._layout_clear_edit
+                   ).pack(side=tk.LEFT, padx=(4, 0))
+        self.layout_apply_lbl = ttk.Label(bf, text="", foreground="blue")
+        self.layout_apply_lbl.pack(side=tk.LEFT, padx=(8, 0))
+
+    # ── I/O ──────────────────────────────────────────────────────────────────
+
+    def _layout_browse(self):
+        path = filedialog.askopenfilename(
+            title="Open compiled JS theme file",
+            filetypes=[("JavaScript", "*.js"), ("All files", "*.*")]
+        )
+        if not path:
+            return
+        self.layout_js_path = Path(path)
+        self.layout_path_var.set(str(self.layout_js_path))
+        self._layout_reload()
+
+    def _layout_reload(self):
+        if not self.layout_js_path or not self.layout_js_path.exists():
+            messagebox.showwarning("No File", "Browse to a JS file first.")
+            return
+        self.layout_info_var.set("Parsing… (may take a moment)")
+        self.root.update_idletasks()
+        try:
+            self.layout_js_content = self.layout_js_path.read_text(
+                encoding="utf-8")
+        except Exception as e:
+            messagebox.showerror("Error", f"Cannot read file:\n{e}")
+            return
+        self.layout_modified = False
+        self.layout_skins    = self._layout_parse_js()
+        self.layout_skin_names = sorted(self.layout_skins.keys())
+        self._layout_fill_skin_list(self.layout_skin_names)
+        n_skins = len(self.layout_skins)
+        n_rows  = sum(len(v['rows']) for v in self.layout_skins.values())
+        self.layout_info_var.set(
+            f"{n_skins} skins · {n_rows} elements/states parsed")
+        self.status_var.set(f"Layout Editor loaded: {self.layout_js_path.name}")
+
+    def _layout_save(self):
+        if not self.layout_js_path:
+            messagebox.showwarning("No File", "No JS file loaded.")
+            return
+        if not self.layout_modified:
+            self.status_var.set("No unsaved changes.")
+            return
+        bak = self.layout_js_path.with_suffix('.js.bak')
+        try:
+            shutil.copy2(self.layout_js_path, bak)
+        except Exception:
+            pass
+        try:
+            self.layout_js_path.write_text(
+                self.layout_js_content, encoding="utf-8")
+        except Exception as e:
+            messagebox.showerror("Save Error", str(e))
+            return
+        import subprocess
+        r = subprocess.run(
+            ["node", "--check", str(self.layout_js_path)],
+            capture_output=True, text=True)
+        if r.returncode != 0:
+            messagebox.showerror(
+                "Syntax Error",
+                f"node --check failed — changes saved but JS may be broken!\n\n"
+                f"{r.stderr[:600]}\n\nBackup: {bak}")
+            return
+        self.layout_modified = False
+        self.layout_apply_lbl.config(text="")
+        self.status_var.set(
+            f"Saved → {self.layout_js_path}  (backup: {bak.name})")
+
+    # ── Parser ────────────────────────────────────────────────────────────────
+
+    def _layout_parse_js(self):
+        content = self.layout_js_content
+        skins   = {}
+
+        STR_PROPS = ['text', 'label']
+        NUM_PROPS = ['x', 'y', 'size', 'width', 'height',
+                     'left', 'right', 'top', 'bottom',
+                     'horizontalCenter', 'verticalCenter']
+
+        skin_re = re.compile(r'function (\w+)\(\)\{_super\.call\(this\)')
+        elem_re = re.compile(
+            r'_proto\.(\w+)_i=function\(\)\{var t=new ([\w.]+)\(\);')
+        set_re  = re.compile(
+            r'new eui\.SetProperty\("(\w+)","(\w+)",'
+            r'((?:"[^"]*"|-?[\d.]+))\)')
+        state_open_re = re.compile(r'new eui\.State\("(\w+)",\[')
+
+        for m in skin_re.finditer(content):
+            skin_name  = m.group(1)
+            skin_start = m.start()
+            end_marker = f'return {skin_name}' + '})'
+            end_idx    = content.find(end_marker, skin_start)
+            if end_idx < 0:
+                continue
+            skin_end = end_idx + len(end_marker)
+            block    = content[skin_start:skin_end]
+            rows     = []
+
+            # ── Element initialiser functions ──────────────────────────────
+            for em in elem_re.finditer(block):
+                elem_id   = em.group(1)
+                elem_type = em.group(2)
+                f0 = em.start()
+                ri = block.find('return t};', f0)
+                if ri < 0:
+                    ri = block.find('return t}', f0)
+                if ri < 0:
+                    continue
+                body  = block[f0: ri + 10]
+                props = {}
+                for p in STR_PROPS:
+                    pm = re.search(rf't\.{p}="([^"]*)"', body)
+                    if pm:
+                        props[p] = pm.group(1)
+                for p in NUM_PROPS:
+                    pm = re.search(rf't\.{p}=(-?[\d.]+)', body)
+                    if pm:
+                        props[p] = pm.group(1)
+                if props:
+                    rows.append({
+                        'kind':    'elem',
+                        'elem_id': elem_id,
+                        'type':    elem_type.split('.')[-1],
+                        'props':   props,
+                    })
+
+            # ── states[] SetProperty entries ───────────────────────────────
+            states_idx = block.find('this.states=')
+            if states_idx >= 0:
+                for sm in state_open_re.finditer(block, states_idx):
+                    state_name = sm.group(1)
+                    sb_start   = sm.end()
+                    depth = 1
+                    pos   = sb_start
+                    while pos < len(block) and depth:
+                        if   block[pos] == '[': depth += 1
+                        elif block[pos] == ']': depth -= 1
+                        pos += 1
+                    state_body = block[sb_start: pos - 1]
+                    for sp in set_re.finditer(state_body):
+                        eid  = sp.group(1)
+                        prop = sp.group(2)
+                        raw  = sp.group(3)
+                        val  = raw[1:-1] if raw.startswith('"') else raw
+                        rows.append({
+                            'kind':       'state',
+                            'elem_id':    eid,
+                            'state_name': state_name,
+                            'prop':       prop,
+                            'value':      val,
+                            'original':   sp.group(0),
+                        })
+
+            if rows:
+                skins[skin_name] = {'start': skin_start, 'rows': rows}
+
+        return skins
+
+    # ── Skin list ─────────────────────────────────────────────────────────────
+
+    def _layout_fill_skin_list(self, names):
+        self.layout_skin_lb.delete(0, tk.END)
+        for n in names:
+            self.layout_skin_lb.insert(tk.END, n)
+
+    def _layout_filter_skins(self):
+        q = self.layout_search_var.get().lower()
+        filtered = ([n for n in sorted(self.layout_skins) if q in n.lower()]
+                    if q else sorted(self.layout_skins))
+        self.layout_skin_names = filtered
+        self._layout_fill_skin_list(filtered)
+
+    def _layout_skin_selected(self, _event=None):
+        sel = self.layout_skin_lb.curselection()
+        if not sel:
+            return
+        idx  = sel[0]
+        if idx >= len(self.layout_skin_names):
+            return
+        name = self.layout_skin_names[idx]
+        self.layout_current_skin = name
+        self._layout_populate_tree(name)
+
+    # ── Element tree ──────────────────────────────────────────────────────────
+
+    def _layout_populate_tree(self, skin_name):
+        self.layout_tree.delete(*self.layout_tree.get_children())
+        self.layout_tree_rows = {}
+        skin = self.layout_skins.get(skin_name)
+        if not skin:
+            return
+
+        def v(p, props):
+            return props.get(p, '—')
+
+        for row in skin['rows']:
+            if row['kind'] == 'elem':
+                p = row['props']
+                txt = p.get('text', p.get('label', '—'))
+                iid = self.layout_tree.insert('', tk.END, values=(
+                    row['elem_id'],
+                    row['type'],
+                    txt,
+                    v('x', p), v('y', p), v('size', p),
+                    v('horizontalCenter', p),
+                    v('left', p), v('top', p),
+                    v('right', p), v('bottom', p),
+                ))
+            else:
+                prop = row['prop']
+                txt  = row['value'] if prop in ('text', 'label') else ''
+                xv   = row['value'] if prop == 'x' else '—'
+                yv   = row['value'] if prop == 'y' else '—'
+                iid  = self.layout_tree.insert('', tk.END, values=(
+                    f"[{row['state_name']}] {row['elem_id']}.{prop}",
+                    'State',
+                    txt,
+                    xv, yv, '—', '—', '—', '—', '—', '—',
+                ), tags=('state_row',))
+            self.layout_tree_rows[iid] = row
+
+    # ── Edit panel ───────────────────────────────────────────────────────────
+
+    def _layout_elem_selected(self, _event=None):
+        sel = self.layout_tree.selection()
+        if not sel:
+            return
+        row = self.layout_tree_rows.get(sel[0])
+        if row:
+            self._layout_populate_edit(row)
+
+    def _layout_populate_edit(self, row):
+        self.layout_edit_text.set('')
+        self.layout_edit_label.set('')
+        for var in self.layout_edit_vars.values():
+            var.set('')
+        self.layout_apply_lbl.config(text='')
+
+        if row['kind'] == 'elem':
+            p = row['props']
+            self.layout_edit_text.set(p.get('text', ''))
+            self.layout_edit_label.set(p.get('label', ''))
+            for prop, var in self.layout_edit_vars.items():
+                if prop in p:
+                    var.set(str(p[prop]))
+        else:
+            prop = row['prop']
+            val  = row['value']
+            if prop == 'text':
+                self.layout_edit_text.set(val)
+            elif prop == 'label':
+                self.layout_edit_label.set(val)
+            elif prop in self.layout_edit_vars:
+                self.layout_edit_vars[prop].set(val)
+
+    def _layout_clear_edit(self):
+        self.layout_edit_text.set('')
+        self.layout_edit_label.set('')
+        for var in self.layout_edit_vars.values():
+            var.set('')
+        self.layout_apply_lbl.config(text='')
+
+    # ── Apply / patch ─────────────────────────────────────────────────────────
+
+    def _layout_apply_edit(self):
+        sel = self.layout_tree.selection()
+        if not sel:
+            self.layout_apply_lbl.config(
+                text="Select an element first.", foreground="red")
+            return
+        iid       = sel[0]
+        row       = self.layout_tree_rows.get(iid)
+        skin_name = self.layout_current_skin
+        if not row or not skin_name:
+            return
+
+        if row['kind'] == 'elem':
+            msgs = self._layout_patch_elem(skin_name, row)
+        else:
+            msgs = self._layout_patch_state(skin_name, row)
+
+        if msgs:
+            self._layout_populate_tree(skin_name)
+            # re-select same row by identity
+            for new_iid, r in self.layout_tree_rows.items():
+                if r is row:
+                    self.layout_tree.selection_set(new_iid)
+                    self.layout_tree.see(new_iid)
+                    break
+            self.layout_modified = True
+            self.layout_apply_lbl.config(
+                text="✓ " + "  ".join(msgs), foreground="green")
+            self.status_var.set(
+                "Unsaved changes — click Save JS to write to disk.")
+        else:
+            self.layout_apply_lbl.config(
+                text="No changes detected.", foreground="gray")
+
+    def _layout_patch_elem(self, skin_name, row):
+        elem_id   = row['elem_id']
+        old_props = row['props']
+
+        changes = {}
+        for p in ('text', 'label'):
+            nv = (self.layout_edit_text.get() if p == 'text'
+                  else self.layout_edit_label.get())
+            if p in old_props and nv != old_props[p]:
+                changes[p] = (old_props[p], nv)
+        for p, var in self.layout_edit_vars.items():
+            nv = var.get().strip()
+            if nv and p in old_props and nv != str(old_props[p]):
+                changes[p] = (old_props[p], nv)
+
+        if not changes:
+            return []
+
+        skin_idx = self.layout_js_content.find(f'function {skin_name}()')
+        if skin_idx < 0:
+            return [f"ERR: skin {skin_name} not found"]
+        elem_idx = self.layout_js_content.find(
+            f'_proto.{elem_id}_i=function()', skin_idx)
+        if elem_idx < 0:
+            return [f"ERR: {elem_id}_i not found"]
+        ri = self.layout_js_content.find('return t};', elem_idx)
+        if ri < 0:
+            ri = self.layout_js_content.find('return t}', elem_idx)
+        if ri < 0:
+            return [f"ERR: end of {elem_id} not found"]
+        fend = ri + 10
+        body = self.layout_js_content[elem_idx:fend]
+
+        msgs     = []
+        new_body = body
+        for p, (ov, nv) in changes.items():
+            old_s = (f't.{p}="{ov}"' if p in ('text', 'label')
+                     else f't.{p}={ov}')
+            new_s = (f't.{p}="{nv}"' if p in ('text', 'label')
+                     else f't.{p}={nv}')
+            if old_s in new_body:
+                new_body = new_body.replace(old_s, new_s, 1)
+                old_props[p] = nv
+                msgs.append(f"{p}: {ov}→{nv}")
+            else:
+                msgs.append(f"MISS: {p}='{ov}'")
+
+        if new_body != body:
+            self.layout_js_content = (
+                self.layout_js_content[:elem_idx] +
+                new_body +
+                self.layout_js_content[fend:])
+        return msgs
+
+    def _layout_patch_state(self, skin_name, row):
+        prop = row['prop']
+        ov   = row['value']
+
+        if prop == 'text':
+            nv = self.layout_edit_text.get()
+        elif prop == 'label':
+            nv = self.layout_edit_label.get()
+        else:
+            nv = self.layout_edit_vars.get(prop, tk.StringVar()).get().strip()
+
+        if not nv or nv == ov:
+            return []
+
+        old_orig = row['original']
+        if prop in ('text', 'label'):
+            new_orig = old_orig.replace(f',"{ov}")', f',"{nv}")')
+        else:
+            new_orig = old_orig.replace(f',{ov})', f',{nv})')
+
+        skin_idx = self.layout_js_content.find(f'function {skin_name}()')
+        if skin_idx < 0:
+            return ["ERR: skin not found"]
+        states_idx = self.layout_js_content.find('this.states=', skin_idx)
+        if states_idx < 0:
+            return ["ERR: no states"]
+        state_marker = f'new eui.State("{row["state_name"]}"'
+        state_idx = self.layout_js_content.find(state_marker, states_idx)
+        if state_idx < 0:
+            return [f"ERR: state '{row['state_name']}' not found"]
+        idx = self.layout_js_content.find(old_orig, state_idx)
+        if idx < 0:
+            return [f"MISS: '{old_orig[:60]}'"]
+
+        self.layout_js_content = (
+            self.layout_js_content[:idx] +
+            new_orig +
+            self.layout_js_content[idx + len(old_orig):])
+        row['value']    = nv
+        row['original'] = new_orig
+        return [f"[{row['state_name']}] {row['elem_id']}.{prop}: {ov}→{nv}"]
 
 
 # ---------------------------------------------------------------------------
