@@ -34,15 +34,21 @@ function api_mail_gift($roleName, $itemId, $count, $title = 'GM Gift', $content 
     $itemStr = $itemId . ':' . $count;
     $time    = (int)(time());
 
+    // Java's HttpSendMail.getDecodeString() runs URLDecoder on title/content after
+    // Jetty's getParameter() already URL-decoded them. URLDecoder treats "+" as space,
+    // so any literal "+" in the string becomes " " before the signature is computed.
+    $signTitle   = str_replace('+', ' ', $title);
+    $signContent = str_replace('+', ' ', $content);
+
     // Signature: MD5_upper(type + title + content + itemStr + time + GM_KEY)
-    $signStr  = $type . $title . $content . $itemStr . $time . JETTY_GM_KEY;
+    $signStr  = $type . $signTitle . $signContent . $itemStr . $time . JETTY_GM_KEY;
     $sign     = strtoupper(md5($signStr));
 
     $url  = rtrim($apiBase, '/') . '/myh5/sendmail';
     $post = http_build_query(array(
         'type'     => $type,
-        'title'    => $title,
-        'content'  => $content,
+        'title'    => $signTitle,
+        'content'  => $signContent,
         'itemStr'  => $itemStr,
         'time'     => $time,
         'signstr'  => $sign,
