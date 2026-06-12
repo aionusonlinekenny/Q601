@@ -126,6 +126,50 @@ function api_mail_gift_db($roleName, $itemId, $count, $title = 'GM Gift', $conte
 }
 
 /**
+ * Insert a single mail with a pre-built item string (multiple items in one mail).
+ * $itemStr format: "itemId_count;itemId_count;..."  (same as RewardItem.parse input)
+ */
+function api_mail_gift_db_items($roleName, $itemStr, $title = 'GM Gift', $content = 'GM Gift', $sid = 1) {
+    $servers = unserialize(SERVERS);
+    $dbName  = isset($servers[$sid]['db']) ? $servers[$sid]['db'] : 'myh5_s1';
+
+    $dsn = 'mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . $dbName . ';charset=utf8';
+    try {
+        $pdo = new PDO($dsn, DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    } catch (PDOException $e) {
+        return array('success' => false, 'error' => 'DB connect: ' . $e->getMessage());
+    }
+
+    $stmt = $pdo->prepare('SELECT id FROM player WHERE name = ? LIMIT 1');
+    $stmt->execute(array($roleName));
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    if (!$row) {
+        return array('success' => false, 'error' => 'Player not found in DB: ' . $roleName);
+    }
+    $playerId = $row['id'];
+
+    $mailId = sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+        mt_rand(0, 0xffff), mt_rand(0, 0xffff),
+        mt_rand(0, 0xffff),
+        mt_rand(0, 0x0fff) | 0x4000,
+        mt_rand(0, 0x3fff) | 0x8000,
+        mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff));
+
+    $timeMs = sprintf('%d000', time());
+
+    $stmt = $pdo->prepare(
+        'INSERT INTO mail (playerId, mailId, title, Content, gold, coin, bindGold, item, isRead, `time`, mailType)
+         VALUES (?, ?, ?, ?, 0, 0, 0, ?, 0, ?, 2)'
+    );
+    try {
+        $stmt->execute(array($playerId, $mailId, $title, $content, $itemStr, $timeMs));
+        return array('success' => true, 'playerId' => $playerId, 'mailId' => $mailId);
+    } catch (PDOException $e) {
+        return array('success' => false, 'error' => 'DB insert: ' . $e->getMessage());
+    }
+}
+
+/**
  * Call ServicesServlet on Tomcat (port 8090+, patched server_patched.jar).
  * Uses 'tcat' URL from config — separate port that no longer conflicts with Jetty.
  */

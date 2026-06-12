@@ -47,7 +47,8 @@ if (!$paymentOn) {
         $servers = unserialize(SERVERS);
         $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8081';
 
-        $apiLog = array();
+        // Collect all items first, then insert as a single mail (one purchase = one mail).
+        $itemParts = array();
         foreach (explode(';', $rewardStr) as $part) {
             $part = trim($part);
             if (!$part) continue;
@@ -58,12 +59,16 @@ if (!$paymentOn) {
             $itemId = $pieces[0];
             $count  = (int)$pieces[1];
             if (!$itemId || $count < 1) continue;
+            $itemParts[]  = $itemId . '_' . $count;
+            $delivered[]  = $itemId . 'x' . $count;
+        }
 
+        $apiLog = array();
+        if (!empty($itemParts)) {
+            $combinedStr = implode(';', $itemParts);
             // Insert mail directly into DB — works for online and offline players.
-            // Jetty API requires player to be online AND uses account name not char name.
-            $r = api_mail_gift_db($player, $itemId, $count, 'GM Gift', 'GM Gift', $sid);
-            $delivered[] = $itemId . 'x' . $count;
-            $apiLog[]    = $itemId . 'x' . $count . '=' . json_encode($r);
+            $r = api_mail_gift_db_items($player, $combinedStr, $pkgData['name'], 'GM Gift', $sid);
+            $apiLog[] = $combinedStr . '=' . json_encode($r);
             if (isset($r['success']) && $r['success'] === false) {
                 $failed = true;
             }
