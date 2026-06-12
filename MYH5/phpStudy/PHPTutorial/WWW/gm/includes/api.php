@@ -92,14 +92,18 @@ function api_mail_gift_db($roleName, $itemId, $count, $title = 'GM Gift', $conte
         return array('success' => false, 'error' => 'DB connect: ' . $e->getMessage());
     }
 
-    // Look up player UUID by character display name
-    $stmt = $pdo->prepare('SELECT id FROM player WHERE name = ? LIMIT 1');
-    $stmt->execute(array($roleName));
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    if (!$row) {
-        return array('success' => false, 'error' => 'Player not found in DB: ' . $roleName);
+    // Accept UUID directly (from GM panel playerId field) or look up by character name
+    if (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i', $roleName)) {
+        $playerId = $roleName;
+    } else {
+        $stmt = $pdo->prepare('SELECT id FROM player WHERE name = ? LIMIT 1');
+        $stmt->execute(array($roleName));
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!$row) {
+            return array('success' => false, 'error' => 'Player not found in DB: ' . $roleName);
+        }
+        $playerId = $row['id'];
     }
-    $playerId = $row['id'];
 
     // Generate unique mailId (UUID v4 style)
     $mailId = sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
@@ -140,13 +144,18 @@ function api_mail_gift_db_items($roleName, $itemStr, $title = 'GM Gift', $conten
         return array('success' => false, 'error' => 'DB connect: ' . $e->getMessage());
     }
 
-    $stmt = $pdo->prepare('SELECT id FROM player WHERE name = ? LIMIT 1');
-    $stmt->execute(array($roleName));
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    if (!$row) {
-        return array('success' => false, 'error' => 'Player not found in DB: ' . $roleName);
+    // Accept UUID directly (from GM panel playerId field) or look up by character name
+    if (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i', $roleName)) {
+        $playerId = $roleName;
+    } else {
+        $stmt = $pdo->prepare('SELECT id FROM player WHERE name = ? LIMIT 1');
+        $stmt->execute(array($roleName));
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!$row) {
+            return array('success' => false, 'error' => 'Player not found in DB: ' . $roleName);
+        }
+        $playerId = $row['id'];
     }
-    $playerId = $row['id'];
 
     $mailId = sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
         mt_rand(0, 0xffff), mt_rand(0, 0xffff),
