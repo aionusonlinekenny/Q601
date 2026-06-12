@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 /**
  * Payment trampoline.
  * - Payment OFF (free mode): deliver items directly via game mail API, show success page.
