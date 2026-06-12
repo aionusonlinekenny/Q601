@@ -18,17 +18,21 @@ define('JETTY_GM_KEY', 'ddgg5bjjflasd12345531');
  * type=0  → individual player (targetId = role/character name)
  * type=1  → broadcast to all players online
  */
-function api_mail_gift($roleName, $itemId, $count, $title = 'GM Gift', $content = 'GM Gift', $apiBase = null) {
-    if (!$apiBase) {
+function api_mail_gift($roleName, $itemId, $count, $title = 'GM Gift', $content = 'GM Gift', $apiBase = null, $serverId = null) {
+    if (!$apiBase || $serverId === null) {
         $servers = unserialize(SERVERS);
         $sid = isset($_SESSION['server_id']) ? $_SESSION['server_id'] : 1;
-        $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8081';
+        if (!$apiBase) {
+            $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8081';
+        }
+        if ($serverId === null) {
+            $serverId = isset($_SESSION['server_id']) ? (int)$_SESSION['server_id'] : 1;
+        }
     }
 
-    $type     = 0;
-    $itemStr  = $itemId . ':' . $count;
-    $time     = (int)(time());
-    $serverId = isset($_SESSION['server_id']) ? (int)$_SESSION['server_id'] : 1;
+    $type    = 0;
+    $itemStr = $itemId . ':' . $count;
+    $time    = (int)(time());
 
     // Signature: MD5_upper(type + title + content + itemStr + time + GM_KEY)
     $signStr  = $type . $title . $content . $itemStr . $time . JETTY_GM_KEY;

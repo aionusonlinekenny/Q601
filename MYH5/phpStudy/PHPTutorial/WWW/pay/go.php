@@ -60,7 +60,7 @@ if (!$paymentOn) {
             if (!$itemId || $count < 1) continue;
 
             $r = api_mail_gift($player, $itemId, $count,
-                               'Free Package', $pkgData['name'], $apiBase);
+                               'Free Package', $pkgData['name'], $apiBase, $sid);
             $delivered[] = $itemId . 'x' . $count;
             $apiLog[]    = $itemId . 'x' . $count . '=' . json_encode($r);
             if (isset($r['success']) && $r['success'] === false) {
