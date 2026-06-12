@@ -31,7 +31,7 @@ function api_mail_gift($roleName, $itemId, $count, $title = 'GM Gift', $content 
     }
 
     $type    = 0;
-    $itemStr = $itemId . ':' . $count;
+    $itemStr = $itemId . '_' . $count;
     $time    = (int)(time());
 
     // Java's HttpSendMail.getDecodeString() runs URLDecoder on title/content after
@@ -79,7 +79,7 @@ function api_mail_gift($roleName, $itemId, $count, $title = 'GM Gift', $content 
  * Insert mail directly into the game DB — bypasses Jetty API.
  * Works for both online and offline players (player sees mail on next check or re-log).
  * Looks up player UUID by character name from the `player` table.
- * $itemStr format: "itemId:count" (single item per call).
+ * $itemStr format: "itemId_count" (single item per call).
  */
 function api_mail_gift_db($roleName, $itemId, $count, $title = 'GM Gift', $content = 'GM Gift', $sid = 1) {
     $servers = unserialize(SERVERS);
@@ -109,8 +109,9 @@ function api_mail_gift_db($roleName, $itemId, $count, $title = 'GM Gift', $conte
         mt_rand(0, 0x3fff) | 0x8000,
         mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff));
 
-    $itemStr  = $itemId . ':' . $count;
-    $timeMs   = (int)(microtime(true) * 1000);
+    $itemStr  = $itemId . '_' . $count;
+    // sprintf avoids 32-bit PHP integer overflow that would store a negative value
+    $timeMs   = sprintf('%d000', time());
 
     $stmt = $pdo->prepare(
         'INSERT INTO mail (playerId, mailId, title, Content, gold, coin, bindGold, item, isRead, `time`, mailType)
@@ -173,7 +174,7 @@ function api_broadcast_mail($itemId, $count, $title = 'GM Gift', $content = 'GM 
     }
 
     $type     = 1;
-    $itemStr  = $itemId . ':' . $count;
+    $itemStr  = $itemId . '_' . $count;
     $time     = (int)(time());
     $serverId = isset($_SESSION['server_id']) ? (int)$_SESSION['server_id'] : 1;
 
