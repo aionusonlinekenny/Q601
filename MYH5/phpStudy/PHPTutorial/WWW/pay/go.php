@@ -24,7 +24,7 @@ $payState  = array();
 if (file_exists(PAYMENT_STATE_FILE)) {
     $payState = @json_decode(file_get_contents(PAYMENT_STATE_FILE), true);
 }
-$paymentOn = isset($payState['enabled']) ? (bool)$payState['enabled'] : true;
+$paymentOn = isset($payState['payment_enabled']) ? (bool)$payState['payment_enabled'] : true;
 
 // ── Payment OFF: deliver items for free ────────────────────────────────────
 if (!$paymentOn) {
