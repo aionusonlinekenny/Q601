@@ -59,8 +59,9 @@ if (!$paymentOn) {
             $count  = (int)$pieces[1];
             if (!$itemId || $count < 1) continue;
 
-            $r = api_mail_gift($player, $itemId, $count,
-                               'Free Package', $pkgData['name'], $apiBase, $sid);
+            // Insert mail directly into DB — works for online and offline players.
+            // Jetty API requires player to be online AND uses account name not char name.
+            $r = api_mail_gift_db($player, $itemId, $count, 'GM Gift', 'GM Gift', $sid);
             $delivered[] = $itemId . 'x' . $count;
             $apiLog[]    = $itemId . 'x' . $count . '=' . json_encode($r);
             if (isset($r['success']) && $r['success'] === false) {
@@ -70,9 +71,8 @@ if (!$paymentOn) {
 
         $log = date('Y-m-d H:i:s') . ' | FREE | player=' . $player
              . ' pkg=' . $pkg . ' sid=' . $sid
-             . ' apiBase=' . $apiBase
              . ' items=' . implode(',', $delivered)
-             . ' responses=' . implode('|', $apiLog) . "\n";
+             . ' db=' . implode('|', $apiLog) . "\n";
         file_put_contents(dirname(__FILE__) . '/payment_log.txt', $log, FILE_APPEND);
     }
 
