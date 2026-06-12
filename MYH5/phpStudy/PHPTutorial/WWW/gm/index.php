@@ -564,7 +564,12 @@ tr:hover td{background:rgba(255,255,255,.025)}
           <span>Component Switches <small style="font-weight:normal;text-transform:none;color:var(--muted)">(real-time server feature toggles)</small></span>
           <button class="btn btn-ghost btn-sm" onclick="loadSwitches()">Refresh</button>
         </div>
-        <div id="sw-status" style="font-size:12px;color:var(--muted);margin-bottom:8px">Loading...</div>
+        <div style="font-size:12px;color:#f0a020;background:#2a1e00;border:1px solid #f0a020;border-radius:6px;padding:10px 12px;margin-bottom:10px">
+          ⚠️ Component switches require the Tomcat GM API (<code>/game/services</code>), but your server runs Jetty on the same port — the Tomcat API is unreachable.
+          To enable switches: edit <code>gameserver.properties</code> and add a separate Tomcat port (e.g. <code>newbee.morningGlory.http.HttpService.tomcatPort = 8090</code>), then update the API URL in <code>gm/includes/api.php</code>.<br>
+          Mail gifts now use the Jetty endpoint (<code>/myh5/sendmail</code>) which works correctly.
+        </div>
+        <div id="sw-status" style="font-size:12px;color:var(--muted);margin-bottom:8px"></div>
         <div id="sw-list"></div>
       </div>
 
@@ -922,10 +927,10 @@ function loadSwitches() {
       });
     }
 
-    // If no structured data but got raw text, show it
+    // If raw text came back (likely 404 HTML from Jetty), suppress it
     if (!switches.length && result.raw) {
-      document.getElementById('sw-status').textContent = 'Raw response:';
-      document.getElementById('sw-list').innerHTML = '<div class="dbtest-box">' + esc(result.raw) + '</div>';
+      document.getElementById('sw-status').textContent = '';
+      document.getElementById('sw-list').innerHTML = buildManualSwitchPanel();
       return;
     }
 

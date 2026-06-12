@@ -1,13 +1,73 @@
 <?php
 /**
- * Call the game server GM HTTP API.
- * URL: http://host:port/game/services
- * Routing: POST field  action={ServiceName}
+ * Game Server HTTP API
  *
- * Auth notes (from server decompilation):
- *  - MailService            -> no auth (IP whitelist only)
- *  - ComponentSwitchService -> no auth (IP whitelist only)
- *  - NewMailService         -> key=ddgg5bjjflasd12345531
+ * Two HTTP servers run in server.jar:
+ *  - Jetty  on httpPort (e.g. 8081): /myh5/sendmail  /myh5/pay
+ *  - Tomcat on httpPort (same):      /game/services  — usually blocked by Jetty
+ *
+ * In practice Jetty wins the port race, so only the /myh5/* endpoints work.
+ *
+ * HttpSendMail signature: MD5_upper(type + title + content + itemStr + time + GM_KEY)
+ * GM_KEY (hardcoded in class): ddgg5bjjflasd12345531
+ */
+define('JETTY_GM_KEY', 'ddgg5bjjflasd12345531');
+
+/**
+ * Send a mail gift to a player via Jetty /myh5/sendmail.
+ * type=0  → individual player (targetId = role/character name)
+ * type=1  → broadcast to all players online
+ */
+function api_mail_gift($roleName, $itemId, $count, $title = 'GM Gift', $content = 'GM Gift', $apiBase = null) {
+    if (!$apiBase) {
+        $servers = unserialize(SERVERS);
+        $sid = isset($_SESSION['server_id']) ? $_SESSION['server_id'] : 1;
+        $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8081';
+    }
+
+    $type     = 0;
+    $itemStr  = $itemId . ':' . $count;
+    $time     = (int)(time());
+    $serverId = isset($_SESSION['server_id']) ? (int)$_SESSION['server_id'] : 1;
+
+    // Signature: MD5_upper(type + title + content + itemStr + time + GM_KEY)
+    $signStr  = $type . $title . $content . $itemStr . $time . JETTY_GM_KEY;
+    $sign     = strtoupper(md5($signStr));
+
+    $url  = rtrim($apiBase, '/') . '/myh5/sendmail';
+    $post = http_build_query(array(
+        'type'     => $type,
+        'title'    => $title,
+        'content'  => $content,
+        'itemStr'  => $itemStr,
+        'time'     => $time,
+        'signstr'  => $sign,
+        'serverId' => $serverId,
+        'targetId' => $roleName,
+    ));
+
+    $ch = curl_init($url);
+    curl_setopt_array($ch, array(
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => $post,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT        => 5,
+        CURLOPT_CONNECTTIMEOUT => 3,
+    ));
+    $resp = curl_exec($ch);
+    $err  = curl_error($ch);
+    curl_close($ch);
+
+    if ($err || $resp === false) {
+        return array('success' => false, 'error' => $err ? $err : 'No response');
+    }
+    $json = @json_decode($resp, true);
+    return $json !== null ? $json : array('success' => true, 'raw' => $resp);
+}
+
+/**
+ * Legacy api_call wrapper for any remaining ServicesServlet usage.
+ * May return 404 if TomcatServer couldn't start (Jetty took the port).
  */
 function api_call($action, $params = array(), $apiBase = null) {
     if (!$apiBase) {
@@ -15,7 +75,7 @@ function api_call($action, $params = array(), $apiBase = null) {
         $sid = isset($_SESSION['server_id']) ? $_SESSION['server_id'] : 1;
         $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8081';
     }
-    $url = rtrim($apiBase, '/') . '/game/servlets/services';
+    $url = rtrim($apiBase, '/') . '/game/services';
     $params['action'] = $action;
 
     $ch = curl_init($url);
@@ -38,30 +98,53 @@ function api_call($action, $params = array(), $apiBase = null) {
 }
 
 /**
- * Send items via MailService (no auth, works online and offline).
- * itemString format: "itemId:count"
+ * Broadcast mail to all online players via /myh5/sendmail (type=1).
+ * Same signature scheme as api_mail_gift.
  */
-function api_mail_gift($roleName, $itemId, $count, $title = 'GM Gift', $content = 'GM Gift', $apiBase = null) {
-    return api_call('mail', array(
-        'roleName'   => $roleName,
-        'itemString' => $itemId . ':' . $count,
-        'title'      => $title,
-        'content'    => $content,
-    ), $apiBase);
-}
+function api_broadcast_mail($itemId, $count, $title = 'GM Gift', $content = 'GM Gift', $apiBase = null) {
+    if (!$apiBase) {
+        $servers = unserialize(SERVERS);
+        $sid = isset($_SESSION['server_id']) ? $_SESSION['server_id'] : 1;
+        $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8081';
+    }
 
-/**
- * Send via NewMailService (broadcast capable).
- * Empty roleName = broadcast to all.
- */
-function api_new_mail($roleName, $itemId, $count, $title = 'GM Gift', $content = 'GM Gift', $apiBase = null) {
-    return api_call('newmail', array(
-        'roleName'   => $roleName,
-        'itemString' => $itemId . ':' . $count,
-        'title'      => $title,
-        'content'    => $content,
-        'key'        => 'ddgg5bjjflasd12345531',
-    ), $apiBase);
+    $type     = 1;
+    $itemStr  = $itemId . ':' . $count;
+    $time     = (int)(time());
+    $serverId = isset($_SESSION['server_id']) ? (int)$_SESSION['server_id'] : 1;
+
+    $signStr  = $type . $title . $content . $itemStr . $time . JETTY_GM_KEY;
+    $sign     = strtoupper(md5($signStr));
+
+    $url  = rtrim($apiBase, '/') . '/myh5/sendmail';
+    $post = http_build_query(array(
+        'type'     => $type,
+        'title'    => $title,
+        'content'  => $content,
+        'itemStr'  => $itemStr,
+        'time'     => $time,
+        'signstr'  => $sign,
+        'serverId' => $serverId,
+        'targetId' => '',
+    ));
+
+    $ch = curl_init($url);
+    curl_setopt_array($ch, array(
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => $post,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT        => 5,
+        CURLOPT_CONNECTTIMEOUT => 3,
+    ));
+    $resp = curl_exec($ch);
+    $err  = curl_error($ch);
+    curl_close($ch);
+
+    if ($err || $resp === false) {
+        return array('success' => false, 'error' => $err ? $err : 'No response');
+    }
+    $json = @json_decode($resp, true);
+    return $json !== null ? $json : array('success' => true, 'raw' => $resp);
 }
 
 /** Load all items from propsItem.json + equipItem.json for item picker */
