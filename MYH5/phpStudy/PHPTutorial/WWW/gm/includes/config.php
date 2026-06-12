@@ -11,10 +11,12 @@ define('DB_PASS', '123456');
 define('DB_TABLE_PLAYER', 't_player');
 
 // ── Game servers ──────────────────────────────────────────────────────────
+// 'api'  = Jetty port (httpPort in gameserver.properties) — /myh5/sendmail works here
+// 'tcat' = Tomcat port (tcatPort in gameserver.properties, patched jar) — /game/services
 define('SERVERS', serialize(array(
-    1 => array('name' => 'Server 1', 'api' => 'http://127.0.0.1:8081', 'db' => 'myh5_s1'),
-    2 => array('name' => 'Server 2', 'api' => 'http://127.0.0.1:8082', 'db' => 'myh5_s2'),
-    3 => array('name' => 'Server 3', 'api' => 'http://127.0.0.1:8083', 'db' => 'myh5_s3'),
+    1 => array('name' => 'Server 1', 'api' => 'http://127.0.0.1:8081', 'tcat' => 'http://127.0.0.1:8090', 'db' => 'myh5_s1'),
+    2 => array('name' => 'Server 2', 'api' => 'http://127.0.0.1:8082', 'tcat' => 'http://127.0.0.1:8091', 'db' => 'myh5_s2'),
+    3 => array('name' => 'Server 3', 'api' => 'http://127.0.0.1:8083', 'tcat' => 'http://127.0.0.1:8092', 'db' => 'myh5_s3'),
 )));
 
 // ── GM HTTP API ───────────────────────────────────────────────────────────

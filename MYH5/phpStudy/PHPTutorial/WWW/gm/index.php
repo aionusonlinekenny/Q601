@@ -564,10 +564,9 @@ tr:hover td{background:rgba(255,255,255,.025)}
           <span>Component Switches <small style="font-weight:normal;text-transform:none;color:var(--muted)">(real-time server feature toggles)</small></span>
           <button class="btn btn-ghost btn-sm" onclick="loadSwitches()">Refresh</button>
         </div>
-        <div style="font-size:12px;color:#f0a020;background:#2a1e00;border:1px solid #f0a020;border-radius:6px;padding:10px 12px;margin-bottom:10px">
-          ⚠️ Component switches require the Tomcat GM API (<code>/game/services</code>), but your server runs Jetty on the same port — the Tomcat API is unreachable.
-          To enable switches: edit <code>gameserver.properties</code> and add a separate Tomcat port (e.g. <code>newbee.morningGlory.http.HttpService.tomcatPort = 8090</code>), then update the API URL in <code>gm/includes/api.php</code>.<br>
-          Mail gifts now use the Jetty endpoint (<code>/myh5/sendmail</code>) which works correctly.
+        <div style="font-size:12px;color:#23d160;background:#0a2a18;border:1px solid #23d160;border-radius:6px;padding:10px 12px;margin-bottom:10px">
+          ✅ Tomcat GM API now runs on port 8090 (separate from Jetty port 8081).<br>
+          Requires: <strong>server_patched.jar</strong> deployed + <code>tcatPort = 8090</code> in <code>gameserver.properties</code> + server restart.
         </div>
         <div id="sw-status" style="font-size:12px;color:var(--muted);margin-bottom:8px"></div>
         <div id="sw-list"></div>

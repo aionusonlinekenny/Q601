@@ -66,14 +66,19 @@ function api_mail_gift($roleName, $itemId, $count, $title = 'GM Gift', $content 
 }
 
 /**
- * Legacy api_call wrapper for any remaining ServicesServlet usage.
- * May return 404 if TomcatServer couldn't start (Jetty took the port).
+ * Call ServicesServlet on Tomcat (port 8090+, patched server_patched.jar).
+ * Uses 'tcat' URL from config — separate port that no longer conflicts with Jetty.
  */
 function api_call($action, $params = array(), $apiBase = null) {
     if (!$apiBase) {
         $servers = unserialize(SERVERS);
         $sid = isset($_SESSION['server_id']) ? $_SESSION['server_id'] : 1;
-        $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8081';
+        // Use tcat (Tomcat) URL if set, fall back to api URL
+        if (isset($servers[$sid]['tcat'])) {
+            $apiBase = $servers[$sid]['tcat'];
+        } else {
+            $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8090';
+        }
     }
     $url = rtrim($apiBase, '/') . '/game/services';
     $params['action'] = $action;
