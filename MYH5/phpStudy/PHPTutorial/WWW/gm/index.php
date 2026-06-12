@@ -128,11 +128,13 @@ if (isset($_GET['ajax']) && $gmAuth) {
             $sortCol = in_array('lastLoginTime', $seen) ? '`lastLoginTime`' :
                        (in_array('lastlogintime', array_map('strtolower', $colNames)) ? '`lastlogintime`' : "`$idCol`");
 
+            // LIMIT must be embedded as an integer literal — PDO binds it as a string which MySQL rejects
+            $limitInt = (int)$limit;
             if ($q === '') {
-                $rows = db_query("SELECT $sel FROM `$tbl` ORDER BY $sortCol DESC LIMIT ?", array($limit), $dbName);
+                $rows = db_query("SELECT $sel FROM `$tbl` ORDER BY $sortCol DESC LIMIT $limitInt", array(), $dbName);
             } else {
-                $rows = db_query("SELECT $sel FROM `$tbl` WHERE `$nameCol` LIKE ? OR `$idCol` = ? ORDER BY $sortCol DESC LIMIT ?",
-                    array("%$q%", $q, $limit), $dbName);
+                $rows = db_query("SELECT $sel FROM `$tbl` WHERE `$nameCol` LIKE ? OR `$idCol` = ? ORDER BY $sortCol DESC LIMIT $limitInt",
+                    array("%$q%", $q), $dbName);
             }
             echo json_encode(array('ok' => true, 'table' => $tbl, 'data' => $rows ? $rows : array(),
                 'error' => db_last_error()));
