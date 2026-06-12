@@ -211,7 +211,8 @@ if (isset($_GET['ajax']) && $gmAuth) {
         // ── Toggle payment ON ─────────────────────────────────────────────
         case 'payment_on':
             $state = payment_state();
-            $pkgs  = load_recharge_packages();
+            // Restore config file prices
+            $pkgs = load_recharge_packages();
             if (!empty($state['original_packages'])) {
                 $pkgs = $state['original_packages'];
                 save_recharge_packages($pkgs);
@@ -220,7 +221,15 @@ if (isset($_GET['ajax']) && $gmAuth) {
             $state['original_packages'] = null;
             $state['toggled_at']        = date('Y-m-d H:i:s');
             save_payment_state($state);
-            echo json_encode(array('ok' => true, 'msg' => 'Payment ENABLED — prices restored. Restart server to apply.'));
+            // Enable recharge component in real-time
+            $sw = array();
+            foreach (array('recharge','pay','shop','mall') as $n) {
+                $r = api_call('componentSwitch', array('name' => $n, 'state' => '1'));
+                if (empty($r['error'])) { $sw[] = $n . ':ON'; }
+            }
+            echo json_encode(array('ok' => true,
+                'msg'      => 'Payment ENABLED. Config file restored.' . (count($sw) ? ' Switches set: ' . implode(', ', $sw) : ' (Could not reach server — restart required.)'),
+                'switches' => $sw));
             break;
 
         // ── Toggle payment OFF (free) ─────────────────────────────────────
@@ -228,7 +237,7 @@ if (isset($_GET['ajax']) && $gmAuth) {
             $state = payment_state();
             $pkgs  = load_recharge_packages();
             if (empty($state['original_packages'])) {
-                $state['original_packages'] = $pkgs;  // save backup
+                $state['original_packages'] = $pkgs;
             }
             foreach ($pkgs as &$pkg) { $pkg['RMB'] = 0; }
             unset($pkg);
@@ -236,7 +245,30 @@ if (isset($_GET['ajax']) && $gmAuth) {
             $state['payment_enabled'] = false;
             $state['toggled_at']      = date('Y-m-d H:i:s');
             save_payment_state($state);
-            echo json_encode(array('ok' => true, 'msg' => 'Payment DISABLED — all packages set to FREE. Restart server to apply.'));
+            // Disable recharge component in real-time via ComponentSwitchService
+            $sw = array();
+            foreach (array('recharge','pay','shop','mall') as $n) {
+                $r = api_call('componentSwitch', array('name' => $n, 'state' => '0'));
+                if (empty($r['error'])) { $sw[] = $n . ':OFF'; }
+            }
+            echo json_encode(array('ok' => true,
+                'msg'      => 'Payment DISABLED. Config file updated.' . (count($sw) ? ' Switches set: ' . implode(', ', $sw) : ' (Could not reach server — restart required to apply config change.)'),
+                'switches' => $sw));
+            break;
+
+        // ── List all component switches ───────────────────────────────────
+        case 'switch_list':
+            $result = api_call('componentSwitch', array('name' => ''));
+            echo json_encode(array('ok' => true, 'result' => $result, 'raw_error' => db_last_error()));
+            break;
+
+        // ── Toggle one component switch ───────────────────────────────────
+        case 'switch_toggle':
+            $swName  = isset($_POST['name'])  ? trim($_POST['name'])  : '';
+            $swState = isset($_POST['state']) ? trim($_POST['state']) : '1';
+            if (!$swName) { echo json_encode(array('ok'=>false,'msg'=>'No switch name')); break; }
+            $result = api_call('componentSwitch', array('name' => $swName, 'state' => $swState));
+            echo json_encode(array('ok' => true, 'name' => $swName, 'state' => $swState, 'result' => $result));
             break;
 
         // ── Recharge list ─────────────────────────────────────────────────
@@ -523,7 +555,17 @@ tr:hover td{background:rgba(255,255,255,.025)}
         </div>
       </div>
       <div style="font-size:12px;color:var(--muted);margin-bottom:16px">
-        OFF = all packages set to RMB=0, players can buy for free in-game (requires server restart to apply).
+        Uses ComponentSwitchService to toggle recharge in real-time. Also writes gameRecharge.json as backup.
+      </div>
+
+      <!-- Component switches -->
+      <div class="card">
+        <div class="card-title" style="display:flex;align-items:center;justify-content:space-between">
+          <span>Component Switches <small style="font-weight:normal;text-transform:none;color:var(--muted)">(real-time server feature toggles)</small></span>
+          <button class="btn btn-ghost btn-sm" onclick="loadSwitches()">Refresh</button>
+        </div>
+        <div id="sw-status" style="font-size:12px;color:var(--muted);margin-bottom:8px">Loading...</div>
+        <div id="sw-list"></div>
       </div>
 
       <!-- PayPal configuration -->
@@ -533,7 +575,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
         <div class="row">
           <div class="field" style="flex:1">
             <label>Client ID (from developer.paypal.com)</label>
-            <input id="pp-client-id" type="text" placeholder="Axxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" style="min-width:100%">
+            <input id="pp-client-id" type="text" placeholder="Client ID" style="min-width:100%">
           </div>
         </div>
         <div class="row">
@@ -557,7 +599,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
 
       <!-- Package list -->
       <div class="card">
-        <div class="card-title">Recharge Packages <small style="font-weight:normal;text-transform:none">(edit individual prices)</small></div>
+        <div class="card-title">Recharge Packages <small style="font-weight:normal;text-transform:none">(config file prices — requires restart)</small></div>
         <div class="tbl-wrap">
           <table>
             <thead><tr><th>ID</th><th>Name</th><th>Type</th><th>Price (RMB)</th><th>Status</th><th>Actions</th></tr></thead>
@@ -829,7 +871,7 @@ function loadPaymentPage() {
     var sub   = document.getElementById('pay-mode-sub');
     if (d.payment_enabled) {
       box.className = 'pay-toggle state-on';
-      label.textContent = 'PAYMENT ON — PayPal required to buy';
+      label.textContent = 'PAYMENT ON — players must pay to buy';
       label.style.color = 'var(--success)';
     } else {
       box.className = 'pay-toggle state-off';
@@ -844,21 +886,121 @@ function loadPaymentPage() {
     var cfg = d.config || {};
     document.getElementById('pp-client-id').value = cfg.client_id || '';
     document.getElementById('pp-secret').value    = cfg.secret    || '';
-    var modeEl = document.getElementById('pp-mode');
-    modeEl.value = cfg.mode === 'live' ? 'live' : 'sandbox';
+    document.getElementById('pp-mode').value = cfg.mode === 'live' ? 'live' : 'sandbox';
     var statusEl = document.getElementById('paypal-status');
-    if (cfg.client_id) {
-      statusEl.innerHTML = '<span style="color:var(--success)">PayPal configured (' + cfg.mode + ' mode)</span>';
-    } else {
-      statusEl.innerHTML = '<span style="color:var(--warn)">PayPal not configured — enter credentials to enable PayPal checkout for players.</span>';
-    }
+    statusEl.innerHTML = cfg.client_id
+      ? '<span style="color:var(--success)">PayPal configured (' + esc(cfg.mode) + ' mode)</span>'
+      : '<span style="color:var(--warn)">PayPal not configured — enter credentials below.</span>';
   });
 
-  // Payment URL
   document.getElementById('pay-url').textContent = location.protocol + '//' + location.host + '/pay/';
-
-  // Packages
+  loadSwitches();
   loadPayment();
+}
+
+// ── Component Switches ────────────────────────────────────────────────────
+var swStates = {};   // name -> '1'/'0' as returned by server
+
+function loadSwitches() {
+  document.getElementById('sw-status').textContent = 'Fetching switches from server...';
+  document.getElementById('sw-list').innerHTML = '<div class="spinner"></div>';
+  fetch('index.php?ajax=switch_list').then(function(r) { return r.json(); }).then(function(d) {
+    var result = d.result || {};
+
+    // Common format: result is object {switchName: '0'/'1', ...}
+    // Or array [{name:'...', state:'1'}, ...]
+    var switches = [];
+    if (Array.isArray(result)) {
+      result.forEach(function(item) {
+        if (item.name !== undefined) switches.push({name: item.name, state: String(item.state || item.value || '1')});
+      });
+    } else if (typeof result === 'object') {
+      Object.keys(result).forEach(function(k) {
+        if (k !== 'error' && k !== 'success' && k !== 'raw') {
+          switches.push({name: k, state: String(result[k])});
+        }
+      });
+    }
+
+    // If no structured data but got raw text, show it
+    if (!switches.length && result.raw) {
+      document.getElementById('sw-status').textContent = 'Raw response:';
+      document.getElementById('sw-list').innerHTML = '<div class="dbtest-box">' + esc(result.raw) + '</div>';
+      return;
+    }
+
+    if (!switches.length) {
+      document.getElementById('sw-status').innerHTML =
+        '<span style="color:var(--warn)">Could not get switch list from server. The server may be offline or ComponentSwitchService is unavailable.</span>' +
+        '<br><span style="color:var(--muted)">You can still manually toggle switches by name below.</span>';
+      document.getElementById('sw-list').innerHTML = buildManualSwitchPanel();
+      return;
+    }
+
+    document.getElementById('sw-status').textContent = switches.length + ' switches found:';
+    swStates = {};
+    switches.forEach(function(s) { swStates[s.name] = s.state; });
+    renderSwitches(switches);
+  }).catch(function() {
+    document.getElementById('sw-status').textContent = 'Request failed.';
+    document.getElementById('sw-list').innerHTML = buildManualSwitchPanel();
+  });
+}
+
+var payRelated = ['recharge', 'pay', 'payment', 'shop', 'mall', 'vip', 'charge'];
+
+function renderSwitches(switches) {
+  // Sort: payment-related first
+  switches.sort(function(a, b) {
+    var aRel = payRelated.some(function(k) { return a.name.toLowerCase().indexOf(k) !== -1; });
+    var bRel = payRelated.some(function(k) { return b.name.toLowerCase().indexOf(k) !== -1; });
+    if (aRel && !bRel) return -1;
+    if (!aRel && bRel) return 1;
+    return a.name.localeCompare(b.name);
+  });
+
+  var html = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px">';
+  switches.forEach(function(s) {
+    var on = s.state === '1' || s.state === 'true' || s.state === 'on';
+    var highlight = payRelated.some(function(k) { return s.name.toLowerCase().indexOf(k) !== -1; });
+    html += '<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:#12141e;border-radius:6px;border:1px solid ' + (highlight ? 'var(--warn)' : 'var(--border)') + '">' +
+      '<span style="font-size:13px;font-family:monospace' + (highlight ? ';color:var(--warn)' : '') + '">' + esc(s.name) + '</span>' +
+      '<div style="display:flex;gap:6px;align-items:center">' +
+        '<span style="font-size:11px;color:' + (on ? 'var(--success)' : '#888') + '">' + (on ? 'ON' : 'OFF') + '</span>' +
+        '<button class="btn btn-sm ' + (on ? 'btn-danger' : 'btn-success') + '" onclick="toggleSwitch(\'' + esc(s.name) + '\',\'' + (on ? '0' : '1') + '\')">' + (on ? 'Disable' : 'Enable') + '</button>' +
+      '</div></div>';
+  });
+  html += '</div>';
+  document.getElementById('sw-list').innerHTML = html;
+}
+
+function buildManualSwitchPanel() {
+  var html = '<div style="margin-bottom:8px;font-size:12px;color:var(--muted)">Toggle a switch by name (try: recharge, pay, shop, mall):</div>' +
+    '<div style="display:flex;gap:8px">' +
+      '<input id="sw-manual-name" style="flex:1;background:#12141e;border:1px solid var(--border);border-radius:6px;color:var(--text);padding:7px 10px;font-size:13px" placeholder="Switch name, e.g. recharge">' +
+      '<button class="btn btn-danger  btn-sm" onclick="toggleSwitchManual(\'0\')">Disable</button>' +
+      '<button class="btn btn-success btn-sm" onclick="toggleSwitchManual(\'1\')">Enable</button>' +
+    '</div>';
+  return html;
+}
+
+function toggleSwitchManual(state) {
+  var name = document.getElementById('sw-manual-name').value.trim();
+  if (!name) { toast('Enter a switch name', 'err'); return; }
+  toggleSwitch(name, state);
+}
+
+function toggleSwitch(name, state) {
+  post('switch_toggle', {name: name, state: state}).then(function(d) {
+    var label = state === '1' ? 'Enabled' : 'Disabled';
+    var result = d.result || {};
+    var ok = !result.error && (result.success !== false);
+    toast(ok ? label + ': ' + name : 'Failed to toggle ' + name + ' — ' + JSON.stringify(result), ok ? 'ok' : 'err');
+    if (ok) {
+      swStates[name] = state;
+      setTimeout(loadSwitches, 500);
+    }
+  });
 }
 
 function setPayment(enable) {
