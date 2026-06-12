@@ -15,7 +15,7 @@ function api_call($action, $params = array(), $apiBase = null) {
         $sid = isset($_SESSION['server_id']) ? $_SESSION['server_id'] : 1;
         $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8081';
     }
-    $url = rtrim($apiBase, '/') . '/game/services';
+    $url = rtrim($apiBase, '/') . '/game/servlets/services';
     $params['action'] = $action;
 
     $ch = curl_init($url);
