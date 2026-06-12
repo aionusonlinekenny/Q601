@@ -259,7 +259,20 @@ if (isset($_GET['ajax']) && $gmAuth) {
         // ── List all component switches ───────────────────────────────────
         case 'switch_list':
             $result = api_call('componentSwitch', array('name' => ''));
-            echo json_encode(array('ok' => true, 'result' => $result, 'raw_error' => db_last_error()));
+            // Server returns non-standard: [{name:"X",state:N},...] — unquoted keys, not valid JSON.
+            // api_call stores the raw text in $result['raw']. Parse it manually.
+            $switches = array();
+            $rawText  = isset($result['raw']) ? $result['raw'] : '';
+            if ($rawText && preg_match_all('/\{name:"([^"]+)",state:(\d+)\}/', $rawText, $m)) {
+                for ($i = 0; $i < count($m[1]); $i++) {
+                    $switches[] = array('name' => $m[1][$i], 'state' => (int)$m[2][$i]);
+                }
+            }
+            if (!empty($switches)) {
+                echo json_encode(array('ok' => true, 'result' => $switches));
+            } else {
+                echo json_encode(array('ok' => true, 'result' => $result));
+            }
             break;
 
         // ── Toggle one component switch ───────────────────────────────────
@@ -267,8 +280,12 @@ if (isset($_GET['ajax']) && $gmAuth) {
             $swName  = isset($_POST['name'])  ? trim($_POST['name'])  : '';
             $swState = isset($_POST['state']) ? trim($_POST['state']) : '1';
             if (!$swName) { echo json_encode(array('ok'=>false,'msg'=>'No switch name')); break; }
-            $result = api_call('componentSwitch', array('name' => $swName, 'state' => $swState));
-            echo json_encode(array('ok' => true, 'name' => $swName, 'state' => $swState, 'result' => $result));
+            $result  = api_call('componentSwitch', array('name' => $swName, 'state' => $swState));
+            // Server returns non-standard: { code:0,description:"..."} — detect success by code:0 in raw
+            $rawText = isset($result['raw']) ? $result['raw'] : '';
+            $togOk   = (isset($result['code']) && $result['code'] === 0)
+                    || (strpos($rawText, 'code:0') !== false);
+            echo json_encode(array('ok' => $togOk, 'name' => $swName, 'state' => $swState, 'result' => $result));
             break;
 
         // ── Recharge list ─────────────────────────────────────────────────
@@ -997,9 +1014,8 @@ function toggleSwitchManual(state) {
 function toggleSwitch(name, state) {
   post('switch_toggle', {name: name, state: state}).then(function(d) {
     var label = state === '1' ? 'Enabled' : 'Disabled';
-    var result = d.result || {};
-    var ok = !result.error && (result.success !== false);
-    toast(ok ? label + ': ' + name : 'Failed to toggle ' + name + ' — ' + JSON.stringify(result), ok ? 'ok' : 'err');
+    var ok = d.ok;
+    toast(ok ? label + ': ' + name : 'Failed to toggle ' + name, ok ? 'ok' : 'err');
     if (ok) {
       swStates[name] = state;
       setTimeout(loadSwitches, 500);
