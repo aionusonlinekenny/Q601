@@ -47,6 +47,7 @@ if (!$paymentOn) {
         $servers = unserialize(SERVERS);
         $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8081';
 
+        $apiLog = array();
         foreach (explode(';', $rewardStr) as $part) {
             $part = trim($part);
             if (!$part) continue;
@@ -61,6 +62,7 @@ if (!$paymentOn) {
             $r = api_mail_gift($player, $itemId, $count,
                                'Free Package', $pkgData['name'], $apiBase);
             $delivered[] = $itemId . 'x' . $count;
+            $apiLog[]    = $itemId . 'x' . $count . '=' . json_encode($r);
             if (isset($r['success']) && $r['success'] === false) {
                 $failed = true;
             }
@@ -68,7 +70,9 @@ if (!$paymentOn) {
 
         $log = date('Y-m-d H:i:s') . ' | FREE | player=' . $player
              . ' pkg=' . $pkg . ' sid=' . $sid
-             . ' items=' . implode(',', $delivered) . "\n";
+             . ' apiBase=' . $apiBase
+             . ' items=' . implode(',', $delivered)
+             . ' responses=' . implode('|', $apiLog) . "\n";
         file_put_contents(dirname(__FILE__) . '/payment_log.txt', $log, FILE_APPEND);
     }
 
