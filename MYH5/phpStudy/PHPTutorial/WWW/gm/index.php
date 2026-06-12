@@ -7,7 +7,7 @@ require_once __DIR__ . '/includes/api.php';
 if (isset($_POST['gm_login'])) {
     if ($_POST['password'] === GM_PASSWORD) {
         $_SESSION['gm_auth'] = true;
-        $_SESSION['server_id'] = (int)($_POST['server_id'] ?? 1);
+        $_SESSION['server_id'] = (int)(isset($_POST['server_id']) ? $_POST['server_id'] : 1);
     } else {
         $loginError = 'Wrong password.';
     }
@@ -19,25 +19,26 @@ if (isset($_GET['logout'])) {
 }
 
 // ── AJAX handlers ────────────────────────────────────────────────────────
-if (isset($_GET['ajax']) && ($_SESSION['gm_auth'] ?? false)) {
+$gmAuth = isset($_SESSION['gm_auth']) ? $_SESSION['gm_auth'] : false;
+if (isset($_GET['ajax']) && $gmAuth) {
     header('Content-Type: application/json');
 
     $servers = unserialize(SERVERS);
-    $sid = $_SESSION['server_id'] ?? 1;
-    $dbName = $servers[$sid]['db'] ?? DB_NAME;
+    $sid     = isset($_SESSION['server_id']) ? $_SESSION['server_id'] : 1;
+    $dbName  = isset($servers[$sid]['db']) ? $servers[$sid]['db'] : DB_NAME;
 
     switch ($_GET['ajax']) {
 
         // ── Account search ───────────────────────────────────────────────
         case 'accounts':
-            $q = trim($_GET['q'] ?? '');
-            $limit = min((int)($_GET['limit'] ?? 50), 200);
+            $q     = trim(isset($_GET['q']) ? $_GET['q'] : '');
+            $limit = min((int)(isset($_GET['limit']) ? $_GET['limit'] : 50), 200);
             if ($q === '') {
                 $rows = db_query(
                     "SELECT playerId, playerName, level, vipLevel, gold, jade,
                             lastLoginTime, onlineState, createTime
                      FROM t_player ORDER BY lastLoginTime DESC LIMIT ?",
-                    [$limit], $dbName
+                    array($limit), $dbName
                 );
             } else {
                 $rows = db_query(
@@ -46,75 +47,72 @@ if (isset($_GET['ajax']) && ($_SESSION['gm_auth'] ?? false)) {
                      FROM t_player
                      WHERE playerName LIKE ? OR playerId = ?
                      ORDER BY lastLoginTime DESC LIMIT ?",
-                    ["%$q%", $q, $limit], $dbName
+                    array("%$q%", $q, $limit), $dbName
                 );
             }
-            echo json_encode(['ok' => true, 'data' => $rows ?: []]);
+            echo json_encode(array('ok' => true, 'data' => $rows ? $rows : array()));
             break;
 
         // ── Player detail ─────────────────────────────────────────────────
         case 'player_detail':
-            $pid = $_GET['pid'] ?? '';
+            $pid = isset($_GET['pid']) ? $_GET['pid'] : '';
             $row = db_query(
                 "SELECT playerId, playerName, level, vipLevel, gold, jade,
                          lastLoginTime, onlineState, createTime, accountId, job
                  FROM t_player WHERE playerId = ? LIMIT 1",
-                [$pid], $dbName
+                array($pid), $dbName
             );
-            echo json_encode(['ok' => true, 'data' => $row[0] ?? null]);
+            echo json_encode(array('ok' => true, 'data' => isset($row[0]) ? $row[0] : null));
             break;
 
         // ── Gift item (server API) ─────────────────────────────────────
         case 'gift_item':
-            $pid    = $_POST['playerId'] ?? '';
-            $itemId = $_POST['itemId']   ?? '';
-            $count  = max(1, (int)($_POST['count'] ?? 1));
+            $pid    = isset($_POST['playerId']) ? $_POST['playerId'] : '';
+            $itemId = isset($_POST['itemId'])   ? $_POST['itemId']   : '';
+            $count  = max(1, (int)(isset($_POST['count']) ? $_POST['count'] : 1));
             $title  = 'GM Gift';
-            $reason = $_POST['reason'] ?? 'GM Gift';
+            $reason = isset($_POST['reason']) ? $_POST['reason'] : 'GM Gift';
             if (!$pid || !$itemId) {
-                echo json_encode(['ok' => false, 'msg' => 'Missing playerId or itemId']);
+                echo json_encode(array('ok' => false, 'msg' => 'Missing playerId or itemId'));
                 break;
             }
-            // Resolve playerId → playerName if numeric (MailService needs name)
+            // Resolve playerId to playerName (MailService needs name)
             $targetName = $pid;
             if (ctype_digit($pid)) {
-                $pr = db_query("SELECT playerName FROM t_player WHERE playerId=? LIMIT 1", [$pid], $dbName);
+                $pr = db_query("SELECT playerName FROM t_player WHERE playerId=? LIMIT 1", array($pid), $dbName);
                 if (!empty($pr[0]['playerName'])) $targetName = $pr[0]['playerName'];
             }
-            // Use MailService (no auth, works for online and offline players)
             $result = api_mail_gift($targetName, $itemId, $count, $title, $reason);
-            // Fallback: NewMailService
             if (!empty($result['error'])) {
                 $result = api_new_mail($targetName, $itemId, $count, $title, $reason);
             }
-            echo json_encode(['ok' => true, 'result' => $result]);
+            echo json_encode(array('ok' => true, 'result' => $result));
             break;
 
         // ── Broadcast gift to all online ──────────────────────────────
         case 'gift_all':
-            $itemId = $_POST['itemId'] ?? '';
-            $count  = max(1, (int)($_POST['count'] ?? 1));
-            $reason = $_POST['reason'] ?? 'Server Event Gift';
-            if (!$itemId) { echo json_encode(['ok'=>false,'msg'=>'No itemId']); break; }
-            // NewMailService broadcast: empty roleName = all players
+            $itemId = isset($_POST['itemId']) ? $_POST['itemId'] : '';
+            $count  = max(1, (int)(isset($_POST['count']) ? $_POST['count'] : 1));
+            $reason = isset($_POST['reason']) ? $_POST['reason'] : 'Server Event Gift';
+            if (!$itemId) { echo json_encode(array('ok' => false, 'msg' => 'No itemId')); break; }
             $result = api_new_mail('', $itemId, $count, 'Server Gift', $reason);
-            echo json_encode(['ok' => true, 'result' => $result]);
+            echo json_encode(array('ok' => true, 'result' => $result));
             break;
 
         // ── Recharge packages ─────────────────────────────────────────
         case 'recharge_list':
             $pkgs = load_recharge_packages();
-            echo json_encode(['ok' => true, 'data' => $pkgs]);
+            echo json_encode(array('ok' => true, 'data' => $pkgs));
             break;
 
-        // ── Toggle recharge free/paid ─────────────────────────────────
+        // ── Set one package price ─────────────────────────────────────
         case 'recharge_set_price':
-            $id    = (int)($_POST['id'] ?? 0);
-            $price = (int)($_POST['rmb'] ?? -1);
+            $id    = (int)(isset($_POST['id'])  ? $_POST['id']  : 0);
+            $price = (int)(isset($_POST['rmb']) ? $_POST['rmb'] : -1);
             if ($id <= 0 || $price < 0) {
-                echo json_encode(['ok'=>false,'msg'=>'Bad params']); break;
+                echo json_encode(array('ok' => false, 'msg' => 'Bad params')); break;
             }
-            $pkgs = load_recharge_packages();
+            $pkgs  = load_recharge_packages();
             $found = false;
             foreach ($pkgs as &$pkg) {
                 if ((int)$pkg['id'] === $id) {
@@ -124,9 +122,9 @@ if (isset($_GET['ajax']) && ($_SESSION['gm_auth'] ?? false)) {
                 }
             }
             unset($pkg);
-            if (!$found) { echo json_encode(['ok'=>false,'msg'=>'Package not found']); break; }
+            if (!$found) { echo json_encode(array('ok' => false, 'msg' => 'Package not found')); break; }
             $ok = save_recharge_packages($pkgs);
-            echo json_encode(['ok' => (bool)$ok, 'msg' => $ok ? 'Saved (restart server to apply)' : 'Write failed']);
+            echo json_encode(array('ok' => (bool)$ok, 'msg' => $ok ? 'Saved (restart server to apply)' : 'Write failed'));
             break;
 
         // ── Set ALL recharge prices to 0 (free) ──────────────────────
@@ -135,74 +133,72 @@ if (isset($_GET['ajax']) && ($_SESSION['gm_auth'] ?? false)) {
             foreach ($pkgs as &$pkg) { $pkg['RMB'] = 0; }
             unset($pkg);
             $ok = save_recharge_packages($pkgs);
-            echo json_encode(['ok' => (bool)$ok, 'msg' => $ok ? 'All set to FREE (restart server to apply)' : 'Write failed']);
+            echo json_encode(array('ok' => (bool)$ok, 'msg' => $ok ? 'All set to FREE (restart server to apply)' : 'Write failed'));
             break;
 
-        // ── Restore recharge prices from original ────────────────────
+        // ── Restore recharge prices from backup ───────────────────────
         case 'recharge_restore':
-            $data = $_POST['data'] ?? '';
+            $data = isset($_POST['data']) ? $_POST['data'] : '';
             $pkgs = @json_decode($data, true);
-            if (!$pkgs) { echo json_encode(['ok'=>false,'msg'=>'Bad data']); break; }
+            if (!$pkgs) { echo json_encode(array('ok' => false, 'msg' => 'Bad data')); break; }
             $ok = save_recharge_packages($pkgs);
-            echo json_encode(['ok' => (bool)$ok]);
+            echo json_encode(array('ok' => (bool)$ok));
             break;
 
-        // ── Component switches (feature toggle) ───────────────────────
+        // ── Component switches ────────────────────────────────────────
         case 'switch_list':
-            // Empty name = list all switches
-            $result = api_call('componentSwitch', ['name' => '']);
-            // Fallback: read local functions.json
+            $result = api_call('componentSwitch', array('name' => ''));
             if (!empty($result['error'])) {
-                $result = ['switches' => load_component_switches()];
+                $result = array('switches' => load_component_switches());
             }
-            echo json_encode(['ok' => true, 'result' => $result]);
+            echo json_encode(array('ok' => true, 'result' => $result));
             break;
 
         case 'switch_toggle':
-            $name   = $_POST['name'] ?? '';
-            $enable = (int)($_POST['enable'] ?? 0);
-            if (!$name) { echo json_encode(['ok'=>false,'msg'=>'No name']); break; }
-            $result = api_call('componentSwitch', [
+            $name   = isset($_POST['name'])   ? $_POST['name']   : '';
+            $enable = (int)(isset($_POST['enable']) ? $_POST['enable'] : 0);
+            if (!$name) { echo json_encode(array('ok' => false, 'msg' => 'No name')); break; }
+            $result = api_call('componentSwitch', array(
                 'name'  => $name,
                 'state' => $enable ? '1' : '0',
-            ]);
-            echo json_encode(['ok' => true, 'result' => $result]);
+            ));
+            echo json_encode(array('ok' => true, 'result' => $result));
             break;
 
         // ── Server notice / pop-up message ───────────────────────────
         case 'send_notice':
-            $msg = trim($_POST['message'] ?? '');
-            if (!$msg) { echo json_encode(['ok'=>false,'msg'=>'Empty message']); break; }
-            $result = api_call('syspop', ['content' => $msg, 'key' => 'ddgg5bjjflasd12345531']);
-            // Fallback: try SystemPopMsgService action name
+            $msg = trim(isset($_POST['message']) ? $_POST['message'] : '');
+            if (!$msg) { echo json_encode(array('ok' => false, 'msg' => 'Empty message')); break; }
+            $result = api_call('syspop', array('content' => $msg, 'key' => 'ddgg5bjjflasd12345531'));
             if (!empty($result['error'])) {
-                $result = api_call('SystemPopMsgService', ['content' => $msg, 'key' => 'ddgg5bjjflasd12345531']);
+                $result = api_call('SystemPopMsgService', array('content' => $msg, 'key' => 'ddgg5bjjflasd12345531'));
             }
-            echo json_encode(['ok' => true, 'result' => $result]);
+            echo json_encode(array('ok' => true, 'result' => $result));
             break;
 
         // ── Item catalog ──────────────────────────────────────────────
         case 'items':
-            $q = strtolower(trim($_GET['q'] ?? ''));
+            $q       = strtolower(trim(isset($_GET['q']) ? $_GET['q'] : ''));
             $catalog = load_item_catalog();
             if ($q) {
-                $catalog = array_filter($catalog, fn($i) =>
-                    str_contains(strtolower($i['name']), $q) ||
-                    str_contains((string)$i['id'], $q)
-                );
+                $catalog = array_filter($catalog, function($i) use ($q) {
+                    return strpos(strtolower($i['name']), $q) !== false
+                        || strpos((string)$i['id'], $q) !== false;
+                });
             }
-            echo json_encode(['ok' => true, 'data' => array_values($catalog)]);
+            echo json_encode(array('ok' => true, 'data' => array_values($catalog)));
             break;
 
         default:
-            echo json_encode(['ok' => false, 'msg' => 'Unknown action']);
+            echo json_encode(array('ok' => false, 'msg' => 'Unknown action'));
     }
     exit;
 }
 
 $servers = unserialize(SERVERS);
-$sid = $_SESSION['server_id'] ?? 1;
-$isAuth = $_SESSION['gm_auth'] ?? false;
+$sid     = isset($_SESSION['server_id']) ? $_SESSION['server_id'] : 1;
+$isAuth  = isset($_SESSION['gm_auth'])   ? $_SESSION['gm_auth']   : false;
+$srvName = isset($servers[$sid]['name']) ? $servers[$sid]['name'] : 'Server ' . $sid;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -265,9 +261,9 @@ body { background: var(--bg); color: var(--text); font: 14px/1.5 'Segoe UI', san
 .field textarea { resize:vertical; min-height:60px; }
 
 /* ── Buttons ── */
-btn, .btn { display:inline-flex; align-items:center; gap:6px; padding:8px 16px;
-            border-radius:6px; border:none; cursor:pointer; font-size:13px; font-weight:600;
-            transition:.15s; text-decoration:none; }
+.btn { display:inline-flex; align-items:center; gap:6px; padding:8px 16px;
+       border-radius:6px; border:none; cursor:pointer; font-size:13px; font-weight:600;
+       transition:.15s; text-decoration:none; }
 .btn-primary { background:var(--accent); color:#fff; }
 .btn-primary:hover { background:#4752c4; }
 .btn-success { background:var(--success); color:#000; }
@@ -335,14 +331,14 @@ tr:hover td { background:rgba(255,255,255,.025); }
 <!-- ══ LOGIN ══════════════════════════════════════════════════════════════ -->
 <div class="login-wrap">
   <div class="login-box">
-    <h1>⚔ GM Panel</h1>
+    <h1>&#9876; GM Panel</h1>
     <?php if (!empty($loginError)): ?>
-      <div class="err"><?= htmlspecialchars($loginError) ?></div>
+      <div class="err"><?php echo htmlspecialchars($loginError); ?></div>
     <?php endif; ?>
     <form method="POST">
       <select name="server_id">
         <?php foreach ($servers as $id => $s): ?>
-          <option value="<?= $id ?>"><?= htmlspecialchars($s['name']) ?></option>
+          <option value="<?php echo $id; ?>"><?php echo htmlspecialchars($s['name']); ?></option>
         <?php endforeach; ?>
       </select>
       <input type="password" name="password" placeholder="GM Password" autofocus>
@@ -355,18 +351,18 @@ tr:hover td { background:rgba(255,255,255,.025); }
 <div class="shell">
   <aside class="sidebar">
     <div class="sidebar-logo">
-      ⚔ GM Panel
-      <span><?= htmlspecialchars($servers[$sid]['name'] ?? 'Server '.$sid) ?></span>
+      &#9876; GM Panel
+      <span><?php echo htmlspecialchars($srvName); ?></span>
     </div>
     <nav>
-      <a href="#" class="active" data-page="dashboard">📊 Dashboard</a>
-      <a href="#" data-page="accounts">👥 Accounts</a>
-      <a href="#" data-page="gift">🎁 Gift Items</a>
-      <a href="#" data-page="payment">💳 Payment Control</a>
-      <a href="#" data-page="notice">📢 Notice</a>
+      <a href="#" class="active" data-page="dashboard">&#128202; Dashboard</a>
+      <a href="#" data-page="accounts">&#128101; Accounts</a>
+      <a href="#" data-page="gift">&#127873; Gift Items</a>
+      <a href="#" data-page="payment">&#128179; Payment Control</a>
+      <a href="#" data-page="notice">&#128226; Notice</a>
     </nav>
     <div class="sidebar-bottom">
-      <a href="?logout">⏻ Logout</a>
+      <a href="?logout">Logout</a>
     </div>
   </aside>
 
@@ -376,10 +372,10 @@ tr:hover td { background:rgba(255,255,255,.025); }
     <div class="page active" id="page-dashboard">
       <div class="page-title">Dashboard <small>Quick overview</small></div>
       <div id="dash-stats" class="stat-grid">
-        <div class="stat"><div class="stat-val" id="s-total">—</div><div class="stat-lbl">Total Accounts</div></div>
-        <div class="stat"><div class="stat-val" id="s-online" style="color:var(--success)">—</div><div class="stat-lbl">Online Now</div></div>
-        <div class="stat"><div class="stat-val" id="s-today">—</div><div class="stat-lbl">Logged In Today</div></div>
-        <div class="stat"><div class="stat-val" id="s-vip" style="color:var(--gold)">—</div><div class="stat-lbl">VIP Players</div></div>
+        <div class="stat"><div class="stat-val" id="s-total">&#8212;</div><div class="stat-lbl">Total Accounts</div></div>
+        <div class="stat"><div class="stat-val" id="s-online" style="color:var(--success)">&#8212;</div><div class="stat-lbl">Online Now</div></div>
+        <div class="stat"><div class="stat-val" id="s-today">&#8212;</div><div class="stat-lbl">Logged In Today</div></div>
+        <div class="stat"><div class="stat-val" id="s-vip" style="color:var(--gold)">&#8212;</div><div class="stat-lbl">VIP Players</div></div>
       </div>
       <div class="card">
         <div class="card-title">Recent Active Players</div>
@@ -392,7 +388,7 @@ tr:hover td { background:rgba(255,255,255,.025); }
       <div class="page-title">Accounts <small>Search &amp; manage players</small></div>
       <div class="card">
         <div class="search-bar">
-          <input id="acc-search" placeholder="Search name or player ID…" oninput="debounceSearch()">
+          <input id="acc-search" placeholder="Search name or player ID..." oninput="debounceSearch()">
           <button class="btn btn-primary btn-sm" onclick="loadAccounts()">Search</button>
           <button class="btn btn-ghost btn-sm" onclick="document.getElementById('acc-search').value='';loadAccounts()">Reset</button>
         </div>
@@ -402,7 +398,7 @@ tr:hover td { background:rgba(255,255,255,.025); }
               <th>Player ID</th><th>Name</th><th>Lv</th><th>VIP</th>
               <th>Gold</th><th>Jade</th><th>Status</th><th>Last Login</th><th>Actions</th>
             </tr></thead>
-            <tbody id="acc-tbody"><tr><td colspan="9" style="color:var(--muted);text-align:center">Loading…</td></tr></tbody>
+            <tbody id="acc-tbody"><tr><td colspan="9" style="color:var(--muted);text-align:center">Loading...</td></tr></tbody>
           </table>
         </div>
       </div>
@@ -418,12 +414,11 @@ tr:hover td { background:rgba(255,255,255,.025); }
           <div class="card-title">Gift to Single Player</div>
           <div class="field" style="margin-bottom:10px">
             <label>Player ID or Name</label>
-            <input id="g-pid" placeholder="Player ID" list="g-pid-list">
-            <datalist id="g-pid-list"></datalist>
+            <input id="g-pid" placeholder="Player ID or Name">
           </div>
           <div class="field" style="margin-bottom:10px">
             <label>Item <span id="g-item-name" style="color:var(--accent)"></span></label>
-            <input id="g-item-search" placeholder="Search item name or ID…" oninput="searchItems('g')">
+            <input id="g-item-search" placeholder="Search item name or ID..." oninput="searchItems('g')">
           </div>
           <div id="g-items-grid" class="items-grid" style="margin-bottom:10px"></div>
           <input type="hidden" id="g-item-id">
@@ -431,7 +426,7 @@ tr:hover td { background:rgba(255,255,255,.025); }
             <div class="field"><label>Quantity</label><input id="g-count" type="number" value="1" min="1" style="width:80px"></div>
             <div class="field"><label>Reason</label><input id="g-reason" value="GM Gift" style="min-width:200px"></div>
           </div>
-          <button class="btn btn-success" onclick="giftSingle()">🎁 Send Gift</button>
+          <button class="btn btn-success" onclick="giftSingle()">Send Gift</button>
         </div>
 
         <!-- Broadcast gift -->
@@ -439,7 +434,7 @@ tr:hover td { background:rgba(255,255,255,.025); }
           <div class="card-title">Gift to All Online Players</div>
           <div class="field" style="margin-bottom:10px">
             <label>Item <span id="ga-item-name" style="color:var(--accent)"></span></label>
-            <input id="ga-item-search" placeholder="Search item name or ID…" oninput="searchItems('ga')">
+            <input id="ga-item-search" placeholder="Search item name or ID..." oninput="searchItems('ga')">
           </div>
           <div id="ga-items-grid" class="items-grid" style="margin-bottom:10px"></div>
           <input type="hidden" id="ga-item-id">
@@ -447,7 +442,7 @@ tr:hover td { background:rgba(255,255,255,.025); }
             <div class="field"><label>Quantity</label><input id="ga-count" type="number" value="1" min="1" style="width:80px"></div>
             <div class="field"><label>Reason</label><input id="ga-reason" value="Server Event Gift" style="min-width:200px"></div>
           </div>
-          <button class="btn btn-warn" onclick="giftAll()">📢 Broadcast Gift</button>
+          <button class="btn btn-warn" onclick="giftAll()">Broadcast Gift</button>
           <div style="margin-top:8px;font-size:12px;color:var(--muted)">Sends to all currently online players.</div>
         </div>
 
@@ -461,12 +456,12 @@ tr:hover td { background:rgba(255,255,255,.025); }
       <div class="card" style="margin-bottom:16px">
         <div class="card-title">Quick Actions</div>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn btn-success" onclick="setAllFree()">✅ Set ALL Packages FREE (RMB=0)</button>
-          <button class="btn btn-warn"    onclick="restoreBackup()">⚠ Restore Original Prices</button>
-          <button class="btn btn-ghost"   onclick="loadPayment()">↺ Reload</button>
+          <button class="btn btn-success" onclick="setAllFree()">Set ALL Packages FREE (RMB=0)</button>
+          <button class="btn btn-warn"    onclick="restoreBackup()">Restore Original Prices</button>
+          <button class="btn btn-ghost"   onclick="loadPayment()">Reload</button>
         </div>
         <div style="margin-top:10px;font-size:12px;color:var(--muted)">
-          ⚠ Changes are written to the config file. Restart the game server for them to take effect.
+          Changes are written to the config file. Restart the game server for them to take effect.
         </div>
       </div>
 
@@ -475,9 +470,9 @@ tr:hover td { background:rgba(255,255,255,.025); }
         <div class="tbl-wrap">
           <table>
             <thead><tr>
-              <th>ID</th><th>Name</th><th>Type</th><th>Price (RMB ¥)</th><th>Status</th><th>Actions</th>
+              <th>ID</th><th>Name</th><th>Type</th><th>Price (RMB)</th><th>Status</th><th>Actions</th>
             </tr></thead>
-            <tbody id="pay-tbody"><tr><td colspan="6" style="color:var(--muted);text-align:center">Loading…</td></tr></tbody>
+            <tbody id="pay-tbody"><tr><td colspan="6" style="color:var(--muted);text-align:center">Loading...</td></tr></tbody>
           </table>
         </div>
       </div>
@@ -490,23 +485,23 @@ tr:hover td { background:rgba(255,255,255,.025); }
         <div class="card-title">Send Pop-up Notice</div>
         <div class="field" style="margin-bottom:12px">
           <label>Message</label>
-          <textarea id="notice-msg" placeholder="Enter message to broadcast to all players…"></textarea>
+          <textarea id="notice-msg" placeholder="Enter message to broadcast to all players..."></textarea>
         </div>
-        <button class="btn btn-primary" onclick="sendNotice()">📢 Send Notice</button>
+        <button class="btn btn-primary" onclick="sendNotice()">Send Notice</button>
       </div>
     </div>
 
   </main>
 </div>
 
-<!-- ── Gift single player modal (quick access from account list) ──────── -->
+<!-- ── Gift single player modal ────────────────────────────────────────── -->
 <div class="modal-backdrop" id="modal-gift">
   <div class="modal">
-    <h2>🎁 Gift Item</h2>
+    <h2>Gift Item</h2>
     <div id="modal-target" style="margin-bottom:12px;color:var(--accent);font-size:13px"></div>
     <div class="field" style="margin-bottom:10px">
       <label>Item</label>
-      <input id="mg-item-search" placeholder="Search item…" oninput="searchItems('mg')">
+      <input id="mg-item-search" placeholder="Search item..." oninput="searchItems('mg')">
     </div>
     <div id="mg-items-grid" class="items-grid" style="margin-bottom:10px"></div>
     <input type="hidden" id="mg-item-id">
@@ -525,12 +520,12 @@ tr:hover td { background:rgba(255,255,255,.025); }
 
 <script>
 // ── Routing ───────────────────────────────────────────────────────────────
-document.querySelectorAll('[data-page]').forEach(a => {
-  a.addEventListener('click', e => {
+document.querySelectorAll('[data-page]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
     e.preventDefault();
-    const pg = a.dataset.page;
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('[data-page]').forEach(x => x.classList.remove('active'));
+    var pg = a.dataset.page;
+    document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+    document.querySelectorAll('[data-page]').forEach(function(x) { x.classList.remove('active'); });
     document.getElementById('page-' + pg).classList.add('active');
     a.classList.add('active');
     if (pg === 'dashboard') loadDashboard();
@@ -541,148 +536,147 @@ document.querySelectorAll('[data-page]').forEach(a => {
 });
 
 // ── Toast ─────────────────────────────────────────────────────────────────
-function toast(msg, type='info') {
-  const el = document.createElement('div');
+function toast(msg, type) {
+  type = type || 'info';
+  var el = document.createElement('div');
   el.className = 'toast toast-' + (type==='ok'?'ok':type==='err'?'err':'info');
   el.textContent = msg;
   document.getElementById('toast').appendChild(el);
-  setTimeout(() => el.remove(), 4000);
+  setTimeout(function() { el.remove(); }, 4000);
 }
 
-// ── AJAX helper ──────────────────────────────────────────────────────────
-async function ajax(params) {
-  const url = 'index.php?' + new URLSearchParams(params).toString();
-  const isPost = params._method === 'POST';
-  const body = params._body ? new URLSearchParams(params._body) : null;
-  const r = await fetch(isPost ? url : url, {
-    method: body ? 'POST' : 'GET',
-    headers: body ? {'Content-Type':'application/x-www-form-urlencoded'} : {},
-    body: body
-  });
-  return r.json();
-}
-
-async function post(action, data) {
-  const url = 'index.php?ajax=' + action;
-  const r = await fetch(url, {
+// ── POST helper ──────────────────────────────────────────────────────────
+function post(action, data) {
+  var url = 'index.php?ajax=' + action;
+  var body = new URLSearchParams(data);
+  return fetch(url, {
     method: 'POST',
-    headers: {'Content-Type':'application/x-www-form-urlencoded'},
-    body: new URLSearchParams(data)
-  });
-  return r.json();
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: body
+  }).then(function(r) { return r.json(); });
 }
 
 // ── Dashboard ─────────────────────────────────────────────────────────────
-async function loadDashboard() {
-  const r = await fetch('index.php?ajax=accounts&limit=200');
-  const data = await r.json();
-  const rows = data.data || [];
-  document.getElementById('s-total').textContent  = rows.length;
-  document.getElementById('s-online').textContent = rows.filter(x=>x.onlineState=='1'||x.onlineState===1).length;
-  const today = new Date().toISOString().slice(0,10);
-  document.getElementById('s-today').textContent  = rows.filter(x=>(x.lastLoginTime||'').startsWith(today)).length;
-  document.getElementById('s-vip').textContent    = rows.filter(x=>parseInt(x.vipLevel||0)>0).length;
-  const recent = rows.slice(0,10);
-  document.getElementById('dash-recent').innerHTML = buildPlayerTable(recent, false);
+function loadDashboard() {
+  fetch('index.php?ajax=accounts&limit=200').then(function(r) { return r.json(); }).then(function(data) {
+    var rows = data.data || [];
+    document.getElementById('s-total').textContent  = rows.length;
+    document.getElementById('s-online').textContent = rows.filter(function(x) { return x.onlineState=='1'||x.onlineState===1; }).length;
+    var today = new Date().toISOString().slice(0,10);
+    document.getElementById('s-today').textContent  = rows.filter(function(x) { return (x.lastLoginTime||'').startsWith(today); }).length;
+    document.getElementById('s-vip').textContent    = rows.filter(function(x) { return parseInt(x.vipLevel||0)>0; }).length;
+    document.getElementById('dash-recent').innerHTML = buildPlayerTable(rows.slice(0,10));
+  });
 }
 
 // ── Accounts ──────────────────────────────────────────────────────────────
-let searchTimer;
+var searchTimer;
 function debounceSearch() { clearTimeout(searchTimer); searchTimer = setTimeout(loadAccounts, 400); }
 
-async function loadAccounts() {
-  const q = document.getElementById('acc-search').value;
+function loadAccounts() {
+  var q = document.getElementById('acc-search').value;
   document.getElementById('acc-tbody').innerHTML = '<tr><td colspan="9" style="text-align:center"><span class="spinner"></span></td></tr>';
-  const r = await fetch(`index.php?ajax=accounts&q=${encodeURIComponent(q)}&limit=100`);
-  const data = await r.json();
-  document.getElementById('acc-tbody').innerHTML = buildPlayerRows(data.data || []);
+  fetch('index.php?ajax=accounts&q=' + encodeURIComponent(q) + '&limit=100').then(function(r) { return r.json(); }).then(function(data) {
+    document.getElementById('acc-tbody').innerHTML = buildPlayerRows(data.data || []);
+  });
 }
 
 function buildPlayerRows(rows) {
   if (!rows.length) return '<tr><td colspan="9" style="color:var(--muted);text-align:center">No results</td></tr>';
-  return rows.map(p => `
-    <tr>
-      <td style="font-family:monospace;font-size:12px">${p.playerId}</td>
-      <td><strong>${esc(p.playerName)}</strong></td>
-      <td>${p.level||'—'}</td>
-      <td>${p.vipLevel>0?`<span class="badge badge-vip">VIP ${p.vipLevel}</span>`:'—'}</td>
-      <td>${fmt(p.gold)}</td>
-      <td>${fmt(p.jade)}</td>
-      <td><span class="badge ${p.onlineState=='1'||p.onlineState===1?'badge-online':'badge-offline'}">${p.onlineState=='1'||p.onlineState===1?'Online':'Offline'}</span></td>
-      <td style="font-size:12px;color:var(--muted)">${(p.lastLoginTime||'').replace('T',' ').slice(0,16)}</td>
-      <td><button class="btn btn-success btn-sm" onclick="openGiftModal('${p.playerId}','${esc(p.playerName)}')">🎁</button></td>
-    </tr>`).join('');
+  return rows.map(function(p) {
+    var online = p.onlineState=='1'||p.onlineState===1;
+    return '<tr>' +
+      '<td style="font-family:monospace;font-size:12px">' + p.playerId + '</td>' +
+      '<td><strong>' + esc(p.playerName) + '</strong></td>' +
+      '<td>' + (p.level||'—') + '</td>' +
+      '<td>' + (p.vipLevel>0 ? '<span class="badge badge-vip">VIP ' + p.vipLevel + '</span>' : '—') + '</td>' +
+      '<td>' + fmt(p.gold) + '</td>' +
+      '<td>' + fmt(p.jade) + '</td>' +
+      '<td><span class="badge ' + (online?'badge-online':'badge-offline') + '">' + (online?'Online':'Offline') + '</span></td>' +
+      '<td style="font-size:12px;color:var(--muted)">' + (p.lastLoginTime||'').replace('T',' ').slice(0,16) + '</td>' +
+      '<td><button class="btn btn-success btn-sm" onclick="openGiftModal(\'' + p.playerId + '\',\'' + esc(p.playerName) + '\')">Gift</button></td>' +
+      '</tr>';
+  }).join('');
 }
 
-function buildPlayerTable(rows, showActions=true) {
-  return '<div class="tbl-wrap"><table><thead><tr><th>ID</th><th>Name</th><th>Lv</th><th>VIP</th><th>Status</th></tr></thead><tbody>' +
-    rows.map(p=>`<tr>
-      <td style="font-family:monospace;font-size:12px">${p.playerId}</td>
-      <td>${esc(p.playerName)}</td><td>${p.level||'—'}</td>
-      <td>${p.vipLevel>0?`<span class="badge badge-vip">VIP ${p.vipLevel}</span>`:'—'}</td>
-      <td><span class="badge ${p.onlineState=='1'||p.onlineState===1?'badge-online':'badge-offline'}">${p.onlineState=='1'||p.onlineState===1?'Online':'Offline'}</span></td>
-    </tr>`).join('') + '</tbody></table></div>';
+function buildPlayerTable(rows) {
+  var html = '<div class="tbl-wrap"><table><thead><tr><th>ID</th><th>Name</th><th>Lv</th><th>VIP</th><th>Status</th></tr></thead><tbody>';
+  rows.forEach(function(p) {
+    var online = p.onlineState=='1'||p.onlineState===1;
+    html += '<tr>' +
+      '<td style="font-family:monospace;font-size:12px">' + p.playerId + '</td>' +
+      '<td>' + esc(p.playerName) + '</td><td>' + (p.level||'—') + '</td>' +
+      '<td>' + (p.vipLevel>0 ? '<span class="badge badge-vip">VIP ' + p.vipLevel + '</span>' : '—') + '</td>' +
+      '<td><span class="badge ' + (online?'badge-online':'badge-offline') + '">' + (online?'Online':'Offline') + '</span></td>' +
+      '</tr>';
+  });
+  return html + '</tbody></table></div>';
 }
 
 // ── Item search ───────────────────────────────────────────────────────────
-let itemCache = null;
-async function getItems() {
-  if (!itemCache) {
-    const r = await fetch('index.php?ajax=items');
-    const d = await r.json();
+var itemCache = null;
+function getItems() {
+  if (itemCache) return Promise.resolve(itemCache);
+  return fetch('index.php?ajax=items').then(function(r) { return r.json(); }).then(function(d) {
     itemCache = d.data || [];
-  }
-  return itemCache;
+    return itemCache;
+  });
 }
 
-let selectedItems = { g:'', ga:'', mg:'' };
+var selectedItems = { g:'', ga:'', mg:'' };
 
-async function searchItems(prefix) {
-  const q = (document.getElementById(prefix+'-item-search')?.value||'').toLowerCase();
-  const all = await getItems();
-  const filtered = q ? all.filter(i=>i.name.toLowerCase().includes(q)||String(i.id).includes(q)) : all.slice(0,48);
-  const grid = document.getElementById(prefix+'-items-grid');
-  if (!grid) return;
-  grid.innerHTML = filtered.slice(0,48).map(i=>`
-    <div class="item-card quality-${i.quality} ${selectedItems[prefix]==i.id?'selected':''}"
-         onclick="selectItem('${prefix}','${i.id}','${esc(i.name)}')">
-      <div class="item-name quality-${i.quality}">${esc(i.name)}</div>
-      <div class="item-id">#${i.id}</div>
-    </div>`).join('');
+function searchItems(prefix) {
+  var qEl = document.getElementById(prefix+'-item-search');
+  var q = qEl ? qEl.value.toLowerCase() : '';
+  getItems().then(function(all) {
+    var filtered = q ? all.filter(function(i) {
+      return i.name.toLowerCase().indexOf(q) !== -1 || String(i.id).indexOf(q) !== -1;
+    }) : all.slice(0,48);
+    var grid = document.getElementById(prefix+'-items-grid');
+    if (!grid) return;
+    grid.innerHTML = filtered.slice(0,48).map(function(i) {
+      return '<div class="item-card quality-' + i.quality + (selectedItems[prefix]==i.id?' selected':'') + '" ' +
+             'onclick="selectItem(\'' + prefix + '\',\'' + i.id + '\',\'' + esc(i.name) + '\')">' +
+             '<div class="item-name quality-' + i.quality + '">' + esc(i.name) + '</div>' +
+             '<div class="item-id">#' + i.id + '</div></div>';
+    }).join('');
+  });
 }
 
 function selectItem(prefix, id, name) {
   selectedItems[prefix] = id;
   document.getElementById(prefix+'-item-id').value = id;
-  const nameEl = document.getElementById(prefix+'-item-name');
+  var nameEl = document.getElementById(prefix+'-item-name');
   if (nameEl) nameEl.textContent = name;
-  searchItems(prefix); // re-render to show selection
+  searchItems(prefix);
 }
 
 // ── Gift single ───────────────────────────────────────────────────────────
-async function giftSingle() {
-  const pid    = document.getElementById('g-pid').value.trim();
-  const itemId = document.getElementById('g-item-id').value;
-  const count  = document.getElementById('g-count').value;
-  const reason = document.getElementById('g-reason').value;
-  if (!pid)    { toast('Enter player ID or name','err'); return; }
-  if (!itemId) { toast('Select an item first','err'); return; }
-  const r = await post('gift_item', {playerId:pid, itemId, count, reason});
-  toast(r.ok ? '✅ Gift sent to ' + pid : '❌ Failed: ' + JSON.stringify(r.result), r.ok?'ok':'err');
+function giftSingle() {
+  var pid    = document.getElementById('g-pid').value.trim();
+  var itemId = document.getElementById('g-item-id').value;
+  var count  = document.getElementById('g-count').value;
+  var reason = document.getElementById('g-reason').value;
+  if (!pid)    { toast('Enter player ID or name', 'err'); return; }
+  if (!itemId) { toast('Select an item first', 'err'); return; }
+  post('gift_item', {playerId:pid, itemId:itemId, count:count, reason:reason}).then(function(r) {
+    toast(r.ok ? 'Gift sent to ' + pid : 'Failed: ' + JSON.stringify(r.result), r.ok?'ok':'err');
+  });
 }
 
-async function giftAll() {
-  const itemId = document.getElementById('ga-item-id').value;
-  const count  = document.getElementById('ga-count').value;
-  const reason = document.getElementById('ga-reason').value;
-  if (!itemId) { toast('Select an item first','err'); return; }
+function giftAll() {
+  var itemId = document.getElementById('ga-item-id').value;
+  var count  = document.getElementById('ga-count').value;
+  var reason = document.getElementById('ga-reason').value;
+  if (!itemId) { toast('Select an item first', 'err'); return; }
   if (!confirm('Send this item to ALL online players?')) return;
-  const r = await post('gift_all', {itemId, count, reason});
-  toast(r.ok ? '✅ Broadcast sent' : '❌ Failed', r.ok?'ok':'err');
+  post('gift_all', {itemId:itemId, count:count, reason:reason}).then(function(r) {
+    toast(r.ok ? 'Broadcast sent' : 'Failed', r.ok?'ok':'err');
+  });
 }
 
-// ── Gift modal (from account list) ───────────────────────────────────────
-let modalPid = '';
+// ── Gift modal ────────────────────────────────────────────────────────────
+var modalPid = '';
 function openGiftModal(pid, name) {
   modalPid = pid;
   document.getElementById('modal-target').textContent = 'Player: ' + name + ' (' + pid + ')';
@@ -691,86 +685,89 @@ function openGiftModal(pid, name) {
 }
 function closeModal() { document.getElementById('modal-gift').classList.remove('open'); }
 
-async function doModalGift() {
-  const itemId = document.getElementById('mg-item-id').value;
-  const count  = document.getElementById('mg-count').value;
-  const reason = document.getElementById('mg-reason').value;
-  if (!itemId) { toast('Select an item','err'); return; }
-  const r = await post('gift_item', {playerId:modalPid, itemId, count, reason});
-  toast(r.ok ? '✅ Gift sent' : '❌ Failed: ' + JSON.stringify(r.result), r.ok?'ok':'err');
-  if (r.ok) closeModal();
+function doModalGift() {
+  var itemId = document.getElementById('mg-item-id').value;
+  var count  = document.getElementById('mg-count').value;
+  var reason = document.getElementById('mg-reason').value;
+  if (!itemId) { toast('Select an item', 'err'); return; }
+  post('gift_item', {playerId:modalPid, itemId:itemId, count:count, reason:reason}).then(function(r) {
+    toast(r.ok ? 'Gift sent' : 'Failed: ' + JSON.stringify(r.result), r.ok?'ok':'err');
+    if (r.ok) closeModal();
+  });
 }
 
 // ── Payment ───────────────────────────────────────────────────────────────
-let payBackup = null;
+var payBackup = null;
 
-async function loadPayment() {
+function loadPayment() {
   document.getElementById('pay-tbody').innerHTML = '<tr><td colspan="6" style="text-align:center"><span class="spinner"></span></td></tr>';
-  const r = await fetch('index.php?ajax=recharge_list');
-  const d = await r.json();
-  const pkgs = d.data || [];
-  if (!payBackup) payBackup = JSON.parse(JSON.stringify(pkgs));
-
-  const typeMap = {99:'First Recharge', 1:'Monthly Card', 2:'Daily', 3:'Weekly', 4:'Total Recharge', 5:'Event', 0:'Normal'};
-  document.getElementById('pay-tbody').innerHTML = pkgs.map(p=>`
-    <tr>
-      <td>${p.id}</td>
-      <td>${esc(p.name)}</td>
-      <td><span class="badge" style="background:#1a1e3a;color:#aaf">${typeMap[p.type]||'Type '+p.type}</span></td>
-      <td>
-        <span class="${p.RMB==0?'free-tag':'price-tag'}" id="price-${p.id}">
-          ${p.RMB==0?'FREE':'¥'+p.RMB}
-        </span>
-      </td>
-      <td>${p.RMB==0?'<span class="badge" style="background:#1a3a2a;color:var(--success)">FREE</span>':'<span class="badge badge-offline">Paid</span>'}</td>
-      <td>
-        <button class="btn btn-success btn-sm" onclick="setPkgFree(${p.id})">Set FREE</button>
-        <button class="btn btn-ghost   btn-sm" onclick="setPkgPrice(${p.id},${p.RMB})">Set Price…</button>
-      </td>
-    </tr>`).join('');
+  fetch('index.php?ajax=recharge_list').then(function(r) { return r.json(); }).then(function(d) {
+    var pkgs = d.data || [];
+    if (!payBackup) payBackup = JSON.parse(JSON.stringify(pkgs));
+    var typeMap = {99:'First Recharge', 1:'Monthly Card', 2:'Daily', 3:'Weekly', 4:'Total Recharge', 5:'Event', 0:'Normal'};
+    document.getElementById('pay-tbody').innerHTML = pkgs.map(function(p) {
+      return '<tr>' +
+        '<td>' + p.id + '</td>' +
+        '<td>' + esc(p.name) + '</td>' +
+        '<td><span class="badge" style="background:#1a1e3a;color:#aaf">' + (typeMap[p.type]||'Type '+p.type) + '</span></td>' +
+        '<td><span class="' + (p.RMB==0?'free-tag':'price-tag') + '">' + (p.RMB==0?'FREE':'Y'+p.RMB) + '</span></td>' +
+        '<td>' + (p.RMB==0?'<span class="badge" style="background:#1a3a2a;color:var(--success)">FREE</span>':'<span class="badge badge-offline">Paid</span>') + '</td>' +
+        '<td>' +
+          '<button class="btn btn-success btn-sm" onclick="setPkgFree(' + p.id + ')">Set FREE</button> ' +
+          '<button class="btn btn-ghost btn-sm" onclick="setPkgPrice(' + p.id + ',' + p.RMB + ')">Set Price</button>' +
+        '</td></tr>';
+    }).join('');
+  });
 }
 
-async function setPkgFree(id) {
-  const r = await post('recharge_set_price', {id, rmb:0});
-  toast(r.msg || (r.ok?'Done':'Error'), r.ok?'ok':'err');
-  if (r.ok) loadPayment();
+function setPkgFree(id) {
+  post('recharge_set_price', {id:id, rmb:0}).then(function(r) {
+    toast(r.msg || (r.ok?'Done':'Error'), r.ok?'ok':'err');
+    if (r.ok) loadPayment();
+  });
 }
 
-async function setPkgPrice(id, cur) {
-  const v = prompt('New price in RMB yuan (0 = free):', cur);
+function setPkgPrice(id, cur) {
+  var v = prompt('New price in RMB (0 = free):', cur);
   if (v === null) return;
-  const rmb = parseInt(v);
-  if (isNaN(rmb) || rmb < 0) { toast('Invalid price','err'); return; }
-  const r = await post('recharge_set_price', {id, rmb});
-  toast(r.msg || (r.ok?'Done':'Error'), r.ok?'ok':'err');
-  if (r.ok) loadPayment();
+  var rmb = parseInt(v);
+  if (isNaN(rmb) || rmb < 0) { toast('Invalid price', 'err'); return; }
+  post('recharge_set_price', {id:id, rmb:rmb}).then(function(r) {
+    toast(r.msg || (r.ok?'Done':'Error'), r.ok?'ok':'err');
+    if (r.ok) loadPayment();
+  });
 }
 
-async function setAllFree() {
+function setAllFree() {
   if (!confirm('Set ALL recharge packages to FREE (RMB=0)?\nThis writes to the config file.')) return;
-  const r = await post('recharge_free_all', {});
-  toast(r.msg || (r.ok?'Done':'Error'), r.ok?'ok':'err');
-  if (r.ok) { payBackup = null; loadPayment(); }
+  post('recharge_free_all', {}).then(function(r) {
+    toast(r.msg || (r.ok?'Done':'Error'), r.ok?'ok':'err');
+    if (r.ok) { payBackup = null; loadPayment(); }
+  });
 }
 
-async function restoreBackup() {
-  if (!payBackup) { toast('No backup in memory (refresh page first)','err'); return; }
+function restoreBackup() {
+  if (!payBackup) { toast('No backup in memory (refresh page first)', 'err'); return; }
   if (!confirm('Restore original prices from session backup?')) return;
-  const r = await post('recharge_restore', {data: JSON.stringify(payBackup)});
-  toast(r.ok?'Restored':'Failed', r.ok?'ok':'err');
-  if (r.ok) { payBackup = null; loadPayment(); }
+  post('recharge_restore', {data: JSON.stringify(payBackup)}).then(function(r) {
+    toast(r.ok?'Restored':'Failed', r.ok?'ok':'err');
+    if (r.ok) { payBackup = null; loadPayment(); }
+  });
 }
 
 // ── Notice ────────────────────────────────────────────────────────────────
-async function sendNotice() {
-  const msg = document.getElementById('notice-msg').value.trim();
-  if (!msg) { toast('Enter a message','err'); return; }
-  const r = await post('send_notice', {message: msg});
-  toast(r.ok ? '✅ Notice sent' : ('❌ ' + (r.msg || 'Failed')), r.ok ? 'ok' : 'err');
+function sendNotice() {
+  var msg = document.getElementById('notice-msg').value.trim();
+  if (!msg) { toast('Enter a message', 'err'); return; }
+  post('send_notice', {message: msg}).then(function(r) {
+    toast(r.ok ? 'Notice sent' : ('Failed: ' + (r.msg || '')), r.ok ? 'ok' : 'err');
+  });
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────
-function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function esc(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
 function fmt(n) { return parseInt(n||0).toLocaleString(); }
 
 // ── Init ──────────────────────────────────────────────────────────────────
