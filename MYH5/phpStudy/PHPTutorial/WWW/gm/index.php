@@ -154,43 +154,26 @@ if (isset($_GET['ajax']) && $gmAuth) {
 
         // ── Gift item ─────────────────────────────────────────────────────
         case 'gift_item':
-            $pid    = isset($_POST['playerId']) ? $_POST['playerId'] : '';
-            $itemId = isset($_POST['itemId'])   ? $_POST['itemId']   : '';
+            $pid    = isset($_POST['playerId']) ? trim($_POST['playerId']) : '';
+            $itemId = isset($_POST['itemId'])   ? trim($_POST['itemId'])   : '';
             $count  = max(1, (int)(isset($_POST['count']) ? $_POST['count'] : 1));
-            $reason = isset($_POST['reason'])   ? $_POST['reason']   : 'GM Gift';
+            $reason = isset($_POST['reason'])   ? trim($_POST['reason'])   : 'GM Gift';
             if (!$pid || !$itemId) {
                 echo json_encode(array('ok' => false, 'msg' => 'Missing playerId or itemId')); break;
             }
-            $targetName = $pid;
-            if (ctype_digit($pid)) {
-                $tbl = DB_TABLE_PLAYER;
-                $tables = db_list_tables($dbName);
-                if (!in_array($tbl, $tables)) { $tbl = db_find_player_table($dbName); }
-                if ($tbl) {
-                    $pr = db_query("SELECT * FROM `$tbl` WHERE `playerId`=? OR `roleId`=? OR `id`=? LIMIT 1",
-                        array($pid,$pid,$pid), $dbName);
-                    if (!empty($pr[0])) {
-                        $row0 = $pr[0];
-                        $targetName = isset($row0['playerName']) ? $row0['playerName'] :
-                                     (isset($row0['roleName'])   ? $row0['roleName']   :
-                                     (isset($row0['name'])       ? $row0['name']       : $pid));
-                    }
-                }
-            }
-            $result = api_mail_gift($targetName, $itemId, $count, 'GM Gift', $reason);
-            if (!empty($result['error'])) {
-                $result = api_new_mail($targetName, $itemId, $count, 'GM Gift', $reason);
-            }
-            echo json_encode(array('ok' => true, 'result' => $result, 'targetName' => $targetName));
+            // $pid is the character display name; api_mail_gift_db looks up by player.name
+            $result = api_mail_gift_db($pid, $itemId, $count, 'GM Gift', $reason, $sid);
+            $ok     = isset($result['success']) ? (bool)$result['success'] : false;
+            echo json_encode(array('ok' => $ok, 'result' => $result, 'targetName' => $pid));
             break;
 
         // ── Gift to all ───────────────────────────────────────────────────
         case 'gift_all':
-            $itemId = isset($_POST['itemId']) ? $_POST['itemId'] : '';
+            $itemId = isset($_POST['itemId']) ? trim($_POST['itemId']) : '';
             $count  = max(1, (int)(isset($_POST['count']) ? $_POST['count'] : 1));
-            $reason = isset($_POST['reason']) ? $_POST['reason'] : 'Server Event Gift';
+            $reason = isset($_POST['reason']) ? trim($_POST['reason']) : 'Server Event Gift';
             if (!$itemId) { echo json_encode(array('ok'=>false,'msg'=>'No itemId')); break; }
-            $result = api_new_mail('', $itemId, $count, 'Server Gift', $reason);
+            $result = api_broadcast_mail($itemId, $count, 'Server Gift', $reason);
             echo json_encode(array('ok' => true, 'result' => $result));
             break;
 
