@@ -581,9 +581,9 @@ tr:hover td{background:rgba(255,255,255,.025)}
           <span>Component Switches <small style="font-weight:normal;text-transform:none;color:var(--muted)">(real-time server feature toggles)</small></span>
           <button class="btn btn-ghost btn-sm" onclick="loadSwitches()">Refresh</button>
         </div>
-        <div style="font-size:12px;color:#23d160;background:#0a2a18;border:1px solid #23d160;border-radius:6px;padding:10px 12px;margin-bottom:10px">
-          ✅ Tomcat GM API now runs on port 8090 (separate from Jetty port 8081).<br>
-          Requires: <strong>server_patched.jar</strong> deployed + <code>tcatPort = 8090</code> in <code>gameserver.properties</code> + server restart.
+        <div style="font-size:12px;color:#7a7d9a;background:#12141e;border:1px solid #2a2d3e;border-radius:6px;padding:10px 12px;margin-bottom:10px">
+          ℹ️ Requires <strong>server_patched.jar</strong> deployed as <strong>server.jar</strong> + server restart to activate Tomcat port 8090.<br>
+          <span style="color:#aaa">If server is offline or not patched, use the <strong>Enable/Disable Payment</strong> buttons above — they work without the server.</span>
         </div>
         <div id="sw-status" style="font-size:12px;color:var(--muted);margin-bottom:8px"></div>
         <div id="sw-list"></div>
@@ -952,8 +952,7 @@ function loadSwitches() {
 
     if (!switches.length) {
       document.getElementById('sw-status').innerHTML =
-        '<span style="color:var(--warn)">Could not get switch list from server. The server may be offline or ComponentSwitchService is unavailable.</span>' +
-        '<br><span style="color:var(--muted)">You can still manually toggle switches by name below.</span>';
+        '<span style="color:var(--muted)">Server not reachable on port 8090 — deploy server_patched.jar and restart game server to enable this feature.</span>';
       document.getElementById('sw-list').innerHTML = buildManualSwitchPanel();
       return;
     }
