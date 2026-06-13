@@ -4,7 +4,7 @@
 	<e:Group id="group" width="2" height="0" x="136" y="335.46" anchorOffsetX="0" anchorOffsetY="0"/>
 	<e:Image id="imgBg" x="32" y="21.46" source="img__firstplayer_title_png"/>
 	<e:Image source="common_closetip_png" x="140" y="737.46"/>
-	<components:SnapButton id="btnSure" label="确定" y="661.46" horizontalCenter="3" skinName="skins.SnapButtonDefaultSkin"/>
+	<components:SnapButton id="btnSure" label="Confirm" y="661.46" horizontalCenter="3" skinName="skins.SnapButtonDefaultSkin"/>
 	<e:Image id="imgIconKey" source="firstplayer_json.img_big_key1" y="294" x="166"/>
 	<e:Image source="firstplayer_json.img__firstplayer_wenzi" x="107" y="606"/>
 	<e:Image id="imgTitleKey" source="firstplayer_json.img_name_key2" x="346" y="606"/>

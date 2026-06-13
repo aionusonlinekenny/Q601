@@ -24,9 +24,9 @@
 			<e:HorizontalLayout gap="50" />
 		</e:layout>
 	</e:Group>
-	<e:ToggleButton id="togBtnUpgrade" label="升级" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" y="862" x="181">
+	<e:ToggleButton id="togBtnUpgrade" label="Upgrade" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" y="862" x="181">
 	</e:ToggleButton>
-	<e:ToggleButton id="togBtnAdvanced" label="进阶" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" y="862" x="299">
+	<e:ToggleButton id="togBtnAdvanced" label="Advance" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" y="862" x="299">
 	</e:ToggleButton>
 	<e:Group id="haveGroup" x="11" y="185" anchorOffsetX="0" width="576" anchorOffsetY="0" height="457">
 		<e:Image height="177" y="105" source="common_infobar_png" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" x="-10" scaleX="1" scaleY="1" scale9Grid="79,29,477,5"/>
@@ -38,8 +38,8 @@
 		               anchorOffsetY="0"  left="228" font="fight_font2_fnt"/>
 		<components:IconButton id="btnGetData" x="500" y="440" source="common_json.img_getRes_png" anchorOffsetX="35" anchorOffsetY="33"/>
 		<components:IconButton id="btnDecompose" x="500" y="348" source="common_json.btn_decompose_png" anchorOffsetX="35" anchorOffsetY="33"/>
-		<e:Label text="需要角色等级 : " x="27" y="305" size="20"  textColor="0xcfc9be"/>
-		<e:Label id="labXiaoHao" text="消耗兽魂碎片 : " x="27" y="370" size="20"  textColor="0xcfc9be"/>
+		<e:Label text="Character Level Required: " x="27" y="305" size="20"  textColor="0xcfc9be"/>
+		<e:Label id="labXiaoHao" text="Beast Soul Fragment Cost: " x="27" y="370" size="20"  textColor="0xcfc9be"/>
 		<e:Image width="155" height="46" x="165" y="292" anchorOffsetX="0" anchorOffsetY="0"
 		          source="common_json.img_numbg_png" scale9Grid="15,11,27,6"/>
 		<e:Image width="155" height="46" x="165" y="357" anchorOffsetX="0" anchorOffsetY="0"
@@ -48,7 +48,7 @@
 		          textColor="0x34e22c" x="180"/>
 		<e:Label id="labterm2" text="1/100" y="370" size="20" textAlign="left" verticalAlign="middle"
 		          textColor="0x34e22c" x="180"/>
-		<e:Label id="labDeedLv" text="契约等级 : 1级" x="235" y="292" textAlign="left" verticalAlign="middle"  size="20" textColor="0xcfc9be" visible="false"/>
+		<e:Label id="labDeedLv" text="Contract Level: 1" x="235" y="292" textAlign="left" verticalAlign="middle"  size="20" textColor="0xcfc9be" visible="false"/>
 		<e:Group id="group2" x="123" y="290" visible="false">
 			<e:Group x="187" y="2" scaleX="1" scaleY="1">
 				<e:Image id="imgxing11" x="0" y="10" width="25" height="25" source="common_json.img_smallStarBg_png"/>
@@ -70,10 +70,10 @@
 				<e:HorizontalLayout/>
 				</e:layout>
 			</e:Group>
-			<e:Label text="契约品阶星级 : " x="36" y="4" size="20"  textColor="0xcfc9be"/>
+			<e:Label text="Contract Tier Stars: " x="36" y="4" size="20"  textColor="0xcfc9be"/>
 		</e:Group>
-		<e:Label id="labPos0" text="幻兽1位" y="18" verticalAlign="middle" textAlign="center" size="26" x="111" textColor="0xedc839"/>
-		<e:Label id="labPos1" text="利抓位置" y="18" verticalAlign="middle" textAlign="center" size="26" x="365" textColor="0xedc839"/>
+		<e:Label id="labPos0" text="Phantom Beast Slot 1" y="18" verticalAlign="middle" textAlign="center" size="26" x="111" textColor="0xedc839"/>
+		<e:Label id="labPos1" text="Claw Position" y="18" verticalAlign="middle" textAlign="center" size="26" x="365" textColor="0xedc839"/>
 	</e:Group>
 	<e:Group id="group01" y="22.5" x="193">
 		<e:Image id="btn1" x="0" y="0" source="explore_json.img_circle_back"/>
@@ -81,7 +81,7 @@
 		<e:Image id="img_Highlight1" x="3.5" y="2" source="explore_json.img_circle_gold" width="85" height="85"/>
 		<e:Image id="imgPoint1" source="common_json.img_warn_png" x="0" y="0" scaleX="1" scaleY="1"/>
 		<e:Label id="vipLock1" text="" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
-		<e:Label text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" id="labXueXi1" horizontalCenter="0.5" verticalCenter="0.5" textColor="0xedc839" visible="false"/>
+		<e:Label text="Learn Value Unlock" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" id="labXueXi1" horizontalCenter="0.5" verticalCenter="0.5" textColor="0xedc839" visible="false"/>
 	</e:Group>
 	<e:Group id="groupJieSe" y="22.5" x="72">
 		<e:Image id="btnJieSe" x="0" y="0" source="explore_json.img_circle_back"/>
@@ -94,20 +94,20 @@
 		<e:Image id="img2" width="80" height="80" x="6" y="6" touchEnabled="false"/>
 		<e:Image id="img_Highlight2" x="3.5" y="2" source="explore_json.img_circle_gold" width="85" height="85"/>
 		<e:Image id="imgPoint2" source="common_json.img_warn_png" x="0" y="0" scaleX="1" scaleY="1"/>
-		<e:Label id="vipLock2" text="V2立即解锁" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
-		<e:Label id="labXueXi2" text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" horizontalCenter="-1" verticalCenter="-2.5" textColor="0xedc839" visible="false"/>
+		<e:Label id="vipLock2" text="V2 Unlock Now" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
+		<e:Label id="labXueXi2" text="Learn Value Unlock" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" horizontalCenter="-1" verticalCenter="-2.5" textColor="0xedc839" visible="false"/>
 	</e:Group>
 	<e:Group id="group03" y="22.5" x="436">
 		<e:Image id="btn3" x="0" y="0" source="explore_json.img_circle_back"/>
 		<e:Image id="img3" width="80" height="80" x="6" y="6" touchEnabled="false"/>
 		<e:Image id="img_Highlight3" x="3.5" y="2" source="explore_json.img_circle_gold" width="85" height="85"/>
 		<e:Image id="imgPoint3" source="common_json.img_warn_png" x="0" y="0" scaleX="1" scaleY="1"/>
-		<e:Label id="vipLock3" text="V4立即解锁" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
-		<e:Label id="labXueXi3" text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" horizontalCenter="-1" verticalCenter="-2.5" textColor="0xedc839" visible="false"/>
+		<e:Label id="vipLock3" text="V4 Unlock Now" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
+		<e:Label id="labXueXi3" text="Learn Value Unlock" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" horizontalCenter="-1" verticalCenter="-2.5" textColor="0xedc839" visible="false"/>
 	</e:Group>
-	<e:Label id="noHaveGroup" text="激活需要xxxxx和xxxxx条件" y="356" anchorOffsetX="0" width="398" anchorOffsetY="0" height="150"
+	<e:Label id="noHaveGroup" text="Requires xxxxx and xxxxx conditions to activate" y="356" anchorOffsetX="0" width="398" anchorOffsetY="0" height="150"
 	         verticalAlign="middle" horizontalCenter="-11" textAlign="center" size="20"  textColor="0xcfc9be" visible="false"/>
-	<components:SnapButton id="btnUpdata" label="激活" y="633" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" anchorOffsetX="74" anchorOffsetY="24" x="299"/>
+	<components:SnapButton id="btnUpdata" label="Activate" y="633" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" anchorOffsetX="74" anchorOffsetY="24" x="299"/>
 	<e:Image id="upgradePoint" source="common_json.img_warn_png" x="182" y="860"/>
 	<e:Image id="advancedPoint" source="common_json.img_warn_png" x="299" y="860"/>
 </e:Skin>

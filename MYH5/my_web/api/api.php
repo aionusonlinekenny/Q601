@@ -12,7 +12,7 @@ if ($_POST) {
     if ($row ['account'] == $user && $row ['passwd'] == $pass) {
      $data = array ('code' => '1','msg' => 'success','token' => $pass,'user' => $user );
     } else {
-     $data = array ('code' => '0','msg' => '账号或者密码错误!');
+     $data = array ('code' => '0','msg' => 'Incorrect account or password!');
     }
     exit ( json_encode ( $data ) );
     break;
@@ -26,7 +26,7 @@ if ($_POST) {
      $result = mysql_query ( $sqlcx, $conn );
      $row = mysql_fetch_array ( $result );
      if ($row ['account'] == $user) {
-      $data = array ('code' => '0','msg' => '用户名已被注册!');
+      $data = array ('code' => '0','msg' => 'Username is already registered!');
      } else {
       $datetime = date ( 'Y-m-d h:i:s' );
       $sqlcr = "INSERT INTO myh5_pl.user(account, passwd, createtime, updatetime, lastserver) VALUES ('$user', '$pass', '$datetime', '$datetime', '1')";
@@ -34,18 +34,17 @@ if ($_POST) {
       if ($result) {	
        $data = array ('code' => '1','msg' => 'success','token' => $pass,'user' => $user);
       } else {
-       $data = array ('code' => '0','msg' => '注册账号失败!');
+       $data = array ('code' => '0','msg' => 'Account registration failed!');
       }
      }
     } else {
-     $data = array ('code' => '0','msg' => '密码不能空!');
+     $data = array ('code' => '0','msg' => 'Password cannot be empty!');
     }
     exit ( json_encode ( $data ) );
     break;
    }
  }
 }
-
 
 
 

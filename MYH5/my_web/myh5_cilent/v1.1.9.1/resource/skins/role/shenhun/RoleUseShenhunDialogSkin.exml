@@ -8,5 +8,5 @@
 		</e:layout>
 		</e:List>
 	</e:Scroller>
-	<e:Label text="同种类型的神魂只能装备一个" y="792" textColor="0x34e22c" size="20" x="183" touchEnabled="false"/>
+	<e:Label text="Only 1 Divine Soul of the same type can be equipped" y="792" textColor="0x34e22c" size="20" x="183" touchEnabled="false"/>
 </e:Skin>

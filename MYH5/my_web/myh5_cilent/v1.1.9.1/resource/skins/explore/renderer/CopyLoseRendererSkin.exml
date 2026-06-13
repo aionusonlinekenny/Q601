@@ -2,16 +2,16 @@
 <e:Skin class="renderer.CopyLoseRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" height="388" width="268">
 
 	<e:Image id="bg" anchorOffsetX="0" anchorOffsetY="0" height="388" x="0" scale9Grid="79,66,108,32" source="img_lose_bg_png"/>
-	<e:Label id="labBossName" text="转生·修罗(7-12转)" y="12" size="18" verticalAlign="middle" textAlign="center" bold="true" textColor="0xD1A765" horizontalCenter="0"/>
-	<e:Label id="RecoverTime" text="00:00:40 后复活" y="172" size="16" verticalAlign="middle" textAlign="center" bold="true" textColor="0xB6281A" horizontalCenter="0"/>
+	<e:Label id="labBossName" text="Reincarnation · Asura (7–12 rebirths)" y="12" size="18" verticalAlign="middle" textAlign="center" bold="true" textColor="0xD1A765" horizontalCenter="0"/>
+	<e:Label id="RecoverTime" text="Revive in 00:00:40" y="172" size="16" verticalAlign="middle" textAlign="center" bold="true" textColor="0xB6281A" horizontalCenter="0"/>
 
 
-	<e:Label text="掉落预览" y="189" size="16" textColor="0xC6B59E" x="102"/>
+	<e:Label text="Drop Preview" y="189" size="16" textColor="0xC6B59E" x="102"/>
 	<components:RewardItemBox id="reward1" y="209" skinName="components.ItemBoxSkin" x="39"/>
 	<components:RewardItemBox id="reward2" y="208" skinName="components.ItemBoxSkin" x="148"/>
 	<e:Image anchorOffsetX="0" anchorOffsetY="0" source="welfare_json.img_welfare_line" skewY="180" y="191" x="96"/>
 	<e:Image anchorOffsetX="0" anchorOffsetY="0" source="welfare_json.img_welfare_line" y="191" x="172"/>
-	<components:SnapButton id="btnEnter" label="挑战" y="324" anchorOffsetY="0" horizontalCenter="0" width="166">
+	<components:SnapButton id="btnEnter" label="Challenge" y="324" anchorOffsetY="0" horizontalCenter="0" width="166">
 		<components:skinName>
 		<e:Skin states="up,down,disabled">
 			<e:Image alpha.disabled="0.5" width="100%" height="57" source="common_json.btn_red2_png" source.disabled="common_json.btn_red2_png" scale9Grid="12,12,6,30" anchorOffsetX="0" anchorOffsetY="0"/>

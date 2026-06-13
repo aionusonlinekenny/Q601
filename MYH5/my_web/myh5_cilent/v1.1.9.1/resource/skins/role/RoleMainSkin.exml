@@ -2,11 +2,11 @@
 <e:Skin class="dialog.RoleMainSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*"
         xmlns:ui="ui.*" xmlns:components="components.*" width="600" height="916">
 
-	<e:Button id="btnEquipt" label="装备" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" anchorOffsetX="0" anchorOffsetY="0" x="15" bottom="0"></e:Button>
-	<e:Button id="btnSkill" label="技能" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" anchorOffsetX="0" anchorOffsetY="0" x="129.33" bottom="0"></e:Button>
-	<e:Button id="btnShenhun" label="神魂" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" anchorOffsetX="0" anchorOffsetY="0" x="245.67" bottom="0"></e:Button>
-	<e:Button id="btnXiushen" label="修神" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" anchorOffsetX="0" anchorOffsetY="0" x="358" bottom="0"></e:Button>
-	<e:Button id="btnJuexing" label="觉醒" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" anchorOffsetX="0" anchorOffsetY="0" x="472" bottom="0"/>
+	<e:Button id="btnEquipt" label="Equipment" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" anchorOffsetX="0" anchorOffsetY="0" x="15" bottom="0"></e:Button>
+	<e:Button id="btnSkill" label="Skill" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" anchorOffsetX="0" anchorOffsetY="0" x="129.33" bottom="0"></e:Button>
+	<e:Button id="btnShenhun" label="Divine Soul" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" anchorOffsetX="0" anchorOffsetY="0" x="245.67" bottom="0"></e:Button>
+	<e:Button id="btnXiushen" label="Cultivation" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" anchorOffsetX="0" anchorOffsetY="0" x="358" bottom="0"></e:Button>
+	<e:Button id="btnJuexing" label="Awakening" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" anchorOffsetX="0" anchorOffsetY="0" x="472" bottom="0"/>
 
 
 

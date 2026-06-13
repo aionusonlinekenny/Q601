@@ -14,8 +14,8 @@
 
 		<components:IconButton id="btnAddCount" source="common_json.btn_jia_png" x="258" y="776" anchorOffsetX="22" anchorOffsetY="21"/>
 		<e:Image source="common_json.img_numbg_png" x="80.33" y="759" anchorOffsetY="0" height="38" anchorOffsetX="0" width="150"  scale9Grid="17,8,23,8"/>
-		<components:SnapButton id="btnRonglian" label="熔炼" y="777" anchorOffsetX="81" skinName="skins.SnapButtonDefaultSkin" x="458" anchorOffsetY="26" icon="img_warn_png"/>
-		<e:Label text="总容量" x="8.5" y="764" size="24"  textColor="0xcfc9be"/>
+		<components:SnapButton id="btnRonglian" label="Smelting" y="777" anchorOffsetX="81" skinName="skins.SnapButtonDefaultSkin" x="458" anchorOffsetY="26" icon="img_warn_png"/>
+		<e:Label text="Total Capacity" x="8.5" y="764" size="24"  textColor="0xcfc9be"/>
 		<e:Label id="labCount" text="9/200" x="90" y="765" size="24" anchorOffsetX="0" width="131" textAlign="center"  textColor="0xcfc9be"/>
 	</e:Group>
 	<e:Group id="item2" x="11" y="35" width="578" visible="false">
@@ -39,10 +39,10 @@
 				</e:layout>
 			</e:List>
 		</e:Scroller>
-		<e:Label text="注 : 分解多余的神魂可获得神魂精华" x="22" y="768.18" size="20"  textColor="0x34e22c"/>
-		<components:SnapButton id="btnFenjie" label="一键分解" y="777" anchorOffsetX="81" skinName="skins.SnapButtonDefaultSkin" x="458" anchorOffsetY="26"/>
+		<e:Label text="Note: Decomposing extra Divine Souls yields Divine Soul Essence." x="22" y="768.18" size="20"  textColor="0x34e22c"/>
+		<components:SnapButton id="btnFenjie" label="Decompose All" y="777" anchorOffsetX="81" skinName="skins.SnapButtonDefaultSkin" x="458" anchorOffsetY="26"/>
 	</e:Group>
-	<e:Button id="btnEquipt" label="装备" x="122" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0"/>
-	<e:Button id="btnProp" label="道具" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0" x="240"/>
-	<e:Button id="btnShenhun" label="神魂" x="358" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0"/>
+	<e:Button id="btnEquipt" label="Equipment" x="122" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0"/>
+	<e:Button id="btnProp" label="Items" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0" x="240"/>
+	<e:Button id="btnShenhun" label="Divine Soul" x="358" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0"/>
 </e:Skin>

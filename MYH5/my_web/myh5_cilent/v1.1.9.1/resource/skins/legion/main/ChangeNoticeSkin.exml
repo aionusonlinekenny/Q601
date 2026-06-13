@@ -2,7 +2,7 @@
 <e:Skin class="dialog.ChangeNoticeSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
 	<e:Image x="1" y="0" anchorOffsetX="0" width="528" anchorOffsetY="0" height="378" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
 	<e:Image width="472" height="206" x="27" y="71" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_numbg_png" scale9Grid="23,7,18,9"/>
-	<e:TextInput id="labInput" width="455" height="185" anchorOffsetX="0" anchorOffsetY="0" enabled="true" text="输入最新公告内容,最多30个字！" x="36" y="79" textColor="0xcfc9be" maxChars="30">
+	<e:TextInput id="labInput" width="455" height="185" anchorOffsetX="0" anchorOffsetY="0" enabled="true" text="Enter announcement content, up to 30 characters!" x="36" y="79" textColor="0xcfc9be" maxChars="30">
 		<e:skinName>
 			<e:Skin minHeight="40" minWidth="300" states="normal,disabled,normalWithPrompt,disabledWithPrompt">
 			<e:Image x="0" y="0" scale9Grid="17,0,105,43" anchorOffsetX="0" width="300" source=""/>
@@ -13,6 +13,6 @@
 		</e:skinName>
 	</e:TextInput>
 	<components:IconButton id="btnClose" x="474" y="1" source="common_json.btn_close_png"/>
-	<components:SnapButton id="btnSure" label="确定" x="195" y="292" skinName="skins.SnapButtonDefaultSkin" width="150"/>
+	<components:SnapButton id="btnSure" label="Confirm" x="195" y="292" skinName="skins.SnapButtonDefaultSkin" width="150"/>
 	<e:Image source="union_json.img_union_title5_png" x="211" y="9"/>
 </e:Skin>

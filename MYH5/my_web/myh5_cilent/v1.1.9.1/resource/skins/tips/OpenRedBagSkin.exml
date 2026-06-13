@@ -11,7 +11,7 @@
 		</e:List>
 	</e:Scroller>
 	<e:Image source="btn_redbagVip1_png" includeIn="vipRedBag" y="315" horizontalCenter="0"/>
-	<e:Label id="labLeiji" text="已累计888魔石" includeIn="vipRedBag" y="366" size="20" horizontalCenter="0" verticalAlign="middle" textAlign="center"/>
+	<e:Label id="labLeiji" text="Accumulated: 888 Magic Stones" includeIn="vipRedBag" y="366" size="20" horizontalCenter="0" verticalAlign="middle" textAlign="center"/>
 	<e:Image source="common_closetip_png" y="463.46" horizontalCenter="0.5"/>
 	<e:Label id="labName" text="" y="61" textColor="0x2bc8db" stroke="2" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="0"/>
 	<e:Image id="imgIcon" width="80" height="80" y="100" x="129"/>

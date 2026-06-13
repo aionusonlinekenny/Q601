@@ -103,7 +103,7 @@
 	<e:Image id="imgFightBg" y="50.17" source="common_fightBg_png" horizontalCenter="-10"/>
 	<e:BitmapLabel id="blabFight" y="58" text="8765199" touchEnabled="false" x="263" font="fight_font2_fnt"/>
 	<e:Image x="195.96" y="56.6" source="common_json.img_fight_png" width="57" height="31"/>f
-	<components:SnapButton id="btnUseEquips" label="一键换装" y="681" anchorOffsetX="84" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="26" x="304" width="160" height="56">
+	<components:SnapButton id="btnUseEquips" label="Change Outfit" y="681" anchorOffsetX="84" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="26" x="304" width="160" height="56">
 	</components:SnapButton>
 	<components:IconButton id="imgInfo" x="456" y="73" anchorOffsetX="34" anchorOffsetY="35" source="common_json.btn_search_png"/>
 	<ns1:PetItem id="iconContract0" x="21" y="631" anchorOffsetX="0" anchorOffsetY="0" skinName="normal.PetItemSkin"/>

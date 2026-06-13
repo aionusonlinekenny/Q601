@@ -12,11 +12,11 @@
 		</e:Skin>
 		</e:skinName>
 	</e:CheckBox>
-	<e:Label id="labTime" text="7天" y="9.83" size="18" textAlign="center" width="80" textColor="0xedc839" horizontalCenter="-140.5"/>
-	<e:Label id="labProperty0" text="剩余7天" y="44" size="18" x="254" textAlign="left" lineSpacing="10" textColor="0x7d6a52"/>
-	<e:Label id="labProperty1" text="剩余7天" y="44" size="18" x="407" textAlign="left" lineSpacing="10" textColor="0x7d6a52"/>
-	<e:Label id="labProperty2" text="剩余7天" y="74" size="18" x="254" textAlign="left" lineSpacing="10" textColor="0x7d6a52"/>
-	<e:Label id="labProperty3" text="剩余7天" y="74" size="18" x="407" textAlign="left" lineSpacing="10" textColor="0x7d6a52"/>
-	<e:Label id="labLastTime" text="剩余时间 : " y="10.5" size="18" x="253" textAlign="left" lineSpacing="10" textColor="0x34e22c"/>
-	<e:Label id="labDesc" text="描述描述描述描述描述描述" y="136" size="14" x="12" textAlign="left" lineSpacing="10" width="550" anchorOffsetY="0" height="18" textColor="0xc6b59e"/>
+	<e:Label id="labTime" text="7 Days" y="9.83" size="18" textAlign="center" width="80" textColor="0xedc839" horizontalCenter="-140.5"/>
+	<e:Label id="labProperty0" text="7 days remaining" y="44" size="18" x="254" textAlign="left" lineSpacing="10" textColor="0x7d6a52"/>
+	<e:Label id="labProperty1" text="7 days remaining" y="44" size="18" x="407" textAlign="left" lineSpacing="10" textColor="0x7d6a52"/>
+	<e:Label id="labProperty2" text="7 days remaining" y="74" size="18" x="254" textAlign="left" lineSpacing="10" textColor="0x7d6a52"/>
+	<e:Label id="labProperty3" text="7 days remaining" y="74" size="18" x="407" textAlign="left" lineSpacing="10" textColor="0x7d6a52"/>
+	<e:Label id="labLastTime" text="Time Remaining: " y="10.5" size="18" x="253" textAlign="left" lineSpacing="10" textColor="0x34e22c"/>
+	<e:Label id="labDesc" text="Description description description..." y="136" size="14" x="12" textAlign="left" lineSpacing="10" width="550" anchorOffsetY="0" height="18" textColor="0xc6b59e"/>
 </e:Skin>

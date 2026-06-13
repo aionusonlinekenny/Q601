@@ -6,18 +6,18 @@
 	<e:Image source="mine_json.img_pet_base" x="73" y="93"/>
 	<ns1:ItemIcon id="item0" y="370" skinName="itemIcon.ItemIconSkin" x="55"/>
 	<ns1:ItemIcon id="item1" y="370" skinName="itemIcon.ItemIconSkin" x="178"/>
-	<e:Label id="labName" text="该玩家的姓名" x="339" y="116" size="20" textColor="0xc6b59e"/>
+	<e:Label id="labName" text="Player's Name" x="339" y="116" size="20" textColor="0xc6b59e"/>
 	<e:Label id="labFightNum" text="11111111" x="339" y="149" size="20" fontFamily="Arial" textColor="0xc6b59e"/>
-	<e:Label id="labJunTuan" text="所属军团名称" x="339" y="179" size="20" textColor="0xc6b59e"/>
+	<e:Label id="labJunTuan" text="Guild Name" x="339" y="179" size="20" textColor="0xc6b59e"/>
 	<e:Label id="labPlundlerNum" text="1/3" x="360" y="211" size="20" fontFamily="Microsoft JhengHei" textColor="0xc6b59e"/>
 	<e:Label id="labSurplus" text="3/3" x="452" y="461" size="20" fontFamily="Microsoft JhengHei" bold="true" textColor="0x34e22c"/>
-	<e:Label id="labMinerType" text="顶级矿工" x="94" y="235" textColor="0xB72A0F" size="18"/>
-	<e:Label text="掠夺奖励  : " x="55" y="334" size="20" textColor="0xedc839"/>
-	<e:Label text="归属玩家  : " x="237" y="116" size="20" textColor="0xedc839"/>
-	<e:Label text="幻兽战力  : " x="237" y="149" size="20" textColor="0xedc839"/>
-	<e:Label text="所属军团 : " x="237" y="179" size="20" textColor="0xedc839"/>
-	<e:Label text="可掠夺次数  : " x="237" y="211" size="20" textColor="0xedc839"/>
-	<e:Label text="剩余次数  : " x="351" y="461" size="20" textColor="0xedc839"/>
+	<e:Label id="labMinerType" text="Top Miner" x="94" y="235" textColor="0xB72A0F" size="18"/>
+	<e:Label text="Plunder Reward: " x="55" y="334" size="20" textColor="0xedc839"/>
+	<e:Label text="Owning Player: " x="237" y="116" size="20" textColor="0xedc839"/>
+	<e:Label text="Phantom Beast Power: " x="237" y="149" size="20" textColor="0xedc839"/>
+	<e:Label text="Guild: " x="237" y="179" size="20" textColor="0xedc839"/>
+	<e:Label text="Plunder Attempts: " x="237" y="211" size="20" textColor="0xedc839"/>
+	<e:Label text="Remaining Attempts: " x="351" y="461" size="20" textColor="0xedc839"/>
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="27" anchorOffsetY="28" x="517" y="29"/>
-	<components:SnapButton id="btnPlundler" label="掠夺" y="390" anchorOffsetX="0" width="153" skinName="skins.SnapButtonDefaultSkin" x="339"/>
+	<components:SnapButton id="btnPlundler" label="Plunder" y="390" anchorOffsetX="0" width="153" skinName="skins.SnapButtonDefaultSkin" x="339"/>
 </e:Skin>

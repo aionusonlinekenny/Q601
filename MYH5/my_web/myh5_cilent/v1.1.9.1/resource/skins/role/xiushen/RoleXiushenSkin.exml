@@ -7,12 +7,12 @@
 		<ui:skinName>
 			<e:Skin xmlns:base="base.*" xmlns:components="components.*">
 			<e:Image x="0" y="0" width="558" scale9Grid="46,0,50,114" height="130" source="role_json.img_role_fenjielistbg_png"/>
-			<e:Label id="labdesc" text="装备名字" x="118" y="35" size="20" anchorOffsetX="0" anchorOffsetY="0" textColor="0xedc839"/>
-			<e:Label id="labName" text="神力结晶 : 角色降1级" x="118" y="72" size="20" textColor="0xCFC7B0" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false"/>
-			<e:Label id="labLimit" text="今日还可兑换     次" y="14" size="20" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false" textAlign="right" textColor="0xedc839" x="379"/>
+			<e:Label id="labdesc" text="Equipment Name" x="118" y="35" size="20" anchorOffsetX="0" anchorOffsetY="0" textColor="0xedc839"/>
+			<e:Label id="labName" text="Divine Crystal: Character level -1" x="118" y="72" size="20" textColor="0xCFC7B0" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false"/>
+			<e:Label id="labLimit" text="Exchangeable remaining today:" y="14" size="20" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false" textAlign="right" textColor="0xedc839" x="379"/>
 			<components:Icon id="imgQuality" x="18" y="21" source="common_json.img_qlt_1_png" touchEnabled="false"/>
 			<components:Icon id="imgIcon" source="" x="23" y="24" width="80" height="80" touchEnabled="true"/>
-			<components:SnapButton id="btnDebrs" label="兑换" anchorOffsetX="0" skinName="skins.SnapOrangeButtonSkin" y="47" x="405" icon="common_json.img_warn_png"/>
+			<components:SnapButton id="btnDebrs" label="Exchange" anchorOffsetX="0" skinName="skins.SnapOrangeButtonSkin" y="47" x="405" icon="common_json.img_warn_png"/>
 			</e:Skin>
 		</ui:skinName>
 	</ui:XiushenItemSkin>
@@ -20,11 +20,11 @@
 	<e:Image source="common_json.img_numbg_png" x="270" y="741" anchorOffsetY="0" height="41" anchorOffsetX="0" width="228" scale9Grid="7,4,39,14" visible="false"/>
 
 	<e:Group y="729.92" horizontalCenter="0">
-		<e:Label text="需要神力值 : " x="0" y="3.04" size="20" textColor="0xCFC7B0"/>
-		<e:Label id="labCount" text="9999999" x="126" y="3.04" size="20" textAlign="left" textColor="0x31ba0e"/>
+		<e:Label text="Divine Power Required: " x="0" y="3.04" size="20" textColor="0xCFC7B0"/>
+		<e:Label id="labCount" text="9999999" x="235" y="3.04" size="20" textAlign="left" textColor="0x31ba0e"/>
 	</e:Group>
-	<e:Label id="labLv" text="当前神力等级 : 12" y="538.96" size="20" anchorOffsetX="0" textAlign="center" textColor="0xd1a765" horizontalCenter="-2.5"/>
-	<components:SnapButton id="btnUpgrade" label="提   升" y="788.4" anchorOffsetX="83" width="168" skinName="skins.SnapButtonDefaultSkin" x="300" icon="common_json.img_warn_png" anchorOffsetY="28"/>
+	<e:Label id="labLv" text="Current Divine Power Level: 12" y="538.96" size="20" anchorOffsetX="0" textAlign="center" textColor="0xd1a765" horizontalCenter="-2.5"/>
+	<components:SnapButton id="btnUpgrade" label="Enhance" y="788.4" anchorOffsetX="83" width="168" skinName="skins.SnapButtonDefaultSkin" x="300" icon="common_json.img_warn_png" anchorOffsetY="28"/>
 	<item:PropertyItemBox id="propertyBox" y="574.96" skinName="normal.PropertyItemBoxSkin" horizontalCenter="0"/>
 	<tips:GoldAndDiamonds id="goldTips" skinName="normal.GoldAndDiamondsSkin" y="6" right="0"/>
 	<e:Image source="common_fightBg_png" y="463.06" horizontalCenter="0"/>

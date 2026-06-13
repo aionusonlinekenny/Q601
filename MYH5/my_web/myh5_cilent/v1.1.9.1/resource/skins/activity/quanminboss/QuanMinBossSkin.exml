@@ -45,24 +45,24 @@
 			</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<components:SnapButton id="btnGet" label="领取" y="816" anchorOffsetX="82" icon="img_warn_png" anchorOffsetY="27" width="162" skinName="skins.SnapButtonDefaultSkin" x="301"/>
-	<e:Label text="击杀全部指定BOSS即可领取永久属性称号" y="554" size="20" textColor="0x34e22c" x="112"/>
-	<e:Label text="通杀大礼包" y="646" size="20" textColor="0xffb200" x="250"/>
+	<components:SnapButton id="btnGet" label="Claim" y="816" anchorOffsetX="82" icon="img_warn_png" anchorOffsetY="27" width="162" skinName="skins.SnapButtonDefaultSkin" x="301"/>
+	<e:Label text="Kill all designated BOSSes to claim a permanent attribute title." y="554" size="20" textColor="0x34e22c" x="112"/>
+	<e:Label text="All-Kill Gift Pack" y="646" size="20" textColor="0xffb200" x="250"/>
 	<components:RewardItemBox id="reward0" y="677" skinName="components.ItemBoxSkin" x="85"/>
 	<components:RewardItemBox id="reward1" x="198" y="677" skinName="components.ItemBoxSkin"/>
 	<components:RewardItemBox id="reward2" x="311" y="677" skinName="components.ItemBoxSkin"/>
 	<components:RewardItemBox id="reward3" y="677" skinName="components.ItemBoxSkin" x="425"/>
 	<e:Image y="0" x="19" source="img_activity_QMBoss_title_bg_jpg"/>
 	<e:Image x="69" y="36" source="activity_json.quanMingBoss_title"/>
-	<e:Label id="labDate" text="2018年12月12日 " x="142" y="124" size="18" textColor="0x34E22C"/>
-	<e:Label id="labDesc" text="活动期间幻兽总战力排行" x="142" y="151" size="16" width="197" height="65" lineSpacing="5" textColor="0xC6B59E" textAlign="left"/>
-	<e:Label text="截止时间 : " x="46" y="122" size="18" textColor="0xEDC839"/>
-	<e:Label text="活动说明 : " x="46" y="151" size="18" textColor="0xEDC839"/>
-	<e:Label text="新手BOSS" x="47" y="353" size="16" textColor="0x34e22c" touchEnabled="false"/>
-	<e:Label text="初级BOSS" x="155" y="353" size="16" textColor="0x1d85f4" touchEnabled="false"/>
-	<e:Label text="高级BOSS" x="263" y="353" size="16" textColor="0xb93bdd" touchEnabled="false"/>
-	<e:Label text="精英BOSS" x="371" y="353" size="16" textColor="0xe87b37" touchEnabled="false"/>
-	<e:Label text="稀有BOSS" x="479" y="353" size="16" textColor="0xed0e0e" touchEnabled="false"/>
+	<e:Label id="labDate" text="December 12, 2018 " x="142" y="124" size="18" textColor="0x34E22C"/>
+	<e:Label id="labDesc" text="Total Phantom Beast Power Ranking (event period)" x="142" y="151" size="16" width="197" height="65" lineSpacing="5" textColor="0xC6B59E" textAlign="left"/>
+	<e:Label text="Deadline: " x="46" y="122" size="18" textColor="0xEDC839"/>
+	<e:Label text="Event Info: " x="46" y="151" size="18" textColor="0xEDC839"/>
+	<e:Label text="Novice BOSS" x="47" y="353" size="16" textColor="0x34e22c" touchEnabled="false"/>
+	<e:Label text="Basic BOSS" x="155" y="353" size="16" textColor="0x1d85f4" touchEnabled="false"/>
+	<e:Label text="Advanced BOSS" x="263" y="353" size="16" textColor="0xb93bdd" touchEnabled="false"/>
+	<e:Label text="Elite BOSS" x="371" y="353" size="16" textColor="0xe87b37" touchEnabled="false"/>
+	<e:Label text="Rare BOSS" x="479" y="353" size="16" textColor="0xed0e0e" touchEnabled="false"/>
 	<e:Image id="imgRenWu" y="391" x="31" source="activity_every_group_boss1_jpg"/>
 	<e:Image id="imgRed" x="37" y="231" source="activity_every_json.activity_every_boss_select"/>
 	<e:Image id="imgKilled0" source="img_activity_bossKilled1_png" x="30" y="391" touchEnabled="false"/>

@@ -8,12 +8,12 @@
 	<e:Image x="18.1" y="82" scaleX="0.65" scaleY="0.65" source="ladder_json.img_black_copy" anchorOffsetX="0" width="141.38" anchorOffsetY="0" height="35.85"/>
 	<e:Image id="imgLv" x="71" y="89" source="gradeArt_json.04" scaleX="0.8" scaleY="0.8"/>
 	<e:Image id="imgGrade" source="ladder_json.img_dan_dia" x="34" y="87" scaleX="0.5" scaleY="0.5"/>
-	<e:Label id="labName" text="人人人" y="25" size="20" x="116" textColor="0xcfc9be"/>
-	<e:Label text="获胜奖励 : " y="59" size="18" x="132" x.own="123" text.own="我的积分 : " textColor.own="0xffb200" textColor="0xedc839" y.own="60"/>
-	<e:Label text="积分" y="82" size="18" x="132" text.own="我的排名 : " textColor.own="0xffb200" textColor="0xc6b59e" x.own="123" y.own="89"/>
-	<e:Label text="活跃度" y="82" size="18" x="237" includeIn="other" textColor="0xc6b59e"/>
+	<e:Label id="labName" text="Players" y="25" size="20" x="116" textColor="0xcfc9be"/>
+	<e:Label text="Victory Reward: " y="59" size="18" x="132" x.own="123" text.own="我的积分 : " textColor.own="0xffb200" textColor="0xedc839" y.own="60"/>
+	<e:Label text="Points" y="82" size="18" x="132" text.own="我的排名 : " textColor.own="0xffb200" textColor="0xc6b59e" x.own="123" y.own="89"/>
+	<e:Label text="Activity" y="82" size="18" x="237" includeIn="other" textColor="0xc6b59e"/>
 	<e:Label id="labJiFen" text="+5" x="175" y="82" size="20" x.own="230" y.own="59" textColor.own="0xffb200" textColor="0x34e22c" size.own="18"/>
 	<e:Label id="labXunZhang" text="+5" x="299" y="82" size="20" x.own="230" y.own="88" textColor.own="0xffb200" textColor="0x34e22c" size.own="18"/>
 	<e:BitmapLabel id="labFightPower" x="303" y="27" text="562" font="fight_ladder_fnt"/>
-	<components:SnapButton id="btnDebrs" label="挑战" anchorOffsetX="0" skinName="skins.SnapOrangeButtonSkin" includeIn="other" y="38" x="406"/>
+	<components:SnapButton id="btnDebrs" label="Challenge" anchorOffsetX="0" skinName="skins.SnapOrangeButtonSkin" includeIn="other" y="38" x="406"/>
 </e:Skin>

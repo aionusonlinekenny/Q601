@@ -3,7 +3,7 @@
 	<e:Image id="imgbg" anchorOffsetY="0" height.small="160" scaleX="1" scaleY="1" source="legionWar_json.img_legionwar_rankbg" scale9Grid="20,20,8,5" anchorOffsetX="0" width="242" height.big="309"/>
 	<e:Group id="myGroup" y="117" horizontalCenter="0" height="20" horizontalCenter.big="1" y.big="270">
 		<e:Label id="labMyRank" text="50" size="16" textAlign="center" width="40" anchorOffsetX="0" anchorOffsetY="0" height="17" textColor="0xC6B59E" x.big="0" scaleX="1" scaleY="1" verticalCenter="0" stroke="3" verticalCenter.small="0.5" width.small="40"/>
-		<e:Label id="labMyTitel" text="我的积分" x="40" size="16" textAlign="center" width="100" anchorOffsetX="0" anchorOffsetY="0" textColor="0x1291CE" scaleX="1" scaleY="1" verticalCenter="0" stroke="3" width.small="100" x.small="40"/>
+		<e:Label id="labMyTitel" text="My Points" x="40" size="16" textAlign="center" width="100" anchorOffsetX="0" anchorOffsetY="0" textColor="0x1291CE" scaleX="1" scaleY="1" verticalCenter="0" stroke="3" width.small="100" x.small="40"/>
 		<e:Label id="labMyScore" text="9999999" x="140" size="16" textAlign="center" width="100" anchorOffsetX="0" textColor="0x1291CE" scaleX="1" scaleY="1" verticalCenter="0" stroke="3" verticalCenter.small="0" x.small="140" width.small="100"/>
 	</e:Group>
 	<components:IconButton id="btnDown" y="139" source="legionWar_json.btn_legionwar_rankDown" horizontalCenter="0" height="17" horizontalCenter.big="0.5" y.big="302" includeIn="small"/>

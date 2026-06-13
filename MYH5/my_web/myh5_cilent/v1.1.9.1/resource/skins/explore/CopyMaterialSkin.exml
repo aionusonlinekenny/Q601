@@ -9,25 +9,25 @@
 	<item:MaterialBoxItem id="box4" x="354.26" y="55" skinName="normal.MaterialBoxSkin"/>
 	<item:MaterialBoxItem id="box5" y="55" skinName="normal.MaterialBoxSkin" x="453"/>
 	<e:Group x="38.45" y="218.6">
-		<e:Label text="内通关" y="5" bold="true" size="14" x="122" textColor="0xc6b59e" fontFamily="Arial"/>
-		<e:Label text="内通关" y="28.66" bold="true" size="14" x="122" textColor="0xc6b59e"/>
-		<e:Label text="内通关" y="52.34" bold="true" size="14" x="122" textColor="0xc6b59e"/>
+		<e:Label text="Inner Clear" y="5" bold="true" size="14" x="122" textColor="0xc6b59e" fontFamily="Arial"/>
+		<e:Label text="Inner Clear" y="28.66" bold="true" size="14" x="122" textColor="0xc6b59e"/>
+		<e:Label text="Inner Clear" y="52.34" bold="true" size="14" x="122" textColor="0xc6b59e"/>
 		<e:Image source="explore_json.img_explore_star" x="2" y="2" width="20" height="20"/>
 		<e:Image source="explore_json.img_explore_star" x="29" y="2" width="20" height="20"/>
 		<e:Image x="54" y="2" width="20" height="20" source="explore_json.img_explore_star"/>
 		<e:Image source="explore_json.img_explore_star" x="2" y="25.5" width="20" height="20"/>
 		<e:Image source="explore_json.img_explore_star" x="2" y="49" width="20" height="20"/>
 		<e:Image source="explore_json.img_explore_star" x="29" y="25.5" width="20" height="20"/>
-		<e:Label id="threeStarLabel" text="90秒" x="86" size="14" textColor="0x34e22c" y="5"/>
-		<e:Label id="twoStarLabel" text="60秒" x="86" size="14" textColor="0x34E22C" y="28.66"/>
-		<e:Label id="oneStarLabel" text="30秒" x="86" size="14" textColor="0x34E22C" y="52.34"/>
+		<e:Label id="threeStarLabel" text="90 sec" x="86" size="14" textColor="0x34e22c" y="5"/>
+		<e:Label id="twoStarLabel" text="60 sec" x="86" size="14" textColor="0x34E22C" y="28.66"/>
+		<e:Label id="oneStarLabel" text="30 sec" x="86" size="14" textColor="0x34E22C" y="52.34"/>
 	</e:Group>
 	<e:Group id="boxGroup" y="194.6" x="467.72" width="100" height="106">
 		<e:Image source="explore_json.img_explore_star" x="68.12" y="76" width="30" height="30"/>
 		<e:Label id="labTradsureBoxStar" text="8/15" y="83" bold="true" size="18" x="19" textColor="0x34e22c"/>
 		<components:IconButton id="btnTradsureBox" x="59" y="43" scaleX="1" scaleY="1" anchorOffsetX="44" anchorOffsetY="45" source="explore_json.img_gold_box_close" width="85" height="85"/>
 	</e:Group>
-	<components:SnapButton id="btnEnter" label="挑   战" y="794" anchorOffsetX="81" skinName="skins.SnapButtonDefaultSkin" horizontalCenter="0" anchorOffsetY="27"/>
+	<components:SnapButton id="btnEnter" label="Challenge" y="794" anchorOffsetX="81" skinName="skins.SnapButtonDefaultSkin" horizontalCenter="0" anchorOffsetY="27"/>
 	<components:SnapButton id="btnPrevStep" label="" y="803.14" icon="img_warn_png" anchorOffsetX="69" anchorOffsetY="66.67" x="104.8">
 		<components:skinName>
 			<e:Skin states="up,down,disabled">
@@ -48,10 +48,10 @@
 	<tips:GoldAndDiamonds id="goldTips" skinName="normal.GoldAndDiamondsSkin" y="6" right="0"/>
 	<e:Group y="831" horizontalCenter="-3">
 		<e:Image source="common_json.img_diamonds_png" x="52.66" y="0"/>
-		<e:Label text="消耗 : " y="3" size="20" textColor="0x7d6a52" x="0"/>
+		<e:Label text="Cost: " y="3" size="20" textColor="0x7d6a52" x="0"/>
 		<e:Label id="labNeed" text="500" y="3" size="20" x="88" textColor="0x34e22c"/>
 	</e:Group>
-	<e:Label text="首次通关不消耗挑战次数" y="887.66" size="20" horizontalCenter="3" textColor="0x7d6a52"/>
-	<e:Label id="labBossName" text="副本名称" y="182" size="22" anchorOffsetX="0" textAlign="center" textColor="0xedc839" x="41"/>
-	<e:Label id="labCount" text="可挑战次数 : 1次" y="731" size="20" textColor="0xc6b59e" horizontalCenter="0"/>
+	<e:Label text="First clear does not consume challenge attempts." y="887.66" size="20" horizontalCenter="3" textColor="0x7d6a52"/>
+	<e:Label id="labBossName" text="Instance Name" y="182" size="22" anchorOffsetX="0" textAlign="center" textColor="0xedc839" x="41"/>
+	<e:Label id="labCount" text="Challenge Attempts: 1" y="731" size="20" textColor="0xc6b59e" horizontalCenter="0"/>
 </e:Skin>

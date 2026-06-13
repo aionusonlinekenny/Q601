@@ -14,10 +14,10 @@
 		</e:TextInput>
 		<e:Label id="lblTatolPrice" text="515" y="58" textAlign="left" verticalAlign="middle" anchorOffsetX="0" width="126" size="22" anchorOffsetY="0" height="26" textColor="0xC6B59E" x="258"/>
 		<e:Image id="imgTatolPayType" x="219" y="57" source="common_json.img_diamonds_png" width="28" height="25"/>
-		<e:Label text="总价:" x="152" y="60" size="22" textColor="0xEDC839"/>
+		<e:Label text="Total Price:" x="152" y="60" size="22" textColor="0xEDC839"/>
 		<components:IconButton id="btnJia" y="22" source="common_json.btn_jia_png" x="331" anchorOffsetX="23" anchorOffsetY="21"/>
 		<components:IconButton id="btnJian" y="22" source="common_json.btn_jian_png" x="142" anchorOffsetX="23" anchorOffsetY="22"/>
-		<components:SnapButton id="btnBuy" label="购买" y="117" skinName="skins.SnapOrangeButtonSkin" anchorOffsetX="81.23" anchorOffsetY="26" width="160" x="247"/>
+		<components:SnapButton id="btnBuy" label="Purchase" y="117" skinName="skins.SnapOrangeButtonSkin" anchorOffsetX="81.23" anchorOffsetY="26" width="160" x="247"/>
 		<components:SnapButton id="btnJiaTen" label="+10" y="22" skinName="skins.SnapRedButtonSkin" x="407" anchorOffsetX="45" width="92" anchorOffsetY="23"/>
 		<components:SnapButton id="btnJianTen" label="-10" y="22" skinName="skins.SnapRedButtonSkin" x="73" anchorOffsetX="44" width="91" anchorOffsetY="24"/>
 	</e:Group>
@@ -31,8 +31,8 @@
 		</e:itemRendererSkinName>-->
 	</e:List>
 	<e:Image y="7" horizontalCenter="0" source="img_title_getRes_png"/>
-	<e:Label id="labDesc" text="材料不足，通过以下方式获取" y="66.5" size="20" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="4" textColor="0xedc839"/>
-	<e:Label text="获取途径" y="253.5" size="18" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" textColor="0xc6b59e"/>
+	<e:Label id="labDesc" text="Insufficient materials. Obtain via:" y="66.5" size="20" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="4" textColor="0xedc839"/>
+	<e:Label text="Acquisition Method" y="253.5" size="18" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" textColor="0xc6b59e"/>
 	<ns1:ItemIcon id="prop" y="112" skinName="itemIcon.ItemIconSkin" horizontalCenter="1"/>
 	<e:Image id="imgSale" source="activity_json.img_activity_salebg" y="113" horizontalCenter="-23.5" anchorOffsetY="0" height="56" anchorOffsetX="0" width="35"/>
 	<e:BitmapLabel id="blabSale" y="115" font="sale_font_fnt" text="44" horizontalCenter="-24.5" anchorOffsetY="0" anchorOffsetX="0" scaleX="0.8" scaleY="0.8"/>

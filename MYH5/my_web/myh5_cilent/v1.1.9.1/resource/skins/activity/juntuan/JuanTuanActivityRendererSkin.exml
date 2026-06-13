@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="renderer.JuanTuanActivityRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="559" height="170">
 	<e:Image x="9" anchorOffsetX="0" width="539" anchorOffsetY="0" height="137" source="activity_red_bg_png" scale9Grid="1,0,4,5" y="10"/>
-	<e:Label id="labDesc" text="等级达到100级" x="16" y="13" size="16" strokeColor="0x381515" stroke="2" textColor="0xeab779"/>
+	<e:Label id="labDesc" text="Character level reaches 100" x="16" y="13" size="16" strokeColor="0x381515" stroke="2" textColor="0xeab779"/>
 	<e:Group id="boxGroup" y="38" left="33">
 		<components:RewardItemBox id="reward0" x="0" skinName="components.ItemBoxSkin"/>
 		<components:RewardItemBox id="reward1" x="112" skinName="components.ItemBoxSkin"/>
 		<components:RewardItemBox id="reward2" x="224" skinName="components.ItemBoxSkin"/>
 	</e:Group>
-	<components:SnapButton id="btnBuy" label="购买" y="94" anchorOffsetX="64" width="127" horizontalCenter="191" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="27"/>
+	<components:SnapButton id="btnBuy" label="Purchase" y="94" anchorOffsetX="64" width="127" horizontalCenter="191" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="27"/>
 	<e:Image id="imgBuyFinsh" x="425" y="47" source="shop_json.img_buy_finsh_png" visible="false"/>
 </e:Skin>

@@ -10,15 +10,15 @@
 	<e:Image id="imgLv" source="gradeArt_json.05" x="392.84" y="747"/>
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="24" anchorOffsetY="26" x="570" y="26"/>
 	<components:IconButton id="btnBack" source="common_json.btn_back_png" anchorOffsetX="36" anchorOffsetY="36" x="562" y="785"/>
-	<e:Label text="我的排名 : " x="24.34" y="745" size="20" textColor="0xedc839"/>
-	<e:Label text="当前段位  : " x="240.34" y="745" size="20" textColor="0xedc839"/>
-	<e:Label text="我的积分 : " x="24.34" y="775" size="20" textColor="0xedc839"/>
-	<e:Label text="段位" x="65" y="92" size="20" textColor="0xedc839"/>
-	<e:Label text="晋升奖励" x="265" y="92" size="20" textColor="0xedc839"/>
-	<e:Label text="领取状态" x="476" y="92" size="20" textColor="0xedc839"/>
+	<e:Label text="My Ranking: " x="24.34" y="745" size="20" textColor="0xedc839"/>
+	<e:Label text="Current Rank: " x="240.34" y="745" size="20" textColor="0xedc839"/>
+	<e:Label text="My Points: " x="24.34" y="775" size="20" textColor="0xedc839"/>
+	<e:Label text="Rank" x="65" y="92" size="20" textColor="0xedc839"/>
+	<e:Label text="Promotion Reward" x="265" y="92" size="20" textColor="0xedc839"/>
+	<e:Label text="Claim Status" x="476" y="92" size="20" textColor="0xedc839"/>
 	<e:Label id="labRanking" text="123" x="127.84" y="745" size="20" fontFamily="Microsoft JhengHei" bold="true" textColor="0xedc839"/>
 	<e:Label id="labJifen" text="123" x="127.84" y="775" size="20" fontFamily="Microsoft JhengHei" bold="true" textColor="0xedc839"/>
-	<e:Label text="每周一 00  : 00 刷新段位奖励" x="238.84" y="774" size="20" textColor="0x34e22c"/>
+	<e:Label text="Rank rewards refresh every Monday at 00:00." x="238.84" y="774" size="20" textColor="0x34e22c"/>
 	<e:Scroller id="scroller" width="562" height="609" y="125" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="off" scrollPolicyV="auto" x="19">
 		<e:List id="list" itemRenderer="renderer.LadderRewardCell"/>
 	</e:Scroller>

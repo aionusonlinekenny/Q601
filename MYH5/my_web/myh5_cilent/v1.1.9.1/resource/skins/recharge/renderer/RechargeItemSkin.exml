@@ -11,6 +11,6 @@
 		<e:Label id="labMoshi2" text="100000" y="41" size="20" textAlign="center" textColor="0xEDC839" x="184"/>
 	</e:Group>
 	<e:Label id="labMoshi" text="100000" y="11" size="20" textAlign="center" textColor="0xEDC839" x="192"/>
-	<e:Label id="labName" text="获得 : " y="10" size="20" textAlign="center" x="142.5" textColor="0xc6b59e"/>
+	<e:Label id="labName" text="Obtained: " y="10" size="20" textAlign="center" x="142.5" textColor="0xc6b59e"/>
 	<e:Image id="imgPrice" source="recharge_json.img_recharge_¥10" y="131" right="21"/>
 </e:Skin>

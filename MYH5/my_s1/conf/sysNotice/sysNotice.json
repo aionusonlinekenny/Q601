@@ -1,986 +1,986 @@
 [
     {
         "id":1001,
-        "desc":"|C:0xd1a765&T:%1$s|T:鸿运当头，在|C:0xE17123&T:塔罗牌|T:中翻到了%2$s，运气逆天！|C:0x34e22c&U:&H:7006&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew %2$s from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"XXX鸿运当头，在塔罗牌中翻到了XX道具，运气逆天！"
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
     },
     {
         "id":1002,
-        "desc":"|C:0xD6CAB7&T:第一战士|C:0xd1a765&T:%1$s|T:上线了，亚特大陆又将风起云涌！",
+        "desc":"|C:0xD6CAB7&T:Top Warrior |C:0xd1a765&T:%1$s|T: is now online, Atem Continent stirs once more!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"排行第一战士上线"
+        "description":"#1 ranked Warrior comes online"
     },
     {
         "id":1003,
-        "desc":"|C:0xD6CAB7&T:第一法师|C:0xd1a765&T:%1$s|T:上线了，亚特大陆又将风起云涌！",
+        "desc":"|C:0xD6CAB7&T:Top Mage |C:0xd1a765&T:%1$s|T: is now online, Atem Continent stirs once more!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"排行第一法师上线"
+        "description":"#1 ranked Mage comes online"
     },
     {
         "id":1004,
-        "desc":"|C:0xD6CAB7&T:第一异能者|C:0xd1a765&T:%1$s|T:上线了，亚特大陆又将风起云涌！",
+        "desc":"|C:0xD6CAB7&T:Top Psychic |C:0xd1a765&T:%1$s|T: is now online, Atem Continent stirs once more!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"排行第一异能上线"
+        "description":"#1 ranked Psychic comes online"
     },
     {
         "id":1005,
-        "desc":"|C:0xd1a765&T:%1$s|T:的|C:0xE17123&T:爵位|T:升至|C:0x34e22c&T:%2$s|T:，名声大增！",
+        "desc":"|C:0xd1a765&T:%1$s|T:'s |C:0xE17123&T:Noble Title|T: has risen to |C:0x34e22c&T:%2$s|T:, fame grows!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"爵位提升"
+        "description":"Noble Title promotion"
     },
     {
         "id":1006,
-        "desc":"|C:0xd1a765&T:%1$s|T:成功锻造出了橙色装备|C:0xDF660E&T:%2$s|T:，可喜可贺！|C:0x34e22c&U:&H:2008&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully forged Orange Equipment |C:0xDF660E&T:%2$s|T:, congratulations! |C:0x34e22c&U:&H:2008&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"橙装锻造"
+        "description":"Orange equipment forged"
     },
     {
         "id":1007,
-        "desc":"|C:0xd1a765&T:%1$s|T:成功锻造出了魔龙装备|C:0xB6281A&T:%2$s|T:，离魔域王者又进了一步！",
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully forged Dragon Equipment |C:0xB6281A&T:%2$s|T:, one step closer to MoYu champion!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"魔龙装备锻造"
+        "description":"Dragon equipment forged"
     },
     {
         "id":1008,
-        "desc":"|C:0xd1a765&T:%1$s|T:从|C:0x34e22c&T:首充|T:中获得|C:0xE17123&T:无级别神兵|T:和限定宠物|C:0x8425CB&T:圣天使|T:，打怪效率快人一等！|C:0x34e22c&U:&H:7018&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained from |C:0x34e22c&T:First Recharge|T: a |C:0xE17123&T:Stat-less Divine Weapon|T: and exclusive pet |C:0x8425CB&T:Holy Angel|T:, monster hunting efficiency sky-high! |C:0x34e22c&U:&H:7018&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"领取首冲奖励"
+        "description":"Claimed first recharge reward"
     },
     {
         "id":1009,
-        "desc":"|C:0xd1a765&T:%1$s|T:领取了|C:0x34e22c&T:月卡|T:，天天领|C:0xE17123&T:魔石|T:，离线挂机不用愁！|C:0x34e22c&U:&H:7015&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: claimed |C:0x34e22c&T:Monthly Pass|T:, earning |C:0xE17123&T:Magic Stones|T: daily, AFK grinding worry-free! |C:0x34e22c&U:&H:7015&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"领取月卡"
+        "description":"Claimed monthly pass"
     },
     {
         "id":1010,
-        "desc":"|C:0xd1a765&T:%1$s|T:领取了|C:0x34e22c&T:神之特权|T:，天天领|C:0xE17123&T:威望|T:，还获得了|C:0xE17123&T:极品称号|T:！|C:0x34e22c&U:&H:7015&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: claimed |C:0x34e22c&T:Divine Privilege|T:, earning |C:0xE17123&T:Prestige|T: daily and gaining an |C:0xE17123&T:elite title|T:! |C:0x34e22c&U:&H:7015&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"领取神之特权"
+        "description":"Claimed Divine Privilege"
     },
     {
         "id":1011,
-        "desc":"|C:0xd1a765&T:%1$s|T:将|C:0xE17123&T:%2$s|T:进阶至|C:0x34e22c&T:%3$s|T:阶，|C:0xE17123&T:XP属性|T:大增！",
+        "desc":"|C:0xd1a765&T:%1$s|T: advanced |C:0xE17123&T:%2$s|T: to stage |C:0x34e22c&T:%3$s|T:, |C:0xE17123&T:XP stats|T: greatly boosted!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"女神进阶"
+        "description":"Goddess advanced"
     },
     {
         "id":1012,
-        "desc":"|C:0xd1a765&T:%1$s|T:成功进阶至神力|C:0x34e22c&T:%2$s|T:阶，成神之路又进了一步！|C:0x34e25c&U:&H:2006&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully advanced to God Power stage |C:0x34e22c&T:%2$s|T:, one step closer to becoming a god! |C:0x34e25c&U:&H:2006&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"修神成功"
+        "description":"God cultivation successful"
     },
     {
         "id":1013,
-        "desc":"|C:0xd1a765&T:%1$s|T:成功将|C:0xE17123&T:天梯段位|T:进阶至|C:0x34e22c&T:%2$s|T:，傲视群雄！",
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully advanced |C:0xE17123&T:Ladder Rank|T: to |C:0x34e22c&T:%2$s|T:, dominating all!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"天梯段位提升"
+        "description":"Ladder rank promotion"
     },
     {
         "id":1014,
-        "desc":"|C:0xd1a765&T:%1$s|T:雇佣了|C:0xB6281A&T:顶级矿工|T:，可获得丰厚回报！|C:0x34e22c&U:&H:4001&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: hired a |C:0xB6281A&T:Top Miner|T:, lucrative returns await! |C:0x34e22c&U:&H:4001&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"雇佣顶级矿工"
+        "description":"Hired top miner"
     },
     {
         "id":1015,
-        "desc":"|C:0xd1a765&T:%1$s|T:在|C:0xE17123&T:无尽挑战|T:领取了|C:0x34e22c&T:终极宝箱|T:，可喜可贺！",
+        "desc":"|C:0xd1a765&T:%1$s|T: claimed the |C:0x34e22c&T:Ultimate Treasure Chest|T: in |C:0xE17123&T:Endless Challenge|T:, congratulations!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"无尽挑战领取宝箱"
+        "description":"Claimed treasure chest in Endless Challenge"
     },
     {
         "id":1016,
-        "desc":"|C:0xd1a765&T:%1$s|T:成功孵化出了|C:0xE17123&T:%2$sS级|T:幻兽%3$s。",
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully hatched |C:0xE17123&T:%2$s S-rank|T: Phantom Beasts %3$s.",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"多少S级幻兽孵化成功"
+        "description":"X S-rank Phantom Beasts hatched successfully"
     },
     {
         "id":1017,
-        "desc":"|C:0xd1a765&T:%1$s|T:在|C:0xE17123&T:特惠礼包|T:中购买了|C:0x34e22c&T:%2$s|T:，|C:0x34e22c&T:战力|T:暴涨！|C:0x34e22c&U:&H:7012&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased |C:0x34e22c&T:%2$s|T: from |C:0xE17123&T:Special Offer Pack|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"特惠礼包购买"
+        "description":"Special offer pack purchased"
     },
     {
         "id":1018,
-        "desc":"|C:0xd1a765&T:%1$s|T:果断购买了|C:0x34e22c&T:%2$s|T:，获得大量稀有材料！|C:0x34e22c&U:&H:7019&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:%2$s|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"Vip礼包购买"
+        "description":"VIP pack purchased"
     },
     {
         "id":1019,
-        "desc":"|C:0xB6281A&T:%1$s|T:出现在|C:0xE17123&T:全民BOSS|T:，快去挑战吧！|C:0x34e22c&U:&H:4007&T:立即前往",
+        "desc":"|C:0xB6281A&T:%1$s|T: has appeared in |C:0xE17123&T:World BOSS|T:, go challenge it! |C:0x34e22c&U:&H:4007&T:Go Now",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"BOSS刷新时提示，需显示BOSS名称和等级"
+        "description":"BOSS spawn alert, displays BOSS name and level"
     },
     {
         "id":1020,
-        "desc":"|C:0xd1a765&T:%1$s|T:在|C:0xE17123&T:全民BOSS|T:中击败了|C:0xB6281A&T:%2$s|T:，爆出了%3$s！",
+        "desc":"|C:0xd1a765&T:%1$s|T: defeated |C:0xB6281A&T:%2$s|T: in |C:0xE17123&T:World BOSS|T: and dropped %3$s!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"击杀全民BOSS掉落橙色以上物品"
+        "description":"World BOSS killed, dropped orange or better item"
     },
     {
         "id":1021,
-        "desc":"|C:0xd1a765&T:%1$s|T:成功将%2$s进阶至|C:0x34e22c&T:%3$s|T:阶，|C:0xE17123&T:属性|T:大增！",
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully advanced %2$s to stage |C:0x34e22c&T:%3$s|T:, |C:0xE17123&T:stats|T: greatly increased!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"【XXXX】成功将【幻兽名称】进阶至【X】阶，属性大幅提升！"
+        "description":"[XXXX] successfully advanced [Phantom Beast name] to stage [X], stats greatly increased!"
     },
     {
         "id":1022,
-        "desc":"|C:0xd1a765&T:%1$s|T:鸿运当头，在|C:0xE17123&T:众神宝藏|T:中寻到了|C:0xE17123&T:%2$s|T:，运气逆天！|C:0x34e22c&U:&H:7006&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, found |C:0xE17123&T:%2$s|T: in |C:0xE17123&T:Divine Treasury|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"XXX鸿运当头，在众神宝藏中寻到了XX道具，运气逆天！"
+        "description":"XXX found XX item in Divine Treasury, incredible luck!"
     },
     {
         "id":3001,
-        "desc":"|C:0xd1a765&T:%1$s|T:被踢出军团！",
+        "desc":"|C:0xd1a765&T:%1$s|T: has been kicked from the Legion!",
         "type":2,
         "ifsend":0,
         "isRndpush":0,
-        "description":"XXXX被踢出军团"
+        "description":"XXXX kicked from Legion"
     },
     {
         "id":3002,
-        "desc":"|C:0xd1a765&T:%1$s|T:退出了军团！",
+        "desc":"|C:0xd1a765&T:%1$s|T: has left the Legion!",
         "type":2,
         "ifsend":0,
         "isRndpush":0,
-        "description":"XXXX退出了军团"
+        "description":"XXXX left the Legion"
     },
     {
         "id":3003,
-        "desc":"|C:0xd1a765&T:%1$s|T:加入了军团，大家热烈欢迎！",
+        "desc":"|C:0xd1a765&T:%1$s|T: has joined the Legion, welcome everyone!",
         "type":2,
         "ifsend":0,
         "isRndpush":0,
-        "description":"XXXX加入了军团"
+        "description":"XXXX joined the Legion"
     },
     {
         "id":3004,
-        "desc":"|C:0xd1a765&T:%1$s|T:登记了幻兽%2$s，为军团增加了|C:0xE17123&T:%3$s|T:声望！",
+        "desc":"|C:0xd1a765&T:%1$s|T: registered Phantom Beast %2$s, contributing |C:0xE17123&T:%3$s|T: Prestige to the Legion!",
         "type":2,
         "ifsend":0,
         "isRndpush":0,
-        "description":"XXXX登记了幻兽XXX，军团实力大涨"
+        "description":"XXXX registered Phantom Beast XXX, Legion power rises"
     },
     {
         "id":3005,
-        "desc":"|C:0xd1a765&T:%1$s|T:修改了军团公告!",
+        "desc":"|C:0xd1a765&T:%1$s|T: updated the Legion Bulletin!",
         "type":2,
         "ifsend":0,
         "isRndpush":0,
-        "description":"XXXX修改了军团公告"
+        "description":"XXXX updated the Legion Bulletin"
     },
     {
         "id":3006,
-        "desc":"|C:0xd1a765&T:%1$s|T:被任命为|C:0xE17123&T:副团长|T:!",
+        "desc":"|C:0xd1a765&T:%1$s|T: has been appointed |C:0xE17123&T:Vice Leader|T:!",
         "type":2,
         "ifsend":0,
         "isRndpush":0,
-        "description":"玩家XXXX被任命为副团长"
+        "description":"Player XXXX appointed Vice Leader"
     },
     {
         "id":3007,
-        "desc":"|C:0xd1a765&T:%1$s|T:为军团捐献了|C:0x34e22c&T:%2$s|T:魔石，获得了大量|C:0xE17123&T:军团贡献|T:！",
+        "desc":"|C:0xd1a765&T:%1$s|T: donated |C:0x34e22c&T:%2$s|T: Magic Stones to the Legion, earning a large amount of |C:0xE17123&T:Legion Contribution|T:!",
         "type":2,
         "ifsend":0,
         "isRndpush":0,
-        "description":"XXXX为军团捐献了XXXX钻石，获得了大量军团贡献！"
+        "description":"XXXX donated XXXX gems to the Legion, gaining a large amount of Legion Contribution!"
     },
     {
         "id":3008,
-        "desc":"|C:0xE17123&T:%1$s图腾|T:等级达到|C:0x34e22c&T:%2$s|T:级，军团实力大增！",
+        "desc":"|C:0xE17123&T:%1$s Totem|T: reached level |C:0x34e22c&T:%2$s|T:, Legion power greatly increased!",
         "type":2,
         "ifsend":0,
         "isRndpush":0,
-        "description":"XXX图腾等级达到X级，军团实力大幅提升！"
+        "description":"XXX Totem reached level X, Legion power greatly increased!"
     },
     {
         "id":3009,
-        "desc":"|C:0xd1a765&T:%1$s|T:被任命为|C:0xE17123&T:团长|T:!",
+        "desc":"|C:0xd1a765&T:%1$s|T: has been appointed |C:0xE17123&T:Leader|T:!",
         "type":2,
         "ifsend":0,
         "isRndpush":0,
-        "description":"玩家XXXX被任命为团长"
+        "description":"Player XXXX appointed Leader"
     },
     {
         "id":3010,
-        "desc":"|C:0xd1a765&T:%1$s|T:在军团争霸中获得|C:0xE17123&T:%2$s|T:分，被军团长授予|C:0xDF660E&T:战将霸主奖励|T:!",
+        "desc":"|C:0xd1a765&T:%1$s|T: earned |C:0xE17123&T:%2$s|T: points in Legion War and was awarded |C:0xDF660E&T:War General Reward|T: by the Legion Leader!",
         "type":2,
         "ifsend":0,
         "isRndpush":0,
-        "description":"玩家XXXX军团战中获得积分XXX，被授予军团战精英奖励"
+        "description":"Player XXXX earned XXX points in Legion War and received Elite reward"
     },
     {
         "id":3011,
-        "desc":"|C:0xd1a765&T:%1$s|T:在军团争霸中获得|C:0xE17123&T:%2$s|T:分，被军团长授予|C:0xB93BDD&T:精英领主奖励|T:!",
+        "desc":"|C:0xd1a765&T:%1$s|T: earned |C:0xE17123&T:%2$s|T: points in Legion War and was awarded |C:0xB93BDD&T:Elite Lord Reward|T: by the Legion Leader!",
         "type":2,
         "ifsend":0,
         "isRndpush":0,
-        "description":"玩家XXXX军团战中获得积分XXX，被授予军团战优秀奖励"
+        "description":"Player XXXX earned XXX points in Legion War and received Outstanding reward"
     },
     {
         "id":3012,
-        "desc":"|C:0xd1a765&T:%1$s|T:在军团争霸中获得|C:0xE17123&T:%2$s|T:分，被军团长授予|C:0x1291CE&T:优秀成员奖励|T:!",
+        "desc":"|C:0xd1a765&T:%1$s|T: earned |C:0xE17123&T:%2$s|T: points in Legion War and was awarded |C:0x1291CE&T:Outstanding Member Reward|T: by the Legion Leader!",
         "type":2,
         "ifsend":0,
         "isRndpush":0,
-        "description":"玩家XXXX军团战中获得积分XXX，被授予军团战普通奖励"
+        "description":"Player XXXX earned XXX points in Legion War and received Normal reward"
     },
     {
         "id":3013,
-        "desc":"|C:0xd1a765&T:%1$s|T:弹劾军团长成功，成为了新的军团长。",
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully impeached the Legion Leader and became the new Leader.",
         "type":2,
         "ifsend":0,
         "isRndpush":0,
-        "description":"玩家XXX弹劾军团长成功，成为了新的军团长"
+        "description":"Player XXX successfully impeached the Legion Leader and became the new Leader"
     },
     {
         "id":4001,
-        "desc":"|C:0xD6CAB7&T:您成功退出了|C:0xd1a765&T:%1$s|T:军团。",
+        "desc":"|C:0xD6CAB7&T:You have successfully left |C:0xd1a765&T:%1$s|T: Legion.",
         "type":3,
         "ifsend":0,
         "isRndpush":0,
-        "description":"您成功退出了军团XXXX（系统频道）"
+        "description":"You successfully left Legion XXXX (system channel)"
     },
     {
         "id":4002,
-        "desc":"|C:0xD6CAB7&T:您被移出了|C:0xd1a765&T:%1$s|T:军团。",
+        "desc":"|C:0xD6CAB7&T:You have been removed from |C:0xd1a765&T:%1$s|T: Legion.",
         "type":3,
         "ifsend":0,
         "isRndpush":0,
-        "description":"您被踢出军团XXXX（被踢出人单独显示）（系统频道）"
+        "description":"You were kicked from Legion XXXX (shown to kicked player) (system channel)"
     },
     {
         "id":4003,
-        "desc":"|C:0xD6CAB7&T:您已成功加入|C:0xd1a765&T:%1$s|T:军团。",
+        "desc":"|C:0xD6CAB7&T:You have successfully joined |C:0xd1a765&T:%1$s|T: Legion.",
         "type":3,
         "ifsend":0,
         "isRndpush":0,
-        "description":"您已成功加入XXXX军团（系统频道）"
+        "description":"You successfully joined XXXX Legion (system channel)"
     },
     {
         "id":4004,
-        "desc":"|C:0xd1a765&T:%1$s|T:军团已经解散。",
+        "desc":"|C:0xd1a765&T:%1$s|T: Legion has been disbanded.",
         "type":3,
         "ifsend":0,
         "isRndpush":0,
-        "description":"XXXX军团已经解散（系统频道）"
+        "description":"XXXX Legion has been disbanded (system channel)"
     },
     {
         "id":4005,
-        "desc":"|C:0xd1a765&T:%1$s|T:军团拒绝了您的申请。",
+        "desc":"|C:0xd1a765&T:%1$s|T: Legion has rejected your application.",
         "type":3,
         "ifsend":0,
         "isRndpush":0,
-        "description":"XXXX军团的拒绝了您的申请（系统频道）"
+        "description":"XXXX Legion rejected your application (system channel)"
     },
     {
         "id":1023,
-        "desc":"|C:0xd1a765&T:%1$s|T:受到幸运女神的眷顾，幸运地获得了|C:0xE17123&T:黄铜钥匙|T:，离头号玩家奖励又进了一步！",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by Lady Luck and obtained a |C:0xE17123&T:Bronze Key|T:, one step closer to the No.1 Player reward!",
         "type":3,
         "ifsend":0,
         "isRndpush":0,
-        "description":"头号玩家活动获得黄铜钥匙"
+        "description":"Obtained Bronze Key in No.1 Player event"
     },
     {
         "id":1024,
-        "desc":"|C:0xd1a765&T:%1$s|T:英勇无双，勇敢的从BOSS手中夺得了|C:0xE17123&T:翡翠钥匙|T:，头号玩家奖励指日可待！",
+        "desc":"|C:0xd1a765&T:%1$s|T: bravely seized a |C:0xE17123&T:Jade Key|T: from the BOSS, the No.1 Player reward is within reach!",
         "type":3,
         "ifsend":0,
         "isRndpush":0,
-        "description":"头号玩家活动获得翡翠钥匙"
+        "description":"Obtained Jade Key in No.1 Player event"
     },
     {
         "id":1025,
-        "desc":"|C:0xd1a765&T:%1$s|T:众志成城，在幻兽的帮助下成功地获得了|C:0xE17123&T:水晶钥匙|T:，头号玩家奖励近在咫尺！",
+        "desc":"|C:0xd1a765&T:%1$s|T: with the help of their Phantom Beast, successfully obtained a |C:0xE17123&T:Crystal Key|T:, the No.1 Player reward is almost in hand!",
         "type":3,
         "ifsend":0,
         "isRndpush":0,
-        "description":"头号玩家活动获得水晶钥匙"
+        "description":"Obtained Crystal Key in No.1 Player event"
     },
     {
         "id":1026,
-        "desc":"|C:0xd1a765&T:%1$s|T:天命所归，集齐了|C:0xE17123&T:黄铜钥匙|T:、|C:0xE17123&T:翡翠钥匙|T:、|C:0xE17123&T:水晶钥匙|T:，成功领取了头号玩家活动奖励！",
+        "desc":"|C:0xd1a765&T:%1$s|T: was destined for greatness, collected |C:0xE17123&T:Bronze Key|T:, |C:0xE17123&T:Jade Key|T:, and |C:0xE17123&T:Crystal Key|T:, successfully claimed the No.1 Player event reward!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"头号玩家活动领取奖励"
+        "description":"Claimed No.1 Player event reward"
     },
     {
         "id":1027,
-        "desc":"|C:0xd1a765&T:%1$s|T:以最快的速度集齐了|C:0xE17123&T:黄铜钥匙|T:、|C:0xE17123&T:翡翠钥匙|T:、|C:0xE17123&T:水晶钥匙|T:，领取了超级大奖，并获得了全服唯一称号“|C:0xE17123&T:头号玩家|T:”！",
+        "desc":"|C:0xd1a765&T:%1$s|T: collected |C:0xE17123&T:Bronze Key|T:, |C:0xE17123&T:Jade Key|T:, and |C:0xE17123&T:Crystal Key|T: in record time, claimed the super grand prize and earned the server-exclusive title \"|C:0xE17123&T:No.1 Player|T:\"!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"头号玩家活动第一名领取奖励"
+        "description":"No.1 Player event first place claimed reward"
     },
     {
         "id":1028,
-        "desc":"|C:0xd1a765&T:%1$s|T:鸿运当头，在|C:0xE17123&T:塔罗牌|T:中翻到了庇佑者莉亚，运气逆天！|C:0x34e22c&U:&H:7006&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Lia the Protector from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"XXX鸿运当头，在塔罗牌中翻到了XX道具，运气逆天！"
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
     },
     {
         "id":1029,
-        "desc":"|C:0xd1a765&T:%1$s|T:鸿运当头，在|C:0xE17123&T:塔罗牌|T:中翻到了赐予者艾登，运气逆天！|C:0x34e22c&U:&H:7006&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Aiden the Giver from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"XXX鸿运当头，在塔罗牌中翻到了XX道具，运气逆天！"
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
     },
     {
         "id":1030,
-        "desc":"|C:0xd1a765&T:%1$s|T:鸿运当头，在|C:0xE17123&T:塔罗牌|T:中翻到了金牛星亚尔，运气逆天！|C:0x34e22c&U:&H:7006&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Taurus Star Yar from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"XXX鸿运当头，在塔罗牌中翻到了XX道具，运气逆天！"
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
     },
     {
         "id":1031,
-        "desc":"|C:0xd1a765&T:%1$s|T:鸿运当头，在|C:0xE17123&T:塔罗牌|T:中翻到了吉祥噜噜，运气逆天！|C:0x34e22c&U:&H:7006&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Lucky Lulu from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"XXX鸿运当头，在塔罗牌中翻到了XX道具，运气逆天！"
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
     },
     {
         "id":1032,
-        "desc":"|C:0xd1a765&T:%1$s|T:鸿运当头，在|C:0xE17123&T:塔罗牌|T:中翻到了如意嘟嘟，运气逆天！|C:0x34e22c&U:&H:7006&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Lucky Dudu from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"XXX鸿运当头，在塔罗牌中翻到了XX道具，运气逆天！"
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
     },
     {
         "id":1033,
-        "desc":"|C:0xd1a765&T:%1$s|T:鸿运当头，在|C:0xE17123&T:塔罗牌|T:中翻到了飞天斩，运气逆天！|C:0x34e22c&U:&H:7006&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Sky Slash from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"XXX鸿运当头，在塔罗牌中翻到了XX道具，运气逆天！"
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
     },
     {
         "id":1034,
-        "desc":"|C:0xd1a765&T:%1$s|T:鸿运当头，在|C:0xE17123&T:塔罗牌|T:中翻到了幻影连击，运气逆天！|C:0x34e22c&U:&H:7006&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Phantom Combo from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"XXX鸿运当头，在塔罗牌中翻到了XX道具，运气逆天！"
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
     },
     {
         "id":1035,
-        "desc":"|C:0xd1a765&T:%1$s|T:鸿运当头，在|C:0xE17123&T:塔罗牌|T:中翻到了高级强攻，运气逆天！|C:0x34e22c&U:&H:7006&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Advanced Power Strike from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"XXX鸿运当头，在塔罗牌中翻到了XX道具，运气逆天！"
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
     },
     {
         "id":1036,
-        "desc":"|C:0xd1a765&T:%1$s|T:鸿运当头，在|C:0xE17123&T:塔罗牌|T:中翻到了高级再生，运气逆天！|C:0x34e22c&U:&H:7006&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Advanced Regeneration from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"XXX鸿运当头，在塔罗牌中翻到了XX道具，运气逆天！"
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
     },
     {
         "id":1037,
-        "desc":"|C:0xd1a765&T:%1$s|T:鸿运当头，在|C:0xE17123&T:塔罗牌|T:中翻到了高级再生，运气逆天！|C:0x34e22c&U:&H:7006&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Advanced Regeneration from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"XXX鸿运当头，在塔罗牌中翻到了XX道具，运气逆天！"
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
     },
     {
         "id":1038,
-        "desc":"|C:0xd1a765&T:%1$s|T:鸿运当头，在|C:0xE17123&T:塔罗牌|T:中翻到了吉祥噜噜，运气逆天！|C:0x34e22c&U:&H:7006&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Lucky Lulu from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"XXX鸿运当头，在塔罗牌中翻到了XX道具，运气逆天！"
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
     },
     {
         "id":1039,
-        "desc":"|C:0xd1a765&T:%1$s|T:在|C:0xE17123&T:活动|T:中购买了|C:0x34e22c&T:材料礼包|T:，|C:0x34e22c&T:战力|T:暴涨！|C:0x34e22c&U:&H:7012&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased a |C:0x34e22c&T:Materials Pack|T: from |C:0xE17123&T:Events|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"活动购买"
+        "description":"Event purchase"
     },
     {
         "id":1040,
-        "desc":"|C:0xd1a765&T:%1$s|T:在|C:0xE17123&T:活动|T:中购买了|C:0x34e22c&T:抽奖礼包|T:，|C:0x34e22c&T:战力|T:暴涨！|C:0x34e22c&U:&H:7012&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased a |C:0x34e22c&T:Lucky Draw Pack|T: from |C:0xE17123&T:Events|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"活动购买"
+        "description":"Event purchase"
     },
     {
         "id":1041,
-        "desc":"|C:0xd1a765&T:%1$s|T:在|C:0xE17123&T:活动|T:中购买了|C:0x34e22c&T:神装礼包|T:，|C:0x34e22c&T:战力|T:暴涨！|C:0x34e22c&U:&H:7012&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased a |C:0x34e22c&T:Divine Gear Pack|T: from |C:0xE17123&T:Events|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"活动购买"
+        "description":"Event purchase"
     },
     {
         "id":1042,
-        "desc":"|C:0xd1a765&T:%1$s|T:在|C:0xE17123&T:活动|T:中购买了|C:0x34e22c&T:幻影礼包|T:，|C:0x34e22c&T:战力|T:暴涨！|C:0x34e22c&U:&H:7012&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased a |C:0x34e22c&T:Phantom Pack|T: from |C:0xE17123&T:Events|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"活动购买"
+        "description":"Event purchase"
     },
     {
         "id":1043,
-        "desc":"|C:0xd1a765&T:%1$s|T:在|C:0xE17123&T:活动|T:中购买了|C:0x34e22c&T:锻造礼包|T:，|C:0x34e22c&T:战力|T:暴涨！|C:0x34e22c&U:&H:7012&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased a |C:0x34e22c&T:Forging Pack|T: from |C:0xE17123&T:Events|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"活动购买"
+        "description":"Event purchase"
     },
     {
         "id":1044,
-        "desc":"|C:0xd1a765&T:%1$s|T:在|C:0xE17123&T:活动|T:中购买了|C:0x34e22c&T:幻兽礼包|T:，|C:0x34e22c&T:战力|T:暴涨！|C:0x34e22c&U:&H:7012&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased a |C:0x34e22c&T:Phantom Beast Pack|T: from |C:0xE17123&T:Events|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"活动购买"
+        "description":"Event purchase"
     },
     {
         "id":1045,
-        "desc":"|C:0xd1a765&T:%1$s|T:在|C:0xE17123&T:活动|T:中购买了|C:0x34e22c&T:神魂礼包|T:，|C:0x34e22c&T:战力|T:暴涨！|C:0x34e22c&U:&H:7012&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased a |C:0x34e22c&T:Divine Soul Pack|T: from |C:0xE17123&T:Events|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"活动购买"
+        "description":"Event purchase"
     },
     {
         "id":1046,
-        "desc":"|C:0xd1a765&T:%1$s|T:在|C:0xE17123&T:活动|T:中购买了|C:0x34e22c&T:幻影礼包|T:，|C:0x34e22c&T:战力|T:暴涨！|C:0x34e22c&U:&H:7012&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased a |C:0x34e22c&T:Phantom Pack|T: from |C:0xE17123&T:Events|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"活动购买"
+        "description":"Event purchase"
     },
     {
         "id":1047,
-        "desc":"|C:0xd1a765&T:%1$s|T:果断购买了|C:0x34e22c&T:VIP0礼包|T:，获得大量稀有材料！|C:0x34e22c&U:&H:7019&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:VIP0 Pack|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"Vip礼包购买"
+        "description":"VIP pack purchased"
     },
     {
         "id":1048,
-        "desc":"|C:0xd1a765&T:%1$s|T:果断购买了|C:0x34e22c&T:VIP0礼包|T:，获得大量稀有材料！|C:0x34e22c&U:&H:7019&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:VIP0 Pack|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"Vip礼包购买"
+        "description":"VIP pack purchased"
     },
     {
         "id":1049,
-        "desc":"|C:0xd1a765&T:%1$s|T:果断购买了|C:0x34e22c&T:VIP0礼包|T:，获得大量稀有材料！|C:0x34e22c&U:&H:7019&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:VIP0 Pack|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"Vip礼包购买"
+        "description":"VIP pack purchased"
     },
     {
         "id":1050,
-        "desc":"|C:0xd1a765&T:%1$s|T:果断购买了|C:0x34e22c&T:VIP0礼包|T:，获得大量稀有材料！|C:0x34e22c&U:&H:7019&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:VIP0 Pack|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"Vip礼包购买"
+        "description":"VIP pack purchased"
     },
     {
         "id":1051,
-        "desc":"|C:0xd1a765&T:%1$s|T:果断购买了|C:0x34e22c&T:VIP0礼包|T:，获得大量稀有材料！|C:0x34e22c&U:&H:7019&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:VIP0 Pack|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"Vip礼包购买"
+        "description":"VIP pack purchased"
     },
     {
         "id":1052,
-        "desc":"|C:0xd1a765&T:%1$s|T:果断购买了|C:0x34e22c&T:VIP0礼包|T:，获得大量稀有材料！|C:0x34e22c&U:&H:7019&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:VIP0 Pack|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"Vip礼包购买"
+        "description":"VIP pack purchased"
     },
     {
         "id":1053,
-        "desc":"|C:0xd1a765&T:%1$s|T:果断购买了|C:0x34e22c&T:VIP0礼包|T:，获得大量稀有材料！|C:0x34e22c&U:&H:7019&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:VIP0 Pack|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"Vip礼包购买"
+        "description":"VIP pack purchased"
     },
     {
         "id":1054,
-        "desc":"|C:0xd1a765&T:%1$s|T:果断购买了|C:0x34e22c&T:VIP0礼包|T:，获得大量稀有材料！|C:0x34e22c&U:&H:7019&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:VIP0 Pack|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"Vip礼包购买"
+        "description":"VIP pack purchased"
     },
     {
         "id":1056,
-        "desc":"|C:0xd1a765&T:%1$s|T:对您进行了膜拜！",
+        "desc":"|C:0xd1a765&T:%1$s|T: has worshipped you!",
         "type":3,
         "ifsend":0,
         "isRndpush":0,
-        "description":"膜拜提示"
+        "description":"Worship notification"
     },
     {
         "id":1057,
-        "desc":"|C:0xd1a765&T:%1$s|T:得到了|C:0xDF660E&T:黄铜钥匙|T:。",
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained a |C:0xDF660E&T:Bronze Key|T:.",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"头号玩家获得钥匙"
+        "description":"No.1 Player obtained key"
     },
     {
         "id":1058,
-        "desc":"|C:0xd1a765&T:%1$s|T:得到了|C:0xDF660E&T:翡翠钥匙|T:。",
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained a |C:0xDF660E&T:Jade Key|T:.",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"头号玩家获得钥匙"
+        "description":"No.1 Player obtained key"
     },
     {
         "id":1059,
-        "desc":"|C:0xd1a765&T:%1$s|T:得到了|C:0xDF660E&T:水晶钥匙|T:。",
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained a |C:0xDF660E&T:Crystal Key|T:.",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"头号玩家获得钥匙"
+        "description":"No.1 Player obtained key"
     },
     {
         "id":1060,
-        "desc":"|C:0xD6CAB7&T:暴怒的|C:0xB6281A&T:%1$s|T:正在入侵卡萨诺城，勇士们快去击败他吧！",
+        "desc":"|C:0xD6CAB7&T:The enraged |C:0xB6281A&T:%1$s|T: is invading Cassano City, warriors go defeat it!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"%1$s为BOSS名称，魔王BOSS刷新时发送"
+        "description":"%1$s is BOSS name, sent when Demon King BOSS spawns"
     },
     {
         "id":1061,
-        "desc":"|C:0xd1a765&T:%1$s|T:成功带领勇士们击败|C:0xB6281A&T:%2$s|T:，使卡萨诺城重新恢复平静",
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully led warriors to defeat |C:0xB6281A&T:%2$s|T:, bringing peace back to Cassano City",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"%1$s为归属者玩家名称，%2$s为BOSS名称，魔王BOSS死亡时发送"
+        "description":"%1$s is final-hit player name, %2$s is BOSS name, sent when Demon King BOSS dies"
     },
     {
         "id":1062,
-        "desc":"|C:0xd1a765&T:%1$s|T:从|C:0x34e22c&T:10元首充|T:中获得|C:0xE17123&T:直升丹|T:和|C:0x8425CB&T:无级别神装|T:，打怪效率快人一等！|C:0x34e22c&U:&H:7018&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained from |C:0x34e22c&T:$10 First Recharge|T: a |C:0xE17123&T:Leveling Pill|T: and |C:0x8425CB&T:Stat-less Divine Gear|T:, monster hunting efficiency sky-high! |C:0x34e22c&U:&H:7018&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"领取10元首冲奖励"
+        "description":"Claimed $10 first recharge reward"
     },
     {
         "id":1063,
-        "desc":"|C:0xd1a765&T:%1$s|T:从|C:0x34e22c&T:50元首充|T:中获得|C:0xE17123&T:全属性紫宠|T:和|C:0x8425CB&T:一大盒稀有材料|T:，战力暴涨！|C:0x34e23c&U:&H:7018&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained from |C:0x34e22c&T:$50 First Recharge|T: a |C:0xE17123&T:Full-stat Purple Pet|T: and |C:0x8425CB&T:a large box of rare materials|T:, combat power surges! |C:0x34e23c&U:&H:7018&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":1,
-        "description":"领取50元首冲奖励"
+        "description":"Claimed $50 first recharge reward"
     },
     {
         "id":1064,
-        "desc":"|C:0xd1a765&T:%1$s|T:从|C:0x34e22c&T:200元首充|T:中获得|C:0xE17123&T:全属性橙宠|T:和|C:0x8425CB&T:一大箱稀有材料|T:，战力疯狂提升！|C:0x34e24c&U:&H:7018&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained from |C:0x34e22c&T:$200 First Recharge|T: a |C:0xE17123&T:Full-stat Orange Pet|T: and |C:0x8425CB&T:a large chest of rare materials|T:, combat power skyrockets! |C:0x34e24c&U:&H:7018&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"领取200元首冲奖励"
+        "description":"Claimed $200 first recharge reward"
     },
     {
         "id":1065,
-        "desc":"|C:0xd1a765&T:%1$s|T:从|C:0x34e22c&T:500元首充|T:中获得|C:0xE17123&T:极品限定时装|T:和|C:0x8425CB&T:一大麻袋稀有材料|T:，已所向披靡！|C:0x34e25c&U:&H:7018&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained from |C:0x34e22c&T:$500 First Recharge|T: an |C:0xE17123&T:exclusive limited outfit|T: and |C:0x8425CB&T:a large sack of rare materials|T:, already unstoppable! |C:0x34e25c&U:&H:7018&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"领取500元首冲奖励"
+        "description":"Claimed $500 first recharge reward"
     },
     {
         "id":1066,
-        "desc":"|C:0xE17123&T:%1$s|T:活动已经开启，赶紧来战吧！",
+        "desc":"|C:0xE17123&T:%1$s|T: event has started, come join the fight!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"活动开启公告，%1$s为活动名字"
+        "description":"Event start announcement, %1$s is event name"
     },
     {
         "id":1067,
-        "desc":"|C:0xD6CAB7&T:本次|C:0xE17123&T:军团争霸|T:活动已经结束，优胜军团是|C:0xd1a765&T:%1$s|T:！",
+        "desc":"|C:0xD6CAB7&T:This round of |C:0xE17123&T:Legion War|T: has ended, the winning Legion is |C:0xd1a765&T:%1$s|T:!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"军团战结束公告，%1$s为胜者军团名字"
+        "description":"Legion War end announcement, %1$s is winner Legion name"
     },
     {
         "id":1068,
-        "desc":"|C:0xD6CAB7&T:玩家|C:0xd1a765&T:%1$s|T:已经击累计击败了|C:0xE17123&T:10|T:个人，如入无人之境！",
+        "desc":"|C:0xD6CAB7&T:Player |C:0xd1a765&T:%1$s|T: has accumulated |C:0xE17123&T:10|T: kills, unstoppable!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"军团战击累计击杀公告，%1$s为玩家名字"
+        "description":"Legion War kill count announcement, %1$s is player name"
     },
     {
         "id":1069,
-        "desc":"|C:0xD6CAB7&T:玩家|C:0xd1a765&T:%1$s|T:已经击累计击败了|C:0xE17123&T:15|T:个人，谁快去阻止他！",
+        "desc":"|C:0xD6CAB7&T:Player |C:0xd1a765&T:%1$s|T: has accumulated |C:0xE17123&T:15|T: kills, someone stop them!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"军团战击累计击杀公告，%1$s为玩家名字"
+        "description":"Legion War kill count announcement, %1$s is player name"
     },
     {
         "id":1070,
-        "desc":"|C:0xD6CAB7&T:玩家|C:0xd1a765&T:%1$s|T:已经击累计击败了|C:0xE17123&T:20|T:个人，妖怪一般！",
+        "desc":"|C:0xD6CAB7&T:Player |C:0xd1a765&T:%1$s|T: has accumulated |C:0xE17123&T:20|T: kills, what a monster!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"军团战击累计击杀公告，%1$s为玩家名字"
+        "description":"Legion War kill count announcement, %1$s is player name"
     },
     {
         "id":1071,
-        "desc":"|C:0xD6CAB7&T:玩家|C:0xd1a765&T:%1$s|T:已经|C:0xE17123&T:大杀特杀|T:，谁快去阻止他！",
+        "desc":"|C:0xD6CAB7&T:Player |C:0xd1a765&T:%1$s|T: is on a |C:0xE17123&T:killing spree|T:, someone stop them!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"军团战击连续击杀3人公告，%1$s为玩家名字"
+        "description":"Legion War 3 consecutive kills announcement, %1$s is player name"
     },
     {
         "id":1072,
-        "desc":"|C:0xD6CAB7&T:玩家|C:0xd1a765&T:%1$s|T:已经|C:0xE17123&T:主宰比赛|T:，无人能挡！",
+        "desc":"|C:0xD6CAB7&T:Player |C:0xd1a765&T:%1$s|T: is |C:0xE17123&T:dominating the match|T:, none can stop them!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"军团战击连续击杀5人公告，%1$s为玩家名字"
+        "description":"Legion War 5 consecutive kills announcement, %1$s is player name"
     },
     {
         "id":1073,
-        "desc":"|C:0xD6CAB7&T:玩家|C:0xd1a765&T:%1$s|T:已经|C:0xE17123&T:如同天神一般|T:！",
+        "desc":"|C:0xD6CAB7&T:Player |C:0xd1a765&T:%1$s|T: is |C:0xE17123&T:godlike|T:!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"军团战击连续击杀7人公告，%1$s为玩家名字"
+        "description":"Legion War 7 consecutive kills announcement, %1$s is player name"
     },
     {
         "id":1074,
-        "desc":"|C:0xd1a765&T:%1$s|T:从|C:0xB6281A&T:八宝粽|T:礼包中获得了大量|C:0xB6281A&T:%2$s|T:，实力大幅提升！|C:0x34e22c&U:&H:7028&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained a large amount of |C:0xB6281A&T:%2$s|T: from |C:0xB6281A&T:Dragon Boat Gift Pack|T:, power greatly increased! |C:0x34e22c&U:&H:7028&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"端午礼包"
+        "description":"Dragon Boat Festival pack"
     },
     {
         "id":1075,
-        "desc":"|C:0xd1a765&T:%1$s|T:幸运地获得了|C:0x34E22C&T:三倍|T:塔罗经验，获得顶级橙宠|C:0xDF660E&T:庇佑者莉亚|T:指日可待！|C:0x34e22c&U:&H:7006&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: was lucky to receive |C:0x34E22C&T:triple|T: Tarot EXP, getting the top orange pet |C:0xDF660E&T:Lia the Protector|T: is just around the corner! |C:0x34e22c&U:&H:7006&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"塔罗三倍经验"
+        "description":"Triple Tarot EXP"
     },
     {
         "id":1076,
-        "desc":"|C:0xd1a765&T:%1$s|T:成功解封神装|C:0xB6281A&T:%2$s|T:，战力飙升，称霸魔域指日可待！|C:0x34e22c&U:&H:7029&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully unlocked Divine Gear |C:0xB6281A&T:%2$s|T:, combat power soars, dominating MoYu is in sight! |C:0x34e22c&U:&H:7029&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"神装激活"
+        "description":"Divine gear activated"
     },
     {
         "id":1077,
-        "desc":"|C:0xd1a765&T:%1$s|T:成功将神装升级为|C:0xB6281A&T:%2$s|T:，实力大增，称霸魔域指日可待！|C:0x34e22c&U:&H:7029&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully upgraded Divine Gear to |C:0xB6281A&T:%2$s|T:, power increased, dominating MoYu is in sight! |C:0x34e22c&U:&H:7029&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"神装升级"
+        "description":"Divine gear upgraded"
     },
     {
         "id":1078,
-        "desc":"|C:0xd1a765&T:%1$s|T:在|C:0xE17123&T:BOSS之家|T:中击败了|C:0xB6281A&T:%2$s|T:，爆出了%3$s！",
+        "desc":"|C:0xd1a765&T:%1$s|T: defeated |C:0xB6281A&T:%2$s|T: in |C:0xE17123&T:BOSS House|T: and dropped %3$s!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"击杀BOSS之家内的BOSS掉落橙色以上物品"
+        "description":"BOSS House BOSS killed, dropped orange or better item"
     },
     {
         "id":1079,
-        "desc":"|C:0xD6CAB7&T:本次|C:0xE17123&T:人气之星|T:活动已经结束，优胜者是帅到掉渣的|C:0xd1a765&T:%1$s|T:！",
+        "desc":"|C:0xD6CAB7&T:The |C:0xE17123&T:Star of Popularity|T: event has ended, the winner is the amazing |C:0xd1a765&T:%1$s|T:!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"人气之星结束公告，%1$s为玩家名字"
+        "description":"Star of Popularity end announcement, %1$s is player name"
     },
     {
         "id":1080,
-        "desc":"|C:0xd1a765&T:%1$s|T:在|C:0xE17123&T:失落魔域|T:中击败了|C:0xB6281A&T:%2$s|T:，爆出了%3$s！",
+        "desc":"|C:0xd1a765&T:%1$s|T: defeated |C:0xB6281A&T:%2$s|T: in |C:0xE17123&T:Lost MoYu|T: and dropped %3$s!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"击杀失落魔域BOSS掉落橙色以上物品"
+        "description":"Lost MoYu BOSS killed, dropped orange or better item"
     },
     {
         "id":1081,
-        "desc":"|C:0xB6281A&T:%1$s|T:出现在|C:0xE17123&T:失落魔域|T:，快去挑战吧！|C:0x34e22c&U:&H:7024&T:立即前往",
+        "desc":"|C:0xB6281A&T:%1$s|T: has appeared in |C:0xE17123&T:Lost MoYu|T:, go challenge it! |C:0x34e22c&U:&H:7024&T:Go Now",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"失落魔域BOSS刷新时提示，需显示BOSS名称和等级"
+        "description":"Lost MoYu BOSS spawn alert, displays BOSS name and level"
     },
     {
         "id":1082,
-        "desc":"|C:0xB6281A&T:%1$s|T:出现在|C:0xE17123&T:神域BOSS|T:，快去挑战吧！|C:0x34e22c&U:&H:4011&T:立即前往",
+        "desc":"|C:0xB6281A&T:%1$s|T: has appeared in |C:0xE17123&T:Divine Realm BOSS|T:, go challenge it! |C:0x34e22c&U:&H:4011&T:Go Now",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"神域BOSS刷新时提示，需显示BOSS名称和等级"
+        "description":"Divine Realm BOSS spawn alert, displays BOSS name and level"
     },
     {
         "id":1083,
-        "desc":"|C:0xd1a765&T:%1$s|T:在|C:0xE17123&T:神域BOSS|T:中击败了|C:0xB6281A&T:%2$s|T:，爆出了%3$s！",
+        "desc":"|C:0xd1a765&T:%1$s|T: defeated |C:0xB6281A&T:%2$s|T: in |C:0xE17123&T:Divine Realm BOSS|T: and dropped %3$s!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"击杀神域BOSS掉落橙色以上物品"
+        "description":"Divine Realm BOSS killed, dropped orange or better item"
     },
     {
         "id":1084,
-        "desc":"|C:0xffffff&T:喜从天降，探险家%1$s在神殿中为|C:0xd1a765&T:%2$s|T:找到了神魂%3$s！|C:0x34e22c&U:&H:7039&T:我也要",
+        "desc":"|C:0xffffff&T:A joyous surprise! Explorer %1$s found Divine Soul %3$s in the Temple for |C:0xd1a765&T:%2$s|T:! |C:0x34e22c&U:&H:7039&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"神殿探险获得红魂金魂的公告"
+        "description":"Temple exploration obtained red/gold soul announcement"
     },
     {
         "id":1085,
-        "desc":"|C:0xB6281A&T:%1$s|T:出现在|C:0xE17123&T:幻界禁地|T:，快去挑战吧！|C:0x34e22c&U:&H:7024&T:立即前往",
+        "desc":"|C:0xB6281A&T:%1$s|T: has appeared in |C:0xE17123&T:Phantom Forbidden Zone|T:, go challenge it! |C:0x34e22c&U:&H:7024&T:Go Now",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"幻界禁地BOSS刷新时提示"
+        "description":"Phantom Forbidden Zone BOSS spawn alert"
     },
     {
         "id":1086,
-        "desc":"|C:0xd1a765&T:%1$s|T:在|C:0xE17123&T:幻界禁地|T:中击败了|C:0xB6281A&T:%2$s|T:，爆出了%3$s！",
+        "desc":"|C:0xd1a765&T:%1$s|T: defeated |C:0xB6281A&T:%2$s|T: in |C:0xE17123&T:Phantom Forbidden Zone|T: and dropped %3$s!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"击杀幻界禁地BOSS掉落橙色以上物品"
+        "description":"Phantom Forbidden Zone BOSS killed, dropped orange or better item"
     },
     {
         "id":1087,
-        "desc":"|C:0xd1a765&T:%1$s|T:鸿运当头，在|C:0xE17123&T:豪华转盘|T:中获得了|C:0x34E22C&T:%2$s返利|T:，共|C:0x34E22C&T:%3$s|T:魔石，运气逆天！",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, received |C:0x34E22C&T:%2$s rebate|T: from the |C:0xE17123&T:Luxury Spin Wheel|T:, totaling |C:0x34E22C&T:%3$s|T: Magic Stones, what incredible luck!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"豪华转盘道具大奖公告，%1$s为玩家名字"
+        "description":"Luxury Spin Wheel item jackpot announcement, %1$s is player name"
     },
     {
         "id":1088,
-        "desc":"|C:0xd1a765&T:%1$s|T:鸿运当头，在|C:0xE17123&T:豪华转盘|T:中翻到了|C:0xDF660E&T:%2$s|T:，运气逆天！",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew |C:0xDF660E&T:%2$s|T: from the |C:0xE17123&T:Luxury Spin Wheel|T:, what incredible luck!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"豪华转盘奖池返利大奖公告，%1$s为玩家名字"
+        "description":"Luxury Spin Wheel prize pool jackpot announcement, %1$s is player name"
     },
     {
         "id":1089,
-        "desc":"|C:0xd1a765&T:%1$s|T:成功将幻兽%2$s的|C:0x34E22C&T:%3$s|提升到|C:0xB6281A&T:%4$s|，实力大增！|C:0x34e22c&U:&H:7043&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully raised Phantom Beast %2$s's |C:0x34E22C&T:%3$s|T: to |C:0xB6281A&T:%4$s|T:, power greatly increased! |C:0x34e22c&U:&H:7043&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"宠物进化将资质提升到S以上的公告"
+        "description":"Pet evolution raising aptitude to S or above announcement"
     },
     {
         "id":1090,
-        "desc":"|C:0xd1a765&T:%1$s|T:鸿运当头，在|C:0xE17123&T:金秋转盘|T:中转到了|C:0xDF660E&T:%2$s|T:，运气逆天！",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew |C:0xDF660E&T:%2$s|T: from the |C:0xE17123&T:Golden Autumn Spin Wheel|T:, what incredible luck!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"中秋转盘奖池返利大奖公告，%1$s为玩家名字%2$s为道具"
+        "description":"Golden Autumn Spin Wheel jackpot announcement, %1$s is player name, %2$s is item"
     },
     {
         "id":1091,
-        "desc":"|C:0xd1a765&T:%1$s|T:受到幸运女神的眷顾，通过%2$s孵化出了幻兽%3$s，|C:0x34e22c&U:&H:6011&T:我也要",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by Lady Luck, hatched Phantom Beast %3$s through %2$s, |C:0x34e22c&U:&H:6011&T:I want one",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"神秘幻兽蛋孵化出橙色以上幻兽的公告"
+        "description":"Mysterious Phantom Beast egg hatched orange or better beast announcement"
     },
     {
         "id":1092,
-        "desc":"|C:0xd1a765&T:%1$s|T:受到幸运女神的眷顾，通过%2$s孵化出了幻兽%3$s!",
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by Lady Luck, hatched Phantom Beast %3$s through %2$s!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"神秘幻兽蛋孵化出橙色以上幻兽的公告(界面滚动播放)"
+        "description":"Mysterious Phantom Beast egg hatched orange or better beast announcement (scroll display)"
     },
     {
         "id":1093,
-        "desc":"|C:0xE17123&T:王者军团战|T:积分排名奖励已发放，恭喜军团|C:0xd1a765&T:%1$s|T:荣获第一名,请再接再厉！",
+        "desc":"|C:0xE17123&T:King's Legion War|T: score ranking rewards have been distributed, congratulations to Legion |C:0xd1a765&T:%1$s|T: for winning 1st place, keep up the great work!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"%1$s为王者军团战积分排名第一名的军团名称"
+        "description":"%1$s is the name of the Legion ranked 1st in King's Legion War"
     },
     {
         "id":1094,
-        "desc":"恭喜|C:0xd1a765&T:%1$s|T:今日在王者军团战中击败|C:0xd1a765&T:%2$s|T:人，荣获排行榜第一名！",
+        "desc":"Congratulations to |C:0xd1a765&T:%1$s|T: for defeating |C:0xd1a765&T:%2$s|T: players today in King's Legion War, earning 1st place on the leaderboard!",
         "type":3,
         "ifsend":1,
         "isRndpush":0,
-        "description":"%1$s为击败排名第一名的玩家名称，%2$s为其击败数量"
+        "description":"%1$s is player name ranked 1st, %2$s is their kill count"
     },
     {
         "id":1095,
-        "desc":"|C:0xd1a765&T:%1$s|T:开启了传奇挑战-|C:0xd1a765&T:%2$s|T:副本，赶快加入一起挑战吧！|C:0x34e22c&U:&H:7024&T:立即加入",
+        "desc":"|C:0xd1a765&T:%1$s|T: has opened Legend Challenge - |C:0xd1a765&T:%2$s|T: dungeon, come join the challenge! |C:0x34e22c&U:&H:7024&T:Join Now",
         "type":2,
         "ifsend":0,
         "isRndpush":0,
-        "description":"%1$s为玩家名字，%2$s为副本名字"
+        "description":"%1$s is player name, %2$s is dungeon name"
     },
     {
         "id":1096,
-        "desc":"|C:0xd1a765&T:%1$s|T:开启了传奇挑战-|C:0xd1a765&T:%2$s|T:副本，赶快加入一起挑战吧！|C:0x34e22c&U:&H:7024&T:立即加入",
+        "desc":"|C:0xd1a765&T:%1$s|T: has opened Legend Challenge - |C:0xd1a765&T:%2$s|T: dungeon, come join the challenge! |C:0x34e22c&U:&H:7024&T:Join Now",
         "type":1,
         "ifsend":0,
         "isRndpush":0,
-        "description":"%1$s为玩家名字，%2$s为副本名字"
+        "description":"%1$s is player name, %2$s is dungeon name"
     },
     {
         "id":6001,
-        "desc":"|C:0xd1a765&T:%1$s|T:深情地望着|C:0xd1a765&T:%2$s|T:并献上了一束鲜花！",
+        "desc":"|C:0xd1a765&T:%1$s|T: gazes lovingly at |C:0xd1a765&T:%2$s|T: and presents a bouquet of flowers!",
         "type":6,
         "ifsend":1,
         "isRndpush":0,
-        "description":"%1$s为使用者玩家名字，%2$s为目标玩家名字"
+        "description":"%1$s is the user's player name, %2$s is the target player name"
     },
     {
         "id":6002,
-        "desc":"|C:0xd1a765&T:%1$s|T:快速的把一朵鲜花塞给|C:0xd1a765&T:%2$s|T:，马上害羞地跑开了！",
+        "desc":"|C:0xd1a765&T:%1$s|T: quickly slips a flower to |C:0xd1a765&T:%2$s|T: and immediately runs away shyly!",
         "type":6,
         "ifsend":1,
         "isRndpush":0,
-        "description":"%1$s为使用者玩家名字，%2$s为目标玩家名字"
+        "description":"%1$s is the user's player name, %2$s is the target player name"
     },
     {
         "id":6003,
-        "desc":"|C:0xd1a765&T:%1$s|T:潇洒地递上一朵鲜花，|C:0xd1a765&T:%2$s|T:想了一下，机智地掏出了一坨牛粪！",
+        "desc":"|C:0xd1a765&T:%1$s|T: gracefully offers a flower, |C:0xd1a765&T:%2$s|T: thinks for a moment and cleverly pulls out a cow patty!",
         "type":6,
         "ifsend":1,
         "isRndpush":0,
-        "description":"%1$s为使用者玩家名字，%2$s为目标玩家名字"
+        "description":"%1$s is the user's player name, %2$s is the target player name"
     },
     {
         "id":6004,
-        "desc":"|C:0xd1a765&T:%1$s|T:深情地望着|C:0xd1a765&T:%2$s|T:并献上了一束鲜花！",
+        "desc":"|C:0xd1a765&T:%1$s|T: gazes lovingly at |C:0xd1a765&T:%2$s|T: and presents a bouquet of flowers!",
         "type":6,
         "ifsend":1,
         "isRndpush":0,
-        "description":"%1$s为使用者玩家名字，%2$s为目标玩家名字"
+        "description":"%1$s is the user's player name, %2$s is the target player name"
     },
     {
         "id":6005,
-        "desc":"|C:0xd1a765&T:%1$s|T:深情地望着|C:0xd1a765&T:%2$s|T:并献上了一束鲜花！",
+        "desc":"|C:0xd1a765&T:%1$s|T: gazes lovingly at |C:0xd1a765&T:%2$s|T: and presents a bouquet of flowers!",
         "type":6,
         "ifsend":1,
         "isRndpush":0,
-        "description":"%1$s为使用者玩家名字，%2$s为目标玩家名字"
+        "description":"%1$s is the user's player name, %2$s is the target player name"
     },
     {
         "id":7001,
-        "desc":"|C:0xd1a765&T:%1$s|T:不想和|C:0xd1a765&T:%2$s|T:说话，并朝他丢了个鸡蛋！",
+        "desc":"|C:0xd1a765&T:%1$s|T: doesn't want to talk to |C:0xd1a765&T:%2$s|T: and throws an egg at them!",
         "type":7,
         "ifsend":1,
         "isRndpush":0,
-        "description":"%1$s为使用者玩家名字，%2$s为目标玩家名字"
+        "description":"%1$s is the user's player name, %2$s is the target player name"
     },
     {
         "id":7002,
-        "desc":"|C:0xd1a765&T:%1$s|T:一言不合就是一通鸡蛋，|C:0xd1a765&T:%2$s|T:被吓得躲在角落瑟瑟发抖！",
+        "desc":"|C:0xd1a765&T:%1$s|T: starts throwing eggs without warning, |C:0xd1a765&T:%2$s|T: is so scared they're cowering in the corner!",
         "type":7,
         "ifsend":1,
         "isRndpush":0,
-        "description":"%1$s为使用者玩家名字，%2$s为目标玩家名字"
+        "description":"%1$s is the user's player name, %2$s is the target player name"
     },
     {
         "id":7003,
-        "desc":"|C:0xd1a765&T:%1$s|T:以迅雷不及掩耳盗铃之势朝|C:0xd1a765&T:%2$s|T:丢了一个鸡蛋，|C:0xd1a765&T:%2$s|T:伸手一挡，发现居然是个生的！",
+        "desc":"|C:0xd1a765&T:%1$s|T: hurls an egg at |C:0xd1a765&T:%2$s|T: with lightning speed, |C:0xd1a765&T:%2$s|T: reaches out to block it and discovers it's a raw one!",
         "type":7,
         "ifsend":1,
         "isRndpush":0,
-        "description":"%1$s为使用者玩家名字，%2$s为目标玩家名字"
+        "description":"%1$s is the user's player name, %2$s is the target player name"
     },
     {
         "id":7004,
-        "desc":"|C:0xd1a765&T:%1$s|T:拿起鸡蛋就朝|C:0xd1a765&T:%2$s|T:丢去，嘴里还念念有词：“别以为长得帅就不敢揍你！”",
+        "desc":"|C:0xd1a765&T:%1$s|T: grabs an egg and throws it at |C:0xd1a765&T:%2$s|T:, muttering: \"Don't think being handsome means I won't hit you!\"",
         "type":7,
         "ifsend":1,
         "isRndpush":0,
-        "description":"%1$s为使用者玩家名字，%2$s为目标玩家名字"
+        "description":"%1$s is the user's player name, %2$s is the target player name"
     },
     {
         "id":7005,
-        "desc":"|C:0xd1a765&T:%1$s|T:不想和|C:0xd1a765&T:%2$s|T:说话，并朝他丢了个鸡蛋！",
+        "desc":"|C:0xd1a765&T:%1$s|T: doesn't want to talk to |C:0xd1a765&T:%2$s|T: and throws an egg at them!",
         "type":7,
         "ifsend":1,
         "isRndpush":0,
-        "description":"%1$s为使用者玩家名字，%2$s为目标玩家名字"
+        "description":"%1$s is the user's player name, %2$s is the target player name"
     }
 ]

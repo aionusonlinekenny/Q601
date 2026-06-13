@@ -1,19 +1,19 @@
 ﻿*******************************************************
-亲爱的勇士：
+Dear Warriors: 
 *******************************************************
-游戏已更新为最新版本，以下为本次更新内容：
+The game has been updated to the latest version. The update notes are as follows:
 *******************************************************
-手游源码网-www.syymw.com
+MoYu H5 Game Server
 *******************************************************
-|C:0x34E22C&T:新增：|T:
-1、新增神话装备（神15开启）
-2、新增跨服伊甸神国，对应神话装备产出
-|C:0x34E22C&T:优化：|T:
-1、聊天栏【设置】按钮删除，放到头像处
-2、军团聊天保留15条
-3、跨服BOSS血量成长削减
-4、无限手套在2级之后，每颗宝石也能加成属性
-5、神魔战场小地图优化，点击小地图可弹出BOSS信息列表
-6、神魔战场采集物优化，刷新改成整点刷新，采集后弹出展示获得道具的界面
-7、神魔战场内战斗可使用无限手套技能
-8、神魔战场内BOSS复活显示优化，BOSS复活后场景内的墓碑会及时刷新成BOSS
+|C:0x34E22C&T:New Features:|T:
+1. Added Mythic Equipment (unlocks at God Level 15)
+2. Added Cross-Server Eden Divine Kingdom with corresponding Mythic Equipment drops
+|C:0x34E22C&T:Optimizations:|T:
+1. Removed [Settings] button from chat bar, moved to avatar area
+2. Legion chat now retains the last 15 messages
+3. Cross-Server BOSS HP scaling reduced
+4. Infinity Gauntlet now grants gem stat bonuses starting from level 2
+5. Divine War minimap improved — clicking the minimap now shows the BOSS info list
+6. Divine War resource nodes improved — now respawn on the hour; reward popup appears after gathering
+7. Infinity Gauntlet skills can now be used during combat in the Divine War zone
+8. Divine War BOSS respawn display improved — gravestones refresh to BOSSes immediately upon respawn

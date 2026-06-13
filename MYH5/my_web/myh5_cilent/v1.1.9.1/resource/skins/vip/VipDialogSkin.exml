@@ -18,14 +18,14 @@
 			</e:Skin>
 		</components:skinName>
 	</components:SnapButton>
-	<components:SnapButton id="btnReceive" label="领取" anchorOffsetX="71" skinName="skins.SnapOrangeButtonSkin" y="894" anchorOffsetY="24" width="142" horizontalCenter="0"  icon="img_warn_png"/>
-	<e:Label id="labUpgradeNeed" text="再充值1000魔石成为VIP1" x="172" y="122" size="16" textColor="0xedc839"/>
+	<components:SnapButton id="btnReceive" label="Claim" anchorOffsetX="71" skinName="skins.SnapOrangeButtonSkin" y="894" anchorOffsetY="24" width="142" horizontalCenter="0"  icon="img_warn_png"/>
+	<e:Label id="labUpgradeNeed" text="Top up 1000 more Magic Stones to become VIP1." x="172" y="122" size="16" textColor="0xedc839"/>
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="26" anchorOffsetY="26"  x="545" y="41"/>
 	<components:IconButton id="btnLeft" anchorOffsetX="18" anchorOffsetY="27" y="426" source="uiMain_json.btn_main_left3" left="27"/>
 	<components:IconButton id="btnRight" anchorOffsetX="18" anchorOffsetY="27" y="426" source="uiMain_json.btn_main_right3" x="564"/>
 	<e:Scroller width="274" height="252" y="224" anchorOffsetY="0" anchorOffsetX="0" x="273">
 		<e:Group y="0" anchorOffsetX="0" width="271.33" x="1" anchorOffsetY="0" height="235">
-		<e:Label id="labDesc" text="1.特权信息描述"  size="16" lineSpacing="10"  textColor="0xcfc9be"/>
+		<e:Label id="labDesc" text="1. Privilege Info Description"  size="16" lineSpacing="10"  textColor="0xcfc9be"/>
 		</e:Group>
 	</e:Scroller>
 	<components:RewardItemBox id="reward0" y="719" skinName="components.RewardBoxSkin" x="19"/>

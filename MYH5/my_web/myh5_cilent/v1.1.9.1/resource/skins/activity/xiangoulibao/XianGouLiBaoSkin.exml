@@ -2,10 +2,10 @@
 <e:Skin class="normal.XianGouLiBaoSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="600" height="850">
 	<e:Image y="0" source="img_kaifuactivity_title_bg_jpg" x="19"/>
 	<e:Image id="imgTitle" y="47" source="activity_jingjilibao_4_png" x="86"/>
-	<e:Label id="labDate" text="2018年12月12日 " x="142" y="125" size="18" textColor="0x34E22C"/>
-	<e:Label id="labDesc" text="活动期间幻兽总战力排行" x="142" y="154" size="16" width="191" height="65" lineSpacing="5" textColor="0xC6B59E" textAlign="left"/>
-	<e:Label text="截止时间 : " x="46" y="125" size="18" textColor="0xEDC839"/>
-	<e:Label text="活动说明 : " x="46" y="154" size="18" textColor="0xEDC839"/>
+	<e:Label id="labDate" text="December 12, 2018 " x="142" y="125" size="18" textColor="0x34E22C"/>
+	<e:Label id="labDesc" text="Total Phantom Beast Power Ranking (event period)" x="142" y="154" size="16" width="191" height="65" lineSpacing="5" textColor="0xC6B59E" textAlign="left"/>
+	<e:Label text="Deadline: " x="46" y="125" size="18" textColor="0xEDC839"/>
+	<e:Label text="Event Info: " x="46" y="154" size="18" textColor="0xEDC839"/>
 	<e:Scroller id="scrollerBuyList" width="559" height="622" y="226" x="21" bounces="false">
 		<e:List id="listProps" x="0" y="-1" itemRendererSkinName="renderer.ActivityLimitBuyRendererSkin" anchorOffsetY="0" height="626">
 		<e:layout>
@@ -13,5 +13,5 @@
 		</e:layout>
 		</e:List>
 	</e:Scroller>
-	<e:Label id="labLink" text="前往提升" y="196" size="18" textColor="0x34E22C" x="502"/>
+	<e:Label id="labLink" text="Go to Enhance" y="196" size="18" textColor="0x34E22C" x="502"/>
 </e:Skin>

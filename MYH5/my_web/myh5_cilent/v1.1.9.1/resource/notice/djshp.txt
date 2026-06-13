@@ -1,20 +1,20 @@
-﻿亲爱的勇士：
-游戏将于|C:0x34E22C&T:3月20日10：00-11：00|T:对开服大于7天的服务器进行停机更新（具体维护时间将视情况提前或延后）
+﻿Dear Warriors: 
+The game will undergo a maintenance update on |C:0x34E22C&T:March 20, 10:00-11:00|T: for servers that have been open for more than 7 days (the exact maintenance window may be adjusted earlier or later as needed).
 
-|C:0x34E22C&T:新增：|T:
-1、埋骨之地增加精英难度，通过所有普通难度后可激活
-2、合服活动新增BOSS刷新时间减半活动
-3、魔界入侵、跨服BOSS、失落魔域增加属性成长，对应奖励增加
-4、幻兽森林增加3层难度
+|C:0x34E22C&T:New Features:|T:
+1. Catacombs now has Elite difficulty, unlocked after completing all Normal difficulties.
+2. Server Merge events now include a BOSS respawn timer halved activity.
+3. Demon Invasion, Cross-Server BOSS, and Lost MoYu now have increased stat growth with corresponding reward increases.
+4. Phantom Beast Forest now has 3 additional difficulty levels.
 
-|C:0x34E22C&T:优化：|T:
-1、增加战骑的战斗表现效果
-2、橙装碎片合成增加批量功能
-3、增加神格、翅膀、符文印记的等级上限
-4、巅峰之战竞猜系统优化，新增竞猜赔率
-5、巅峰之战界面优化，竞猜成功后仍可点击查看按钮查看支持率和赔率
-6、为净化游戏环境，发送私聊信息数量根据VIP和修神等级增加限制
-V1 5条，V2或神5 10条，V3或神6 20条，V4或神7 30条，V5或神8 无限制
-7、跨服战场中新增击败玩家公告
-8、魔界远征新增远古装备掉落记录
-9、增加【专属技能金盒】内的技能书种类
+|C:0x34E22C&T:Optimizations:|T:
+1. Enhanced combat performance effects for War Mounts.
+2. Orange Equipment Fragment synthesis now supports batch crafting.
+3. Increased level caps for Divinity, Wings, and Rune Marks.
+4. Peak Battle prediction system optimized, added prediction odds display.
+5. Peak Battle interface optimized — players can still view support rate and odds after a successful prediction.
+6. To maintain a healthy game environment, private message limits are now tied to VIP level and God Cultivation level:
+V1: 5 messages, V2 or God Lv.5: 10 messages, V3 or God Lv.6: 20 messages, V4 or God Lv.7: 30 messages, V5 or God Lv.8: Unlimited.
+7. Cross-Server Battlefield now shows kill announcements.
+8. Demon Expedition now includes Ancient Equipment drop history.
+9. Added more skill book types inside the [Exclusive Skill Gold Box].

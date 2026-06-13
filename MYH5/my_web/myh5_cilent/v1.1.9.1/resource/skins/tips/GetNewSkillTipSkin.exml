@@ -4,5 +4,5 @@
 	<e:Image id="imgQuality" source="common_json.img_qlt_1_png" y="48" x="227"/>
 	<components:Icon id="imgSkill" y="51" x="232" width="80" height="80" source=""/>
 	<e:Image source="tips_json.img_chat_getnewskill" y="19" x="215"/>
-	<e:Label id="labName" text="飞天连斩" y="140" size="20" textColor="0xcfc9be" x="232"/>
+	<e:Label id="labName" text="Flying Slash" y="140" size="20" textColor="0xcfc9be" x="232"/>
 </e:Skin>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="normal.RoleActorSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Image id="imgBack" source="img_chatBack_1_png" scale9Grid="47,6,99,9" height="54" horizontalCenter="0"/>
-	<e:Label id="labName" text="名字最多六字" y="34" size="16" anchorOffsetY="0" textAlign="center" horizontalCenter="0.5" textColor="0xedc839"/>
+	<e:Label id="labName" text="Name (max 6 chars)" y="34" size="16" anchorOffsetY="0" textAlign="center" horizontalCenter="0.5" textColor="0xedc839"/>
 	<e:Image id="imgNoChat" source="role_json.img_chat_1_png" y="6.27" horizontalCenter="0"/>
 	<e:Image id="imgBlueBack" source="role_json.img_bule_chassis_png" y="269" horizontalCenter="0" width="242" height="62"/>
 </e:Skin>

@@ -19,35 +19,35 @@
 	<e:Image x="297" y="612" source="role_json.role_deityEquipFont3_png"/>
 
 	<e:Group id="pos1" x="189" y="662">
-		<e:Label text="武器" y="0" size="14" anchorOffsetX="0" textAlign="left" x="14" stroke="1" textColor="0xedc839"/>
+		<e:Label text="Weapon" y="0" size="14" anchorOffsetX="0" textAlign="left" x="14" stroke="1" textColor="0xedc839"/>
 		<e:Image x="0" verticalCenter="0" source="role_json.role_deityEquipPoint_png"/>
 	</e:Group>
 	<e:Group id="pos2" x="94" y="676">
-		<e:Label text="头盔" y="0" size="14" anchorOffsetX="0" textAlign="left" x="0" stroke="1" textColor="0xedc839"/>
+		<e:Label text="Helmet" y="0" size="14" anchorOffsetX="0" textAlign="left" x="0" stroke="1" textColor="0xedc839"/>
 		<e:Image x="34" verticalCenter="0.5" source="role_json.role_deityEquipPoint_png"/>
 	</e:Group>
 	<e:Group id="pos3" x="75" y="773">
-		<e:Label text="衣服" y="0" size="14" anchorOffsetX="0" textAlign="left" x="0" stroke="1" textColor="0xedc839"/>
+		<e:Label text="Clothes" y="0" size="14" anchorOffsetX="0" textAlign="left" x="0" stroke="1" textColor="0xedc839"/>
 		<e:Image x="34" verticalCenter="0" source="role_json.role_deityEquipPoint_png"/>
 	</e:Group>
 	<e:Group id="pos4" x="139" y="700">
-		<e:Label text="项链" y="0" size="14" anchorOffsetX="0" textAlign="left" x="14" stroke="1" textColor="0xedc839"/>
+		<e:Label text="Necklace" y="0" size="14" anchorOffsetX="0" textAlign="left" x="14" stroke="1" textColor="0xedc839"/>
 		<e:Image x="0" verticalCenter="0" source="role_json.role_deityEquipPoint_png"/>
 	</e:Group>
 	<e:Group id="pos5" x="58" y="711">
-		<e:Label text="手镯" y="0" size="14" anchorOffsetX="0" textAlign="left" x="0" stroke="1" textColor="0xedc839"/>
+		<e:Label text="Bracelet" y="0" size="14" anchorOffsetX="0" textAlign="left" x="0" stroke="1" textColor="0xedc839"/>
 		<e:Image x="34" verticalCenter="0" source="role_json.role_deityEquipPoint_png"/>
 	</e:Group>
 	<e:Group id="pos6" x="157" y="753">
-		<e:Label text="手腕" y="0" size="14" anchorOffsetX="0" textAlign="left" x="14" stroke="1" textColor="0xedc839"/>
+		<e:Label text="Wrist" y="0" size="14" anchorOffsetX="0" textAlign="left" x="14" stroke="1" textColor="0xedc839"/>
 		<e:Image x="0" verticalCenter="0" source="role_json.role_deityEquipPoint_png"/>
 	</e:Group>
 	<e:Group id="pos7" x="88" y="737">
-		<e:Label text="腰带" y="0" size="14" anchorOffsetX="0" textAlign="left" x="0" stroke="1" textColor="0xedc839"/>
+		<e:Label text="Belt" y="0" size="14" anchorOffsetX="0" textAlign="left" x="0" stroke="1" textColor="0xedc839"/>
 		<e:Image x="34" verticalCenter="0" source="role_json.role_deityEquipPoint_png"/>
 	</e:Group>
 	<e:Group id="pos8" x="158" y="848.5">
-		<e:Label text="鞋子" y="0" size="14" anchorOffsetX="0" textAlign="left" x="14" stroke="1" textColor="0xedc839"/>
+		<e:Label text="Shoes" y="0" size="14" anchorOffsetX="0" textAlign="left" x="14" stroke="1" textColor="0xedc839"/>
 		<e:Image x="0" verticalCenter="0" source="role_json.role_deityEquipPoint_png"/>
 	</e:Group>
 
@@ -72,10 +72,10 @@
 
 
 
-	<e:Label id="lab1" text="2件套装" y="638.5" size="14" anchorOffsetX="0" textAlign="center" textColor="0xC6B59E" stroke="1" x="311"/>
-	<e:Label id="lab2" text="2件套装" y="668" size="14" anchorOffsetX="0" textAlign="center" textColor="0xC6B59E" stroke="1" x="311"/>
-	<e:Label id="lab3" text="2件套装" y="696.5" size="14" anchorOffsetX="0" textAlign="center" textColor="0xC6B59E" stroke="1" x="311"/>
-	<e:Label id="lab4" text="2件套装" y="726" size="14" anchorOffsetX="0" textAlign="center" textColor="0xC6B59E" stroke="1" x="311"/>
+	<e:Label id="lab1" text="2-Piece Set" y="638.5" size="14" anchorOffsetX="0" textAlign="center" textColor="0xC6B59E" stroke="1" x="311"/>
+	<e:Label id="lab2" text="2-Piece Set" y="668" size="14" anchorOffsetX="0" textAlign="center" textColor="0xC6B59E" stroke="1" x="311"/>
+	<e:Label id="lab3" text="2-Piece Set" y="696.5" size="14" anchorOffsetX="0" textAlign="center" textColor="0xC6B59E" stroke="1" x="311"/>
+	<e:Label id="lab4" text="2-Piece Set" y="726" size="14" anchorOffsetX="0" textAlign="center" textColor="0xC6B59E" stroke="1" x="311"/>
 
 
 

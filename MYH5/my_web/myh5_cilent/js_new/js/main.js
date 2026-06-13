@@ -87,18 +87,18 @@ var shell;
         LoginServerView.prototype.initialize = function () {
             this.bntEnter.enabled = false;
             this.labBanSu.textAlign = "center";
-            var notice = '抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。\n适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。';
+            var notice = 'Please play responsibly. Enjoy games in moderation for a healthy lifestyle.';
             this.labBanSu.y = 960;
             if (platform.sdk && this.isBanshu(platform.sdk.type)) {
-                notice = '本应用由“杭州火娱网络有限公司”提供\n抵制不良游戏，拒绝盗版游戏。 注意自我保护，谨防受骗上当。\n适度游戏益脑，沉迷游戏伤身。 合理安排时间，享受健康生活。\n文网游备字[2016]M-RPG 2561号 出版物号 [ISBN]：978-7-7979-0207-6 \n新广出审[2016]1412号 出版单位：杭州群游科技有限公司 \n著作权人：安徽新媒互娱网络有限公司\n适龄提示：本游戏适合18周岁以上者参与';
+                notice = 'Please play responsibly. Enjoy games in moderation for a healthy lifestyle.';
                 this.labBanSu.y = 930;
             }
             else if (platform.sdk && platform.sdk.type == platform.KY) {
-                notice = '抵制不良游戏，拒绝盗版游戏。 注意自我保护，谨防受骗上当。\n适度游戏益脑，沉迷游戏伤身。 合理安排时间，享受健康生活。\n沪网文[2016]M-RPG 7350号 出版物号 [ISBN]:978-7-498-00775-9 \n新广出审[2017]7740号 出版单位：北京畅元国讯科技有限公司\n著作权人：北京梦幻果冻科技有限公司\n适龄提示：本游戏适合18周岁以上者参与';
+                notice = 'Please play responsibly. Enjoy games in moderation for a healthy lifestyle.';
                 this.labBanSu.y = 930;
             }
             else if (platform.sdk && (platform.sdk.type == platform.NN_H5 || platform.sdk.type == platform.NN_IOS || platform.sdk.type == platform.NN_ANDROID || platform.sdk.type == platform.NN_ZF || platform.sdk.type == platform.NN_ZF_H5)) {
-                notice = '抵制不良游戏，拒绝盗版游戏。 注意自我保护，谨防受骗上当。\n适度游戏益脑，沉迷游戏伤身。 合理安排时间，享受健康生活。\n文网游备字[2016]M-RPG 2561号 出版物号 [ISBN]：978-7-7979-0207-6 \n新广出审[2016]1412号 出版单位：杭州群游科技有限公司 \n著作权人：安徽新媒互娱网络有限公司\n适龄提示：本游戏适合18周岁以上者参与';
+                notice = 'Please play responsibly. Enjoy games in moderation for a healthy lifestyle.';
                 this.labBanSu.y = 930;
             }
             this.labBanSu.text = notice;
@@ -140,7 +140,7 @@ var shell;
         };
         LoginServerView.prototype.clickHandler = function (e) {
             if (shell.LoginData.instance.serverList.selected.status == 2) {
-                shell.tipManager.show("服务器维护中!	请稍后尝试...", 0xFF3300, 2000);
+                shell.tipManager.show("Server under maintenance! Please try again later...", 0xFF3300, 2000);
                 return;
             }
             this.bntEnter.enabled = false;
@@ -151,13 +151,13 @@ var shell;
             var status = Number(shell.LoginData.instance.serverList.selected.status);
             switch (status) {
                 case shell.ServerItem.MAINTEN:
-                    this.labSeverName.text = shell.LoginData.instance.serverList.selected.name + "(维护中)";
+                    this.labSeverName.text = shell.LoginData.instance.serverList.selected.name + " (Maintenance)";
                     break;
                 case shell.ServerItem.STAYOPEN:
                     this.labSeverName.text = shell.LoginData.instance.serverList.selected.name;
                     break;
                 case shell.ServerItem.CLOSE:
-                    this.labSeverName.text = shell.LoginData.instance.serverList.selected.name + "(已关闭)";
+                    this.labSeverName.text = shell.LoginData.instance.serverList.selected.name + " (Closed)";
                     break;
                 default:
                     this.labSeverName.text = shell.LoginData.instance.serverList.selected.name;
@@ -680,7 +680,7 @@ var shell;
                                     return a.lastDate > b.lastDate ? -1 : 1;
                                 });
                                 var historyGroup = new ServerGroup();
-                                historyGroup.name = '最近登录服';
+                                historyGroup.name = 'Recent';
                                 historyGroup.list = items;
                                 this._serverList.addGroup(historyGroup);
                                 var testCount = 0;
@@ -697,14 +697,14 @@ var shell;
                                     var name = "";
                                     if (testCount > 0) {
                                         if (testCount < end) {
-                                            name = data.pre_normal_title + (start - testCount) + "-" + (end - testCount) + "服";
+                                            name = data.pre_normal_title + (start - testCount) + "-" + (end - testCount) ;
                                         }
                                         else {
-                                            name = data.pre_test_title + start + "-" + end + "服";
+                                            name = data.pre_test_title + start + "-" + end ;
                                         }
                                     }
                                     else {
-                                        name = start + "-" + end + "服";
+                                        name = start + "-" + end ;
                                     }
                                     groups.push(new ServerGroup(start, end, name));
                                 }
@@ -930,7 +930,7 @@ var shell;
                 this._name = name;
             }
             else {
-                this._name = start + "-" + end + "服";
+                this._name = start + "-" + end ;
             }
             this._start = start;
             this._end = end;
@@ -1146,7 +1146,7 @@ var shell;
                     case shell.ServerItem.MAINTEN:
                         this.imgLay.source = "img_login_lay_png";
                         this.btnStatus.filters = this.grayFilters;
-                        this.labelName.text = "" + serverData.name + "(维护中)";
+                        this.labelName.text = "" + serverData.name + " (Maintenance)";
                         break;
                     case shell.ServerItem.STAYOPEN:
                         this.imgLay.source = "img_login_stayopen_png";
@@ -1156,7 +1156,7 @@ var shell;
                     case shell.ServerItem.CLOSE:
                         this.imgLay.source = null;
                         this.btnStatus.filters = this.grayFilters;
-                        this.labelName.text = "" + serverData.name + "(已关闭)";
+                        this.labelName.text = "" + serverData.name + " (Closed)";
                         break;
                     default:
                         this.imgLay.source = null;
@@ -1544,7 +1544,7 @@ var shell;
             this.tip.text = content;
         };
         ShellLoading.prototype.showRefeshState = function () {
-            this.tip.text = "加载失败...请点击刷新页面重试...";
+            this.tip.text = "Loading failed... Click to refresh and retry...";
             shell.viewManager.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.refeshHandler, this);
         };
         ShellLoading.prototype.updateHandler = function () {
@@ -1767,7 +1767,7 @@ var Shell = (function (_super) {
                         else {
                             if (platform.sdk.type == platform.P9377) {
                                 if (!platform.sdk.verifyResult) {
-                                    shell.tipManager.show('验证失败,请刷新页面!', 0xFF0000, 2000, this, function () { });
+                                    shell.tipManager.show('Verification failed, please refresh the page!', 0xFF0000, 2000, this, function () { });
                                     return [2 /*return*/];
                                 }
                             }
@@ -1817,8 +1817,8 @@ var Shell = (function (_super) {
                     case 1:
                         authData = _a.sent();
                         if (authData.code != 0) {
-                            alert('验证错误...' + JSON.stringify(authData));
-                            egret.error('验证错误:', authData);
+                            alert('Verification error: ' + JSON.stringify(authData));
+                            egret.error('Verification error:', authData);
                             return [2 /*return*/];
                         }
                         return [4 /*yield*/, shell.LoginData.instance.requestServerList(platform.sdk ? platform.sdk.roleId : shell.LoginData.instance.authData.identityId)];
@@ -1826,7 +1826,7 @@ var Shell = (function (_super) {
                         first = _a.sent();
                         if (first) {
                             if (shell.LoginData.instance.serverList.selected.status != shell.ServerItem.OPEN) {
-                                shell.tipManager.show("服务器维护中!  请稍后尝试...", 0xFF3300, 2000);
+                                shell.tipManager.show("Server under maintenance! Please try again later...", 0xFF3300, 2000);
                                 this.showLoginServerView();
                                 return [2 /*return*/];
                             }
@@ -1889,7 +1889,7 @@ var Shell = (function (_super) {
                         for (key in manifest.game) {
                             manifest.game[key] = shell.ShellVersionControl.getInstance().getGameVirtualUrl(manifest.game[key], window.config.version_assets + "_" + window.config.version_assetscript);
                         }
-                        shell.ShellLoading.instance.show('加载游戏逻辑...');
+                        shell.ShellLoading.instance.show('Loading game logic...');
                         return [4 /*yield*/, this.loadGameScript(manifest)];
                     case 3:
                         _a.sent();
@@ -1897,7 +1897,7 @@ var Shell = (function (_super) {
                         window.config.resourceConfig = shell.resourceConfig;
                         window.config.stage = stage;
                         try {
-                            shell.ShellLoading.instance.showTip('正在初始化游戏...');
+                            shell.ShellLoading.instance.showTip('Initializing game...');
                             MainClass = egret.getDefinitionByName('game.Main');
                             main = new MainClass();
                             //shell.Loading.instance.hide();

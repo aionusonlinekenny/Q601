@@ -2,8 +2,8 @@
 <e:Skin class="dialog.RoleWingGodSelectAlertSkin" width="528" height="378" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" xmlns:item="item.*">
 	<e:Image x="0" y="0" anchorOffsetX="0" width="100%" anchorOffsetY="0" height="100%" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
 	<e:Image id="imgSelect" source="common_json.img_selectFrame_png" x="67" y="122" width="74" height="74"/>
-	<e:Label text="选择神羽" y="15" size="24" horizontalCenter="0" textColor="0xd6cab7" bold="true"/>
-	<components:SnapButton id="btnOk" label="确定" y="304" skinName="skins.SnapButtonDefaultSkin" anchorOffsetX="80" anchorOffsetY="28" horizontalCenter="0"/>
+	<e:Label text="Select Divine Feather" y="15" size="24" horizontalCenter="0" textColor="0xd6cab7" bold="true"/>
+	<components:SnapButton id="btnOk" label="Confirm" y="304" skinName="skins.SnapButtonDefaultSkin" anchorOffsetX="80" anchorOffsetY="28" horizontalCenter="0"/>
 	<components:IconButton id="btnClose" x="492" y="26" source="common_json.btn_close_png" anchorOffsetX="26" anchorOffsetY="25"/>
 	<item:RoleWingTypeIcon id="icon0" x="69" y="124" skinName="normal.RoleWingTypeIconSkin"/>
 	<item:RoleWingTypeIcon id="icon1" x="229" y="124" skinName="normal.RoleWingTypeIconSkin"/>

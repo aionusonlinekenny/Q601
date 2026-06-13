@@ -3,7 +3,7 @@
 	<e:Image anchorOffsetX="0" width="528" anchorOffsetY="0" height="444" scale9Grid="22,26,21,15" source="common_json.img_tips_bg_png"/>
 	<e:Image id="imgQuality" x="71" y="78" source="common_json.img_qlt_3_png"/>
 	<components:Icon id="imgIcon" verticalCenter="-101" horizontalCenter="-149.5" source="" width="80" height="80"/>
-	<e:Label id="labName" text="经脉丹" y="91" size="22" anchorOffsetX="0" width="337.5" textColor="0xcdc6ac" verticalAlign="middle" textAlign="left" left="169" anchorOffsetY="0" height="23"/>
+	<e:Label id="labName" text="Meridian Elixir" y="91" size="22" anchorOffsetX="0" width="337.5" textColor="0xcdc6ac" verticalAlign="middle" textAlign="left" left="169" anchorOffsetY="0" height="23"/>
 	<e:Image x="35" y="214" anchorOffsetX="0" width="470" anchorOffsetY="0" source="common_json.img_normal_line_png"/>
 	<e:TextInput id="textInputNum" width="125" height="30" y="254" anchorOffsetX="0" anchorOffsetY="0" text="1" textColor="0xcbc6ac" restrict="0-9" x="203">
 		<e:skinName>
@@ -19,11 +19,11 @@
 	<e:Label id="lblCount" text="5" y="139.33" textAlign="right" verticalAlign="middle" anchorOffsetX="0" size="20" anchorOffsetY="0" textColor="0xC6B59E" right="378" strokeColor="0x000000" stroke="3"/>
 	<e:Label id="lblPrice" text="10" y="127" anchorOffsetX="0" width="207" anchorOffsetY="0" height="34" size="22" textAlign="left" verticalAlign="middle" left="206" textColor="0xc6b59e"/>
 	<e:Image id="imgTatolPayType" x="258" y="310" source="common_json.img_diamonds_png" width="28" height="25"/>
-	<e:Label text="总价:" x="191" y="313" size="22" textColor="0xedc839"/>
+	<e:Label text="Total Price:" x="191" y="313" size="22" textColor="0xedc839"/>
 	<e:Image id="imgPayType" x="169" y="131" source="common_json.img_diamonds_png" width="28" height="25"/>
 	<components:IconButton id="btnJia" y="271" source="common_json.btn_jia_png" x="363" anchorOffsetX="23" anchorOffsetY="21"/>
 	<components:IconButton id="btnJian" y="272" source="common_json.btn_jian_png" x="168" anchorOffsetX="23" anchorOffsetY="22"/>
-	<components:SnapButton id="btnBuy" label="购买" y="378" skinName="skins.SnapOrangeButtonSkin" anchorOffsetX="81.23" anchorOffsetY="26" width="160" horizontalCenter="0.5"/>
+	<components:SnapButton id="btnBuy" label="Purchase" y="378" skinName="skins.SnapOrangeButtonSkin" anchorOffsetX="81.23" anchorOffsetY="26" width="160" horizontalCenter="0.5"/>
 	<components:SnapButton id="btnJiaTen" label="+10" y="271" skinName="skins.SnapRedButtonSkin" x="433" anchorOffsetX="45" width="92" anchorOffsetY="23"/>
 	<components:SnapButton id="btnJianTen" label="-10" y="272" skinName="skins.SnapRedButtonSkin" x="96" anchorOffsetX="44" width="91" anchorOffsetY="24"/>
 </e:Skin>

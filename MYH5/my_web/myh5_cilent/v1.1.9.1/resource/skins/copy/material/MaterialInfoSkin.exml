@@ -8,12 +8,12 @@
 	<e:Image id="imgStar1" x="34.5" y="25.5" source="copy_json.img_boss_star"/>
 	<e:Image id="imgStar2" source="copy_json.img_boss_star" x="19.5" y="49"/>
 	<e:Image id="imgStar3" source="copy_json.img_boss_star" x="51.5" y="49"/>
-	<e:Label text="内通关可获" x="143" y="33" size="16" textColor="0xc6b59e"/>
-	<e:Label id="labStar" text="三星评价" x="225" y="33" size="16" textColor="0x34e22c"/>
-	<e:Label id="labTime" text="60秒" x="109" y="33" size="16" textColor="0x34e22c"/>
-	<e:Label text="已耗时:" x="107" y="62" textColor="0xEDC839" size="16"/>
-	<e:Label id="labCost" text="57秒" x="161" y="62" size="16" textColor="0x34e22c" width="54"/>
-	<e:Label text="击败全部怪物" x="316" y="33" size="16" textColor="0xc6b59e"/>
-	<e:Label text="副本进度:" x="316" y="62" textColor="0xEDC839" size="16"/>
+	<e:Label text="Inner clear rewards" x="143" y="33" size="16" textColor="0xc6b59e"/>
+	<e:Label id="labStar" text="3-Star Rating" x="225" y="33" size="16" textColor="0x34e22c"/>
+	<e:Label id="labTime" text="60 sec" x="109" y="33" size="16" textColor="0x34e22c"/>
+	<e:Label text="Time Elapsed:" x="107" y="62" textColor="0xEDC839" size="16"/>
+	<e:Label id="labCost" text="57 sec" x="161" y="62" size="16" textColor="0x34e22c" width="54"/>
+	<e:Label text="Defeat All Monsters" x="316" y="33" size="16" textColor="0xc6b59e"/>
+	<e:Label text="Instance Progress:" x="316" y="62" textColor="0xEDC839" size="16"/>
 	<e:Label id="labProgress" text="1/4" x="385" y="62" size="16" textColor="0x34e22c" width="34"/>
 </e:Skin>

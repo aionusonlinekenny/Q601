@@ -3,12 +3,12 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" height="120">
 	<e:Image id="imgbg" width="562" height="124" anchorOffsetX="0" anchorOffsetY="0"
 	          x="0" y="0" scale9Grid="12,25,15,19" source="img_union_list_png"/>
-	<e:Label id="labName" text="珊哥哥军团  Lv:10" y="17" size="22" verticalAlign="middle" textAlign="left"
+	<e:Label id="labName" text="Sange Guild  Lv:10" y="17" size="22" verticalAlign="middle" textAlign="left"
 	         left="66"  textColor="0xedc839"/>
-	<e:Label id="labNickname" text="会长 : 珊珊    人数 : 28/30" y="51.32" size="20" verticalAlign="middle"
+	<e:Label id="labNickname" text="President: Shanshan    Members: 28/30" y="51.32" size="20" verticalAlign="middle"
 	         textAlign="left" left="65"  textColor="0xc6b59e"/>
-	<e:Label id="labCondition" text="加入限制 : 女性法师" y="84.99" size="20" verticalAlign="middle"
+	<e:Label id="labCondition" text="Join Restriction: Female Mage" y="84.99" size="20" verticalAlign="middle"
 	         textAlign="left" left="66"  textColor="0x7d6a52"/>
-	<components:SnapButton id="btnJoin" label="加入" x="479" y="65" skinName="skins.SnapOrangeButtonSkin" anchorOffsetX="65" anchorOffsetY="26"/>
+	<components:SnapButton id="btnJoin" label="Join" x="479" y="65" skinName="skins.SnapOrangeButtonSkin" anchorOffsetX="65" anchorOffsetY="26"/>
 	<e:BitmapLabel id="labRank" text="1" font="pkMing_fnt" horizontalCenter="-251" verticalCenter="1"/>
 </e:Skin>

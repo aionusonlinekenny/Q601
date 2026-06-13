@@ -6,7 +6,7 @@ header("Content-Type: text/html;charset=utf-8");
 header("Access-Control-Allow-Origin:*");
 date_default_timezone_set('prc');
 // mysql 连接
-$conn = @mysql_connect ( '134.22.38.31', 'root', '123456' ) or die ( "Không thể connect database！" );
+$conn = @mysql_connect ( '127.0.0.1', 'root', '123456' ) or die ( "数据库连接失败,请联系管理员！" );
 mysql_select_db ( 'myh5_pl', $conn );
 mysql_query ( "SET NAMES utf8" );
 //==============
