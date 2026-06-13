@@ -7,28 +7,28 @@ ini_set ( 'date.timezone', 'Asia/Shanghai' );
 session_start ();
 $quarr = array (
  '1' => array (
-  'db_ip' => '127.0.0.1',
+  'db_ip' => '134.22.38.31',
   'db_port' => 3306,
   'db_user' => 'root',
-  'db_pswd' => '123456',
+  'db_pswd' => '',
   'db_name' => 'myh5_s1',
-  'gmurl' => 'http://127.0.0.1:8081/myh5'
+  'gmurl' => 'http://134.22.38.31:8081/myh5'
  ),
  '2' => array (
-  'db_ip' => '127.0.0.1',
+  'db_ip' => '134.22.38.31',
   'db_port' => 3306,
   'db_user' => 'root',
-  'db_pswd' => '123456',
+  'db_pswd' => '',
   'db_name' => 'myh5_s2',
-  'gmurl' => 'http://127.0.0.1:8082/myh5'
+  'gmurl' => 'http://134.22.38.31:8082/myh5'
  ),
  '3' => array (
-  'db_ip' => '127.0.0.1',
+  'db_ip' => '134.22.38.31',
   'db_port' => 3306,
   'db_user' => 'root',
-  'db_pswd' => '123456',
+  'db_pswd' => '',
   'db_name' => 'myh5_s3',
-  'gmurl' => 'http://127.0.0.1:8083/myh5'
+  'gmurl' => 'http://134.22.38.31:8083/myh5'
  ) 
 );
 $gmcode = 'syymw.com';//GM码
@@ -38,7 +38,7 @@ $content='手游源码网-www.syymw.com';
 /*
  * 数据库连接
  */
-$conn = @mysql_connect ( '127.0.0.1', 'root', '123456' ) or die ( "数据库连接失败,请联系管理员！" );
+$conn = @mysql_connect ( '134.22.38.31', 'root', '123456' ) or die ( "数据库连接失败,请联系管理员！" );
 mysql_select_db ( 'myh5_pl', $conn );
 mysql_query ( "SET NAMES utf8" );
 function poststr($str) {
