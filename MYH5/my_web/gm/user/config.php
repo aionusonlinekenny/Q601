@@ -31,14 +31,14 @@ $quarr = array (
   'gmurl' => 'http://127.0.0.1:8083/myh5'
  ) 
 );
-$gmcode = 'syymw.com';//GM code
+$gmcode = 'syymw.com';//GM码
 $mailkey='ddgg5bjjflasd12345531';
-$title='GM Mail';
-$content='MoYu H5 Game Server';
+$title='GM邮件';
+$content='手游源码网-www.syymw.com';
 /*
  * 数据库连接
  */
-$conn = @mysql_connect ( '127.0.0.1', 'root', '123456' ) or die ( "Database connection failed, please contact admin!" );
+$conn = @mysql_connect ( '127.0.0.1', 'root', '123456' ) or die ( "数据库连接失败,请联系管理员！" );
 mysql_select_db ( 'myh5_pl', $conn );
 mysql_query ( "SET NAMES utf8" );
 function poststr($str) {

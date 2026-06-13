@@ -42,9 +42,9 @@
 	<components:IconButton y="13" anchorOffsetX="13" anchorOffsetY="13" source="uiMain_json.btn_main_addMoshi" right="114"/>
 	<components:IconButton y="13" anchorOffsetX="13" anchorOffsetY="13" source="uiMain_json.btn_main_addMoshi" right="248"/>
 	<e:Label id="labLevel" text="150" x="80" y="64.5" size="16" stroke="2" strokeColor="0x000000" textColor="0x34E22C" textAlign="center" width="29"/>
-	<e:Label id="labExp" text="EXP 6.2M/min" y="65" size="14" anchorOffsetX="0" textAlign="right" width="142" textColor="0x34E22C" right="82" anchorOffsetY="0" height="15"/>
-	<e:Label id="labMapName" text="Atlantis" y="39.23" size="14" anchorOffsetX="0" textAlign="center" strokeColor="0x161515" width="138.5" textColor="0xC6B59E" right="70"/>
-	<e:Label id="labMoney" text="150 Million" y="10" anchorOffsetX="0" width="101" size="16" rotation="0.39" anchorOffsetY="0" touchEnabled="false" textColor="0xC6B59E" textAlign="center" right="162"/>
+	<e:Label id="labExp" text="EXP 620万/分" y="65" size="14" anchorOffsetX="0" textAlign="right" width="142" textColor="0x34E22C" right="82" anchorOffsetY="0" height="15"/>
+	<e:Label id="labMapName" text="亚特兰蒂斯" y="39.23" size="14" anchorOffsetX="0" textAlign="center" strokeColor="0x161515" width="138.5" textColor="0xC6B59E" right="70"/>
+	<e:Label id="labMoney" text="1.5亿" y="10" anchorOffsetX="0" width="101" size="16" rotation="0.39" anchorOffsetY="0" touchEnabled="false" textColor="0xC6B59E" textAlign="center" right="162"/>
 	<e:Label id="labDiamond" text="98745632" y="10" anchorOffsetX="0" width="86" size="16" rotation="0.39" anchorOffsetY="0" touchEnabled="false" textColor="0xC6B59E" textAlign="center" right="33"/>
 	<e:BitmapLabel id="blabFight" height="20" x="155.3" y="4.53" text="123456789" anchorOffsetX="0" font="fight_font2_fnt" letterSpacing="-5"/>
 	<e:BitmapLabel id="blabStepLevel" x="141" y="54.5" text="3" font="level_font_fnt"/>

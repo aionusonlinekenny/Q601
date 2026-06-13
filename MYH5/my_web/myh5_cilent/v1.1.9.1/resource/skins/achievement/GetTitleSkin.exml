@@ -7,7 +7,7 @@
 		<e:Image id="imgTitle" scaleX="2" scaleY="2" source="" horizontalCenter="0" verticalCenter="-77"/>
 		<e:Image source="common_closetip_png" y="727" x="103"/>
 		<e:Image y="610" source="achieven_json.img_got_title" x="67"/>
-		<components:SnapButton id="btnUpZhen" label="Equip Now" y="657" skinName="skins.SnapButtonDefaultSkin" x="165"/>
+		<components:SnapButton id="btnUpZhen" label="立刻佩戴" y="657" skinName="skins.SnapButtonDefaultSkin" x="165"/>
 		<e:Image source="pet_fuhuafinsh_png"/>
 	</e:Group>
 </e:Skin>

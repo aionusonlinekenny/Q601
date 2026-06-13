@@ -4,7 +4,7 @@
 	<e:Image id="imgGrade" x="25" y="32" source="ladder_json.img_dan_silver"/>
 	<e:Image id="imgLv" x="103" y="40" source="gradeArt_json.04"/>
 	<e:Image includeIn="hasGet" x="447" y="14" source="activity_json.img_activity_yilingqu"/>
-	<components:SnapButton id="btnGet" label="Claim" anchorOffsetX="0" x="429" skinName="skins.SnapOrangeButtonSkin" y="31.67" includeIn="waitGet,willGet"/>
+	<components:SnapButton id="btnGet" label="领取" anchorOffsetX="0" x="429" skinName="skins.SnapOrangeButtonSkin" y="31.67" includeIn="waitGet,willGet"/>
 	<treasure:TreasureIcon id="item1" y="5" skinName="renderer.TreasureIconSkin" x="146"/>
 	<treasure:TreasureIcon id="item2" x="243" y="5" skinName="renderer.TreasureIconSkin"/>
 	<treasure:TreasureIcon id="item3" x="340" y="5" skinName="renderer.TreasureIconSkin"/>

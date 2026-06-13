@@ -3,8 +3,8 @@
 	<e:Image id="imgBackBg" x="0" y="0" source="role_peeragebg_jpg" width="600"/>
 	<e:Image y="565.82" anchorOffsetX="0" anchorOffsetY="0" height="186.52" source="common_infobar_png" scale9Grid="11,25,576,10" horizontalCenter="0.5"/>
 	<e:Image source="common_implementbar_png" anchorOffsetY="0" height="197.57" scale9Grid="80,15,480,14" horizontalCenter="0" y="718.43"/>
-	<e:Label id="labProperty0" text="Both character and Phantom Beast receive the bonus." y="737.07" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" horizontalCenter="0" textColor="0x34e22c"/>
-	<e:Label text="Prestige Required:" x="45.4" y="772.92" size="20" anchorOffsetY="0" textColor="0xc6b59e"/>
+	<e:Label id="labProperty0" text="角色和幻兽都享受加成" y="737.07" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" horizontalCenter="0" textColor="0x34e22c"/>
+	<e:Label text="需要威望:" x="45.4" y="772.92" size="20" anchorOffsetY="0" textColor="0xc6b59e"/>
 	<e:ProgressBar id="progressHonour" y="769.92" value="0" anchorOffsetX="0" horizontalCenter="0">
 		<e:skinName>
 			<e:Skin minWidth="30" minHeight="18">
@@ -14,17 +14,17 @@
 			</e:Skin>
 		</e:skinName>
 	</e:ProgressBar>
-	<components:SnapButton id="btnPreview" label="Title Preview" y="850" anchorOffsetX="81" horizontalCenter="0" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="28"/>
+	<components:SnapButton id="btnPreview" label="爵位预览" y="850" anchorOffsetX="81" horizontalCenter="0" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="28"/>
 	<components:IconButton id="btnGetRes" x="522" y="783" anchorOffsetX="35" anchorOffsetY="35" source="common_json.img_getRes_png"/>
 	<e:Image source="role_json.img_peerageDesc_png" x="83" y="454.38" scaleX="0.8" scaleY="0.8"/>
 	<item:RoleActor id="actor1" y="36.68" skinName="normal.RoleActorSkin" horizontalCenter="-3"/>
 	<item:RoleActor id="actor2" y="99.68" skinName="normal.RoleActorSkin" horizontalCenter="-175"/>
 	<item:RoleActor id="actor3" y="98.68" skinName="normal.RoleActorSkin" horizontalCenter="155"/>
 	<item:PropertyItemBox id="propertyBox" y="615.14" skinName="normal.PropertyItemBoxSkin" horizontalCenter="0"/>
-	<e:Label id="labLevel" text="Level" y="429.94" size="22" anchorOffsetY="0" textAlign="center" horizontalCenter="0" textColor="0xedc839" stroke="2"/>
-	<e:Label text="Domination" x="160" y="461.95" size="20" textColor="0xc6b59e"/>
-	<e:Label text="Attacking a player whose rank is lower than yours," x="160" y="495.38" size="20" textColor="0xc6b59e"/>
-	<e:Label text="Increases DMG by 7%" x="394" y="495.38" size="20" textColor="0x34e22c"/>
+	<e:Label id="labLevel" text="等级" y="429.94" size="22" anchorOffsetY="0" textAlign="center" horizontalCenter="0" textColor="0xedc839" stroke="2"/>
+	<e:Label text="威压" x="160" y="461.95" size="20" textColor="0xc6b59e"/>
+	<e:Label text="攻击爵位低于自身的玩家，" x="160" y="495.38" size="20" textColor="0xc6b59e"/>
+	<e:Label text="增加7%伤害" x="394" y="495.38" size="20" textColor="0x34e22c"/>
 	<e:Image source="common_fightBg_png" y="519.17" horizontalCenter="0"/>
 	<e:Image x="214.94" y="527.84" source="common_json.img_fight_png" width="57" height="31"/>
 	<e:BitmapLabel id="labFight" y="529.36" anchorOffsetX="0" anchorOffsetY="0" text="7200" touchEnabled="false" left="281" font="fight_font2_fnt"/>
@@ -32,6 +32,6 @@
 		<e:Image source="pet_json.img_huanhuaDI_png" x="9" y="3"/>
 		<e:Image id="imgMask" source="common_json.img__list_bg_png" x="41" y="27" anchorOffsetX="31" anchorOffsetY="25" width="62" height="50"/>
 		<e:Label id="labNum" text="100000" x="8" y="47" size="14" textColor="0xC6B59E" anchorOffsetX="0" width="61" anchorOffsetY="0" height="16" textAlign="center"/>
-		<e:Label text="Prestige Lost" x="0" y="60" size="14" anchorOffsetX="0" width="81" anchorOffsetY="0" height="17" textAlign="center" textColor="0x1291CE"/>
+		<e:Label text="已损失威望" x="0" y="60" size="14" anchorOffsetX="0" width="81" anchorOffsetY="0" height="17" textAlign="center" textColor="0x1291CE"/>
 	</e:Group>
 </e:Skin>

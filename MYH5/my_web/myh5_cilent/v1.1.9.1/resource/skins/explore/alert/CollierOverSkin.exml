@@ -9,9 +9,9 @@
 		<ns1:ItemIcon id="item1" y="0" skinName="itemIcon.ItemIconSkin" x="125" scaleX="1" scaleY="1"/>
 		<ns1:ItemIcon id="item2" y="0" skinName="itemIcon.ItemIconSkin" x="251.33" scaleX="1" scaleY="1"/>
 	</e:Group>
-	<e:Label text="Reward Obtained: " x="187" y="112" size="20" textColor="0xedc839"/>
-	<e:Label text="Plunder Status: " x="39" y="315" size="20" textColor="0xedc839"/>
-	<e:Label id="labMinerType" text="Top Miner" x="60" y="235" textColor="0xb72a0f" size="18"/>
+	<e:Label text="获取奖励  : " x="187" y="112" size="20" textColor="0xedc839"/>
+	<e:Label text="掠夺情况  : " x="39" y="315" size="20" textColor="0xedc839"/>
+	<e:Label id="labMinerType" text="顶级矿工" x="60" y="235" textColor="0xb72a0f" size="18"/>
 	<e:Scroller id="scroOver" width="471.33" height="167.09" y="352.91" anchorOffsetX="0" anchorOffsetY="0" x="43" scrollPolicyH="off" scrollPolicyV="auto">
 		<e:Group id="gpOver">
 			<e:layout>

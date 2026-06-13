@@ -12,28 +12,28 @@ $('#checknum').change(function() {
 	  qu=$.trim($(this).val());
   });
 $(".selectpicker").selectpicker({
-    header:'Please select',
+    header:'请选择',
     showIcon:true,
     multipleSeparator:'#',
     maxOptions:4,
-    maxOptionsText:'Max 4 selections',
+    maxOptionsText:'最多选4个',
 });
 
 /**
-Character Recharge
+角色充值
 */
 function chargebtn() {
 	if (checknum == '') {
-        layer.msg('Please enter GM verification code');
+        layer.msg('请输入GM校验码');
         return false;
     }
 	  if(uid==''){
-		  layer.msg('Character ID cannot be empty');
+		  layer.msg('角色ID不能为空');
 		  return false;
 	  }
 	  var chargenum=$('#chargenum').val();
 	  if(chargenum==''){
-		  layer.msg('Recharge amount cannot be empty');
+		  layer.msg('充值数量不能为空');
 		  return false;
 	  }	 
 	$.ajaxSetup({
@@ -49,29 +49,29 @@ function chargebtn() {
 	});
 }
 /**
-Send Item Mail
+发道具邮件
 */
 function send_mail() {
 	if (checknum == '') {
-        layer.msg('Please enter GM verification code');
+        layer.msg('请输入GM校验码');
         return false;
     }
 	  if(uid==''){
-		  layer.msg('Character ID cannot be empty');
+		  layer.msg('角色ID不能为空');
 		  return false;
 	  }
 	  var mailid=$('#mailid').val();
 	  if(mailid==''){
-		  layer.msg('Please select an item');
+		  layer.msg('请选择物品');
 		  return false;
 	  }
 	  var mailnum=$('#mailnum').val();
 	  if(mailnum=='' || isNaN(mailnum)){
-		  layer.msg('Quantity cannot be empty');
+		  layer.msg('数量不能为空');
 		  return false;
 	  }
 	  if(mailnum<1 || mailnum>2000000000){
-		  layer.msg('Item quantity range: 1 - 2,000,000,000');
+		  layer.msg('道具数量范围:1-20亿');
 		  return false;
 	  }
 	$.ajaxSetup({
@@ -88,7 +88,7 @@ function send_mail() {
 }
 function shuoming() {
     layer.open({
-    content: 'GM Panel Notes:</br>1. Recharge ratio is 1:100 </br> 2. Do not send too many mail items at once </br> 3. Gold coins can be sent in larger amounts — max 200,000,000 per send'
-    ,btn: 'Got it'
+    content: '后台说明：</br>1.后台充值比列是1:100 </br> 2.邮件数量不宜过多，请注意 </br> 3.金币数量可以多发一些没问题的，最高2亿一次'
+    ,btn: '我知道了'
   });
 }

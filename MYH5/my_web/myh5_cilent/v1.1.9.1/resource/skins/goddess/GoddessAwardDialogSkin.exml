@@ -6,7 +6,7 @@
 	<components:RewardItemBox id="drop1" x="162.66666666666666" y="121" skinName="components.ItemBoxSkin"/>
 	<components:RewardItemBox id="drop2" x="275.3333333333333" y="121" skinName="components.ItemBoxSkin"/>
 	<components:RewardItemBox id="drop3" y="121" skinName="components.ItemBoxSkin" x="388"/>
-	<components:SnapButton id="btnAwake" label="Claim Reward" y="239" anchorOffsetX="0" width="168" horizontalCenter="-4">
+	<components:SnapButton id="btnAwake" label="领取奖励" y="239" anchorOffsetX="0" width="168" horizontalCenter="-4">
 		<components:skinName>
 		<e:Skin states="up,down,disabled" xmlns:w="http://ns.egret.com/wing">
 			<e:Image alpha.disabled="0.5" width="162" height="100%" source="common_json.btnt_red_selected_png" source.up="common_json.btnt_red_selected_png" source.down="common_json.btnt_red_selected_png" source.disabled="common_json.btnt_red_selected_png" scale9Grid="12,0,15,52"/>

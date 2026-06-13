@@ -12,9 +12,9 @@
 	<e:Image id="imgMoShi1" x="431" y="825" source="common_json.img_diamonds_png" includeIn="taroGameOver" visible="false"/>
 	<e:Label id="labDiamonds1" text="20" size="20" y="829" x="476" textColor="0xC6B59E" includeIn="taroGameOver" visible="false"/>
 	<e:Label id="labPrompt" text="0" size="18" y.taroGameOver="819" x.taroGameOver="277" includeIn="taroGame,taroGameOver" y="821.09" x="400" x.taroGame="448" textColor="0xc6b59e" y.taroGame="821"/>
-	<e:Label id="labText2" text="When EXP is full, receive top-tier Orange Pet Protector Lia and unlock Supreme Tarot." y="363" size="18" fontFamily="Microsoft YaHei" textColor="0xCAB59E" textAlign="center" horizontalCenter="0.5" stroke="1"/>
+	<e:Label id="labText2" text="经验值满就送顶级橙宠庇佑者莉亚，并开启至尊塔罗					" y="363" size="18" fontFamily="Microsoft YaHei" textColor="0xCAB59E" textAlign="center" horizontalCenter="0.5" stroke="1"/>
 	<e:Label id="labPrizeProgress" text="144/600" y="316" size="18" fontFamily="Microsoft YaHei" textColor="0xCAB59E" textAlign="center" anchorOffsetX="0" width="466" anchorOffsetY="0" height="19" stroke="1" x="82"/>
-	<e:Label id="labCritical" text="Next EXP Crit Chance: 50%" x="183" y="773" size="18" textColor="0xeffb8a" stroke="1" strokeColor="0x6fc400" anchorOffsetX="0" width="218" anchorOffsetY="0" height="20" verticalAlign="justify" textAlign="center" x.taroGameOver="0" y.taroGameOver="767" x.taroGame="177"/>
+	<e:Label id="labCritical" text="下次经验值暴击几率 : 50%" x="183" y="773" size="18" textColor="0xeffb8a" stroke="1" strokeColor="0x6fc400" anchorOffsetX="0" width="218" anchorOffsetY="0" height="20" verticalAlign="justify" textAlign="center" x.taroGameOver="0" y.taroGameOver="767" x.taroGame="177"/>
 	<e:Group x="69" y="150" y.taroGameOver="150" x.taroGameOver="69" x.taroGame="69" y.taroGame="150" x.taroInitial="69" y.taroInitial="150">
 		<treasure:TreasureIcon id="treasure1" x="0" y="0" skinName="renderer.TreasureIconSkin"/>
 		<treasure:TreasureIcon id="treasure2" x="115" y="0" skinName="renderer.TreasureIconSkin"/>
@@ -31,8 +31,8 @@
 		<treasure:TreasureCard id="imgCard7" width="20" height="20" skinName="skins.TreasureCardSkin" anchorOffsetX="66" y="184" x="343"/>
 		<treasure:TreasureCard id="imgCard8" width="20" height="20" skinName="skins.TreasureCardSkin" anchorOffsetX="66" y="184" x="482.5"/>
 	</e:Group>
-	<components:SnapButton id="btnUpdateTaro" label="Refresh" x.taroGameOver="15" width="150" icon="img_warn_png" y="780" x.taroInitial="432" anchorOffsetX.taroInitial="0" width.taroInitial="129" y.taroInitial="795.43" skinName="skins.SnapTreasureSkin" skinName.taroInitial="skins.SnapTreasureSkin" anchorOffsetY.taroInitial="0" height.taroInitial="43" width.taroGame="210" height.taroGame="60" horizontalCenter.taroGame="0" width.taroGameOver="180" y.taroGame="796" y.taroGameOver="798"/>
-	<components:SnapButton id="btnBeginTrao" label="Start Game" x.taroGameOver="381" width="150" label.taroGameOver="重置" includeIn="taroInitial,taroGameOver" icon="img_warn_png" y="771" x="214" y.taroGameOver="798" y.taroInitial="795.5" skinName="skins.SnapTreasureSkin" anchorOffsetX.taroInitial="0" width.taroInitial="210" anchorOffsetY.taroInitial="0" height.taroInitial="60" horizontalCenter.taroInitial="0" width.taroGameOver="180"/>
+	<components:SnapButton id="btnUpdateTaro" label="刷新" x.taroGameOver="15" width="150" icon="img_warn_png" y="780" x.taroInitial="432" anchorOffsetX.taroInitial="0" width.taroInitial="129" y.taroInitial="795.43" skinName="skins.SnapTreasureSkin" skinName.taroInitial="skins.SnapTreasureSkin" anchorOffsetY.taroInitial="0" height.taroInitial="43" width.taroGame="210" height.taroGame="60" horizontalCenter.taroGame="0" width.taroGameOver="180" y.taroGame="796" y.taroGameOver="798"/>
+	<components:SnapButton id="btnBeginTrao" label="开始游戏" x.taroGameOver="381" width="150" label.taroGameOver="重置" includeIn="taroInitial,taroGameOver" icon="img_warn_png" y="771" x="214" y.taroGameOver="798" y.taroInitial="795.5" skinName="skins.SnapTreasureSkin" anchorOffsetX.taroInitial="0" width.taroInitial="210" anchorOffsetY.taroInitial="0" height.taroInitial="60" horizontalCenter.taroInitial="0" width.taroGameOver="180"/>
 	<components:SnapButton id="btnWareHouse" x="500" y="43" icon="uiMain_json.img_main_red" width="73" height="73">
 		<components:skinName>
 			<e:Skin states="up,down,disabled">

@@ -4,10 +4,10 @@
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="26" anchorOffsetY="27" x="510" y="32"/>
 	<components:RewardItemBox id="drop0" y="131" skinName="components.ItemBoxSkin" x="264"/>
 	<components:RewardItemBox id="drop1" y="131" skinName="components.ItemBoxSkin" x="384"/>
-	<e:Label text="Reward Preview" y="10" size="26" textColor="0xd6cab7" bold="false" fontFamily="Microsoft YaHei" horizontalCenter="0"/>
-	<e:Label id="labText" text="You were defeated by XX. Auto-revive in 10 seconds!" y="83.5" size="20" textColor="0xdf660e" fontFamily="Microsoft YaHei" right="20"/>
-	<e:Label id="labText2" text="50 Tarot EXP more needed to claim the above rewards." y="344" size="18" fontFamily="Microsoft YaHei" textColor="0xcab59e" right="60" textAlign="right"/>
+	<e:Label text="奖励预览" y="10" size="26" textColor="0xd6cab7" bold="false" fontFamily="Microsoft YaHei" horizontalCenter="0"/>
+	<e:Label id="labText" text="你被XX击败，10秒后自动复活！" y="83.5" size="20" textColor="0xdf660e" fontFamily="Microsoft YaHei" right="20"/>
+	<e:Label id="labText2" text="还差50塔罗经验，可以领取以上奖励" y="344" size="18" fontFamily="Microsoft YaHei" textColor="0xcab59e" right="60" textAlign="right"/>
 	<e:Image id="imgPetModel" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="35,79,27,18" source="" y="22" x="119"/>
-	<components:SnapButton id="btnGet" label="Claim Reward" x="367" y="289" anchorOffsetX="81" anchorOffsetY="26" skinName="skins.SnapButtonDefaultSkin"/>
+	<components:SnapButton id="btnGet" label="领取奖励" x="367" y="289" anchorOffsetX="81" anchorOffsetY="26" skinName="skins.SnapButtonDefaultSkin"/>
 	<components:IconButton id="btnBack" source="common_json.btn_back_png" y="412" x="500" anchorOffsetX="37" anchorOffsetY="36"/>
 </e:Skin>

@@ -12,10 +12,10 @@
 		</e:Group>
 		<components:Icon id="imgPayType" x="45.5" y="162" width="28" height="25" source=""/>
 		<e:Label id="lblgold" text="{data.gold}" y="163.5" verticalAlign="middle" size="18" textAlign="left" left="84" textColor="0xc6b59e"/>
-		<e:Label id="labDisCount" text="50% Off" x="2.42" y="29.03" size="20" verticalAlign="middle" textAlign="center" bold="true" rotation="308.29" textColor="0x574125"/>
+		<e:Label id="labDisCount" text="5折" x="2.42" y="29.03" size="20" verticalAlign="middle" textAlign="center" bold="true" rotation="308.29" textColor="0x574125"/>
 		<e:Label id="labTitle" text="Label" y="47" size="16" textColor="0xfcd67d" horizontalCenter="0.5"/>
 	</e:Group>
-	<components:SnapButton id="btnBuy" label="Purchase" y="191" skinName="skins.SnapOrangeButtonSkin" x="27"/>
-	<e:Label id="labCount" text="(Limited: 0/1)" y="244" size="14" verticalAlign="middle" textAlign="center" textColor="0x34e22c" horizontalCenter="0"/>
+	<components:SnapButton id="btnBuy" label="购 买" y="191" skinName="skins.SnapOrangeButtonSkin" x="27"/>
+	<e:Label id="labCount" text="(限购 0/1)" y="244" size="14" verticalAlign="middle" textAlign="center" textColor="0x34e22c" horizontalCenter="0"/>
 	<e:Image id="img_buy" y="175.5" source="shop_json.img_buy_finsh_png" horizontalCenter="0"/>
 </e:Skin>

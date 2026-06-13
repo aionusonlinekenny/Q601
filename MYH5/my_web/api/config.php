@@ -10,7 +10,7 @@ $conn = @mysql_connect ( '127.0.0.1', 'root', '123456' ) or die ( "数据库连�
 mysql_select_db ( 'myh5_pl', $conn );
 mysql_query ( "SET NAMES utf8" );
 //==============
-$clientip = 'http://134.22.38.31/myh5_cilent/';
+$clientip = 'http://106.12.121.18:81/myh5_cilent/';
 //==============
 // 公共函数调用
 function getstr($str) {

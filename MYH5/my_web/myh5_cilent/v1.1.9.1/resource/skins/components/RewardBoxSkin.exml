@@ -2,6 +2,6 @@
 <e:Skin class="components.RewardBoxSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" width="117" height="130">
 	<e:Image id="quality" x="0" y="0" source="vip_json.img_qlt1"/>
 	<components:Icon id="icon" anchorOffsetX="0" anchorOffsetY="0" verticalCenter="-9" horizontalCenter="0"/>
-	<e:Label id="labName" text="Name" y="113.67" bold="true" size="16" horizontalCenter="0" verticalAlign="middle" textColor="0xc6b59e" width="117" truncateToFit="true"/>
+	<e:Label id="labName" text="名称" y="113.67" bold="true" size="16" horizontalCenter="0" verticalAlign="middle" textColor="0xc6b59e"/>
 	<e:Label id="labCount" text="10" y="76" bold="true" size="20" right="20" textAlign="right" textColor="0xc6b59e" stroke="2"/>
 </e:Skin>

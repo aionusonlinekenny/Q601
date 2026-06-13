@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skins.AchievementTuJianDialogSkin" width="578" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" xmlns:tips="tips.*" xmlns:treasure="treasure.*"  height="867">
 	<e:Image y="3" horizontalCenter="4.5" source="img_picture_title_png"/>
-	<e:Label id="labTitle" text="Character and all Phantom Beasts receive a permanent bonus." y="15" size="20" textColor="0xedc839" horizontalCenter="0"/>
+	<e:Label id="labTitle" text="角色和所有幻兽永久加成" y="15" size="20" textColor="0xedc839" horizontalCenter="0"/>
 	<e:Label id="lab1" text="555555" y="60" size="20" verticalAlign="middle" textAlign="left" textColor="0xC6B59E" x="163"/>
 	<e:Label id="lab4" text="555555" y="60" size="20" verticalAlign="middle" textAlign="left" textColor="0xC6B59E" x="447"/>
 	<e:Label id="lab2" text="555555" y="93" size="20" verticalAlign="middle" textAlign="left" textColor="0xC6B59E" x="163"/>
 	<e:Label id="lab5" text="555555" y="93" size="20" verticalAlign="middle" textAlign="left" x="447" textColor="0xc6b59e"/>
 	<e:Label id="lab3" text="555555" y="127" size="20" verticalAlign="middle" textAlign="left" x="162" textColor="0xc6b59e"/>
 	<e:Label id="lab6" text="555555" y="127" size="20" verticalAlign="middle" textAlign="left" textColor="0xC6B59E" x="446"/>
-	<e:Label text="HP: " x="64" y="60" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
-	<e:Label text="Phys DEF: " x="64" y="93" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
-	<e:Label text="Phys Pen: " x="65" y="127" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
-	<e:Label text="ATK: " x="344" y="60" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
-	<e:Label text="Magic DEF: " x="344" y="93" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
-	<e:Label text="Magic Pen: " x="344" y="127" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
+	<e:Label text="生       命 : " x="64" y="60" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
+	<e:Label text="物       防 : " x="64" y="93" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
+	<e:Label text="物       穿 : " x="65" y="127" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
+	<e:Label text="攻       击 : " x="344" y="60" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
+	<e:Label text="法       防 : " x="344" y="93" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
+	<e:Label text="法       穿 : " x="344" y="127" size="20" fontFamily="Microsoft YaHei" textColor="0xedc839"/>
 	<e:Image source="img_picture_collectbg_png" x="-1" y="163" scale9Grid="108,10,85,65" anchorOffsetX="0" width="578"/>
-	<e:Label id="labShow1" text="Collect 2 &quot;Red Packet&quot; Bestiary: ATK+20000  HP+200000" y="169" size="16" verticalAlign="middle" textAlign="left" textColor="0x34e22c" left="112"/>
-	<e:Label id="labShow2" text="Collect 2 &quot;Red Packet&quot; Bestiary: ATK+20000  HP+200000" y="197" size="16" verticalAlign="middle" textAlign="left" textColor="0x6b6763" x="112"/>
-	<e:Label id="labShow3" text="Collect 2 &quot;Red Packet&quot; Bestiary: ATK+20000  HP+200000" y="225" size="16" verticalAlign="middle" textAlign="left" textColor="0x6b6763" left="112"/>
+	<e:Label id="labShow1" text="收集到2张“红包”图鉴 : 攻击+20000  生命+200000" y="169" size="16" verticalAlign="middle" textAlign="left" textColor="0x34e22c" left="112"/>
+	<e:Label id="labShow2" text="收集到2张“红包”图鉴 : 攻击+20000  生命+200000" y="197" size="16" verticalAlign="middle" textAlign="left" textColor="0x6b6763" x="112"/>
+	<e:Label id="labShow3" text="收集到2张“红包”图鉴 : 攻击+20000  生命+200000" y="225" size="16" verticalAlign="middle" textAlign="left" textColor="0x6b6763" left="112"/>
 	<e:Image anchorOffsetX="0" anchorOffsetY="0" height="118" source="common_implementbar_png" horizontalCenter="0" scale9Grid="1,12,639,16" bottom="0"/>
 	<components:IconButton id="btnLeft" anchorOffsetX="18" anchorOffsetY="27" x="17" y="815" source="activity_json.img_arrow_leftRight"/>
 	<components:IconButton id="btnRight" anchorOffsetX="18" anchorOffsetY="27" x="563" y="815" skewY="180" source="activity_json.img_arrow_leftRight"/>

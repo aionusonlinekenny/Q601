@@ -11,10 +11,10 @@
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="597" y="34" anchorOffsetX="25" anchorOffsetY="24"/>
 	<components:IconButton id="btnBack" source="common_json.btn_back_png" x="565.67" y="769.33" anchorOffsetX="36" anchorOffsetY="30"/>
 	<e:Image x="185" y="9" source="wilderfight_json.btn_gift_title_png"/>
-	<e:Label id="labMyRank" text="My Current Rank" x="47" y="760" size="20" textColor="0xc6b59e"/>
-	<e:Label text="Rewards reset daily at midnight." x="361" y="760" size="20" textColor="0xc6b59e"/>
+	<e:Label id="labMyRank" text="我的当前排名" x="47" y="760" size="20" textColor="0xc6b59e"/>
+	<e:Label text="每日0点重置奖励" x="361" y="760" size="20" textColor="0xc6b59e"/>
 	<e:Image width="572" height="44" x="27" y="69" scale9Grid="7,7,5,30" anchorOffsetX="0" anchorOffsetY="0" source="union_json.img_union_up_png"/>
 	<e:Image x="251" y="69" source="union_json.img_union_line_png" height="39"/>
-	<e:Label text="Ranking" y="77" size="25" verticalAlign="middle" textAlign="center" horizontalCenter="-174" textColor="0xedc839"/>
-	<e:Label text="Reward" y="77" size="25" textAlign="center" verticalAlign="middle" horizontalCenter="118" textColor="0xedc839"/>
+	<e:Label text="排名" y="77" size="25" verticalAlign="middle" textAlign="center" horizontalCenter="-174" textColor="0xedc839"/>
+	<e:Label text="奖励" y="77" size="25" textAlign="center" verticalAlign="middle" horizontalCenter="118" textColor="0xedc839"/>
 </e:Skin>

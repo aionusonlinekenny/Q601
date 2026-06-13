@@ -11,10 +11,10 @@
 			</e:layout>
 		</e:List>
 		</e:Scroller>
-		<components:SnapButton id="btnOK0" label="Confirm" y="667" anchorOffsetX="75" width="150" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" x="217"/>
-		<e:Label id="labPrompt0" text="Ranking rewards obtained are as follows:" x="12.52" y="314.08" size="20"  textColor="0x7D6A52"/>
-		<e:Label id="rankNum" text="1st Place"  y="114.72" size="20" textColor="0xEDC839" width="157" textAlign="center" x="139"/>
-		<e:Label id="labPlayerName0" text="Player Name"  y="249.08" size="20" textAlign="center" width="120" textColor="0x34E22C" x="157"/>
+		<components:SnapButton id="btnOK0" label="确   定" y="667" anchorOffsetX="75" width="150" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" x="217"/>
+		<e:Label id="labPrompt0" text="获得排名奖励如下:" x="12.52" y="314.08" size="20"  textColor="0x7D6A52"/>
+		<e:Label id="rankNum" text="第一名"  y="114.72" size="20" textColor="0xEDC839" width="157" textAlign="center" x="139"/>
+		<e:Label id="labPlayerName0" text="玩家名字维字"  y="249.08" size="20" textAlign="center" width="120" textColor="0x34E22C" x="157"/>
 	</e:Group>
 	<e:Label id="labTime" text="" y="829" size="20" touchEnabled="false" horizontalCenter="0"  textColor="0xC6B59E"/>
 </e:Skin>

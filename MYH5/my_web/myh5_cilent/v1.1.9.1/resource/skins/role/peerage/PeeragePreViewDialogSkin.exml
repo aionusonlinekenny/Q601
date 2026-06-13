@@ -5,8 +5,8 @@
 	<components:IconButton id="btnLeft" source="common_json.btn_left_default_png" y="387" x="52"/>
 	<components:IconButton id="btnRight" scaleX="1" y="387" source="common_json.btn_right_default_png" x="516"/>
 	<components:Icon id="imgIcon" width="80" height="80" y="122" horizontalCenter="0"/>
-	<e:Label id="labName" text="Count" y="233.15" size="26" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textAlign="center" horizontalCenter="0" textColor="0xedc839"/>
-	<e:Label id="labConsume" text="Count's Daily" y="574.67" size="22" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textAlign="center" horizontalCenter="0" textColor="0x34e22c"/>
-	<e:Label text="Attribute Preview" y="346.67" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0x7d6a52" horizontalCenter="0"/>
-	<e:Label id="labContent" text="HP: 99999" y="385.67" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" anchorOffsetX="0" textColor="0xc6b59e" horizontalCenter="0"/>
+	<e:Label id="labName" text="伯爵" y="233.15" size="26" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textAlign="center" horizontalCenter="0" textColor="0xedc839"/>
+	<e:Label id="labConsume" text="伯爵每天" y="574.67" size="22" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textAlign="center" horizontalCenter="0" textColor="0x34e22c"/>
+	<e:Label text="属性预览" y="346.67" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0x7d6a52" horizontalCenter="0"/>
+	<e:Label id="labContent" text="生命 : 99999" y="385.67" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" anchorOffsetX="0" textColor="0xc6b59e" horizontalCenter="0"/>
 </e:Skin>

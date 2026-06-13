@@ -2,10 +2,10 @@
 <e:Skin class="renderer.LadderStoreCellSkin" width="562" height="120" xmlns:e="http://ns.egret.com/eui" xmlns:renderer="renderer.*" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" >
 	<e:Image width="562" height="120" anchorOffsetX="0" anchorOffsetY="0" x="0" y="0" scale9Grid="12,25,15,19" source="img_union_list_png"/>
 	<e:Image x="108" y="17" source="shop_json.img_zidiImg_png"/>
-	<e:Label text="Honor Cost: " x="135" y="78" size="24" textColor="0xc6b59e"/>
+	<e:Label text="消耗荣誉  : " x="135" y="78" size="24" textColor="0xc6b59e"/>
 	<e:Label id="labConsoumNum" text="100" x="268" y="78" size="24" fontFamily="Microsoft JhengHei" textColor="0xc6b59e"/>
 	<e:Label id="labName" text="dwadaw" x="137" y="22" size="24" textColor="0xc6b59e"/>
-	<e:Label id="labLimitNum" text="Limited: 0/1" x="422" y="80" size="20" textColor="0xc6b59e"/>
+	<e:Label id="labLimitNum" text="限购  : 0/1" x="422" y="80" size="20" textColor="0xc6b59e"/>
 	<renderer:LadderIconItem id="icon" width="88" height="86.67" x="17" y="13" anchorOffsetX="0" anchorOffsetY="0" skinName="item.LadderIconSkin"/>
-	<components:SnapButton id="btnBuy" label="Purchase" anchorOffsetX="0" x="429" skinName="skins.SnapOrangeButtonSkin" y="24"/>
+	<components:SnapButton id="btnBuy" label="购买" anchorOffsetX="0" x="429" skinName="skins.SnapOrangeButtonSkin" y="24"/>
 </e:Skin>

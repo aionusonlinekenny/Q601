@@ -13,17 +13,17 @@
 	<e:Image source="union_json.img_union_line_png" includeIn="everyday" x="328" y="46"/>
 	<e:Image source="union_json.img_union_line_png" includeIn="everyday" x="426" y="46"/>
 	<e:Label id="labStudyValue" text="99999" includeIn="college" y="819" size="18" verticalAlign="middle" textAlign="center" x="313" fontFamily="Microsoft JhengHei" bold="true" textColor="0xc6b59e"/>
-	<e:Label text="Learn Value:" includeIn="college" x="250" y="819" size="18" textColor="0xd1a765"/>
+	<e:Label text="学习值:" includeIn="college" x="250" y="819" size="18" textColor="0xd1a765"/>
 	<e:Label id="labPro" text="120/300" includeIn="college" y="787" size="12" horizontalCenter="10" textColor="0xefece3"/>
-	<e:Label text="Active" includeIn="everyday" x="267.34" y="58" size="20" textColor="0x7d6a52"/>
-	<e:Label text="Battle Soul" includeIn="everyday" x="357.09" y="58" size="20" textColor="0x7d6a52"/>
-	<e:Label text="Action" includeIn="everyday" x="490.09" y="58" size="20" textColor="0x7d6a52"/>
-	<e:Label text="Attempts" includeIn="everyday" x="184" y="58" size="20" textColor="0x7d6a52"/>
-	<e:Label text="Name" includeIn="everyday" x="74" y="58" size="20" textColor="0x7d6a52"/>
+	<e:Label text="活跃" includeIn="everyday" x="267.34" y="58" size="20" textColor="0x7d6a52"/>
+	<e:Label text="战魂" includeIn="everyday" x="357.09" y="58" size="20" textColor="0x7d6a52"/>
+	<e:Label text="操作" includeIn="everyday" x="490.09" y="58" size="20" textColor="0x7d6a52"/>
+	<e:Label text="次数" includeIn="everyday" x="184" y="58" size="20" textColor="0x7d6a52"/>
+	<e:Label text="名称" includeIn="everyday" x="74" y="58" size="20" textColor="0x7d6a52"/>
 	<item:PrizeProgress id="prizeProgress" y="747" skinName="item.PrizeProgressSkin" x="99" includeIn="everyday" width="474"/>
-	<e:ToggleButton id="btnEveryday" label="Daily Mission" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" y="865" x="246"/>
-	<e:ToggleButton id="btnTujian" label="Bestiary" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" y="865" x="362"/>
-	<e:ToggleButton id="btnCollege" label="Phantom Beast Academy" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" y="865" x="130"/>
+	<e:ToggleButton id="btnEveryday" label="每日任务" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" y="865" x="246"/>
+	<e:ToggleButton id="btnTujian" label="图鉴" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" y="865" x="362"/>
+	<e:ToggleButton id="btnCollege" label="幻兽学院" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" y="865" x="130"/>
 	<achievement:AchievementTuJianDialog id="tujianView" includeIn="tujian" skinName="skins.AchievementTuJianDialogSkin" x="11"/>
 	<e:Scroller id="scrollerCollegedayTask" width="564" height="666.14" y="49.12" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="off" scrollPolicyV="auto" includeIn="college" touchEnabled="false" x="18">
 		<e:List id="collegeList" itemRenderer="AchievementSkillRenderer" anchorOffsetX="0" anchorOffsetY="0" height="680" x="174" y="1" width="566">

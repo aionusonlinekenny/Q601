@@ -21,6 +21,6 @@
 		<e:Label id="labJindu" text="5/5" y="49" size="20" textColor="0xbeb373" verticalAlign="middle" textAlign="left" x="170" includeIn="everyday"/>
 		<e:Label id="labHuoyue" text="999" y="49" size="20" textColor="0xbeb373" verticalAlign="middle" textAlign="left" x="257" includeIn="everyday"/>
 		<e:Label id="labName" text="9900" y="49" size="20" textAlign="left" verticalAlign="middle" textColor="0xbeb373" rotation="0.06" x="336" includeIn="everyday"/>
-		<components:SnapButton id="btnReceive" label="Claim" x="493.67" y="61.33" width="130" skinName="skins.SnapGreenButtonSkin" anchorOffsetX="64.67" anchorOffsetY="29.33"/>
+		<components:SnapButton id="btnReceive" label="领取" x="493.67" y="61.33" width="130" skinName="skins.SnapGreenButtonSkin" anchorOffsetX="64.67" anchorOffsetY="29.33"/>
 	</e:Group>
 </e:Skin>

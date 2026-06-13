@@ -4,11 +4,11 @@
 	<e:Image id="imgbg" width="566" height="120" anchorOffsetX="0" anchorOffsetY="0"
 	          x="0" y="0" scale9Grid="30,22,30,31" source="img_union_list_png"/>
 	<e:Image id="img" x="16" y="15" source="common_json.img_qlt_1_png"/>
-	<e:Label id="labName" text="Very Generous" y="25" size="24" left="117" verticalAlign="middle" textAlign="left" textColor="0xedc839"/>
-	<e:Label id="labGift" text="Reward: Contribution +666" y="69" size="20" left="120" verticalAlign="middle" textAlign="left" textColor="0xc6b59e"/>
-	<components:SnapButton id="btnLingqu" label="Claim" x="496" y="56" anchorOffsetX="67" width="130" skinName="skins.SnapGreenButtonSkin" anchorOffsetY="24"/>
-	<components:SnapButton id="btnQianwang" label="Go To" x="496" y="56" anchorOffsetX="67" width="130" skinName="skins.SnapOrangeButtonSkin" anchorOffsetY="24"/>
-	<components:SnapButton id="btnJuanzeng" label="Donate" x="493" y="58" anchorOffsetX="64" width="130" skinName="skins.SnapOrangeButtonSkin" anchorOffsetY="26"/>
+	<e:Label id="labName" text="大手动阀十分大方" y="25" size="24" left="117" verticalAlign="middle" textAlign="left" textColor="0xedc839"/>
+	<e:Label id="labGift" text="奖励 : 贡献值 +666" y="69" size="20" left="120" verticalAlign="middle" textAlign="left" textColor="0xc6b59e"/>
+	<components:SnapButton id="btnLingqu" label="领取" x="496" y="56" anchorOffsetX="67" width="130" skinName="skins.SnapGreenButtonSkin" anchorOffsetY="24"/>
+	<components:SnapButton id="btnQianwang" label="前往" x="496" y="56" anchorOffsetX="67" width="130" skinName="skins.SnapOrangeButtonSkin" anchorOffsetY="24"/>
+	<components:SnapButton id="btnJuanzeng" label="捐赠" x="493" y="58" anchorOffsetX="64" width="130" skinName="skins.SnapOrangeButtonSkin" anchorOffsetY="26"/>
 	<e:Image id="btnFinsh" source="union_json.img_union_finsh_png" x="452" y="14" visible="false"/>
 	<components:Icon id="imgIcon" width="80" height="80" x="21" y="18"/>
 	<e:Label id="labJinDu" text="0/5" y="90" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="210.5" textColor="0xc6b59e"/>

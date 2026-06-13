@@ -25,7 +25,7 @@ $(document).ready(function () {
   $("#btnreg1").click(function () {
     $("#type").val("2");
     $("#forget_pwd").hide();
-    $("#username").attr("placeholder", "Game Account");
+    $("#username").attr("placeholder", "游戏账号");
     $('#ismobileregister2').show();
     $("#p_login").hide();
     if ($(".p_login_2").length > 0) {
@@ -37,7 +37,7 @@ $(document).ready(function () {
 /** 返回登录页面 */
   $("#btnback").click(function () {
     mvIsMobile = false;
-    $("#username").attr("placeholder", "Game Account");
+    $("#username").attr("placeholder", "游戏账号");
     $("#p_login").show();
     if ($(".p_login_2").length > 0) {
       $(".p_login_2").show();
@@ -111,40 +111,40 @@ $("#btnreg").click(function () {
   });
 });
 
-/** Registration form */
+/** 注册表单 */
 function checkRegForm() {
     $(".tishi").hide();
     var lvUsername = $("#username").val();
     var lvPWD = $("#passwd").val();
     if (lvUsername == "") {
       $(".tishi").show();
-      $(".tishi span").text("Please enter a username!");
+      $(".tishi span").text("没输入名字！");
       return;
     } else if (lvUsername.length < 6) {
       $(".tishi").show();
-      $(".tishi span").text("Username must be at least 6 characters!");
+      $(".tishi span").text("用户名没到6位！");
       return;
     } else if (!funcChina(lvUsername)) {
       $(".tishi").show();
-      $(".tishi span").text("Username cannot contain Chinese characters!");
+      $(".tishi span").text("用户名不能有汉字！");
       return;
     } else if (checkUserName(lvUsername)) {
       $(".tishi").show();
-      $(".tishi span").text("Username can only contain letters and numbers!");
+      $(".tishi span").text("用户名只能字母和数字！");
       return;
-    } else if (lvPWD == "" || lvPWD == "Enter password") {
+    } else if (lvPWD == "" || lvPWD == "输入密码") {
       $(".tishi").show();
-      $(".tishi span").text("Please enter a password!");
+      $(".tishi span").text("输入密码！");
       return;
     } else if (lvPWD.length < 6) {
       $(".tishi").show();
-      $(".tishi span").text("Password must be at least 6 characters!");
+      $(".tishi span").text("密码不得小于6位！");
       return;
     }
     $("#frmLogin").submit();
   }
 
-/** Login form */
+/** 登录表单 */
 function checkLoginForm() {
     $(".tishi").hide();
     var lvUsername = $("#username").val();
@@ -153,27 +153,27 @@ function checkLoginForm() {
     SetCookie('cookie_password', lvPWD);
     if (lvUsername == "") {
       $(".tishi").show();
-      $(".tishi span").text("Please enter a username!");
+      $(".tishi span").text("没输入名字！");
       return false;
     } else if (lvUsername.length < 6) {
       $(".tishi").show();
-      $(".tishi span").text("Username must be at least 6 characters!");
+      $(".tishi span").text("用户名没到6位！");
       return false;
     } else if (!funcChina(lvUsername)) {
       $(".tishi").show();
-      $(".tishi span").text("Username cannot contain Chinese characters!");
+      $(".tishi span").text("用户名不能有汉字！");
       return false;
     } else if (checkUserName(lvUsername)) {
       $(".tishi").show();
-      $(".tishi span").text("Username can only contain letters and numbers!");
+      $(".tishi span").text("用户名只能字母和数字！");
       return false;
-    } else if (lvPWD == "" || lvPWD == "Enter password!") {
+    } else if (lvPWD == "" || lvPWD == "输入密码！") {
       $(".tishi").show();
-      $(".tishi span").text("Please enter a password!");
+      $(".tishi span").text("输入密码！");
       return false;
     } else if (lvPWD.length < 6) {
       $(".tishi").show();
-      $(".tishi span").text("Password must be at least 6 characters!");
+      $(".tishi span").text("密码不得小于6位！");
       return false;
     } else {
       return true;

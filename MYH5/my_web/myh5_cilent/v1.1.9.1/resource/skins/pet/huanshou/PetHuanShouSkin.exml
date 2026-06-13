@@ -32,31 +32,31 @@
 			<e:BitmapLabel id="labLv1" x="18.41" y="0" text="3" font="level_font_fnt"/>
 			<e:Image x="0" y="5.99" source="common_json.img_Lv_png"/>
 		</e:Group>
-		<e:Label id="labXueXi1" text="Learn Value Unlock" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" horizontalCenter="0" touchEnabled="false" stroke="2" verticalCenter="-6.5" textColor="0xedc839" visible="false"/>
+		<e:Label id="labXueXi1" text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" horizontalCenter="0" touchEnabled="false" stroke="2" verticalCenter="-6.5" textColor="0xedc839" visible="false"/>
 	</e:Group>
 	<e:Group id="group2" y="22.5" touchEnabled="false" width="92" height="106" x="254">
 		<e:Image id="btn2" x="0" y="0" touchEnabled="true" source="explore_json.img_circle_back"/>
 		<e:Image id="img2" width="80" height="80" y="6" touchEnabled="false" anchorOffsetX="0" anchorOffsetY="0" x="6" source="common_json.img_lock_circle_png"/>
 		<e:Image id="img_Highlight2" x="3.5" y="2" touchEnabled="false" source="explore_json.img_circle_gold" width="85" height="85"/>
 		<e:Image id="imgPoint2" source="common_json.img_warn_png" x="0" y="0"/>
-		<e:Label id="vipLock2" text="V2 Unlock Now" y="80" size="18" horizontalCenter="0" stroke="2" textColor="0x34e22c"/>
+		<e:Label id="vipLock2" text="V2立即解锁" y="80" size="18" horizontalCenter="0" stroke="2" textColor="0x34e22c"/>
 		<e:Group id="labLvGroup2" y="81.33" horizontalCenter="0">
 			<e:BitmapLabel id="labLv2" x="18.41" y="0" text="33" font="level_font_fnt"/>
 			<e:Image x="0" y="5.99" source="common_json.img_Lv_png"/>
 		</e:Group>
-		<e:Label id="labXueXi2" text="Learn Value Unlock" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" horizontalCenter="0" touchEnabled="false" stroke="2" verticalCenter="-6.5" textColor="0xedc839" visible="false"/>
+		<e:Label id="labXueXi2" text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" horizontalCenter="0" touchEnabled="false" stroke="2" verticalCenter="-6.5" textColor="0xedc839" visible="false"/>
 	</e:Group>
 	<e:Group id="group3" y="22.5" touchEnabled="false" anchorOffsetX="0" width="92" height="106" x="375">
 		<e:Image id="btn3" x="0" y="0" touchEnabled="true" source="explore_json.img_circle_back"/>
 		<e:Image id="img3" width="80" height="80" x="6" y="6" touchEnabled="false" source="common_json.img_lock_circle_png"/>
 		<e:Image id="img_Highlight3" x="3.5" y="2" touchEnabled="false" source="explore_json.img_circle_gold" width="85" height="85"/>
 		<e:Image id="imgPoint3" source="common_json.img_warn_png" x="0" y="0"/>
-		<e:Label id="vipLock3" text="V4 Unlock Now" y="80" size="18" horizontalCenter="0" textColor="0x34e22c" stroke="2"/>
+		<e:Label id="vipLock3" text="V4立即解锁" y="80" size="18" horizontalCenter="0" textColor="0x34e22c" stroke="2"/>
 		<e:Group id="labLvGroup3" y="81.33" horizontalCenter="0">
 			<e:BitmapLabel id="labLv3" x="18.41" y="0" text="333" font="level_font_fnt"/>
 			<e:Image x="0" y="5.99" source="common_json.img_Lv_png"/>
 		</e:Group>
-		<e:Label id="labXueXi3" text="Learn Value Unlock" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" horizontalCenter="0" touchEnabled="false" stroke="2" verticalCenter="-6.5" textColor="0xedc839" visible="false"/>
+		<e:Label id="labXueXi3" text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" horizontalCenter="0" touchEnabled="false" stroke="2" verticalCenter="-6.5" textColor="0xedc839" visible="false"/>
 	</e:Group>
 	<ns1:PetItem id="box00" x="17" y="235.37" anchorOffsetX="0" anchorOffsetY="0" skinName="normal.PetItemSkin">
 	</ns1:PetItem>
@@ -74,10 +74,10 @@
 	</ns1:PetItem>
 	<ns1:PetItem id="box13" x="479" y="605.37" skinName="normal.PetItemSkin">
 	</ns1:PetItem>
-	<components:SnapButton id="btnChange1" label="Change" y="693" anchorOffsetX="84" anchorOffsetY="26" skinName="skins.SnapButtonDefaultSkin" horizontalCenter="0"/>
-	<components:SnapButton id="btnChangeName" label="Rename" x="388" y="688" skinName="skins.SnapOrangeButtonSkin" width="64" anchorOffsetY="0" height="36" anchorOffsetX="0" visible="false"/>
-	<components:SnapButton id="btnChange2" label="Change" y="693" anchorOffsetX="79" anchorOffsetY="26" skinName="skins.SnapButtonDefaultSkin" horizontalCenter="0"/>
-	<components:SnapButton id="btnChange3" label="Change" y="693" anchorOffsetX="80" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" horizontalCenter="0"/>
+	<components:SnapButton id="btnChange1" label="更换" y="693" anchorOffsetX="84" anchorOffsetY="26" skinName="skins.SnapButtonDefaultSkin" horizontalCenter="0"/>
+	<components:SnapButton id="btnChangeName" label="改名" x="388" y="688" skinName="skins.SnapOrangeButtonSkin" width="64" anchorOffsetY="0" height="36" anchorOffsetX="0" visible="false"/>
+	<components:SnapButton id="btnChange2" label="更换" y="693" anchorOffsetX="79" anchorOffsetY="26" skinName="skins.SnapButtonDefaultSkin" horizontalCenter="0"/>
+	<components:SnapButton id="btnChange3" label="更换" y="693" anchorOffsetX="80" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" horizontalCenter="0"/>
 	<e:Image source="pet_json.img_pet_shu_png" x="243" y="762" scale9Grid="2,14,13,89" height="100"/>
 	<components:IconButton id="imgInfo" x="148" y="584" anchorOffsetX="35" anchorOffsetY="35" source="common_json.btn_search_png"/>
 	<components:IconButton id="btnFeed" x="148" y="663" anchorOffsetX="35" anchorOffsetY="35" source="pet_json.btn_weiyang_png"/>
@@ -87,11 +87,11 @@
 	<e:Image id="imgTalentPoint1" source="common_json.img_warn_png" x="374" y="765" visible="false"/>
 	<e:Image id="imgTalentPoint2" source="common_json.img_warn_png" x="482" y="765" visible="false"/>
 	<e:Image id="imgFeedRedPoint" source="common_json.img_warn_png" x="115" y="628" visible="false"/>
-	<e:Label id="labTalent0" text="Divine 1 Unlocked" x="274" y="771" anchorOffsetY="0" height="80" size="20" anchorOffsetX="0" width="80" verticalAlign="middle" textAlign="center" touchEnabled="false" textColor="0x463d29" visible="false"/>
-	<e:Label id="labTalent2" text="Divine 6 Unlocked" x="492" y="771" anchorOffsetY="0" height="80" size="20" anchorOffsetX="0" width="80" verticalAlign="middle" textAlign="center" touchEnabled="false" textColor="0x463d29" visible="false"/>
-	<e:Label id="labTalent1" text="Divine 3 Unlocked" x="383" y="770" anchorOffsetY="0" height="80" size="20" anchorOffsetX="0" width="80" verticalAlign="middle" textAlign="center" touchEnabled="false" textColor="0x463d29" visible="false"/>
-	<e:Label id="labName" text="Mage Attack/Defense" y="188" size="20" verticalAlign="middle" textAlign="center" textColor="0xedc839" horizontalCenter="0"/>
-	<e:Label id="labType" text="Magic Attack" y="213" size="18" verticalAlign="middle" textAlign="center" horizontalCenter="0" textColor="0xc6b59e"/>
+	<e:Label id="labTalent0" text="神1开启" x="274" y="771" anchorOffsetY="0" height="80" size="20" anchorOffsetX="0" width="80" verticalAlign="middle" textAlign="center" touchEnabled="false" textColor="0x463d29" visible="false"/>
+	<e:Label id="labTalent2" text="神6开启" x="492" y="771" anchorOffsetY="0" height="80" size="20" anchorOffsetX="0" width="80" verticalAlign="middle" textAlign="center" touchEnabled="false" textColor="0x463d29" visible="false"/>
+	<e:Label id="labTalent1" text="神3开启" x="383" y="770" anchorOffsetY="0" height="80" size="20" anchorOffsetX="0" width="80" verticalAlign="middle" textAlign="center" touchEnabled="false" textColor="0x463d29" visible="false"/>
+	<e:Label id="labName" text="法师攻防型" y="188" size="20" verticalAlign="middle" textAlign="center" textColor="0xedc839" horizontalCenter="0"/>
+	<e:Label id="labType" text="魔法攻击型" y="213" size="18" verticalAlign="middle" textAlign="center" horizontalCenter="0" textColor="0xc6b59e"/>
 	<e:Label id="labStep" text="+10" y="188" x="374" textAlign="center" verticalAlign="middle" size="20" textColor="0x34e22c" visible="false"/>
 
 

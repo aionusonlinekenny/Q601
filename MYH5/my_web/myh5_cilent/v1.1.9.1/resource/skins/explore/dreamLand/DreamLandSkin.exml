@@ -22,9 +22,9 @@
 			</e:Skin>
 		</components:skinName>
 	</components:SnapButton>
-	<e:Label text="Garrison Phantom Beast" x="21.82" y="57" size="20" textColor="0xc6b59e"/>
-	<e:Label text="Remaining Mining Attempts: " x="367.82" y="57" size="20" textColor="0xc6b59e"/>
-	<e:Label text="Power: " x="116.32" y="57" size="20" textColor="0xc6b59e"/>
+	<e:Label text="驻守幻兽" x="21.82" y="57" size="20" textColor="0xc6b59e"/>
+	<e:Label text="剩余挖矿次数 : " x="367.82" y="57" size="20" textColor="0xc6b59e"/>
+	<e:Label text="战力 : " x="116.32" y="57" size="20" textColor="0xc6b59e"/>
 	<e:Label id="labPower" text="100000" x="176.82" y="57" size="20" textColor="0x2b8c25" fontFamily="Microsoft JhengHei" bold="true"/>
 	<e:Label id="labNum" text="3" x="509.32" y="57" size="20" textColor="0x2b8c25" bold="true"/>
 	<item:CollierItem id="minerOwn" x="220.32" y="392.47" skinName="skin.CollierItemSkin" anchorOffsetX="0"/>

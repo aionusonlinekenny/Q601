@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="normal.XiushenItemSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:base="base.*" xmlns:components="components.*" height="132">
 	<e:Image x="0" y="0" width="558" scale9Grid="31,35,65,51" height="100%" source="role_json.img_role_fenjielistbg_png"/>
-	<e:Label id="labdesc" text="Equipment Name" x="118" y="35" size="20" anchorOffsetX="0" anchorOffsetY="0"  textColor="0xedc839"/>
-	<e:Label id="labName" text="Flawless Divine Crystal" x="118" y="72" size="20" anchorOffsetX="0" anchorOffsetY="0"  touchEnabled="false"  textColor="0xc6b59e"/>
-	<e:Label id="labLimit" text="Exchangeable remaining today:" y="14" size="20" anchorOffsetX="0" anchorOffsetY="0"  touchEnabled="false" textAlign="right" textColor="0xedc839" right="13"/>
+	<e:Label id="labdesc" text="装备名字" x="118" y="35" size="20" anchorOffsetX="0" anchorOffsetY="0"  textColor="0xedc839"/>
+	<e:Label id="labName" text="无暇神力结晶" x="118" y="72" size="20" anchorOffsetX="0" anchorOffsetY="0"  touchEnabled="false"  textColor="0xc6b59e"/>
+	<e:Label id="labLimit" text="今日还可兑换     次" y="14" size="20" anchorOffsetX="0" anchorOffsetY="0"  touchEnabled="false" textAlign="right" textColor="0xedc839" right="13"/>
 	<e:Label id="labPrice" text="2000" x="274" y="72" size="20" anchorOffsetX="0" anchorOffsetY="0"  touchEnabled="false" textColor="0xc6b59e"/>
 	<components:Icon id="imgQuality" x="18" y="21" touchEnabled="false" source="common_json.img_qlt_2_png"/>
 	<components:Icon id="imgIcon" source="" x="23" y="24" width="80" height="80" touchEnabled="true"/>
 	<components:Icon id="imgDiamond" x="243" y="69" touchEnabled="false" source="common_json.img_diamonds_png"/>
-	<components:SnapButton id="btnDebrs" label="Exchange" anchorOffsetX="65" skinName="skins.SnapOrangeButtonSkin" y="80" x="469" anchorOffsetY="25" icon="img_warn_png"/>
+	<components:SnapButton id="btnDebrs" label="兑换" anchorOffsetX="65" skinName="skins.SnapOrangeButtonSkin" y="80" x="469" anchorOffsetY="25" icon="img_warn_png"/>
 </e:Skin>

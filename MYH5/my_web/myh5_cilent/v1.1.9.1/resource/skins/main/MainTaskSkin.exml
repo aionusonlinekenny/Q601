@@ -4,8 +4,8 @@
 	<e:Image id="imgTaskTitle" source="uiMain_json.img_task_uimain_title" x="102" y="0"/>
 	<e:Image source="uiMain_json.img_main_taskiconbg" x="1" y="30"/>
 	<components:Icon id="taskReward" x="5" y="34" source="" width="60" height="60"/>
-	<e:Label id="labTaskName" text="Challenge Demon Seal Mine" size="18" anchorOffsetX="0" textAlign="left" bold="true" touchEnabled="false" y="41.66" textColor="0xC6B59E" x="69"/>
+	<e:Label id="labTaskName" text="挑战封魔矿区" size="18" anchorOffsetX="0" textAlign="left" bold="true" touchEnabled="false" y="41.66" textColor="0xC6B59E" x="69"/>
 	<e:Label id="labTaskProgress" text="（0/1）" x="187.66" size="18" anchorOffsetX="0" textAlign="left" bold="true" touchEnabled="false" y="42.66" textColor="0x34E22C"/>
-	<e:Label id="labTaskContent" text="Gold x20000000" size="16" anchorOffsetX="0" textAlign="left" bold="true" touchEnabled="false" y="71.33" x="69" textColor="0x7D6A52"/>
+	<e:Label id="labTaskContent" text="金币X20000000" size="16" anchorOffsetX="0" textAlign="left" bold="true" touchEnabled="false" y="71.33" x="69" textColor="0x7D6A52"/>
 
 </e:Skin>

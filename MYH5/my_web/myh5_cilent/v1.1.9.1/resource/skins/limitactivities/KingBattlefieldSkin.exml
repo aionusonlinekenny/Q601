@@ -5,15 +5,15 @@
 	<e:Image source="rankings_json.img_rankMan_base" x="9" y="613" scale9Grid="13,13,59,38" width="580" height="125"/>
 	<e:Image source="limitactivities_json.img_lucencyBg" x="17" y="422" scale9Grid="5,6,36,42" anchorOffsetX="0" width="575" anchorOffsetY="0" height="166"/>
 	<components:IconButton id="btnEnter" y="795" source="legionWar_json.btn_legionwar_enter" anchorOffsetX="85" anchorOffsetY="29" source.renqi="limitactivities_json.img_leave" x="300"/>
-	<e:Label text="Event Time: " x="36" y="430" textColor="0xedc839" stroke="1" size="22" x.renqi="36" y.renqi="430"/>
-	<e:Label text="Participation Condition: " x="36" textColor="0xedc839" stroke="1" size="22" x.renqi="36" y="463"/>
-	<e:Label text="Rules: " x="36" textColor="0xedc839" stroke="1" size="22" y="495" x.renqi="36"/>
-	<e:Label text="Daily" x="151" y="430" size="22" textColor="0xc6b59e" stroke="1" y.renqi="430" x.renqi="151"/>
+	<e:Label text="活动时间 : " x="36" y="430" textColor="0xedc839" stroke="1" size="22" x.renqi="36" y.renqi="430"/>
+	<e:Label text="参与条件 : " x="36" textColor="0xedc839" stroke="1" size="22" x.renqi="36" y="463"/>
+	<e:Label text="规则说明 : " x="36" textColor="0xedc839" stroke="1" size="22" y="495" x.renqi="36"/>
+	<e:Label text="每日" x="151" y="430" size="22" textColor="0xc6b59e" stroke="1" y.renqi="430" x.renqi="151"/>
 	<e:Label id="limitTime" text="20:30-20:50" x="201" y="430" size="22" stroke="1" textColor="0x34e22c" text.renqi="17:30-18:00" y.renqi="430" x.renqi="201"/>
 	<e:Label id="limitLv" text="80" x="201" y="463" size="22" stroke="1" textColor="0x34e22c" includeIn="wangzhe"/>
-	<e:Label text="Player" x="151" size="22" textColor="0xc6b59e" stroke="1" text.renqi="所有玩家可参与" y="463" x.renqi="151"/>
-	<e:Label text="Points increase every 10 seconds in the event map. Occupy multiple key points for bonus Points. Higher Points = better Rewards." x="151" width="443" height="61" size="22" textColor="0xc6b59e" stroke="1" text.renqi="活动期间，城主雕像附近每10秒可增加一次经验，主线关卡数越高可获得的经验越多。通过城主雕像可以给参与的玩家投票，活动结束时人气最高者将成为本次活动的人气之星！" height.renqi="89" y="495" x.renqi="151"/>
-	<e:Label text=" level required to participate" x="232" y="463" size="22" textColor="0xC6B59E" stroke="1" includeIn="wangzhe"/>
+	<e:Label text="玩家" x="151" size="22" textColor="0xc6b59e" stroke="1" text.renqi="所有玩家可参与" y="463" x.renqi="151"/>
+	<e:Label text="在活动地图内每10秒可增加一次积分，占领地图中的多倍点可获得多倍积分，积分越高可获得的奖励越丰厚。" x="151" width="443" height="61" size="22" textColor="0xc6b59e" stroke="1" text.renqi="活动期间，城主雕像附近每10秒可增加一次经验，主线关卡数越高可获得的经验越多。通过城主雕像可以给参与的玩家投票，活动结束时人气最高者将成为本次活动的人气之星！" height.renqi="89" y="495" x.renqi="151"/>
+	<e:Label text="级可参与" x="232" y="463" size="22" textColor="0xC6B59E" stroke="1" includeIn="wangzhe"/>
 	<components:IconButton id="btnReward" x="90" y="800" anchorOffsetX="37" anchorOffsetY="36" source="legionWar_json.btn_legionwar_reward" includeIn="wangzhe"/>
 	<components:IconButton id="imgHelp" x="510" y="800" anchorOffsetX="37" anchorOffsetY="36" source="explore_json.img_seeHelp"/>
 	<components:RewardItemBox id="awardItem0" y="621" skinName="components.ItemBoxSkin"  x="96"/>
@@ -21,7 +21,7 @@
 	<components:RewardItemBox id="awardItem2" y="621" skinName="components.ItemBoxSkin"  includeIn="wangzhe" x="308"/>
 	<components:RewardItemBox id="awardItem3" y="621" skinName="components.ItemBoxSkin"  includeIn="wangzhe" x="414"/>
 	<e:Image x="15" y="589" source="img_activity_labbg2_png" scale9Grid="12,3,76,18" width="200" />
-	<e:Label text="Reward Preview"  x="26" y="593" size="14" textColor="0xC6B59E"/>
-	<e:ToggleButton id="btnrRenqi" label="Star of Popularity" skinName="skins.TabButtonDefaultSkin" currentState="up" icon="img_warn_png" bottom="12" currentState.renqi="down" x="298"/>
-	<e:ToggleButton id="btnWangzhe" label="King's Battlefield" skinName="skins.TabButtonDefaultSkin" currentState="up" icon="img_warn_png" bottom="12" currentState.wangzhe="down" x="182"/>
+	<e:Label text="奖励预览"  x="26" y="593" size="14" textColor="0xC6B59E"/>
+	<e:ToggleButton id="btnrRenqi" label="人气之星" skinName="skins.TabButtonDefaultSkin" currentState="up" icon="img_warn_png" bottom="12" currentState.renqi="down" x="298"/>
+	<e:ToggleButton id="btnWangzhe" label="王之疆场" skinName="skins.TabButtonDefaultSkin" currentState="up" icon="img_warn_png" bottom="12" currentState.wangzhe="down" x="182"/>
 </e:Skin>

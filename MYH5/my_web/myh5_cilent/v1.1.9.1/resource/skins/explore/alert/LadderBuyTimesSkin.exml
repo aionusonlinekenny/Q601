@@ -5,12 +5,12 @@
 	<components:IconButton id="btnJian0" x="341" y="122" source="common_json.btn_jia_png"/>
 	<components:SnapButton id="btnJianTen" label="-10" x="67" y="120" skinName="skins.SnapRedButtonSkin" anchorOffsetX="0" width="84"/>
 	<components:SnapButton id="btnJiaTen" label="+10" x="389" y="120" skinName="skins.SnapRedButtonSkin" anchorOffsetX="0" width="84"/>
-	<components:SnapButton id="btnBuy" label="Purchase" y="241" skinName="skins.SnapOrangeButtonSkin" width="143" anchorOffsetX="0" horizontalCenter="0"/>
+	<components:SnapButton id="btnBuy" label="购买" y="241" skinName="skins.SnapOrangeButtonSkin" width="143" anchorOffsetX="0" horizontalCenter="0"/>
 	<e:Image id="imgTatolPayType" x="222" y="198" source="common_json.img_diamonds_png" width="28" height="25"/>
 	<e:Label id="labPrice" text="50" y="197.33" textAlign="left" verticalAlign="middle" anchorOffsetX="0" width="126" size="22" anchorOffsetY="0" height="26" x="262" fontFamily="Microsoft JhengHei" textColor="0xc6b59e"/>
 	<e:Image source="ladder_json.img_title_right" x="336" y="56"/>
 	<e:Image source="ladder_json.img_title_left" x="-38" y="56"/>
-	<e:Label text="Purchases" y="48" size="24" textColor="0xedc839" horizontalCenter="0"/>
+	<e:Label text="购买次数" y="48" size="24" textColor="0xedc839" horizontalCenter="0"/>
 	<components:IconButton id="btnBack" source="common_json.btn_back_png" y="300" x="498" anchorOffsetX="37" anchorOffsetY="36"/>
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="26" anchorOffsetY="27" x="512" y="32"/>
 	<e:TextInput id="textInputNum" width="125" height="30" y="129" anchorOffsetX="0" anchorOffsetY="0" text="1" textColor="0xcbc6ac" restrict="0-9" horizontalCenter="0">

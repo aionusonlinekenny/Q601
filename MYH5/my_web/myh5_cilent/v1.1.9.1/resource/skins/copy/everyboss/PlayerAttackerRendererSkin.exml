@@ -5,5 +5,5 @@
 		<e:Image id="head" x="12.5" y="13" anchorOffsetX="0" width="63.75" anchorOffsetY="0" height="63.75" source="player_icon_circle_json.job_1"/>
 	</e:Group>
 	<e:Label id="labName" text="1" y="92" size="18" horizontalCenter="0" textColor="0xc6b59e"/>
-	<e:Label id="labState" text="Under Attack" y="0" size="18" horizontalCenter="0" textColor="0xb6281a" stroke="2" strokeColor="0x000000"/>
+	<e:Label id="labState" text="受到攻击" y="0" size="18" horizontalCenter="0" textColor="0xb6281a" stroke="2" strokeColor="0x000000"/>
 </e:Skin>

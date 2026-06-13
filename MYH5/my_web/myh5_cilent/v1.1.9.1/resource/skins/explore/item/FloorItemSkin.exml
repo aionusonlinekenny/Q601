@@ -7,5 +7,5 @@
 	<e:Image id="img" y="226" x="138" source=""/>
 
 	<e:Image x="51" y="243" source="explore_json.img_explore_chatBg"/>
-	<e:Label id="labFloor" text="Stage 99" y="253.5" bold="true" size="18" horizontalCenter="-1.5" verticalAlign="middle" textColor="0xc6b59e"/>
+	<e:Label id="labFloor" text="第99关" y="253.5" bold="true" size="18" horizontalCenter="-1.5" verticalAlign="middle" textColor="0xc6b59e"/>
 </e:Skin>

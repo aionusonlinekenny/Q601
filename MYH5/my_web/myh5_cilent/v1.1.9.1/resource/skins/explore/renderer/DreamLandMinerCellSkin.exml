@@ -9,10 +9,10 @@
 	<e:Group id="specialItem" x="331" y="9">
 		<ns1:ItemIcon id="item2" y="26" skinName="itemIcon.ItemIconSkin" x="0"/>
 		<e:Image id="imgProbability" source="mine_json.img_get_probability" x="37.34" y="21" touchEnabled="false"/>
-		<e:Label text="Cannot be Plundered" x="2" y="0" size="18" textColor="0xedc839"/>
+		<e:Label text="不可被掠夺" x="2" y="0" size="18" textColor="0xedc839"/>
 	</e:Group>
-	<e:Label id="labMineType" text="Top Miner" x="27.5" y="8.47" size="18" textColor="0xe17123"/>
+	<e:Label id="labMineType" text="顶级矿工" x="27.5" y="8.47" size="18" textColor="0xe17123"/>
 	<e:Label id="labMoshi" text="500" x="522" y="113.97" size="16" fontFamily="Microsoft JhengHei" textColor="0xc6b59e"/>
-	<e:Label text="Cost: " x="444" y="113.97" size="16" textColor="0xd1a765"/>
-	<components:SnapButton id="btnHire" label="Hire" y="50.64" anchorOffsetX="0" width="128" skinName="skins.SnapButtonDefaultSkin" x="427.67"/>
+	<e:Label text="消耗 : " x="444" y="113.97" size="16" textColor="0xd1a765"/>
+	<components:SnapButton id="btnHire" label="雇佣" y="50.64" anchorOffsetX="0" width="128" skinName="skins.SnapButtonDefaultSkin" x="427.67"/>
 </e:Skin>

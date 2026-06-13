@@ -12,5 +12,5 @@
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="597" y="34" anchorOffsetX="25" anchorOffsetY="24"/>
 	<components:IconButton id="btnBack" source="common_json.btn_back_png" x="563" y="915" anchorOffsetX="36" anchorOffsetY="30"/>
 	<e:Image x="254" y="7" source="img_pet_listTitle_png"/>
-	<e:Label id="labNo" text="No Phantom Beasts available to swap." y="389" horizontalCenter="0" size="20" textColor="0x7D6A52"/>
+	<e:Label id="labNo" text="没有可更换的幻兽。" y="389" horizontalCenter="0" size="20" textColor="0x7D6A52"/>
 </e:Skin>

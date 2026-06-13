@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="TopupCompleteSkin" width="373" height="215" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Image id="imgBg" x="0" y="7" anchorOffsetX="0" width="373" anchorOffsetY="0" height="153" source="common_json.img_tips_bg_png" scale9Grid="22,26,21,15"/>
-	<e:Label id="gainLab" text="Obtained: " x="41" y="91" size="30" textColor="0xd6cab7"/>
+	<e:Label id="gainLab" text="获得 : " x="41" y="91" size="30" textColor="0xd6cab7"/>
 	<e:Label id="getNum" text="0" x="126" y="92" anchorOffsetX="0" width="121" textColor="0x34e22c" textAlign="center"/>
 	<e:Image source="uiMain_json.main_img_diamonds" x="259" y="96"/>
 	<e:Image source="uiMain_json.main_img_diamonds" x="277" y="102"/>

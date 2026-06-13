@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="renderer.PetDebrisRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:item="item.*" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="278" height="118">
 	<e:Image width="276" height="120" x="2" y="-2" anchorOffsetX="0" anchorOffsetY="0" source="pet_json.img_pet_list_png" scale9Grid="22,38,12,12"/>
-	<e:Label id="labName" text="Pet Name" y="14" size="18" verticalAlign="top" textAlign="left" x="101" touchEnabled="false" textColor="0xc6b59e"/>
-	<e:Label id="labCount" text="Pet Name" y="43" size="18" verticalAlign="top" textAlign="left" x="101" touchEnabled="false" textColor="0xc6b59e"/>
-	<e:Label id="labTime" text="Hatch Time: 755 hours" y="72" size="18" verticalAlign="top" textAlign="left" x="101" touchEnabled="false" textColor="0x34e22c"/>
+	<e:Label id="labName" text="宠物名字" y="14" size="18" verticalAlign="top" textAlign="left" x="101" touchEnabled="false" textColor="0xc6b59e"/>
+	<e:Label id="labCount" text="宠物名字" y="43" size="18" verticalAlign="top" textAlign="left" x="101" touchEnabled="false" textColor="0xc6b59e"/>
+	<e:Label id="labTime" text="孵化时间 : 755时" y="72" size="18" verticalAlign="top" textAlign="left" x="101" touchEnabled="false" textColor="0x34e22c"/>
 	<e:Image id="imgQuality" x="9" y="9" source="common_json.img_qlt_1_png"/>
 	<components:Icon id="imgIcon" x="14" y="12" source="" width="80" height="80"/>
 	<e:Image id="imgWarn" x="9" y="9" source="common_json.img_warn_png"/>

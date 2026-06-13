@@ -15,18 +15,18 @@
 	<e:Image y="156" anchorOffsetX="0" anchorOffsetY="0" source="offline_json.img_titleS_offline" horizontalCenter="0.5"/>
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="489" y="1"/>
 	<components:IconButton id="btnBack" source="common_json.btn_back_png" x="469" y="426"/>
-	<e:Label id="labTime" text="Offline Time: 20h 20m 20s" y="68" size="18" horizontalCenter="0" textColor="0xedc839"/>
-	<e:Label text="Offline earnings accumulate for up to 24 hours." y="104.33" size="14" horizontalCenter="0.5" fontFamily="Arial" textColor="0x7d6a52"/>
-	<e:Label text="After 8 hours offline, you can only obtain 80% of offline earnings." y="122.65" size="14" horizontalCenter="0.5" textColor="0x7d6a52"/>
-	<e:Label text="Monthly Card Extra Income" y="291" size="14" x="103" textAlign="center" verticalAlign="middle" textColor="0x34e22c"/>
-	<e:Label text="Round Table Knight Extra Income" y="291" size="14" textAlign="center" verticalAlign="middle" textColor="0x34e22c" x="343"/>
-	<e:Label text="Gold: " y="186" size="14" x="232.47" textColor="0x7d6a52"/>
-	<e:Label text="EXP: " y="213.33" size="14" x="232.47" textColor="0x7d6a52"/>
-	<e:Label text="Equipment: " y="240.33" size="14" x="232.47" textColor="0x7d6a52"/>
-	<e:Label text="Gold: " y="321" size="14" x="126.46" textColor="0x7d6a52"/>
-	<e:Label text="EXP: " y="349" size="14" x="126.46" textColor="0x7d6a52"/>
-	<e:Label text="Gold: " y="321" size="14" x="379.67" textColor="0x7d6a52"/>
-	<e:Label text="EXP: " y="350" size="14" x="379.67" textColor="0x7d6a52"/>
+	<e:Label id="labTime" text="离线时间 : 20小时20分20秒" y="68" size="18" horizontalCenter="0" textColor="0xedc839"/>
+	<e:Label text="最多累积24小时离线收益" y="104.33" size="14" horizontalCenter="0.5" fontFamily="Arial" textColor="0x7d6a52"/>
+	<e:Label text="离线超过8小时后，只能获得80%离线收益" y="122.65" size="14" horizontalCenter="0.5" textColor="0x7d6a52"/>
+	<e:Label text="月卡额外收益" y="291" size="14" x="103" textAlign="center" verticalAlign="middle" textColor="0x34e22c"/>
+	<e:Label text="圆桌骑士额外收益" y="291" size="14" textAlign="center" verticalAlign="middle" textColor="0x34e22c" x="343"/>
+	<e:Label text="金币 : " y="186" size="14" x="232.47" textColor="0x7d6a52"/>
+	<e:Label text="经验 : " y="213.33" size="14" x="232.47" textColor="0x7d6a52"/>
+	<e:Label text="装备 : " y="240.33" size="14" x="232.47" textColor="0x7d6a52"/>
+	<e:Label text="金币 : " y="321" size="14" x="126.46" textColor="0x7d6a52"/>
+	<e:Label text="经验 : " y="349" size="14" x="126.46" textColor="0x7d6a52"/>
+	<e:Label text="金币 : " y="321" size="14" x="379.67" textColor="0x7d6a52"/>
+	<e:Label text="经验 : " y="350" size="14" x="379.67" textColor="0x7d6a52"/>
 	<e:Group id="goldGp" x="177.13" y="186">
 		<e:Label id="labGold" text="0" y="0" size="14" x="113.87" textColor="0xc6b59e"/>
 		<e:Label id="labGold2" text="0" y="135" size="14" x="0" textColor="0x34e22c"/>
@@ -38,5 +38,5 @@
 		<e:Label id="labExp3" text="0" y="136.67" size="14" x="258.21" textColor="0x34e22c"/>
 	</e:Group>
 	<e:Label id="labEquip" text="0" y="240.33" size="14" x="291" textColor="0xc6b59e"/>
-	<components:SnapButton id="btnGet" label="Claim Now" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" y="414.69" horizontalCenter="0"/>
+	<components:SnapButton id="btnGet" label="立即领取" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" y="414.69" horizontalCenter="0"/>
 </e:Skin>

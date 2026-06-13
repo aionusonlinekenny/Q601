@@ -4,7 +4,7 @@
 	<e:Image id="imgIcon" source="" x="5" y="3" width="80" height="80"/>
 	<e:Image id="imgJob" x="63" y="0" source="common_json.img_job_1_png"/>
 	<e:Label id="labLv" text="lv.100" y="90" size="20" anchorOffsetX="0" width="90" textAlign="center" x="0" textColor="0xc6b59e"/>
-	<e:Label id="labScore" text="Score: 69999" y="110" size="20" anchorOffsetX="0" anchorOffsetY="0" height="19" x="0" textAlign="center" textColor="0xc6b59e"/>
+	<e:Label id="labScore" text="评分:69999" y="110" size="20" anchorOffsetX="0" anchorOffsetY="0" height="19" x="0" textAlign="center" textColor="0xc6b59e"/>
 	<e:CheckBox id="checkboxPick" label="" x="90" y="0">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">

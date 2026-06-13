@@ -6,6 +6,6 @@
 	<e:Image source="img_name_base_png" x="138" y="14"/>
 	<e:BitmapLabel id="labVipRanking" x="103" text="15" y="28" font="vip_font2_fnt" scaleX="0.9" scaleY="0.9"/>
 	<e:BitmapLabel id="labRanking" text="25" y="27" font="pkMing_fnt" letterSpacing="-3" horizontalCenter="-188"/>
-	<e:Label id="labTypeFight" text="Phantom Beast Power: 99999999" x="269" y="29" size="18" textColor="0x34e22c"/>
-	<e:Label id="labName" text="Guild's Demon King" x="150.33" y="29" size="18" textAlign="center" width="108" textColor="0xedc839"/>
+	<e:Label id="labTypeFight" text="幻兽战力 : 99999999" x="269" y="29" size="18" textColor="0x34e22c"/>
+	<e:Label id="labName" text="军团的大魔王" x="150.33" y="29" size="18" textAlign="center" width="108" textColor="0xedc839"/>
 </e:Skin>

@@ -72,8 +72,8 @@
 		</e:skinName>
 	</e:ToggleButton>
 	<e:Group id="effectGroup" y="783" horizontalCenter="0"/>
-	<e:Label id="labRmbTips" text="Top up XXXX yuan to claim this gift pack." y="762" anchorOffsetX="0" width="429" fontFamily="Microsoft YaHei" size="18" textAlign="center" stroke="1" textColor="0xe4d7b0" horizontalCenter.fifty="0" horizontalCenter.ten="0" horizontalCenter="0.5"/>
-	<e:Label text="Top-up valid on this page only." x="330" y="367" size="20" textColor="0x34e22c" bold="true"/>
+	<e:Label id="labRmbTips" text="仅需充值XXXX元即可领取该礼包" y="762" anchorOffsetX="0" width="429" fontFamily="Microsoft YaHei" size="18" textAlign="center" stroke="1" textColor="0xe4d7b0" horizontalCenter.fifty="0" horizontalCenter.ten="0" horizontalCenter="0.5"/>
+	<e:Label text="仅此页面充值有效" x="330" y="367" size="20" textColor="0x34e22c" bold="true"/>
 	
 
 </e:Skin>

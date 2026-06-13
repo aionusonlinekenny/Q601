@@ -4,12 +4,12 @@
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="574" y="25.33" anchorOffsetX="25" anchorOffsetY="24"/>
 	<components:IconButton id="btnBack" source="common_json.btn_back_png" x="561.67" y="770.71" anchorOffsetX="36" anchorOffsetY="30"/>
 	<e:Image y="12" source="img_title_transmitDoor_png" horizontalCenter="0"/>
-	<components:SnapButton id="btnTp" label="Enter Portal" y="750.33" skinName="skins.SnapButtonDefaultSkin" x="226"/>
+	<components:SnapButton id="btnTp" label="进入传送门" y="750.33" skinName="skins.SnapButtonDefaultSkin" x="226"/>
 	<e:Image source="img_csdoor_bg_jpg" y="63.99" horizontalCenter="0"/>
 	<e:Image source="img_csdoor_wenzi_png" y="490.65" horizontalCenter="0.33499999999997954"/>
 	<e:Label id="labNext" text="100" y="491.65" verticalAlign="middle" textAlign="center" horizontalCenter="28.83499999999998" textColor="0x34e22c" size="30" stroke="2"/>
 	<e:Label id="labTime" text="0:0:0" y="526.65" size="20" stroke="2" horizontalCenter="-0.16500000000002046" verticalAlign="middle" textAlign="center" textColor="0xc6b59e"/>
-	<e:Label text="After entering the portal you will fight the BOSS of the target stage. Upon victory you will receive all BOSS rewards from the current stage to the target stage." y="683.01" size="20" anchorOffsetY="0" height="41.67" anchorOffsetX="0" width="491.57" textColor="0xc6b59e" horizontalCenter="0" stroke="2"/>
+	<e:Label text="进入传送门后您将和目标关卡的BOSS战斗,胜利后您能获得当前关卡至目标关卡的所有BOSS奖励。" y="683.01" size="20" anchorOffsetY="0" height="41.67" anchorOffsetX="0" width="491.57" textColor="0xc6b59e" horizontalCenter="0" stroke="2"/>
 	<transmit:TransmitDoorItem id="item0" x="37" y="562" skinName="normal.TransmitDoorItemSkin"/>
 	<transmit:TransmitDoorItem id="item1" x="150" y="562" skinName="normal.TransmitDoorItemSkin"/>
 	<transmit:TransmitDoorItem id="item2" x="262" y="562" skinName="normal.TransmitDoorItemSkin"/>

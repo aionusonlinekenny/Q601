@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="dialog.GodruinsAttDialogSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" height="616" width="531">
 	<e:Image x="0" anchorOffsetX="0" width="528" anchorOffsetY="0" height="611" source="common_json.img_tips_bg_png" scale9Grid="22,26,21,15" y="0"/>
-	<components:SnapButton id="btnAtt" label="Challenge" y="537" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" horizontalCenter="0"/>
+	<components:SnapButton id="btnAtt" label="挑战" y="537" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" horizontalCenter="0"/>
 	<e:Group id="bossGroup0" x="91" y="111" width="90" height="101">
 		<e:Image id="imgQuality0" source="common_json.img_qlt_1_png" x="0" y="0"/>
 		<e:Image id="imgIcon0" width="80" height="80" x="4" y="4"/>
@@ -41,7 +41,7 @@
 	<e:Image source="tips_json.img_tips_title_shuxing" y="271" horizontalCenter="0"/>
 	<e:Image source="tips_json.img_tips_namebg" y="27" horizontalCenter="-0.5"/>
 	<e:Image source="godruins_json.godruins_first_gift" y="267" horizontalCenter="0"/>
-	<e:Label text="Only deployed Phantom Beasts can participate in Relic battles." y="309" size="20" horizontalCenter="0.5" verticalAlign="middle" textAlign="center" textColor="0xb4e224"/>
-	<e:Label id="labName" text="Only deployed Phantom Beasts can" y="34" size="20" verticalAlign="middle" textAlign="center" textColor="0xB4E224" horizontalCenter="0.5"/>
+	<e:Label text="遗迹战斗只有上阵幻兽可出战" y="309" size="20" horizontalCenter="0.5" verticalAlign="middle" textAlign="center" textColor="0xb4e224"/>
+	<e:Label id="labName" text="只有上阵幻兽可" y="34" size="20" verticalAlign="middle" textAlign="center" textColor="0xB4E224" horizontalCenter="0.5"/>
 	<e:Image source="godruins_json.godruins_shouhu_pet" x="54" y="116"/>
 </e:Skin>

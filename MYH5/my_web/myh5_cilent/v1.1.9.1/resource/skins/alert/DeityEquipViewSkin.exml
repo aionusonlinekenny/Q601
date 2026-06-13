@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="DeityEquipViewSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" xmlns:treasure="treasure.*" width="556" height="800">
 	<e:Image source="common_shubar_png" x="55" y="261"/>
-	<e:Label id="equipName" text="Dragon Weapon" y="316" anchorOffsetX="0" width="23" anchorOffsetY="0" height="81" size="20" textColor="0xC6B59E" bold="true" strokeColor="0x000000" x="67"/>
+	<e:Label id="equipName" text="魔龙武器" y="316" anchorOffsetX="0" width="23" anchorOffsetY="0" height="81" size="20" textColor="0xC6B59E" bold="true" strokeColor="0x000000" x="67"/>
 	<e:Image y="266" source="pet_hatch_di_png" x="99"/>
 	<e:BitmapLabel id="blabFight" y="442" text="0000000" anchorOffsetX="0" font="fight_font2_fnt" letterSpacing="-5" left="247"/>
 	<e:Image id="imgBg2" x="32" y="11.46" source="img__firstplayer_title_png"/>
 	<e:Image source="common_closetip_png" y="577.46" x="132"/>
-	<components:SnapButton id="btnSure" label="Confirm" y="510.46" horizontalCenter="-7" skinName="skins.SnapButtonDefaultSkin"/>
-	<e:Label id="lab" text="Log in the next day to claim top-grade Divine Equipment." y="478" horizontalCenter="-6" size="20" textColor="0x09f2b6" stroke="2"/>
+	<components:SnapButton id="btnSure" label="确定" y="510.46" horizontalCenter="-7" skinName="skins.SnapButtonDefaultSkin"/>
+	<e:Label id="lab" text="次日登入可领取极品神装" y="478" horizontalCenter="-6" size="20" textColor="0x09f2b6" stroke="2"/>
 	<e:Image id="imgBg1" source="uiMain_json.img_get_title" x="141" y="1"/>
 	<e:Image x="192" y="440" source="common_json.img_fight_png" width="57" height="31"/>
 </e:Skin>

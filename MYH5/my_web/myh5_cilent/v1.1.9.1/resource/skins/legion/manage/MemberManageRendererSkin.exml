@@ -2,10 +2,10 @@
 <e:Skin class="renderer.MemberManageRendererSkin" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing">
 	<e:Image id="imgbg" width="562" height="120" anchorOffsetX="0" anchorOffsetY="0" y="0" scale9Grid="12,25,15,19" source="img_union_list_png"/>
-	<e:Label id="labName" text="Player " y="50" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="-215" textColor="0xc6b59e"/>
+	<e:Label id="labName" text="玩家 " y="50" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="-215" textColor="0xc6b59e"/>
 	<e:Label id="labPower" text="0" y="50" size="20" verticalAlign="middle" textAlign="center"  horizontalCenter="84" textColor="0xc6b59e"/>
-	<e:Label id="labLv" text="Level 112" y="50" size="20" verticalAlign="middle" textAlign="center"  horizontalCenter="-19" textColor="0xc6b59e"/>
-	<e:Label id="labJob" text="Leader" y="50" size="20" horizontalCenter="-103" verticalAlign="middle" textAlign="center" bold="true"  textColor="0xc6b59e"/>
+	<e:Label id="labLv" text="112级" y="50" size="20" verticalAlign="middle" textAlign="center"  horizontalCenter="-19" textColor="0xc6b59e"/>
+	<e:Label id="labJob" text="团长" y="50" size="20" horizontalCenter="-103" verticalAlign="middle" textAlign="center" bold="true"  textColor="0xc6b59e"/>
 	<e:Image id="imgState1" x="500" y="45" source="common_json.img_checkbox_select_png" visible="false"/>
 	<e:Image id="imgState0" x="509" y="45" source="common_json.img_checkbox_unselect_png"/>
 	<e:Label id="labState" text="Label" x="448" y="50" size="20" textColor="0xc6b59e"/>

@@ -4,7 +4,7 @@
 	<e:Image id="imgdown" anchorOffsetX="0" includeIn="down" source="boss_json.btn_boss1" x="15" y="9"/>
 	<components:Icon id="imglock" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false" source="boss_json.btn_boss2" x.up="0" y.up="9" x.down="15" y.down="9" x="0" y="9"/>
 	<e:Image id="imgNo" source="boss_json.img_boss_no" x="87" y="50" x.down="102"/>
-	<e:Label id="labState" text="Not Challenged" y="49" textColor="0x2ff8ff" size="14" stroke="1" verticalAlign="middle" textAlign="center" horizontalCenter="5.5"/>
+	<e:Label id="labState" text="未挑战" y="49" textColor="0x2ff8ff" size="14" stroke="1" verticalAlign="middle" textAlign="center" horizontalCenter="5.5"/>
 	<e:Label id="labLevel" text="10" y="23" size="14" textColor="0xc6cfaa" strokeColor="0x350e09" stroke="2" right="71" textAlign="right" right.down="71"/>
 	<e:Label id="labLv" text="10" y="23" size="14" textColor="0xc6cfaa" strokeColor="0x350e09" stroke="2" left="123" textAlign="left" left.down="125" left.up="110"/>
 	<e:Image id="imgShen" source="boss_json.img_boss_shen" x="108" y="16" x.down="123"/>

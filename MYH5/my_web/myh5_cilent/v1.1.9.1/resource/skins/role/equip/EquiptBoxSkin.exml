@@ -6,7 +6,7 @@
 	<e:Image id="imgLvIcon" source="common_json.img_qlt_lv_1_png" x="7.99" y="65.67"/>
 	<components:Icon id="imgWarn" source="common_json.img_warn_png" x="0" y="0"/>
 	<e:Label id="labMohun" text="999" x="8.66" y="65.34" size="18" anchorOffsetX="0" width="32.5" strokeColor="0x000000" textColor="0xc6b59e"/>
-	<e:Label id="labLv" text="Tier 5" y="87" size="20" anchorOffsetX="0" width="70" textAlign="center" horizontalCenter="0" textColor="0xc6b59e"/>
+	<e:Label id="labLv" text="5阶" y="87" size="20" anchorOffsetX="0" width="70" textAlign="center" horizontalCenter="0" textColor="0xc6b59e"/>
 
 
 </e:Skin>

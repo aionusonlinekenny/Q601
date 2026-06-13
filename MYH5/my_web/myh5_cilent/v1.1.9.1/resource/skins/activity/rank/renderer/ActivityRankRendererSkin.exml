@@ -4,6 +4,6 @@
 	<components:RewardItemBox id="reward0" x="86.21" y="9" skinName="components.ItemBoxSkin"/>
 	<components:RewardItemBox id="reward1" x="186.21" y="9" skinName="components.ItemBoxSkin"/>
 	<e:BitmapLabel id="blabRank" x="33" y="50" text="1" font="pkMing_fnt"/>
-	<e:Label id="labName" text="Name (6 chars max)" x="315" y="28.99" size="20" textColor="0xedc839"/>
-	<e:Label id="labContent" text="Combat Power: 9999999" x="315" y="67.33" size="20" textColor="0xc6b59e"/>
+	<e:Label id="labName" text="名字是六个字" x="315" y="28.99" size="20" textColor="0xedc839"/>
+	<e:Label id="labContent" text="战斗力 : 9999999" x="315" y="67.33" size="20" textColor="0xc6b59e"/>
 </e:Skin>

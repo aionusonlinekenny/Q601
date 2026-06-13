@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="normal.XingYingLunPanSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:tips="tips.*" width="600" height="850">
 	<e:Image source="img_summer_lunpan_bg_jpg" y="38" horizontalCenter="0"/>
-	<e:Label text="Spend Magic Stones to spin the Lucky Wheel and earn Points." x="36" y="47" size="16" stroke="2" textColor="0x80ff19"/>
+	<e:Label text="消耗魔石开启幸运轮盘可获得积分" x="36" y="47" size="16" stroke="2" textColor="0x80ff19"/>
 	<e:Image id="iconDiamend" y="47" source="uiMain_json.main_img_diamonds" x="442"/>
 	<e:Label id="labDiamond" text="156161116" y="52" anchorOffsetX="0" size="16" rotation="0.39" anchorOffsetY="0" textColor="0x80ff19" verticalAlign="middle" textAlign="left" x="475" stroke="2"/>
 	<e:Image source="img_summer_line_png" y="510" horizontalCenter="0.5" anchorOffsetY="0" height="158"/>
-	<e:Label text="My Points:" x="36" y="21" size="16" stroke="2" textColor="0xbdbdbd"/>
+	<e:Label text="我的积分：" x="36" y="21" size="16" stroke="2" textColor="0xbdbdbd"/>
 	<e:Label id="labJiFen" text="21323" y="21" size="16" textColor="0xffbc5d" stroke="2" verticalAlign="middle" textAlign="left" x="119"/>
-	<e:Label text="Deadline:" x="397" y="21" size="16" stroke="2" textColor="0x6ae1f7"/>
+	<e:Label text="截止时间：" x="397" y="21" size="16" stroke="2" textColor="0x6ae1f7"/>
 	<e:Label id="labTime" text="156161116" y="21" size="16" stroke="2" verticalAlign="middle" textAlign="left" x="475" textColor="0x80ff19"/>
 	<e:Image source="img_summer_jifen_png" y="157" x="95"/>
 	<components:RewardItemBox id="item0" x="105" skinName="components.ItemBoxSkin" y="187"/>
@@ -19,13 +19,13 @@
 	<components:RewardItemBox id="item3" x="406" skinName="components.ItemBoxSkin" y="187"/>
 	<components:RewardItemBox id="item7" x="406" skinName="components.ItemBoxSkin" y="304"/>
 	<e:Image source="img_summer_record_png" x="14" y="642"/>
-	<components:SnapButton id="btnOne" label="Draw Once" y="600" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" x="181.33"/>
-	<components:SnapButton id="btnFive" label="5x Draw" y="600" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" x="423.33"/>
+	<components:SnapButton id="btnOne" label="抽一次" y="600" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" x="181.33"/>
+	<components:SnapButton id="btnFive" label="5连抽" y="600" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" x="423.33"/>
 	<e:Image source="activitySummer_json.img_summer_info_di" y="674" anchorOffsetX="0" width="574" anchorOffsetY="0" height="174" scale9Grid="4,4,25,24" x="13"/>
-	<e:Label text="Magic Stone Cost:" x="118" y="549" size="18" textColor="0x848790" stroke="2"/>
+	<e:Label text="消耗魔石：" x="118" y="549" size="18" textColor="0x848790" stroke="2"/>
 	<e:Label id="labCountOne" text="100" y="549" size="18" textColor="0x2ff8ff" stroke="2" verticalAlign="middle" textAlign="left" x="206"/>
-	<e:Label text="Magic Stone Cost:" x="359" y="549" size="18" textColor="0x848790" stroke="2"/>
-	<e:Label text="Play Effect" x="418" y="647" size="18" stroke="2" textColor="0x848790"/>
+	<e:Label text="消耗魔石：" x="359" y="549" size="18" textColor="0x848790" stroke="2"/>
+	<e:Label text="播放特效" x="418" y="647" size="18" stroke="2" textColor="0x848790"/>
 	<e:Label id="labCountFive" text="480" y="549" size="18" textColor="0x2ff8ff" stroke="2" verticalAlign="middle" textAlign="left" x="447"/>
 	<e:Image id="btnTeXiao" source="activitySummer_json.img_summer_seledcd" x="387" y="642"/>
 	<e:Image id="imgTeXiao" source="boss_json.img_boss_selecd" x="394" y="649" touchEnabled="false"/>
@@ -89,5 +89,5 @@
 	</e:Scroller>
 	<e:Image source="activitySummer_json.img_xianding" x="102" y="187"/>
 	<e:Image source="activitySummer_json.img_xianding" x="202" y="187"/>
-	<e:Label id="btnJIfen" text="Points Exchange" y="21" size="16" verticalAlign="middle" textAlign="left" textColor="0x80FF19" x="194"/>
+	<e:Label id="btnJIfen" text="积分兑换" y="21" size="16" verticalAlign="middle" textAlign="left" textColor="0x80FF19" x="194"/>
 </e:Skin>

@@ -2,5 +2,5 @@
 <e:Skin class="LuckyTurntableAlertSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" height="450" width="492">
 	<e:Image anchorOffsetX="0" anchorOffsetY="0" scale9Grid="22,26,21,15" source="img_activity_LTHD_png"/>
 	<e:Label id="getNum" text="0" y="311" anchorOffsetX="0" width="121" textColor="0x34e22c" textAlign="center" size="26" horizontalCenter="0"/>
-	<components:SnapButton id="btnGet" label="Confirm" y="388" anchorOffsetX="69.78" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="27" width="133" horizontalCenter="0"/>
+	<components:SnapButton id="btnGet" label="确认" y="388" anchorOffsetX="69.78" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="27" width="133" horizontalCenter="0"/>
 </e:Skin>

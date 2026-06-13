@@ -7,8 +7,8 @@
 		<treasure:TreasureIcon id="item2" x="108" skinName="renderer.TreasureIconSkin"/>
 		<treasure:TreasureIcon id="item3" x="216" skinName="renderer.TreasureIconSkin"/>
 	</e:Group>
-	<components:SnapButton id="btnGet" label="Claim" x="379" y="74" anchorOffsetX="0" includeIn="nowGet" width="133" skinName="skins.SnapGreenButtonSkin" skinName.willGet="skins.SnapButtonDefaultSkin"/>
+	<components:SnapButton id="btnGet" label="领取" x="379" y="74" anchorOffsetX="0" includeIn="nowGet" width="133" skinName="skins.SnapGreenButtonSkin" skinName.willGet="skins.SnapButtonDefaultSkin"/>
 	<e:Label id="labDesCon" text="Label" x="13" y="12" size="18" textColor="0xc6b59e"/>
 	<e:Image width="133" height="56" includeIn="willGet" x="379" y="74" anchorOffsetX="0" anchorOffsetY="0" source="common_json.btn_gray_png" scale9Grid="14,12,6,29"/>
-	<e:Label text="Not Achieved" includeIn="willGet" x="416" y="90" size="20" textColor="0xcacaca"/>
+	<e:Label text="未达成" includeIn="willGet" x="416" y="90" size="20" textColor="0xcacaca"/>
 </e:Skin>

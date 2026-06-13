@@ -26,7 +26,7 @@
 			</e:layout>
 		</e:List>
 	</e:Scroller>
-	<components:SnapButton id="btnSend" label="Send" x="510" y="311" includeIn="open" anchorOffsetX="0" width="100" height="40">
+	<components:SnapButton id="btnSend" label="发送" x="510" y="311" includeIn="open" anchorOffsetX="0" width="100" height="40">
 		<components:skinName>
 			<e:Skin states="up,down,disabled">
 			<e:Image width="100%" height="100%" source="uiMain_json.main_chat_btn_send"/>
@@ -34,7 +34,7 @@
 			</e:Skin>
 		</components:skinName>
 	</components:SnapButton>
-	<components:SnapButton id="btnYouJian" label="Send" x="59.5" y="198" anchorOffsetX="0" icon="uiMain_json.img_main_red" y.default="16" width.open="42" height.open="42">
+	<components:SnapButton id="btnYouJian" label="发送" x="59.5" y="198" anchorOffsetX="0" icon="uiMain_json.img_main_red" y.default="16" width.open="42" height.open="42">
 		<components:skinName>
 			<e:Skin states="up,down,disabled">
 			<e:Image width="100%" height="100%" source="uiMain_json.main_chat_btn_mail"/>
@@ -53,7 +53,7 @@
 	</components:SnapButton>
 	<components:IconButton id="btnBiaoQing" x="391.5" source="uiMain_json.main_chat_btn_face" y="310" includeIn="open" visible="false"/>
 	<components:IconButton id="btnClose" x="592.08" y="1" includeIn="open" source="uiMain_json.main_chat_btn_close" anchorOffsetX="0" anchorOffsetY="0" rotation="360"/>
-	<e:ToggleButton id="btnZongHe" label="Overall" includeIn="open" x="32" y="5" width="112">
+	<e:ToggleButton id="btnZongHe" label="综合" includeIn="open" x="32" y="5" width="112">
 		<e:skinName>
 		<e:Skin states="up,down,disabled">
 			<e:Image width="100%" height="100%" source="uiMain_json.main_chat_btn_normal" source.down="uiMain_json.main_chat_btn_select"/>
@@ -61,7 +61,7 @@
 		</e:Skin>
 		</e:skinName>
 	</e:ToggleButton>
-	<e:ToggleButton id="btnShiJie" label="World" includeIn="open" x="32" y="51" width="112">
+	<e:ToggleButton id="btnShiJie" label="世界" includeIn="open" x="32" y="51" width="112">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
 			<e:Image width="100%" height="100%" source="uiMain_json.main_chat_btn_normal" source.down="uiMain_json.main_chat_btn_select"/>
@@ -69,7 +69,7 @@
 			</e:Skin>
 		</e:skinName>
 	</e:ToggleButton>
-	<e:ToggleButton id="btnJunTuan" label="Guild" includeIn="open" x="32" y="99" width="112">
+	<e:ToggleButton id="btnJunTuan" label="军团" includeIn="open" x="32" y="99" width="112">
 		<e:skinName>
 		<e:Skin states="up,down,disabled">
 			<e:Image width="100%" height="100%" source="uiMain_json.main_chat_btn_normal" source.down="uiMain_json.main_chat_btn_select"/>
@@ -77,7 +77,7 @@
 		</e:Skin>
 		</e:skinName>
 	</e:ToggleButton>
-	<e:ToggleButton id="btnXiTong" label="System" includeIn="open" x="32" y="148" anchorOffsetX="0" width="112">
+	<e:ToggleButton id="btnXiTong" label="系统" includeIn="open" x="32" y="148" anchorOffsetX="0" width="112">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
 			<e:Image width="100%" height="100%" source="uiMain_json.main_chat_btn_normal" source.down="uiMain_json.main_chat_btn_select"/>

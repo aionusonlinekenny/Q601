@@ -5,9 +5,9 @@
 	<item:PropertyItemBox id="propertyBox" y="382" skinName="normal.PropertyItemBoxSkin" horizontalCenter="-4"/>
 	<e:Image source="tips_json.img_tips_title_shuxing" y="337" x="70"/>
 	<e:Image source="tips_json.img_tips_putong" y="333" horizontalCenter="0"/>
-	<components:SnapButton id="btnUp" label="Upgrade" y="584.67" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" x="258.33"/>
+	<components:SnapButton id="btnUp" label="升级" y="584.67" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" x="258.33"/>
 	<e:Image width="270" height="35" y="14" source="tips_json.img_tips_namebg" scale9Grid="36,4,216,26" anchorOffsetX="0" anchorOffsetY="0" x="126"/>
-	<e:Label text="Bestiary Details" y="18" size="25" x="211" textColor="0xedc839"/>
+	<e:Label text="图鉴详情" y="18" size="25" x="211" textColor="0xedc839"/>
 	<e:Image source="img__firstplayer_eff_bg_png" y="62" x="115"/>
 	<e:Image id="imgQuality" source="tujian_json.img_Picframe_2" y="92" scale9Grid="31,27,28,35" anchorOffsetX="0" width="180" anchorOffsetY="0" height="223" x="171"/>
 	<e:Image source="img_picture_itembg_png" y="101" x="180"/>

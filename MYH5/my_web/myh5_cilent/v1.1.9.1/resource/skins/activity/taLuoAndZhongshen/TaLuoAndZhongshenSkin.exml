@@ -2,14 +2,14 @@
 <e:Skin class="normal.TaLuoAndZhongshenSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" width="600" height="850">
 	<e:Image id="imgBg" y="0" source="img_activity_zhongshen_bg_jpg" x="19"/>
 	<e:Image id="imgTitle" y="58" source="img_activity_taluo_titel_png" horizontalCenter="-132"/>
-	<e:Label id="labDate" text="December 12, 2018 " x="142" y="125" size="18" textColor="0x34e22c"/>
-	<e:Label id="labDesc" text="Total Phantom Beast Power Ranking (event period)" x="142" y="154" size="16" width="191" height="64" lineSpacing="5" textColor="0xc6b59e" textAlign="left"/>
-	<e:Label text="Deadline: " x="46" y="125" size="18" textColor="0xedc839"/>
-	<e:Label text="Event Info: " x="46" y="154" size="18" textColor="0xedc839"/>
+	<e:Label id="labDate" text="2018年12月12日 " x="142" y="125" size="18" textColor="0x34e22c"/>
+	<e:Label id="labDesc" text="活动期间幻兽总战力排行" x="142" y="154" size="16" width="191" height="64" lineSpacing="5" textColor="0xc6b59e" textAlign="left"/>
+	<e:Label text="截止时间 : " x="46" y="125" size="18" textColor="0xedc839"/>
+	<e:Label text="活动说明 : " x="46" y="154" size="18" textColor="0xedc839"/>
 	<e:Label id="labMyFight" text="" y="215" size="22" textColor="0x2B8C25" rotation="0.1" left="140"/>
-	<e:Label id="labLink" text="Go to Enhance" x="486" y="825" size="18" textColor="0x34E22C"/>
-	<e:Label id="labMyRank" text="My Ranking" y="825" size="20" textColor="0xEDC839" x="50"/>
-	<e:Label id="labRankName" text="My Power:" x="309" y="825" size="18" anchorOffsetX="0" anchorOffsetY="0" textColor="0xC6B59E"/>
+	<e:Label id="labLink" text="前往提升" x="486" y="825" size="18" textColor="0x34E22C"/>
+	<e:Label id="labMyRank" text="我的排名" y="825" size="20" textColor="0xEDC839" x="50"/>
+	<e:Label id="labRankName" text="我的战力:" x="309" y="825" size="18" anchorOffsetX="0" anchorOffsetY="0" textColor="0xC6B59E"/>
 	<e:Label id="labRankValue" text="999999 " x="396" y="825" size="18" anchorOffsetX="0" anchorOffsetY="0" textColor="0xEDC839"/>
 	<e:Scroller width="559" height="589" y="229" x="21">
 		<e:List id="listReward" x="40" y="-31.33" itemRendererSkinName="renderer.TaLuoAndZhongshenRendererSkin">

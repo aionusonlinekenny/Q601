@@ -27,11 +27,11 @@
 		<e:Image width="456" height="235" y="0" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_inbg_png" scale9Grid="5,6,18,15" x="0"/>
 		<e:Image id="imgQuality" width="90" height="90" x="17" y="22" source="common_json.img_qlt_1_png"/>
 		<components:Icon id="imgIcon" width="80" height="80" x="22" y="25"/>
-		<components:SnapButton id="btnXueXi" label="Learn" y="198" anchorOffsetX="80" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" x="226"/>
-		<e:Label text="Owned Qty:" x="114" y="28" size="20" textColor="0xc6b59e"/>
+		<components:SnapButton id="btnXueXi" label="学习" y="198" anchorOffsetX="80" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" x="226"/>
+		<e:Label text="拥有数量：" x="114" y="28" size="20" textColor="0xc6b59e"/>
 		<e:Label id="labCount" text="5" y="28" size="20" verticalAlign="middle" textAlign="left" x="213" textColor="0xa1d10e" stroke="2"/>
 		<e:Label id="labXiaoGuo" text="xxxxxxxxxxxxxxxxxxx" x="114" y="55" size="20" anchorOffsetY="0" height="109" anchorOffsetX="0" width="329" stroke="2" textColor="0xc6b59e"/>
 		<e:Label id="labName" text="xxxxx" y="112" verticalAlign="middle" textAlign="center" size="20" textColor="0xc6b59e" horizontalCenter="-166"/>
 	</e:Group>
-	<e:Label id="labNo" text="No learnable materials." y="329.32" size="20" textColor="0xc6b59e" x="173"/>
+	<e:Label id="labNo" text="没有可学习材料。" y="329.32" size="20" textColor="0xc6b59e" x="173"/>
 </e:Skin>

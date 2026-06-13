@@ -4,8 +4,8 @@
 	<e:Image source="common_implementbar_png" anchorOffsetY="0" height="145" horizontalCenter="0" y="722" scale9Grid="80,13,480,7"/>
 
 
-	<components:SnapButton id="btnUse" label="Equipment" y="816" anchorOffsetX="83" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="28" x="178"/>
-	<components:SnapButton id="btnUpgrade" label="Upgrade" y="816" anchorOffsetX="83" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="28" x="428"/>
+	<components:SnapButton id="btnUse" label="装备" y="816" anchorOffsetX="83" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="28" x="178"/>
+	<components:SnapButton id="btnUpgrade" label="升级" y="816" anchorOffsetX="83" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="28" x="428"/>
 	<components:IconButton id="btnGetShenhun" x="511" y="127.67" source="common_json.img_getRes_png"/>
 	<components:IconButton id="btnDecompose" x="511" y="544.99" source="common_json.btn_decompose_png"/>
 	<item:ShenhunItem id="item0" x="183" y="125.88" skinName="normal.ShenhunItemSkin"/>
@@ -23,12 +23,12 @@
 	<e:Image id="imgOrange" source="role_json.img_shenhun_purple_png" x="39" y="562" width="45" height="45"/>
 	<e:Image id="imgBg" y="636" height="119" source="common_infobar_png" horizontalCenter="0" scale9Grid="58,25,472,8"/>
 	<item:PropertyItemBox id="propertyBox" skinName="normal.PropertyItemBoxSkin" horizontalCenter="0" verticalCenter="256"/>
-	<e:Group x="260" y="758.74">
+	<e:Group x="285" y="758.74">
 		<e:Image source="bag_json.img_godSoulIcon_png" x="0" y="0" width="30" height="30"/>
-		<e:Label text="Divine Soul Essence: " x="30" y="3" size="20" textColor="0xc6b59e"/>
-		<e:Label id="labCount" text="1000000/1000000" x="240" y="3" size="20" textColor="0xc6b59e"/>
+		<e:Label id="labCount" text="1000000/1000000" x="127" y="3" size="20" textColor="0xc6b59e"/>
+		<e:Label text="神魂精华 : " x="30" y="3" size="20" textColor="0xc6b59e"/>
 	</e:Group>
-	<e:Label id="imgTipsChat" text="Please select a Divine Soul to proceed." y="729.43" textColor="0x34E22C" size="20" touchEnabled="false" horizontalCenter="1"/>
+	<e:Label id="imgTipsChat" text="请选中神魂进行操作" y="729.43" textColor="0x34E22C" size="20" touchEnabled="false" horizontalCenter="1"/>
 	<e:Image source="common_fightBg_png" y="590.43" horizontalCenter="0"/>
 	<e:Image x="214.94" y="599.1" source="common_json.img_fight_png" width="57" height="31"/>
 	<e:BitmapLabel id="labFight" y="600.62" anchorOffsetX="0" anchorOffsetY="0" text="7200" touchEnabled="false" left="281" font="fight_font2_fnt"/>

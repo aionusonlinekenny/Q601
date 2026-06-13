@@ -9,9 +9,9 @@
 			<e:Image id="imgDiscount" x="-0.34" y="1.66" source="" visible="false"/>
 			<e:Label id="lblNum" text="50" y="68.5" size="20" right="4" textColor="0xc6b59e" stroke="3" verticalAlign="middle" textAlign="right"/>
 		</e:Group>
-		<components:SnapButton id="btnBuy" label="Purchase" x="493" y="61" skinName="skins.SnapOrangeButtonSkin" anchorOffsetX="70" anchorOffsetY="28"/>
-		<e:Label id="lblName" y="34" verticalAlign="middle" size="20" bold="true" textColor="0x8425cb" textAlign="left" left="122" stroke="1" text="Name"/>
-		<e:Label id="lblgold" y="80.5" verticalAlign="middle" size="20" textAlign="left" left="120" text="Contribution Cost: 1000" textColor="0xc6b59e"/>
+		<components:SnapButton id="btnBuy" label="购 买" x="493" y="61" skinName="skins.SnapOrangeButtonSkin" anchorOffsetX="70" anchorOffsetY="28"/>
+		<e:Label id="lblName" y="34" verticalAlign="middle" size="20" bold="true" textColor="0x8425cb" textAlign="left" left="122" stroke="1" text="名字"/>
+		<e:Label id="lblgold" y="80.5" verticalAlign="middle" size="20" textAlign="left" left="120" text="消耗贡献 : 1000" textColor="0xc6b59e"/>
 		<e:Image id="imgFinshBuy" x="444" y="14" source="shop_json.img_buy_finsh_png"/>
 		<e:Label id="labCount" text="Label" y="89" textColor="0x268c25" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="214.5"/>
 	</e:Group>

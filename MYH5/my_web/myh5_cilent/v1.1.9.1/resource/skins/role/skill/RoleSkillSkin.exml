@@ -11,9 +11,9 @@
 
 
 	<e:Group y="745" horizontalCenter="0">
-		<e:Label text="Cost: " x="0" y="4" size="20" anchorOffsetY="0" textColor="0xc6b59e"/>
+		<e:Label text="消耗 : " x="0" y="4" size="20" anchorOffsetY="0" textColor="0xc6b59e"/>
 		<e:Label id="labCoinMuit" text="9999999" x="87" y="4" size="20" textAlign="left" textColor="0x34e22c"/>
 		<e:Image source="common_json.img_gold_png" x="56" y="0" anchorOffsetX="0"/>
 	</e:Group>
-	<components:SnapButton id="btnUpgradeAll" label="Enhance All" y="808" anchorOffsetX="84" width="168" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="27" x="300"/>
+	<components:SnapButton id="btnUpgradeAll" label="一键提升" y="808" anchorOffsetX="84" width="168" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="27" x="300"/>
 </e:Skin>

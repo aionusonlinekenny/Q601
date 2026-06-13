@@ -5,8 +5,8 @@
 	<e:Image source="common_json.img_prompt_title_png" x="225" y="7"/>
 	<e:Label id="labContent" text="" y="110" anchorOffsetX="0" width="421" anchorOffsetY="0" height="89" verticalAlign="middle" textAlign="center" size="20" lineSpacing="10" horizontalCenter="0.5" textColor="0xc6b59e"/>
 	<components:IconButton id="btnClose" x="491" y="33" source="common_json.btn_close_png" anchorOffsetX="26" anchorOffsetY="25"/>
-	<components:SnapButton id="btnCancel" label="Cancel" x="147.5" y="297" skinName="skins.SnapButtonDefaultSkin" anchorOffsetX="80" anchorOffsetY="26"/>
-	<components:SnapButton id="btnOk" label="Confirm" x="390.5" y="296" skinName="skins.SnapButtonDefaultSkin" anchorOffsetX="80" anchorOffsetY="25"/>
+	<components:SnapButton id="btnCancel" label="取消" x="147.5" y="297" skinName="skins.SnapButtonDefaultSkin" anchorOffsetX="80" anchorOffsetY="26"/>
+	<components:SnapButton id="btnOk" label="确定" x="390.5" y="296" skinName="skins.SnapButtonDefaultSkin" anchorOffsetX="80" anchorOffsetY="25"/>
 	<e:Group y="335" horizontalCenter="0">
 		<e:CheckBox id="boxChecked" label="" x="0" y="0">
 			<e:skinName>
@@ -16,6 +16,6 @@
 			</e:Skin>
 			</e:skinName>
 		</e:CheckBox>
-		<e:Label id="labProperty0" text="Do not show again this session" y="3" size="20" x="56.5" textAlign="left" lineSpacing="10" textColor="0xc6b59e"/>
+		<e:Label id="labProperty0" text="本次登录不再提示" y="3" size="20" x="56.5" textAlign="left" lineSpacing="10" textColor="0xc6b59e"/>
 	</e:Group>
 </e:Skin>

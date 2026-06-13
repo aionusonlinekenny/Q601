@@ -4,8 +4,8 @@
 	<e:Image id="imgbg" width="562" height="120" anchorOffsetX="0" anchorOffsetY="0"
 	          x="0" y="0" scale9Grid="12,25,15,19" source="img_union_list_png"/>
 	<e:Image id="img" x="5" y="15" source="common_json.img_qlt_1_png"/>
-	<e:Label id="labName" text="Very Generous" y="25" size="24" left="106" verticalAlign="middle" textAlign="left" textColor="0xedc839"/>
-	<components:SnapButton id="btnInfo" label="Details" x="483" y="65" skinName="skins.SnapOrangeButtonSkin" anchorOffsetX="66" anchorOffsetY="25"/>
+	<e:Label id="labName" text="大手动阀十分大方" y="25" size="24" left="106" verticalAlign="middle" textAlign="left" textColor="0xedc839"/>
+	<components:SnapButton id="btnInfo" label="详细" x="483" y="65" skinName="skins.SnapOrangeButtonSkin" anchorOffsetX="66" anchorOffsetY="25"/>
 	<e:ProgressBar id="pro" width="300" height="25" x="105" y="71" anchorOffsetX="0" anchorOffsetY="0" value="100">
 		<e:skinName>
 			<e:Skin minWidth="30" minHeight="18">

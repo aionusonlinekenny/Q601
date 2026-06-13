@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="renderer.DecomposeRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing" xmlns:base="base.*" xmlns:components="components.*" xmlns:item="item.*">
 	<e:Image x="0" y="0" anchorOffsetX="0" width="558" touchEnabled="false" scale9Grid="46,0,50,114" source="role_json.img_role_fenjielistbg_png"/>
-	<e:Label id="labName" text="Equipment Name" x="121" y="30" size="20" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false" textColor="0xedc839"/>
-	<e:Label id="labDesc" text="Obtained: Orange Gear Fragment x" x="121" y="68" size="20" anchorOffsetX="0" anchorOffsetY="0" cacheAsBitmap="true" touchEnabled="false" textColor="0xc6b59e"/>
-	<components:SnapButton id="btnDebrs" label="Decompose" anchorOffsetX="52" x="466" skinName="skins.SnapOrangeButtonSkin" y="61" anchorOffsetY="25"/>
+	<e:Label id="labName" text="装备名字" x="121" y="30" size="20" anchorOffsetX="0" anchorOffsetY="0" touchEnabled="false" textColor="0xedc839"/>
+	<e:Label id="labDesc" text="获得 : 橙装碎片X" x="121" y="68" size="20" anchorOffsetX="0" anchorOffsetY="0" cacheAsBitmap="true" touchEnabled="false" textColor="0xc6b59e"/>
+	<components:SnapButton id="btnDebrs" label="分解" anchorOffsetX="52" x="466" skinName="skins.SnapOrangeButtonSkin" y="61" anchorOffsetY="25"/>
 	<item:NormalItem id="item" x="23" y="22" skinName="tipIcon.NormalItemSkin"/>
 </e:Skin>

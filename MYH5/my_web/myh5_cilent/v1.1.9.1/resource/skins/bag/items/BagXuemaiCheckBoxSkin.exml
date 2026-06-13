@@ -4,7 +4,7 @@
 	<e:Image id="imgIcon" source="" x="5" y="3" width="80" height="80"/>
 
 	<e:Label id="labLv" text="lv.100" y="110" size="20" textAlign="center" anchorOffsetX="0" anchorOffsetY="0" height="17" horizontalCenter="0" textColor="0xc6b59e"/>
-	<e:Label id="labName" text="Flawless Mark" y="90" size="20" textAlign="center" anchorOffsetX="0" horizontalCenter="0" textColor="0xc6b59e"/>
+	<e:Label id="labName" text="无懈印记" y="90" size="20" textAlign="center" anchorOffsetX="0" horizontalCenter="0" textColor="0xc6b59e"/>
 	<e:CheckBox id="checkboxPick" label="" y="130" horizontalCenter="0">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">

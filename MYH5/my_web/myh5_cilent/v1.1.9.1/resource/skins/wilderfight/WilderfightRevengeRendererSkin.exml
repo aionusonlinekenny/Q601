@@ -4,11 +4,11 @@
 	<e:Image id="imgHeadBack" x="13" y="5.5" source="common_json.img_qlt_1_png"/>
 	<e:Image id="imgHead" width="80" height="80" x="18" y="8" anchorOffsetX="0" anchorOffsetY="0"/>
 	<e:Image id="tagFiled" x="45.5" y="48" source="wilderfight_json.wilderfight_tag_filed_png" visible="false"/>
-	<e:Label id="labName" text="Fallen Archangel" x="116" y="24.5" size="24" bold="true" textColor="0xedc839"/>
-	<e:Label id="lablv" text="Combat Power: 534543" x="256" y="28.5" size="18" textColor="0xedc839"/>
-	<e:Label id="labLoss" text="Loss: EXP x100  Prestige x1000" x="114" y="68" size="18" anchorOffsetX="0" width="277" anchorOffsetY="0" height="23" textColor="0xb6281a"/>
-	<components:SnapButton id="btnAttack" label="Counter" x="420" y="41.5" anchorOffsetX="0" width="130" skinName="skins.SnapOrangeButtonSkin">
+	<e:Label id="labName" text="大天使之贱" x="116" y="24.5" size="24" bold="true" textColor="0xedc839"/>
+	<e:Label id="lablv" text="战斗力 : 534543" x="256" y="28.5" size="18" textColor="0xedc839"/>
+	<e:Label id="labLoss" text="损失 : 经验 x100 威望 x1000" x="114" y="68" size="18" anchorOffsetX="0" width="277" anchorOffsetY="0" height="23" textColor="0xb6281a"/>
+	<components:SnapButton id="btnAttack" label="反击" x="420" y="41.5" anchorOffsetX="0" width="130" skinName="skins.SnapOrangeButtonSkin">
 
 	</components:SnapButton>
-	<e:Label id="labRevenge" text="Hatred: 112" y="99" size="16" verticalAlign="middle" textAlign="center" horizontalCenter="-225.5" textColor="0xb6281a"/>
+	<e:Label id="labRevenge" text="仇恨值:112" y="99" size="16" verticalAlign="middle" textAlign="center" horizontalCenter="-225.5" textColor="0xb6281a"/>
 </e:Skin>

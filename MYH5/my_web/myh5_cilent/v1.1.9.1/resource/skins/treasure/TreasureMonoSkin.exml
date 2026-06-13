@@ -11,7 +11,7 @@
 		<treasure:TreasureIcon id="treasureHelmet" x="236" y="0" skinName="renderer.TreasureIconSkin"/>
 		<treasure:TreasureIcon id="treasureChain" x="354" y="0" skinName="renderer.TreasureIconSkin"/>
 	</e:Group>
-	<e:Label id="labPropName" text="Dragon Fragment Cost: " x="58" y="766.59" size="20" width="252" textAlign="right" textColor="0xc6b59e"/>
+	<e:Label id="labPropName" text="消耗魔龙碎片 : " x="58" y="766.59" size="20" width="252" textAlign="right" textColor="0xc6b59e"/>
 	<e:Group y="549" x="211">
 		<e:Image x="2" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_fight_png" width="57" height="31"/>
 		<e:BitmapLabel id="labScore" text="9999" anchorOffsetX="0" anchorOffsetY="0" font="fight_font2_fnt" left="60" scaleX="1.2" scaleY="1.2"/>
@@ -30,11 +30,11 @@
 		</e:Group>
 		<e:Image id="imgArrow" source="common_json.img_arrow_green_png" horizontalCenter="0.5" y="49"/>
 	</e:Group>
-	<components:SnapButton id="btnFit" label="Synthesize" y="824" icon="img_warn_png" skinName="skins.SnapTreasureSkin" anchorOffsetY="24" anchorOffsetX="89" x="289"/>
+	<components:SnapButton id="btnFit" label="合成" y="824" icon="img_warn_png" skinName="skins.SnapTreasureSkin" anchorOffsetY="24" anchorOffsetX="89" x="289"/>
 	<components:IconButton id="imgGetProp" x="476.5" y="780.72" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_getRes_png"/>
 	<e:Group x="36" y="163" width="48" height="188">
 		<e:Image source="common_shubar_png"/>
-		<e:Label id="equipName" text="Dragon Weapon" y="38" anchorOffsetX="0" width="23" anchorOffsetY="0" height="81" size="20" textColor="0xc6b59e" bold="true" strokeColor="0x000000" x="13"/>
+		<e:Label id="equipName" text="魔龙武器" y="38" anchorOffsetX="0" width="23" anchorOffsetY="0" height="81" size="20" textColor="0xc6b59e" bold="true" strokeColor="0x000000" x="13"/>
 		<e:Image y="131" anchorOffsetX="0" anchorOffsetY="0" source="treasure_json.img_treasure_god" x="11"/>
 		<e:BitmapLabel id="labGrade" y="156.67" anchorOffsetX="0" anchorOffsetY="0" text="12" horizontalCenter="0" font="fight_font2_fnt"/>
 	</e:Group>

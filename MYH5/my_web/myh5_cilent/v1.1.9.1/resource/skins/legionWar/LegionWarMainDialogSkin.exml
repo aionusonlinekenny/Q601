@@ -6,8 +6,8 @@
 	<e:Image id="imgShadow" source="img_legionwar_shadow_png" y="227" horizontalCenter="79.5"/>
 	<e:Image id="imgLab" source="legionWar_json.img_legionwar_group" y="146" horizontalCenter="0"/>
 	<e:Image id="imgTitle" horizontalCenter="0" verticalCenter="-363" source=""/>
-	<e:Label id="labTime" text="Unlock/Open" y="757" size="18" verticalAlign="middle" textAlign="center" x="82" textColor="0xC6B59E" width="350"/>
-	<e:Label id="labLeaderName" text="Player Name Name" y="191" size="20" verticalAlign="middle" textAlign="center" width="201" textColor="0x34e22c" horizontalCenter="0"/>
+	<e:Label id="labTime" text="开启" y="757" size="18" verticalAlign="middle" textAlign="center" x="82" textColor="0xC6B59E" width="350"/>
+	<e:Label id="labLeaderName" text="玩家名字名字" y="191" size="20" verticalAlign="middle" textAlign="center" width="201" textColor="0x34e22c" horizontalCenter="0"/>
 	<components:IconButton id="btnEnter" x="254" y="827" source="legionWar_json.btn_legionwar_enter" anchorOffsetX="85" anchorOffsetY="29"/>
 	<components:IconButton id="btnRank" x="356.5" y="684" anchorOffsetX="37.5" anchorOffsetY="36.5" source="legionWar_json.btn_legionwar_lastwar"/>
 	<components:IconButton id="btnReward" x="206.5" y="684" anchorOffsetX="37.5" anchorOffsetY="36.5" source="legionWar_json.btn_legionwar_reward"/>

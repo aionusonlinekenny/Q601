@@ -1,1 +1,1047 @@
-{"wing_1_0":{"effectData":{"MImmunityPer":10,"PImmunityPer":10,"maxMAtk":18,"maxMDef":0,"maxPAtk":16,"maxPDef":0,"maxTao":16},"property":{"featherMaxConsume":1,"iconId":"wing_1","injure":300,"maxExp":16,"modelId":6000,"name":"Elf Wings","stageLevel":1,"startLevel":0,"wingNextRefId":"wing_1_1","wingPreRefId":""},"refId":"wing_1_0"},"wing_1_1":{"effectData":{"MImmunityPer":10,"PImmunityPer":10,"maxMAtk":23,"maxMDef":0,"maxPAtk":19,"maxPDef":0,"maxTao":19},"property":{"featherMaxConsume":1,"iconId":"wing_1","injure":329,"maxExp":24,"modelId":6000,"name":"Elf Wings","stageLevel":1,"startLevel":1,"wingNextRefId":"wing_1_2","wingPreRefId":"wing_1_0"},"refId":"wing_1_1"},"wing_1_2":{"effectData":{"MImmunityPer":10,"PImmunityPer":10,"maxMAtk":31,"maxMDef":0,"maxPAtk":23,"maxPDef":0,"maxTao":23},"property":{"featherMaxConsume":1,"iconId":"wing_1","injure":373,"maxExp":44,"modelId":6000,"name":"Elf Wings","stageLevel":1,"startLevel":2,"wingNextRefId":"wing_1_3","wingPreRefId":"wing_1_1"},"refId":"wing_1_2"},"wing_1_3":{"effectData":{"MImmunityPer":10,"PImmunityPer":10,"maxMAtk":41,"maxMDef":0,"maxPAtk":28,"maxPDef":0,"maxTao":28},"property":{"featherMaxConsume":1,"iconId":"wing_1","injure":428,"maxExp":68,"modelId":6000,"name":"Elf Wings","stageLevel":1,"startLevel":3,"wingNextRefId":"wing_2_0","wingPreRefId":"wing_1_2"},"refId":"wing_1_3"},"wing_2_0":{"effectData":{"MImmunityPer":12,"PImmunityPer":12,"maxMAtk":54,"maxMDef":0,"maxPAtk":34,"maxPDef":0,"maxTao":34},"property":{"featherMaxConsume":2,"iconId":"wing_2","injure":534,"maxExp":100,"modelId":6001,"name":"Angel Wings","stageLevel":2,"startLevel":0,"wingNextRefId":"wing_2_1","wingPreRefId":"wing_1_3"},"refId":"wing_2_0"},"wing_2_1":{"effectData":{"MImmunityPer":12,"PImmunityPer":12,"maxMAtk":69,"maxMDef":0,"maxPAtk":42,"maxPDef":0,"maxTao":42},"property":{"featherMaxConsume":2,"iconId":"wing_2","injure":618,"maxExp":140,"modelId":6001,"name":"Angel Wings","stageLevel":2,"startLevel":1,"wingNextRefId":"wing_2_2","wingPreRefId":"wing_2_0"},"refId":"wing_2_1"},"wing_2_2":{"effectData":{"MImmunityPer":12,"PImmunityPer":12,"maxMAtk":88,"maxMDef":0,"maxPAtk":51,"maxPDef":0,"maxTao":51},"property":{"featherMaxConsume":2,"iconId":"wing_2","injure":721,"maxExp":192,"modelId":6001,"name":"Angel Wings","stageLevel":2,"startLevel":2,"wingNextRefId":"wing_2_3","wingPreRefId":"wing_2_1"},"refId":"wing_2_2"},"wing_2_3":{"effectData":{"MImmunityPer":12,"PImmunityPer":12,"maxMAtk":110,"maxMDef":0,"maxPAtk":62,"maxPDef":0,"maxTao":62},"property":{"featherMaxConsume":2,"iconId":"wing_2","injure":842,"maxExp":248,"modelId":6001,"name":"Angel Wings","stageLevel":2,"startLevel":3,"wingNextRefId":"wing_3_0","wingPreRefId":"wing_2_2"},"refId":"wing_2_3"},"wing_3_0":{"effectData":{"MImmunityPer":14,"PImmunityPer":14,"maxMAtk":135,"maxMDef":0,"maxPAtk":75,"maxPDef":0,"maxTao":75},"property":{"featherMaxConsume":3,"iconId":"wing_3","injure":1017,"maxExp":316,"modelId":6002,"name":"Crystal Wings","stageLevel":3,"startLevel":0,"wingNextRefId":"wing_3_1","wingPreRefId":"wing_2_3"},"refId":"wing_3_0"},"wing_3_1":{"effectData":{"MImmunityPer":14,"PImmunityPer":14,"maxMAtk":164,"maxMDef":0,"maxPAtk":89,"maxPDef":0,"maxTao":89},"property":{"featherMaxConsume":3,"iconId":"wing_3","injure":1175,"maxExp":388,"modelId":6002,"name":"Crystal Wings","stageLevel":3,"startLevel":1,"wingNextRefId":"wing_3_2","wingPreRefId":"wing_3_0"},"refId":"wing_3_1"},"wing_3_2":{"effectData":{"MImmunityPer":14,"PImmunityPer":14,"maxMAtk":197,"maxMDef":0,"maxPAtk":106,"maxPDef":0,"maxTao":106},"property":{"featherMaxConsume":3,"iconId":"wing_3","injure":1358,"maxExp":472,"modelId":6002,"name":"Crystal Wings","stageLevel":3,"startLevel":2,"wingNextRefId":"wing_3_3","wingPreRefId":"wing_3_1"},"refId":"wing_3_2"},"wing_3_3":{"effectData":{"MImmunityPer":14,"PImmunityPer":14,"maxMAtk":233,"maxMDef":0,"maxPAtk":124,"maxPDef":0,"maxTao":124},"property":{"featherMaxConsume":3,"iconId":"wing_3","injure":1556,"maxExp":564,"modelId":6002,"name":"Crystal Wings","stageLevel":3,"startLevel":3,"wingNextRefId":"wing_4_0","wingPreRefId":"wing_3_2"},"refId":"wing_3_3"},"wing_4_0":{"effectData":{"MImmunityPer":16,"PImmunityPer":16,"maxMAtk":272,"maxMDef":0,"maxPAtk":143,"maxPDef":0,"maxTao":143},"property":{"featherMaxConsume":4,"iconId":"wing_4","injure":1805,"maxExp":668,"modelId":6003,"name":"Phantom Feathers","stageLevel":4,"startLevel":0,"wingNextRefId":"wing_4_1","wingPreRefId":"wing_3_3"},"refId":"wing_4_0"},"wing_4_1":{"effectData":{"MImmunityPer":16,"PImmunityPer":16,"maxMAtk":316,"maxMDef":0,"maxPAtk":165,"maxPDef":0,"maxTao":165},"property":{"featherMaxConsume":4,"iconId":"wing_4","injure":2047,"maxExp":776,"modelId":6003,"name":"Phantom Feathers","stageLevel":4,"startLevel":1,"wingNextRefId":"wing_4_2","wingPreRefId":"wing_4_0"},"refId":"wing_4_1"},"wing_4_2":{"effectData":{"MImmunityPer":16,"PImmunityPer":16,"maxMAtk":364,"maxMDef":0,"maxPAtk":189,"maxPDef":0,"maxTao":189},"property":{"featherMaxConsume":4,"iconId":"wing_4","injure":2311,"maxExp":896,"modelId":6003,"name":"Phantom Feathers","stageLevel":4,"startLevel":2,"wingNextRefId":"wing_4_3","wingPreRefId":"wing_4_1"},"refId":"wing_4_2"},"wing_4_3":{"effectData":{"MImmunityPer":16,"PImmunityPer":16,"maxMAtk":415,"maxMDef":0,"maxPAtk":215,"maxPDef":0,"maxTao":215},"property":{"featherMaxConsume":4,"iconId":"wing_4","injure":2593,"maxExp":1024,"modelId":6003,"name":"Phantom Feathers","stageLevel":4,"startLevel":3,"wingNextRefId":"wing_5_0","wingPreRefId":"wing_4_2"},"refId":"wing_4_3"},"wing_5_0":{"effectData":{"MImmunityPer":18,"PImmunityPer":18,"maxMAtk":471,"maxMDef":0,"maxPAtk":243,"maxPDef":0,"maxTao":243},"property":{"featherMaxConsume":5,"iconId":"wing_5","injure":2937,"maxExp":1164,"modelId":6004,"name":"Glorious Feathers","stageLevel":5,"startLevel":0,"wingNextRefId":"wing_5_1","wingPreRefId":"wing_4_3"},"refId":"wing_5_0"},"wing_5_1":{"effectData":{"MImmunityPer":18,"PImmunityPer":18,"maxMAtk":531,"maxMDef":0,"maxPAtk":273,"maxPDef":0,"maxTao":273},"property":{"featherMaxConsume":5,"iconId":"wing_5","injure":3267,"maxExp":1308,"modelId":6004,"name":"Glorious Feathers","stageLevel":5,"startLevel":1,"wingNextRefId":"wing_5_2","wingPreRefId":"wing_5_0"},"refId":"wing_5_1"},"wing_5_2":{"effectData":{"MImmunityPer":18,"PImmunityPer":18,"maxMAtk":595,"maxMDef":0,"maxPAtk":305,"maxPDef":0,"maxTao":305},"property":{"featherMaxConsume":5,"iconId":"wing_5","injure":3619,"maxExp":1464,"modelId":6004,"name":"Glorious Feathers","stageLevel":5,"startLevel":2,"wingNextRefId":"wing_5_3","wingPreRefId":"wing_5_1"},"refId":"wing_5_2"},"wing_5_3":{"effectData":{"MImmunityPer":18,"PImmunityPer":18,"maxMAtk":664,"maxMDef":0,"maxPAtk":339,"maxPDef":0,"maxTao":339},"property":{"featherMaxConsume":5,"iconId":"wing_5","injure":3997,"maxExp":1632,"modelId":6004,"name":"Glorious Feathers","stageLevel":5,"startLevel":3,"wingNextRefId":"wing_6_0","wingPreRefId":"wing_5_2"},"refId":"wing_5_3"},"wing_6_0":{"effectData":{"MImmunityPer":20,"PImmunityPer":20,"maxMAtk":737,"maxMDef":0,"maxPAtk":376,"maxPDef":0,"maxTao":376},"property":{"featherMaxConsume":6,"iconId":"wing_6","injure":4436,"maxExp":1804,"modelId":6005,"name":"Illusory Feathers","stageLevel":6,"startLevel":0,"wingNextRefId":"wing_6_1","wingPreRefId":"wing_5_3"},"refId":"wing_6_0"},"wing_6_1":{"effectData":{"MImmunityPer":20,"PImmunityPer":20,"maxMAtk":815,"maxMDef":0,"maxPAtk":415,"maxPDef":0,"maxTao":415},"property":{"featherMaxConsume":6,"iconId":"wing_6","injure":4865,"maxExp":1988,"modelId":6005,"name":"Illusory Feathers","stageLevel":6,"startLevel":1,"wingNextRefId":"wing_6_2","wingPreRefId":"wing_6_0"},"refId":"wing_6_1"},"wing_6_2":{"effectData":{"MImmunityPer":20,"PImmunityPer":20,"maxMAtk":897,"maxMDef":0,"maxPAtk":456,"maxPDef":0,"maxTao":456},"property":{"featherMaxConsume":6,"iconId":"wing_6","injure":5316,"maxExp":2184,"modelId":6005,"name":"Illusory Feathers","stageLevel":6,"startLevel":2,"wingNextRefId":"wing_6_3","wingPreRefId":"wing_6_1"},"refId":"wing_6_2"},"wing_6_3":{"effectData":{"MImmunityPer":20,"PImmunityPer":20,"maxMAtk":983,"maxMDef":0,"maxPAtk":499,"maxPDef":0,"maxTao":499},"property":{"featherMaxConsume":6,"iconId":"wing_6","injure":5789,"maxExp":2388,"modelId":6005,"name":"Illusory Feathers","stageLevel":6,"startLevel":3,"wingNextRefId":"wing_7_0","wingPreRefId":"wing_6_2"},"refId":"wing_6_3"},"wing_7_0":{"effectData":{"MImmunityPer":22,"PImmunityPer":22,"maxMAtk":1074,"maxMDef":0,"maxPAtk":544,"maxPDef":0,"maxTao":544},"property":{"featherMaxConsume":7,"iconId":"wing_7","injure":6324,"maxExp":2600,"modelId":6006,"name":"Thunder Feathers","stageLevel":7,"startLevel":0,"wingNextRefId":"wing_7_1","wingPreRefId":"wing_6_3"},"refId":"wing_7_0"},"wing_7_1":{"effectData":{"MImmunityPer":22,"PImmunityPer":22,"maxMAtk":1170,"maxMDef":0,"maxPAtk":592,"maxPDef":0,"maxTao":592},"property":{"featherMaxConsume":7,"iconId":"wing_7","injure":6852,"maxExp":2820,"modelId":6006,"name":"Thunder Feathers","stageLevel":7,"startLevel":1,"wingNextRefId":"wing_7_2","wingPreRefId":"wing_7_0"},"refId":"wing_7_1"},"wing_7_2":{"effectData":{"MImmunityPer":22,"PImmunityPer":22,"maxMAtk":1271,"maxMDef":0,"maxPAtk":643,"maxPDef":0,"maxTao":643},"property":{"featherMaxConsume":7,"iconId":"wing_7","injure":7409,"maxExp":3052,"modelId":6006,"name":"Thunder Feathers","stageLevel":7,"startLevel":2,"wingNextRefId":"wing_7_3","wingPreRefId":"wing_7_1"},"refId":"wing_7_2"},"wing_7_3":{"effectData":{"MImmunityPer":22,"PImmunityPer":22,"maxMAtk":1377,"maxMDef":0,"maxPAtk":696,"maxPDef":0,"maxTao":696},"property":{"featherMaxConsume":7,"iconId":"wing_7","injure":7992,"maxExp":3296,"modelId":6006,"name":"Thunder Feathers","stageLevel":7,"startLevel":3,"wingNextRefId":"wing_8_0","wingPreRefId":"wing_7_2"},"refId":"wing_7_3"},"wing_8_0":{"effectData":{"MImmunityPer":24,"PImmunityPer":24,"maxMAtk":1487,"maxMDef":0,"maxPAtk":751,"maxPDef":0,"maxTao":751},"property":{"featherMaxConsume":8,"iconId":"wing_8","injure":8633,"maxExp":3544,"modelId":6007,"name":"Ice Dragon Snow Feathers","stageLevel":8,"startLevel":0,"wingNextRefId":"wing_8_1","wingPreRefId":"wing_7_3"},"refId":"wing_8_0"},"wing_8_1":{"effectData":{"MImmunityPer":24,"PImmunityPer":24,"maxMAtk":1603,"maxMDef":0,"maxPAtk":809,"maxPDef":0,"maxTao":809},"property":{"featherMaxConsume":8,"iconId":"wing_8","injure":9271,"maxExp":3804,"modelId":6007,"name":"Ice Dragon Snow Feathers","stageLevel":8,"startLevel":1,"wingNextRefId":"wing_8_2","wingPreRefId":"wing_8_0"},"refId":"wing_8_1"},"wing_8_2":{"effectData":{"MImmunityPer":24,"PImmunityPer":24,"maxMAtk":1723,"maxMDef":0,"maxPAtk":869,"maxPDef":0,"maxTao":869},"property":{"featherMaxConsume":8,"iconId":"wing_8","injure":9931,"maxExp":4076,"modelId":6007,"name":"Ice Dragon Snow Feathers","stageLevel":8,"startLevel":2,"wingNextRefId":"wing_8_3","wingPreRefId":"wing_8_1"},"refId":"wing_8_2"},"wing_8_3":{"effectData":{"MImmunityPer":24,"PImmunityPer":24,"maxMAtk":1848,"maxMDef":0,"maxPAtk":931,"maxPDef":0,"maxTao":931},"property":{"featherMaxConsume":8,"iconId":"wing_8","injure":10617,"maxExp":4356,"modelId":6007,"name":"Ice Dragon Snow Feathers","stageLevel":8,"startLevel":3,"wingNextRefId":"wing_9_0","wingPreRefId":"wing_8_2"},"refId":"wing_8_3"},"wing_9_0":{"effectData":{"MImmunityPer":26,"PImmunityPer":26,"maxMAtk":1979,"maxMDef":0,"maxPAtk":997,"maxPDef":0,"maxTao":997},"property":{"featherMaxConsume":9,"iconId":"wing_9","injure":11375,"maxExp":4648,"modelId":6008,"name":"Phoenix Feathers","stageLevel":9,"startLevel":0,"wingNextRefId":"wing_9_1","wingPreRefId":"wing_8_3"},"refId":"wing_9_0"},"wing_9_1":{"effectData":{"MImmunityPer":26,"PImmunityPer":26,"maxMAtk":2114,"maxMDef":0,"maxPAtk":1064,"maxPDef":0,"maxTao":1064},"property":{"featherMaxConsume":9,"iconId":"wing_9","injure":12116,"maxExp":4948,"modelId":6008,"name":"Phoenix Feathers","stageLevel":9,"startLevel":1,"wingNextRefId":"wing_9_2","wingPreRefId":"wing_9_0"},"refId":"wing_9_1"},"wing_9_2":{"effectData":{"MImmunityPer":26,"PImmunityPer":26,"maxMAtk":2255,"maxMDef":0,"maxPAtk":1135,"maxPDef":0,"maxTao":1135},"property":{"featherMaxConsume":9,"iconId":"wing_9","injure":12893,"maxExp":5256,"modelId":6008,"name":"Phoenix Feathers","stageLevel":9,"startLevel":2,"wingNextRefId":"wing_9_3","wingPreRefId":"wing_9_1"},"refId":"wing_9_2"},"wing_9_3":{"effectData":{"MImmunityPer":26,"PImmunityPer":26,"maxMAtk":2401,"maxMDef":0,"maxPAtk":1208,"maxPDef":0,"maxTao":1208},"property":{"featherMaxConsume":0,"iconId":"wing_9","injure":13696,"maxExp":0,"modelId":6008,"name":"Phoenix Feathers","stageLevel":9,"startLevel":3,"wingNextRefId":"","wingPreRefId":"wing_9_2"},"refId":"wing_9_3"}}
+{
+   "wing_1_0" : {
+      "effectData" : {
+         "MImmunityPer" : 10,
+         "PImmunityPer" : 10,
+         "maxMAtk" : 18,
+         "maxMDef" : 0,
+         "maxPAtk" : 18,
+         "maxPDef" : 0,
+         "maxTao" : 18,
+         "maxPDef" : 16,
+         "maxMDef" : 0,
+         "maxPAtk" : 16,
+         "maxPDef" : 0,
+         "maxTao" : 16
+      },
+      "property" : {
+         "featherMaxConsume" : 1,
+         "iconId" : "wing_1",
+         "injure" : 300,
+         "maxExp" : 16,
+         "modelId" : 6000,
+         "name" : "精灵之翼",
+         "stageLevel" : 1,
+         "startLevel" : 0,
+         "wingNextRefId" : "wing_1_1",
+         "wingPreRefId" : ""
+      },
+      "refId" : "wing_1_0"
+   },
+   "wing_1_1" : {
+      "effectData" : {
+         "MImmunityPer" : 10,
+         "PImmunityPer" : 10,
+         "maxMAtk" : 23,
+         "maxMDef" : 0,
+         "maxPAtk" : 23,
+         "maxPDef" : 0,
+         "maxTao" : 23,
+         "maxPDef" : 19,
+         "maxMDef" : 0,
+         "maxPAtk" : 19,
+         "maxPDef" : 0,
+         "maxTao" : 19
+      },
+      "property" : {
+         "featherMaxConsume" : 1,
+         "iconId" : "wing_1",
+         "injure" : 329,
+         "maxExp" : 24,
+         "modelId" : 6000,
+         "name" : "精灵之翼",
+         "stageLevel" : 1,
+         "startLevel" : 1,
+         "wingNextRefId" : "wing_1_2",
+         "wingPreRefId" : "wing_1_0"
+      },
+      "refId" : "wing_1_1"
+   },
+   "wing_1_2" : {
+      "effectData" : {
+         "MImmunityPer" : 10,
+         "PImmunityPer" : 10,
+         "maxMAtk" : 31,
+         "maxMDef" : 0,
+         "maxPAtk" : 31,
+         "maxPDef" : 0,
+         "maxTao" : 31,
+         "maxPDef" : 23,
+         "maxMDef" : 0,
+         "maxPAtk" : 23,
+         "maxPDef" : 0,
+         "maxTao" : 23
+      },
+      "property" : {
+         "featherMaxConsume" : 1,
+         "iconId" : "wing_1",
+         "injure" : 373,
+         "maxExp" : 44,
+         "modelId" : 6000,
+         "name" : "精灵之翼",
+         "stageLevel" : 1,
+         "startLevel" : 2,
+         "wingNextRefId" : "wing_1_3",
+         "wingPreRefId" : "wing_1_1"
+      },
+      "refId" : "wing_1_2"
+   },
+   "wing_1_3" : {
+      "effectData" : {
+         "MImmunityPer" : 10,
+         "PImmunityPer" : 10,
+         "maxMAtk" : 41,
+         "maxMDef" : 0,
+         "maxPAtk" : 41,
+         "maxPDef" : 0,
+         "maxTao" : 41,
+         "maxPDef" : 28,
+         "maxMDef" : 0,
+         "maxPAtk" : 28,
+         "maxPDef" : 0,
+         "maxTao" : 28
+      },
+      "property" : {
+         "featherMaxConsume" : 1,
+         "iconId" : "wing_1",
+         "injure" : 428,
+         "maxExp" : 68,
+         "modelId" : 6000,
+         "name" : "精灵之翼",
+         "stageLevel" : 1,
+         "startLevel" : 3,
+         "wingNextRefId" : "wing_2_0",
+         "wingPreRefId" : "wing_1_2"
+      },
+      "refId" : "wing_1_3"
+   },
+   "wing_2_0" : {
+      "effectData" : {
+         "MImmunityPer" : 12,
+         "PImmunityPer" : 12,
+         "maxMAtk" : 54,
+         "maxMDef" : 0,
+         "maxPAtk" : 54,
+         "maxPDef" : 0,
+         "maxTao" : 54,
+         "maxPDef" : 34,
+         "maxMDef" : 0,
+         "maxPAtk" : 34,
+         "maxPDef" : 0,
+         "maxTao" : 34
+      },
+      "property" : {
+         "featherMaxConsume" : 2,
+         "iconId" : "wing_2",
+         "injure" : 534,
+         "maxExp" : 100,
+         "modelId" : 6001,
+         "name" : "天使之翼",
+         "stageLevel" : 2,
+         "startLevel" : 0,
+         "wingNextRefId" : "wing_2_1",
+         "wingPreRefId" : "wing_1_3"
+      },
+      "refId" : "wing_2_0"
+   },
+   "wing_2_1" : {
+      "effectData" : {
+         "MImmunityPer" : 12,
+         "PImmunityPer" : 12,
+         "maxMAtk" : 69,
+         "maxMDef" : 0,
+         "maxPAtk" : 69,
+         "maxPDef" : 0,
+         "maxTao" : 69,
+         "maxPDef" : 42,
+         "maxMDef" : 0,
+         "maxPAtk" : 42,
+         "maxPDef" : 0,
+         "maxTao" : 42
+      },
+      "property" : {
+         "featherMaxConsume" : 2,
+         "iconId" : "wing_2",
+         "injure" : 618,
+         "maxExp" : 140,
+         "modelId" : 6001,
+         "name" : "天使之翼",
+         "stageLevel" : 2,
+         "startLevel" : 1,
+         "wingNextRefId" : "wing_2_2",
+         "wingPreRefId" : "wing_2_0"
+      },
+      "refId" : "wing_2_1"
+   },
+   "wing_2_2" : {
+      "effectData" : {
+         "MImmunityPer" : 12,
+         "PImmunityPer" : 12,
+         "maxMAtk" : 88,
+         "maxMDef" : 0,
+         "maxPAtk" : 88,
+         "maxPDef" : 0,
+         "maxTao" : 88,
+         "maxPDef" : 51,
+         "maxMDef" : 0,
+         "maxPAtk" : 51,
+         "maxPDef" : 0,
+         "maxTao" : 51
+      },
+      "property" : {
+         "featherMaxConsume" : 2,
+         "iconId" : "wing_2",
+         "injure" : 721,
+         "maxExp" : 192,
+         "modelId" : 6001,
+         "name" : "天使之翼",
+         "stageLevel" : 2,
+         "startLevel" : 2,
+         "wingNextRefId" : "wing_2_3",
+         "wingPreRefId" : "wing_2_1"
+      },
+      "refId" : "wing_2_2"
+   },
+   "wing_2_3" : {
+      "effectData" : {
+         "MImmunityPer" : 12,
+         "PImmunityPer" : 12,
+         "maxMAtk" : 110,
+         "maxMDef" : 0,
+         "maxPAtk" : 110,
+         "maxPDef" : 0,
+         "maxTao" : 110,
+         "maxPDef" : 62,
+         "maxMDef" : 0,
+         "maxPAtk" : 62,
+         "maxPDef" : 0,
+         "maxTao" : 62
+      },
+      "property" : {
+         "featherMaxConsume" : 2,
+         "iconId" : "wing_2",
+         "injure" : 842,
+         "maxExp" : 248,
+         "modelId" : 6001,
+         "name" : "天使之翼",
+         "stageLevel" : 2,
+         "startLevel" : 3,
+         "wingNextRefId" : "wing_3_0",
+         "wingPreRefId" : "wing_2_2"
+      },
+      "refId" : "wing_2_3"
+   },
+   "wing_3_0" : {
+      "effectData" : {
+         "MImmunityPer" : 14,
+         "PImmunityPer" : 14,
+         "maxMAtk" : 135,
+         "maxMDef" : 0,
+         "maxPAtk" : 135,
+         "maxPDef" : 0,
+         "maxTao" : 135,
+         "maxPDef" : 75,
+         "maxMDef" : 0,
+         "maxPAtk" : 75,
+         "maxPDef" : 0,
+         "maxTao" : 75
+      },
+      "property" : {
+         "featherMaxConsume" : 3,
+         "iconId" : "wing_3",
+         "injure" : 1017,
+         "maxExp" : 316,
+         "modelId" : 6002,
+         "name" : "琉璃之翼",
+         "stageLevel" : 3,
+         "startLevel" : 0,
+         "wingNextRefId" : "wing_3_1",
+         "wingPreRefId" : "wing_2_3"
+      },
+      "refId" : "wing_3_0"
+   },
+   "wing_3_1" : {
+      "effectData" : {
+         "MImmunityPer" : 14,
+         "PImmunityPer" : 14,
+         "maxMAtk" : 164,
+         "maxMDef" : 0,
+         "maxPAtk" : 164,
+         "maxPDef" : 0,
+         "maxTao" : 164,
+         "maxPDef" : 89,
+         "maxMDef" : 0,
+         "maxPAtk" : 89,
+         "maxPDef" : 0,
+         "maxTao" : 89
+      },
+      "property" : {
+         "featherMaxConsume" : 3,
+         "iconId" : "wing_3",
+         "injure" : 1175,
+         "maxExp" : 388,
+         "modelId" : 6002,
+         "name" : "琉璃之翼",
+         "stageLevel" : 3,
+         "startLevel" : 1,
+         "wingNextRefId" : "wing_3_2",
+         "wingPreRefId" : "wing_3_0"
+      },
+      "refId" : "wing_3_1"
+   },
+   "wing_3_2" : {
+      "effectData" : {
+         "MImmunityPer" : 14,
+         "PImmunityPer" : 14,
+         "maxMAtk" : 197,
+         "maxMDef" : 0,
+         "maxPAtk" : 197,
+         "maxPDef" : 0,
+         "maxTao" : 197,
+         "maxPDef" : 106,
+         "maxMDef" : 0,
+         "maxPAtk" : 106,
+         "maxPDef" : 0,
+         "maxTao" : 106
+      },
+      "property" : {
+         "featherMaxConsume" : 3,
+         "iconId" : "wing_3",
+         "injure" : 1358,
+         "maxExp" : 472,
+         "modelId" : 6002,
+         "name" : "琉璃之翼",
+         "stageLevel" : 3,
+         "startLevel" : 2,
+         "wingNextRefId" : "wing_3_3",
+         "wingPreRefId" : "wing_3_1"
+      },
+      "refId" : "wing_3_2"
+   },
+   "wing_3_3" : {
+      "effectData" : {
+         "MImmunityPer" : 14,
+         "PImmunityPer" : 14,
+         "maxMAtk" : 233,
+         "maxMDef" : 0,
+         "maxPAtk" : 233,
+         "maxPDef" : 0,
+         "maxTao" : 233,
+         "maxPDef" : 124,
+         "maxMDef" : 0,
+         "maxPAtk" : 124,
+         "maxPDef" : 0,
+         "maxTao" : 124
+      },
+      "property" : {
+         "featherMaxConsume" : 3,
+         "iconId" : "wing_3",
+         "injure" : 1556,
+         "maxExp" : 564,
+         "modelId" : 6002,
+         "name" : "琉璃之翼",
+         "stageLevel" : 3,
+         "startLevel" : 3,
+         "wingNextRefId" : "wing_4_0",
+         "wingPreRefId" : "wing_3_2"
+      },
+      "refId" : "wing_3_3"
+   },
+   "wing_4_0" : {
+      "effectData" : {
+         "MImmunityPer" : 16,
+         "PImmunityPer" : 16,
+         "maxMAtk" : 272,
+         "maxMDef" : 0,
+         "maxPAtk" : 272,
+         "maxPDef" : 0,
+         "maxTao" : 272,
+         "maxPDef" : 143,
+         "maxMDef" : 0,
+         "maxPAtk" : 143,
+         "maxPDef" : 0,
+         "maxTao" : 143
+      },
+      "property" : {
+         "featherMaxConsume" : 4,
+         "iconId" : "wing_4",
+         "injure" : 1805,
+         "maxExp" : 668,
+         "modelId" : 6003,
+         "name" : "魅影之羽",
+         "stageLevel" : 4,
+         "startLevel" : 0,
+         "wingNextRefId" : "wing_4_1",
+         "wingPreRefId" : "wing_3_3"
+      },
+      "refId" : "wing_4_0"
+   },
+   "wing_4_1" : {
+      "effectData" : {
+         "MImmunityPer" : 16,
+         "PImmunityPer" : 16,
+         "maxMAtk" : 316,
+         "maxMDef" : 0,
+         "maxPAtk" : 316,
+         "maxPDef" : 0,
+         "maxTao" : 316,
+         "maxPDef" : 165,
+         "maxMDef" : 0,
+         "maxPAtk" : 165,
+         "maxPDef" : 0,
+         "maxTao" : 165
+      },
+      "property" : {
+         "featherMaxConsume" : 4,
+         "iconId" : "wing_4",
+         "injure" : 2047,
+         "maxExp" : 776,
+         "modelId" : 6003,
+         "name" : "魅影之羽",
+         "stageLevel" : 4,
+         "startLevel" : 1,
+         "wingNextRefId" : "wing_4_2",
+         "wingPreRefId" : "wing_4_0"
+      },
+      "refId" : "wing_4_1"
+   },
+   "wing_4_2" : {
+      "effectData" : {
+         "MImmunityPer" : 16,
+         "PImmunityPer" : 16,
+         "maxMAtk" : 364,
+         "maxMDef" : 0,
+         "maxPAtk" : 364,
+         "maxPDef" : 0,
+         "maxTao" : 364,
+         "maxPDef" : 189,
+         "maxMDef" : 0,
+         "maxPAtk" : 189,
+         "maxPDef" : 0,
+         "maxTao" : 189
+      },
+      "property" : {
+         "featherMaxConsume" : 4,
+         "iconId" : "wing_4",
+         "injure" : 2311,
+         "maxExp" : 896,
+         "modelId" : 6003,
+         "name" : "魅影之羽",
+         "stageLevel" : 4,
+         "startLevel" : 2,
+         "wingNextRefId" : "wing_4_3",
+         "wingPreRefId" : "wing_4_1"
+      },
+      "refId" : "wing_4_2"
+   },
+   "wing_4_3" : {
+      "effectData" : {
+         "MImmunityPer" : 16,
+         "PImmunityPer" : 16,
+         "maxMAtk" : 415,
+         "maxMDef" : 0,
+         "maxPAtk" : 415,
+         "maxPDef" : 0,
+         "maxTao" : 415,
+         "maxPDef" : 215,
+         "maxMDef" : 0,
+         "maxPAtk" : 215,
+         "maxPDef" : 0,
+         "maxTao" : 215
+      },
+      "property" : {
+         "featherMaxConsume" : 4,
+         "iconId" : "wing_4",
+         "injure" : 2593,
+         "maxExp" : 1024,
+         "modelId" : 6003,
+         "name" : "魅影之羽",
+         "stageLevel" : 4,
+         "startLevel" : 3,
+         "wingNextRefId" : "wing_5_0",
+         "wingPreRefId" : "wing_4_2"
+      },
+      "refId" : "wing_4_3"
+   },
+   "wing_5_0" : {
+      "effectData" : {
+         "MImmunityPer" : 18,
+         "PImmunityPer" : 18,
+         "maxMAtk" : 471,
+         "maxMDef" : 0,
+         "maxPAtk" : 471,
+         "maxPDef" : 0,
+         "maxTao" : 471,
+         "maxPDef" : 243,
+         "maxMDef" : 0,
+         "maxPAtk" : 243,
+         "maxPDef" : 0,
+         "maxTao" : 243
+      },
+      "property" : {
+         "featherMaxConsume" : 5,
+         "iconId" : "wing_5",
+         "injure" : 2937,
+         "maxExp" : 1164,
+         "modelId" : 6004,
+         "name" : "辉煌之羽",
+         "stageLevel" : 5,
+         "startLevel" : 0,
+         "wingNextRefId" : "wing_5_1",
+         "wingPreRefId" : "wing_4_3"
+      },
+      "refId" : "wing_5_0"
+   },
+   "wing_5_1" : {
+      "effectData" : {
+         "MImmunityPer" : 18,
+         "PImmunityPer" : 18,
+         "maxMAtk" : 531,
+         "maxMDef" : 0,
+         "maxPAtk" : 531,
+         "maxPDef" : 0,
+         "maxTao" : 531,
+         "maxPDef" : 273,
+         "maxMDef" : 0,
+         "maxPAtk" : 273,
+         "maxPDef" : 0,
+         "maxTao" : 273
+      },
+      "property" : {
+         "featherMaxConsume" : 5,
+         "iconId" : "wing_5",
+         "injure" : 3267,
+         "maxExp" : 1308,
+         "modelId" : 6004,
+         "name" : "辉煌之羽",
+         "stageLevel" : 5,
+         "startLevel" : 1,
+         "wingNextRefId" : "wing_5_2",
+         "wingPreRefId" : "wing_5_0"
+      },
+      "refId" : "wing_5_1"
+   },
+   "wing_5_2" : {
+      "effectData" : {
+         "MImmunityPer" : 18,
+         "PImmunityPer" : 18,
+         "maxMAtk" : 595,
+         "maxMDef" : 0,
+         "maxPAtk" : 595,
+         "maxPDef" : 0,
+         "maxTao" : 595,
+         "maxPDef" : 305,
+         "maxMDef" : 0,
+         "maxPAtk" : 305,
+         "maxPDef" : 0,
+         "maxTao" : 305
+      },
+      "property" : {
+         "featherMaxConsume" : 5,
+         "iconId" : "wing_5",
+         "injure" : 3619,
+         "maxExp" : 1464,
+         "modelId" : 6004,
+         "name" : "辉煌之羽",
+         "stageLevel" : 5,
+         "startLevel" : 2,
+         "wingNextRefId" : "wing_5_3",
+         "wingPreRefId" : "wing_5_1"
+      },
+      "refId" : "wing_5_2"
+   },
+   "wing_5_3" : {
+      "effectData" : {
+         "MImmunityPer" : 18,
+         "PImmunityPer" : 18,
+         "maxMAtk" : 664,
+         "maxMDef" : 0,
+         "maxPAtk" : 664,
+         "maxPDef" : 0,
+         "maxTao" : 664,
+         "maxPDef" : 339,
+         "maxMDef" : 0,
+         "maxPAtk" : 339,
+         "maxPDef" : 0,
+         "maxTao" : 339
+      },
+      "property" : {
+         "featherMaxConsume" : 5,
+         "iconId" : "wing_5",
+         "injure" : 3997,
+         "maxExp" : 1632,
+         "modelId" : 6004,
+         "name" : "辉煌之羽",
+         "stageLevel" : 5,
+         "startLevel" : 3,
+         "wingNextRefId" : "wing_6_0",
+         "wingPreRefId" : "wing_5_2"
+      },
+      "refId" : "wing_5_3"
+   },
+   "wing_6_0" : {
+      "effectData" : {
+         "MImmunityPer" : 20,
+         "PImmunityPer" : 20,
+         "maxMAtk" : 737,
+         "maxMDef" : 0,
+         "maxPAtk" : 737,
+         "maxPDef" : 0,
+         "maxTao" : 737,
+         "maxPDef" : 376,
+         "maxMDef" : 0,
+         "maxPAtk" : 376,
+         "maxPDef" : 0,
+         "maxTao" : 376
+      },
+      "property" : {
+         "featherMaxConsume" : 6,
+         "iconId" : "wing_6",
+         "injure" : 4436,
+         "maxExp" : 1804,
+         "modelId" : 6005,
+         "name" : "幻彩之羽",
+         "stageLevel" : 6,
+         "startLevel" : 0,
+         "wingNextRefId" : "wing_6_1",
+         "wingPreRefId" : "wing_5_3"
+      },
+      "refId" : "wing_6_0"
+   },
+   "wing_6_1" : {
+      "effectData" : {
+         "MImmunityPer" : 20,
+         "PImmunityPer" : 20,
+         "maxMAtk" : 815,
+         "maxMDef" : 0,
+         "maxPAtk" : 815,
+         "maxPDef" : 0,
+         "maxTao" : 815,
+         "maxPDef" : 415,
+         "maxMDef" : 0,
+         "maxPAtk" : 415,
+         "maxPDef" : 0,
+         "maxTao" : 415
+      },
+      "property" : {
+         "featherMaxConsume" : 6,
+         "iconId" : "wing_6",
+         "injure" : 4865,
+         "maxExp" : 1988,
+         "modelId" : 6005,
+         "name" : "幻彩之羽",
+         "stageLevel" : 6,
+         "startLevel" : 1,
+         "wingNextRefId" : "wing_6_2",
+         "wingPreRefId" : "wing_6_0"
+      },
+      "refId" : "wing_6_1"
+   },
+   "wing_6_2" : {
+      "effectData" : {
+         "MImmunityPer" : 20,
+         "PImmunityPer" : 20,
+         "maxMAtk" : 897,
+         "maxMDef" : 0,
+         "maxPAtk" : 897,
+         "maxPDef" : 0,
+         "maxTao" : 897,
+         "maxPDef" : 456,
+         "maxMDef" : 0,
+         "maxPAtk" : 456,
+         "maxPDef" : 0,
+         "maxTao" : 456
+      },
+      "property" : {
+         "featherMaxConsume" : 6,
+         "iconId" : "wing_6",
+         "injure" : 5316,
+         "maxExp" : 2184,
+         "modelId" : 6005,
+         "name" : "幻彩之羽",
+         "stageLevel" : 6,
+         "startLevel" : 2,
+         "wingNextRefId" : "wing_6_3",
+         "wingPreRefId" : "wing_6_1"
+      },
+      "refId" : "wing_6_2"
+   },
+   "wing_6_3" : {
+      "effectData" : {
+         "MImmunityPer" : 20,
+         "PImmunityPer" : 20,
+         "maxMAtk" : 983,
+         "maxMDef" : 0,
+         "maxPAtk" : 983,
+         "maxPDef" : 0,
+         "maxTao" : 983,
+         "maxPDef" : 499,
+         "maxMDef" : 0,
+         "maxPAtk" : 499,
+         "maxPDef" : 0,
+         "maxTao" : 499
+      },
+      "property" : {
+         "featherMaxConsume" : 6,
+         "iconId" : "wing_6",
+         "injure" : 5789,
+         "maxExp" : 2388,
+         "modelId" : 6005,
+         "name" : "幻彩之羽",
+         "stageLevel" : 6,
+         "startLevel" : 3,
+         "wingNextRefId" : "wing_7_0",
+         "wingPreRefId" : "wing_6_2"
+      },
+      "refId" : "wing_6_3"
+   },
+   "wing_7_0" : {
+      "effectData" : {
+         "MImmunityPer" : 22,
+         "PImmunityPer" : 22,
+         "maxMAtk" : 1074,
+         "maxMDef" : 0,
+         "maxPAtk" : 1074,
+         "maxPDef" : 0,
+         "maxTao" : 1074,
+         "maxPDef" : 544,
+         "maxMDef" : 0,
+         "maxPAtk" : 544,
+         "maxPDef" : 0,
+         "maxTao" : 544
+      },
+      "property" : {
+         "featherMaxConsume" : 7,
+         "iconId" : "wing_7",
+         "injure" : 6324,
+         "maxExp" : 2600,
+         "modelId" : 6006,
+         "name" : "驱雷电羽",
+         "stageLevel" : 7,
+         "startLevel" : 0,
+         "wingNextRefId" : "wing_7_1",
+         "wingPreRefId" : "wing_6_3"
+      },
+      "refId" : "wing_7_0"
+   },
+   "wing_7_1" : {
+      "effectData" : {
+         "MImmunityPer" : 22,
+         "PImmunityPer" : 22,
+         "maxMAtk" : 1170,
+         "maxMDef" : 0,
+         "maxPAtk" : 1170,
+         "maxPDef" : 0,
+         "maxTao" : 1170,
+         "maxPDef" : 592,
+         "maxMDef" : 0,
+         "maxPAtk" : 592,
+         "maxPDef" : 0,
+         "maxTao" : 592
+      },
+      "property" : {
+         "featherMaxConsume" : 7,
+         "iconId" : "wing_7",
+         "injure" : 6852,
+         "maxExp" : 2820,
+         "modelId" : 6006,
+         "name" : "驱雷电羽",
+         "stageLevel" : 7,
+         "startLevel" : 1,
+         "wingNextRefId" : "wing_7_2",
+         "wingPreRefId" : "wing_7_0"
+      },
+      "refId" : "wing_7_1"
+   },
+   "wing_7_2" : {
+      "effectData" : {
+         "MImmunityPer" : 22,
+         "PImmunityPer" : 22,
+         "maxMAtk" : 1271,
+         "maxMDef" : 0,
+         "maxPAtk" : 1271,
+         "maxPDef" : 0,
+         "maxTao" : 1271,
+         "maxPDef" : 643,
+         "maxMDef" : 0,
+         "maxPAtk" : 643,
+         "maxPDef" : 0,
+         "maxTao" : 643
+      },
+      "property" : {
+         "featherMaxConsume" : 7,
+         "iconId" : "wing_7",
+         "injure" : 7409,
+         "maxExp" : 3052,
+         "modelId" : 6006,
+         "name" : "驱雷电羽",
+         "stageLevel" : 7,
+         "startLevel" : 2,
+         "wingNextRefId" : "wing_7_3",
+         "wingPreRefId" : "wing_7_1"
+      },
+      "refId" : "wing_7_2"
+   },
+   "wing_7_3" : {
+      "effectData" : {
+         "MImmunityPer" : 22,
+         "PImmunityPer" : 22,
+         "maxMAtk" : 1377,
+         "maxMDef" : 0,
+         "maxPAtk" : 1377,
+         "maxPDef" : 0,
+         "maxTao" : 1377,
+         "maxPDef" : 696,
+         "maxMDef" : 0,
+         "maxPAtk" : 696,
+         "maxPDef" : 0,
+         "maxTao" : 696
+      },
+      "property" : {
+         "featherMaxConsume" : 7,
+         "iconId" : "wing_7",
+         "injure" : 7992,
+         "maxExp" : 3296,
+         "modelId" : 6006,
+         "name" : "驱雷电羽",
+         "stageLevel" : 7,
+         "startLevel" : 3,
+         "wingNextRefId" : "wing_8_0",
+         "wingPreRefId" : "wing_7_2"
+      },
+      "refId" : "wing_7_3"
+   },
+   "wing_8_0" : {
+      "effectData" : {
+         "MImmunityPer" : 24,
+         "PImmunityPer" : 24,
+         "maxMAtk" : 1487,
+         "maxMDef" : 0,
+         "maxPAtk" : 1487,
+         "maxPDef" : 0,
+         "maxTao" : 1487,
+         "maxPDef" : 751,
+         "maxMDef" : 0,
+         "maxPAtk" : 751,
+         "maxPDef" : 0,
+         "maxTao" : 751
+      },
+      "property" : {
+         "featherMaxConsume" : 8,
+         "iconId" : "wing_8",
+         "injure" : 8633,
+         "maxExp" : 3544,
+         "modelId" : 6007,
+         "name" : "冰龙雪羽",
+         "stageLevel" : 8,
+         "startLevel" : 0,
+         "wingNextRefId" : "wing_8_1",
+         "wingPreRefId" : "wing_7_3"
+      },
+      "refId" : "wing_8_0"
+   },
+   "wing_8_1" : {
+      "effectData" : {
+         "MImmunityPer" : 24,
+         "PImmunityPer" : 24,
+         "maxMAtk" : 1603,
+         "maxMDef" : 0,
+         "maxPAtk" : 1603,
+         "maxPDef" : 0,
+         "maxTao" : 1603,
+         "maxPDef" : 809,
+         "maxMDef" : 0,
+         "maxPAtk" : 809,
+         "maxPDef" : 0,
+         "maxTao" : 809
+      },
+      "property" : {
+         "featherMaxConsume" : 8,
+         "iconId" : "wing_8",
+         "injure" : 9271,
+         "maxExp" : 3804,
+         "modelId" : 6007,
+         "name" : "冰龙雪羽",
+         "stageLevel" : 8,
+         "startLevel" : 1,
+         "wingNextRefId" : "wing_8_2",
+         "wingPreRefId" : "wing_8_0"
+      },
+      "refId" : "wing_8_1"
+   },
+   "wing_8_2" : {
+      "effectData" : {
+         "MImmunityPer" : 24,
+         "PImmunityPer" : 24,
+         "maxMAtk" : 1723,
+         "maxMDef" : 0,
+         "maxPAtk" : 1723,
+         "maxPDef" : 0,
+         "maxTao" : 1723,
+         "maxPDef" : 869,
+         "maxMDef" : 0,
+         "maxPAtk" : 869,
+         "maxPDef" : 0,
+         "maxTao" : 869
+      },
+      "property" : {
+         "featherMaxConsume" : 8,
+         "iconId" : "wing_8",
+         "injure" : 9931,
+         "maxExp" : 4076,
+         "modelId" : 6007,
+         "name" : "冰龙雪羽",
+         "stageLevel" : 8,
+         "startLevel" : 2,
+         "wingNextRefId" : "wing_8_3",
+         "wingPreRefId" : "wing_8_1"
+      },
+      "refId" : "wing_8_2"
+   },
+   "wing_8_3" : {
+      "effectData" : {
+         "MImmunityPer" : 24,
+         "PImmunityPer" : 24,
+         "maxMAtk" : 1848,
+         "maxMDef" : 0,
+         "maxPAtk" : 1848,
+         "maxPDef" : 0,
+         "maxTao" : 1848,
+         "maxPDef" : 931,
+         "maxMDef" : 0,
+         "maxPAtk" : 931,
+         "maxPDef" : 0,
+         "maxTao" : 931
+      },
+      "property" : {
+         "featherMaxConsume" : 8,
+         "iconId" : "wing_8",
+         "injure" : 10617,
+         "maxExp" : 4356,
+         "modelId" : 6007,
+         "name" : "冰龙雪羽",
+         "stageLevel" : 8,
+         "startLevel" : 3,
+         "wingNextRefId" : "wing_9_0",
+         "wingPreRefId" : "wing_8_2"
+      },
+      "refId" : "wing_8_3"
+   },
+   "wing_9_0" : {
+      "effectData" : {
+         "MImmunityPer" : 26,
+         "PImmunityPer" : 26,
+         "maxMAtk" : 1979,
+         "maxMDef" : 0,
+         "maxPAtk" : 1979,
+         "maxPDef" : 0,
+         "maxTao" : 1979,
+         "maxPDef" : 997,
+         "maxMDef" : 0,
+         "maxPAtk" : 997,
+         "maxPDef" : 0,
+         "maxTao" : 997
+      },
+      "property" : {
+         "featherMaxConsume" : 9,
+         "iconId" : "wing_9",
+         "injure" : 11375,
+         "maxExp" : 4648,
+         "modelId" : 6008,
+         "name" : "火凤炽羽",
+         "stageLevel" : 9,
+         "startLevel" : 0,
+         "wingNextRefId" : "wing_9_1",
+         "wingPreRefId" : "wing_8_3"
+      },
+      "refId" : "wing_9_0"
+   },
+   "wing_9_1" : {
+      "effectData" : {
+         "MImmunityPer" : 26,
+         "PImmunityPer" : 26,
+         "maxMAtk" : 2114,
+         "maxMDef" : 0,
+         "maxPAtk" : 2114,
+         "maxPDef" : 0,
+         "maxTao" : 2114,
+         "maxPDef" : 1064,
+         "maxMDef" : 0,
+         "maxPAtk" : 1064,
+         "maxPDef" : 0,
+         "maxTao" : 1064
+      },
+      "property" : {
+         "featherMaxConsume" : 9,
+         "iconId" : "wing_9",
+         "injure" : 12116,
+         "maxExp" : 4948,
+         "modelId" : 6008,
+         "name" : "火凤炽羽",
+         "stageLevel" : 9,
+         "startLevel" : 1,
+         "wingNextRefId" : "wing_9_2",
+         "wingPreRefId" : "wing_9_0"
+      },
+      "refId" : "wing_9_1"
+   },
+   "wing_9_2" : {
+      "effectData" : {
+         "MImmunityPer" : 26,
+         "PImmunityPer" : 26,
+         "maxMAtk" : 2255,
+         "maxMDef" : 0,
+         "maxPAtk" : 2255,
+         "maxPDef" : 0,
+         "maxTao" : 2255,
+         "maxPDef" : 1135,
+         "maxMDef" : 0,
+         "maxPAtk" : 1135,
+         "maxPDef" : 0,
+         "maxTao" : 1135
+      },
+      "property" : {
+         "featherMaxConsume" : 9,
+         "iconId" : "wing_9",
+         "injure" : 12893,
+         "maxExp" : 5256,
+         "modelId" : 6008,
+         "name" : "火凤炽羽",
+         "stageLevel" : 9,
+         "startLevel" : 2,
+         "wingNextRefId" : "wing_9_3",
+         "wingPreRefId" : "wing_9_1"
+      },
+      "refId" : "wing_9_2"
+   },
+   "wing_9_3" : {
+      "effectData" : {
+         "MImmunityPer" : 26,
+         "PImmunityPer" : 26,
+         "maxMAtk" : 2401,
+         "maxMDef" : 0,
+         "maxPAtk" : 2401,
+         "maxPDef" : 0,
+         "maxTao" : 2401,
+         "maxPDef" : 1208,
+         "maxMDef" : 0,
+         "maxPAtk" : 1208,
+         "maxPDef" : 0,
+         "maxTao" : 1208
+      },
+      "property" : {
+         "featherMaxConsume" : 0,
+         "iconId" : "wing_9",
+         "injure" : 13696,
+         "maxExp" : 0,
+         "modelId" : 6008,
+         "name" : "火凤炽羽",
+         "stageLevel" : 9,
+         "startLevel" : 3,
+         "wingNextRefId" : "",
+         "wingPreRefId" : "wing_9_2"
+      },
+      "refId" : "wing_9_3"
+   }
+}
+

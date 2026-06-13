@@ -3,19 +3,19 @@
 	<e:Image id="imgBg" x="0" y="0" anchorOffsetX="0" width="544" anchorOffsetY="0" height="533" source="common_json.img_tips_bg_png" scale9Grid="22,26,21,15"/>
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" y="30" x="513" anchorOffsetX="27" anchorOffsetY="24"/>
 	<e:Image id="imgQuality" source="common_json.img_qlt_1_png" x="68" y="55"/>
-	<e:Label id="labItem" text="Meridian Elixir" x="175" y="60" size="22" anchorOffsetX="0" width="159.5" textColor="0xc6b59e"/>
-	<e:Label text="Used: " x="171.99" y="88" size="22" textColor="0xEDC839"/>
-	<e:Label text="Owned Qty: " x="171.99" y="116" size="22" textColor="0xEDC839"/>
+	<e:Label id="labItem" text="经脉丹" x="175" y="60" size="22" anchorOffsetX="0" width="159.5" textColor="0xc6b59e"/>
+	<e:Label text="已使用 : " x="171.99" y="88" size="22" textColor="0xEDC839"/>
+	<e:Label text="拥有数量 : " x="171.99" y="116" size="22" textColor="0xEDC839"/>
 	<e:Label id="labNum" text="1" x="278" y="116" size="22" anchorOffsetX="0" textColor="0xC6B59E" width="143" anchorOffsetY="0" height="23"/>
 	<e:Label id="labUse" text="5" x="259" y="88" size="22" anchorOffsetX="0" anchorOffsetY="0" textColor="0xC6B59E" width="167"/>
-	<e:Label id="info" text="Current Attribute Bonus: " x="71" y="154.5" size="22" anchorOffsetX="0" anchorOffsetY="0" wordWrap="true" width="396" height="91" textColor="0xedc839"/>
+	<e:Label id="info" text="当前属性加成 : " x="71" y="154.5" size="22" anchorOffsetX="0" anchorOffsetY="0" wordWrap="true" width="396" height="91" textColor="0xedc839"/>
 	<e:Image source="tips_json.img_tips_namebg" y="6" horizontalCenter="3"/>
-	<e:Label id="labName" text="XX Secret Manual" y="10" size="24" textAlign="center" width="160" height="24" horizontalCenter="4" textColor="0xdf660e"/>
+	<e:Label id="labName" text="XX秘典" y="10" size="24" textAlign="center" width="160" height="24" horizontalCenter="4" textColor="0xdf660e"/>
 	<e:Image source="common_fightBg_png" y="204.06" horizontalCenter="-136"/>
 	<e:Image x="44.94" y="211.73" source="common_json.img_fight_png" width="57" height="31"/>
 	<e:BitmapLabel id="labFight" y="213.25" anchorOffsetX="0" anchorOffsetY="0" text="7200" touchEnabled="false" left="111" font="fight_font2_fnt"/>
 	<item:PropertyItemBox id="propertyBox" y="260" skinName="normal.PropertyItemBoxSkin" width="340" x="99"/>
-	<components:SnapButton id="btnUpgrade" label="Level Up" y="485" anchorOffsetX="83" width="168" skinName="skins.SnapButtonDefaultSkin" x="266" icon="common_json.img_warn_png" anchorOffsetY="28"/>
+	<components:SnapButton id="btnUpgrade" label="升 级" y="485" anchorOffsetX="83" width="168" skinName="skins.SnapButtonDefaultSkin" x="266" icon="common_json.img_warn_png" anchorOffsetY="28"/>
 	<components:SnapButton id="btnGetDebris" label="" y="479" anchorOffsetX="35" x="486" anchorOffsetY="34" icon="img_warn_png">
 		<components:skinName>
 		<e:Skin states="up,down,disabled" xmlns:ns1="*" xmlns:ui="ui.*">
@@ -25,6 +25,6 @@
 		</e:Skin>
 		</components:skinName>
 	</components:SnapButton>
-	<e:Label id="labCost" text="Cost" x="125" y="420" anchorOffsetX="0" width="292" size="20" bold="true" border="false" background="false" textColor="0xC6B59E" stroke="1" anchorOffsetY="0" height="23" textAlign="center"/>
+	<e:Label id="labCost" text="消耗" x="125" y="420" anchorOffsetX="0" width="292" size="20" bold="true" border="false" background="false" textColor="0xC6B59E" stroke="1" anchorOffsetY="0" height="23" textAlign="center"/>
 	<e:Image id="imgIcon" x="84" y="68" source="role_json.img_midian_0_png"/>
 </e:Skin>

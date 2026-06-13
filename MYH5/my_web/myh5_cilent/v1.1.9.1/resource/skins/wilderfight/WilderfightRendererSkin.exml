@@ -5,18 +5,18 @@
 	<e:Image id="imgHeadBack" x="13" y="14.5" source="common_json.img_qlt_1_png"/>
 	<e:Image id="imgHead" width="80" height="80" x="18" y="17" anchorOffsetX="0" anchorOffsetY="0"/>
 
-	<e:Label id="labName" text="Fallen Archangel" x="113.32" y="14.5" size="20" bold="true" textColor="0xc6b59e"/>
+	<e:Label id="labName" text="大天使之贱" x="113.32" y="14.5" size="20" bold="true" textColor="0xc6b59e"/>
 	<e:Label id="lablv" text="Lv : 534543" x="254" y="16.5" size="18" textColor="0xedc839"/>
 	<e:Label id="labExp" text="000" y="55" size="16" verticalAlign="middle" textAlign="left" textColor="0x2b8c25" x="188" anchorOffsetY="0" height="14"/>
 	<e:Label id="labAlama" text="000" y="76.5" size="16" verticalAlign="middle" textAlign="left" left="330" textColor="0x2b8c25"/>
 	<e:Label id="labWeiwang" text="000" y="76.5" size="16" verticalAlign="middle" textAlign="left" textColor="0x2b8c25" x="188" anchorOffsetY="0" height="14"/>
 	<e:Label id="labGold" text="000" y="56" size="16" verticalAlign="middle" textAlign="left" left="283" textColor="0x2b8c25"/>
-	<components:SnapButton id="btnAttack" label="Challenge" y="38" anchorOffsetX="0" width="130" skinName="skins.SnapOrangeButtonSkin" right="26">
+	<components:SnapButton id="btnAttack" label="挑战" y="38" anchorOffsetX="0" width="130" skinName="skins.SnapOrangeButtonSkin" right="26">
 
 	</components:SnapButton>
-	<e:Label text="EXP" x="155" y="54.5" size="16" textColor="0xc6b59e" anchorOffsetY="0" height="14"/>
-	<e:Label text="Soul of Alama" x="247" y="76.5" size="16" textColor="0xc6b59e"/>
-	<e:Label text="Gold" x="247" y="55.33" size="16" textColor="0xc6b59e"/>
-	<e:Label text="Reputation" x="153.66" y="76.5" size="16" textColor="0xc6b59e" anchorOffsetY="0" height="14"/>
-	<e:Label text="Reward:" x="122" y="48" size="12" textColor="0xedc839"/>
+	<e:Label text="经验" x="155" y="54.5" size="16" textColor="0xc6b59e" anchorOffsetY="0" height="14"/>
+	<e:Label text="阿拉玛之魂" x="247" y="76.5" size="16" textColor="0xc6b59e"/>
+	<e:Label text="金币" x="247" y="55.33" size="16" textColor="0xc6b59e"/>
+	<e:Label text="威望" x="153.66" y="76.5" size="16" textColor="0xc6b59e" anchorOffsetY="0" height="14"/>
+	<e:Label text="奖励:" x="122" y="48" size="12" textColor="0xedc839"/>
 </e:Skin>

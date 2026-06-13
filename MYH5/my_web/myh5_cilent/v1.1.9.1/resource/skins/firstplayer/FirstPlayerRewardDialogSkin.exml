@@ -5,7 +5,7 @@
 	<components:IconButton id="btnBack" x="471" y="591.67" anchorOffsetX="37" anchorOffsetY="32" source="common_json.btn_back_png"/>
 	<e:Image id="imgTitle" y="8.68" source="firstplayer_json.img_seekkey_title" x="196"/>
 	<e:Image anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_tips_bg_png" scale9Grid="20,23,22,20" alpha="0.6" touchEnabled="false" height="81" width="467" y="338" horizontalCenter="0"/>
-	<components:SnapButton id="btnReceive" label="Claim Reward" y="584.67" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" x="258.33"/>
+	<components:SnapButton id="btnReceive" label="领取奖励" y="584.67" skinName="skins.SnapButtonDefaultSkin" width="150" anchorOffsetX="75" anchorOffsetY="25" x="258.33"/>
 	<firstplayer:FirstPlayerRewardItem id="rewardItem" y="447.56" skinName="skin.FirstPlayerRewardItemSkin" x="164"/>
 	<e:Image source="tips_json.img_tips_title_shuxing" y="426.77" horizontalCenter="0.5" touchEnabled="false"/>
 	<e:Image source="firstplayer_json.img__key_receive" y="421.77" horizontalCenter="2.5" touchEnabled="false"/>

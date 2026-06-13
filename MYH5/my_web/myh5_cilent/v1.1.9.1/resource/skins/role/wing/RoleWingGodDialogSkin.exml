@@ -11,37 +11,37 @@
 	<e:Image id="imgUnActive" source="rolePhantom_json.role_phantom_unactive_png" includeIn="equip" x="139" y="196"/>
 	<components:HeadTab id="headTab" skinName="normal.HeadTabSkin" horizontalCenter="0" includeIn="equip"/>
 	<item:PropertyItemBox id="propertyBox" y="596" skinName="normal.PropertyItemBoxSkin" horizontalCenter="0" touchChildren="false" includeIn="equip"/>
-	<components:SnapButton id="btnUpgrade" label="Enhance" y="829" anchorOffsetX="81" width="162" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" horizontalCenter="162" horizontalCenter.composite="0" label.composite="合成" y.composite="808" x.transform="300" y.transform="825" horizontalCenter.transform="0" label.transform="转换"/>
-	<components:SnapButton id="btnEquipWingGod" label="Equip Divine Feather" y="826" anchorOffsetX="81" width="162" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" horizontalCenter="-150" includeIn="equip"/>
+	<components:SnapButton id="btnUpgrade" label="提升" y="829" anchorOffsetX="81" width="162" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" horizontalCenter="162" horizontalCenter.composite="0" label.composite="合成" y.composite="808" x.transform="300" y.transform="825" horizontalCenter.transform="0" label.transform="转换"/>
+	<components:SnapButton id="btnEquipWingGod" label="装备神羽" y="826" anchorOffsetX="81" width="162" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" horizontalCenter="-150" includeIn="equip"/>
 	<e:BitmapLabel id="blabFight" y="128" text="8765199" touchEnabled="false" x="273" font="fight_font2_fnt" includeIn="equip"/>
-	<e:Label id="labMaster" text="Divine Feather Master Lv.10" includeIn="equip" y="264" size="18" textColor="0xffb200" stroke="1" anchorOffsetX="0" width="113" anchorOffsetY="0" height="19" verticalAlign="justify" textAlign="center" horizontalCenter="0.5"/>
-	<e:Label text="Activate Attributes:" includeIn="equip" x="223" y="286" size="14" textColor="0x808080"/>
-	<e:Label id="labActive1" text="All Divine Feathers at Tier 1 to activate" includeIn="equip" y="322" size="14" stroke="1" anchorOffsetX="0" width="176" anchorOffsetY="0" height="14" verticalAlign="justify" textAlign="left" horizontalCenter="80" textColor="0x808080"/>
-	<e:Label id="labNextCond" text="Next Tier Conditions:" includeIn="equip" x="223" y="322" size="14" textColor="0x808080"/>
-	<e:Label id="labProp" text="Wing — All Attributes +5%" includeIn="equip" y="286" size="14" textColor="0x34E22A" stroke="1" anchorOffsetX="0" width="113" anchorOffsetY="0" height="15" verticalAlign="justify" textAlign="left" horizontalCenter="48.5"/>
-	<e:Label text="Before Advancement" includeIn="equip" x="150" y="568" size="20" textColor="0xdf660e"/>
-	<e:Label text="After Advancement" includeIn="equip" x="403" y="568" size="20" textColor="0xDF660E"/>
-	<e:Label id="labNeed" text="Magic Stone Cost:" x="133" y="761" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xCFC9BE" textAlign="right" touchEnabled="false" anchorOffsetX="0" width="169" includeIn="transform"/>
-	<e:Label id="labConsume" text="Consume Flying Feather" includeIn="equip" x="260" y="767" size="16" textColor="0xc6b59e" textAlign="right" anchorOffsetX="0" width="147" anchorOffsetY="0" height="19"/>
+	<e:Label id="labMaster" text="神羽大师10级" includeIn="equip" y="264" size="18" textColor="0xffb200" stroke="1" anchorOffsetX="0" width="113" anchorOffsetY="0" height="19" verticalAlign="justify" textAlign="center" horizontalCenter="0.5"/>
+	<e:Label text="激活属性：" includeIn="equip" x="223" y="286" size="14" textColor="0x808080"/>
+	<e:Label id="labActive1" text="全部神羽一阶可激活" includeIn="equip" y="322" size="14" stroke="1" anchorOffsetX="0" width="176" anchorOffsetY="0" height="14" verticalAlign="justify" textAlign="left" horizontalCenter="80" textColor="0x808080"/>
+	<e:Label id="labNextCond" text="下阶条件：" includeIn="equip" x="223" y="322" size="14" textColor="0x808080"/>
+	<e:Label id="labProp" text="羽翼全属性 + 5%" includeIn="equip" y="286" size="14" textColor="0x34E22A" stroke="1" anchorOffsetX="0" width="113" anchorOffsetY="0" height="15" verticalAlign="justify" textAlign="left" horizontalCenter="48.5"/>
+	<e:Label text="升阶前" includeIn="equip" x="150" y="568" size="20" textColor="0xdf660e"/>
+	<e:Label text="升阶后" includeIn="equip" x="403" y="568" size="20" textColor="0xDF660E"/>
+	<e:Label id="labNeed" text="消耗魔石：" x="133" y="761" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xCFC9BE" textAlign="right" touchEnabled="false" anchorOffsetX="0" width="169" includeIn="transform"/>
+	<e:Label id="labConsume" text="消耗飞羽" includeIn="equip" x="260" y="767" size="16" textColor="0xc6b59e" textAlign="right" anchorOffsetX="0" width="147" anchorOffsetY="0" height="19"/>
 	<item:RoleWingTypeIcon id="selectEquip" includeIn="transform" x="266" y="467" skinName="normal.RoleWingTypeIconSkin"/>
 	<e:Image source="role_wing_skillbg_png" x="240" y="108" scale9Grid="7,79,44,480" anchorOffsetX="0" width="339" includeIn="composite" height="625"/>
 	<e:Image source="role_wing_skill_line_png" x="257" y="290" width="300" includeIn="composite"/>
-	<e:Label id="labAttack0" text="ATK: 275" y="372" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="368" includeIn="composite"/>
-	<e:Label id="labLife0" text="HP: 3500" y="342" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="368" rotation="0.29" includeIn="composite"/>
-	<e:Label id="labWuFang0" text="Phys DEF: 175" y="402" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="368" includeIn="composite"/>
-	<e:Label id="labFaFang0" text="Magic DEF: 175" y="432" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="368" includeIn="composite"/>
+	<e:Label id="labAttack0" text="攻击：275" y="372" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="368" includeIn="composite"/>
+	<e:Label id="labLife0" text="生命：3500" y="342" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="368" rotation="0.29" includeIn="composite"/>
+	<e:Label id="labWuFang0" text="物防：175" y="402" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="368" includeIn="composite"/>
+	<e:Label id="labFaFang0" text="法防：175" y="432" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="368" includeIn="composite"/>
 	<e:Group id="nextGroup" includeIn="composite" x="368" y="480">
 		<e:Image y="20" source="common_json.img_arrow_green_png" x="40" rotation="90" anchorOffsetX="14" anchorOffsetY="10" includeIn="composite"/>
-		<e:Label id="labAttack1" text="ATK: 275" y="106" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="0" includeIn="composite"/>
-		<e:Label id="labLife1" text="HP: 3500" y="76" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="0" rotation="0.29" includeIn="composite"/>
-		<e:Label id="labWuFang1" text="Phys DEF: 175" y="136" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="0" includeIn="composite"/>
-		<e:Label id="labFaFang1" text="Magic DEF: 175" y="166" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="0" includeIn="composite"/>
+		<e:Label id="labAttack1" text="攻击：275" y="106" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="0" includeIn="composite"/>
+		<e:Label id="labLife1" text="生命：3500" y="76" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="0" rotation="0.29" includeIn="composite"/>
+		<e:Label id="labWuFang1" text="物防：175" y="136" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="0" includeIn="composite"/>
+		<e:Label id="labFaFang1" text="法防：175" y="166" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="0" includeIn="composite"/>
 	</e:Group>
 	<e:Label id="labCount" text="8000/8000" y="760" size="20" anchorOffsetX="0" textAlign="center" horizontalCenter="55.5" textColor="0x34E22C" touchEnabled="false" horizontalCenter.equip="163.5" y.equip="767" horizontalCenter.composite="41.5" y.composite="245.5" horizontalCenter.transform="72" width.transform="132" width.equip="95" height.equip="20"/>
-	<e:Label text="Combine Preview" y="308" size="16" anchorOffsetX="0" textAlign="center" touchEnabled="false" x="376.5" textColor="0xDF660E" includeIn="composite"/>
-	<e:ToggleButton id="btnEquip" label="Equipment" x="122" y="867" currentState.equip="down" currentState.transform="up" currentState.composite="up"/>
-	<e:ToggleButton id="btnComposite" label="Synthesize" x="238" y="867" currentState.composite="down" currentState.transform="up" currentState.equip="up"/>
-	<e:ToggleButton id="btnTransform" label="Convert" x="355" y="868" currentState.transform="down" currentState.composite="up" currentState.equip="up"/>
+	<e:Label text="合成预览" y="308" size="16" anchorOffsetX="0" textAlign="center" touchEnabled="false" x="376.5" textColor="0xDF660E" includeIn="composite"/>
+	<e:ToggleButton id="btnEquip" label="装备" x="122" y="867" currentState.equip="down" currentState.transform="up" currentState.composite="up"/>
+	<e:ToggleButton id="btnComposite" label="合成" x="238" y="867" currentState.composite="down" currentState.transform="up" currentState.equip="up"/>
+	<e:ToggleButton id="btnTransform" label="转换" x="355" y="868" currentState.transform="down" currentState.composite="up" currentState.equip="up"/>
 	<e:Image id="imgSelect2" source="role_wing_skill_select_png" x="14" y="104" includeIn="composite"/>
 	<e:Image id="imgSelect" source="common_json.img_selectFrame_png" x="133" y="336" width="74" height="74" includeIn="equip,composite" y.composite="12" y.equip="345"/>
 	<e:Image y="189" x="412" anchorOffsetX="21" anchorOffsetY="15" source="rolePhantom_json.role_phantom_part_next_png" includeIn="composite"/>
@@ -67,6 +67,6 @@
 	<e:Image id="imgAdd1" width="80" height="80" x="261" y="184" source="pet_json.img_pet_add_png" includeIn="transform" touchEnabled="false"/>
 	<e:Image id="imgAdd0" width="80" height="80" x="261" y="460" source="pet_json.img_pet_add_png" includeIn="transform" touchEnabled="false"/>
 	<item:RoleWingTypeIcon id="typeIconNext" x="403" y="462" skinName="normal.RoleWingTypeIconSkin" includeIn="equip"/>
-	<e:Label id="labActive0" text="All Divine Feathers at Tier 1 to activate" includeIn="equip" y="304" size="14" stroke="1" anchorOffsetX="0" width="176" anchorOffsetY="0" height="14" verticalAlign="justify" textAlign="left" textColor="0x808080" x="292"/>
-	<e:Label id="labNextProp" text="Next Tier Attributes:" includeIn="equip" x="223" y="304" size="14" textColor="0x808080"/>
+	<e:Label id="labActive0" text="全部神羽一阶可激活" includeIn="equip" y="304" size="14" stroke="1" anchorOffsetX="0" width="176" anchorOffsetY="0" height="14" verticalAlign="justify" textAlign="left" textColor="0x808080" x="292"/>
+	<e:Label id="labNextProp" text="下阶属性：" includeIn="equip" x="223" y="304" size="14" textColor="0x808080"/>
 </e:Skin>

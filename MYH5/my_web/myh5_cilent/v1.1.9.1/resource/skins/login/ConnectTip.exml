@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin.ConnectTip" width="524" height="270" currentState="warn" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" states="warn,connecting,connectfail">
 	<e:Image width="100%" height="100%" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
-	<components:SnapButton id="btnReconnect" label="Login" anchorOffsetX="83" width="166" anchorOffsetY="33" height="69" horizontalCenter="120" label.warn="开始重连" horizontalCenter.warn="0" height.warn="69" y.warn="166" includeIn="warn" bottom="35">
+	<components:SnapButton id="btnReconnect" label="登录" anchorOffsetX="83" width="166" anchorOffsetY="33" height="69" horizontalCenter="120" label.warn="开始重连" horizontalCenter.warn="0" height.warn="69" y.warn="166" includeIn="warn" bottom="35">
 		<components:skinName>
 		<e:Skin states="up,down,disabled">
 			<e:Image width="100%" height="100%" source="common_json.btn_red_png" scale9Grid="16,16,16,16"/>
@@ -9,7 +9,7 @@
 		</e:Skin>
 		</components:skinName>
 	</components:SnapButton>
-	<components:SnapButton id="btnRefesh" label="Refresh Page" anchorOffsetX="83" width="166" anchorOffsetY="33" height="69" horizontalCenter="-117" y.connecting="187" includeIn="connectfail" horizontalCenter.connectfail="0" horizontalCenter.warn="-117" bottom.connectfail="35" bottom.warn="35" bottom="35">
+	<components:SnapButton id="btnRefesh" label="刷新页面" anchorOffsetX="83" width="166" anchorOffsetY="33" height="69" horizontalCenter="-117" y.connecting="187" includeIn="connectfail" horizontalCenter.connectfail="0" horizontalCenter.warn="-117" bottom.connectfail="35" bottom.warn="35" bottom="35">
 		<components:skinName>
 		<e:Skin states="up,down,disabled">
 			<e:Image width="100%" height="100%" source="common_json.btn_red_png" scale9Grid="16,16,16,16"/>
@@ -17,5 +17,5 @@
 		</e:Skin>
 		</components:skinName>
 	</components:SnapButton>
-	<e:Label text="Reconnecting....." x.connectfail="162" x.connecting="175" y="105" size="20" textColor="0xc6b59e" y.connecting="135" y.warn="106.5" text.warn="你的连接已断开,请点击重连" horizontalCenter.warn="0" y.connectfail="112.5" text.connectfail="重连失败，请点击刷新" x="188" text.connecting="正在连接服务器....."/>
+	<e:Label text="正在重新连接....." x.connectfail="162" x.connecting="175" y="105" size="20" textColor="0xc6b59e" y.connecting="135" y.warn="106.5" text.warn="你的连接已断开,请点击重连" horizontalCenter.warn="0" y.connectfail="112.5" text.connectfail="重连失败，请点击刷新" x="188" text.connecting="正在连接服务器....."/>
 </e:Skin>

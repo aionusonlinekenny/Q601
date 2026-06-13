@@ -2,6 +2,6 @@
 <e:Skin class="components.ItemBoxSkin" width="90" height="110" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
 	<e:Image id="quality" x="0" y="0" source="common_json.img_qlt_6_png"/>
 	<components:Icon id="icon" width="80" height="80" anchorOffsetX="0" anchorOffsetY="0" x="5" y="3"/>
-	<e:Label id="labName" text="Name" y="91" size="18" horizontalCenter="0" verticalAlign="middle" textColor="0xc6b59e" textAlign="center" stroke="2" width="90" truncateToFit="true"/>
+	<e:Label id="labName" text="名称" y="91" size="18" horizontalCenter="0" verticalAlign="middle" textColor="0xc6b59e" textAlign="center" stroke="2"/>
 	<e:Label id="labCount" text="x100" y="61" bold="true" size="20" verticalAlign="middle" stroke="3" textColor="0xc6b59e" anchorOffsetX="0" width="77" x="3" textAlign="right"/>
 </e:Skin>

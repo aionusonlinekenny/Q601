@@ -12,8 +12,8 @@
 	<components:RewardItemBox id="reward3" x="33" y="594" skinName="components.ItemBoxSkin"/>
 	<components:RewardItemBox id="reward4" x="149" y="594" skinName="components.ItemBoxSkin"/>
 	<components:RewardItemBox id="reward5" x="266" y="594" skinName="components.ItemBoxSkin"/>
-	<components:SnapButton id="btnBuy" label="Buy Now" y="776" anchorOffsetX="80" horizontalCenter="0" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="29"/>
-	<e:Label id="labDate" text="Time Remaining: 1d 12h 20m" y="816" size="20" textColor="0x2B8C25" bold="true" horizontalCenter="0"/>
+	<components:SnapButton id="btnBuy" label="立即购买" y="776" anchorOffsetX="80" horizontalCenter="0" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="29"/>
+	<e:Label id="labDate" text="剩余时间 : 1天12小时20分" y="816" size="20" textColor="0x2B8C25" bold="true" horizontalCenter="0"/>
 	<e:Image x="332.32" y="620.35" touchEnabled="false" source="img_activity_chest_di_png"/>
 	<e:Image x="329.32" y="573.35" anchorOffsetX="0" width="253" touchEnabled="false" source="img_activity_chest_di2_png"/>
 	<e:Image id="imgSelected" source="activity_json.img_activity_selected" x="32" y="10" anchorOffsetX="2" width="135" anchorOffsetY="2" height="139" scale9Grid="5,5,2,3"/>

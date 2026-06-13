@@ -18,5 +18,5 @@
 	<components:Icon id="imgIcon2" width="80" height="80" x="367" y="796" touchEnabled="true" scaleX="0.5" scaleY="0.5"/>
 	<e:Label id="lab1" text="Label" y="806" size="20" verticalAlign="middle" textAlign="left" textColor="0xc6b59e" x="198"/>
 	<e:Label id="lab2" text="Label" y="806" size="20" verticalAlign="middle" textAlign="left" textColor="0xc6b59e" x="423"/>
-	<e:Label id="labNoFenjie" text="No Phantom Beasts to decompose." y="364" horizontalCenter="0" size="20" textColor="0x7d6a52"/>
+	<e:Label id="labNoFenjie" text="没有可分解的幻兽。" y="364" horizontalCenter="0" size="20" textColor="0x7d6a52"/>
 </e:Skin>

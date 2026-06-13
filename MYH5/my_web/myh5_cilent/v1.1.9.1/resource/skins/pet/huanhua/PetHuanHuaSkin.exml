@@ -10,23 +10,23 @@
 		<e:Image id="img_Highlight1" touchEnabled="false" source="explore_json.img_circle_gold" width="85" height="85" y="2" x="3.5"/>
 		<e:Image id="imgPoint1" source="common_json.img_warn_png" x="0" y="0"/>
 		<e:Label id="vipLock1" text="" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
-		<e:Label text="Learn Value Unlock" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" id="labXueXi1" horizontalCenter="0" verticalCenter="0" textColor="0xedc839" visible="false"/>
+		<e:Label text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" id="labXueXi1" horizontalCenter="0" verticalCenter="0" textColor="0xedc839" visible="false"/>
 	</e:Group>
 	<e:Group id="group2" y="22.5" touchEnabled="false" x="254" width="92" height="92">
 		<e:Image id="btn2" x="0" y="0" source="explore_json.img_circle_back"/>
 		<e:Image id="img02" x="6" y="6" touchEnabled="false" source="" width="80" height="80"/>
 		<e:Image id="img_Highlight2" x="3.5" y="2" touchEnabled="false" source="explore_json.img_circle_gold" width="85" height="85"/>
 		<e:Image id="imgPoint2" source="common_json.img_warn_png" x="0" y="0"/>
-		<e:Label id="vipLock2" text="V2 Unlock Now" y="80" size="18" horizontalCenter="0" textColor="0x34E22C" stroke="2" x="-75" scaleX="1" scaleY="1"/>
-		<e:Label id="labXueXi2" text="Learn Value Unlock" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" horizontalCenter="0" verticalCenter="0" textColor="0xedc839" visible="false"/>
+		<e:Label id="vipLock2" text="V2立即解锁" y="80" size="18" horizontalCenter="0" textColor="0x34E22C" stroke="2" x="-75" scaleX="1" scaleY="1"/>
+		<e:Label id="labXueXi2" text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" horizontalCenter="0" verticalCenter="0" textColor="0xedc839" visible="false"/>
 	</e:Group>
 	<e:Group id="group3" y="22.5" touchEnabled="false" x="375" width="92" height="92">
 		<e:Image id="btn3" x="0" y="0" source="explore_json.img_circle_back"/>
 		<e:Image id="img03" x="6" y="6" touchEnabled="false" source="" width="80" height="80"/>
 		<e:Image id="img_Highlight3" x="3.5" y="2" touchEnabled="false" source="explore_json.img_circle_gold" width="85" height="85"/>
 		<e:Image id="imgPoint3" source="common_json.img_warn_png" x="0" y="0"/>
-		<e:Label id="vipLock3" text="V4 Unlock Now" y="80" size="18" horizontalCenter="0" textColor="0x34E22C" stroke="2" x="-75" scaleX="1" scaleY="1"/>
-		<e:Label id="labXueXi3" text="Learn Value Unlock" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" horizontalCenter="0" verticalCenter="0" textColor="0xedc839" visible="false"/>
+		<e:Label id="vipLock3" text="V4立即解锁" y="80" size="18" horizontalCenter="0" textColor="0x34E22C" stroke="2" x="-75" scaleX="1" scaleY="1"/>
+		<e:Label id="labXueXi3" text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" horizontalCenter="0" verticalCenter="0" textColor="0xedc839" visible="false"/>
 	</e:Group>
 	<e:Group id="NohaveGroup" x="7.88" y="45" anchorOffsetY="0" anchorOffsetX="0" width="585" height="821.24" touchEnabled="false">
 		<e:Image source="common_implementbar_png" anchorOffsetY="0" height="149" horizontalCenter="0.5" x="-27.88" scaleX="1" scaleY="1" scale9Grid="0,15,640,14" bottom="-0.7599999999999909"/>
@@ -44,9 +44,9 @@
 			<e:Image x="0" y="0" source="pet_json.img_pet_egg_png"/>
 			<e:Label id="labCount1" text="Label" x="35" y="6.49" size="20" verticalAlign="middle" textAlign="left" textColor="0xC6B59E"/>
 		</e:Group>
-		<components:SnapButton id="btnGoldHuanHua" label="Gold Illusion" x="141.94" y="750" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" anchorOffsetX="74" anchorOffsetY="23"/>
-		<components:SnapButton id="btnjinjie" label="Upgrade" x="284.94" y="752" width="150" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetX="74" anchorOffsetY="25"/>
-		<components:SnapButton id="btnCailiaoHuanHua" label="Material Illusion" x="431.7" y="752" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" anchorOffsetX="75" anchorOffsetY="25"/>
+		<components:SnapButton id="btnGoldHuanHua" label="金币幻化" x="141.94" y="750" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" anchorOffsetX="74" anchorOffsetY="23"/>
+		<components:SnapButton id="btnjinjie" label="升级" x="284.94" y="752" width="150" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetX="74" anchorOffsetY="25"/>
+		<components:SnapButton id="btnCailiaoHuanHua" label="材料幻化" x="431.7" y="752" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" anchorOffsetX="75" anchorOffsetY="25"/>
 		<e:Image id="imgCentre" source="pet_json.img_huanhuaDI1_png" x="294.01" y="333" anchorOffsetX="79" anchorOffsetY="80.51" height="159"/>
 		<e:Image id="imgStep1" source="pet_json.img_huanhuaDI_png" x="49.01" y="441" anchorOffsetX="30" anchorOffsetY="28"/>
 		<e:Image id="imgStep2" source="pet_json.img_huanhuaDI_png" x="52.01" y="355" anchorOffsetX="30" anchorOffsetY="28"/>
@@ -59,10 +59,10 @@
 		<e:Image id="imgStep9" source="pet_json.img_huanhuaDI_png" x="538.01" y="355" anchorOffsetX="31" anchorOffsetY="28"/>
 		<e:Image id="imgStep10" source="pet_json.img_huanhuaDI_png" x="536.01" y="441" anchorOffsetX="30" anchorOffsetY="27"/>
 		<item:PropertyItemBox id="propertyBox" y="519" skinName="normal.PropertyItemBoxSkin" horizontalCenter="0.5"/>
-		<e:Label id="labGoldShow" text="Unlocks at Level 80" x="99" y="785" size="20" textColor="0xff0000"/>
+		<e:Label id="labGoldShow" text="80级开启" x="99" y="785" size="20" textColor="0xff0000"/>
 	</e:Group>
 	<e:Image source="role_json.img_dragon_di_png" x="3" y="182" anchorOffsetX="0" width="157" anchorOffsetY="0" height="21"/>
-	<e:BitmapLabel id="labLv" x="53" y="177" font="step_font_fnt" text="Tier 1"/>
+	<e:BitmapLabel id="labLv" x="53" y="177" font="step_font_fnt" text="1阶"/>
 
 
 

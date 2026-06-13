@@ -4,13 +4,13 @@
 	<e:Scroller id="scroller" x="0" y="0" scrollPolicyH="auto" scrollPolicyV="auto" width="600" height="750" bounces="false" anchorOffsetY="0">
 		<e:Group id="group" x="-285" y="0"/>
 	</e:Scroller>
-	<components:SnapButton id="btnRank" label="View Rankings" y="38" skinName="skins.SnapButtonDefaultSkin" width="133" anchorOffsetX="66.5" anchorOffsetY="25" x="529.5"/>
+	<components:SnapButton id="btnRank" label="查看排行" y="38" skinName="skins.SnapButtonDefaultSkin" width="133" anchorOffsetX="66.5" anchorOffsetY="25" x="529.5"/>
 	<e:Image x="249" y="17" source="godruins_json.godruins_name_bg1"/>
 	<e:Image x="34" y="3" source="godruins_json.godruins_name_bg2"/>
 	<e:Label id="labRuinsCount" text="15" y="33.5" size="15" verticalAlign="middle" textAlign="left" left="163" textColor="0x34e22c" stroke="2"/>
-	<e:Label id="labRuinsName" text="Old Friend, Heartbreaker" y="33" size="15" verticalAlign="middle" textAlign="left" left="370" stroke="2" textColor="0xc6b59e"/>
+	<e:Label id="labRuinsName" text="老铁扎心" y="33" size="15" verticalAlign="middle" textAlign="left" left="370" stroke="2" textColor="0xc6b59e"/>
 	<e:Label id="labExploreCount" text="0/5" y="767" size="20" verticalAlign="middle" textAlign="center" textColor="0x34e22c" x="381" stroke="2"/>
-	<e:Label text="Max 5 Ruins explored simultaneously: " x="171" y="767" size="20" textColor="0xc6b59e" stroke="2"/>
+	<e:Label text="同时最多探索5个遗迹 : " x="171" y="767" size="20" textColor="0xc6b59e" stroke="2"/>
 	<renderer:GodruinsExploreBox id="item0" x="22" y="792" skinName="normal.GodruinsExploreBoxSkin"/>
 	<renderer:GodruinsExploreBox id="item1" x="139" y="792" skinName="normal.GodruinsExploreBoxSkin"/>
 	<renderer:GodruinsExploreBox id="item2" x="257" y="792" skinName="normal.GodruinsExploreBoxSkin"/>

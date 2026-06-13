@@ -12,6 +12,6 @@
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="597" y="34" anchorOffsetX="25" anchorOffsetY="24"/>
 	<components:IconButton id="btnBack" source="common_json.btn_back_png" x="563" y="915" anchorOffsetX="36" anchorOffsetY="30"/>
 	<e:Image x="254" y="7" source="img_title_petCailiao_png"/>
-	<e:Label id="labNoCailiao" text="No consumable materials." y="364" horizontalCenter="0" size="20" textColor="0xC6B59E"/>
-	<e:Label id="labCailiao" text="Please place a Phantom Beast of Green quality or above, or a Green Advancement Stone." y="900" horizontalCenter="0" size="20" textColor="0xff0000"/>
+	<e:Label id="labNoCailiao" text="没有可消耗的材料。" y="364" horizontalCenter="0" size="20" textColor="0xC6B59E"/>
+	<e:Label id="labCailiao" text="请放入绿色品质以上的幻兽或绿色进阶石。" y="900" horizontalCenter="0" size="20" textColor="0xff0000"/>
 </e:Skin>

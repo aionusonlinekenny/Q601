@@ -2,11 +2,11 @@
 <e:Skin class="normal.LeiJiDengLuSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" width="600" height="850">
 	<e:Image y="0" source="img_summer_denglu_jpg" x="13"/>
 	<e:Image source="activity_black_bg_png" x="365" y="239" visible="false"/>
-	<e:Label id="labDate" text="December 12, 2018 " x="142" y="170" size="18" textColor="0x80ff19" stroke="2"/>
-	<e:Label id="labDesc" text="Total Phantom Beast Power Ranking (event period)" x="142" y="205" size="16" width="191" height="64" lineSpacing="5" textAlign="left" textColor="0xffffff" stroke="2"/>
-	<e:Label text="Deadline: " x="46" y="170" size="18" textColor="0x6ae1f7" stroke="2"/>
-	<e:Label text="Event Info: " x="46" y="205" size="18" textColor="0x6ae1f7" stroke="2"/>
-	<e:Label id="labRechange" text="200000 Magic Stones" y="243" size="22" textColor="0x34e22c" verticalAlign="middle" textAlign="right" x="441" stroke="1" visible="false"/>
+	<e:Label id="labDate" text="2018年12月12日 " x="142" y="170" size="18" textColor="0x80ff19" stroke="2"/>
+	<e:Label id="labDesc" text="活动期间幻兽总战力排行dd" x="142" y="205" size="16" width="191" height="64" lineSpacing="5" textAlign="left" textColor="0xffffff" stroke="2"/>
+	<e:Label text="截止时间 : " x="46" y="170" size="18" textColor="0x6ae1f7" stroke="2"/>
+	<e:Label text="活动说明 : " x="46" y="205" size="18" textColor="0x6ae1f7" stroke="2"/>
+	<e:Label id="labRechange" text="200000魔石" y="243" size="22" textColor="0x34e22c" verticalAlign="middle" textAlign="right" x="441" stroke="1" visible="false"/>
 	<e:Scroller width="559" height="557" y="283" horizontalCenter="0.5" anchorOffsetY="0">
 		<e:List id="listReward" x="40" y="8" itemRendererSkinName="renderer.ActivitySummerRendererSkin" itemRenderer="renderer.ActivitySummerRenderer">
 		<e:layout>
@@ -14,5 +14,5 @@
 		</e:layout>
 		</e:List>
 	</e:Scroller>
-	<e:Label text="Topped Up" x="375" y="243" size="22" textColor="0xe86927" stroke="1" visible="false"/>
+	<e:Label text="已充值" x="375" y="243" size="22" textColor="0xe86927" stroke="1" visible="false"/>
 </e:Skin>

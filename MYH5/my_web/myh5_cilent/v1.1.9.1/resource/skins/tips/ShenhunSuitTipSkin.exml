@@ -2,15 +2,15 @@
 <e:Skin class="normal.ShenhunSuitTipSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Image id="imgBg" x="0" y="0" anchorOffsetX="0" width="544" anchorOffsetY="0" height="382.67" source="common_json.img_tips_bg_png" scale9Grid="22,26,21,15"/>
 	<e:Image y="38" scale9Grid="61,1,70,12" width="210" horizontalCenter="0" source="tips_json.img_tips_titlebg"/>
-	<e:Label text="Divine Soul Awakening" y="33" size="22" anchorOffsetX="0" horizontalCenter="0" textAlign="center" textColor="0xedc839"/>
-	<e:Label id="labProperty0" text="ATK +500" x="79" y="110.83" size="20" lineSpacing="10" textColor="0xc6b59e"/>
-	<e:Label id="labDesc0" text="Socket 2 Divine Souls of Purple quality or above (2/2) — Not Activated" y="85" size="20" x="79" textColor="0x34e22c"/>
+	<e:Label text="神魂觉醒" y="33" size="22" anchorOffsetX="0" horizontalCenter="0" textAlign="center" textColor="0xedc839"/>
+	<e:Label id="labProperty0" text="攻击+500" x="79" y="110.83" size="20" lineSpacing="10" textColor="0xc6b59e"/>
+	<e:Label id="labDesc0" text="镶嵌2个紫色以上神魂（2/2） 未激活" y="85" size="20" x="79" textColor="0x34e22c"/>
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="26" anchorOffsetY="25" x="511" y="29"/>
 	<components:IconButton id="btnBack" source="common_json.btn_back_png" anchorOffsetX="35" anchorOffsetY="34" y="333" x="495"/>
 	<e:Image source="common_json.img_normal_line_png" y="164" width="450" x="47"/>
-	<e:Label id="labProperty1" text="ATK +500" x="76.33" y="200.82" size="20" lineSpacing="10" textColor="0xc6b59e"/>
-	<e:Label id="labDesc1" text="Socket 2 Divine Souls of Purple quality or above (2/2) — Not Activated" y="174.99" size="20" x="76.33" textColor="0x34e22c"/>
+	<e:Label id="labProperty1" text="攻击+500" x="76.33" y="200.82" size="20" lineSpacing="10" textColor="0xc6b59e"/>
+	<e:Label id="labDesc1" text="镶嵌2个紫色以上神魂（2/2） 未激活" y="174.99" size="20" x="76.33" textColor="0x34e22c"/>
 	<e:Image source="common_json.img_normal_line_png" y="254" width="450" x="47"/>
-	<e:Label id="labProperty2" text="ATK +500" x="73.67" y="290.82" size="20" lineSpacing="10" textColor="0xc6b59e"/>
-	<e:Label id="labDesc2" text="Socket 2 Divine Souls of Purple quality or above (2/2) — Not Activated" y="264.99" size="20" x="73.67" textColor="0x34e22c"/>
+	<e:Label id="labProperty2" text="攻击+500" x="73.67" y="290.82" size="20" lineSpacing="10" textColor="0xc6b59e"/>
+	<e:Label id="labDesc2" text="镶嵌2个紫色以上神魂（2/2） 未激活" y="264.99" size="20" x="73.67" textColor="0x34e22c"/>
 </e:Skin>

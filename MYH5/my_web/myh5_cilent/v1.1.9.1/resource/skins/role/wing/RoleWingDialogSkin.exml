@@ -8,8 +8,8 @@
 	<components:HeadTab id="headTab" skinName="normal.HeadTabSkin" horizontalCenter="0"/>
 	<e:BitmapLabel id="blabFight" y="127.8" text="8765199" touchEnabled="false" x="272.96" font="fight_font2_fnt"/>
 	<item:RolePhantomStar id="star" y="566" skinName="item.RolePhantomStarSkin" horizontalCenter="1"/>
-	<components:SnapButton id="btnUpgrade" label="Enhance" y="875" anchorOffsetX="81" width="162" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" horizontalCenter="0"/>
-	<components:SnapButton id="btnDress" label="Equip" anchorOffsetX="65" skinName="skins.SnapOrangeButtonSkin" anchorOffsetY="26" y="548" width="130" height="52" horizontalCenter="0"/>
+	<components:SnapButton id="btnUpgrade" label="提升" y="875" anchorOffsetX="81" width="162" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="26" horizontalCenter="0"/>
+	<components:SnapButton id="btnDress" label="穿戴" anchorOffsetX="65" skinName="skins.SnapOrangeButtonSkin" anchorOffsetY="26" y="548" width="130" height="52" horizontalCenter="0"/>
 	<item:PropertyItemBox id="propertyBox" y="654" skinName="normal.PropertyItemBoxSkin" horizontalCenter="0" touchChildren="false"/>
 	<components:IconButton id="btnLeft" anchorOffsetX="22" anchorOffsetY="25" y="298" source="activity_json.img_arrow_leftRight" x="25"/>
 	<components:IconButton id="btnRight" anchorOffsetX="22" anchorOffsetY="25" y="298" skewY="180" source="activity_json.img_arrow_leftRight" x="575"/>
@@ -31,21 +31,21 @@
 	<e:Group id="consumeGroup" x="133" y="795">
 		<e:Image source="common_json.img_numbg_png" y="5" anchorOffsetY="0" height="42" anchorOffsetX="0" width="108" scale9Grid="11,5,40,12" touchEnabled="false" x="169"/>
 		<components:IconButton id="btnGetMaterial" x="333" y="35" source="common_json.img_getRes_png" anchorOffsetX="34" anchorOffsetY="35"/>
-		<e:Label id="labNeed" text="Item Cost: " x="0" y="14" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xCFC9BE" textAlign="right" touchEnabled="false" anchorOffsetX="0" width="169"/>
+		<e:Label id="labNeed" text="消耗道具 : " x="0" y="14" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xCFC9BE" textAlign="right" touchEnabled="false" anchorOffsetX="0" width="169"/>
 		<e:Label id="labCount" text="8000/8000" y="13" size="20" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="174" width="99" anchorOffsetY="0" height="21"/>
 	</e:Group>
 	<e:Group id="activeLabGroup" x="161" y="495">
-		<e:Label id="labNeed0" text="Item Cost: " x="0" y="0" size="16" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xCFC9BE" textAlign="right" touchEnabled="false" anchorOffsetX="0" width="134"/>
+		<e:Label id="labNeed0" text="消耗道具 : " x="0" y="0" size="16" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xCFC9BE" textAlign="right" touchEnabled="false" anchorOffsetX="0" width="134"/>
 		<e:Label id="labCount0" text="8000/1" y="0" size="16" anchorOffsetX="0" textColor="0x34E22C" touchEnabled="false" x="124" textAlign="center" width="59"/>
-		<e:Label id="labGetProp" text="Obtained Materials" y="0" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="186"/>
+		<e:Label id="labGetProp" text="获得材料" y="0" size="16" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="186"/>
 	</e:Group>
 	<e:Group id="rolePropGroup" x="65.96" y="231">
 		<e:Image source="role_wingdi2_png" x="0" y="0" width="130"/>
-		<e:Label id="labAttack" text="ATK: 275" y="55" size="14" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="19.04"/>
-		<e:Label id="labLife" text="HP: 3500" y="33" size="14" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="19.04"/>
-		<e:Label id="labWuFang" text="Phys DEF: 175" y="78" size="14" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="19.04"/>
-		<e:Label id="labFaFang" text="Magic DEF: 175" y="101" size="14" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="19.04"/>
-		<e:Label id="labFight" text="Power: 80000" y="12" size="14" anchorOffsetX="0" textAlign="center" touchEnabled="false" x="19.04" textColor="0xffb200"/>
+		<e:Label id="labAttack" text="攻击 : 275" y="55" size="14" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="19.04"/>
+		<e:Label id="labLife" text="生命 : 3500" y="33" size="14" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="19.04"/>
+		<e:Label id="labWuFang" text="物防 : 175" y="78" size="14" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="19.04"/>
+		<e:Label id="labFaFang" text="法防 : 175" y="101" size="14" anchorOffsetX="0" textAlign="center" textColor="0x34E22C" touchEnabled="false" x="19.04"/>
+		<e:Label id="labFight" text="战力 : 80000" y="12" size="14" anchorOffsetX="0" textAlign="center" touchEnabled="false" x="19.04" textColor="0xffb200"/>
 	</e:Group>
 	<item:RoleWingTypeIcon id="typeIcon0" x="452" y="157" skinName="normal.RoleWingTypeIconSkin" visible="false"/>
 	<item:RoleWingTypeIcon id="typeIcon1" x="452" y="246" skinName="normal.RoleWingTypeIconSkin" visible="false"/>
@@ -55,8 +55,8 @@
 		<components:Icon id="imgQuality" x="0" y="6" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="9,9,19,19" source="common_json.img_qlt_1_png" width="100" height="100" visible="false"/>
 		<components:Icon id="groupSkill" x="5" y="9" source="" width="90" height="90" visible="false"/>
 		<e:Label id="labLv" text="12" y="82" size="16" anchorOffsetX="0" width="63" textAlign="right" stroke="1" textColor="0x1291CE" x="31" visible="false"/>
-		<e:Label id="labName" text="Flying Feather" y="103" size="18" anchorOffsetX="0" width="95" textAlign="center" textColor="0xC6B59E" stroke="2" x="2" anchorOffsetY="0" height="16" visible="false"/>
-		<e:Label text="Skill" y="0" size="14" anchorOffsetX="0" width="92" textAlign="center" textColor="0xC6B59E" stroke="2" x="3" visible="false"/>
+		<e:Label id="labName" text="飞羽" y="103" size="18" anchorOffsetX="0" width="95" textAlign="center" textColor="0xC6B59E" stroke="2" x="2" anchorOffsetY="0" height="16" visible="false"/>
+		<e:Label text="技能" y="0" size="14" anchorOffsetX="0" width="92" textAlign="center" textColor="0xC6B59E" stroke="2" x="3" visible="false"/>
 		<components:Icon id="imgWarnSkill" source="common_json.img_warn_png" x="3" y="8" visible="false"/>
 	</e:Group>
 </e:Skin>

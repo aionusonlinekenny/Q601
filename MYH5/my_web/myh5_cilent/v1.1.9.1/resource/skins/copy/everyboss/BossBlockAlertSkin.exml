@@ -3,8 +3,8 @@
 	<e:Image anchorOffsetX="0" width="100%" anchorOffsetY="0" height="100%" source="common_json.img_bubbleBg_png" scale9Grid="10,9,6,7"/>
 	<e:Image source="common_json.img_normal_line_png" y="135" width="197" horizontalCenter="7.5"/>
 	<components:RewardItemBox id="dropItem" y="11" skinName="components.ItemBoxSkin" x="11"/>
-	<e:Label text="BOSS Shield Reward" y="22" size="18" touchEnabled="false" textColor="0xedc839" x="107"/>
-	<e:Label id="maxPointInfo" text="Month after month, roll 100 points." y="51" size="18" touchEnabled="false" anchorOffsetX="0" anchorOffsetY="0" height="38" verticalAlign="middle" textAlign="center" x="107" textColor="0x34e22c"/>
+	<e:Label text="BOSS护盾奖励" y="22" size="18" touchEnabled="false" textColor="0xedc839" x="107"/>
+	<e:Label id="maxPointInfo" text="一一月又一月掷出100点" y="51" size="18" touchEnabled="false" anchorOffsetX="0" anchorOffsetY="0" height="38" verticalAlign="middle" textAlign="center" x="107" textColor="0x34e22c"/>
 	<e:Group id="PointGroup" anchorOffsetX="0" anchorOffsetY="0" width="79" height="79" x="302" y="25">
 		<e:Image x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="copy_json.boss_alert_pointback" touchEnabled="false"/>
 		<e:Label id="currentPoint" text="0" textColor="0x34e22c" y="23" horizontalCenter="0" touchEnabled="false"/>
@@ -18,5 +18,5 @@
 		</components:SnapButton>
 	</e:Group>
 	<e:ProgressBar id="timePro" width="340" height="33" y="120" anchorOffsetX="0" skinName="skins.ProgressChestSkin" anchorOffsetY="0" maximum="100" minimum="0" value="100" touchEnabled="false" horizontalCenter="7"/>
-	<e:Label id="timeTip" text="Countdown: 10 sec" y="126" size="12" bold="true" touchEnabled="false" textColor="0xffffff" anchorOffsetY="0" height="14" horizontalCenter="7"/>
+	<e:Label id="timeTip" text="倒计时:10秒" y="126" size="12" bold="true" touchEnabled="false" textColor="0xffffff" anchorOffsetY="0" height="14" horizontalCenter="7"/>
 </e:Skin>

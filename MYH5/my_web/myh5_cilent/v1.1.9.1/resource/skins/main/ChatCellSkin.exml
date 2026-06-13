@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin.ChatCellSkin" width="400" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Image id="bg" source="" x="0" y="0" anchorOffsetX="0" width="340" anchorOffsetY="0" height="100%" visible="false"/>
-	<e:EditableText id="tf" width="400" text="Chat Message" anchorOffsetX="0" anchorOffsetY="0" size="18" wordWrap="true" multiline="true" x="0" textColor="0xffffff" top="0" verticalAlign="middle"/>
+	<e:EditableText id="tf" width="400" text="奥活动哦配合都怕会哦怕活动i阿婆活动i破哈怂IP和" anchorOffsetX="0" anchorOffsetY="0" size="18" wordWrap="true" multiline="true" x="0" textColor="0xffffff" top="0" verticalAlign="middle"/>
 </e:Skin>

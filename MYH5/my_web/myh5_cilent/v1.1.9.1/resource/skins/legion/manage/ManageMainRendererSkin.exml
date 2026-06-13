@@ -3,15 +3,15 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
 	<e:Image id="imgbg" width="562" height="120" anchorOffsetX="0" anchorOffsetY="0"
 	          y="0" scale9Grid="12,25,15,19" source="img_union_list_png"/>
-	<e:Label id="labName" text="Player's " y="51" size="20" verticalAlign="middle" textAlign="center"
+	<e:Label id="labName" text="玩家的 " y="51" size="20" verticalAlign="middle" textAlign="center"
 	          horizontalCenter="-214" textColor="0xc6b59e"/>
 	<e:Label id="labPower" text="0" y="51" size="20" verticalAlign="middle"
 	         textAlign="center"  horizontalCenter="114.5" textColor="0xc6b59e"/>
-	<e:Label id="labLv" text="Level 211" y="51" size="20" verticalAlign="middle"
+	<e:Label id="labLv" text="211级" y="51" size="20" verticalAlign="middle"
 	         textAlign="center"  horizontalCenter="-3" textColor="0xc6b59e"/>
-	<e:Label id="labJob" text="Leader" y="51" size="20" horizontalCenter="-101" verticalAlign="middle"
+	<e:Label id="labJob" text="团长" y="51" size="20" horizontalCenter="-101" verticalAlign="middle"
 	         textAlign="center" bold="true"  textColor="0xc6b59e"/>
-	<e:Label id="labState" text="Online" x="471" y="51" size="20" textColor="0xc6b59e"/>
+	<e:Label id="labState" text="在线" x="471" y="51" size="20" textColor="0xc6b59e"/>
 	<e:Button id="btnTan" label="" x="463" y="45">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">

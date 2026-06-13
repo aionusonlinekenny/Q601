@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="normal.PropertyChangeItemSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Label id="labProperty" text="ATK: 1999" x="0" y="0" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xc6b59e"/>
+	<e:Label id="labProperty" text="攻击 : 1999" x="0" y="0" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" textColor="0xc6b59e"/>
 	<e:Label id="labAdd" text="400000" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" y="1" textColor="0x34e22c" x="273"/>
 	<e:Image id="imgArrow" y="1" source="common_json.img_arrow_green_png" x="205"/>
 </e:Skin>

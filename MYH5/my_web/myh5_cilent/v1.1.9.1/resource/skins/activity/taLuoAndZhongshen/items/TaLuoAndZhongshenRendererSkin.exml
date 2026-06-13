@@ -9,5 +9,5 @@
 	<e:Image id="imgHead" x="109" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="1,0,4,5" source="player_icon_circle_json.job_1" verticalCenter="10"/>
 	<e:Label id="labRanking" text="4" size="30" textAlign="center" anchorOffsetX="0" anchorOffsetY="0" bold="true" textColor="0xC6B59E" verticalCenter="0" left="57"/>
 	<e:Label id="labName" text="40000000" size="20" anchorOffsetX="0" anchorOffsetY="0" textColor="0xC6B59E" verticalCenter="-19" left="201"/>
-	<e:Label id="labScore" text="Draw Count" size="20" textAlign="center" anchorOffsetX="0" anchorOffsetY="0" bold="true" textColor="0xC6B59E" verticalCenter="31" left="201"/>
+	<e:Label id="labScore" text="抽奖次数" size="20" textAlign="center" anchorOffsetX="0" anchorOffsetY="0" bold="true" textColor="0xC6B59E" verticalCenter="31" left="201"/>
 </e:Skin>

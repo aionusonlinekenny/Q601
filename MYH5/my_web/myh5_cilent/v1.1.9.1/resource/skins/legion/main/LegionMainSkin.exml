@@ -13,17 +13,17 @@
 			</e:Skin>
 		</e:skinName>
 	</e:ProgressBar>
-	<e:Label id="labNotice" text="Let's build a powerful Guild together!" y="74.32" anchorOffsetX="0" width="332" anchorOffsetY="0" height="118" size="20" textAlign="left" left="222" verticalAlign="top" lineSpacing="8" textColor="0xc6b59e"/>
-	<components:SnapButton id="btnManage" label="Guild Management" x="176" y="369.76" width="135" skinName="skins.SnapOrangeButtonSkin" anchorOffsetY="26" anchorOffsetX="67" height="55" icon="img_warn_png"/>
-	<components:SnapButton id="btnDynamic" label="Guild News" x="405.21" y="369.76" width="135" skinName="skins.SnapOrangeButtonSkin" height="55" icon="img_warn_png" anchorOffsetX="69" anchorOffsetY="27"/>
+	<e:Label id="labNotice" text="让我们一起建设强大得军团吧！" y="74.32" anchorOffsetX="0" width="332" anchorOffsetY="0" height="118" size="20" textAlign="left" left="222" verticalAlign="top" lineSpacing="8" textColor="0xc6b59e"/>
+	<components:SnapButton id="btnManage" label="军团管理" x="176" y="369.76" width="135" skinName="skins.SnapOrangeButtonSkin" anchorOffsetY="26" anchorOffsetX="67" height="55" icon="img_warn_png"/>
+	<components:SnapButton id="btnDynamic" label="军团动态" x="405.21" y="369.76" width="135" skinName="skins.SnapOrangeButtonSkin" height="55" icon="img_warn_png" anchorOffsetX="69" anchorOffsetY="27"/>
 	<components:IconButton id="btnChange" x="495.66" y="195.32" source="union_json.btn_union_changhe_png"/>
 	<components:IconButton id="btnHelp" x="544" y="294" source="union_json.img_union_help_png"/>
-	<e:Label id="labName" text="Anshen Granules" y="230" size="18" verticalAlign="middle" x="100" italic="true" textAlign="left" textColor="0xedc839"/>
-	<e:Label text="Leader: " y="267" size="22" verticalAlign="middle" textAlign="left" x="26" textColor="0xc6b59e"/>
-	<e:Label text="Members: " y="305" size="22" verticalAlign="middle" textAlign="left" x="26" textColor="0xc6b59e"/>
-	<e:Label text="Guild Power: " y="267" size="22" verticalAlign="middle" textAlign="left" x="262" textColor="0xc6b59e"/>
-	<e:Label text="Level: " y="305" size="22" verticalAlign="middle" textAlign="left" x="262" textColor="0xc6b59e"/>
-	<e:Label id="labHead" text="If it's an empty number, then" y="268" size="20" verticalAlign="middle" x="102" textColor="0xc6b59e" textAlign="left"/>
+	<e:Label id="labName" text="安神颗粒广泛" y="230" size="18" verticalAlign="middle" x="100" italic="true" textAlign="left" textColor="0xedc839"/>
+	<e:Label text="团  长 : " y="267" size="22" verticalAlign="middle" textAlign="left" x="26" textColor="0xc6b59e"/>
+	<e:Label text="人  数 : " y="305" size="22" verticalAlign="middle" textAlign="left" x="26" textColor="0xc6b59e"/>
+	<e:Label text="军团战力 : " y="267" size="22" verticalAlign="middle" textAlign="left" x="262" textColor="0xc6b59e"/>
+	<e:Label text="等  级 : " y="305" size="22" verticalAlign="middle" textAlign="left" x="262" textColor="0xc6b59e"/>
+	<e:Label id="labHead" text="是空号就" y="268" size="20" verticalAlign="middle" x="102" textColor="0xc6b59e" textAlign="left"/>
 	<e:Label id="labCount" text="1/30" y="306" size="20" verticalAlign="middle" x="102" textColor="0xc6b59e" textAlign="left"/>
 	<e:Label id="labPower" text="49864654" y="268" size="20" verticalAlign="middle" x="368" textAlign="left" textColor="0xc6b59e"/>
 	<e:Label id="labLv" text="lv1" y="306" size="20" verticalAlign="middle" x="342" textAlign="left" textColor="0x34e22c"/>
@@ -51,6 +51,6 @@
 	<e:Image y="416" scale9Grid="32,30,20,11" width="275" height="205" touchEnabled="false" source="img_union_kuang_png" x="14"/>
 	<e:Image y="416" scale9Grid="32,30,20,11" width="275" height="205" touchEnabled="false" source="img_union_kuang_png" x="311"/>
 	<e:Image x="310.67" y="634.67" width="275" height="205" touchEnabled="false" scale9Grid="54,30,26,34" anchorOffsetY="0" source="img_union_kuang_png"/>
-	<e:Button id="btnDaily" label="Daily" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0" x="180"/>
-	<e:Button id="btnWelfare" label="Benefits" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0" x="300"/>
+	<e:Button id="btnDaily" label="日常" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0" x="180"/>
+	<e:Button id="btnWelfare" label="福利" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0" x="300"/>
 </e:Skin>

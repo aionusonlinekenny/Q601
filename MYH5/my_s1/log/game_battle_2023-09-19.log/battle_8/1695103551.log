@@ -1,0 +1,458 @@
+[2023-09-19 14:15:54,392] 【裁决骑士凯隆】锁定目标变更为：syymw.com
+[2023-09-19 14:15:54,392] (吉祥噜噜) 回血：15000;剩余血：267740/267740
+
+[2023-09-19 14:15:54,395] >>>>>[裁决骑士凯隆]施放技能【BEGIN】：(BOSS近战攻击), 描述=普通攻击, 目标：syymw.com, 技能距离：4
+[2023-09-19 14:15:54,395] >>>>>[裁决骑士凯隆]技能目标：(syymw.com), 自己坐标[11,17]; 目标坐标[9,19]
+[2023-09-19 14:15:54,395] 本次技能目标个数：1
+[2023-09-19 14:15:54,395] >>>>攻击：(裁决骑士凯隆) -> (syymw.com) 伤害系数：100, 固定伤害：0, 攻击类型：0, 是否XP技能：false
+[2023-09-19 14:15:54,395] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:54,395] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:54,395] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:54,395] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:54,395] 攻方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:54,395] 守方算伤害相关属性(BUFF前)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:54,395] 攻方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:54,395] 守方算伤害相关属性(BUFF后)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:54,395] 最终伤害：757
+[2023-09-19 14:15:54,395] 最终伤害算上BUFF加成：757
+[2023-09-19 14:15:54,395] (syymw.com,61d54739-c5d2-4391-b496-dbb532b85962) 扣血：757;剩余血：185419/186176
+[2023-09-19 14:15:54,395] =========[裁决骑士凯隆]施放技能【END】：(BOSS近战攻击)
+
+
+[2023-09-19 14:15:54,850] 客户端通知开始：[1e85198e-1140-4378-b194-48d194e27668]->[1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1001]
+[2023-09-19 14:15:54,850] 客户端通知技能成功：[吉祥噜噜,1e85198e-1140-4378-b194-48d194e27668]->[裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1001]
+
+[2023-09-19 14:15:54,850] >>>>>[吉祥噜噜]施放技能【BEGIN】：(斩击), 描述=单体攻击，对近战单体目标造成|C:0x34E22C&T:100%+100|T:物理伤害。, 目标：裁决骑士凯隆, 技能距离：1
+[2023-09-19 14:15:54,850] >>>>>[吉祥噜噜]技能目标：(裁决骑士凯隆), 自己坐标[9,19]; 目标坐标[11,17]
+[2023-09-19 14:15:54,852] 本次技能目标个数：1
+[2023-09-19 14:15:54,852] >>>>攻击：(吉祥噜噜) -> (裁决骑士凯隆) 伤害系数：100, 固定伤害：100, 攻击类型：0, 是否XP技能：false
+[2023-09-19 14:15:54,852] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:54,852] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:54,852] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:54,852] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:54,852] 攻方算伤害相关属性(BUFF前)：maxPAtk:20334,maxPDef:11782,maxMDef:9118,ignorePDef:7804,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:54,852] 守方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:54,852] 攻方算伤害相关属性(BUFF后)：maxPAtk:20334,maxPDef:11782,maxMDef:9118,ignorePDef:7804,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:54,852] 守方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:54,852] 最终伤害：20637
+[2023-09-19 14:15:54,852] 最终伤害算上BUFF加成：20637
+[2023-09-19 14:15:54,852] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 扣血：20637;剩余血：269363/290000
+[2023-09-19 14:15:54,853] =========[吉祥噜噜]施放技能【END】：(斩击)
+
+
+[2023-09-19 14:15:54,853] 客户端通知开始：[9a8f7d1c-dbc1-4d0b-b8b2-0bd740651559]->[1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+[2023-09-19 14:15:54,853] 客户端通知技能成功：[法师攻防型,9a8f7d1c-dbc1-4d0b-b8b2-0bd740651559]->[裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+
+[2023-09-19 14:15:54,853] >>>>>[法师攻防型]施放技能【BEGIN】：(火球术), 描述=单体攻击利用魔法的力量形成火焰球，对单体目标造成|C:0x34E22C&T:100%+100|T:魔法伤害。, 目标：裁决骑士凯隆, 技能距离：2
+[2023-09-19 14:15:54,853] >>>>>[法师攻防型]技能目标：(裁决骑士凯隆), 自己坐标[9,19]; 目标坐标[11,17]
+[2023-09-19 14:15:54,853] 本次技能目标个数：1
+[2023-09-19 14:15:54,853] >>>>攻击：(法师攻防型) -> (裁决骑士凯隆) 伤害系数：100, 固定伤害：100, 攻击类型：1, 是否XP技能：false
+[2023-09-19 14:15:54,853] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:54,853] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:54,853] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:54,853] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:54,853] 攻方算伤害相关属性(BUFF前)：maxPAtk:13134,maxPDef:5682,maxMDef:8519,ignorePDef:700,ignoreMDef:4139,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:54,853] 守方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:54,853] 攻方算伤害相关属性(BUFF后)：maxPAtk:13134,maxPDef:5682,maxMDef:8519,ignorePDef:700,ignoreMDef:4139,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:54,853] 守方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:54,853] 最终伤害：13365
+[2023-09-19 14:15:54,853] 最终伤害算上BUFF加成：13365
+[2023-09-19 14:15:54,853] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 扣血：13365;剩余血：255998/290000
+[2023-09-19 14:15:54,854] =========[法师攻防型]施放技能【END】：(火球术)
+
+
+[2023-09-19 14:15:54,854] 客户端通知开始：[c58bec36-35b3-4bd4-946e-c257b0228f5f]->[1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+[2023-09-19 14:15:54,854] 客户端通知技能成功：[异界精灵瑞拉,c58bec36-35b3-4bd4-946e-c257b0228f5f]->[裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+
+[2023-09-19 14:15:54,854] >>>>>[异界精灵瑞拉]施放技能【BEGIN】：(火球术), 描述=单体攻击利用魔法的力量形成火焰球，对单体目标造成|C:0x34E22C&T:100%+100|T:魔法伤害。, 目标：裁决骑士凯隆, 技能距离：2
+[2023-09-19 14:15:54,854] >>>>>[异界精灵瑞拉]技能目标：(裁决骑士凯隆), 自己坐标[9,19]; 目标坐标[11,17]
+[2023-09-19 14:15:54,854] 本次技能目标个数：1
+[2023-09-19 14:15:54,854] >>>>攻击：(异界精灵瑞拉) -> (裁决骑士凯隆) 伤害系数：100, 固定伤害：100, 攻击类型：1, 是否XP技能：false
+[2023-09-19 14:15:54,854] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:54,854] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:54,854] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:54,854] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:54,854] 攻方算伤害相关属性(BUFF前)：maxPAtk:13788,maxPDef:7192,maxMDef:7192,ignorePDef:700,ignoreMDef:4531,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:54,854] 守方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:54,854] 攻方算伤害相关属性(BUFF后)：maxPAtk:13788,maxPDef:7192,maxMDef:7192,ignorePDef:700,ignoreMDef:4531,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:54,854] 守方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:54,854] 最终伤害：14025
+[2023-09-19 14:15:54,854] 最终伤害算上BUFF加成：14025
+[2023-09-19 14:15:54,854] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 扣血：14025;剩余血：241973/290000
+[2023-09-19 14:15:54,854] =========[异界精灵瑞拉]施放技能【END】：(火球术)
+
+
+[2023-09-19 14:15:55,204] 客户端通知开始：[61d54739-c5d2-4391-b496-dbb532b85962]->[1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[12]
+[2023-09-19 14:15:55,204] 客户端通知技能成功：[syymw.com,61d54739-c5d2-4391-b496-dbb532b85962]->[裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[12]
+
+[2023-09-19 14:15:55,204] >>>>>[syymw.com]施放技能【BEGIN】：(元素紊乱), 描述=群体攻击，对周围目标造成|C:0x34E22C&T:100%+{0}|T:魔法伤害，将伤害的|C:0x34E22C&T:20%|T:转化为己方生命, 目标：裁决骑士凯隆, 技能距离：2
+[2023-09-19 14:15:55,204] >>>>>[syymw.com]技能目标：(裁决骑士凯隆), 自己坐标[9,19]; 目标坐标[11,17]
+[2023-09-19 14:15:55,206] 本次技能目标个数：1
+[2023-09-19 14:15:55,206] >>>>攻击：(syymw.com) -> (裁决骑士凯隆) 伤害系数：120, 固定伤害：2000, 攻击类型：1, 是否XP技能：false
+[2023-09-19 14:15:55,206] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:55,206] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:55,206] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:55,206] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:55,206] 攻方算伤害相关属性(BUFF前)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:55,206] 守方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:55,206] 攻方算伤害相关属性(BUFF后)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:55,206] 守方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:55,206] 最终伤害：24296
+[2023-09-19 14:15:55,206] 最终伤害算上BUFF加成：24296
+[2023-09-19 14:15:55,206] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 扣血：24296;剩余血：217677/290000
+[2023-09-19 14:15:55,206] =========[syymw.com]施放技能【END】：(元素紊乱)
+
+[2023-09-19 14:15:55,392] (吉祥噜噜) 回血：15000;剩余血：267740/267740
+
+[2023-09-19 14:15:55,397] >>>>>[裁决骑士凯隆]施放技能【BEGIN】：(BOSS近战攻击), 描述=普通攻击, 目标：syymw.com, 技能距离：4
+[2023-09-19 14:15:55,397] >>>>>[裁决骑士凯隆]技能目标：(syymw.com), 自己坐标[11,17]; 目标坐标[9,19]
+[2023-09-19 14:15:55,397] 本次技能目标个数：1
+[2023-09-19 14:15:55,397] >>>>攻击：(裁决骑士凯隆) -> (syymw.com) 伤害系数：100, 固定伤害：0, 攻击类型：0, 是否XP技能：false
+[2023-09-19 14:15:55,397] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:55,397] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:55,397] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:55,397] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:55,397] 攻方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:55,397] 守方算伤害相关属性(BUFF前)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:55,397] 攻方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:55,397] 守方算伤害相关属性(BUFF后)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:55,397] 最终伤害：757
+[2023-09-19 14:15:55,397] 最终伤害算上BUFF加成：757
+[2023-09-19 14:15:55,397] (syymw.com,61d54739-c5d2-4391-b496-dbb532b85962) 扣血：757;剩余血：184662/186176
+[2023-09-19 14:15:55,397] =========[裁决骑士凯隆]施放技能【END】：(BOSS近战攻击)
+
+
+[2023-09-19 14:15:55,728] 客户端通知开始：[9a8f7d1c-dbc1-4d0b-b8b2-0bd740651559]->[1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+[2023-09-19 14:15:55,728] 客户端通知技能成功：[法师攻防型,9a8f7d1c-dbc1-4d0b-b8b2-0bd740651559]->[裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+
+[2023-09-19 14:15:55,728] >>>>>[法师攻防型]施放技能【BEGIN】：(火球术), 描述=单体攻击利用魔法的力量形成火焰球，对单体目标造成|C:0x34E22C&T:100%+100|T:魔法伤害。, 目标：裁决骑士凯隆, 技能距离：2
+[2023-09-19 14:15:55,728] >>>>>[法师攻防型]技能目标：(裁决骑士凯隆), 自己坐标[9,19]; 目标坐标[11,17]
+[2023-09-19 14:15:55,728] 本次技能目标个数：1
+[2023-09-19 14:15:55,728] >>>>攻击：(法师攻防型) -> (裁决骑士凯隆) 伤害系数：100, 固定伤害：100, 攻击类型：1, 是否XP技能：false
+[2023-09-19 14:15:55,728] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:55,728] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:55,728] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:55,728] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:55,728] 攻方算伤害相关属性(BUFF前)：maxPAtk:13134,maxPDef:5682,maxMDef:8519,ignorePDef:700,ignoreMDef:4139,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:55,728] 守方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:55,728] 攻方算伤害相关属性(BUFF后)：maxPAtk:13134,maxPDef:5682,maxMDef:8519,ignorePDef:700,ignoreMDef:4139,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:55,728] 守方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:55,728] 最终伤害：13365
+[2023-09-19 14:15:55,728] 最终伤害算上BUFF加成：13365
+[2023-09-19 14:15:55,728] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 扣血：13365;剩余血：204312/290000
+[2023-09-19 14:15:55,728] =========[法师攻防型]施放技能【END】：(火球术)
+
+
+[2023-09-19 14:15:55,728] 客户端通知开始：[1e85198e-1140-4378-b194-48d194e27668]->[1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1001]
+[2023-09-19 14:15:55,728] 客户端通知技能成功：[吉祥噜噜,1e85198e-1140-4378-b194-48d194e27668]->[裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1001]
+
+[2023-09-19 14:15:55,728] >>>>>[吉祥噜噜]施放技能【BEGIN】：(斩击), 描述=单体攻击，对近战单体目标造成|C:0x34E22C&T:100%+100|T:物理伤害。, 目标：裁决骑士凯隆, 技能距离：1
+[2023-09-19 14:15:55,728] >>>>>[吉祥噜噜]技能目标：(裁决骑士凯隆), 自己坐标[9,19]; 目标坐标[11,17]
+[2023-09-19 14:15:55,728] 本次技能目标个数：1
+[2023-09-19 14:15:55,728] >>>>攻击：(吉祥噜噜) -> (裁决骑士凯隆) 伤害系数：100, 固定伤害：100, 攻击类型：0, 是否XP技能：false
+[2023-09-19 14:15:55,730] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:55,730] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:55,730] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:55,730] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:55,730] 攻方算伤害相关属性(BUFF前)：maxPAtk:20334,maxPDef:11782,maxMDef:9118,ignorePDef:7804,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:55,730] 守方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:55,730] 攻方算伤害相关属性(BUFF后)：maxPAtk:20334,maxPDef:11782,maxMDef:9118,ignorePDef:7804,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:55,730] 守方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:55,730] 最终伤害：20637
+[2023-09-19 14:15:55,730] 最终伤害算上BUFF加成：20637
+[2023-09-19 14:15:55,730] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 扣血：20637;剩余血：183675/290000
+[2023-09-19 14:15:55,730] =========[吉祥噜噜]施放技能【END】：(斩击)
+
+
+[2023-09-19 14:15:55,731] 客户端通知开始：[c58bec36-35b3-4bd4-946e-c257b0228f5f]->[1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+[2023-09-19 14:15:55,731] 客户端通知技能成功：[异界精灵瑞拉,c58bec36-35b3-4bd4-946e-c257b0228f5f]->[裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+
+[2023-09-19 14:15:55,731] >>>>>[异界精灵瑞拉]施放技能【BEGIN】：(火球术), 描述=单体攻击利用魔法的力量形成火焰球，对单体目标造成|C:0x34E22C&T:100%+100|T:魔法伤害。, 目标：裁决骑士凯隆, 技能距离：2
+[2023-09-19 14:15:55,731] >>>>>[异界精灵瑞拉]技能目标：(裁决骑士凯隆), 自己坐标[9,19]; 目标坐标[11,17]
+[2023-09-19 14:15:55,731] 本次技能目标个数：1
+[2023-09-19 14:15:55,731] >>>>攻击：(异界精灵瑞拉) -> (裁决骑士凯隆) 伤害系数：100, 固定伤害：100, 攻击类型：1, 是否XP技能：false
+[2023-09-19 14:15:55,731] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:55,731] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:55,731] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:55,731] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:55,731] 攻方算伤害相关属性(BUFF前)：maxPAtk:13788,maxPDef:7192,maxMDef:7192,ignorePDef:700,ignoreMDef:4531,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:55,731] 守方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:55,731] 攻方算伤害相关属性(BUFF后)：maxPAtk:13788,maxPDef:7192,maxMDef:7192,ignorePDef:700,ignoreMDef:4531,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:55,731] 守方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:55,731] 最终伤害：14025
+[2023-09-19 14:15:55,731] 最终伤害算上BUFF加成：14025
+[2023-09-19 14:15:55,731] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 扣血：14025;剩余血：169650/290000
+[2023-09-19 14:15:55,731] =========[异界精灵瑞拉]施放技能【END】：(火球术)
+
+
+[2023-09-19 14:15:56,136] 客户端通知开始：[61d54739-c5d2-4391-b496-dbb532b85962]->[1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[11]
+[2023-09-19 14:15:56,136] 客户端通知技能成功：[syymw.com,61d54739-c5d2-4391-b496-dbb532b85962]->[裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[11]
+
+[2023-09-19 14:15:56,136] >>>>>[syymw.com]施放技能【BEGIN】：(虚弱诅咒), 描述=群体攻击，驱动魔法元素如星云一般攻向远程群体单位，造成|C:0x34E22C&T:90%+{0}|T:的魔法伤害。, 目标：裁决骑士凯隆, 技能距离：2
+[2023-09-19 14:15:56,136] >>>>>[syymw.com]技能目标：(裁决骑士凯隆), 自己坐标[9,19]; 目标坐标[11,17]
+[2023-09-19 14:15:56,136] 本次技能目标个数：1
+[2023-09-19 14:15:56,136] >>>>攻击：(syymw.com) -> (裁决骑士凯隆) 伤害系数：90, 固定伤害：6000, 攻击类型：1, 是否XP技能：false
+[2023-09-19 14:15:56,136] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:56,136] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:56,136] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:56,136] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:56,136] 攻方算伤害相关属性(BUFF前)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:56,136] 守方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:56,136] 攻方算伤害相关属性(BUFF后)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:56,136] 守方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:56,136] 最终伤害：22722
+[2023-09-19 14:15:56,136] 最终伤害算上BUFF加成：22722
+[2023-09-19 14:15:56,136] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 扣血：22722;剩余血：146928/290000
+[2023-09-19 14:15:56,136] =========[syymw.com]施放技能【END】：(虚弱诅咒)
+
+[2023-09-19 14:15:56,393] (吉祥噜噜) 回血：15000;剩余血：267740/267740
+
+[2023-09-19 14:15:56,399] >>>>>[裁决骑士凯隆]施放技能【BEGIN】：(BOSS近战攻击), 描述=普通攻击, 目标：syymw.com, 技能距离：4
+[2023-09-19 14:15:56,401] >>>>>[裁决骑士凯隆]技能目标：(syymw.com), 自己坐标[11,17]; 目标坐标[9,19]
+[2023-09-19 14:15:56,401] 本次技能目标个数：1
+[2023-09-19 14:15:56,401] >>>>攻击：(裁决骑士凯隆) -> (syymw.com) 伤害系数：100, 固定伤害：0, 攻击类型：0, 是否XP技能：false
+[2023-09-19 14:15:56,401] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:56,401] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:56,401] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:56,401] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:56,401] 攻方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:56,401] 守方算伤害相关属性(BUFF前)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:56,401] 攻方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:56,401] 守方算伤害相关属性(BUFF后)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:56,401] 最终伤害：757
+[2023-09-19 14:15:56,401] 最终伤害算上BUFF加成：757
+[2023-09-19 14:15:56,401] (syymw.com,61d54739-c5d2-4391-b496-dbb532b85962) 扣血：757;剩余血：183905/186176
+[2023-09-19 14:15:56,401] =========[裁决骑士凯隆]施放技能【END】：(BOSS近战攻击)
+
+
+[2023-09-19 14:15:56,653] 客户端通知开始：[9a8f7d1c-dbc1-4d0b-b8b2-0bd740651559]->[1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+[2023-09-19 14:15:56,653] 客户端通知技能成功：[法师攻防型,9a8f7d1c-dbc1-4d0b-b8b2-0bd740651559]->[裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+
+[2023-09-19 14:15:56,653] >>>>>[法师攻防型]施放技能【BEGIN】：(火球术), 描述=单体攻击利用魔法的力量形成火焰球，对单体目标造成|C:0x34E22C&T:100%+100|T:魔法伤害。, 目标：裁决骑士凯隆, 技能距离：2
+[2023-09-19 14:15:56,653] >>>>>[法师攻防型]技能目标：(裁决骑士凯隆), 自己坐标[9,19]; 目标坐标[11,17]
+[2023-09-19 14:15:56,653] 本次技能目标个数：1
+[2023-09-19 14:15:56,653] >>>>攻击：(法师攻防型) -> (裁决骑士凯隆) 伤害系数：100, 固定伤害：100, 攻击类型：1, 是否XP技能：false
+[2023-09-19 14:15:56,653] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:56,653] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:56,653] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:56,653] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:56,653] 攻方算伤害相关属性(BUFF前)：maxPAtk:13134,maxPDef:5682,maxMDef:8519,ignorePDef:700,ignoreMDef:4139,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:56,653] 守方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:56,653] 攻方算伤害相关属性(BUFF后)：maxPAtk:13134,maxPDef:5682,maxMDef:8519,ignorePDef:700,ignoreMDef:4139,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:56,653] 守方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:56,653] 最终伤害：13365
+[2023-09-19 14:15:56,653] 最终伤害算上BUFF加成：13365
+[2023-09-19 14:15:56,653] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 扣血：13365;剩余血：133563/290000
+[2023-09-19 14:15:56,653] =========[法师攻防型]施放技能【END】：(火球术)
+
+
+[2023-09-19 14:15:56,655] 客户端通知开始：[1e85198e-1140-4378-b194-48d194e27668]->[1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1001]
+[2023-09-19 14:15:56,655] 客户端通知技能成功：[吉祥噜噜,1e85198e-1140-4378-b194-48d194e27668]->[裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1001]
+
+[2023-09-19 14:15:56,655] >>>>>[吉祥噜噜]施放技能【BEGIN】：(斩击), 描述=单体攻击，对近战单体目标造成|C:0x34E22C&T:100%+100|T:物理伤害。, 目标：裁决骑士凯隆, 技能距离：1
+[2023-09-19 14:15:56,655] >>>>>[吉祥噜噜]技能目标：(裁决骑士凯隆), 自己坐标[9,19]; 目标坐标[11,17]
+[2023-09-19 14:15:56,655] 本次技能目标个数：1
+[2023-09-19 14:15:56,655] >>>>攻击：(吉祥噜噜) -> (裁决骑士凯隆) 伤害系数：100, 固定伤害：100, 攻击类型：0, 是否XP技能：false
+[2023-09-19 14:15:56,655] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:56,655] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:56,655] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:56,655] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:56,655] 攻方算伤害相关属性(BUFF前)：maxPAtk:20334,maxPDef:11782,maxMDef:9118,ignorePDef:7804,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:56,655] 守方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:56,655] 攻方算伤害相关属性(BUFF后)：maxPAtk:20334,maxPDef:11782,maxMDef:9118,ignorePDef:7804,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:56,655] 守方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:56,655] 最终伤害：20637
+[2023-09-19 14:15:56,655] 最终伤害算上BUFF加成：20637
+[2023-09-19 14:15:56,655] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 扣血：20637;剩余血：112926/290000
+[2023-09-19 14:15:56,655] =========[吉祥噜噜]施放技能【END】：(斩击)
+
+
+[2023-09-19 14:15:56,659] 客户端通知开始：[c58bec36-35b3-4bd4-946e-c257b0228f5f]->[1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+[2023-09-19 14:15:56,659] 客户端通知技能成功：[异界精灵瑞拉,c58bec36-35b3-4bd4-946e-c257b0228f5f]->[裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+
+[2023-09-19 14:15:56,659] >>>>>[异界精灵瑞拉]施放技能【BEGIN】：(火球术), 描述=单体攻击利用魔法的力量形成火焰球，对单体目标造成|C:0x34E22C&T:100%+100|T:魔法伤害。, 目标：裁决骑士凯隆, 技能距离：2
+[2023-09-19 14:15:56,659] >>>>>[异界精灵瑞拉]技能目标：(裁决骑士凯隆), 自己坐标[9,19]; 目标坐标[11,17]
+[2023-09-19 14:15:56,659] 本次技能目标个数：1
+[2023-09-19 14:15:56,659] >>>>攻击：(异界精灵瑞拉) -> (裁决骑士凯隆) 伤害系数：100, 固定伤害：100, 攻击类型：1, 是否XP技能：false
+[2023-09-19 14:15:56,659] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:56,659] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:56,659] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:56,659] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:56,659] 攻方算伤害相关属性(BUFF前)：maxPAtk:13788,maxPDef:7192,maxMDef:7192,ignorePDef:700,ignoreMDef:4531,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:56,659] 守方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:56,659] 攻方算伤害相关属性(BUFF后)：maxPAtk:13788,maxPDef:7192,maxMDef:7192,ignorePDef:700,ignoreMDef:4531,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:56,659] 守方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:56,659] 最终伤害：14025
+[2023-09-19 14:15:56,659] 最终伤害算上BUFF加成：14025
+[2023-09-19 14:15:56,659] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 扣血：14025;剩余血：98901/290000
+[2023-09-19 14:15:56,659] =========[异界精灵瑞拉]施放技能【END】：(火球术)
+
+
+[2023-09-19 14:15:56,955] 客户端通知开始：[61d54739-c5d2-4391-b496-dbb532b85962]->[1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[10]
+[2023-09-19 14:15:56,955] 客户端通知技能成功：[syymw.com,61d54739-c5d2-4391-b496-dbb532b85962]->[裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[10]
+
+[2023-09-19 14:15:56,955] >>>>>[syymw.com]施放技能【BEGIN】：(断空破), 描述=单体攻击，积攒的能力瞬间向远程单体造成|C:0x34E22C&T:100%+{0}|T:的魔法伤害，给予敌人沉重的一击。, 目标：裁决骑士凯隆, 技能距离：2
+[2023-09-19 14:15:56,955] >>>>>[syymw.com]技能目标：(裁决骑士凯隆), 自己坐标[9,19]; 目标坐标[11,17]
+[2023-09-19 14:15:56,955] 本次技能目标个数：1
+[2023-09-19 14:15:56,955] >>>>攻击：(syymw.com) -> (裁决骑士凯隆) 伤害系数：100, 固定伤害：4000, 攻击类型：1, 是否XP技能：false
+[2023-09-19 14:15:56,955] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:56,955] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:56,955] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:56,955] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:56,955] 攻方算伤害相关属性(BUFF前)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:56,955] 守方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:56,955] 攻方算伤害相关属性(BUFF后)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:56,955] 守方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:56,955] 最终伤害：22580
+[2023-09-19 14:15:56,955] 最终伤害算上BUFF加成：22580
+[2023-09-19 14:15:56,955] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 扣血：22580;剩余血：76321/290000
+[2023-09-19 14:15:56,955] =========[syymw.com]施放技能【END】：(断空破)
+
+[2023-09-19 14:15:57,393] (吉祥噜噜) 回血：15000;剩余血：267740/267740
+
+[2023-09-19 14:15:57,400] >>>>>[裁决骑士凯隆]施放技能【BEGIN】：(BOSS近战攻击), 描述=普通攻击, 目标：syymw.com, 技能距离：4
+[2023-09-19 14:15:57,400] >>>>>[裁决骑士凯隆]技能目标：(syymw.com), 自己坐标[11,17]; 目标坐标[9,19]
+[2023-09-19 14:15:57,400] 本次技能目标个数：1
+[2023-09-19 14:15:57,400] >>>>攻击：(裁决骑士凯隆) -> (syymw.com) 伤害系数：100, 固定伤害：0, 攻击类型：0, 是否XP技能：false
+[2023-09-19 14:15:57,400] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:57,400] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:57,400] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:57,400] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:57,400] 攻方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:57,400] 守方算伤害相关属性(BUFF前)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:57,400] 攻方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:57,400] 守方算伤害相关属性(BUFF后)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:57,400] 最终伤害：757
+[2023-09-19 14:15:57,400] 最终伤害算上BUFF加成：757
+[2023-09-19 14:15:57,400] (syymw.com,61d54739-c5d2-4391-b496-dbb532b85962) 扣血：757;剩余血：183148/186176
+[2023-09-19 14:15:57,400] =========[裁决骑士凯隆]施放技能【END】：(BOSS近战攻击)
+
+
+[2023-09-19 14:15:57,536] 客户端通知开始：[9a8f7d1c-dbc1-4d0b-b8b2-0bd740651559]->[1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+[2023-09-19 14:15:57,536] 客户端通知技能成功：[法师攻防型,9a8f7d1c-dbc1-4d0b-b8b2-0bd740651559]->[裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+
+[2023-09-19 14:15:57,536] >>>>>[法师攻防型]施放技能【BEGIN】：(火球术), 描述=单体攻击利用魔法的力量形成火焰球，对单体目标造成|C:0x34E22C&T:100%+100|T:魔法伤害。, 目标：裁决骑士凯隆, 技能距离：2
+[2023-09-19 14:15:57,536] >>>>>[法师攻防型]技能目标：(裁决骑士凯隆), 自己坐标[9,19]; 目标坐标[11,17]
+[2023-09-19 14:15:57,536] 本次技能目标个数：1
+[2023-09-19 14:15:57,536] >>>>攻击：(法师攻防型) -> (裁决骑士凯隆) 伤害系数：100, 固定伤害：100, 攻击类型：1, 是否XP技能：false
+[2023-09-19 14:15:57,536] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:57,536] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:57,536] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:57,536] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:57,536] 攻方算伤害相关属性(BUFF前)：maxPAtk:13134,maxPDef:5682,maxMDef:8519,ignorePDef:700,ignoreMDef:4139,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:57,536] 守方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:57,536] 攻方算伤害相关属性(BUFF后)：maxPAtk:13134,maxPDef:5682,maxMDef:8519,ignorePDef:700,ignoreMDef:4139,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:57,536] 守方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:57,536] 最终伤害：13365
+[2023-09-19 14:15:57,536] 最终伤害算上BUFF加成：13365
+[2023-09-19 14:15:57,536] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 扣血：13365;剩余血：62956/290000
+[2023-09-19 14:15:57,536] =========[法师攻防型]施放技能【END】：(火球术)
+
+
+[2023-09-19 14:15:57,536] 客户端通知开始：[1e85198e-1140-4378-b194-48d194e27668]->[1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1001]
+[2023-09-19 14:15:57,537] 客户端通知技能成功：[吉祥噜噜,1e85198e-1140-4378-b194-48d194e27668]->[裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1001]
+
+[2023-09-19 14:15:57,537] >>>>>[吉祥噜噜]施放技能【BEGIN】：(斩击), 描述=单体攻击，对近战单体目标造成|C:0x34E22C&T:100%+100|T:物理伤害。, 目标：裁决骑士凯隆, 技能距离：1
+[2023-09-19 14:15:57,537] >>>>>[吉祥噜噜]技能目标：(裁决骑士凯隆), 自己坐标[9,19]; 目标坐标[11,17]
+[2023-09-19 14:15:57,537] 本次技能目标个数：1
+[2023-09-19 14:15:57,537] >>>>攻击：(吉祥噜噜) -> (裁决骑士凯隆) 伤害系数：100, 固定伤害：100, 攻击类型：0, 是否XP技能：false
+[2023-09-19 14:15:57,537] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:57,537] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:57,537] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:57,537] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:57,537] 攻方算伤害相关属性(BUFF前)：maxPAtk:20334,maxPDef:11782,maxMDef:9118,ignorePDef:7804,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:57,537] 守方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:57,537] 攻方算伤害相关属性(BUFF后)：maxPAtk:20334,maxPDef:11782,maxMDef:9118,ignorePDef:7804,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:57,537] 守方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:57,537] 最终伤害：20637
+[2023-09-19 14:15:57,537] 最终伤害算上BUFF加成：20637
+[2023-09-19 14:15:57,537] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 扣血：20637;剩余血：42319/290000
+[2023-09-19 14:15:57,537] =========[吉祥噜噜]施放技能【END】：(斩击)
+
+
+[2023-09-19 14:15:57,537] 客户端通知开始：[c58bec36-35b3-4bd4-946e-c257b0228f5f]->[1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+[2023-09-19 14:15:57,537] 客户端通知技能成功：[异界精灵瑞拉,c58bec36-35b3-4bd4-946e-c257b0228f5f]->[裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+
+[2023-09-19 14:15:57,537] >>>>>[异界精灵瑞拉]施放技能【BEGIN】：(火球术), 描述=单体攻击利用魔法的力量形成火焰球，对单体目标造成|C:0x34E22C&T:100%+100|T:魔法伤害。, 目标：裁决骑士凯隆, 技能距离：2
+[2023-09-19 14:15:57,537] >>>>>[异界精灵瑞拉]技能目标：(裁决骑士凯隆), 自己坐标[9,19]; 目标坐标[11,17]
+[2023-09-19 14:15:57,537] 本次技能目标个数：1
+[2023-09-19 14:15:57,537] >>>>攻击：(异界精灵瑞拉) -> (裁决骑士凯隆) 伤害系数：100, 固定伤害：100, 攻击类型：1, 是否XP技能：false
+[2023-09-19 14:15:57,537] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:57,537] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:57,537] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:57,537] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:57,537] 攻方算伤害相关属性(BUFF前)：maxPAtk:13788,maxPDef:7192,maxMDef:7192,ignorePDef:700,ignoreMDef:4531,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:57,537] 守方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:57,537] 攻方算伤害相关属性(BUFF后)：maxPAtk:13788,maxPDef:7192,maxMDef:7192,ignorePDef:700,ignoreMDef:4531,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:57,537] 守方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:57,537] 最终伤害：14025
+[2023-09-19 14:15:57,537] 最终伤害算上BUFF加成：14025
+[2023-09-19 14:15:57,537] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 扣血：14025;剩余血：28294/290000
+[2023-09-19 14:15:57,537] =========[异界精灵瑞拉]施放技能【END】：(火球术)
+
+
+[2023-09-19 14:15:57,932] 客户端通知开始：[61d54739-c5d2-4391-b496-dbb532b85962]->[1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[10]
+[2023-09-19 14:15:57,932] 客户端通知技能成功：[syymw.com,61d54739-c5d2-4391-b496-dbb532b85962]->[裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[10]
+
+[2023-09-19 14:15:57,932] >>>>>[syymw.com]施放技能【BEGIN】：(断空破), 描述=单体攻击，积攒的能力瞬间向远程单体造成|C:0x34E22C&T:100%+{0}|T:的魔法伤害，给予敌人沉重的一击。, 目标：裁决骑士凯隆, 技能距离：2
+[2023-09-19 14:15:57,932] >>>>>[syymw.com]技能目标：(裁决骑士凯隆), 自己坐标[9,19]; 目标坐标[11,17]
+[2023-09-19 14:15:57,932] 本次技能目标个数：1
+[2023-09-19 14:15:57,932] >>>>攻击：(syymw.com) -> (裁决骑士凯隆) 伤害系数：100, 固定伤害：4000, 攻击类型：1, 是否XP技能：false
+[2023-09-19 14:15:57,932] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:57,932] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:57,932] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:57,932] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:57,932] 攻方算伤害相关属性(BUFF前)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:57,932] 守方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:57,932] 攻方算伤害相关属性(BUFF后)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:57,932] 守方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:57,932] 最终伤害：22580
+[2023-09-19 14:15:57,932] 最终伤害算上BUFF加成：22580
+[2023-09-19 14:15:57,932] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 扣血：22580;剩余血：5714/290000
+[2023-09-19 14:15:57,932] =========[syymw.com]施放技能【END】：(断空破)
+
+[2023-09-19 14:15:58,394] (吉祥噜噜) 回血：15000;剩余血：267740/267740
+
+[2023-09-19 14:15:58,401] >>>>>[裁决骑士凯隆]施放技能【BEGIN】：(BOSS近战攻击), 描述=普通攻击, 目标：syymw.com, 技能距离：4
+[2023-09-19 14:15:58,401] >>>>>[裁决骑士凯隆]技能目标：(syymw.com), 自己坐标[11,17]; 目标坐标[9,19]
+[2023-09-19 14:15:58,401] 本次技能目标个数：1
+[2023-09-19 14:15:58,401] >>>>攻击：(裁决骑士凯隆) -> (syymw.com) 伤害系数：100, 固定伤害：0, 攻击类型：0, 是否XP技能：false
+[2023-09-19 14:15:58,401] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:58,401] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:58,401] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:58,401] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:58,401] 攻方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:58,401] 守方算伤害相关属性(BUFF前)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:58,401] 攻方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:58,401] 守方算伤害相关属性(BUFF后)：maxPAtk:18397,maxPDef:8205,maxMDef:8286,ignorePDef:700,ignoreMDef:700,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:58,401] 最终伤害：757
+[2023-09-19 14:15:58,401] 最终伤害算上BUFF加成：757
+[2023-09-19 14:15:58,401] (syymw.com,61d54739-c5d2-4391-b496-dbb532b85962) 扣血：757;剩余血：182391/186176
+[2023-09-19 14:15:58,401] =========[裁决骑士凯隆]施放技能【END】：(BOSS近战攻击)
+
+
+[2023-09-19 14:15:58,504] 客户端通知开始：[9a8f7d1c-dbc1-4d0b-b8b2-0bd740651559]->[1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+[2023-09-19 14:15:58,504] 客户端通知技能成功：[法师攻防型,9a8f7d1c-dbc1-4d0b-b8b2-0bd740651559]->[裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae],使用技能：[1201]
+
+[2023-09-19 14:15:58,504] >>>>>[法师攻防型]施放技能【BEGIN】：(火球术), 描述=单体攻击利用魔法的力量形成火焰球，对单体目标造成|C:0x34E22C&T:100%+100|T:魔法伤害。, 目标：裁决骑士凯隆, 技能距离：2
+[2023-09-19 14:15:58,504] >>>>>[法师攻防型]技能目标：(裁决骑士凯隆), 自己坐标[9,19]; 目标坐标[11,17]
+[2023-09-19 14:15:58,504] 本次技能目标个数：1
+[2023-09-19 14:15:58,504] >>>>攻击：(法师攻防型) -> (裁决骑士凯隆) 伤害系数：100, 固定伤害：100, 攻击类型：1, 是否XP技能：false
+[2023-09-19 14:15:58,504] 攻方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:58,504] 守方算命中相关属性(BUFF前)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:58,504] 攻方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:60,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:60,critInjureBoss:0
+[2023-09-19 14:15:58,504] 守方算命中相关属性(BUFF后)：hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2023-09-19 14:15:58,504] 攻方算伤害相关属性(BUFF前)：maxPAtk:13134,maxPDef:5682,maxMDef:8519,ignorePDef:700,ignoreMDef:4139,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:58,504] 守方算伤害相关属性(BUFF前)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:58,504] 攻方算伤害相关属性(BUFF后)：maxPAtk:13134,maxPDef:5682,maxMDef:8519,ignorePDef:700,ignoreMDef:4139,injureAdd:0,injureIgnore:0,injureAddBoss:100
+[2023-09-19 14:15:58,504] 守方算伤害相关属性(BUFF后)：maxPAtk:2900,maxPDef:580,maxMDef:580,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2023-09-19 14:15:58,504] 最终伤害：13365
+[2023-09-19 14:15:58,504] 最终伤害算上BUFF加成：13365
+[2023-09-19 14:15:58,504] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 扣血：13365;剩余血：0/290000
+[2023-09-19 14:15:58,504] 通知：(syymw.com,61d54739-c5d2-4391-b496-dbb532b85962) 对象状态变化: objectId=1f4ab46e-fdb0-4387-927f-a1ef458991ae,status=0
+[2023-09-19 14:15:58,506] (裁决骑士凯隆,1f4ab46e-fdb0-4387-927f-a1ef458991ae) 死亡时间：1695104158506
+[2023-09-19 14:15:58,506] =========[法师攻防型]施放技能【END】：(火球术)
+
+[2023-09-19 14:15:58,506] 【canControlObject】该场景玩法已结束：name=[syymw.com]
+[2023-09-19 14:15:58,506] 【canControlObject】该场景玩法已结束：name=[syymw.com]
+[2023-09-19 14:15:58,786] 【canControlObject】该场景玩法已结束：name=[syymw.com]

@@ -4,28 +4,28 @@
 	<e:Image source="rankings_json.img_rankMan_base" x="10" y="85" scale9Grid="13,13,59,38" width="580" height="156" includeIn="winnerRewardRank" anchorOffsetY="0"/>
 	<e:Image source="rankings_json.img_rankMan_base" x="10" y="614" scale9Grid="13,13,59,38" width="580" height="156" includeIn="personRewardRank" anchorOffsetY="0"/>
 	<e:Image y="589" source="img_activity_labbg2_png" scale9Grid="12,3,76,18" width="200" includeIn="personRewardRank" x="14"/>
-	<e:Label text="Points Ranking Reward" includeIn="personRewardRank" x="22" y="594" size="14" textColor="0xC6B59E"/>
+	<e:Label text="积分排名奖励" includeIn="personRewardRank" x="22" y="594" size="14" textColor="0xC6B59E"/>
 	<e:Image x="7" y="85" anchorOffsetX="0" width="150" source="union_json.img_union_up_png" scale9Grid="6,12,7,20" height="41" includeIn="unionRank,personRank" y.personRank="56"/>
 	<e:Image x="151" y="85" anchorOffsetX="0" width="150" scale9Grid="5,12,9,20" source="union_json.img_union_up_png" height="41" includeIn="unionRank,personRank" y.personRank="56"/>
 	<e:Image x="297" y="85" anchorOffsetX="0" width="150" scale9Grid="5,12,9,20" source="union_json.img_union_up_png" height="41" includeIn="unionRank,personRank" y.personRank="56"/>
 	<e:Image source="img_title_rank_png" y="8" horizontalCenter="0"/>
 	<e:Image x="14" y="60" source="img_activity_labbg2_png" scale9Grid="12,3,76,18" width="200" includeIn="winnerRewardRank"/>
-	<e:Label text="Guild Leader Reward" includeIn="winnerRewardRank" x="22" y="65" size="14" textColor="0xc6b59e"/>
+	<e:Label text="军团长奖励" includeIn="winnerRewardRank" x="22" y="65" size="14" textColor="0xc6b59e"/>
 	<e:Image x="14" y="60" source="img_activity_labbg2_png" scale9Grid="12,3,76,18" width="200" includeIn="personRewardRank"/>
-	<e:Label id="labScore0" text="50 Points" includeIn="personRewardRank" y="624" size="14" stroke="1" textColor="0xedc839" textAlign="center" horizontalCenter="-208"/>
-	<e:Label id="labScore1" text="50 Points" includeIn="personRewardRank" y="624" size="14" textColor="0xEDC839" stroke="1" horizontalCenter="-106"/>
-	<e:Label id="labScore2" text="50 Points" includeIn="personRewardRank" y="624" size="14" textColor="0xEDC839" stroke="1" horizontalCenter="2"/>
-	<e:Label id="labScore3" text="50 Points" includeIn="personRewardRank" y="624" size="14" textColor="0xEDC839" stroke="1" horizontalCenter="109"/>
-	<e:Label id="labScore4" text="50 Points" includeIn="personRewardRank" y="624" size="14" textColor="0xEDC839" stroke="1" horizontalCenter="211"/>
+	<e:Label id="labScore0" text="50积分" includeIn="personRewardRank" y="624" size="14" stroke="1" textColor="0xedc839" textAlign="center" horizontalCenter="-208"/>
+	<e:Label id="labScore1" text="50积分" includeIn="personRewardRank" y="624" size="14" textColor="0xEDC839" stroke="1" horizontalCenter="-106"/>
+	<e:Label id="labScore2" text="50积分" includeIn="personRewardRank" y="624" size="14" textColor="0xEDC839" stroke="1" horizontalCenter="2"/>
+	<e:Label id="labScore3" text="50积分" includeIn="personRewardRank" y="624" size="14" textColor="0xEDC839" stroke="1" horizontalCenter="109"/>
+	<e:Label id="labScore4" text="50积分" includeIn="personRewardRank" y="624" size="14" textColor="0xEDC839" stroke="1" horizontalCenter="211"/>
 	<e:Image x="443" y="85" anchorOffsetX="0" width="150" source="union_json.img_union_up_png" scale9Grid="6,12,7,20" height="41" includeIn="unionRank,personRank" y.personRank="56"/>
-	<e:Label text="Rank" x="28" y="96" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xc6b59e" includeIn="unionRank,personRank" y.personRank="67"/>
-	<e:Label text="Guild" x="172" y="96" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xc6b59e" includeIn="unionRank,personRank" text.personRank="名称" y.personRank="67"/>
-	<e:Label text="King's Guild: " x="64" y="58" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xc6b59e" includeIn="unionRank"/>
-	<e:Label id="labBestLegion" text="Guild" x="157" y="58" size="18" textAlign="left" width="108" touchEnabled="false" textColor="0xEDC839" includeIn="unionRank"/>
-	<e:Label text="Note: Rankings refresh after each Guild War." x="419" y="68" size="14" textAlign="right" touchEnabled="false" textColor="0xEDC839" includeIn="unionRank"/>
-	<e:Label text="Leader" x="312" y="96" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xc6b59e" includeIn="unionRank,personRank" text.personRank="军团" y.personRank="67"/>
-	<e:Label text="Points" x="468" y="96" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xc6b59e" includeIn="unionRank,personRank" y.personRank="67"/>
-	<e:Label id="labTitel" text="No Guild War information available." y="348" size="24" textAlign="right" touchEnabled="false" textColor="0xEDC839" includeIn="unionRank,personRank" horizontalCenter="0"/>
+	<e:Label text="名次" x="28" y="96" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xc6b59e" includeIn="unionRank,personRank" y.personRank="67"/>
+	<e:Label text="军团" x="172" y="96" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xc6b59e" includeIn="unionRank,personRank" text.personRank="名称" y.personRank="67"/>
+	<e:Label text="王者军团 : " x="64" y="58" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xc6b59e" includeIn="unionRank"/>
+	<e:Label id="labBestLegion" text="军团" x="157" y="58" size="18" textAlign="left" width="108" touchEnabled="false" textColor="0xEDC839" includeIn="unionRank"/>
+	<e:Label text="注 : 每次军团战后刷新排行" x="419" y="68" size="14" textAlign="right" touchEnabled="false" textColor="0xEDC839" includeIn="unionRank"/>
+	<e:Label text="团长" x="312" y="96" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xc6b59e" includeIn="unionRank,personRank" text.personRank="军团" y.personRank="67"/>
+	<e:Label text="积分" x="468" y="96" size="18" textAlign="center" width="108" touchEnabled="false" textColor="0xc6b59e" includeIn="unionRank,personRank" y.personRank="67"/>
+	<e:Label id="labTitel" text="暂无军团战信息" y="348" size="24" textAlign="right" touchEnabled="false" textColor="0xEDC839" includeIn="unionRank,personRank" horizontalCenter="0"/>
 	<e:Scroller width="580" height="671" includeIn="personRank" x="10" y="94">
 		<e:List id="rankPersonList" itemRendererSkinName="renderer.LegionWarRankCellSkin" itemRenderer="renderer.LegionWarRankCell"/>
 	</e:Scroller>
@@ -37,17 +37,17 @@
 		<e:List id="rankUnionList" itemRendererSkinName="renderer.LegionWarRankCellSkin" itemRenderer="renderer.LegionWarRankCell"/>
 	</e:Scroller>
 	<e:Image source="legionWar_json.img_legionwar_badge" x="27" y="50" includeIn="unionRank"/>
-	<e:ToggleButton id="btntab_1" label="Guild Ranking" skinName="skins.TabButtonDefaultSkin" y="770" x="10"/>
-	<e:ToggleButton id="btntab_2" label="Personal Ranking" skinName="skins.TabButtonDefaultSkin" y="771" x="123"/>
-	<e:ToggleButton id="btntab_3" label="Personal Reward" skinName="skins.TabButtonDefaultSkin" y="771" x="242"/>
-	<e:ToggleButton id="btntab_4" label="Winner's Reward" skinName="skins.TabButtonDefaultSkin" y="770" x="350"/>
+	<e:ToggleButton id="btntab_1" label="工会排行" skinName="skins.TabButtonDefaultSkin" y="770" x="10"/>
+	<e:ToggleButton id="btntab_2" label="个人排行" skinName="skins.TabButtonDefaultSkin" y="771" x="123"/>
+	<e:ToggleButton id="btntab_3" label="个人奖励" skinName="skins.TabButtonDefaultSkin" y="771" x="242"/>
+	<e:ToggleButton id="btntab_4" label="胜者奖励" skinName="skins.TabButtonDefaultSkin" y="770" x="350"/>
 	<e:Scroller width="580" height="520" includeIn="winnerRewardRank" x="10" y="238">
 		<e:List id="winnerRewardList" itemRenderer="renderer.WinnerRankRewardCell" itemRendererSkinName="renderer.WinnerRankRewardCellSkin"/>
 	</e:Scroller>
 	<components:RewardItemBox id="awardItem0" x="41" y="103" skinName="components.ItemBoxSkin" includeIn="winnerRewardRank"/>
 	<components:RewardItemBox id="awardItem1" x="145.75" y="103" skinName="components.ItemBoxSkin" includeIn="winnerRewardRank"/>
 	<components:RewardItemBox id="awardItem2" x="250.5" y="103" skinName="components.ItemBoxSkin" includeIn="winnerRewardRank"/>
-	<e:Label text="Personal Reward" includeIn="personRewardRank" x="22" y="65" size="14" textColor="0xC6B59E"/>
+	<e:Label text="个人奖励" includeIn="personRewardRank" x="22" y="65" size="14" textColor="0xC6B59E"/>
 	<components:RewardItemBox id="scoreItem1" x="151" y="645" skinName="components.ItemBoxSkin" includeIn="personRewardRank"/>
 	<components:RewardItemBox id="scoreItem0" x="46" y="645" skinName="components.ItemBoxSkin" includeIn="personRewardRank"/>
 	<components:RewardItemBox id="scoreItem2" x="255" y="645" skinName="components.ItemBoxSkin" includeIn="personRewardRank"/>

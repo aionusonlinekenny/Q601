@@ -2,9 +2,9 @@
 <e:Skin class="renderer.UseShenhunRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:item="item.*" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Image x="0" y="0" width="578" height="133" scale9Grid="16,16,31,31" source="common_exchange_item_png"/>
 	<item:NormalItem id="item" x="23" y="22" skinName="tipIcon.NormalItemSkin"/>
-	<components:SnapButton id="btnUse" label="Replace" anchorOffsetX="53" skinName="skins.SnapOrangeButtonSkin" x="475" anchorOffsetY="24" y="67"/>
-	<e:Label id="labName" text="Equipment Name" x="123" y="26" size="18" anchorOffsetX="0" anchorOffsetY="0" textColor="0xb72a0f"/>
-	<e:Label id="labAtt0" text="Cost: " x="122" y="73" size="18" anchorOffsetX="0" anchorOffsetY="0" textColor="0xc6b59e"/>
-	<e:Label id="labAtt1" text="Cost: " x="276" y="73" size="18" anchorOffsetX="0" anchorOffsetY="0" textColor="0xc6b59e"/>
-	<e:Label id="labUsed" text="Equipped" x="449" y="55" size="18" anchorOffsetX="0" anchorOffsetY="0" textColor="0x34e22c"/>
+	<components:SnapButton id="btnUse" label="替换" anchorOffsetX="53" skinName="skins.SnapOrangeButtonSkin" x="475" anchorOffsetY="24" y="67"/>
+	<e:Label id="labName" text="装备名字" x="123" y="26" size="18" anchorOffsetX="0" anchorOffsetY="0" textColor="0xb72a0f"/>
+	<e:Label id="labAtt0" text="消耗 : " x="122" y="73" size="18" anchorOffsetX="0" anchorOffsetY="0" textColor="0xc6b59e"/>
+	<e:Label id="labAtt1" text="消耗 : " x="276" y="73" size="18" anchorOffsetX="0" anchorOffsetY="0" textColor="0xc6b59e"/>
+	<e:Label id="labUsed" text="装备中" x="449" y="55" size="18" anchorOffsetX="0" anchorOffsetY="0" textColor="0x34e22c"/>
 </e:Skin>

@@ -3,16 +3,16 @@
 	<e:Group id="gp" x="0" y="0" width="559" height="150">
 		<e:Image x="9" y="0" width="550" height="150" scale9Grid="34,48,13,59" source="activity_red_bg_png"/>
 		<components:RewardItemBox id="item" x="61" y="33" skinName="components.ItemBoxSkin"/>
-		<components:SnapButton id="btnBuy" label="Purchase" anchorOffsetX="79" x="437" anchorOffsetY="28" skinName="skins.SnapButtonDefaultSkin" verticalCenter="2"/>
+		<components:SnapButton id="btnBuy" label="购买" anchorOffsetX="79" x="437" anchorOffsetY="28" skinName="skins.SnapButtonDefaultSkin" verticalCenter="2"/>
 		<e:Image source="common_json.img_diamonds_png" x="225" y="46"/>
 		<e:Image source="common_json.img_diamonds_png" x="225" y="92"/>
 		<e:Image source="activity_json.img_activity_salebg" y="1" x="7"/>
 		<e:Image id="imgYimai" source="activity_json.img_yigoumai" x="395" y="25"/>
-		<e:Label text="Original Price: " y="48" size="22" textColor="0xCFC9BE" textAlign="left" x="162"/>
+		<e:Label text="原价 : " y="48" size="22" textColor="0xCFC9BE" textAlign="left" x="162"/>
 		<e:Label id="labPrice" text="100000" y="48" size="22" textColor="0xCFC9BE" textAlign="left" x="258"/>
-		<e:Label text="Current Price: " y="94" size="22" textAlign="left" x="162" textColor="0x34e22c"/>
+		<e:Label text="现价 : " y="94" size="22" textAlign="left" x="162" textColor="0x34e22c"/>
 		<e:Label id="labSale" text="100000" y="94" size="22" textAlign="left" x="258" textColor="0x34e22c"/>
-		<e:Label text="Can Purchase: " y="121" size="20" textAlign="right" x="380" textColor="0x34E22C" bold="true"/>
+		<e:Label text="可购买 : " y="121" size="20" textAlign="right" x="380" textColor="0x34E22C" bold="true"/>
 		<e:Label id="labCount" text="2/2" y="121" size="20" anchorOffsetX="0" textColor="0x34E22C" x="466"/>
 		<e:Image source="activity_json.img_activity_redline" x="158" y="58"/>
 		<e:BitmapLabel id="blabSale" y="3" font="sale_font_fnt" text="44" x="12"/>

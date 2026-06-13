@@ -24,7 +24,7 @@
 		<param name="File" value="log/game_info" />
 		<param name="DatePattern" value="'_'yyyy-MM-dd'.log'" />
 		<param name="Append" value="true" />
-		<param name="Threshold" value="INFO" />
+		<param name="Threshold" value="off" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d{yy-MM-dd HH:mm:ss,SSS} %-5p %c - %m%n" />
 		</layout>
@@ -34,7 +34,7 @@
 		<param name="File" value="log/game_error" />
 		<param name="DatePattern" value="'_'yyyy-MM-dd'.log'" />
 		<param name="Append" value="true" />
-		<param name="Threshold" value="ERROR" />
+		<param name="Threshold" value="off" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d{yy-MM-dd HH:mm:ss,SSS} %-5p %c - %m%n" />
 		</layout>

@@ -13,9 +13,9 @@
 	<components:RewardItemBox id="cdrop1" x="177." y="223" skinName="components.ItemBoxSkin"/>
 	<components:RewardItemBox id="cdrop2" x="286." y="223" skinName="components.ItemBoxSkin"/>
 	<components:RewardItemBox id="cdrop3" x="395" y="223" skinName="components.ItemBoxSkin"/>
-	<e:Label text="Ownership Reward" y="77" anchorOffsetX="0" width="20" size="20" x="29" textColor="0xedc839"/>
-	<e:Label text="Participation Reward"  y="226" anchorOffsetX="0" width="20" size="20" x="26" textColor="0xc6b59e"/>
-	<e:Label id="labDesc" text="Participation Reward" y="396.8" anchorOffsetX="0" width="424" size="20" textColor="0xC6B59E" anchorOffsetY="0" height="106" x="48"/>
+	<e:Label text="归属奖励" y="77" anchorOffsetX="0" width="20" size="20" x="29" textColor="0xedc839"/>
+	<e:Label text="参与奖励"  y="226" anchorOffsetX="0" width="20" size="20" x="26" textColor="0xc6b59e"/>
+	<e:Label id="labDesc" text="参与奖励" y="396.8" anchorOffsetX="0" width="424" size="20" textColor="0xC6B59E" anchorOffsetY="0" height="106" x="48"/>
 	<e:Image source="explore_json.img_quintuple" x="70" y="62" touchEnabled="false"/>
 	<e:Image source="explore_json.img_quintuple" x="178." y="62" touchEnabled="false"/>
 	<e:Image source="explore_json.img_quintuple" x="287." y="62" touchEnabled="false"/>

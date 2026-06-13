@@ -23,15 +23,15 @@
 		<item:PropertyItemBox id="propertyBox" y="142" skinName="normal.PropertyItemBoxSkin" horizontalCenter="0.5"/>
 		<e:Image source="common_implementbar_png" y="284" anchorOffsetY="0" height="221" scaleX="1" scaleY="1" x="-36" scale9Grid="80,8,480,12"/>
 		<e:Image x="68" y="34" source="common_fightBg_png" anchorOffsetX="0" anchorOffsetY="0"/>
-		<e:Label id="labPos0" text="Phantom Beast Slot 1" y="-17" verticalAlign="middle" textAlign="center" horizontalCenter="-99.5" size="26" textColor="0xedc839"/>
-		<e:Label id="labPos1" text="Claw Position" y="-18" verticalAlign="middle" textAlign="center" horizontalCenter="102.5" size="26" textColor="0xedc839"/>
+		<e:Label id="labPos0" text="幻兽1位" y="-17" verticalAlign="middle" textAlign="center" horizontalCenter="-99.5" size="26" textColor="0xedc839"/>
+		<e:Label id="labPos1" text="利抓位置" y="-18" verticalAlign="middle" textAlign="center" horizontalCenter="102.5" size="26" textColor="0xedc839"/>
 		<e:Image x="168" y="39" source="common_json.img_fight_png" width="57" height="31"/>
 		<e:BitmapLabel id="Labpower" y="42" text="0" anchorOffsetY="0" left="227" font="fight_font2_fnt"/>
-		<e:Label text="Character Level Required: " x="27" y="324" size="20" textColor="0xc6b59e"/>
+		<e:Label text="需要角色等级 : " x="27" y="324" size="20" textColor="0xc6b59e"/>
 		<e:Image width="155" height="46" x="166" y="311" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_numbg_png" scale9Grid="15,11,29,6"/>
-		<e:Label id="labterm1" text="Divine 2" y="322" size="22" textAlign="left" verticalAlign="middle" left="180" textColor="0x34e22c"/>
+		<e:Label id="labterm1" text="神2" y="322" size="22" textAlign="left" verticalAlign="middle" left="180" textColor="0x34e22c"/>
 		<e:Group id="groupJiHuo" x="27" y="375" visible="false">
-			<e:Label text="Beast Soul Fragment Cost: " x="0" y="11" size="20" textColor="0xc6b59e"/>
+			<e:Label text="消耗兽魂碎片 : " x="0" y="11" size="20" textColor="0xc6b59e"/>
 			<e:Image width="155" height="46" x="138" y="0" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_numbg_png" scale9Grid="15,11,27,6"/>
 			<e:Label id="labterm2" text="18/1000" y="11" size="22" textAlign="left" verticalAlign="middle" textColor="0x34e22c" x="154"/>
 		</e:Group>
@@ -40,7 +40,7 @@
 			<components:Icon id="icon2" width="30" height="30" x="119" y="1"/>
 			<e:Label id="lab1" text="10/1" y="6" size="22" textColor="0x34e22c" verticalAlign="middle" textAlign="left" left="33"/>
 			<e:Label id="lab2" text="0000/000" y="6" size="22" textColor="0x34e22c" verticalAlign="middle" textAlign="left" left="151"/>
-			<e:Label text="Or" x="86" y="5" textColor="0xc6b59e" size="22"/>
+			<e:Label text="或" x="86" y="5" textColor="0xc6b59e" size="22"/>
 		</e:Group>
 	</e:Group>
 	<e:Group id="group1" y="22.5" x="133">
@@ -49,25 +49,25 @@
 		<e:Image id="img_Highlight1" x="3.5" y="2" width="85" height="85" source="explore_json.img_circle_gold"/>
 		<e:Image id="imgPoint1" source="common_json.img_warn_png" x="0" y="0" scaleX="1" scaleY="1"/>
 		<e:Label id="vipLock1" text="" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
-		<e:Label text="Learn Value Unlock" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" id="labXueXi1" horizontalCenter="0" verticalCenter="0" textColor="0xedc839" visible="false"/>
+		<e:Label text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" id="labXueXi1" horizontalCenter="0" verticalCenter="0" textColor="0xedc839" visible="false"/>
 	</e:Group>
 	<e:Group id="group2" y="22.5" x="254">
 		<e:Image id="btn2" x="0" y="0" source="explore_json.img_circle_back"/>
 		<e:Image id="img2" width="80" height="80" x="6" y="6" touchEnabled="false"/>
 		<e:Image id="img_Highlight2" x="3.5" y="2" width="85" height="85" source="explore_json.img_circle_gold"/>
 		<e:Image id="imgPoint2" source="common_json.img_warn_png" x="0" y="0" scaleX="1" scaleY="1"/>
-		<e:Label id="vipLock2" text="V2 Unlock Now" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
-		<e:Label id="labXueXi2" text="Learn Value Unlock" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" horizontalCenter="0" textColor="0xedc839" y="25" visible="false"/>
+		<e:Label id="vipLock2" text="V2立即解锁" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
+		<e:Label id="labXueXi2" text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" horizontalCenter="0" textColor="0xedc839" y="25" visible="false"/>
 	</e:Group>
 	<e:Group id="group3" y="22.5" x="375">
 		<e:Image id="btn3" x="0" y="0" source="explore_json.img_circle_back"/>
 		<e:Image id="img3" width="80" height="80" x="6" y="6" touchEnabled="false"/>
 		<e:Image id="img_Highlight3" x="3.5" y="2" width="85" height="85" source="explore_json.img_circle_gold"/>
 		<e:Image id="imgPoint3" source="common_json.img_warn_png" x="0" y="0" scaleX="1" scaleY="1"/>
-		<e:Label id="vipLock3" text="V4 Unlock Now" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
-		<e:Label id="labXueXi3" text="Learn Value Unlock" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" horizontalCenter="0" textColor="0xedc839" y="25" visible="false"/>
+		<e:Label id="vipLock3" text="V4立即解锁" y="80" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" horizontalCenter="0"/>
+		<e:Label id="labXueXi3" text="学习值解锁" size="20" anchorOffsetY="0" height="43" anchorOffsetX="0" width="73" textAlign="center" verticalAlign="middle" scaleX="1" scaleY="1" touchEnabled="false" stroke="2" horizontalCenter="0" textColor="0xedc839" y="25" visible="false"/>
 	</e:Group>
-	<components:SnapButton id="btnUpdata" label="Activate" y="690" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" anchorOffsetX="77" anchorOffsetY="23" x="302"/>
+	<components:SnapButton id="btnUpdata" label="激活" y="690" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" anchorOffsetX="77" anchorOffsetY="23" x="302"/>
 	<components:IconButton id="btnGetData" x="538" y="691" source="common_json.img_getRes_png" anchorOffsetX="36" anchorOffsetY="33"/>
 	<components:IconButton id="btnDecompose" x="534" y="597" anchorOffsetX="36" anchorOffsetY="33" source="common_json.btn_decompose_png"/>
 	<e:Image id="fenjieRedPoint" width="20" height="20" x="504" y="571" source="common_json.img_warn_png"/>

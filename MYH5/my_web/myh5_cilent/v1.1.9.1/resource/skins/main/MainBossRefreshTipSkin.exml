@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="skin.MainBossRefreshTipSkin" height="37" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Image id="imgbg" source="uiMain_json.img_main_bosstips" y="0" anchorOffsetX="0" width="200" x="0" scale9Grid="8,4,10,29"/>
-	<e:Label id="labBossTips" text="Divine Bull Demon King has refreshed." y="8.5" size="20" textColor="0xC6B59E" x="11"/>
+	<e:Label id="labBossTips" text="神牛魔王刷新了" y="8.5" size="20" textColor="0xC6B59E" x="11"/>
 </e:Skin>

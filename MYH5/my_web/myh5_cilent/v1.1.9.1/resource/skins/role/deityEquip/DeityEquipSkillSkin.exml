@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="dialog.DeityEquipSkillSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Image id="btnSkill" y="0" touchEnabled="true" source="common_json.img_qlt_1_png" width="56" height="56"/>
-	<e:Label id="labSuit" text="1-Piece Set" y="60" size="14" anchorOffsetX="0" textAlign="center" textColor="0xC6B59E" stroke="1" horizontalCenter="0"/>
-	<e:Label id="labName" text="1-Piece Set" y="83" size="14" anchorOffsetX="0" textAlign="center" textColor="0xC6B59E" stroke="1" horizontalCenter="0"/>
+	<e:Label id="labSuit" text="1件套装" y="60" size="14" anchorOffsetX="0" textAlign="center" textColor="0xC6B59E" stroke="1" horizontalCenter="0"/>
+	<e:Label id="labName" text="1件套装" y="83" size="14" anchorOffsetX="0" textAlign="center" textColor="0xC6B59E" stroke="1" horizontalCenter="0"/>
 </e:Skin>

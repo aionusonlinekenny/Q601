@@ -5,11 +5,11 @@
 	<e:Image id="imgEgg" y="142" x="90" includeIn="hatch,working" source="pet_hatch_hatchery2_png" source.hatch="pet_hatch_hatchery2_png" source.working="pet_hatch_hatchery2_png"/>
 	<e:Image id="imgLock" y="141.78" x="87" includeIn="lock" source="pet_hatch_lock1_png"/>
 	<e:Group id="boxInfo" x="19" y="314" includeIn="working">
-		<e:Label id="labTime" text="Hatching: 48:60:60" y="50.99" size="18" anchorOffsetX="0" width="188.83" anchorOffsetY="0" height="18.33" verticalAlign="middle" textAlign="center" horizontalCenter="-33" textColor="0x34e22c"/>
+		<e:Label id="labTime" text="孵化中 : 48:60:60" y="50.99" size="18" anchorOffsetX="0" width="188.83" anchorOffsetY="0" height="18.33" verticalAlign="middle" textAlign="center" horizontalCenter="-33" textColor="0x34e22c"/>
 		<components:IconButton id="btnFuHua" x="188" y="16.34" scaleX="1" scaleY="1" source="pet_json.btn_hatch_png"/>
 	</e:Group>
 	<e:Label id="labName" text="" x="53" y="9" size="20" textColor="0xD1A765" textAlign="center" anchorOffsetX="0" width="175.5" includeIn="hatch,working"/>
-	<components:SnapButton id="btnEdit" label="Unlock" y="325.68" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" label.hatch="孵化" includeIn="lock,hatch,idle" y.idle="168" x="63" label.idle="放入幻兽蛋" horizontalCenter="0" height="52" anchorOffsetX="75" anchorOffsetY="26"/>
+	<components:SnapButton id="btnEdit" label="解锁" y="325.68" skinName="skins.SnapButtonDefaultSkin" width="150" icon="img_warn_png" label.hatch="孵化" includeIn="lock,hatch,idle" y.idle="168" x="63" label.idle="放入幻兽蛋" horizontalCenter="0" height="52" anchorOffsetX="75" anchorOffsetY="26"/>
 	<e:Image includeIn="lock" x="94" y="273.99" source="common_json.img_diamonds_png"/>
 	<e:Label id="labPrice" text="Label" includeIn="lock" y="277" size="20" verticalAlign="middle" textAlign="left" left="129" textColor="0xc6b59e"/>
 </e:Skin>

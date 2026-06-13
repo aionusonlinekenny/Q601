@@ -10,17 +10,17 @@
 			</e:layout>
 		</e:List>
 	</e:Scroller>
-	<components:SnapButton id="btnApplyList" label="Application List" x="62" y="854" skinName="skins.SnapButtonDefaultSkin" width="120" icon="img_warn_png"/>
-	<components:SnapButton id="btnMemberMange" label="Member Management" x="181" y="854" skinName="skins.SnapButtonDefaultSkin" width="120" icon="img_warn_png"/>
-	<components:SnapButton id="btnLegionRank" label="Guild Ranking" x="301" y="854" skinName="skins.SnapButtonDefaultSkin" width="120" icon="img_warn_png"/>
-	<components:SnapButton id="btnExitLegion" label="Disband Guild" x="420" y="854" skinName="skins.SnapButtonDefaultSkin" width="120" icon="img_warn_png"/>
+	<components:SnapButton id="btnApplyList" label="申请列表" x="62" y="854" skinName="skins.SnapButtonDefaultSkin" width="120" icon="img_warn_png"/>
+	<components:SnapButton id="btnMemberMange" label="成员管理" x="181" y="854" skinName="skins.SnapButtonDefaultSkin" width="120" icon="img_warn_png"/>
+	<components:SnapButton id="btnLegionRank" label="军团排行" x="301" y="854" skinName="skins.SnapButtonDefaultSkin" width="120" icon="img_warn_png"/>
+	<components:SnapButton id="btnExitLegion" label="解散军团" x="420" y="854" skinName="skins.SnapButtonDefaultSkin" width="120" icon="img_warn_png"/>
 	<e:Image source="union_json.img_union_line_png" x="124" y="54" height="35"/>
 	<e:Image source="union_json.img_union_line_png" x="246" y="54" height="35"/>
 	<e:Image source="union_json.img_union_line_png" x="349" y="54" height="35"/>
 	<e:Image source="union_json.img_union_line_png" x="475" y="54" height="35"/>
-	<e:Label text="Member" x="47" y="62" size="20" textColor="0xedc839"/>
-	<e:Label text="Position" x="164" y="62" size="20" textColor="0xedc839"/>
-	<e:Label text="Level" x="278" y="62" size="20" textColor="0xedc839"/>
-	<e:Label text="Power" x="394" y="62" size="20" textColor="0xedc839"/>
-	<e:Label text="Status" x="507" y="62" size="20" fontFamily="Arial" textColor="0xedc839"/>
+	<e:Label text="成员" x="47" y="62" size="20" textColor="0xedc839"/>
+	<e:Label text="职位" x="164" y="62" size="20" textColor="0xedc839"/>
+	<e:Label text="等级" x="278" y="62" size="20" textColor="0xedc839"/>
+	<e:Label text="战力" x="394" y="62" size="20" textColor="0xedc839"/>
+	<e:Label text="状态" x="507" y="62" size="20" fontFamily="Arial" textColor="0xedc839"/>
 </e:Skin>
