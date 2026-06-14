@@ -71,7 +71,7 @@ var egret;
                 this.onConnect = t, this.onClose = e, this.onSocketData = n, this.onError = o, this.thisObject = i
             }, e.prototype.connect = function (t, e) {
                 this.host = t, this.port = e;
-                var n = "ws://" + this.host + ":" + this.port;
+                var n = "ws://" + this.host + "/ws/" + this.port + "/";
                 this.socket = new window.WebSocket(n), this.socket.binaryType = "arraybuffer", this._bindEvent()
             }, e.prototype.connectByUrl = function (t) {
                 this.socket = new window.WebSocket(t), this.socket.binaryType = "arraybuffer", this._bindEvent()
