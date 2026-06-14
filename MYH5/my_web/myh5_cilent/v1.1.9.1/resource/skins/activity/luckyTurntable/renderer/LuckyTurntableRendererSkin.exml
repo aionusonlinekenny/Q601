@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="renderer.LuckyTurntableRendererSkin" width="400" height="18" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Label id="labContent" text="玩家获X倍明日返还，共XXXX魔石" size="18" textColor="0xEDC839"/>
+	<e:Label id="labContent" text="Player receives X times return tomorrow, totaling XXXX Magic Stones." size="18" textColor="0xEDC839"/>
 </e:Skin>

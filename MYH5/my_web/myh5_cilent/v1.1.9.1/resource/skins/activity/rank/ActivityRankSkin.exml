@@ -20,8 +20,8 @@
 			</e:layout>
 		</e:List>
 	</e:Scroller>
-	<e:Label id="labMyRank" text="我的排名" y="822" size="20" textColor="0xedc839" horizontalCenter="-90"/>
+	<e:Label id="labMyRank" text="My Ranking" y="822" size="20" textColor="0xedc839" horizontalCenter="-90"/>
 	<e:Image y="8" source="img_title_rank_png" x="236"/>
-	<e:Label id="labRankName" text="我的战力:" x="343.34" y="822" size="18" anchorOffsetX="0" anchorOffsetY="0" textColor="0xC6B59E"/>
+	<e:Label id="labRankName" text="My Power:" x="343.34" y="822" size="18" anchorOffsetX="0" anchorOffsetY="0" textColor="0xC6B59E"/>
 	<e:Label id="labRankValue" text="999999 " x="442.5" y="822" size="18" anchorOffsetX="0" anchorOffsetY="0" textColor="0xEDC839"/>
 </e:Skin>

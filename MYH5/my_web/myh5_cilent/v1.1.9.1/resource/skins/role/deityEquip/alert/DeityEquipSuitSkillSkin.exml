@@ -3,8 +3,8 @@
 	<e:Image x="0" y="0" anchorOffsetX="0" width="440" anchorOffsetY="0" source="common_json.img_tips_bg_png" scale9Grid="22,26,21,15" height="295"/>
 	<e:Image id="imgQuality" source="common_json.img_qlt_1_png" x="43" y="33"/>
 	<components:Icon id="imgIcon" source="" width="80" height="80" x="48" y="37"/>
-	<e:Label id="labName" text="经脉丹" x="180" y="64" size="24" anchorOffsetX="0" width="159.5" textColor="0xc6b59e" textAlign="center"/>
-	<e:Label id="labDesc" text="使用可以获得3000点成就" y="160.5" size="20" anchorOffsetX="0" width="367.67" anchorOffsetY="0" height="121" textColor="0xc6b59e" lineSpacing="5" horizontalCenter="0"/>
+	<e:Label id="labName" text="Meridian Elixir" x="180" y="64" size="24" anchorOffsetX="0" width="159.5" textColor="0xc6b59e" textAlign="center"/>
+	<e:Label id="labDesc" text="Use to gain 3000 achievement points" y="160.5" size="20" anchorOffsetX="0" width="367.67" anchorOffsetY="0" height="121" textColor="0xc6b59e" lineSpacing="5" horizontalCenter="0"/>
 	<e:Image y="150" anchorOffsetX="0" anchorOffsetY="0" width="382" source="common_json.img_normal_line_png" x="0"/>
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" x="403" y="32" anchorOffsetX="25" anchorOffsetY="25"/>
 	<e:Image id="imgTitle" source="common_closetip_png" y="309" anchorOffsetX="143" anchorOffsetY="14" horizontalCenter="0"/>

@@ -1,0 +1,68 @@
+[2026-06-15 04:36:09,400] ?Dwarf King?????????KennyMask
+[2026-06-15 04:36:09,434] ????????[KennyMask],posX=12,posY=10
+[2026-06-15 04:36:09,805] ????????[KennyMask],posX=13,posY=10
+[2026-06-15 04:36:10,134] ????????[KennyMask],posX=14,posY=10
+
+[2026-06-15 04:36:10,168] ????????[0cfa7f31-a080-4b8a-a1dc-713dd98db082]->[a1d17c00-f27b-4fac-95e1-45e3f3573344],?????[1201]
+[2026-06-15 04:36:10,168] ??????????[Otherworld Elf Ruila,0cfa7f31-a080-4b8a-a1dc-713dd98db082]->[Dwarf King,a1d17c00-f27b-4fac-95e1-45e3f3573344],?????[1201]
+
+[2026-06-15 04:36:10,169] >>>>>[Otherworld Elf Ruila]?????BEGIN??(Fireball), ??=Single Target ATK, uses Magic's power to form a fireball, targeting Single target,deal|C:0x34E22C&T:100%+100|T:Magic Damage., ???Dwarf King, ?????2
+[2026-06-15 04:36:10,169] >>>>>[Otherworld Elf Ruila]?????(Dwarf King), ????[11,11]; ????[16,11]
+[2026-06-15 04:36:10,169] ?????????1
+[2026-06-15 04:36:10,169] >>>>???(Otherworld Elf Ruila) -> (Dwarf King) ?????100, ?????100, ?????1, ??XP???false
+[2026-06-15 04:36:10,169] ?????????(BUFF?)?hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2026-06-15 04:36:10,169] ?????????(BUFF?)?hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2026-06-15 04:36:10,169] ?????????(BUFF?)?hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2026-06-15 04:36:10,169] ?????????(BUFF?)?hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2026-06-15 04:36:10,173] ?????????(BUFF?)?maxPAtk:5920,maxPDef:2600,maxMDef:2600,ignorePDef:0,ignoreMDef:2960,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2026-06-15 04:36:10,173] ?????????(BUFF?)?maxPAtk:140,maxPDef:16,maxMDef:16,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2026-06-15 04:36:10,173] ?????????(BUFF?)?maxPAtk:5920,maxPDef:2600,maxMDef:2600,ignorePDef:0,ignoreMDef:2960,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2026-06-15 04:36:10,173] ?????????(BUFF?)?maxPAtk:140,maxPDef:16,maxMDef:16,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2026-06-15 04:36:10,173] ?????6020
+[2026-06-15 04:36:10,173] ??????BUFF???6020
+[2026-06-15 04:36:10,173] (Dwarf King,a1d17c00-f27b-4fac-95e1-45e3f3573344) ???6020;????1980/8000
+[2026-06-15 04:36:10,173] =========[Otherworld Elf Ruila]?????END??(Fireball)
+
+
+[2026-06-15 04:36:10,436] >>>>>[Dwarf King]?????BEGIN??(Boss Melee Attack), ??=NormalATK, ???KennyMask, ?????4
+[2026-06-15 04:36:10,436] >>>>>[Dwarf King]?????(KennyMask), ????[16,11]; ????[14,10]
+[2026-06-15 04:36:10,436] ?????????1
+[2026-06-15 04:36:10,436] >>>>???(Dwarf King) -> (KennyMask) ?????100, ?????0, ?????0, ??XP???false
+[2026-06-15 04:36:10,436] ?????????(BUFF?)?hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2026-06-15 04:36:10,436] ?????????(BUFF?)?hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2026-06-15 04:36:10,436] ?????????(BUFF?)?hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2026-06-15 04:36:10,436] ?????????(BUFF?)?hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2026-06-15 04:36:10,436] ?????????(BUFF?)?maxPAtk:140,maxPDef:16,maxMDef:16,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2026-06-15 04:36:10,436] ?????????(BUFF?)?maxPAtk:3460,maxPDef:99,maxMDef:95,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2026-06-15 04:36:10,436] ?????????(BUFF?)?maxPAtk:140,maxPDef:16,maxMDef:16,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2026-06-15 04:36:10,436] ?????????(BUFF?)?maxPAtk:3460,maxPDef:99,maxMDef:95,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2026-06-15 04:36:10,436] ?????82
+[2026-06-15 04:36:10,437] ??????BUFF???82
+[2026-06-15 04:36:10,437] (KennyMask,be63bd7e-e171-4649-a837-5ee4607d5946) ???82;????5744/5826
+[2026-06-15 04:36:10,437] =========[Dwarf King]?????END??(Boss Melee Attack)
+
+
+[2026-06-15 04:36:11,101] ????????[0cfa7f31-a080-4b8a-a1dc-713dd98db082]->[a1d17c00-f27b-4fac-95e1-45e3f3573344],?????[1201]
+[2026-06-15 04:36:11,101] ??????????[Otherworld Elf Ruila,0cfa7f31-a080-4b8a-a1dc-713dd98db082]->[Dwarf King,a1d17c00-f27b-4fac-95e1-45e3f3573344],?????[1201]
+
+[2026-06-15 04:36:11,101] >>>>>[Otherworld Elf Ruila]?????BEGIN??(Fireball), ??=Single Target ATK, uses Magic's power to form a fireball, targeting Single target,deal|C:0x34E22C&T:100%+100|T:Magic Damage., ???Dwarf King, ?????2
+[2026-06-15 04:36:11,101] >>>>>[Otherworld Elf Ruila]?????(Dwarf King), ????[11,11]; ????[16,11]
+[2026-06-15 04:36:11,101] ?????????1
+[2026-06-15 04:36:11,101] >>>>???(Otherworld Elf Ruila) -> (Dwarf King) ?????100, ?????100, ?????1, ??XP???false
+[2026-06-15 04:36:11,101] ?????????(BUFF?)?hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2026-06-15 04:36:11,102] ?????????(BUFF?)?hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2026-06-15 04:36:11,102] ?????????(BUFF?)?hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2026-06-15 04:36:11,102] ?????????(BUFF?)?hit:0,crit:0,critInjure:0,dodge:0,ignoreCrit:0,ignoreCritInjure:0,critBoss:0,critInjureBoss:0
+[2026-06-15 04:36:11,102] ?????????(BUFF?)?maxPAtk:5920,maxPDef:2600,maxMDef:2600,ignorePDef:0,ignoreMDef:2960,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2026-06-15 04:36:11,102] ?????????(BUFF?)?maxPAtk:140,maxPDef:16,maxMDef:16,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2026-06-15 04:36:11,102] ?????????(BUFF?)?maxPAtk:5920,maxPDef:2600,maxMDef:2600,ignorePDef:0,ignoreMDef:2960,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2026-06-15 04:36:11,102] ?????????(BUFF?)?maxPAtk:140,maxPDef:16,maxMDef:16,ignorePDef:0,ignoreMDef:0,injureAdd:0,injureIgnore:0,injureAddBoss:0
+[2026-06-15 04:36:11,102] ?????6020
+[2026-06-15 04:36:11,102] ??????BUFF???6020
+[2026-06-15 04:36:11,102] (Dwarf King,a1d17c00-f27b-4fac-95e1-45e3f3573344) ???6020;????0/8000
+[2026-06-15 04:36:11,102] ???(KennyMask,be63bd7e-e171-4649-a837-5ee4607d5946) ??????: objectId=a1d17c00-f27b-4fac-95e1-45e3f3573344,status=0
+[2026-06-15 04:36:11,106] (Dwarf King,a1d17c00-f27b-4fac-95e1-45e3f3573344) ?????1781469371106
+[2026-06-15 04:36:11,106] =========[Otherworld Elf Ruila]?????END??(Fireball)
+
+[2026-06-15 04:36:11,268] ?canControlObject??????????name=[KennyMask]
+[2026-06-15 04:36:11,684] ?canControlObject??????????name=[KennyMask]

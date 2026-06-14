@@ -40,14 +40,14 @@
 		<e:Label text="100" x="18" size="28" stroke="1" strokeColor="0xF1CF7E" textColor="0x452624" bold="true"/>
 	</e:Group>
 	<e:Image source="vip_json.img_title_chat" includeIn="zuhe" y="248.65" horizontalCenter="0.5"/>
-	<e:Label id="imgReceive0" text="领取" y="873" size="28" textColor="0x452624" stroke="1" strokeColor="0xf1cf7e" bold="true" x="88" touchEnabled="false" visible="false"/>
-	<e:Label id="imgReceive1" text="领取" y="873" size="28" textColor="0x452624" stroke="1" strokeColor="0xF1CF7E" bold="true" x="271" touchEnabled="false" visible="false"/>
-	<e:Label id="imgReceive2" text="领取" y="873" size="28" textColor="0x452624" stroke="1" strokeColor="0xF1CF7E" bold="true" x="455" touchEnabled="false" visible="false"/>
+	<e:Label id="imgReceive0" text="Claim" y="873" size="28" textColor="0x452624" stroke="1" strokeColor="0xf1cf7e" bold="true" x="88" touchEnabled="false" visible="false"/>
+	<e:Label id="imgReceive1" text="Claim" y="873" size="28" textColor="0x452624" stroke="1" strokeColor="0xF1CF7E" bold="true" x="271" touchEnabled="false" visible="false"/>
+	<e:Label id="imgReceive2" text="Claim" y="873" size="28" textColor="0x452624" stroke="1" strokeColor="0xF1CF7E" bold="true" x="455" touchEnabled="false" visible="false"/>
 	<e:Image source="vip_json.img_title_chat" includeIn="zhizun" y="239.34" horizontalCenter.zhizun="0.5" y.zhizun="150.33" horizontalCenter.zuhe="0" y.zuhe="254" horizontalCenter="0"/>
 	<e:Image source="vip_json.img_xianshi" x="14.81" y="725.29" touchEnabled="false"/>
-	<e:Label text="购买月卡和特权不计入VIP和首充" x="140" y="937" size="22" textColor="0xce800a" fontFamily="Microsoft YaHei"/>
-	<e:Label id="labmothCardTime" text="剩余 : XX天" x="295" y="835" size="14" fontFamily="Microsoft YaHei" stroke="1" textColor="0xedc839" textAlign="center"/>
-	<e:Label id="labsuperMothCardTime" text="剩余 : XX天" x="480" y="835" size="14" fontFamily="Microsoft YaHei" stroke="1" textColor="0xedc839" textAlign="center"/>
+	<e:Label text="Monthly Card and privilege purchases do not count toward VIP or first top-up." x="140" y="937" size="22" textColor="0xce800a" fontFamily="Microsoft YaHei"/>
+	<e:Label id="labmothCardTime" text="Remaining: XX days" x="295" y="835" size="14" fontFamily="Microsoft YaHei" stroke="1" textColor="0xedc839" textAlign="center"/>
+	<e:Label id="labsuperMothCardTime" text="Remaining: XX days" x="480" y="835" size="14" fontFamily="Microsoft YaHei" stroke="1" textColor="0xedc839" textAlign="center"/>
 	<e:Image includeIn="zuhe,zhizun" y="368" anchorOffsetX="0" anchorOffsetY="0" source="img_vip_zlts_bg_png" x.zhizun="133" y.zhizun="307" x.zuhe="133" y.zuhe="363"/>
 	<e:Group includeIn="zuhe,zhizun" y="366" y.zhizun="309" y.zuhe="365" horizontalCenter="0" horizontalCenter.zhizun="0.5">
 		<e:Image includeIn="zuhe,zhizun" source="vip_json.img_vip_zlts" left="0" bottom="0"/>

@@ -23,9 +23,9 @@
 	<components:IconButton id="btnClose" x="451" y="24" source="common_json.btn_close_png" anchorOffsetX="24" anchorOffsetY="24"/>
 	<components:IconButton id="btnBack" x="441" y="629" source="common_json.btn_back_png" anchorOffsetX="36" anchorOffsetY="33"/>
 	<e:Image id="imgTitle" y="9" source="img_talent_title_png" horizontalCenter="0"/>
-	<e:Button id="btnZhongJi" label="中级" x="13" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0"/>
-	<e:Button id="btnGaoJi" label="高级" x="132" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0"/>
-	<e:Button id="btnZhiZun" label="至尊" x="252" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0" visible="false"/>
+	<e:Button id="btnZhongJi" label="Intermediate" x="13" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0"/>
+	<e:Button id="btnGaoJi" label="Advanced" x="132" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0"/>
+	<e:Button id="btnZhiZun" label="Supreme" x="252" skinName="skins.TabButtonDefaultSkin" icon="img_warn_png" bottom="0" visible="false"/>
 	<e:Group id="group" x="15" y="360">
 		<e:Image width="456" height="235" y="0" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_inbg_png" scale9Grid="5,6,18,15" x="0"/>
 		<e:Image id="imgQuality" width="90" height="90" x="17" y="35" source="common_json.img_qlt_1_png"/>

@@ -4,20 +4,20 @@
 	<e:Image source="img_title_rank_png" y="8" horizontalCenter="0"/>
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" anchorOffsetX="27" anchorOffsetY="28" x="571" y="30"/>
 	<e:Image source="rankings_json.img_rankMan_base" x="10" y="614" scale9Grid="13,13,59,38" width="580" height="156" includeIn="award" anchorOffsetY="0"/>
-	<e:Label id="labScore0" text="50积分" includeIn="award" y="624" size="14" stroke="1" textColor="0xEDC839" textAlign="center" x="70"/>
-	<e:Label id="labScore1" text="50积分" includeIn="award" y="624" size="14" textColor="0xEDC839" stroke="1" x="172"/>
-	<e:Label id="labScore2" text="50积分" includeIn="award" y="624" size="14" textColor="0xEDC839" stroke="1" x="280"/>
-	<e:Label id="labScore3" text="50积分" includeIn="award" y="624" size="14" textColor="0xEDC839" stroke="1" x="387"/>
-	<e:Label id="labScore4" text="50积分" includeIn="award" y="624" size="14" textColor="0xEDC839" stroke="1" x="489"/>
+	<e:Label id="labScore0" text="50 Points" includeIn="award" y="624" size="14" stroke="1" textColor="0xEDC839" textAlign="center" x="70"/>
+	<e:Label id="labScore1" text="50 Points" includeIn="award" y="624" size="14" textColor="0xEDC839" stroke="1" x="172"/>
+	<e:Label id="labScore2" text="50 Points" includeIn="award" y="624" size="14" textColor="0xEDC839" stroke="1" x="280"/>
+	<e:Label id="labScore3" text="50 Points" includeIn="award" y="624" size="14" textColor="0xEDC839" stroke="1" x="387"/>
+	<e:Label id="labScore4" text="50 Points" includeIn="award" y="624" size="14" textColor="0xEDC839" stroke="1" x="489"/>
 	<components:RewardItemBox id="scoreItem1" x="151" y="645" skinName="components.ItemBoxSkin" includeIn="award"/>
 	<components:RewardItemBox id="scoreItem0" x="46" y="645" skinName="components.ItemBoxSkin" includeIn="award"/>
 	<components:RewardItemBox id="scoreItem2" x="255" y="645" skinName="components.ItemBoxSkin" includeIn="award"/>
 	<components:RewardItemBox id="scoreItem3" x="361" y="645" skinName="components.ItemBoxSkin" includeIn="award"/>
 	<components:RewardItemBox id="scoreItem4" x="466" y="645" skinName="components.ItemBoxSkin" includeIn="award"/>
 	<e:Image y="589" source="img_activity_labbg2_png" scale9Grid="12,3,76,18" width="200" includeIn="award" x="14"/>
-	<e:Label text="积分宝箱奖励" includeIn="award" x="22" y="594" size="14" textColor="0xC6B59E"/>
+	<e:Label text="Points Chest Reward" includeIn="award" x="22" y="594" size="14" textColor="0xC6B59E"/>
 	<e:Image x="14" y="60" source="img_activity_labbg2_png" scale9Grid="12,3,76,18" width="200" includeIn="award"/>
-	<e:Label text="积分排名奖励" includeIn="award" x="22" y="65" size="14" textColor="0xC6B59E"/>
+	<e:Label text="Points Ranking Reward" includeIn="award" x="22" y="65" size="14" textColor="0xC6B59E"/>
 	<e:Scroller width="580" height="501" x="10" y="85" scrollPolicyH="off" scrollPolicyV="auto" includeIn="award">
 		<e:List id="rankPersonRewardList0" itemRenderer="renderer.KingBattlefieldRankRewardCell" itemRendererSkinName="renderer.KingBattlefieldRankRewardCellSkin"/>
 	</e:Scroller>

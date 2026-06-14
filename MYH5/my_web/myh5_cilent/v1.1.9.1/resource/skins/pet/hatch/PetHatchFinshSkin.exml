@@ -3,8 +3,8 @@
 	<e:Image x="6" y="449.46" source="pet_hatch_di_png"/>
 	<e:Image source="pet_json.img_namedi_png" x="35" y="250.46"/>
 	<e:Image source="pet_json.img_namedi_png" x="80" y="314.46" anchorOffsetY="0" height="164" scale9Grid="8,83,22,31"/>
-	<e:Label id="labName" text="我爱你" y="245.46" size="20" verticalAlign="middle" textAlign="center" anchorOffsetY="0" height="191" anchorOffsetX="0" width="33" horizontalCenter="-224.5" textColor="0xedc839"/>
-	<e:Label id="labType" text="我爱你" y="314.46" size="20" verticalAlign="middle" width="33" textAlign="center" horizontalCenter="-179.5" anchorOffsetY="0" height="148" textColor="0xc6b59e"/>
+	<e:Label id="labName" text="I Love You" y="245.46" size="20" verticalAlign="middle" textAlign="center" anchorOffsetY="0" height="191" anchorOffsetX="0" width="33" horizontalCenter="-224.5" textColor="0xedc839"/>
+	<e:Label id="labType" text="I Love You" y="314.46" size="20" verticalAlign="middle" width="33" textAlign="center" horizontalCenter="-179.5" anchorOffsetY="0" height="148" textColor="0xc6b59e"/>
 	<e:Label id="labValue" text="Label" y="393.46" lineSpacing="10" size="20" verticalAlign="middle" textAlign="left" left="326" textColor="0xc6b59e"/>
 	<e:BitmapLabel id="labValue0" x="493" y="393.46" font="petLv_fnt" text="S" lineSpacing="10" visible="false"/>
 	<e:BitmapLabel id="labValue1" x="493" y="423.46" font="petLv_fnt" text="S" lineSpacing="10" visible="false"/>
@@ -16,5 +16,5 @@
 	<e:Image id="imgBg" x="32" y="6.46" source="pet_fuhuafinsh_png"/>
 	<e:Image source="common_closetip_png" x="140" y="699.46"/>
 	<e:Image source="pet_gongxi_png" x="117" y="645.46"/>
-	<components:SnapButton id="btnUpZhen" label="立即上阵" y="735" horizontalCenter="0" skinName="skins.SnapButtonDefaultSkin"/>
+	<components:SnapButton id="btnUpZhen" label="Deploy Now" y="735" horizontalCenter="0" skinName="skins.SnapButtonDefaultSkin"/>
 </e:Skin>

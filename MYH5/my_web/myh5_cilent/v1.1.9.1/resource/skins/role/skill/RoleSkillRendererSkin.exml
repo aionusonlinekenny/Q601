@@ -4,11 +4,11 @@
 	<e:Image source="role_json.role_skillIcon_png" y="9" horizontalCenter="0"/>
 	<components:Icon id="imgQuality" y="27" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_qlt_1_png" touchEnabled="false" horizontalCenter="0"/>
 	<components:Icon id="imgIcon" y="30" anchorOffsetX="0" anchorOffsetY="0" scale9Grid="9,9,19,19" width="80" height="80" source="" touchEnabled="false" horizontalCenter="0"/>
-	<components:SnapButton id="btnUpgrade" label="升级" anchorOffsetX="65" skinName="skins.SnapOrangeButtonSkin" anchorOffsetY="29" y="299" horizontalCenter="0.5"/>
+	<components:SnapButton id="btnUpgrade" label="Upgrade" anchorOffsetX="65" skinName="skins.SnapOrangeButtonSkin" anchorOffsetY="29" y="299" horizontalCenter="0.5"/>
 	<e:Image source="common_json.img_gold_png" x="97" y="243" touchEnabled="false"/>
 	<components:Icon id="imgWarn" source="common_json.img_warn_png" x="80" y="269"/>
-	<e:Label id="labDesc" text="攻击目标攻击目标攻击目标攻击目标攻击目标攻击目标攻击目标攻击目标攻击目标攻击目标攻击目标" y="156" size="18" textAlign="left" anchorOffsetX="0" width="240" anchorOffsetY="0" height="82" wordWrap="true" touchEnabled="false" textColor="0xc6b59e" horizontalCenter="1.5" lineSpacing="3"/>
-	<e:Label id="labName" text="飞天连斩" x="30" y="131" size="20" textAlign="left" touchEnabled="false" textColor="0xedc839"/>
+	<e:Label id="labDesc" text="Attack Target (repeated)" y="156" size="18" textAlign="left" anchorOffsetX="0" width="240" anchorOffsetY="0" height="82" wordWrap="true" touchEnabled="false" textColor="0xc6b59e" horizontalCenter="1.5" lineSpacing="3"/>
+	<e:Label id="labName" text="Flying Slash" x="30" y="131" size="20" textAlign="left" touchEnabled="false" textColor="0xedc839"/>
 	<e:Label id="labLevel" text="Lv.140" x="117" y="131" size="20" textAlign="left" touchEnabled="false" textColor="0xedc839"/>
 	<e:Label id="labMoney" text="100000" x="123" y="248" size="20" textAlign="left" touchEnabled="false" textColor="0x34e22c"/>
 </e:Skin>

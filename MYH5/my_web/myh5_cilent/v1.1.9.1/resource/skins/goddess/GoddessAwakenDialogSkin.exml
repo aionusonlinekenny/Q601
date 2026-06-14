@@ -3,7 +3,7 @@
 	<e:Image x="11" y="43" anchorOffsetX="0" width="576" anchorOffsetY="0" height="573" scale9Grid="8,7,48,44" source="goddess_json.img_goddess_inbg"/>
 	<e:Image id="imgGoddess" x="15" y="47" source="img_goddess_w1_jpg"/>
 	<e:Image id="imgName" x="359" y="77" source="goddess_json.img_goddess_name_1"/>
-	<components:SnapButton id="btnAwake" label="唤醒" y="858" anchorOffsetX="83" anchorOffsetY="26" x="302">
+	<components:SnapButton id="btnAwake" label="Awaken" y="858" anchorOffsetX="83" anchorOffsetY="26" x="302">
 		<components:skinName>
 		<e:Skin states="up,down,disabled">
 			<e:Image alpha.disabled="0.5" width="162" height="100%" source="common_json.btnt_red_selected_png" source.up="common_json.btnt_red_selected_png" source.down="common_json.btnt_red_selected_png" source.disabled="common_json.btnt_red_selected_png" scale9Grid="12,0,15,52" scale9Grid.up="12,0,15,52" scale9Grid.down="12,0,15,52" scale9Grid.disabled="12,0,15,52"/>
@@ -19,12 +19,12 @@
 	<e:Image id="imgPart3" x="73" y="717.33" source="img_titleBack_lock_png"/>
 	<e:Image id="imgPart4" source="img_titleBack_png" x="236" y="717.33"/>
 	<e:Image id="imgPart5" source="img_titleBack_png" x="400" y="717.33"/>
-	<e:Label id="labProperty" text="生命5000" y="648" size="22" anchorOffsetX="0" textAlign="center" horizontalCenter="0.5" textColor="0xedc839"/>
-	<e:Label id="labPart0" text="生命之芽" x="83" y="684" size="20" anchorOffsetX="0" width="120" textAlign="center" textColor="0xedc839"/>
-	<e:Label id="labPart1" text="生命5000" y="684" size="20" anchorOffsetX="0" width="120" textAlign="center" x="240" textColor="0xedc839"/>
-	<e:Label id="labDesc" text="再战X关可以激活" y="796.29" size="20" anchorOffsetX="0" textAlign="center" textColor="0xb72a0f" x="223" bold="true"/>
-	<e:Label id="labPart2" text="生命5000" x="399" y="684" size="20" anchorOffsetX="0" width="120" textAlign="center" textColor="0xedc839"/>
-	<e:Label id="labPart3" text="生命5000" x="83" y="730" size="20" anchorOffsetX="0" width="120" textAlign="center" textColor="0xedc839"/>
-	<e:Label id="labPart4" text="生命5000" y="730" size="20" anchorOffsetX="0" width="120" textAlign="center" x="240" textColor="0xedc839"/>
-	<e:Label id="labPart5" text="生命5000" x="399" y="730" size="20" anchorOffsetX="0" width="120" textAlign="center" textColor="0xedc839"/>
+	<e:Label id="labProperty" text="HP 5000" y="648" size="22" anchorOffsetX="0" textAlign="center" horizontalCenter="0.5" textColor="0xedc839"/>
+	<e:Label id="labPart0" text="Life Sprout" x="83" y="684" size="20" anchorOffsetX="0" width="120" textAlign="center" textColor="0xedc839"/>
+	<e:Label id="labPart1" text="HP 5000" y="684" size="20" anchorOffsetX="0" width="120" textAlign="center" x="240" textColor="0xedc839"/>
+	<e:Label id="labDesc" text="Clear X more stages to activate" y="796.29" size="20" anchorOffsetX="0" textAlign="center" textColor="0xb72a0f" x="223" bold="true"/>
+	<e:Label id="labPart2" text="HP 5000" x="399" y="684" size="20" anchorOffsetX="0" width="120" textAlign="center" textColor="0xedc839"/>
+	<e:Label id="labPart3" text="HP 5000" x="83" y="730" size="20" anchorOffsetX="0" width="120" textAlign="center" textColor="0xedc839"/>
+	<e:Label id="labPart4" text="HP 5000" y="730" size="20" anchorOffsetX="0" width="120" textAlign="center" x="240" textColor="0xedc839"/>
+	<e:Label id="labPart5" text="HP 5000" x="399" y="730" size="20" anchorOffsetX="0" width="120" textAlign="center" textColor="0xedc839"/>
 </e:Skin>

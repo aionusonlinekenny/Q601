@@ -3,11 +3,11 @@
 	<e:Image x="19" y="0" source="img_activity_title_bg_jpg"/>
 	<e:Image source="activity_black_bg_png" x="339" y="188"/>
 	<e:Image x="100" y="56" source="activity_json.fanLiLeiC_title"/>
-	<e:Label id="labDate" text="2018年12月12日 " x="142" y="129" size="18" textColor="0x34E22C"/>
-	<e:Label id="labDesc" text="活动期间幻兽总战力排行" x="142" y="164" size="16" width="191" height="64" lineSpacing="5" textColor="0xC6B59E" textAlign="left"/>
-	<e:Label text="截止时间 : " x="46" y="129" size="18" textColor="0xEDC839"/>
-	<e:Label text="活动说明 : " x="46" y="164" size="18" textColor="0xEDC839"/>
-	<e:Label id="labRechange" text="200000魔石" y="192" size="22" textColor="0x34e22c" verticalAlign="middle" textAlign="right" x="415" stroke="1"/>
+	<e:Label id="labDate" text="December 12, 2018 " x="142" y="129" size="18" textColor="0x34E22C"/>
+	<e:Label id="labDesc" text="Total Phantom Beast Power Ranking (event period)" x="142" y="164" size="16" width="191" height="64" lineSpacing="5" textColor="0xC6B59E" textAlign="left"/>
+	<e:Label text="Deadline: " x="46" y="129" size="18" textColor="0xEDC839"/>
+	<e:Label text="Event Info: " x="46" y="164" size="18" textColor="0xEDC839"/>
+	<e:Label id="labRechange" text="200000 Magic Stones" y="192" size="22" textColor="0x34e22c" verticalAlign="middle" textAlign="right" x="415" stroke="1"/>
 	<e:Scroller width="559" height="620" y="220" horizontalCenter="0">
 		<e:List id="listReward" x="40" y="8" itemRendererSkinName="renderer.ActivityLevelRendererSkin">
 		<e:layout>
@@ -15,5 +15,5 @@
 		</e:layout>
 		</e:List>
 	</e:Scroller>
-	<e:Label text="已充值" x="349" y="192" size="22" textColor="0xe86927" stroke="1"/>
+	<e:Label text="Topped Up" x="349" y="192" size="22" textColor="0xe86927" stroke="1"/>
 </e:Skin>

@@ -10,7 +10,7 @@
     <item:HeadIcon id="head2" y="22.5" x="301"  skinName="normal.HeadIconSkin"/>
     <item:HeadIcon id="head3" y="22.5" x="422"  skinName="normal.HeadIconSkin"/>
     <e:Image id="imgSelect" y="21.5"  anchorOffsetX="-3.5" source="explore_json.img_circle_gold" width="85" height="85" x="57" anchorOffsetY="-2"/>
-	<e:Label id="vipLock1" text="V0立即解锁" y="100" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" x="179"/>
-	<e:Label id="vipLock2" text="V2立即解锁" y="100" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" x="301"/>
-	<e:Label id="vipLock3" text="V4立即解锁" y="100" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" x="422"/>
+	<e:Label id="vipLock1" text="V0 Unlock Now" y="100" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" x="179"/>
+	<e:Label id="vipLock2" text="V2 Unlock Now" y="100" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" x="301"/>
+	<e:Label id="vipLock3" text="V4 Unlock Now" y="100" size="18" textColor="0x34E22C" stroke="2" scaleX="1" scaleY="1" x="422"/>
 </e:Skin>

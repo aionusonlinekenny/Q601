@@ -2,9 +2,9 @@
 <e:Skin class="renderer.ExchangeRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Image x="0" y="0" width="578" height="133" scale9Grid="16,16,33,30" source="common_exchange_item_png"/>
 	<item:NormalItem id="item" x="23" y="22" skinName="tipIcon.NormalItemSkin"/>
-	<components:SnapButton id="btnExchange" label="兑换" anchorOffsetX="53" skinName="skins.SnapOrangeButtonSkin" x="475" anchorOffsetY="24" y="67"/>
-	<e:Label id="labName" text="装备名字" x="123" y="26" size="20" anchorOffsetX="0" anchorOffsetY="0" textColor="0xedc839"/>
-	<e:Label text="消耗 : " x="122" y="73" size="20" anchorOffsetX="0" anchorOffsetY="0" textColor="0xc6b59e"/>
+	<components:SnapButton id="btnExchange" label="Exchange" anchorOffsetX="53" skinName="skins.SnapOrangeButtonSkin" x="475" anchorOffsetY="24" y="67"/>
+	<e:Label id="labName" text="Equipment Name" x="123" y="26" size="20" anchorOffsetX="0" anchorOffsetY="0" textColor="0xedc839"/>
+	<e:Label text="Cost: " x="122" y="73" size="20" anchorOffsetX="0" anchorOffsetY="0" textColor="0xc6b59e"/>
 	<e:Image id="imgMaterial" width="30" height="30" x="182" y="70"/>
 	<e:Image source="common_json.img_numbg_png" y="68" anchorOffsetY="0" height="40" anchorOffsetX="0" width="140" scale9Grid="11,5,40,12" x="219"/>
 	<e:Label id="labCount" text="10/100" x="219" y="76" size="20" anchorOffsetY="0" wordWrap="false" lineSpacing="10" anchorOffsetX="0" width="140" textAlign="center" textColor="0xc6b59e"/>

@@ -5,5 +5,5 @@
 * @作者: 欢乐逗
 * @说明: 删除以及更改版权者死全家
 */
-echo '充值暂未开放，请联系管理';
+echo 'Recharge is not yet available. Please contact the administrator.';
 ?>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="BagPickEquipSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*" width="600" height="916">
-	<components:SnapButton id="btnPicked" label="确定" y="578" anchorOffsetX="76" width="150" horizontalCenter="0" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="28"/>
+	<components:SnapButton id="btnPicked" label="Confirm" y="578" anchorOffsetX="76" width="150" horizontalCenter="0" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="28"/>
 	<e:Image source="common_json.img_inbg_png" x="11" y="75" anchorOffsetX="0" width="578" anchorOffsetY="0" height="460" scale9Grid="5,6,18,15"/>
 	<e:Scroller id="sclBox" y="85" anchorOffsetX="0" anchorOffsetY="0" height="440" horizontalCenter="0">
 		<e:List id="listPicked" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" itemRendererSkinName="renderer.BagEquiptCheckBoxSkin" scaleX="1" scaleY="1">

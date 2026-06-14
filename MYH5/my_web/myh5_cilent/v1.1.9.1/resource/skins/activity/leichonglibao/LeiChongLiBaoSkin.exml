@@ -8,10 +8,10 @@
 	<components:RewardItemBox id="reward3" x="239" y="475" skinName="components.ItemBoxSkin"/>
 	<components:RewardItemBox id="reward4" x="355" y="475" skinName="components.ItemBoxSkin"/>
 	<components:RewardItemBox id="reward5" x="472" y="475" skinName="components.ItemBoxSkin"/>
-	<components:SnapButton id="btnGet" label="领取" y="798.96" anchorOffsetX="85" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="27" horizontalCenter="0"/>
+	<components:SnapButton id="btnGet" label="Claim" y="798.96" anchorOffsetX="85" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="27" horizontalCenter="0"/>
 	<e:Image id="imgDi" x="150" y="623" anchorOffsetX="128" width="253" anchorOffsetY="74" source=""/>
 	<e:Image id="imgTitel" horizontalCenter="-144" source="img_activity_LCLP_titel_png" bottom="211"/>
-	<e:Label id="labCount" text="已充值0/588888魔石" y="721.09" size="16" anchorOffsetX="0" anchorOffsetY="0" textColor="0xCFC9BE" horizontalCenter="0.5"/>
+	<e:Label id="labCount" text="Topped up: 0/588888 Magic Stones" y="721.09" size="16" anchorOffsetX="0" anchorOffsetY="0" textColor="0xCFC9BE" horizontalCenter="0.5"/>
 	<e:ProgressBar id="progressBar" y="678.1" anchorOffsetX="0" width="372" horizontalCenter="0">
 		<e:skinName>
 		<e:Skin minWidth="30" minHeight="18" xmlns:item="item.*">
@@ -22,8 +22,8 @@
 	</e:ProgressBar>
 	<e:Image x="19" y="0" source="img_activity_title_bg_jpg"/>
 	<e:Image x="100" y="56" source="activity_json.leichonglibao_title"/>
-	<e:Label id="labDate" text="2018年12月12日 " x="142" y="129" size="18" textColor="0x34E22C"/>
-	<e:Label id="labDesc" text="活动期间幻兽总战力排行" x="142" y="164" size="16" width="191" height="64" lineSpacing="5" textColor="0xC6B59E" textAlign="left"/>
-	<e:Label text="截止时间 : " x="46" y="129" size="18" textColor="0xEDC839"/>
-	<e:Label text="活动说明 : " x="46" y="164" size="18" textColor="0xEDC839"/>
+	<e:Label id="labDate" text="December 12, 2018 " x="142" y="129" size="18" textColor="0x34E22C"/>
+	<e:Label id="labDesc" text="Total Phantom Beast Power Ranking (event period)" x="142" y="164" size="16" width="191" height="64" lineSpacing="5" textColor="0xC6B59E" textAlign="left"/>
+	<e:Label text="Deadline: " x="46" y="129" size="18" textColor="0xEDC839"/>
+	<e:Label text="Event Info: " x="46" y="164" size="18" textColor="0xEDC839"/>
 </e:Skin>

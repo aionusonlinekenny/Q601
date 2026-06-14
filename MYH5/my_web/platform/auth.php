@@ -24,7 +24,7 @@ if (isset ( $_GET ["userId"] )) {
 } else {
  $arr = array (
   'code' => 1,
-  'errmsg' => '未接受到账号信息' 
+  'errmsg' => 'No account information received'
  );
  echo json_encode ( $arr );
  exit ();
@@ -49,7 +49,7 @@ $now = time ();
 if ($now - $time > 86400) {
  $arr = array (
   'code' => 1,
-  'errmsg' => '登录失败，链接失效' 
+  'errmsg' => 'Login failed, session expired'
  );
  echo json_encode ( $arr );
  exit ();
@@ -74,7 +74,7 @@ if (strpos ( $userId, 'undefined' ) === false && strpos ( $userId, 'null' ) === 
 } else {
  $arr = array (
   'code' => 2,
-  'errmsg' => '账号信息异常' 
+  'errmsg' => 'Account info is invalid'
  );
  echo json_encode ( $arr );
  exit ();
@@ -87,7 +87,7 @@ if (strpos ( $userId, 'undefined' ) === false && strpos ( $userId, 'null' ) === 
 if ($userId_len < 4 || $userId_len > 64) {
  $arr = array (
   'code' => 3,
-  'errmsg' => '帐号长度必须4~64' 
+  'errmsg' => 'Account length must be 4-64 characters'
  );
  echo json_encode ( $arr );
  exit ();
@@ -96,7 +96,7 @@ if ($userId_len < 4 || $userId_len > 64) {
 if ($password_len < 1 || $password_len > 64) {
  $arr = array (
   'code' => 4,
-  'errmsg' => '密码长度必须1~64' 
+  'errmsg' => 'Password length must be 1-64 characters'
  );
  echo json_encode ( $arr );
  exit ();
@@ -111,7 +111,7 @@ if ($channel == TW_CHANNEL) {
  if ($sign != $checkSign) {
   $arr = array (
    'code' => 5,
-   'errmsg' => 'tw-验证错误' 
+   'errmsg' => 'tw-verification error'
   );
   echo json_encode ( $arr );
   exit ();

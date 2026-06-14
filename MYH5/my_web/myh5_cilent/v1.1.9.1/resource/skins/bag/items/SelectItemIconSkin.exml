@@ -3,7 +3,7 @@
 	<e:Image id="imgQuality" source="common_json.img_qlt_3_png" touchEnabled="false"/>
 	<components:Icon id="imgIcon" source="" x="5" y="3" width="80" height="80"/>
 	<e:Label id="labCount" text="99999" y="61.5" size="20" anchorOffsetX="0" textAlign="right" width="61" x="22" bold="true" textColor="0xC6B59E" stroke="2" touchEnabled="false"/>
-	<e:Label id="labName" text="橙装碎片" y="90" size="16" textAlign="center" anchorOffsetX="0" horizontalCenter="0" bold="true" textColor="0xC6B59E"/>
+	<e:Label id="labName" text="Orange Gear Fragment" y="90" size="16" textAlign="center" anchorOffsetX="0" horizontalCenter="0" bold="true" textColor="0xC6B59E" width="90" truncateToFit="true"/>
 	<e:Group width="70" height="39" y="106" anchorOffsetY="0" x="10">
 		<e:Image source="bag_json.img_bag_chooseBg" x="23" y="15"/>
 		<e:Image id="imgSelect" y="20" source="bag_json.img_bag_choose" touchEnabled="false" x="27" visible="false"/>

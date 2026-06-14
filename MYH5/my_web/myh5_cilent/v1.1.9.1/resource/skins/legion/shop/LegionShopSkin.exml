@@ -16,11 +16,11 @@
 		</e:List>
 	</e:Scroller>
 	<e:Image height="93" y="824" anchorOffsetX="0" anchorOffsetY="0" source="common_implementbar_png" horizontalCenter="0" scale9Grid="90,12,473,16"/>
-	<e:Label text="我的军团贡献 : " x="185" y="837" size="20" textColor="0xc6b59e"/>
+	<e:Label text="My Guild Contribution: " x="185" y="837" size="20" textColor="0xc6b59e"/>
 	<e:Label id="labMy" text="Label" y="837" size="20" verticalAlign="middle" textAlign="left" left="323" textColor="0xedc839"/>
-	<e:Label id="labDes" text="限购商店的物品与限购次数不会刷新。" y="870" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="-15" text.daoju="商店的限购次数每天24点整刷新。" horizontalCenter.daoju="-12" textColor="0xc6b59e"/>
+	<e:Label id="labDes" text="Items and purchase limits in the limited shop will not refresh." y="870" size="20" verticalAlign="middle" textAlign="center" horizontalCenter="-15" text.daoju="商店的限购次数每天24点整刷新。" horizontalCenter.daoju="-12" textColor="0xc6b59e"/>
 	<components:IconButton id="btnGetData" x="506" y="832" source="common_json.img_getRes_png"/>
-	<components:SnapButton id="btnDaoju" label="道具商店" x="33" y="900" skinName="skins.TabButtonDefaultSkin" visible="false"/>
-	<components:SnapButton id="btnXiangou" label="限购商店" x="149" y="900" skinName="skins.TabButtonDefaultSkin" visible="false"/>
+	<components:SnapButton id="btnDaoju" label="Item Store" x="33" y="900" skinName="skins.TabButtonDefaultSkin" visible="false"/>
+	<components:SnapButton id="btnXiangou" label="Limited Shop" x="149" y="900" skinName="skins.TabButtonDefaultSkin" visible="false"/>
 	<e:Image x="7" y="41" touchEnabled="false" anchorOffsetX="0" width="585" source="img_shop_png"/>
 </e:Skin>

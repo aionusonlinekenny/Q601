@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="RegisterInfoSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:components="components.*">
 	<e:Image width="525" height="506" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0" source="common_json.img_prompt_bg_png" scale9Grid="35,79,27,18"/>
-	<e:Label text="加成属性 : " y="163" size="20" verticalAlign="middle" textAlign="left" x="77" anchorOffsetX="0" anchorOffsetY="0" textColor="0xedc839"/>
-	<e:Label id="labName" text="牛逼图腾" y="73" size="20" verticalAlign="top" textAlign="left" anchorOffsetY="0" anchorOffsetX="0" left="72" textColor="0xedc839"/>
-	<e:Label id="labLv" text="图腾等级 : 2" y="105" size="20" verticalAlign="top" textAlign="left" anchorOffsetX="0" anchorOffsetY="0" left="74" textColor="0xedc839"/>
-	<e:Label text="说明 : " y="438" size="20" verticalAlign="middle" textAlign="left" x="83" anchorOffsetX="0" anchorOffsetY="0" textColor="0xedc839"/>
+	<e:Label text="Bonus Attributes: " y="163" size="20" verticalAlign="middle" textAlign="left" x="77" anchorOffsetX="0" anchorOffsetY="0" textColor="0xedc839"/>
+	<e:Label id="labName" text="Awesome Totem" y="73" size="20" verticalAlign="top" textAlign="left" anchorOffsetY="0" anchorOffsetX="0" left="72" textColor="0xedc839"/>
+	<e:Label id="labLv" text="TotemLevel: 2" y="105" size="20" verticalAlign="top" textAlign="left" anchorOffsetX="0" anchorOffsetY="0" left="74" textColor="0xedc839"/>
+	<e:Label text="Description: " y="438" size="20" verticalAlign="middle" textAlign="left" x="83" anchorOffsetX="0" anchorOffsetY="0" textColor="0xedc839"/>
 	<components:IconButton id="btnClose" x="468" y="5" source="common_json.btn_close_png"/>
 	<e:Image x="204" y="9" source="union_json.img_union_title16_png"/>
-	<e:Label id="labDes" text="登记数量达到X时即可提升至X级" y="440" size="20" verticalAlign="middle" textAlign="left" left="139" textColor="0xc6b59e"/>
-	<e:Label id="labInfo" text="生命 : 10000" y="198" size="20" verticalAlign="middle" textAlign="left" left="78" lineSpacing="10" textColor="0xc6b59e"/>
+	<e:Label id="labDes" text="When registration count reaches X, level can be raised to X." y="440" size="20" verticalAlign="middle" textAlign="left" left="139" textColor="0xc6b59e"/>
+	<e:Label id="labInfo" text="HP: 10000" y="198" size="20" verticalAlign="middle" textAlign="left" left="78" lineSpacing="10" textColor="0xc6b59e"/>
 	<e:Image width="450" x="33" y="144" source="common_json.img_normal_line_png"/>
 	<e:Image width="450" x="33" y="420" source="common_json.img_normal_line_png"/>
 </e:Skin>

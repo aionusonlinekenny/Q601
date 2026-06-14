@@ -8,11 +8,11 @@
 	<e:Image source="img_fashion_title_bg_png" x="38" y="108"/>
 	<e:Image x="209" y="73" source="common_json.img_fight_png" width="57" height="31"/>
 	<e:BitmapLabel id="bitMapPwore" y="75" text="0" anchorOffsetY="0" left="267" font="fight_font2_fnt"/>
-	<components:SnapButton id="btnState" label="卸下" y="563" anchorOffsetX="0" horizontalCenter="0" width="162" skinName="skins.SnapButtonDefaultSkin">
+	<components:SnapButton id="btnState" label="Unequip" y="563" anchorOffsetX="0" horizontalCenter="0" width="162" skinName="skins.SnapButtonDefaultSkin">
 	</components:SnapButton>
-	<components:SnapButton id="btnActivity" label="激活" y="563" anchorOffsetX="0" horizontalCenter="0" width="162" skinName="skins.SnapGreenButtonSkin"/>
+	<components:SnapButton id="btnActivity" label="Activate" y="563" anchorOffsetX="0" horizontalCenter="0" width="162" skinName="skins.SnapGreenButtonSkin"/>
 	<e:Label id="labTime" text="" y="121" size="20" textColor="0xffb200" x="43" textAlign="center" anchorOffsetX="0" width="104"/>
-	<e:Label id="labDesc" text="的点点滴滴多多多多多多" y="625" size="14" horizontalCenter="0" textColor="0xedc839"/>
+	<e:Label id="labDesc" text="Every little bit..." y="625" size="14" horizontalCenter="0" textColor="0xedc839"/>
 	<e:Label id="labName" text="" y="37" size="24" textColor="0xd1a765" horizontalCenter="0"/>
 	<e:Label id="labFight" text="" y="115.33" size="18" x="431.67" textAlign="left" textColor="0xffb200"/>
 	<e:Label id="labPropertys" text="" y="121.33" size="18" textColor="0x2b8c25" x="431.33" textAlign="left"/>

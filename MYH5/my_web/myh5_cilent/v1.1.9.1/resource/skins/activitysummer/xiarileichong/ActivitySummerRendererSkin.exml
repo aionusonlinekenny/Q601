@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="renderer.ActivitySummerRendererSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:w="http://ns.egret.com/wing" width="559" height="158">
 	<e:Image x="9" anchorOffsetX="0" width="539" anchorOffsetY="0" y="30" scale9Grid="22,54,201,36" height="125" source="img_summer_list_png"/>
-	<components:SnapButton id="btnLingQuGet" label="领取" x="403" y="62" anchorOffsetX="0" width="133" skinName="skins.SnapGreenButtonSkin"/>
-	<e:Label id="labDesc" text="等级达到100级" x="24" y="8" size="16" strokeColor="0x964d30" stroke="1" textColor="0xfffaf1"/>
+	<components:SnapButton id="btnLingQuGet" label="Claim" x="403" y="62" anchorOffsetX="0" width="133" skinName="skins.SnapGreenButtonSkin"/>
+	<e:Label id="labDesc" text="Character level reaches 100" x="24" y="8" size="16" strokeColor="0x964d30" stroke="1" textColor="0xfffaf1"/>
 	<e:Group id="boxGroup" y="35" left="23">
 		<components:RewardItemBox id="reward0" x="0" skinName="components.ItemBoxSkin"/>
 		<components:RewardItemBox id="reward1" x="112" skinName="components.ItemBoxSkin"/>
 		<components:RewardItemBox id="reward2" x="224" skinName="components.ItemBoxSkin"/>
 	</e:Group>
-	<components:SnapButton id="btnGet" label="立即领取" y="89" anchorOffsetX="64" width="127" horizontalCenter="191" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="27"/>
+	<components:SnapButton id="btnGet" label="Claim Now" y="89" anchorOffsetX="64" width="127" horizontalCenter="191" skinName="skins.SnapButtonDefaultSkin" icon="img_warn_png" anchorOffsetY="27"/>
 	<e:Image id="imgBuyFinsh" x="425" y="47" source="activity_json.img_activity_yilingqu" visible="false"/>
 	<e:Image source="activitySummer_json.img_summer_tou" x="5" y="8"/>
 </e:Skin>

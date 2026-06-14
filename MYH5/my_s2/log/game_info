@@ -1,0 +1,6 @@
+26-06-15 04:31:17,230 INFO  sophia.foundation.core.ContextResolver - Foundation Task Service Running......
+26-06-15 04:31:20,927 INFO  sophia.game.plugIns.data.DataPlugIn - DataService was running.
+26-06-15 04:31:20,928 INFO  sophia.game.plugIns.taskManager.TaskManagerPlugIn - TaskService was running.
+26-06-15 04:31:39,598 INFO  sophia.foundation.core.ContextResolver - Foundation Task Service Running......
+26-06-15 04:31:43,978 INFO  sophia.game.plugIns.data.DataPlugIn - DataService was running.
+26-06-15 04:31:43,979 INFO  sophia.game.plugIns.taskManager.TaskManagerPlugIn - TaskService was running.

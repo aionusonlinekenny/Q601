@@ -5,9 +5,9 @@
 	<e:Image width="575" height="50" x="26" y="68" scale9Grid="7,7,5,30" anchorOffsetX="0" anchorOffsetY="0" source="union_json.img_union_up_png"/>
 	<e:Image source="union_json.img_union_line_png" x="165" y="73" height="35"/>
 	<e:Image source="union_json.img_union_line_png" x="402" y="73" height="35"/>
-	<e:Label text="排名" x="68" y="81" size="20" textColor="0xEDC839"/>
-	<e:Label text="名字" x="272" y="81" size="20" textColor="0xEDC839"/>
-	<e:Label text="占领遗迹数量" x="451" y="81" size="20" textColor="0xEDC839"/>
+	<e:Label text="Ranking" x="68" y="81" size="20" textColor="0xEDC839"/>
+	<e:Label text="Name" x="272" y="81" size="20" textColor="0xEDC839"/>
+	<e:Label text="Occupied Ruins" x="451" y="81" size="20" textColor="0xEDC839"/>
 	<e:Scroller id="scrolleRank" width="570.33" height="737" x="27.34" y="117" anchorOffsetX="0" anchorOffsetY="0" scrollPolicyH="off" scrollPolicyV="on">
 		<e:List id="listRank" itemRenderer="renderer.GodruinsRankRenderer" itemRendererSkinName="renderer.GodruinsRankRendererSkin">
 			<e:layout>

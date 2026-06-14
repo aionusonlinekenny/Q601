@@ -33,9 +33,9 @@
 			</e:layout>
 		</e:List>
 	</e:Scroller>
-	<components:SnapButton id="btnBuy" label="领取" y="690" anchorOffsetX="71.2" icon="common_json.img_warn_png" anchorOffsetY="26" skinName="skins.SnapGreenButtonSkin" width="146" x="298.2">
+	<components:SnapButton id="btnBuy" label="Claim" y="690" anchorOffsetX="71.2" icon="common_json.img_warn_png" anchorOffsetY="26" skinName="skins.SnapGreenButtonSkin" width="146" x="298.2">
 	</components:SnapButton>
-	<e:Label text="VIP等级越高，奖励越丰富" y="735" size="20" textColor="0x34e22c" x="184"/>
+	<e:Label text="The higher the VIP level, the richer the rewards." y="735" size="20" textColor="0x34e22c" x="184"/>
 	<components:RewardItemBox id="reward0" y="543" skinName="components.ItemBoxSkin" x="65"/>
 	<components:RewardItemBox id="reward1" y="543" skinName="components.ItemBoxSkin" x="192"/>
 	<components:RewardItemBox id="reward2" y="543" skinName="components.ItemBoxSkin" x="318"/>

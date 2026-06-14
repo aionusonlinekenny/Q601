@@ -10,7 +10,7 @@
 		</e:List>
 	</e:Scroller>
 	<e:Image id="imgLevel" source="vip_json.img_vip1" x="35.65" y="44"/>
-	<components:SnapButton id="btnVip" label="VIP特权" anchorOffsetX="66" skinName="skins.SnapOrangeButtonSkin" y="52" x="514" anchorOffsetY="27"/>
+	<components:SnapButton id="btnVip" label="VIP Privileges" anchorOffsetX="66" skinName="skins.SnapOrangeButtonSkin" y="52" x="514" anchorOffsetY="27"/>
 	<e:ProgressBar id="expBar" y="41" anchorOffsetX="0" value="50" x="112.32">
 		<e:skinName>
 		<e:Skin minWidth="30" minHeight="18" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing">
@@ -20,6 +20,6 @@
 		</e:Skin>
 		</e:skinName>
 	</e:ProgressBar>
-	<e:Label id="labUpgradeNeed" text="再充值1000魔石成为VIP1" y="16" size="20" textColor="0xFFB200" horizontalCenter="0"/>
+	<e:Label id="labUpgradeNeed" text="Top up 1000 more Magic Stones to become VIP1." y="16" size="20" textColor="0xFFB200" horizontalCenter="0"/>
 	<e:BitmapLabel id="blabLevel" x="82.68" y="42" font="vip_font1_fnt" text="0"/>
 </e:Skin>

@@ -3,7 +3,7 @@
 	<e:Image width="588" height="928" y="-2" source="common_json.img_tips_bg_png" anchorOffsetX="0" anchorOffsetY="0" x="-1" includeIn="pet" scale9Grid="22,26,21,15"/>
 	<e:Image source="tips_json.img_tips_skillbg" includeIn="pet" x="40" y="550" scale9Grid="4,4,29,27" anchorOffsetX="0" width="509" anchorOffsetY="0" height="223"/>
 	<e:Image id="imgBg" y="272" anchorOffsetX="0" width="544" anchorOffsetY="0" height="332" source="common_json.img_tips_bg_png" width.pet="588" height.pet="928" includeIn="common,tujian" x="24" scale9Grid="22,26,21,15" height.tujian="369" height.common="337"/>
-	<e:Label id="labPropertys" text="基础属性" x="53" y="480" size="20" anchorOffsetX="0" textColor="0x34E22C" includeIn="tujian"/>
+	<e:Label id="labPropertys" text="Basic Attributes" x="53" y="480" size="20" anchorOffsetX="0" textColor="0x34E22C" includeIn="tujian"/>
 	<e:BitmapLabel id="equipLabFight" y="408" text="876519" touchEnabled="false" x="487" anchorOffsetX="60" anchorOffsetY="13" font="fight_font2_fnt" includeIn="tujian"/>
 	<e:Image x="363" y="391.8" width="57" height="31" source="common_json.img_fight_png" includeIn="tujian"/>
 	<e:Image x="75" y="561.18" touchEnabled="true" source="common_json.img_qlt_1_png" includeIn="pet"/>
@@ -19,39 +19,39 @@
 		<e:Label id="lab2" text="555555" y="74" size="20" verticalAlign="middle" textAlign="left" left="404" textColor="0xC6B59E"/>
 		<e:Label id="lab5" text="555555" y="108" size="20" verticalAlign="middle" textAlign="left" left="119" textColor="0xC6B59E"/>
 		<e:Label id="lab3" text="555555" y="108" size="20" verticalAlign="middle" textAlign="left" left="403" textColor="0xc6b59e"/>
-		<e:Label text="生       命 : " x="21" y="41" size="20" fontFamily="Microsoft YaHei" textColor="0xC6B59E"/>
-		<e:Label text="物       防 : " x="21" y="74" size="20" textColor="0xC6B59E" fontFamily="Microsoft YaHei"/>
-		<e:Label text="物       穿 : " x="22" y="108" size="20" textColor="0xC6B59E" fontFamily="Microsoft YaHei"/>
-		<e:Label text="攻       击 : " x="301" y="41" size="20" fontFamily="Microsoft YaHei" textColor="0xC6B59E"/>
-		<e:Label text="法       防 : " x="301" y="74" size="20" fontFamily="Microsoft YaHei" textColor="0xC6B59E"/>
-		<e:Label text="法       穿 : " x="301" y="108" size="20" fontFamily="Microsoft YaHei" textColor="0xC6B59E"/>
+		<e:Label text="HP: " x="21" y="41" size="20" fontFamily="Microsoft YaHei" textColor="0xC6B59E"/>
+		<e:Label text="Phys DEF: " x="21" y="74" size="20" textColor="0xC6B59E" fontFamily="Microsoft YaHei"/>
+		<e:Label text="Phys Pen: " x="22" y="108" size="20" textColor="0xC6B59E" fontFamily="Microsoft YaHei"/>
+		<e:Label text="ATK: " x="301" y="41" size="20" fontFamily="Microsoft YaHei" textColor="0xC6B59E"/>
+		<e:Label text="Magic DEF: " x="301" y="74" size="20" fontFamily="Microsoft YaHei" textColor="0xC6B59E"/>
+		<e:Label text="Magic Pen: " x="301" y="108" size="20" fontFamily="Microsoft YaHei" textColor="0xC6B59E"/>
 	</e:Group>
 	<e:Image source="tips_json.img_tips_namebg" y="13" horizontalCenter="0" x.common="128" x.pet="150" horizontalCenter.common="0" y.common="285" x.tujian="128" y.tujian="285"/>
-	<components:SnapButton id="btnUse" label="使用" y="576" anchorOffsetX="81" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="27" icon="img_warn_png" width="162" height="52" horizontalCenter="-5" includeIn="common"/>
-	<e:Label id="labTitle0" text="类型 : " size="20" textAlign="center" y="161" verticalAlign="bottom" x="322" includeIn="pet" textColor="0xedc839"/>
-	<e:Label id="labTitle1" text="品质 : " size="20" textAlign="center" y="208" verticalAlign="bottom" x="322" textColor="0xEDC839" includeIn="pet"/>
-	<e:Label id="labTitle2" text="进阶 : " size="20" textAlign="center" y="254" verticalAlign="bottom" x="322" textColor="0xEDC839" includeIn="pet"/>
-	<e:Label id="labTitle3" text="数量 : " size="20" textAlign="center" y="301" verticalAlign="bottom" x="322" textColor="0xEDC839" includeIn="pet"/>
-	<e:Label id="labpetType" text="物理攻击型" x="387" y="161" size="20" verticalAlign="middle" textColor="0xC6B59E" textAlign="left" includeIn="pet"/>
-	<e:Label id="labpetTishi" text="收集20个碎片可在孵化界面孵化" x="323" y="345" size="18" verticalAlign="middle" textColor="0xC6B59E" textAlign="left" includeIn="pet"/>
-	<e:Label id="labpetName" text="物理攻击型" y="19" size="20" verticalAlign="middle" textAlign="left" includeIn="pet" textColor="0xc6b59e" horizontalCenter="0"/>
+	<components:SnapButton id="btnUse" label="Use" y="576" anchorOffsetX="81" skinName="skins.SnapButtonDefaultSkin" anchorOffsetY="27" icon="img_warn_png" width="162" height="52" horizontalCenter="-5" includeIn="common"/>
+	<e:Label id="labTitle0" text="Type: " size="20" textAlign="center" y="161" verticalAlign="bottom" x="322" includeIn="pet" textColor="0xedc839"/>
+	<e:Label id="labTitle1" text="Quality: " size="20" textAlign="center" y="208" verticalAlign="bottom" x="322" textColor="0xEDC839" includeIn="pet"/>
+	<e:Label id="labTitle2" text="Advancement: " size="20" textAlign="center" y="254" verticalAlign="bottom" x="322" textColor="0xEDC839" includeIn="pet"/>
+	<e:Label id="labTitle3" text="Quantity: " size="20" textAlign="center" y="301" verticalAlign="bottom" x="322" textColor="0xEDC839" includeIn="pet"/>
+	<e:Label id="labpetType" text="Physical Attack" x="387" y="161" size="20" verticalAlign="middle" textColor="0xC6B59E" textAlign="left" includeIn="pet"/>
+	<e:Label id="labpetTishi" text="Collect 20 fragments to hatch in the Incubation interface." x="323" y="345" size="18" verticalAlign="middle" textColor="0xC6B59E" textAlign="left" includeIn="pet"/>
+	<e:Label id="labpetName" text="Physical Attack" y="19" size="20" verticalAlign="middle" textAlign="left" includeIn="pet" textColor="0xc6b59e" horizontalCenter="0"/>
 	<e:Label id="labpetQuailty" text="0" x="387" y="208" size="20" verticalAlign="middle" textAlign="left" textColor="0xC6B59E" includeIn="pet"/>
 	<e:Label id="labSkillName1" text="5254254" x="175" y="673" size="20" verticalAlign="middle" textAlign="left" includeIn="pet" textColor="0xedc839" visible="false"/>
 	<e:Label id="labSkillName0" text="5254254" x="173" y="561" size="20" verticalAlign="middle" textAlign="left" includeIn="pet" textColor="0xedc839"/>
-	<e:Label id="labSkillDes0" text="发货哒好评个安oa虎牙兽品牌方哈" x="172" y="593" size="20" verticalAlign="top" textAlign="left" includeIn="pet" textColor="0xc6b59e" anchorOffsetY="0" height="68" lineSpacing="5" anchorOffsetX="0" width="340"/>
-	<e:Label id="labSkillDes1" text="未开启" x="176" y="705" size="20" verticalAlign="top" textAlign="left" textColor="0xC6B59E" includeIn="pet" anchorOffsetY="0" height="71" lineSpacing="5" width="340"/>
+	<e:Label id="labSkillDes0" text="Item Description Placeholder" x="172" y="593" size="20" verticalAlign="top" textAlign="left" includeIn="pet" textColor="0xc6b59e" anchorOffsetY="0" height="68" lineSpacing="5" anchorOffsetX="0" width="340"/>
+	<e:Label id="labSkillDes1" text="Not Opened" x="176" y="705" size="20" verticalAlign="top" textAlign="left" textColor="0xC6B59E" includeIn="pet" anchorOffsetY="0" height="71" lineSpacing="5" width="340"/>
 	<e:Label id="labpetStep" text="0" x="387" y="254" size="20" verticalAlign="middle" textAlign="left" includeIn="pet" textColor="0xc6b59e"/>
 	<e:Label id="labpetCount" text="0" x="387" y="301" size="20" verticalAlign="middle" textAlign="left" includeIn="pet" textColor="0xc6b59e"/>
 	<e:Image id="imgQuality" source="common_json.img_qlt_1_png" x="48" y="327" visible.pet="false" includeIn="common,tujian"/>
 	<components:Icon id="imgIcon" source="" width="80" height="80" x="53" y="330" visible.pet="false" includeIn="common,tujian"/>
-	<e:Label id="labName" text="经脉丹" y="292" size="22" anchorOffsetX="0" textColor="0x8425cb" horizontalCenter.pet="0" y.pet="19" includeIn="common,tujian" x="263" horizontalCenter.common="0" horizontalCenter.tujian="0"/>
-	<e:Label text="数量 : " x="152.99" y="343" size="22" textColor="0xedc839" visible.pet="false" includeIn="common,tujian"/>
-	<e:Label text="等级 : " x="152.99" y="371" size="22" textColor="0xedc839" visible.pet="false" includeIn="common,tujian"/>
+	<e:Label id="labName" text="Meridian Elixir" y="292" size="22" anchorOffsetX="0" textColor="0x8425cb" horizontalCenter.pet="0" y.pet="19" includeIn="common,tujian" x="263" horizontalCenter.common="0" horizontalCenter.tujian="0"/>
+	<e:Label text="Quantity: " x="152.99" y="343" size="22" textColor="0xedc839" visible.pet="false" includeIn="common,tujian"/>
+	<e:Label text="Level: " x="152.99" y="371" size="22" textColor="0xedc839" visible.pet="false" includeIn="common,tujian"/>
 	<e:Label id="labLv" text="1" x="220" y="371" size="22" anchorOffsetX="0" textColor="0xcfc9be" visible.pet="false" includeIn="common,tujian"/>
 	<e:Label id="labCount" text="5" x="220" y="343" size="22" anchorOffsetX="0" anchorOffsetY="0" textColor="0xcfc9be" visible.pet="false" includeIn="common,tujian"/>
-	<e:Label id="labDesc" text="使用可以获得3000点成就" x.common="51" y="455.5" size="22" anchorOffsetX="0" width="484.67" anchorOffsetY="0" height="102.33" wordWrap="true" textColor="0xcfc9be" width.pet="511.67" y.pet="798.5" horizontalCenter.pet="0" height.pet="57" includeIn="common,tujian" lineSpacing="5" x.tujian="51" y.tujian="444.5" y.common="444" height.common="97" width.common="484"/>
-	<e:Label id="labpetDes1" text="幻兽的" y="847" size="22" anchorOffsetX="0" anchorOffsetY="0" height="24" wordWrap="true" includeIn="pet" textColor="0xcfc9be" x="36" visible="false"/>
-	<e:Label id="labpetDes0" text="幻兽的品质越高，可进阶的阶数上限越高。" y="785.5" size="22" anchorOffsetX="0" width="511.67" anchorOffsetY="0" height="78" wordWrap="true" textColor="0xCFC9BE" horizontalCenter="0" includeIn="pet" touchEnabled="false" lineSpacing="5"/>
+	<e:Label id="labDesc" text="Use to gain 3000 achievement points" x.common="51" y="455.5" size="22" anchorOffsetX="0" width="484.67" anchorOffsetY="0" height="102.33" wordWrap="true" textColor="0xcfc9be" width.pet="511.67" y.pet="798.5" horizontalCenter.pet="0" height.pet="57" includeIn="common,tujian" lineSpacing="5" x.tujian="51" y.tujian="444.5" y.common="444" height.common="97" width.common="484"/>
+	<e:Label id="labpetDes1" text="Phantom Beast's" y="847" size="22" anchorOffsetX="0" anchorOffsetY="0" height="24" wordWrap="true" includeIn="pet" textColor="0xcfc9be" x="36" visible="false"/>
+	<e:Label id="labpetDes0" text="The higher the Phantom Beast's quality, the higher the max advancement tier." y="785.5" size="22" anchorOffsetX="0" width="511.67" anchorOffsetY="0" height="78" wordWrap="true" textColor="0xCFC9BE" horizontalCenter="0" includeIn="pet" touchEnabled="false" lineSpacing="5"/>
 	<e:Image x="45" y="432" anchorOffsetX="0" anchorOffsetY="0" width="500" source="common_json.img_normal_line_png" includeIn="common,tujian" y.tujian="426" y.common="426"/>
 	<components:IconButton id="btnClose" source="common_json.btn_close_png" x.common="507" y.common="278" x.pet="530" y.pet="4" x="520" y="6.67" x.tujian="533" y.tujian="303" anchorOffsetX.tujian="26" anchorOffsetY.tujian="25"/>
 	<components:IconButton id="btnBack" source="common_json.btn_back_png" x.common="480.66" y.common="522.7" x.pet="504" y.pet="844" x="501.34" y="844" x.tujian="520.66" y.tujian="596" anchorOffsetX.tujian="36" anchorOffsetY.tujian="36"/>
@@ -59,6 +59,6 @@
 	<e:Image source="tips_json.img_tips_title_shuxing" includeIn="pet" y="400" x="103"/>
 	<e:Image source="tips_json.img_tips_skill1" includeIn="pet" x="43" y="564"/>
 	<e:Image source="tips_json.img_tips_skill2" includeIn="pet" x="43" y="674"/>
-	<e:Label text="品质" includeIn="pet" x="102" y="847" size="22" textColor="0xf42411" visible="false"/>
-	<e:Label text="越高，可进阶的阶数上限越高。" includeIn="pet" x="147" y="847" size="22" textColor="0xcfc9be" visible="false"/>
+	<e:Label text="Quality" includeIn="pet" x="102" y="847" size="22" textColor="0xf42411" visible="false"/>
+	<e:Label text=" the higher the max advancement tier." includeIn="pet" x="147" y="847" size="22" textColor="0xcfc9be" visible="false"/>
 </e:Skin>
