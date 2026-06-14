@@ -185,6 +185,23 @@
 		</logger> <logger name="sophia.mmorpg.player.scene.event.G2C_Scene_AOI"> 
 		<level value="DEBUG"></level> </logger> -->
 
+	<!-- DEBUG loggers for WebSocket auth diagnosis -->
+	<logger name="newbee.morningGlory.auth.AuthComponent">
+		<level value="DEBUG"></level>
+	</logger>
+	<logger name="sophia.game.plugIns.gateWay">
+		<level value="DEBUG"></level>
+	</logger>
+	<logger name="sophia.foundation.communication.core.impl.MessageDecoderWebSocketImpl">
+		<level value="DEBUG"></level>
+	</logger>
+	<logger name="sophia.foundation.communication.core.impl.MessageEncoderWebSocketImpl">
+		<level value="DEBUG"></level>
+	</logger>
+	<logger name="sophia.foundation.communication.practice.IdentityBindedSessionManager">
+		<level value="DEBUG"></level>
+	</logger>
+
 	<!-- =============sophia.foundation的定义=========== -->
 	<logger name="sophia.foundation">
 		<level value="INFO"></level>
