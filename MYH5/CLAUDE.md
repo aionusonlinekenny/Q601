@@ -78,13 +78,32 @@ Only safe display-text patterns were targeted; protocol identifiers and config k
 Client-side compiled JSON data file at `my_web/myh5_cilent/v1.1.9.1/resource/data/config.nncc`.
 Contains all game config in named sections; each section is an array of arrays.
 **NOT the same as server-side `conf/*.json`** — values (e.g. rewards) can differ.
-Sections translated so far: `taskNewbie` (110 tasks), `activityBuy` (137 items).
+
+All sections translated (global pass fixing concatenated English words, number formatting, rank patterns).  
+`robotName` section intentionally left — those are NPC player-style names in Chinese/mixed.
 
 Array field indices for `taskNewbie`:
 `[id, name, type, isAutoGuide, des, needTimes, tittle, target, functionId, nextId, map, rewards, unfinished, finished, clickSound, functionParams]`
 
 Array field indices for `activityBuy`:
 `[id, activityId, type, name, ?, param1, ?, ?, ?, sortOrder, condition, bonus, reward]`
+
+**Common fix patterns applied:**
+- `NMagic Stones` → `N,NNN Magic Stones` (thousands separator + space)
+- `NLv.` → `Lv.N` (reorder) + space after number
+- `largeGift Pack` → `Grand Pack`
+- `pcspersonboss` → `Personal Boss`
+- `CumulativeLoginNo.NCelestial` → `Login Day N`
+- `No.NrankReward` → `Rank N Reward`
+- `accumulate minNo.N` → `Rank N`
+- `lasts7Celestial` → `Lasts 7 Days`
+- camelCase splitter: `([a-z])([A-Z][a-z])` → insert space
+
+**translation_editor.py tool — Config tab:**
+- Load config.nncc → Browse → shows sections in left panel
+- Click section → items shown in right treeview (index | value | Chinese?)
+- "Find in all sections" box at bottom-left: search across all sections, click result to navigate
+- Edit value in bottom text box → Apply Change → Save
 
 ---
 
