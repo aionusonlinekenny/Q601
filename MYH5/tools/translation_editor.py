@@ -401,11 +401,21 @@ class TranslationEditor:
         paned.add(rf, weight=3)
 
         # Atlas thumbnail at top
-        self.sprite_atlas_frame = ttk.LabelFrame(rf, text="Atlas", padding=2)
+        self.sprite_atlas_frame = ttk.LabelFrame(rf, text="Atlas  (click sprite to select)", padding=2)
         self.sprite_atlas_frame.pack(fill=tk.X, padx=2, pady=(2, 0))
         self.sprite_atlas_canvas = tk.Canvas(self.sprite_atlas_frame,
-                                              height=120, bg="#222", highlightthickness=0)
+                                              height=280, bg="#222", highlightthickness=0)
+        atlas_sv = ttk.Scrollbar(self.sprite_atlas_frame, orient=tk.VERTICAL,
+                                  command=self.sprite_atlas_canvas.yview)
+        atlas_sh = ttk.Scrollbar(self.sprite_atlas_frame, orient=tk.HORIZONTAL,
+                                  command=self.sprite_atlas_canvas.xview)
+        self.sprite_atlas_canvas.configure(yscrollcommand=atlas_sv.set,
+                                            xscrollcommand=atlas_sh.set)
+        atlas_sv.pack(side=tk.RIGHT, fill=tk.Y)
+        atlas_sh.pack(side=tk.BOTTOM, fill=tk.X)
         self.sprite_atlas_canvas.pack(fill=tk.X)
+        self.sprite_atlas_canvas.bind("<Button-1>", self._sprite_atlas_click)
+        self._sprite_atlas_scale = 1.0
 
         # Sprite preview below
         pv_frame = ttk.LabelFrame(rf, text="Sprite Preview", padding=2)
@@ -998,16 +1008,16 @@ class TranslationEditor:
         c.delete("all")
         if self.sprite_atlas_img is None:
             return
-        # Fit atlas into 120px height, up to 800px wide
         aw, ah = self.sprite_atlas_img.size
-        max_h = 116
-        max_w = c.winfo_width() or 800
-        scale = min(max_h / ah, max_w / aw, 1.0)
+        # Fit width to canvas; keep up to full size (no upscaling)
+        max_w = c.winfo_width() or 700
+        scale = min(max_w / aw, 1.0)
         tw = max(1, int(aw * scale))
         th = max(1, int(ah * scale))
+        self._sprite_atlas_scale = scale
         thumb = self.sprite_atlas_img.resize((tw, th), Image.LANCZOS)
         self._sprite_full_tk_img = ImageTk.PhotoImage(thumb)
-        c.configure(width=tw)
+        c.configure(scrollregion=(0, 0, tw, th))
         c.create_image(0, 0, anchor=tk.NW, image=self._sprite_full_tk_img)
         if highlight:
             hx, hy, hw, hh = highlight
@@ -1016,6 +1026,52 @@ class TranslationEditor:
                 int((hx + hw) * scale), int((hy + hh) * scale),
                 outline="#FF4444", width=2
             )
+
+    def _sprite_atlas_click(self, event):
+        if self.sprite_atlas_img is None or not self.sprite_list:
+            return
+        c = self.sprite_atlas_canvas
+        # Convert canvas coords to image coords (account for scroll)
+        cx = c.canvasx(event.x)
+        cy = c.canvasy(event.y)
+        scale = self._sprite_atlas_scale
+        ix = cx / scale
+        iy = cy / scale
+        # Find the smallest sprite whose bounding box contains the click point
+        best = None
+        best_area = float('inf')
+        for i, entry in enumerate(self.sprite_list):
+            name, x, y, w, h = entry
+            if w <= 0 or h <= 0:
+                continue
+            if x <= ix <= x + w and y <= iy <= y + h:
+                area = w * h
+                if area < best_area:
+                    best_area = area
+                    best = (i, entry)
+        if best is None:
+            return
+        idx, entry = best
+        # Find in filtered list
+        filtered = getattr(self, '_sprite_filtered', self.sprite_list)
+        try:
+            fi = filtered.index(entry)
+        except ValueError:
+            # Entry not visible due to search filter — clear filter and retry
+            self.sprite_search_var.set('')
+            self._sprite_populate_list()
+            filtered = getattr(self, '_sprite_filtered', self.sprite_list)
+            try:
+                fi = filtered.index(entry)
+            except ValueError:
+                return
+        self.sprite_name_lb.selection_clear(0, tk.END)
+        self.sprite_name_lb.selection_set(fi)
+        self.sprite_name_lb.see(fi)
+        name, x, y, w, h = entry
+        self.sprite_info_var.set(f"{name}  x={x} y={y} w={w} h={h}")
+        self._sprite_show_preview(x, y, w, h)
+        self._sprite_draw_atlas_thumb(highlight=(x, y, w, h))
 
     def _sprite_clear_preview(self):
         self.sprite_canvas.delete("all")
