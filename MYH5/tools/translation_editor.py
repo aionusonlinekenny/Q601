@@ -47,6 +47,7 @@ class TranslationEditor:
         self.props_data  = None
         self.config_current_section  = None
         self.config_filtered_indices = []
+        self.config_search_results   = []   # [(section, idx, item)]
         self.equip_filtered_ids = []
         self.props_filtered_ids = []
 
@@ -134,17 +135,52 @@ class TranslationEditor:
         paned = ttk.PanedWindow(tab, orient=tk.HORIZONTAL)
         paned.pack(fill=tk.BOTH, expand=True, padx=4, pady=4)
 
-        lf = ttk.Frame(paned, width=220)
+        lf = ttk.Frame(paned, width=240)
         lf.pack_propagate(False)
         paned.add(lf, weight=1)
-        ttk.Label(lf, text="Sections", font=("TkDefaultFont", 9, "bold")
+
+        # Vertical paned: top=section list, bottom=cross-section find
+        lf_paned = ttk.PanedWindow(lf, orient=tk.VERTICAL)
+        lf_paned.pack(fill=tk.BOTH, expand=True)
+
+        sec_fr = ttk.Frame(lf_paned)
+        lf_paned.add(sec_fr, weight=2)
+        ttk.Label(sec_fr, text="Sections", font=("TkDefaultFont", 9, "bold")
                   ).pack(anchor=tk.W, padx=4, pady=(4, 0))
-        self.config_section_lb = tk.Listbox(lf, exportselection=False, activestyle="dotbox")
-        sc = ttk.Scrollbar(lf, orient=tk.VERTICAL, command=self.config_section_lb.yview)
+        self.config_section_lb = tk.Listbox(sec_fr, exportselection=False, activestyle="dotbox")
+        sc = ttk.Scrollbar(sec_fr, orient=tk.VERTICAL, command=self.config_section_lb.yview)
         self.config_section_lb.configure(yscrollcommand=sc.set)
         sc.pack(side=tk.RIGHT, fill=tk.Y)
         self.config_section_lb.pack(fill=tk.BOTH, expand=True, padx=(4, 0), pady=4)
         self.config_section_lb.bind("<<ListboxSelect>>", self._config_section_selected)
+
+        # Cross-section text search
+        find_fr = ttk.Frame(lf_paned)
+        lf_paned.add(find_fr, weight=1)
+        ttk.Label(find_fr, text="Find in all sections:",
+                  font=("TkDefaultFont", 9, "bold")
+                  ).pack(anchor=tk.W, padx=4, pady=(4, 0))
+        find_row = ttk.Frame(find_fr)
+        find_row.pack(fill=tk.X, padx=4, pady=(2, 0))
+        self.config_find_var = tk.StringVar()
+        find_entry = ttk.Entry(find_row, textvariable=self.config_find_var)
+        find_entry.pack(side=tk.LEFT, fill=tk.X, expand=True)
+        find_entry.bind("<Return>", lambda _e: self._config_find_all())
+        ttk.Button(find_row, text="Find",
+                   command=self._config_find_all).pack(side=tk.LEFT, padx=(4, 0))
+        self.config_find_count_var = tk.StringVar(value="")
+        ttk.Label(find_fr, textvariable=self.config_find_count_var,
+                  foreground="gray").pack(anchor=tk.W, padx=4)
+        find_res_fr = ttk.Frame(find_fr)
+        find_res_fr.pack(fill=tk.BOTH, expand=True, padx=4, pady=(2, 4))
+        self.config_find_lb = tk.Listbox(find_res_fr, exportselection=False,
+                                          activestyle="dotbox", font=("TkFixedFont", 8))
+        find_sc = ttk.Scrollbar(find_res_fr, orient=tk.VERTICAL,
+                                 command=self.config_find_lb.yview)
+        self.config_find_lb.configure(yscrollcommand=find_sc.set)
+        find_sc.pack(side=tk.RIGHT, fill=tk.Y)
+        self.config_find_lb.pack(fill=tk.BOTH, expand=True)
+        self.config_find_lb.bind("<<ListboxSelect>>", self._config_find_result_selected)
 
         rf = ttk.Frame(paned)
         paned.add(rf, weight=4)
@@ -519,6 +555,48 @@ class TranslationEditor:
             self.status_var.set(f"Saved → {self.config_path}")
         except Exception as e:
             messagebox.showerror("Save Error", str(e))
+
+    def _config_find_all(self):
+        q = self.config_find_var.get().strip().lower()
+        self.config_find_lb.delete(0, tk.END)
+        self.config_search_results = []
+        if not q or self.config_data is None:
+            self.config_find_count_var.set("")
+            return
+        for section in sorted(self.config_data.keys()):
+            for idx, item in enumerate(self.config_data[section]):
+                text = str(item)
+                if q in text.lower():
+                    self.config_search_results.append((section, idx, item))
+                    preview = truncate(text, 55)
+                    self.config_find_lb.insert(
+                        tk.END, f"{section}[{idx}]  {preview}")
+        count = len(self.config_search_results)
+        self.config_find_count_var.set(
+            f"{count} match{'es' if count != 1 else ''}" if count else "No matches")
+
+    def _config_find_result_selected(self, _event=None):
+        sel = self.config_find_lb.curselection()
+        if not sel or sel[0] >= len(self.config_search_results):
+            return
+        section, idx, _item = self.config_search_results[sel[0]]
+        # Navigate section listbox
+        sections = list(self.config_section_lb.get(0, tk.END))
+        if section in sections:
+            si = sections.index(section)
+            self.config_section_lb.selection_clear(0, tk.END)
+            self.config_section_lb.selection_set(si)
+            self.config_section_lb.see(si)
+        self.config_current_section = section
+        self.config_search_var.set("")
+        self.config_filter_var.set("All")
+        self._config_apply_filter()
+        # Select the row in treeview
+        iid = str(idx)
+        if self.config_tree.exists(iid):
+            self.config_tree.selection_set(iid)
+            self.config_tree.see(iid)
+            self._config_row_selected()
 
     # -----------------------------------------------------------------------
     # Item logic (shared)
