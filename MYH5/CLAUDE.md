@@ -57,9 +57,14 @@ jar cfm /tmp/server_patched.jar META-INF/MANIFEST.MF .   # MUST pass MANIFEST.MF
 Main-Class: `newbee.morningGlory.GameApp`
 
 ### 4. Sprite Editor (`tools/translation_editor.py`)
-GUI tool for replacing sprites in game atlas PNG files.
+GUI tool with multiple tabs:
+- **Config (config.nncc)** — load/search/edit client-side game data (JSON array format). "Find in all sections" panel searches across every section; click result to navigate.
+- **Equipment Items** — load `my_s1/conf/item/equipItem.json`; save mirrors to my_s2/my_s3.
+- **Prop Items** — load `my_s1/conf/item/propsItem.json`; save mirrors to my_s2/my_s3.
+- **Sprites** — replace sprites in atlas PNG files. Click on atlas thumbnail to auto-select sprite.
+- **Layout Editor** — edit text/position properties in `default.thm_11d2a764.js` by skin name.
 
-Import logic when source image ≠ slot size:
+Sprite import logic when source image ≠ slot size:
 - If alpha bbox < 80% of source → crop to visible object, then resize to slot
 - Else (solid/near-solid background from ChatGPT) → center cover-crop to slot aspect ratio
 
@@ -68,6 +73,18 @@ Tip: ask ChatGPT to generate with **transparent background** for best results.
 ### 5. Translation
 All Chinese UI text in `default.thm_11d2a764.js` has been translated to English.
 Only safe display-text patterns were targeted; protocol identifiers and config keys were not touched.
+
+### 6. config.nncc
+Client-side compiled JSON data file at `my_web/myh5_cilent/v1.1.9.1/resource/data/config.nncc`.
+Contains all game config in named sections; each section is an array of arrays.
+**NOT the same as server-side `conf/*.json`** — values (e.g. rewards) can differ.
+Sections translated so far: `taskNewbie` (110 tasks), `activityBuy` (137 items).
+
+Array field indices for `taskNewbie`:
+`[id, name, type, isAutoGuide, des, needTimes, tittle, target, functionId, nextId, map, rewards, unfinished, finished, clickSound, functionParams]`
+
+Array field indices for `activityBuy`:
+`[id, activityId, type, name, ?, param1, ?, ?, ?, sortOrder, condition, bonus, reward]`
 
 ---
 
