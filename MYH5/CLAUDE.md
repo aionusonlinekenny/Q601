@@ -16,13 +16,14 @@ Q601/
 ### 1. UI changes → TWO separate systems (read carefully)
 
 **Skin layout** (label positions, sizes, wordWrap, colors in skin definitions):
-→ Edit the **EXML files** in `resource/skins/**/*.exml`
-The game loads skins at runtime via `eui.Theme("resource/default.thm.json")` which parses EXML directly.
-`default.thm_11d2a764.js` is the compiled version but is **NOT used at runtime** — editing it has NO effect.
+→ Edit `js/default.thm_v2_11d2a764.js` (compiled skin JS)
+This file contains `generateEUI.paths` which pre-registers compiled skin classes. The EUI theme loads skins from this JS, NOT from raw EXML files. EXML files in `resource/skins/` are source files but are NOT read at runtime.
 
 **Game logic text** (what text is assigned to labels, JS behavior):
-→ Edit `js/main.min_39fbca0f.js`
+→ Edit `js/main.min_v2_39fbca0f.js`
 This IS loaded and used at runtime.
+
+**Important**: The v2 files are the active versions referenced in `manifest.json`. The original (non-v2) files are superseded.
 
 Safe patterns to translate/edit:
 ```
