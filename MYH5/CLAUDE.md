@@ -107,6 +107,75 @@ Array field indices for `activityBuy`:
 
 ---
 
+## Bag Item Name Truncation (Grid vs Detail)
+
+### Overview
+Item names in the bag grid (`伴包`) are set by `ItemIconRenderer` in `main.min_39fbca0f.js`.
+Full item details (name + description) are shown in a tooltip when the item is tapped, via `tips.PropTip` / `tips.EquipTip` / `tips.ShenhunTip` — these read directly from the VO object, NOT from the label.
+
+### Key Files
+| File | Purpose |
+|---|---|
+| `js/default.thm_11d2a764.js` | Compiled skin — defines `ItemIconSkin` with `labName` label |
+| `js/main.min_39fbca0f.js` | Game logic — `ItemIconRenderer.updatePropDisplay()` sets `labName.text` |
+
+### ItemIconSkin Layout (default.thm_11d2a764.js)
+Cell size: **width=90, height=110**
+```
+labName_i() → eui.Label, size=16, bold, textColor=0xc6b59e, y=93, horizontalCenter=0
+              NOTE: no width / no truncateToFit compiled in (EXML has it but not reflected)
+labCount_i() → eui.Label, size=16, bold, textAlign="right", width=61, x=22, y=64.5
+```
+
+### updatePropDisplay (main.min_39fbca0f.js, ~offset 70268)
+```javascript
+A.prototype.updatePropDisplay=function(H,G){
+    this._tipEnabled=!1,
+    this.labName.parent||this.addChild(this.labName),
+    this.labCount.parent||this.addChild(this.labCount),
+    this.updateRedVisisble(),
+    this.updateIcon(H.icon),
+    this.updateQualityDisplay(H.quality),
+    this.labName.text=H.name,        // <-- NAME SET HERE (H.name = full item name)
+    this.labCount.text=""+G
+}
+```
+
+### Truncation Strategy
+**Safe approach — 2 targeted changes:**
+
+**Change 1** — `default.thm_11d2a764.js` → `labName_i`: add `t.width=90;t.truncateToFit=true;t.size=13;`
+- Sets label width to cell width, enables built-in Egret truncation (adds "...")
+- Reduce font from 16→13 so ~10-12 chars visible before truncation
+
+**Change 2** — `main.min_39fbca0f.js` → `updatePropDisplay`: change `this.labName.text=H.name` to a short version
+- `this.labName.text=H.name.length>14?H.name.substring(0,12)+"..":H.name`
+- Grid shows abbreviated name; tooltip (PropTip/EquipTip) still shows `H.name` (full)
+
+**Why tooltip is unaffected:** `showItemTip()` passes `this._itemVO` (the original VO object) to the Tip classes. They read `.name` from the VO, NOT from `labName.text`. So full name always shows in tooltip.
+
+### Exact strings to patch
+In `default.thm_11d2a764.js`:
+```
+OLD: t.size=16;t.text="Orange Gear Fragment";t.textAlign="center";t.textColor=0xc6b59e;t.y=93;return t
+NEW: t.size=13;t.text="Orange Gear Fragment";t.textAlign="center";t.textColor=0xc6b59e;t.truncateToFit=true;t.width=90;t.y=93;return t
+```
+
+In `main.min_39fbca0f.js`:
+```
+OLD: this.labName.text=H.name,this.labCount.text=""+G
+NEW: this.labName.text=H.name.length>14?H.name.substring(0,12)+"..":H.name,this.labCount.text=""+G
+```
+
+### Verification
+After patching, run:
+```bash
+node --check js/default.thm_11d2a764.js
+node --check js/main.min_39fbca0f.js
+```
+
+---
+
 ## GM Panel & Payment System
 
 ### File Layout
