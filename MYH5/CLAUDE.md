@@ -13,8 +13,16 @@ Q601/
 
 ## Key Rules
 
-### 1. UI changes → edit `default.thm_11d2a764.js` only
-The Egret engine reads the compiled JS bundle at runtime. EXML files are source-only — editing them has NO effect on the game.
+### 1. UI changes → TWO separate systems (read carefully)
+
+**Skin layout** (label positions, sizes, wordWrap, colors in skin definitions):
+→ Edit the **EXML files** in `resource/skins/**/*.exml`
+The game loads skins at runtime via `eui.Theme("resource/default.thm.json")` which parses EXML directly.
+`default.thm_11d2a764.js` is the compiled version but is **NOT used at runtime** — editing it has NO effect.
+
+**Game logic text** (what text is assigned to labels, JS behavior):
+→ Edit `js/main.min_39fbca0f.js`
+This IS loaded and used at runtime.
 
 Safe patterns to translate/edit:
 ```
