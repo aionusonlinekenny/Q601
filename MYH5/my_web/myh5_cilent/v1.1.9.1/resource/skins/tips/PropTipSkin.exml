@@ -44,7 +44,7 @@
 	<e:Label id="labpetCount" text="0" x="387" y="301" size="20" verticalAlign="middle" textAlign="left" includeIn="pet" textColor="0xc6b59e"/>
 	<e:Image id="imgQuality" source="common_json.img_qlt_1_png" x="48" y="327" visible.pet="false" includeIn="common,tujian"/>
 	<components:Icon id="imgIcon" source="" width="80" height="80" x="53" y="330" visible.pet="false" includeIn="common,tujian"/>
-	<e:Label id="labName" text="Meridian Elixir" y="292" size="22" anchorOffsetX="0" textColor="0x8425cb" horizontalCenter.pet="0" y.pet="19" includeIn="common,tujian" x="263" horizontalCenter.common="0" horizontalCenter.tujian="0" wordWrap="false"/>
+	<e:Label id="labName" text="Purple Fragment Treasure Chest" y="292" size="18" width="520" anchorOffsetX="0" textColor="0x8425cb" horizontalCenter.pet="0" y.pet="19" includeIn="common,tujian" x="263" horizontalCenter.common="0" horizontalCenter.tujian="0" wordWrap="false" maxDisplayedLines="1"/>
 	<e:Label text="Quantity: " x="152.99" y="343" size="22" textColor="0xedc839" visible.pet="false" includeIn="common,tujian"/>
 	<e:Label text="Level: " x="152.99" y="371" size="22" textColor="0xedc839" visible.pet="false" includeIn="common,tujian"/>
 	<e:Label id="labLv" text="1" x="220" y="371" size="22" anchorOffsetX="0" textColor="0xcfc9be" visible.pet="false" includeIn="common,tujian"/>
