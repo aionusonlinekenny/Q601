@@ -329,6 +329,56 @@ if (isset($_GET['ajax']) && $gmAuth) {
             echo json_encode(array('ok' => true, 'data' => array_values($catalog)));
             break;
 
+        // ── Quest list ────────────────────────────────────────────────
+        case 'quest_list':
+            $taskFile = CONF_DIR . '/task/taskNewbie.json';
+            if (!file_exists($taskFile)) {
+                echo json_encode(array('ok' => false, 'msg' => 'taskNewbie.json not found: ' . $taskFile));
+                break;
+            }
+            $raw = file_get_contents($taskFile);
+            $quests = @json_decode($raw, true);
+            if (!is_array($quests)) {
+                echo json_encode(array('ok' => false, 'msg' => 'Failed to parse taskNewbie.json'));
+                break;
+            }
+            echo json_encode(array('ok' => true, 'data' => $quests));
+            break;
+
+        // ── Quest save rewards ───────────────────────────────────────────
+        case 'quest_save':
+            $qid     = isset($_POST['id'])      ? (int)$_POST['id']          : 0;
+            $rewards = isset($_POST['rewards'])  ? trim($_POST['rewards'])    : '';
+            if (!$qid) { echo json_encode(array('ok' => false, 'msg' => 'Missing quest id')); break; }
+
+            $confBase = dirname(CONF_DIR);  // MYH5/my_s1
+            $serverDirs = array('my_s1', 'my_s2', 'my_s3');
+            $errors = array();
+            foreach ($serverDirs as $sdir) {
+                $path = str_replace('my_s1', $sdir, $confBase) . '/conf/task/taskNewbie.json';
+                if (!file_exists($path)) { $errors[] = $sdir . ': file not found'; continue; }
+                $data = @json_decode(file_get_contents($path), true);
+                if (!is_array($data)) { $errors[] = $sdir . ': parse error'; continue; }
+                $found = false;
+                foreach ($data as &$q) {
+                    if (isset($q['id']) && (int)$q['id'] === $qid) {
+                        $q['rewards'] = $rewards;
+                        $found = true;
+                        break;
+                    }
+                }
+                unset($q);
+                if (!$found) { $errors[] = $sdir . ': quest id not found'; continue; }
+                $written = file_put_contents($path, json_encode($data, JSON_UNESCAPED_UNICODE));
+                if (!$written) { $errors[] = $sdir . ': write failed'; }
+            }
+            if (count($errors)) {
+                echo json_encode(array('ok' => false, 'msg' => implode('; ', $errors)));
+            } else {
+                echo json_encode(array('ok' => true, 'msg' => 'Saved to all 3 servers'));
+            }
+            break;
+
         default:
             echo json_encode(array('ok' => false, 'msg' => 'Unknown action'));
     }
@@ -457,6 +507,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
       <a href="#" data-page="gift">Gift Items</a>
       <a href="#" data-page="payment">Payment</a>
       <a href="#" data-page="notice">Notice</a>
+      <a href="#" data-page="quests">Quests</a>
     </nav>
     <div class="sidebar-bottom"><a href="?logout">Logout</a></div>
   </aside>
@@ -626,7 +677,44 @@ tr:hover td{background:rgba(255,255,255,.025)}
       </div>
     </div>
 
+    <!-- QUESTS -->
+    <div class="page" id="page-quests">
+      <div class="page-title">Quests <small>View &amp; edit quest rewards</small></div>
+      <div class="card">
+        <div class="card-title" style="display:flex;align-items:center;justify-content:space-between">
+          <span>Newbie Quests (taskNewbie.json)</span>
+          <button class="btn btn-ghost btn-sm" onclick="loadQuests()">Refresh</button>
+        </div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>ID</th><th>Name</th><th>Type</th><th>Description</th><th>Rewards</th><th>Actions</th></tr></thead>
+            <tbody id="quest-tbody"><tr><td colspan="6" style="color:var(--muted);text-align:center">Click Quests tab to load</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
   </main>
+</div>
+
+<!-- Quest reward editor modal -->
+<div class="modal-backdrop" id="modal-quest">
+  <div class="modal" style="width:600px">
+    <h2>Edit Quest Rewards</h2>
+    <div id="qe-quest-info" style="margin-bottom:12px;font-size:13px;color:var(--muted)"></div>
+    <div id="qe-rows" style="margin-bottom:12px"></div>
+    <div style="display:flex;gap:8px;margin-bottom:12px">
+      <button class="btn btn-ghost btn-sm" onclick="qeAddRow()">+ Add Reward</button>
+    </div>
+    <div class="field" style="margin-bottom:12px">
+      <label>Raw Reward String (auto-updated)</label>
+      <input id="qe-raw" style="width:100%;font-family:monospace;font-size:12px" readonly>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-success" onclick="qeSave()">Save to All Servers</button>
+      <button class="btn btn-ghost" onclick="document.getElementById('modal-quest').classList.remove('open')">Cancel</button>
+    </div>
+  </div>
 </div>
 
 <!-- Gift modal -->
@@ -667,6 +755,7 @@ document.querySelectorAll('[data-page]').forEach(function(a) {
     if (pg === 'accounts')  loadAccounts();
     if (pg === 'gift')      { searchItems('g'); searchItems('ga'); }
     if (pg === 'payment')   loadPaymentPage();
+    if (pg === 'quests')    loadQuests();
   });
 });
 
@@ -1073,6 +1162,175 @@ function sendNotice() {
 // ── Helpers ───────────────────────────────────────────────────────────────
 function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function fmt(n) { return parseInt(n||0).toLocaleString(); }
+
+// ── Quests ────────────────────────────────────────────────────────────────
+var questData = [];
+var qeQuestId = 0;
+var ITEM_NAMES = {101:'EXP',201:'Gems',301:'Gold',1701:'VIP EXP'};
+var ITEM_OPTIONS = [{id:201,name:'Gems'},{id:301,name:'Gold'},{id:101,name:'EXP'},{id:1701,name:'VIP EXP'}];
+var QUEST_TYPES = {1:'Talk',2:'Collect',3:'Interact',4:'Kill',5:'Equip',6:'Enhance',7:'Level',8:'Stage',9:'Arena'};
+
+function loadQuests() {
+  document.getElementById('quest-tbody').innerHTML = '<tr><td colspan="6" style="text-align:center"><span class="spinner"></span></td></tr>';
+  fetch('index.php?ajax=quest_list').then(function(r) { return r.json(); }).then(function(d) {
+    if (!d.ok) { toast(d.msg || 'Failed to load quests', 'err'); return; }
+    questData = d.data || [];
+    var html = '';
+    if (!questData.length) {
+      html = '<tr><td colspan="6" style="color:var(--muted);text-align:center">No quests found</td></tr>';
+    } else {
+      questData.forEach(function(q) {
+        html += '<tr>' +
+          '<td style="font-family:monospace">' + q.id + '</td>' +
+          '<td><strong>' + esc(q.name) + '</strong></td>' +
+          '<td><span class="badge" style="background:#1a1e3a;color:#aaf">' + esc(QUEST_TYPES[q.type] || 'Type ' + q.type) + '</span></td>' +
+          '<td style="max-width:250px;font-size:12px;color:var(--muted)">' + esc(q.des || '') + '</td>' +
+          '<td style="font-family:monospace;font-size:12px;max-width:200px;word-break:break-all">' + formatRewardsHtml(q.rewards || '') + '</td>' +
+          '<td><button class="btn btn-primary btn-sm" onclick="openQuestEditor(' + q.id + ')">Edit</button></td>' +
+          '</tr>';
+      });
+    }
+    document.getElementById('quest-tbody').innerHTML = html;
+  }).catch(function() { toast('Failed to fetch quests', 'err'); });
+}
+
+function formatRewardsHtml(str) {
+  if (!str) return '<span style="color:var(--muted)">none</span>';
+  return str.split(';').map(function(part) {
+    return part.split('&').map(function(rw) {
+      var s = rw.split('_');
+      var iid = s[0]; var cnt = s[1] || '?';
+      var name = ITEM_NAMES[iid] || '#' + iid;
+      return '<span style="color:var(--accent)">' + esc(name) + '</span> x' + esc(cnt);
+    }).join(' | ');
+  }).join(', ');
+}
+
+function openQuestEditor(id) {
+  qeQuestId = id;
+  var q = null;
+  for (var i = 0; i < questData.length; i++) {
+    if (questData[i].id === id) { q = questData[i]; break; }
+  }
+  if (!q) return;
+  document.getElementById('qe-quest-info').innerHTML =
+    '<strong>' + esc(q.name) + '</strong> (ID: ' + q.id + ')' +
+    (q.des ? '<br>' + esc(q.des) : '') +
+    '<br>Target: ' + esc(q.target || '') + ' | NeedTimes: ' + (q.needTimes || 0) + ' | NextId: ' + (q.nextId || '');
+  var rows = [];
+  if (q.rewards) {
+    q.rewards.split(';').forEach(function(part) { rows.push(part); });
+  }
+  if (!rows.length) rows.push('');
+  renderQeRows(rows);
+  document.getElementById('modal-quest').classList.add('open');
+}
+
+function renderQeRows(rows) {
+  var container = document.getElementById('qe-rows');
+  var html = '';
+  rows.forEach(function(part, idx) {
+    var items = part ? part.split('&') : [''];
+    html += '<div style="background:#12141e;border:1px solid var(--border);border-radius:6px;padding:8px;margin-bottom:6px" data-qe-idx="' + idx + '">';
+    html += '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">';
+    html += '<span style="font-size:11px;color:var(--muted)">Reward Slot ' + (idx + 1) + (items.length > 1 ? ' (alternatives)' : '') + '</span>';
+    html += '<div style="display:flex;gap:4px">';
+    html += '<button class="btn btn-ghost btn-sm" style="padding:2px 6px;font-size:11px" onclick="qeAddAlt(' + idx + ')">+Alt</button>';
+    html += '<button class="btn btn-danger btn-sm" style="padding:2px 6px;font-size:11px" onclick="qeRemoveRow(' + idx + ')">Remove</button>';
+    html += '</div></div>';
+    items.forEach(function(rw, aidx) {
+      var s = rw.split('_');
+      var iid = s[0] || ''; var cnt = s[1] || '';
+      html += '<div style="display:flex;gap:6px;align-items:center;margin-bottom:4px">';
+      html += '<select class="qe-iid" data-row="' + idx + '" data-alt="' + aidx + '" style="background:#0a0c14;border:1px solid var(--border);border-radius:4px;color:var(--text);padding:4px;font-size:12px" onchange="qeSelChange(this)">';
+      html += '<option value="">Custom...</option>';
+      ITEM_OPTIONS.forEach(function(opt) {
+        html += '<option value="' + opt.id + '"' + (String(opt.id) === String(iid) ? ' selected' : '') + '>' + opt.id + ' - ' + esc(opt.name) + '</option>';
+      });
+      if (iid && !ITEM_NAMES[iid]) {
+        html += '<option value="' + esc(iid) + '" selected>#' + esc(iid) + '</option>';
+      }
+      html += '</select>';
+      html += '<input class="qe-custom-id" data-row="' + idx + '" data-alt="' + aidx + '" placeholder="Item ID" value="' + esc(iid) + '" style="width:70px;background:#0a0c14;border:1px solid var(--border);border-radius:4px;color:var(--text);padding:4px;font-size:12px;font-family:monospace" oninput="qeUpdate()">';
+      html += '<input class="qe-cnt" data-row="' + idx + '" data-alt="' + aidx + '" placeholder="Count" value="' + esc(cnt) + '" type="number" min="1" style="width:70px;background:#0a0c14;border:1px solid var(--border);border-radius:4px;color:var(--text);padding:4px;font-size:12px" oninput="qeUpdate()">';
+      if (items.length > 1) {
+        html += '<button class="btn btn-ghost btn-sm" style="padding:2px 6px;font-size:11px" onclick="qeRemoveAlt(' + idx + ',' + aidx + ')">x</button>';
+      }
+      html += '</div>';
+    });
+    html += '</div>';
+  });
+  container.innerHTML = html;
+  qeUpdate();
+}
+
+function qeSelChange(sel) {
+  var r = sel.getAttribute('data-row');
+  var a = sel.getAttribute('data-alt');
+  var cust = document.querySelector('#qe-rows .qe-custom-id[data-row="' + r + '"][data-alt="' + a + '"]');
+  if (cust && sel.value) cust.value = sel.value;
+  qeUpdate();
+}
+
+function qeGetRows() {
+  var container = document.getElementById('qe-rows');
+  var groups = container.querySelectorAll('[data-qe-idx]');
+  var rows = [];
+  for (var g = 0; g < groups.length; g++) {
+    var ids = groups[g].querySelectorAll('.qe-custom-id');
+    var cnts = groups[g].querySelectorAll('.qe-cnt');
+    var alts = [];
+    for (var a = 0; a < ids.length; a++) {
+      var iid = ids[a].value.trim();
+      var cnt = cnts[a].value.trim();
+      if (iid && cnt) alts.push(iid + '_' + cnt);
+    }
+    rows.push(alts.join('&'));
+  }
+  return rows;
+}
+
+function qeUpdate() {
+  document.getElementById('qe-raw').value = qeGetRows().filter(function(r) { return r; }).join(';');
+}
+
+function qeAddRow() {
+  var rows = qeGetRows();
+  rows.push('');
+  renderQeRows(rows);
+}
+
+function qeRemoveRow(idx) {
+  var rows = qeGetRows();
+  rows.splice(idx, 1);
+  if (!rows.length) rows.push('');
+  renderQeRows(rows);
+}
+
+function qeAddAlt(idx) {
+  var rows = qeGetRows();
+  rows[idx] = rows[idx] ? rows[idx] + '&_' : '_';
+  renderQeRows(rows);
+}
+
+function qeRemoveAlt(idx, aidx) {
+  var rows = qeGetRows();
+  var parts = rows[idx].split('&');
+  parts.splice(aidx, 1);
+  rows[idx] = parts.join('&');
+  renderQeRows(rows);
+}
+
+function qeSave() {
+  var raw = document.getElementById('qe-raw').value;
+  post('quest_save', {id: qeQuestId, rewards: raw}).then(function(r) {
+    toast(r.msg || (r.ok ? 'Saved' : 'Failed'), r.ok ? 'ok' : 'err');
+    if (r.ok) {
+      document.getElementById('modal-quest').classList.remove('open');
+      loadQuests();
+    }
+  });
+}
 
 // ── Init ──────────────────────────────────────────────────────────────────
 loadDashboard();
