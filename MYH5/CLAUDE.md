@@ -95,6 +95,17 @@ Array field indices for `taskNewbie`:
 Array field indices for `activityBuy`:
 `[id, activityId, type, name, ?, param1, ?, ?, ?, sortOrder, condition, bonus, reward]`
 
+**Color code fix (`|C:` tags):**
+Broken hex color codes had spaces injected (e.g. `|C:0 xB 6281 A` instead of `|C:0xB6281A`),
+causing the text color parser to fail and render text as black (0x000000).
+Fix: regex remove all spaces within `|C:0x...` hex values. 1099 codes fixed.
+
+**Space around `|C:` and `|T:` tags:**
+Missing spaces before/after color/text tags caused concatenation when rendered.
+E.g. `Equipment|C:0xB6281A&T:Radiant` rendered as "EquipmentRadiant",
+`at|C:0xEDC839&T:Divine` rendered as "atDivine".
+Fix: insert space before `|C:` and around `|T:` when adjacent to letters. ~11,000 fixes.
+
 **Common fix patterns applied:**
 - `NMagic Stones` → `N,NNN Magic Stones` (thousands separator + space)
 - `NLv.` → `Lv.N` (reorder) + space after number
