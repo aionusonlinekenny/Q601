@@ -699,7 +699,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
 
 <!-- Quest reward editor modal -->
 <div class="modal-backdrop" id="modal-quest">
-  <div class="modal" style="width:600px">
+  <div class="modal" style="width:720px;max-height:90vh;overflow-y:auto">
     <h2>Edit Quest Rewards</h2>
     <div id="qe-quest-info" style="margin-bottom:12px;font-size:13px;color:var(--muted)"></div>
     <div id="qe-rows" style="margin-bottom:12px"></div>
@@ -713,6 +713,21 @@ tr:hover td{background:rgba(255,255,255,.025)}
     <div style="display:flex;gap:8px">
       <button class="btn btn-success" onclick="qeSave()">Save to All Servers</button>
       <button class="btn btn-ghost" onclick="document.getElementById('modal-quest').classList.remove('open')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Item picker modal for quest editor -->
+<div class="modal-backdrop" id="modal-itempick" style="z-index:600">
+  <div class="modal" style="width:680px;max-height:85vh;display:flex;flex-direction:column">
+    <h2 style="margin-bottom:8px">Select Item</h2>
+    <div class="search-bar" style="margin-bottom:8px">
+      <input id="qip-search" placeholder="Search by name or ID..." oninput="qipFilter()" style="flex:1;background:#12141e;border:1px solid var(--border);border-radius:6px;color:var(--text);padding:8px 10px;font-size:13px">
+    </div>
+    <div id="qip-grid" style="flex:1;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;max-height:55vh;padding:2px"></div>
+    <div style="display:flex;gap:8px;margin-top:10px;align-items:center">
+      <span style="font-size:12px;color:var(--muted)" id="qip-count"></span>
+      <button class="btn btn-ghost btn-sm" style="margin-left:auto" onclick="document.getElementById('modal-itempick').classList.remove('open')">Cancel</button>
     </div>
   </div>
 </div>
@@ -1166,13 +1181,30 @@ function fmt(n) { return parseInt(n||0).toLocaleString(); }
 // ── Quests ────────────────────────────────────────────────────────────────
 var questData = [];
 var qeQuestId = 0;
-var ITEM_NAMES = {101:'EXP',201:'Gems',301:'Gold',1701:'VIP EXP'};
-var ITEM_OPTIONS = [{id:201,name:'Gems'},{id:301,name:'Gold'},{id:101,name:'EXP'},{id:1701,name:'VIP EXP'}];
-var QUEST_TYPES = {1:'Talk',2:'Collect',3:'Interact',4:'Kill',5:'Equip',6:'Enhance',7:'Level',8:'Stage',9:'Arena'};
+var QUEST_TYPES = {1:'Talk',2:'Collect',3:'Interact',4:'Kill',11:'Level',12:'Equip',13:'Stage',14:'Enchant',
+  15:'Skill',16:'Smelt',17:'PBoss',18:'PetTransform',19:'SpiritInfuse',21:'Gem',22:'Rune',23:'Mark',
+  24:'Endless',25:'Legion',27:'PetTower',28:'CelestLadder',30:'LearnPts',31:'PVP',32:'PetHatch',
+  33:'BattleSoul',34:'PetAdvance',35:'ForgeOrange',40:'GemDgn',41:'PetDgn',42:'DragonDgn',43:'RuneDgn',
+  44:'MarkDgn',45:'PhantomWeap',90:'WBoss',91:'WBoss'};
+var ICON_BASE = '../myh5_cilent/v1.1.9.1/resource/icon/item/';
+
+function itemIcon(iconId) {
+  return '<img src="' + ICON_BASE + iconId + '.png" style="width:24px;height:24px;vertical-align:middle;border-radius:3px" onerror="this.style.display=\'none\'">';
+}
+
+function itemName(id) {
+  if (!itemCache) return '#' + id;
+  for (var i = 0; i < itemCache.length; i++) {
+    if (String(itemCache[i].id) === String(id)) return itemCache[i].name;
+  }
+  return '#' + id;
+}
 
 function loadQuests() {
   document.getElementById('quest-tbody').innerHTML = '<tr><td colspan="6" style="text-align:center"><span class="spinner"></span></td></tr>';
-  fetch('index.php?ajax=quest_list').then(function(r) { return r.json(); }).then(function(d) {
+  getItems().then(function() {
+    return fetch('index.php?ajax=quest_list').then(function(r) { return r.json(); });
+  }).then(function(d) {
     if (!d.ok) { toast(d.msg || 'Failed to load quests', 'err'); return; }
     questData = d.data || [];
     var html = '';
@@ -1185,7 +1217,7 @@ function loadQuests() {
           '<td><strong>' + esc(q.name) + '</strong></td>' +
           '<td><span class="badge" style="background:#1a1e3a;color:#aaf">' + esc(QUEST_TYPES[q.type] || 'Type ' + q.type) + '</span></td>' +
           '<td style="max-width:250px;font-size:12px;color:var(--muted)">' + esc(q.des || '') + '</td>' +
-          '<td style="font-family:monospace;font-size:12px;max-width:200px;word-break:break-all">' + formatRewardsHtml(q.rewards || '') + '</td>' +
+          '<td style="font-size:12px;max-width:280px">' + formatRewardsHtml(q.rewards || '') + '</td>' +
           '<td><button class="btn btn-primary btn-sm" onclick="openQuestEditor(' + q.id + ')">Edit</button></td>' +
           '</tr>';
       });
@@ -1200,10 +1232,10 @@ function formatRewardsHtml(str) {
     return part.split('&').map(function(rw) {
       var s = rw.split('_');
       var iid = s[0]; var cnt = s[1] || '?';
-      var name = ITEM_NAMES[iid] || '#' + iid;
-      return '<span style="color:var(--accent)">' + esc(name) + '</span> x' + esc(cnt);
+      var name = itemName(iid);
+      return itemIcon(iid) + ' <span style="color:var(--accent)">' + esc(name) + '</span> <span style="color:var(--warn)">x' + esc(fmt(cnt)) + '</span>';
     }).join(' | ');
-  }).join(', ');
+  }).join('<br>');
 }
 
 function openQuestEditor(id) {
@@ -1215,8 +1247,7 @@ function openQuestEditor(id) {
   if (!q) return;
   document.getElementById('qe-quest-info').innerHTML =
     '<strong>' + esc(q.name) + '</strong> (ID: ' + q.id + ')' +
-    (q.des ? '<br>' + esc(q.des) : '') +
-    '<br>Target: ' + esc(q.target || '') + ' | NeedTimes: ' + (q.needTimes || 0) + ' | NextId: ' + (q.nextId || '');
+    (q.des ? '<br>' + esc(q.des) : '');
   var rows = [];
   if (q.rewards) {
     q.rewards.split(';').forEach(function(part) { rows.push(part); });
@@ -1231,9 +1262,9 @@ function renderQeRows(rows) {
   var html = '';
   rows.forEach(function(part, idx) {
     var items = part ? part.split('&') : [''];
-    html += '<div style="background:#12141e;border:1px solid var(--border);border-radius:6px;padding:8px;margin-bottom:6px" data-qe-idx="' + idx + '">';
-    html += '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">';
-    html += '<span style="font-size:11px;color:var(--muted)">Reward Slot ' + (idx + 1) + (items.length > 1 ? ' (alternatives)' : '') + '</span>';
+    html += '<div style="background:#12141e;border:1px solid var(--border);border-radius:6px;padding:10px;margin-bottom:6px" data-qe-idx="' + idx + '">';
+    html += '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">';
+    html += '<span style="font-size:11px;color:var(--muted)">Reward Slot ' + (idx + 1) + '</span>';
     html += '<div style="display:flex;gap:4px">';
     html += '<button class="btn btn-ghost btn-sm" style="padding:2px 6px;font-size:11px" onclick="qeAddAlt(' + idx + ')">+Alt</button>';
     html += '<button class="btn btn-danger btn-sm" style="padding:2px 6px;font-size:11px" onclick="qeRemoveRow(' + idx + ')">Remove</button>';
@@ -1241,20 +1272,23 @@ function renderQeRows(rows) {
     items.forEach(function(rw, aidx) {
       var s = rw.split('_');
       var iid = s[0] || ''; var cnt = s[1] || '';
-      html += '<div style="display:flex;gap:6px;align-items:center;margin-bottom:4px">';
-      html += '<select class="qe-iid" data-row="' + idx + '" data-alt="' + aidx + '" style="background:#0a0c14;border:1px solid var(--border);border-radius:4px;color:var(--text);padding:4px;font-size:12px" onchange="qeSelChange(this)">';
-      html += '<option value="">Custom...</option>';
-      ITEM_OPTIONS.forEach(function(opt) {
-        html += '<option value="' + opt.id + '"' + (String(opt.id) === String(iid) ? ' selected' : '') + '>' + opt.id + ' - ' + esc(opt.name) + '</option>';
-      });
-      if (iid && !ITEM_NAMES[iid]) {
-        html += '<option value="' + esc(iid) + '" selected>#' + esc(iid) + '</option>';
-      }
-      html += '</select>';
-      html += '<input class="qe-custom-id" data-row="' + idx + '" data-alt="' + aidx + '" placeholder="Item ID" value="' + esc(iid) + '" style="width:70px;background:#0a0c14;border:1px solid var(--border);border-radius:4px;color:var(--text);padding:4px;font-size:12px;font-family:monospace" oninput="qeUpdate()">';
-      html += '<input class="qe-cnt" data-row="' + idx + '" data-alt="' + aidx + '" placeholder="Count" value="' + esc(cnt) + '" type="number" min="1" style="width:70px;background:#0a0c14;border:1px solid var(--border);border-radius:4px;color:var(--text);padding:4px;font-size:12px" oninput="qeUpdate()">';
+      var iname = iid ? itemName(iid) : '';
+      html += '<div style="display:flex;gap:6px;align-items:center;margin-bottom:4px;padding:4px;background:#0a0c14;border-radius:4px">';
+      html += '<div style="width:32px;height:32px;min-width:32px;background:#12141e;border-radius:4px;display:flex;align-items:center;justify-content:center;overflow:hidden" id="qe-icon-' + idx + '-' + aidx + '">';
+      if (iid) html += '<img src="' + ICON_BASE + iid + '.png" style="width:32px;height:32px" onerror="this.style.display=\'none\'">';
+      html += '</div>';
+      html += '<div style="flex:1;min-width:0">';
+      html += '<div style="display:flex;gap:4px;align-items:center">';
+      html += '<input class="qe-custom-id" data-row="' + idx + '" data-alt="' + aidx + '" value="' + esc(iid) + '" style="width:60px;background:#12141e;border:1px solid var(--border);border-radius:4px;color:var(--text);padding:3px 6px;font-size:12px;font-family:monospace" oninput="qeUpdate()" readonly>';
+      html += '<span class="qe-item-label" style="font-size:12px;color:var(--accent);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px" id="qe-label-' + idx + '-' + aidx + '">' + esc(iname) + '</span>';
+      html += '<button class="btn btn-ghost btn-sm" style="padding:2px 8px;font-size:11px;white-space:nowrap" onclick="qePickItem(' + idx + ',' + aidx + ')">Browse</button>';
+      html += '</div>';
+      html += '</div>';
+      html += '<div class="field" style="gap:1px"><label style="font-size:10px">Count</label>';
+      html += '<input class="qe-cnt" data-row="' + idx + '" data-alt="' + aidx + '" value="' + esc(cnt) + '" type="number" min="1" style="width:90px;background:#12141e;border:1px solid var(--border);border-radius:4px;color:var(--text);padding:3px 6px;font-size:12px" oninput="qeUpdate()">';
+      html += '</div>';
       if (items.length > 1) {
-        html += '<button class="btn btn-ghost btn-sm" style="padding:2px 6px;font-size:11px" onclick="qeRemoveAlt(' + idx + ',' + aidx + ')">x</button>';
+        html += '<button class="btn btn-ghost btn-sm" style="padding:2px 6px;font-size:11px;color:var(--danger)" onclick="qeRemoveAlt(' + idx + ',' + aidx + ')">✕</button>';
       }
       html += '</div>';
     });
@@ -1264,11 +1298,48 @@ function renderQeRows(rows) {
   qeUpdate();
 }
 
-function qeSelChange(sel) {
-  var r = sel.getAttribute('data-row');
-  var a = sel.getAttribute('data-alt');
-  var cust = document.querySelector('#qe-rows .qe-custom-id[data-row="' + r + '"][data-alt="' + a + '"]');
-  if (cust && sel.value) cust.value = sel.value;
+var qePickRow = 0, qePickAlt = 0;
+function qePickItem(row, alt) {
+  qePickRow = row; qePickAlt = alt;
+  document.getElementById('qip-search').value = '';
+  document.getElementById('modal-itempick').classList.add('open');
+  qipFilter();
+  setTimeout(function() { document.getElementById('qip-search').focus(); }, 100);
+}
+
+function qipFilter() {
+  var q = document.getElementById('qip-search').value.toLowerCase();
+  getItems().then(function(all) {
+    var filtered = q ? all.filter(function(i) {
+      return i.name.toLowerCase().indexOf(q) !== -1 || String(i.id).indexOf(q) !== -1;
+    }) : all;
+    var shown = filtered.slice(0, 80);
+    var qualColors = {0:'#aaa',1:'#6cf',2:'#a6f',3:'#fa6',4:'#f64',5:'#ffd700',6:'#f44',7:'#ffd700',8:'#f0f'};
+    var html = '';
+    shown.forEach(function(i) {
+      var col = qualColors[i.quality] || '#aaa';
+      html += '<div style="background:#12141e;border:1px solid var(--border);border-radius:6px;padding:6px;cursor:pointer;display:flex;gap:6px;align-items:center;transition:.15s" ' +
+        'onmouseover="this.style.borderColor=\'var(--accent)\'" onmouseout="this.style.borderColor=\'var(--border)\'" ' +
+        'onclick="qipSelect(\'' + esc(String(i.id)) + '\')">' +
+        '<img src="' + ICON_BASE + i.id + '.png" style="width:36px;height:36px;border-radius:4px;border:1px solid ' + col + '" onerror="this.src=\'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\'">' +
+        '<div style="min-width:0;flex:1">' +
+        '<div style="font-size:11px;font-weight:600;color:' + col + ';white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(i.name) + '</div>' +
+        '<div style="font-size:10px;color:var(--muted);font-family:monospace">#' + i.id + '</div>' +
+        '</div></div>';
+    });
+    document.getElementById('qip-grid').innerHTML = html || '<div style="color:var(--muted);text-align:center;padding:20px">No items found</div>';
+    document.getElementById('qip-count').textContent = filtered.length + ' items' + (filtered.length > 80 ? ' (showing first 80)' : '');
+  });
+}
+
+function qipSelect(id) {
+  document.getElementById('modal-itempick').classList.remove('open');
+  var idInput = document.querySelector('#qe-rows .qe-custom-id[data-row="' + qePickRow + '"][data-alt="' + qePickAlt + '"]');
+  if (idInput) idInput.value = id;
+  var label = document.getElementById('qe-label-' + qePickRow + '-' + qePickAlt);
+  if (label) label.textContent = itemName(id);
+  var icon = document.getElementById('qe-icon-' + qePickRow + '-' + qePickAlt);
+  if (icon) icon.innerHTML = '<img src="' + ICON_BASE + id + '.png" style="width:32px;height:32px" onerror="this.style.display=\'none\'">';
   qeUpdate();
 }
 
