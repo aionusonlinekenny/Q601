@@ -16,14 +16,12 @@ Q601/
 ### 1. UI changes → TWO separate systems (read carefully)
 
 **Skin layout** (label positions, sizes, wordWrap, colors in skin definitions):
-→ Edit `js/default.thm_v2_11d2a764.js` (compiled skin JS)
+→ Edit `js/default.thm_11d2a764.js` (compiled skin JS)
 This file contains `generateEUI.paths` which pre-registers compiled skin classes. The EUI theme loads skins from this JS, NOT from raw EXML files. EXML files in `resource/skins/` are source files but are NOT read at runtime.
 
 **Game logic text** (what text is assigned to labels, JS behavior):
-→ Edit `js/main.min_v2_39fbca0f.js`
+→ Edit `js/main.min_39fbca0f.js`
 This IS loaded and used at runtime.
-
-**Important**: The v2 files are the active versions referenced in `manifest.json`. The original (non-v2) files are superseded.
 
 Safe patterns to translate/edit:
 ```
@@ -182,6 +180,44 @@ After patching, run:
 node --check js/default.thm_11d2a764.js
 node --check js/main.min_39fbca0f.js
 ```
+
+---
+
+## Use Item Popup — Single-Line Name Fix (UsePropSkin)
+
+### Problem
+Long item names (e.g. "Purple Fragment Treasure Chest") wrapped to 2 lines in the Use Item popup.
+
+### Root Cause
+The popup is **`UsePropSkin`** (`dialog.UsePropSkin` in `default.thm_11d2a764.js`), NOT `PropTipSkin`.
+`UsePropSkin` is the popup with Min/Max quantity buttons + "Use" button.
+Its `labName` had `width=159.5` — too narrow, forcing text to wrap.
+
+**Important:** Tapping a usable bag item opens `UsePropAlert` (extends `ui.UsePropSkin`), NOT `tips.PropTip`.
+`PropTipSkin` is the read-only tooltip shown for non-usable items or when long-pressing.
+
+### Tip class routing (for reference)
+```
+switch(mainType) {
+  MATERIAL/DEBRIS/TREASURE/MONEY/ITEM → tips.PropTip (skinName="normal.PropTipSkin")
+  EQUIP                               → tips.EquipTip (skinName="normal.EquipTipSkin")
+  SHENHUN                             → tips.ShenhunTip (skinName="normal.ShenhunTipSkin")
+}
+```
+But usable items also get `UsePropAlert` (skinName from `ui.UsePropSkin` / `dialog.UsePropSkin`).
+
+### Fix Applied
+In `default.thm_11d2a764.js`, UsePropSkin's `labName_i` (~byte offset 582926):
+```
+OLD: t.size=20;t.text="Meridian Pill";t.textColor=0x7b0ca6;t.width=159.5;t.x=67;t.y=58
+NEW: t.size=16;t.text="Meridian Pill";t.textColor=0x7b0ca6;t.wordWrap=false;t.x=67;t.y=58
+```
+Removed `width=159.5` (was constraining text to 160px), added `wordWrap=false`, reduced font 20→16.
+
+### Egret TextField Wrapping Behavior
+In this Egret version, ANY explicit `$textFieldWidth` causes text to wrap — `wordWrap` only controls
+word-boundary vs character-boundary splitting. To prevent wrapping entirely, `$textFieldWidth` must be
+`NaN` (no explicit `width` on the label). Setting `wordWrap=false` alone is NOT enough if `width` is set.
 
 ---
 
