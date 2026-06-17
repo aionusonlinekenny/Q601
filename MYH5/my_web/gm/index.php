@@ -726,8 +726,10 @@ tr:hover td{background:rgba(255,255,255,.025)}
     </div>
     <div id="qip-grid" style="flex:1;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;max-height:55vh;padding:2px"></div>
     <div style="display:flex;gap:8px;margin-top:10px;align-items:center">
-      <span style="font-size:12px;color:var(--muted)" id="qip-count"></span>
-      <button class="btn btn-ghost btn-sm" style="margin-left:auto" onclick="document.getElementById('modal-itempick').classList.remove('open')">Cancel</button>
+      <button class="btn btn-ghost btn-sm" id="qip-prev" onclick="qipPage(-1)">← Prev</button>
+      <span style="font-size:12px;color:var(--muted);flex:1;text-align:center" id="qip-count"></span>
+      <button class="btn btn-ghost btn-sm" id="qip-next" onclick="qipPage(1)">Next →</button>
+      <button class="btn btn-ghost btn-sm" onclick="document.getElementById('modal-itempick').classList.remove('open')">Cancel</button>
     </div>
   </div>
 </div>
@@ -1308,37 +1310,56 @@ function renderQeRows(rows) {
 }
 
 var qePickRow = 0, qePickAlt = 0;
+var qipCurrentPage = 0, qipFiltered = [], qipPerPage = 40;
+
 function qePickItem(row, alt) {
   qePickRow = row; qePickAlt = alt;
+  qipCurrentPage = 0;
   document.getElementById('qip-search').value = '';
   document.getElementById('modal-itempick').classList.add('open');
   qipFilter();
   setTimeout(function() { document.getElementById('qip-search').focus(); }, 100);
 }
 
+function qipPage(dir) {
+  var maxPage = Math.max(0, Math.ceil(qipFiltered.length / qipPerPage) - 1);
+  qipCurrentPage = Math.max(0, Math.min(maxPage, qipCurrentPage + dir));
+  qipRender();
+  document.getElementById('qip-grid').scrollTop = 0;
+}
+
 function qipFilter() {
   var q = document.getElementById('qip-search').value.toLowerCase();
+  qipCurrentPage = 0;
   getItems().then(function(all) {
-    var filtered = q ? all.filter(function(i) {
+    qipFiltered = q ? all.filter(function(i) {
       return i.name.toLowerCase().indexOf(q) !== -1 || String(i.id).indexOf(q) !== -1;
     }) : all;
-    var shown = filtered.slice(0, 80);
-    var qualColors = {0:'#aaa',1:'#6cf',2:'#a6f',3:'#fa6',4:'#f64',5:'#ffd700',6:'#f44',7:'#ffd700',8:'#f0f'};
-    var html = '';
-    shown.forEach(function(i) {
-      var col = qualColors[i.quality] || '#aaa';
-      html += '<div style="background:#12141e;border:1px solid var(--border);border-radius:6px;padding:6px;cursor:pointer;display:flex;gap:6px;align-items:center;transition:.15s" ' +
-        'onmouseover="this.style.borderColor=\'var(--accent)\'" onmouseout="this.style.borderColor=\'var(--border)\'" ' +
-        'onclick="qipSelect(\'' + esc(String(i.id)) + '\')">' +
-        '<img src="' + ICON_BASE + (i.icon || i.id) + '.png" style="width:36px;height:36px;border-radius:4px;border:1px solid ' + col + '" onerror="this.src=\'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\'">' +
-        '<div style="min-width:0;flex:1">' +
-        '<div style="font-size:11px;font-weight:600;color:' + col + ';white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(i.name) + '</div>' +
-        '<div style="font-size:10px;color:var(--muted);font-family:monospace">#' + i.id + '</div>' +
-        '</div></div>';
-    });
-    document.getElementById('qip-grid').innerHTML = html || '<div style="color:var(--muted);text-align:center;padding:20px">No items found</div>';
-    document.getElementById('qip-count').textContent = filtered.length + ' items' + (filtered.length > 80 ? ' (showing first 80)' : '');
+    qipRender();
   });
+}
+
+function qipRender() {
+  var totalPages = Math.max(1, Math.ceil(qipFiltered.length / qipPerPage));
+  var start = qipCurrentPage * qipPerPage;
+  var shown = qipFiltered.slice(start, start + qipPerPage);
+  var qualColors = {0:'#aaa',1:'#6cf',2:'#a6f',3:'#fa6',4:'#f64',5:'#ffd700',6:'#f44',7:'#ffd700',8:'#f0f'};
+  var html = '';
+  shown.forEach(function(i) {
+    var col = qualColors[i.quality] || '#aaa';
+    html += '<div style="background:#12141e;border:1px solid var(--border);border-radius:6px;padding:6px;cursor:pointer;display:flex;gap:6px;align-items:center;transition:.15s" ' +
+      'onmouseover="this.style.borderColor=\'var(--accent)\'" onmouseout="this.style.borderColor=\'var(--border)\'" ' +
+      'onclick="qipSelect(\'' + esc(String(i.id)) + '\')">' +
+      '<img src="' + ICON_BASE + (i.icon || i.id) + '.png" style="width:36px;height:36px;border-radius:4px;border:1px solid ' + col + '" onerror="this.src=\'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\'">' +
+      '<div style="min-width:0;flex:1">' +
+      '<div style="font-size:11px;font-weight:600;color:' + col + ';white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(i.name) + '</div>' +
+      '<div style="font-size:10px;color:var(--muted);font-family:monospace">#' + i.id + '</div>' +
+      '</div></div>';
+  });
+  document.getElementById('qip-grid').innerHTML = html || '<div style="color:var(--muted);text-align:center;padding:20px">No items found</div>';
+  document.getElementById('qip-count').textContent = qipFiltered.length + ' items — Page ' + (qipCurrentPage + 1) + ' / ' + totalPages;
+  document.getElementById('qip-prev').disabled = qipCurrentPage <= 0;
+  document.getElementById('qip-next').disabled = qipCurrentPage >= totalPages - 1;
 }
 
 function qipSelect(id) {
