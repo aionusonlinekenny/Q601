@@ -409,3 +409,62 @@ Located at `CONF_DIR/gameRecharge/gameRecharge.json`:
 - **Old "1969.12.19" mails**: From bug where `(int)(microtime(true)*1000)` overflowed 32-bit PHP. Fixed. Old mails are uncollectable; player can delete them.
 - **`status:1` from Jetty sendmail**: Usually means wrong player identifier (needs account `identityName`, not character `name`), or signature mismatch. Use `api_mail_gift_db()` to bypass Jetty entirely.
 
+---
+
+## server.jar Chinese String Translation
+
+All Chinese strings in `server.jar` were translated to English using in-place byte patching of CONSTANT_Utf8 entries in Java `.class` files.
+
+- **2041 strings** patched across **359 class files**
+- Strategy: Chinese chars = 3 UTF-8 bytes each, English = 1 byte. Translations always fit; remaining bytes padded with spaces (0x20). Length prefix unchanged, no bytecode/offset changes.
+- **3 strings intentionally kept Chinese**: regex patterns for Chinese character detection (`^[一-龥]{1}$`), number obfuscation filter, and spam filter — these MUST contain Chinese to function.
+- Translation map saved at `/tmp/translation_map.json`
+- Patcher script at `/tmp/patch_jar.py`
+- Deployed to `my_s1/server.jar`, `my_s2/server.jar`, `my_s3/server.jar`
+
+### Rebuild procedure
+```bash
+rm -rf /tmp/jar_check && mkdir /tmp/jar_check && cd /tmp/jar_check
+jar xf /path/to/original/server.jar
+python3 /tmp/patch_jar.py   # applies translation_map.json
+jar cfm /tmp/server_translated.jar META-INF/MANIFEST.MF .
+cp /tmp/server_translated.jar MYH5/my_s{1,2,3}/server.jar
+```
+
+---
+
+## itemWay Source Labels (config.nncc)
+
+The `itemWay` section in `config.nncc` contains 614 item acquisition source descriptions.
+
+**Changes applied:**
+- Removed "Source:", "— Source:", "Obtain:" prefixes
+- Shortened common words (Equipment→Equip, Personal Boss→PBoss, World Boss→WBoss, etc.)
+- Truncated all entries to **9 chars + ".."** when too long
+- Examples: `Gold — Source: Personal Boss` → `Gold:PBos..`, `EXPObtain: Field Battle` → `XP:PVP`
+
+Also removed `Src:` prefix from server.jar `MGAlarmHandler.class` (3 strings: `;Src:`, `\nSrc:`, `,Src:`).
+
+---
+
+## Divine Gear Panel — Equipment Name Truncation & Full Name Label
+
+### Problem
+Equipment item names (e.g. "Radiant Dragon Holy Barrier Defense") were too long, wrapping to 2 lines on the equipment slot boxes in the Divine Gear (神装降世) panel.
+
+### Skin: DeityEquiptBoxSkin (`default.thm_11d2a764.js`)
+`labName_i`: `t.maxLines=1;t.size=18;t.width=130` — single line, original font size.
+
+### JS Truncation (`main.min_39fbca0f.js`)
+Three truncation points in `DeityEquiptBox.dataChange()`:
+- **Activated items**: `this.labName.text=H.name.length>12?H.name.substring(0,10)+"..":H.name`
+- **Non-activated items (textFlow)**: `J.des.length>12?J.des.substring(0,10)+"..":J.des`
+- **Info panel**: `Q.name` and `f.name` also truncated same way
+
+### Full Name Label (dynamic)
+When clicking an equipment item, a dynamically created `eui.Label` (`this._fullNameLab`) shows the **full untruncated item name** below the combat power (战力) number:
+- **Position**: `y=100`, `horizontalCenter=0`, `width=500`
+- **Style**: `size=20`, `stroke=1`, color = `TypeQuality.getQualityColor(item.quality)` (matches item rarity color)
+- Applied in both `RoleDeityEquipUpAlert` (upgrade panel, uses `f.name`/`f.quality`) and `RoleDeityEquipDialog` (overview panel, uses `Q.name`/`Q.quality`)
+- Tooltip/tip classes still read full name from the original VO object, unaffected by truncation.
+
