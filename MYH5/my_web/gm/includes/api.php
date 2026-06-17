@@ -282,11 +282,13 @@ function load_item_catalog($confDir = CONF_DIR) {
             $name    = isset($prop['name']) ? $prop['name'] : (isset($prop['itemName']) ? $prop['itemName'] : $id);
             $type    = isset($prop['itemType']) ? $prop['itemType'] : 0;
             $quality = isset($prop['quality'])  ? $prop['quality']  : 0;
+            $iconId = isset($prop['iconId']) ? $prop['iconId'] : (isset($prop['smallIconId']) ? $prop['smallIconId'] : $id);
             $items[$id] = array(
                 'id'      => $id,
                 'name'    => $name,
                 'type'    => $type,
                 'quality' => $quality,
+                'icon'    => $iconId,
             );
         }
     }

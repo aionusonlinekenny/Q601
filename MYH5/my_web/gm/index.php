@@ -1188,8 +1188,17 @@ var QUEST_TYPES = {1:'Talk',2:'Collect',3:'Interact',4:'Kill',11:'Level',12:'Equ
   44:'MarkDgn',45:'PhantomWeap',90:'WBoss',91:'WBoss'};
 var ICON_BASE = '../myh5_cilent/v1.1.9.1/resource/icon/item/';
 
-function itemIcon(iconId) {
-  return '<img src="' + ICON_BASE + iconId + '.png" style="width:24px;height:24px;vertical-align:middle;border-radius:3px" onerror="this.style.display=\'none\'">';
+function itemIconId(id) {
+  if (!itemCache) return id;
+  for (var i = 0; i < itemCache.length; i++) {
+    if (String(itemCache[i].id) === String(id)) return itemCache[i].icon || itemCache[i].id;
+  }
+  return id;
+}
+
+function itemIcon(id) {
+  var ico = itemIconId(id);
+  return '<img src="' + ICON_BASE + ico + '.png" style="width:24px;height:24px;vertical-align:middle;border-radius:3px" onerror="this.style.display=\'none\'">';
 }
 
 function itemName(id) {
@@ -1275,7 +1284,7 @@ function renderQeRows(rows) {
       var iname = iid ? itemName(iid) : '';
       html += '<div style="display:flex;gap:6px;align-items:center;margin-bottom:4px;padding:4px;background:#0a0c14;border-radius:4px">';
       html += '<div style="width:32px;height:32px;min-width:32px;background:#12141e;border-radius:4px;display:flex;align-items:center;justify-content:center;overflow:hidden" id="qe-icon-' + idx + '-' + aidx + '">';
-      if (iid) html += '<img src="' + ICON_BASE + iid + '.png" style="width:32px;height:32px" onerror="this.style.display=\'none\'">';
+      if (iid) html += '<img src="' + ICON_BASE + itemIconId(iid) + '.png" style="width:32px;height:32px" onerror="this.style.display=\'none\'">';
       html += '</div>';
       html += '<div style="flex:1;min-width:0">';
       html += '<div style="display:flex;gap:4px;align-items:center">';
@@ -1321,7 +1330,7 @@ function qipFilter() {
       html += '<div style="background:#12141e;border:1px solid var(--border);border-radius:6px;padding:6px;cursor:pointer;display:flex;gap:6px;align-items:center;transition:.15s" ' +
         'onmouseover="this.style.borderColor=\'var(--accent)\'" onmouseout="this.style.borderColor=\'var(--border)\'" ' +
         'onclick="qipSelect(\'' + esc(String(i.id)) + '\')">' +
-        '<img src="' + ICON_BASE + i.id + '.png" style="width:36px;height:36px;border-radius:4px;border:1px solid ' + col + '" onerror="this.src=\'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\'">' +
+        '<img src="' + ICON_BASE + (i.icon || i.id) + '.png" style="width:36px;height:36px;border-radius:4px;border:1px solid ' + col + '" onerror="this.src=\'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\'">' +
         '<div style="min-width:0;flex:1">' +
         '<div style="font-size:11px;font-weight:600;color:' + col + ';white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(i.name) + '</div>' +
         '<div style="font-size:10px;color:var(--muted);font-family:monospace">#' + i.id + '</div>' +
@@ -1339,7 +1348,7 @@ function qipSelect(id) {
   var label = document.getElementById('qe-label-' + qePickRow + '-' + qePickAlt);
   if (label) label.textContent = itemName(id);
   var icon = document.getElementById('qe-icon-' + qePickRow + '-' + qePickAlt);
-  if (icon) icon.innerHTML = '<img src="' + ICON_BASE + id + '.png" style="width:32px;height:32px" onerror="this.style.display=\'none\'">';
+  if (icon) icon.innerHTML = '<img src="' + ICON_BASE + itemIconId(id) + '.png" style="width:32px;height:32px" onerror="this.style.display=\'none\'">';
   qeUpdate();
 }
 
