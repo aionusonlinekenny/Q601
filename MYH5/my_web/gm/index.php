@@ -75,6 +75,91 @@ if (isset($_GET['ajax']) && $gmAuth) {
             ));
             break;
 
+        // ── Clean all game data ───────────────────────────────────────────
+        case 'clean_all':
+            $confirm = isset($_POST['confirm']) ? $_POST['confirm'] : '';
+            if ($confirm !== 'CLEAN ALL DATA') {
+                echo json_encode(array('ok' => false, 'msg' => 'Confirmation text did not match'));
+                break;
+            }
+
+            $servers = unserialize(SERVERS);
+            $result = array();
+
+            // Clean each game server DB
+            foreach ($servers as $srvId => $srv) {
+                $srvDb = isset($srv['db']) ? $srv['db'] : ('myh5_s' . $srvId);
+                $pdo = db_connect($srvDb);
+                if (!$pdo) {
+                    $result[$srvDb] = array('error' => 'Cannot connect');
+                    continue;
+                }
+                $tables = $pdo->query('SHOW TABLES')->fetchAll(PDO::FETCH_COLUMN);
+                $cleaned = array();
+                // Skip config/system tables — only clean player data tables
+                $skipTables = array('cfg_server');
+                foreach ($tables as $tbl) {
+                    if (in_array($tbl, $skipTables)) continue;
+                    try {
+                        $pdo->exec("TRUNCATE TABLE `$tbl`");
+                        $cleaned[] = $tbl;
+                    } catch (PDOException $e) {
+                        try {
+                            $pdo->exec("DELETE FROM `$tbl`");
+                            $cleaned[] = $tbl . '(delete)';
+                        } catch (PDOException $e2) { /* skip */ }
+                    }
+                }
+                $result[$srvDb] = array('tables' => count($cleaned), 'list' => $cleaned);
+            }
+
+            // Clean log databases (myh5_log, myh5_log1, myh5_log2, myh5_log3)
+            $logDbs = array('myh5_log', 'myh5_log1', 'myh5_log2', 'myh5_log3');
+            foreach ($logDbs as $logDb) {
+                $logPdo = db_connect($logDb);
+                if (!$logPdo) continue;
+                $logTables = $logPdo->query('SHOW TABLES')->fetchAll(PDO::FETCH_COLUMN);
+                $logCleaned = array();
+                foreach ($logTables as $tbl) {
+                    if (in_array($tbl, array('cfg_server'))) continue;
+                    try {
+                        $logPdo->exec("TRUNCATE TABLE `$tbl`");
+                        $logCleaned[] = $tbl;
+                    } catch (PDOException $e) {
+                        try {
+                            $logPdo->exec("DELETE FROM `$tbl`");
+                            $logCleaned[] = $tbl . '(delete)';
+                        } catch (PDOException $e2) { /* skip */ }
+                    }
+                }
+                if (count($logCleaned)) $result[$logDb] = array('tables' => count($logCleaned), 'list' => $logCleaned);
+            }
+
+            // Also clean platform DB (myh5_pl) player-related tables if accessible
+            $plDb = 'myh5_pl';
+            $plPdo = db_connect($plDb);
+            if ($plPdo) {
+                $plTables = $plPdo->query('SHOW TABLES')->fetchAll(PDO::FETCH_COLUMN);
+                $plCleaned = array();
+                $plSkip = array('cfg_server');
+                foreach ($plTables as $tbl) {
+                    if (in_array($tbl, $plSkip)) continue;
+                    try {
+                        $plPdo->exec("TRUNCATE TABLE `$tbl`");
+                        $plCleaned[] = $tbl;
+                    } catch (PDOException $e) {
+                        try {
+                            $plPdo->exec("DELETE FROM `$tbl`");
+                            $plCleaned[] = $tbl . '(delete)';
+                        } catch (PDOException $e2) { /* skip */ }
+                    }
+                }
+                if (count($plCleaned)) $result[$plDb] = array('tables' => count($plCleaned), 'list' => $plCleaned);
+            }
+
+            echo json_encode(array('ok' => true, 'result' => $result));
+            break;
+
         // ── Account search ────────────────────────────────────────────────
         case 'accounts':
             $q     = trim(isset($_GET['q']) ? $_GET['q'] : '');
@@ -635,6 +720,12 @@ tr:hover td{background:rgba(255,255,255,.025)}
         <div class="stat"><div class="stat-val" id="s-vip" style="color:var(--gold)">—</div><div class="stat-lbl">VIP Players</div></div>
       </div>
       <div class="card"><div class="card-title">Recent Active Players</div><div id="dash-recent"><div class="spinner"></div></div></div>
+      <div class="card" style="border:1px solid var(--danger);margin-top:16px">
+        <div class="card-title" style="color:var(--danger)">Danger Zone</div>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:12px">Wipe ALL data from all game databases (myh5_s1/s2/s3), log databases (myh5_log/log1/log2/log3), and platform DB (myh5_pl). cfg_server tables are preserved. <strong>Requires server restart after cleaning.</strong></p>
+        <button class="btn btn-danger" onclick="cleanAllData()">Clean All Data</button>
+        <div id="clean-result" style="display:none;margin-top:12px;font-size:12px;padding:10px;background:#1a1a2e;border-radius:6px;white-space:pre-wrap"></div>
+      </div>
     </div>
 
     <!-- ACCOUNTS -->
@@ -1029,6 +1120,36 @@ function deletePlayer(pid, name) {
       toast(d.msg || 'Delete failed', 'err');
     }
   });
+}
+
+// ── Clean All Data ────────────────────────────────────────────────────────
+function cleanAllData() {
+  var txt = prompt('This will WIPE ALL DATA from all game, log, and platform databases.\n\nType "CLEAN ALL DATA" to confirm:');
+  if (txt !== 'CLEAN ALL DATA') { if (txt !== null) toast('Confirmation did not match', 'err'); return; }
+  if (!confirm('FINAL WARNING: All player data, logs, mail, and game records will be permanently deleted.\n\nContinue?')) return;
+  var el = document.getElementById('clean-result');
+  el.style.display = 'block';
+  el.textContent = 'Cleaning databases...';
+  fetch('index.php?ajax=clean_all', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: 'confirm=' + encodeURIComponent('CLEAN ALL DATA')
+  }).then(function(r) { return r.json(); }).then(function(d) {
+    if (d.ok) {
+      var lines = [];
+      for (var db in d.result) {
+        var r = d.result[db];
+        if (r.error) { lines.push(db + ': ERROR - ' + r.error); }
+        else { lines.push(db + ': ' + r.tables + ' tables cleaned (' + (r.list||[]).join(', ') + ')'); }
+      }
+      el.textContent = lines.join('\n') + '\n\nDone! Restart game servers for changes to take effect.';
+      toast('All databases cleaned successfully', 'ok');
+      loadDashboard();
+    } else {
+      el.textContent = 'Error: ' + (d.msg || 'Unknown error');
+      toast(d.msg || 'Clean failed', 'err');
+    }
+  }).catch(function(e) { el.textContent = 'Network error: ' + e; toast('Network error', 'err'); });
 }
 
 // ── Item search ───────────────────────────────────────────────────────────
