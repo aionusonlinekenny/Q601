@@ -160,41 +160,62 @@ if (isset($_GET['ajax']) && $gmAuth) {
             $pdo = db_connect($dbName);
             if (!$pdo) { echo json_encode(array('ok' => false, 'msg' => 'DB connect failed')); break; }
 
+            // Detect player table
+            $playerTbl = DB_TABLE_PLAYER;
+            $allTables = $pdo->query('SHOW TABLES')->fetchAll(PDO::FETCH_COLUMN);
+            if (!in_array($playerTbl, $allTables)) {
+                $playerTbl = db_find_player_table($dbName);
+            }
+            if (!$playerTbl) { echo json_encode(array('ok' => false, 'msg' => 'Player table not found')); break; }
+
+            // Detect id/name columns in player table
+            $cols = $pdo->query("DESCRIBE `$playerTbl`")->fetchAll(PDO::FETCH_COLUMN);
+            $idCol = 'id';
+            $nameCol = 'name';
+            foreach ($cols as $c) {
+                if (in_array(strtolower($c), array('playerid', 'roleid'))) $idCol = $c;
+                if (in_array(strtolower($c), array('playername', 'rolename'))) $nameCol = $c;
+            }
+
             // Look up player UUID if name given
             if (!preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i', $pid)) {
-                $stmt = $pdo->prepare('SELECT id FROM player WHERE name = ? LIMIT 1');
+                $stmt = $pdo->prepare("SELECT `$idCol` AS pid, `$nameCol` AS pname FROM `$playerTbl` WHERE `$nameCol` = ? LIMIT 1");
                 $stmt->execute(array($pid));
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 if (!$row) { echo json_encode(array('ok' => false, 'msg' => 'Player not found: ' . $pid)); break; }
-                $uuid = $row['id'];
+                $uuid = $row['pid'];
                 $playerName = $pid;
             } else {
                 $uuid = $pid;
-                $stmt = $pdo->prepare('SELECT name FROM player WHERE id = ? LIMIT 1');
+                $stmt = $pdo->prepare("SELECT `$nameCol` AS pname FROM `$playerTbl` WHERE `$idCol` = ? LIMIT 1");
                 $stmt->execute(array($uuid));
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                $playerName = $row ? $row['name'] : $uuid;
+                $playerName = $row ? $row['pname'] : $uuid;
             }
 
-            // Delete from all related tables
+            // Delete from ALL tables that have a playerId column
             $deleted = array();
-            $relatedTables = array('mail', 'arena', 'friend', 'task', 'signin');
-            $allTables = $pdo->query('SHOW TABLES')->fetchAll(PDO::FETCH_COLUMN);
-            foreach ($relatedTables as $rt) {
-                if (in_array($rt, $allTables)) {
-                    try {
-                        $stmt = $pdo->prepare("DELETE FROM `$rt` WHERE playerId = ?");
-                        $stmt->execute(array($uuid));
-                        $c = $stmt->rowCount();
-                        if ($c > 0) $deleted[$rt] = $c;
-                    } catch (PDOException $e) { /* skip */ }
-                }
+            foreach ($allTables as $tbl) {
+                if ($tbl === $playerTbl) continue;
+                try {
+                    $tblCols = $pdo->query("DESCRIBE `$tbl`")->fetchAll(PDO::FETCH_COLUMN);
+                    $delCol = null;
+                    foreach ($tblCols as $tc) {
+                        if (strtolower($tc) === 'playerid') { $delCol = $tc; break; }
+                    }
+                    if (!$delCol) continue;
+                    $stmt = $pdo->prepare("DELETE FROM `$tbl` WHERE `$delCol` = ?");
+                    $stmt->execute(array($uuid));
+                    $c = $stmt->rowCount();
+                    if ($c > 0) $deleted[$tbl] = $c;
+                } catch (PDOException $e) { /* skip */ }
             }
-            // Delete from player table
+
+            // Delete from player table last
             try {
-                $stmt = $pdo->prepare('DELETE FROM player WHERE id = ?');
+                $stmt = $pdo->prepare("DELETE FROM `$playerTbl` WHERE `$idCol` = ?");
                 $stmt->execute(array($uuid));
-                $deleted['player'] = $stmt->rowCount();
+                $deleted[$playerTbl] = $stmt->rowCount();
             } catch (PDOException $e) {
                 echo json_encode(array('ok' => false, 'msg' => 'Delete failed: ' . $e->getMessage()));
                 break;
