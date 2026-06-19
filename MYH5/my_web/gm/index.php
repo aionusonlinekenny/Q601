@@ -152,6 +152,57 @@ if (isset($_GET['ajax']) && $gmAuth) {
             echo json_encode(array('ok' => true, 'data' => isset($row[0]) ? $row[0] : null));
             break;
 
+        // ── Delete player ─────────────────────────────────────────────────
+        case 'delete_player':
+            $pid = isset($_POST['playerId']) ? trim($_POST['playerId']) : '';
+            if (!$pid) { echo json_encode(array('ok' => false, 'msg' => 'Missing playerId')); break; }
+
+            $pdo = db_connect($dbName);
+            if (!$pdo) { echo json_encode(array('ok' => false, 'msg' => 'DB connect failed')); break; }
+
+            // Look up player UUID if name given
+            if (!preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i', $pid)) {
+                $stmt = $pdo->prepare('SELECT id FROM player WHERE name = ? LIMIT 1');
+                $stmt->execute(array($pid));
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                if (!$row) { echo json_encode(array('ok' => false, 'msg' => 'Player not found: ' . $pid)); break; }
+                $uuid = $row['id'];
+                $playerName = $pid;
+            } else {
+                $uuid = $pid;
+                $stmt = $pdo->prepare('SELECT name FROM player WHERE id = ? LIMIT 1');
+                $stmt->execute(array($uuid));
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                $playerName = $row ? $row['name'] : $uuid;
+            }
+
+            // Delete from all related tables
+            $deleted = array();
+            $relatedTables = array('mail', 'arena', 'friend', 'task', 'signin');
+            $allTables = $pdo->query('SHOW TABLES')->fetchAll(PDO::FETCH_COLUMN);
+            foreach ($relatedTables as $rt) {
+                if (in_array($rt, $allTables)) {
+                    try {
+                        $stmt = $pdo->prepare("DELETE FROM `$rt` WHERE playerId = ?");
+                        $stmt->execute(array($uuid));
+                        $c = $stmt->rowCount();
+                        if ($c > 0) $deleted[$rt] = $c;
+                    } catch (PDOException $e) { /* skip */ }
+                }
+            }
+            // Delete from player table
+            try {
+                $stmt = $pdo->prepare('DELETE FROM player WHERE id = ?');
+                $stmt->execute(array($uuid));
+                $deleted['player'] = $stmt->rowCount();
+            } catch (PDOException $e) {
+                echo json_encode(array('ok' => false, 'msg' => 'Delete failed: ' . $e->getMessage()));
+                break;
+            }
+
+            echo json_encode(array('ok' => true, 'name' => $playerName, 'deleted' => $deleted));
+            break;
+
         // ── Gift item ─────────────────────────────────────────────────────
         case 'gift_item':
             $pid    = isset($_POST['playerId']) ? trim($_POST['playerId']) : '';
@@ -874,7 +925,8 @@ function buildPlayerRows(rows) {
       '<td>' + fmt(p.jade || p.diamond || p.rmb) + '</td>' +
       '<td><span class="badge ' + (online ? 'badge-online' : 'badge-offline') + '">' + (online ? 'Online' : 'Offline') + '</span></td>' +
       '<td style="font-size:12px;color:var(--muted)">' + esc((p.lastLoginTime || p.lastLogin || '').replace('T', ' ').slice(0, 16)) + '</td>' +
-      '<td><button class="btn btn-success btn-sm" onclick="openGiftModal(\'' + esc(pid) + '\',\'' + esc(name) + '\')">Gift</button></td>' +
+      '<td><button class="btn btn-success btn-sm" onclick="openGiftModal(\'' + esc(pid) + '\',\'' + esc(name) + '\')">Gift</button> ' +
+      '<button class="btn btn-danger btn-sm" onclick="deletePlayer(\'' + esc(pid) + '\',\'' + esc(name) + '\')">Delete</button></td>' +
       '</tr>';
   }).join('');
 }
@@ -892,6 +944,26 @@ function buildPlayerTable(rows) {
       '<td><span class="badge ' + (online?'badge-online':'badge-offline') + '">' + (online?'Online':'Offline') + '</span></td></tr>';
   });
   return html + '</tbody></table></div>';
+}
+
+// ── Delete player ─────────────────────────────────────────────────────────
+function deletePlayer(pid, name) {
+  if (!confirm('Delete player "' + name + '" (ID: ' + pid + ')?\n\nThis will remove the player and all related data (mail, arena, friends, tasks).\n\nThis action CANNOT be undone!')) return;
+  if (!confirm('Are you ABSOLUTELY sure?\n\nPlayer: ' + name + '\n\nType OK to confirm.')) return;
+  fetch('index.php?ajax=delete_player', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: 'playerId=' + encodeURIComponent(pid)
+  }).then(function(r) { return r.json(); }).then(function(d) {
+    if (d.ok) {
+      var details = [];
+      for (var t in d.deleted) { details.push(t + ': ' + d.deleted[t] + ' rows'); }
+      toast('Player "' + (d.name || name) + '" deleted.\n' + details.join(', '), 'ok');
+      loadAccounts();
+    } else {
+      toast(d.msg || 'Delete failed', 'err');
+    }
+  });
 }
 
 // ── Item search ───────────────────────────────────────────────────────────
