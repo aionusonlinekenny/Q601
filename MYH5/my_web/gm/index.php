@@ -193,22 +193,44 @@ if (isset($_GET['ajax']) && $gmAuth) {
                 $playerName = $row ? $row['pname'] : $uuid;
             }
 
-            // Delete from ALL tables that have a playerId column
+            // Also look up identityName for this player (login account name)
+            $identityName = null;
+            try {
+                $idnCols = $pdo->query("DESCRIBE `$playerTbl`")->fetchAll(PDO::FETCH_COLUMN);
+                if (in_array('identityName', $idnCols)) {
+                    $stmt = $pdo->prepare("SELECT identityName FROM `$playerTbl` WHERE `$idCol` = ? LIMIT 1");
+                    $stmt->execute(array($uuid));
+                    $irow = $stmt->fetch(PDO::FETCH_ASSOC);
+                    if ($irow) $identityName = $irow['identityName'];
+                }
+            } catch (PDOException $e) { /* skip */ }
+
+            // Delete from ALL tables that have a playerId or identityName column
             $deleted = array();
+            $errors = array();
             foreach ($allTables as $tbl) {
                 if ($tbl === $playerTbl) continue;
                 try {
                     $tblCols = $pdo->query("DESCRIBE `$tbl`")->fetchAll(PDO::FETCH_COLUMN);
-                    $delCol = null;
+                    // Try playerId column
                     foreach ($tblCols as $tc) {
-                        if (strtolower($tc) === 'playerid') { $delCol = $tc; break; }
+                        $tcl = strtolower($tc);
+                        if ($tcl === 'playerid' || $tcl === 'player_id') {
+                            $stmt = $pdo->prepare("DELETE FROM `$tbl` WHERE `$tc` = ?");
+                            $stmt->execute(array($uuid));
+                            $c = $stmt->rowCount();
+                            if ($c > 0) $deleted[$tbl] = (isset($deleted[$tbl]) ? $deleted[$tbl] : 0) + $c;
+                        }
+                        if ($identityName && ($tcl === 'identityname' || $tcl === 'identity_name')) {
+                            $stmt = $pdo->prepare("DELETE FROM `$tbl` WHERE `$tc` = ?");
+                            $stmt->execute(array($identityName));
+                            $c = $stmt->rowCount();
+                            if ($c > 0) $deleted[$tbl . '(identity)'] = $c;
+                        }
                     }
-                    if (!$delCol) continue;
-                    $stmt = $pdo->prepare("DELETE FROM `$tbl` WHERE `$delCol` = ?");
-                    $stmt->execute(array($uuid));
-                    $c = $stmt->rowCount();
-                    if ($c > 0) $deleted[$tbl] = $c;
-                } catch (PDOException $e) { /* skip */ }
+                } catch (PDOException $e) {
+                    $errors[] = $tbl . ': ' . $e->getMessage();
+                }
             }
 
             // Delete from player table last
@@ -217,11 +239,28 @@ if (isset($_GET['ajax']) && $gmAuth) {
                 $stmt->execute(array($uuid));
                 $deleted[$playerTbl] = $stmt->rowCount();
             } catch (PDOException $e) {
-                echo json_encode(array('ok' => false, 'msg' => 'Delete failed: ' . $e->getMessage()));
+                echo json_encode(array('ok' => false, 'msg' => 'Delete player failed: ' . $e->getMessage()));
                 break;
             }
 
-            echo json_encode(array('ok' => true, 'name' => $playerName, 'deleted' => $deleted));
+            // Also delete all characters with same identityName (alt chars on same account)
+            if ($identityName) {
+                try {
+                    $stmt = $pdo->prepare("DELETE FROM `$playerTbl` WHERE identityName = ?");
+                    $stmt->execute(array($identityName));
+                    $c = $stmt->rowCount();
+                    if ($c > 0) $deleted[$playerTbl . '(same account)'] = $c;
+                } catch (PDOException $e) { /* skip */ }
+            }
+
+            echo json_encode(array(
+                'ok' => true,
+                'name' => $playerName,
+                'identity' => $identityName,
+                'deleted' => $deleted,
+                'errors' => $errors,
+                'note' => 'Restart game server to clear cached player data'
+            ));
             break;
 
         // ── Gift item ─────────────────────────────────────────────────────
@@ -979,7 +1018,12 @@ function deletePlayer(pid, name) {
     if (d.ok) {
       var details = [];
       for (var t in d.deleted) { details.push(t + ': ' + d.deleted[t] + ' rows'); }
-      toast('Player "' + (d.name || name) + '" deleted.\n' + details.join(', '), 'ok');
+      var msg = 'Player "' + (d.name || name) + '" deleted completely.';
+      if (d.identity) msg += '\nAccount: ' + d.identity;
+      msg += '\nDeleted: ' + details.join(', ');
+      if (d.note) msg += '\n\n⚠ ' + d.note;
+      if (d.errors && d.errors.length) msg += '\nWarnings: ' + d.errors.join('; ');
+      toast(msg, 'ok');
       loadAccounts();
     } else {
       toast(d.msg || 'Delete failed', 'err');
