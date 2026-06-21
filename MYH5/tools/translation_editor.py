@@ -339,7 +339,7 @@ class TranslationEditor:
         self.sprite_folder_var = tk.StringVar(value="(no folder selected)")
         ttk.Entry(bar, textvariable=self.sprite_folder_var, state="readonly",
                   width=55).pack(side=tk.LEFT, padx=(6, 4), fill=tk.X, expand=True)
-        ttk.Button(bar, text="Browse JSON file…",
+        ttk.Button(bar, text="Browse File…",
                    command=self._sprite_browse_file).pack(side=tk.LEFT, padx=(0, 4))
 
         # Action toolbar
@@ -351,7 +351,7 @@ class TranslationEditor:
                    command=self._sprite_extract_all).pack(side=tk.LEFT, padx=(0, 4))
         ttk.Button(bar2, text="Import (Replace Selected)…",
                    command=self._sprite_import).pack(side=tk.LEFT, padx=(0, 4))
-        ttk.Button(bar2, text="Save Atlas PNG",
+        ttk.Button(bar2, text="Save PNG",
                    command=self._sprite_save_atlas).pack(side=tk.LEFT, padx=(0, 12))
         self.sprite_info_var = tk.StringVar(value="")
         ttk.Label(bar2, textvariable=self.sprite_info_var,
@@ -365,7 +365,7 @@ class TranslationEditor:
         lf = ttk.Frame(paned, width=200)
         lf.pack_propagate(False)
         paned.add(lf, weight=1)
-        ttk.Label(lf, text="JSON files", font=("TkDefaultFont", 9, "bold")
+        ttk.Label(lf, text="Files (JSON / PNG)", font=("TkDefaultFont", 9, "bold")
                   ).pack(anchor=tk.W, padx=4, pady=(4, 0))
         self.sprite_file_lb = tk.Listbox(lf, exportselection=False,
                                           activestyle="dotbox", font=("TkFixedFont", 9))
@@ -826,12 +826,20 @@ class TranslationEditor:
             return
         self.sprite_folder = Path(folder)
         self.sprite_folder_var.set(str(self.sprite_folder))
-        files = sorted(self.sprite_folder.glob("*.json"))
+        json_files = sorted(self.sprite_folder.glob("*.json"))
+        json_basenames = {f.stem for f in json_files}
+        standalone_pngs = sorted(
+            f for f in self.sprite_folder.glob("*.png")
+            if f.stem not in json_basenames
+        )
+        files = json_files + standalone_pngs
         self.sprite_json_files = files
         self.sprite_file_lb.delete(0, tk.END)
         for f in files:
             self.sprite_file_lb.insert(tk.END, f.name)
-        self.status_var.set(f"Folder: {self.sprite_folder}  |  {len(files)} JSON files found.")
+        nj = len(json_files)
+        np_ = len(standalone_pngs)
+        self.status_var.set(f"Folder: {self.sprite_folder}  |  {nj} JSON + {np_} standalone PNG files.")
         # Clear sprite list and preview
         self.sprite_name_lb.delete(0, tk.END)
         self.sprite_list = []
@@ -839,33 +847,43 @@ class TranslationEditor:
 
     def _sprite_browse_file(self):
         path = filedialog.askopenfilename(
-            title="Open sprite JSON file",
-            filetypes=[("JSON files", "*.json"), ("All files", "*.*")]
+            title="Open sprite JSON or PNG file",
+            filetypes=[("JSON files", "*.json"), ("PNG files", "*.png"), ("All files", "*.*")]
         )
         if not path:
             return
         p = Path(path)
         self.sprite_folder = p.parent
         self.sprite_folder_var.set(str(self.sprite_folder))
-        # Load folder list and pre-select this file
-        files = sorted(self.sprite_folder.glob("*.json"))
+        json_files = sorted(self.sprite_folder.glob("*.json"))
+        json_basenames = {f.stem for f in json_files}
+        standalone_pngs = sorted(
+            f for f in self.sprite_folder.glob("*.png")
+            if f.stem not in json_basenames
+        )
+        files = json_files + standalone_pngs
         self.sprite_json_files = files
         self.sprite_file_lb.delete(0, tk.END)
         for f in files:
             self.sprite_file_lb.insert(tk.END, f.name)
-        # Select the browsed file
         if p in files:
             idx = files.index(p)
             self.sprite_file_lb.selection_set(idx)
             self.sprite_file_lb.see(idx)
-        self._sprite_load_json(p)
+        if p.suffix.lower() == ".png":
+            self._sprite_load_standalone_png(p)
+        else:
+            self._sprite_load_json(p)
 
     def _sprite_file_selected(self, _event=None):
         sel = self.sprite_file_lb.curselection()
         if not sel or sel[0] >= len(self.sprite_json_files):
             return
-        json_path = self.sprite_json_files[sel[0]]
-        self._sprite_load_json(json_path)
+        file_path = self.sprite_json_files[sel[0]]
+        if file_path.suffix.lower() == ".png":
+            self._sprite_load_standalone_png(file_path)
+        else:
+            self._sprite_load_json(file_path)
 
     def _sprite_load_json(self, json_path):
         try:
@@ -909,6 +927,24 @@ class TranslationEditor:
         png_name = png_path.name if png_path else "N/A"
         self.status_var.set(
             f"{json_path.name}  |  Format: {fmt}  |  {n} sprites  |  Atlas: {png_name}"
+        )
+
+    def _sprite_load_standalone_png(self, png_path):
+        try:
+            img = Image.open(png_path).convert("RGBA")
+        except Exception as e:
+            messagebox.showerror("PNG Error", f"Cannot open {png_path.name}:\n{e}")
+            return
+        self.sprite_atlas_img = img
+        self.sprite_atlas_path = png_path
+        self.sprite_json_data = None
+        self.sprite_format = "standalone"
+        w, h = img.size
+        self.sprite_list = [(png_path.stem, 0, 0, w, h)]
+        self._sprite_populate_list()
+        self._sprite_draw_atlas_thumb()
+        self.status_var.set(
+            f"{png_path.name}  |  Standalone PNG  |  {w}×{h}"
         )
 
     def _sprite_detect_format(self, data):
