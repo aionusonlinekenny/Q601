@@ -40,7 +40,7 @@
         configloadtype:'amf',
         vershell:'16.3',
         version:'v1.1.9.1',
-        version_config:'1.9',
+        version_config:'1.10',
         version_notice:'13.6',
         version_assets:'12.41',
         version_assetscript:'15.03',
