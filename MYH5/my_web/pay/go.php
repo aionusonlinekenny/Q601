@@ -39,10 +39,16 @@ if (!$paymentOn) {
     $failed    = false;
 
     if ($pkgData) {
-        // Parse oneRewards: "itemId_count;itemId_count;..."
-        $rewardStr = (isset($pkgData['oneRewards']) && $pkgData['oneRewards'])
-                   ? $pkgData['oneRewards']
-                   : (isset($pkgData['rewards']) ? $pkgData['rewards'] : '');
+        // Combine oneRewards + rewards so player gets everything shown on screen.
+        // oneRewards = first-purchase bonus (e.g. VIP EXP), rewards = main items.
+        $parts = array();
+        if (isset($pkgData['oneRewards']) && $pkgData['oneRewards']) {
+            $parts[] = $pkgData['oneRewards'];
+        }
+        if (isset($pkgData['rewards']) && $pkgData['rewards']) {
+            $parts[] = $pkgData['rewards'];
+        }
+        $rewardStr = implode(';', $parts);
 
         $servers = unserialize(SERVERS);
         $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8081';
