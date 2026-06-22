@@ -6,6 +6,12 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
  * - Payment ON: generate signed URL and redirect to PayPal payment page.
  *
  * Usage: /pay/go.php?pkg=PACKAGE_ID&player=PLAYER_NAME[&sid=SERVER_ID]
+ *
+ * Purchase tracking (free mode):
+ *   pay/purchase_history.json stores {"player:pkg:sid": count, ...}
+ *   - oneRewards sent only on FIRST purchase of each package per player.
+ *   - rewards sent every time (repeatable purchases like Magic Stones).
+ *   - type=1 (First Recharge) and type=99 (Special First Recharge): blocked after first purchase.
  */
 require_once dirname(__DIR__) . '/gm/includes/config.php';
 require_once dirname(__DIR__) . '/gm/includes/api.php';
@@ -27,6 +33,32 @@ if (file_exists(PAYMENT_STATE_FILE)) {
 }
 $paymentOn = isset($payState['payment_enabled']) ? (bool)$payState['payment_enabled'] : true;
 
+// ── Purchase history helpers ───────────────────────────────────────────────
+$historyFile = dirname(__FILE__) . '/purchase_history.json';
+
+function load_history() {
+    global $historyFile;
+    if (!file_exists($historyFile)) return array();
+    $data = @json_decode(file_get_contents($historyFile), true);
+    return is_array($data) ? $data : array();
+}
+
+function save_history($history) {
+    global $historyFile;
+    file_put_contents($historyFile, json_encode($history, JSON_PRETTY_PRINT));
+}
+
+function get_purchase_count($history, $player, $pkg, $sid) {
+    $key = $player . ':' . $pkg . ':' . $sid;
+    return isset($history[$key]) ? (int)$history[$key] : 0;
+}
+
+function increment_purchase($history, $player, $pkg, $sid) {
+    $key = $player . ':' . $pkg . ':' . $sid;
+    $history[$key] = get_purchase_count($history, $player, $pkg, $sid) + 1;
+    return $history;
+}
+
 // ── Payment OFF: deliver items for free ────────────────────────────────────
 if (!$paymentOn) {
     $pkgs    = load_recharge_packages();
@@ -37,54 +69,74 @@ if (!$paymentOn) {
 
     $delivered = array();
     $failed    = false;
+    $alreadyClaimed = false;
 
     if ($pkgData) {
-        // Combine oneRewards + rewards so player gets everything shown on screen.
-        // oneRewards = first-purchase bonus (e.g. VIP EXP), rewards = main items.
-        $parts = array();
-        if (isset($pkgData['oneRewards']) && $pkgData['oneRewards']) {
-            $parts[] = $pkgData['oneRewards'];
-        }
-        if (isset($pkgData['rewards']) && $pkgData['rewards']) {
-            $parts[] = $pkgData['rewards'];
-        }
-        $rewardStr = implode(';', $parts);
+        $history = load_history();
+        $prevCount = get_purchase_count($history, $player, $pkg, $sid);
+        $pkgType = isset($pkgData['type']) ? (int)$pkgData['type'] : 0;
+        $isFirstRecharge = ($pkgType === 1 || $pkgType === 99);
 
-        $servers = unserialize(SERVERS);
-        $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8081';
-
-        // Collect all items first, then insert as a single mail (one purchase = one mail).
-        $itemParts = array();
-        foreach (explode(';', $rewardStr) as $part) {
-            $part = trim($part);
-            if (!$part) continue;
-            // For group rewards A&B&C take first option
-            $choice = explode('&', $part);
-            $pieces = explode('_', $choice[0]);
-            if (count($pieces) < 2) continue;
-            $itemId = $pieces[0];
-            $count  = (int)$pieces[1];
-            if (!$itemId || $count < 1) continue;
-            $itemParts[]  = $itemId . '_' . $count;
-            $delivered[]  = $itemId . 'x' . $count;
+        // First Recharge packages (type 1, 99): only claimable once
+        if ($isFirstRecharge && $prevCount > 0) {
+            $alreadyClaimed = true;
         }
 
-        $apiLog = array();
-        if (!empty($itemParts)) {
-            $combinedStr = implode(';', $itemParts);
-            // Insert mail directly into DB — works for online and offline players.
-            $r = api_mail_gift_db_items($player, $combinedStr, $pkgData['name'], 'GM Gift', $sid);
-            $apiLog[] = $combinedStr . '=' . json_encode($r);
-            if (isset($r['success']) && $r['success'] === false) {
-                $failed = true;
+        if (!$alreadyClaimed) {
+            // Build reward string based on purchase count
+            $parts = array();
+            $isFirstTime = ($prevCount === 0);
+
+            if ($isFirstTime && isset($pkgData['oneRewards']) && $pkgData['oneRewards']) {
+                $parts[] = $pkgData['oneRewards'];
             }
-        }
+            if (isset($pkgData['rewards']) && $pkgData['rewards']) {
+                $parts[] = $pkgData['rewards'];
+            }
+            $rewardStr = implode(';', $parts);
 
-        $log = date('Y-m-d H:i:s') . ' | FREE | player=' . $player
-             . ' pkg=' . $pkg . ' sid=' . $sid
-             . ' items=' . implode(',', $delivered)
-             . ' db=' . implode('|', $apiLog) . "\n";
-        file_put_contents(dirname(__FILE__) . '/payment_log.txt', $log, FILE_APPEND);
+            $servers = unserialize(SERVERS);
+            $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8081';
+
+            // Collect all items, then insert as a single mail.
+            $itemParts = array();
+            foreach (explode(';', $rewardStr) as $part) {
+                $part = trim($part);
+                if (!$part) continue;
+                // For group rewards A&B&C take first option
+                $choice = explode('&', $part);
+                $pieces = explode('_', $choice[0]);
+                if (count($pieces) < 2) continue;
+                $itemId = $pieces[0];
+                $count  = (int)$pieces[1];
+                if (!$itemId || $count < 1) continue;
+                $itemParts[]  = $itemId . '_' . $count;
+                $delivered[]  = $itemId . 'x' . $count;
+            }
+
+            $apiLog = array();
+            if (!empty($itemParts)) {
+                $combinedStr = implode(';', $itemParts);
+                $r = api_mail_gift_db_items($player, $combinedStr, $pkgData['name'], 'GM Gift', $sid);
+                $apiLog[] = $combinedStr . '=' . json_encode($r);
+                if (isset($r['success']) && $r['success'] === false) {
+                    $failed = true;
+                }
+            }
+
+            // Record purchase
+            if (!$failed) {
+                $history = increment_purchase($history, $player, $pkg, $sid);
+                save_history($history);
+            }
+
+            $firstTag = $isFirstTime ? ' FIRST' : ' REPEAT';
+            $log = date('Y-m-d H:i:s') . ' | FREE' . $firstTag . ' | player=' . $player
+                 . ' pkg=' . $pkg . ' sid=' . $sid
+                 . ' items=' . implode(',', $delivered)
+                 . ' db=' . implode('|', $apiLog) . "\n";
+            file_put_contents(dirname(__FILE__) . '/payment_log.txt', $log, FILE_APPEND);
+        }
     }
 
     $pkgName = $pkgData ? htmlspecialchars($pkgData['name']) : 'Package #' . htmlspecialchars($pkg);
@@ -110,12 +162,20 @@ h1{font-size:22px;font-weight:700;color:#fff;margin-bottom:8px}
            padding:12px 28px;font-size:15px;font-weight:700;cursor:pointer;width:100%}
 .err-box{background:#3a1a1a;border:1px solid #ff3860;border-radius:10px;
          padding:20px;color:#ff3860}
+.warn-box{background:#3a3a1a;border:1px solid #ffdd57;border-radius:10px;
+         padding:20px;color:#ffdd57;margin-bottom:20px}
 </style>
 </head>
 <body>
 <div class="box">
 <?php if (!$pkgData): ?>
   <div class="err-box">Package not found.</div>
+<?php elseif ($alreadyClaimed): ?>
+  <div class="icon">⚠️</div>
+  <h1>Already Claimed</h1>
+  <div class="sub">You have already claimed this<br>First Recharge reward.</div>
+  <div class="pkg"><?php echo $pkgName; ?></div>
+  <button class="close-btn" onclick="window.close()">Close</button>
 <?php elseif ($failed): ?>
   <div class="icon">⚠️</div>
   <h1>Delivery Issue</h1>
