@@ -523,8 +523,37 @@ Restored from git history (`e1c29c7c^`), cleaned up but NOT truncated:
 - Fixed extra spaces (" : " → ": ")
 - Example: "XO PBst E.." → "XO Phantom Beast Egg: Material"
 
+### Cross-Server (KuaFu) Handler
+Server.jar originally had NO kuafu handler — client would hang on "Fetching data..." forever.
+
+**Server changes (injected into server.jar via decompile/recompile):**
+- `sophia.mmorpg.proto.C2G_KuaFu_SyncData` (ID 16304) — receives GameType:int
+- `sophia.mmorpg.proto.G2C_KuaFu_NotifySyncDataDone` (ID 16305) — sends Result:int, ServerIP:string, WssPort:int, WsPort:int
+- `newbee.morningGlory.mmorpg.player.kuafu.KuaFuComponent` — handler reads config from gameserver.properties
+- `ProtoEventManager` — registers 16304/16305
+- `MGPlayerProvider` — creates KuaFuComponent on each player
+
+**Config (gameserver.properties):**
+```
+newbee.morningGlory.kuafu.serverIP = <ip>
+newbee.morningGlory.kuafu.wsPort = <port>
+newbee.morningGlory.kuafu.wssPort = <ssl-port>
+```
+When IP is empty, server responds Result=0 (not available).
+
+**Client fix (main.min JS):**
+- `requestCrossServer`: handles Result=0 gracefully — removes loading screen, shows "Cross-server is not available" error tip
+- Original server.jar backed up as `server.jar.bak.pre_kuafu`
+
+**Server architecture (for future reference):**
+- Messages: `ActionEventBase` subclass with `packBody`/`unpackBody`, registered via `MessageFactory.addMessage(short id, Class)`
+- Handlers: `ConcreteComponent<Player>`, override `handleActionEvent()`, register with `addActionEventListener(short id)` in `ready()`
+- Responses: `MessageFactory.getConcreteMessage(id)` → set fields → `GameRoot.sendMessage(identity, msg)`
+- Compile: `javac -source 8 -target 8 -cp server.jar:moyu_lib/mina-core-2.0.7.jar:moyu_lib/log4j-1.2.12.jar`
+- Inject: `cd classes && jar uf server.jar path/to/Class.class`
+
 ### Cache Busting
 - `version_config: 1.11` (for config.nncc)
-- `version_assetscript: 15.05` (for default.thm JS)
+- `version_assetscript: 15.07` (for main.min JS)
 
 
