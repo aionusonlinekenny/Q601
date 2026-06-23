@@ -468,3 +468,63 @@ When clicking an equipment item, a dynamically created `eui.Label` (`this._fullN
 - Applied in both `RoleDeityEquipUpAlert` (upgrade panel, uses `f.name`/`f.quality`) and `RoleDeityEquipDialog` (overview panel, uses `Q.name`/`Q.quality`)
 - Tooltip/tip classes still read full name from the original VO object, unaffected by truncation.
 
+---
+
+## Tab Button Widening (all skins)
+
+### Problem
+After translating Chinese labels to English, tab buttons across the game had text cut off because English labels are longer than Chinese (2-4 chars → 8-18 chars).
+
+### Fix Applied
+- **TabButtonDefaultSkin** `labelDisplay`: font size restored to **22** (was accidentally changed to 18)
+- **104 ToggleButton instances** across 30+ skins: set explicit `width` and repositioned `x` values
+- Width calculated: `~11-13px per char + 24px padding` at font size 22
+- Groups exceeding 600px parent width were compressed proportionally
+- `CopyFightBossSkin` already had a `Scroller > Group(HorizontalLayout)` — just set widths
+- Python script used for bulk changes: finds all `TabButtonDefaultSkin` buttons, groups by parent skin class, calculates widths, generates replacements
+
+### Key Skins Modified
+AchievementDialogSkin, BagSkin, CopyFightBossSkin, CopyMaterialSkin, CrossServerSkin, CrossWarKingRankSkin, ForgingMainSkin, MallSceneSkin, PetHatchSkin, PetMainSkin, RoleDeityEquipDialogSkin, RoleGemDialogSkin, RoleMainSkin, TreasureMainSkin, LegionWarRankSkin, KingBattlefieldRankSkin, and others.
+
+### Grouping by Y position
+Buttons at different y-values belong to different tab bars. The script sub-groups by y to avoid mixing tab bars within one skin.
+
+---
+
+## Total Price Icon Overlap Fix
+
+### Problem
+"Total Price:" label, gem/crystal icon, and price value overlapped in buy popups.
+
+### Fix Applied
+Rearranged layout to: **label → value → icon** (icon moved AFTER the number):
+
+| Skin | Label x | Value x | Icon x |
+|------|---------|---------|--------|
+| PropOfSource | 100 | 245 | 355 |
+| MallBuyPopSkin | 135 | 280 | 385 |
+| TradingSellBuyTipSkin | 135 | 280 | 385 |
+| UplevelBaoJiSkin | 135 | — | 385 |
+
+### Finding the right skin
+The "Obtain Materials" popup is `PropOfSource` (NOT `MallBuyPopSkin`). It has a `buyGroup` at y=232 containing the price elements with relative coordinates.
+
+---
+
+## itemWay Descriptions Expanded
+
+### Problem
+All 614 itemWay descriptions in `config.nncc` were truncated to 9 chars + ".." (e.g. "XO PBst E.."), making them unreadable in the "Obtain via" list.
+
+### Fix Applied
+Restored from git history (`e1c29c7c^`), cleaned up but NOT truncated:
+- Removed verbose prefixes: "— Source:", "Obtain:"
+- Shortened common words: Personal Boss→PBoss, World Boss→WBoss, Celestial Ladder→Ladder, etc.
+- Fixed extra spaces (" : " → ": ")
+- Example: "XO PBst E.." → "XO Phantom Beast Egg: Material"
+
+### Cache Busting
+- `version_config: 1.11` (for config.nncc)
+- `version_assetscript: 15.05` (for default.thm JS)
+
+
