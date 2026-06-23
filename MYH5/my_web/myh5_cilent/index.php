@@ -43,7 +43,7 @@
         version_config:'1.11',
         version_notice:'13.6',
         version_assets:'12.41',
-        version_assetscript:'15.07',
+        version_assetscript:'15.08',
 		version_assetsactor:'1.0',
         version_assetseffect:'1.0',
         version_assetsmap:'1.0',

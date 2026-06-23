@@ -523,37 +523,58 @@ Restored from git history (`e1c29c7c^`), cleaned up but NOT truncated:
 - Fixed extra spaces (" : " → ": ")
 - Example: "XO PBst E.." → "XO Phantom Beast Egg: Material"
 
-### Cross-Server (KuaFu) Handler
-Server.jar originally had NO kuafu handler — client would hang on "Fetching data..." forever.
+### Cross-Server (KuaFu) System — Complete Implementation
 
-**Server changes (injected into server.jar via decompile/recompile):**
-- `sophia.mmorpg.proto.C2G_KuaFu_SyncData` (ID 16304) — receives GameType:int
-- `sophia.mmorpg.proto.G2C_KuaFu_NotifySyncDataDone` (ID 16305) — sends Result:int, ServerIP:string, WssPort:int, WsPort:int
-- `newbee.morningGlory.mmorpg.player.kuafu.KuaFuComponent` — handler reads config from gameserver.properties
-- `ProtoEventManager` — registers 16304/16305
-- `MGPlayerProvider` — creates KuaFuComponent on each player
+Server.jar originally had NO kuafu code. Full cross-server now implemented via decompile/recompile/inject.
 
-**Config (gameserver.properties):**
+**Self-connect approach:** Each server acts as its own cross-server host. Client disconnects, reconnects to the same server with `C2G_KuaFuLogin` (10018), server authenticates + character login in one step, player enters CrossCityScene (303).
+
+#### Server-side classes (injected into all 3 server.jar):
+
+| Class | Purpose |
+|---|---|
+| `sophia.mmorpg.proto.C2G_KuaFu_SyncData` (16304) | Client requests cross-server entry |
+| `sophia.mmorpg.proto.G2C_KuaFu_NotifySyncDataDone` (16305) | Server responds with IP/port |
+| `sophia.mmorpg.proto.C2G_KuaFuLogin` (10018) | Client login to cross-server (auth+charLogin combined) |
+| `newbee.morningGlory.mmorpg.player.kuafu.KuaFuComponent` | Handles 16304, reads kuafu config, responds 16305 |
+| `newbee.morningGlory.mmorpg.player.kuafu.CrossCityScene` | Scene type 303, extends MGBattleScene, 4 born positions |
+| `newbee.morningGlory.mmorpg.player.scene.SceneType` | Added CrossBoss=301, CrossCity=303, CrossDemon=305; `isCrossServerScene()` method; `isBattleScene()` includes cross-server |
+| `newbee.morningGlory.GameData` | Registers C2G_KuaFuLogin (10018) via MessageFactory; creates CrossCityScene(303) in `initScenes()` |
+| `newbee.morningGlory.mmorpg.player.MGPlayerProvider` | Creates KuaFuComponent on each player |
+| `sophia.game.plugIns.gateWay.GateWay` | Handles 10018: MD5 auth → kick existing → create AuthIdentity → attachSession → `CharacterLogin.characterLogin()` |
+
+#### Cross-server login flow:
+1. Client sends `C2G_KuaFu_SyncData` (16304) with GameType
+2. Server `KuaFuComponent` reads config, responds with `G2C_KuaFu_NotifySyncDataDone` (16305) → Result=1, ServerIP, WsPort
+3. Client disconnects from current server
+4. Client connects to kuafu IP:port, sends `C2G_KuaFuLogin` (10018) — same fields as auth+reconnect
+5. `GateWay.receivedActionEvent` catches actionId==10018 → `onKuaFuAuth()`
+6. `onKuaFuAuth`: validates MD5 (`identityId + timeStamp + HttpCommunicationKey`), kicks any online player, creates AuthIdentity, attaches session, calls `CharacterLogin.characterLogin(identity, charId)`
+7. CharacterLogin loads player from DB, enters world, sends `G2C_CharacterLogin` (10008) with full character detail
+
+#### Config (gameserver.properties):
 ```
-newbee.morningGlory.kuafu.serverIP = <ip>
-newbee.morningGlory.kuafu.wsPort = <port>
-newbee.morningGlory.kuafu.wssPort = <ssl-port>
+newbee.morningGlory.kuafu.serverIP =          # empty = client keeps same IP
+newbee.morningGlory.kuafu.wsPort = 8025       # s1=8025, s2=8026, s3=8027
+newbee.morningGlory.kuafu.wssPort = 8025      # same as wsPort (no SSL)
 ```
-When IP is empty, server responds Result=0 (not available).
 
-**Client fix (main.min JS):**
-- `requestCrossServer`: handles Result=0 gracefully — removes loading screen, shows "Cross-server is not available" error tip
+#### Client changes (main.min JS):
+- `requestCrossServer`: handles Result=0 gracefully (shows error tip instead of hanging)
+- `requestCrossServer`: if ServerIP is empty, keeps current IP (only changes port) — enables self-connect
 - Original server.jar backed up as `server.jar.bak.pre_kuafu`
 
-**Server architecture (for future reference):**
+#### Server architecture (for future reference):
 - Messages: `ActionEventBase` subclass with `packBody`/`unpackBody`, registered via `MessageFactory.addMessage(short id, Class)`
 - Handlers: `ConcreteComponent<Player>`, override `handleActionEvent()`, register with `addActionEventListener(short id)` in `ready()`
+- Auth messages: handled directly by `GateWay` (before player exists) — NOT via ConcreteComponent
 - Responses: `MessageFactory.getConcreteMessage(id)` → set fields → `GameRoot.sendMessage(identity, msg)`
-- Compile: `javac -source 8 -target 8 -cp server.jar:moyu_lib/mina-core-2.0.7.jar:moyu_lib/log4j-1.2.12.jar`
+- Compile: `javac -source 8 -target 8 -cp server.jar:moyu_lib/mina-core-2.0.7.jar:moyu_lib/log4j-1.2.12.jar:moyu_lib/commons-lang3-3.1.jar:moyu_lib/guava-11.0.2.jar`
 - Inject: `cd classes && jar uf server.jar path/to/Class.class`
+- Source files: `scratchpad/kuafu_src/` (in session temp dir)
 
 ### Cache Busting
 - `version_config: 1.11` (for config.nncc)
-- `version_assetscript: 15.07` (for main.min JS)
+- `version_assetscript: 15.08` (for main.min JS)
 
 
