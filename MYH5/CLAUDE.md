@@ -601,6 +601,79 @@ Source DB auto-detected from morningGlory_data.xml JDBC URL.
 - Inject: `cd classes && jar uf server.jar path/to/Class.class`
 - Source files: `scratchpad/kuafu_src/` (in session temp dir)
 
+### Cross-Server Boss Info Panel (C2G_KuaFu_GetBossInfo / G2C_KuaFu_GetBossInfo)
+
+The cross-server battlefield panel ("Fetching data..." fix) required changes at THREE levels:
+
+#### 1. Proto message registration (ProtoEventManager bytecode patch)
+Messages must be registered in `ProtoEventManager.registerActionEvents()` — this runs during framework init (ContextResolver phase), BEFORE the MINA protocol decoder is created. Registration anywhere else (GameData.initialize(), static blocks) is TOO LATE and causes either:
+- `DemuxingProtocolDecoder.doDecode` crash (unregistered message ID)
+- `IllegalArgumentException: commandId already mapped` (duplicate registration)
+
+Patched via Python bytecode patcher (`scratchpad/patch_proto_event_mgr.py`):
+- Adds 4 constant pool entries (Utf8 + Class for C2G_KuaFu_GetBossInfo and G2C_KuaFu_GetBossInfo)
+- Inserts 18 bytes of bytecode (2× sipush + ldc_w + invokestatic) before the `return` instruction
+- Updates `code_length` and Code attribute `attr_length`
+
+Registered message IDs:
+| ID | Class | Direction |
+|----|-------|-----------|
+| 16306 | `C2G_KuaFu_GetBossInfo` | Client → Server (empty body) |
+| 16308 | `G2C_KuaFu_GetBossInfo` | Server → Client (boss data) |
+
+#### 2. Server-side handler (KuaFuComponent)
+`KuaFuComponent` listens for both 16304 (sync) and 16306 (boss info) in `ready()`.
+`handleGetBossInfo()` builds response with 10 default bosses:
+- 7 cross-server bosses: CopyIds 351001–351007, HP "5000000"
+- 3 secret bosses: CopyIds 352001–352003, HP "5000000"
+- All bosses: `ownerServerIds=[]`, `reliveTime=0`, `flagServerId=0`
+
+Response protocol (G2C_KuaFu_GetBossInfo):
+```
+int LeftOwnerCount
+int LeftAssistCount
+short Bosses.length
+for each boss (ProtoKuaFuBoss):
+  int CopyId
+  short hpBytes.length + byte[] bossHP (UTF-8 string)
+  short maxBytes.length + byte[] maxBossHP (UTF-8 string)
+  short ownerServerIds.length + int[] ownerServerIds
+  int reliveTime
+  int flagServerId
+```
+
+Source files: `scratchpad/kuafu_boss_src/`
+
+#### 3. Client-side fixes (main.min_39fbca0f.js)
+
+**Fix 1: Missing net.notify** — Client created the request message but never sent it:
+```javascript
+// BEFORE (broken): var L=n.MessagePool.from(n.C2G_KuaFu_GetBossInfo)}
+// AFTER (fixed):   var L=n.MessagePool.from(n.C2G_KuaFu_GetBossInfo);n.net.notify(n.MessageMap.C2G_KUAFU_GETBOSSINFO,L)}
+```
+
+**Fix 2: Null check for _mineCrossVO** — When no boss has current server as owner (ownerServerIds empty), `_mineCrossVO` is undefined:
+```javascript
+// BEFORE: H.isinitialize&&K._mineCrossVO.occupyServerIds.indexOf(H)>=0
+// AFTER:  H.isinitialize&&K._mineCrossVO&&K._mineCrossVO.occupyServerIds.indexOf(H)>=0
+```
+
+**Fix 3: SwordAddAlert labtips overflow** — Notice text overflowed outside dialog:
+```javascript
+// Added before textFlow assignment:
+this.labtips.width=this.width>0?this.width-40:400,this.labtips.wordWrap=!0,this.labtips.lineSpacing=4
+```
+
+#### Server initialization order (critical for message registration):
+```
+ContextResolver (framework init)
+  → ProtoEventManager.registerActionEvents()  ← messages MUST be registered here
+  → DemuxingProtocolDecoder created (uses MessageFactory)
+DataPlugIn → TaskManagerPlugIn → DataCheck
+  → GameData.initialize()  ← TOO LATE for message registration
+CommunicationService starts (accepts connections)
+```
+
 ### Cache Busting
 - `version_config: 1.11` (for config.nncc)
 - `version_assetscript: 15.08` (for main.min JS)
