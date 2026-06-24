@@ -8,6 +8,12 @@ Q601/
 │   ├── js/default.thm_11d2a764.js        # Compiled UI bundle — THE source of truth at runtime
 │   └── resource/skins/**/*.exml          # Source EXML skins — NOT read at runtime
 ├── MYH5/my_s1/server.jar                 # Game server (same binary in my_s2, my_s3)
+├── MYH5/my_kuafu/                        # Dedicated cross-server (kuafu) server
+│   ├── server.jar                        # Same binary, kuafu config
+│   ├── data/core-foundation.properties   # Port 8028
+│   ├── data/gameserver.properties        # serverId=99, httpPort=8084, tcatPort=8093
+│   ├── data/morningGlory_data.xml        # DB: myh5_kuafu
+│   └── setup_kuafu_db.sql               # Run once to create myh5_kuafu DB
 └── tools/translation_editor.py           # Translation + Sprite Editor GUI tool
 ```
 
@@ -527,7 +533,7 @@ Restored from git history (`e1c29c7c^`), cleaned up but NOT truncated:
 
 Server.jar originally had NO kuafu code. Full cross-server now implemented via decompile/recompile/inject.
 
-**Self-connect approach:** Each server acts as its own cross-server host. Client disconnects, reconnects to the same server with `C2G_KuaFuLogin` (10018), server authenticates + character login in one step, player enters CrossCityScene (303).
+**Dedicated kuafu server (my_kuafu):** Separate server instance on port 8028 with its own DB (myh5_kuafu). Home server syncs player data to kuafu DB before redirecting. Client disconnects, reconnects to kuafu server with `C2G_KuaFuLogin` (10018), kuafu server authenticates + character login in one step.
 
 #### Server-side classes (injected into all 3 server.jar):
 
@@ -552,12 +558,34 @@ Server.jar originally had NO kuafu code. Full cross-server now implemented via d
 6. `onKuaFuAuth`: validates MD5 (`identityId + timeStamp + HttpCommunicationKey`), kicks any online player, creates AuthIdentity, attaches session, calls `CharacterLogin.characterLogin(identity, charId)`
 7. CharacterLogin loads player from DB, enters world, sends `G2C_CharacterLogin` (10008) with full character detail
 
-#### Config (gameserver.properties):
+#### Config (gameserver.properties on s1/s2/s3):
 ```
 newbee.morningGlory.kuafu.serverIP =          # empty = client keeps same IP
-newbee.morningGlory.kuafu.wsPort = 8025       # s1=8025, s2=8026, s3=8027
-newbee.morningGlory.kuafu.wssPort = 8025      # same as wsPort (no SSL)
+newbee.morningGlory.kuafu.wsPort = 8028       # kuafu server port
+newbee.morningGlory.kuafu.wssPort = 8028
+newbee.morningGlory.kuafu.database = myh5_kuafu
 ```
+
+#### Server port mapping:
+| Server | Game Port | HTTP | Tomcat | DB |
+|--------|-----------|------|--------|----|
+| s1 | 8025 | 8081 | 8090 | myh5_s1 |
+| s2 | 8026 | 8082 | 8091 | myh5_s2 |
+| s3 | 8027 | 8083 | 8092 | myh5_s3 |
+| kuafu | 8028 | 8084 | 8093 | myh5_kuafu |
+
+#### Setup kuafu DB:
+```bash
+mysql -u root -p123456 < MYH5/my_kuafu/setup_kuafu_db.sql
+```
+
+#### Player data sync:
+KuaFuComponent on home server copies player data to kuafu DB before redirecting:
+```sql
+REPLACE INTO myh5_kuafu.player SELECT * FROM myh5_sX.player WHERE id = ?
+REPLACE INTO myh5_kuafu.no_delay_player SELECT * FROM myh5_sX.no_delay_player WHERE id = ?
+```
+Source DB auto-detected from morningGlory_data.xml JDBC URL.
 
 #### Client changes (main.min JS):
 - `requestCrossServer`: handles Result=0 gracefully (shows error tip instead of hanging)
