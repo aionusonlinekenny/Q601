@@ -148,13 +148,14 @@ CREATE TABLE IF NOT EXISTS `game_ladder` (
 
 CREATE TABLE IF NOT EXISTS `game_minisys` (
   `id` int(11) NOT NULL,
+  `sysname` varchar(60) DEFAULT NULL,
   `data` mediumblob,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT KEY_BLOCK_SIZE=16;
 
 CREATE TABLE IF NOT EXISTS `game_sortboarddata` (
   `id` int(11) NOT NULL,
-  `sortData` mediumblob,
+  `sortboardData` mediumblob,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT KEY_BLOCK_SIZE=16;
 
