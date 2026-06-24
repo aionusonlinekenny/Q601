@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `cfg_server` (
   `openTime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
-INSERT IGNORE INTO `cfg_server` VALUES ('7', '2020-03-15 12:00:00');
+INSERT IGNORE INTO `cfg_server` VALUES ('99', '2020-03-15 12:00:00');
 
 -- Other required tables (empty)
 CREATE TABLE IF NOT EXISTS `blacklist` (
