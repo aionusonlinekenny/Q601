@@ -53,7 +53,7 @@
 
 	<!-- =============newbee.morningGlory的定义=========== -->
 	<logger name="newbee.morningGlory">
-		<level value="off"></level>
+		<level value="INFO"></level>
 	</logger>
 	<logger name="newbee.morningGlory.mmorpg.sprite.MGFightProcessComponent">
 		<level value="off"></level>
@@ -204,7 +204,7 @@
 		ref="DB_LOG"/> </category> -->
 
 	<root>
-		<level value="off" />
+		<level value="INFO" />
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="GAME_DEBUG" />
 		<appender-ref ref="GAME_INFO" />
