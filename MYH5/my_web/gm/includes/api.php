@@ -265,6 +265,62 @@ function api_broadcast_mail($itemId, $count, $title = 'GM Gift', $content = 'GM 
     return $json !== null ? $json : array('success' => true, 'raw' => $resp);
 }
 
+/**
+ * Notify game server of a recharge via Jetty /myh5/pay.
+ * Triggers server-side effects (monthly card bonuses, bag slots, etc.)
+ * Player must be online. roleId = identityName (login name), looked up from character name.
+ */
+function api_pay_notify($charName, $productId, $amount_rmb, $sid = 1) {
+    $servers = unserialize(SERVERS);
+    $dbName  = isset($servers[$sid]['db']) ? $servers[$sid]['db'] : 'myh5_s1';
+    $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8081';
+
+    $dsn = 'mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . $dbName . ';charset=utf8';
+    try {
+        $pdo = new PDO($dsn, DB_USER, DB_PASS, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    } catch (PDOException $e) {
+        return array('success' => false, 'error' => 'DB connect: ' . $e->getMessage());
+    }
+
+    $stmt = $pdo->prepare('SELECT identityName FROM player WHERE name = ? LIMIT 1');
+    $stmt->execute(array($charName));
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    if (!$row) {
+        return array('success' => false, 'error' => 'Player not found: ' . $charName);
+    }
+    $identityName = $row['identityName'];
+
+    $orderId  = 'free_' . time() . '_' . mt_rand(1000, 9999);
+    $amountFen = $amount_rmb * 100;
+
+    $url  = rtrim($apiBase, '/') . '/myh5/pay';
+    $post = http_build_query(array(
+        'channelId' => 0,
+        'roleId'    => $identityName,
+        'serverId'  => $sid,
+        'orderId'   => $orderId,
+        'amount'    => $amountFen,
+        'productId' => $productId,
+    ));
+
+    $ch = curl_init($url);
+    curl_setopt_array($ch, array(
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => $post,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT        => 5,
+        CURLOPT_CONNECTTIMEOUT => 3,
+    ));
+    $resp = curl_exec($ch);
+    $err  = curl_error($ch);
+    curl_close($ch);
+
+    if ($err || $resp === false) {
+        return array('success' => false, 'error' => $err ? $err : 'No response');
+    }
+    return array('success' => (strpos($resp, 'SUCCESS') !== false), 'raw' => $resp, 'orderId' => $orderId);
+}
+
 /** Load all items from propsItem.json + equipItem.json for item picker */
 function load_item_catalog($confDir = CONF_DIR) {
     $files = array(

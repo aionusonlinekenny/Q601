@@ -83,44 +83,57 @@ if (!$paymentOn) {
         }
 
         if (!$alreadyClaimed) {
-            // Build reward string based on purchase count
-            $parts = array();
             $isFirstTime = ($prevCount === 0);
-
-            if ($isFirstTime && isset($pkgData['oneRewards']) && $pkgData['oneRewards']) {
-                $parts[] = $pkgData['oneRewards'];
-            }
-            if (isset($pkgData['rewards']) && $pkgData['rewards']) {
-                $parts[] = $pkgData['rewards'];
-            }
-            $rewardStr = implode(';', $parts);
+            $pkgId = (int)$pkgData['id'];
+            $rmb   = isset($pkgData['RMB']) ? (int)$pkgData['RMB'] : 0;
+            $apiLog = array();
 
             $servers = unserialize(SERVERS);
             $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8081';
 
-            // Collect all items, then insert as a single mail.
-            $itemParts = array();
-            foreach (explode(';', $rewardStr) as $part) {
-                $part = trim($part);
-                if (!$part) continue;
-                // For group rewards A&B&C take first option
-                $choice = explode('&', $part);
-                $pieces = explode('_', $choice[0]);
-                if (count($pieces) < 2) continue;
-                $itemId = $pieces[0];
-                $count  = (int)$pieces[1];
-                if (!$itemId || $count < 1) continue;
-                $itemParts[]  = $itemId . '_' . $count;
-                $delivered[]  = $itemId . 'x' . $count;
+            // Try server pay API first — handles items + bonuses (monthly card, bag slots, etc.)
+            $serverHandled = false;
+            if ($rmb > 0) {
+                $payResult = api_pay_notify($player, $pkgId, $rmb, $sid);
+                $apiLog[] = 'pay_notify=' . json_encode($payResult);
+                if (isset($payResult['success']) && $payResult['success']) {
+                    $serverHandled = true;
+                    $delivered[] = 'via_server_pay';
+                }
             }
 
-            $apiLog = array();
-            if (!empty($itemParts)) {
-                $combinedStr = implode(';', $itemParts);
-                $r = api_mail_gift_db_items($player, $combinedStr, $pkgData['name'], 'GM Gift', $sid);
-                $apiLog[] = $combinedStr . '=' . json_encode($r);
-                if (isset($r['success']) && $r['success'] === false) {
-                    $failed = true;
+            // Fallback: if server pay failed (player offline, etc.), send items via direct DB mail
+            if (!$serverHandled) {
+                $parts = array();
+                if ($isFirstTime && isset($pkgData['oneRewards']) && $pkgData['oneRewards']) {
+                    $parts[] = $pkgData['oneRewards'];
+                }
+                if (isset($pkgData['rewards']) && $pkgData['rewards']) {
+                    $parts[] = $pkgData['rewards'];
+                }
+                $rewardStr = implode(';', $parts);
+
+                $itemParts = array();
+                foreach (explode(';', $rewardStr) as $part) {
+                    $part = trim($part);
+                    if (!$part) continue;
+                    $choice = explode('&', $part);
+                    $pieces = explode('_', $choice[0]);
+                    if (count($pieces) < 2) continue;
+                    $itemId = $pieces[0];
+                    $count  = (int)$pieces[1];
+                    if (!$itemId || $count < 1) continue;
+                    $itemParts[]  = $itemId . '_' . $count;
+                    $delivered[]  = $itemId . 'x' . $count;
+                }
+
+                if (!empty($itemParts)) {
+                    $combinedStr = implode(';', $itemParts);
+                    $r = api_mail_gift_db_items($player, $combinedStr, $pkgData['name'], 'GM Gift', $sid);
+                    $apiLog[] = $combinedStr . '=' . json_encode($r);
+                    if (isset($r['success']) && $r['success'] === false) {
+                        $failed = true;
+                    }
                 }
             }
 
