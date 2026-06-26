@@ -701,6 +701,21 @@ Patcher: `scratchpad/patch_showwords_proto.py`
 
 Root cause: `sendProvoke()` in BossProvokeRender uses `request()` (request-response pattern) for EveryBoss/CrossBoss scenes. The `request()` callback consumed the G2C_SCENE_NOTIFYSHOWWORDS response before `onRoute` could fire, so `_receiveProvokeHandler` → `provokeInfo.show()` never ran.
 
+**Issue 3: Broadcast to all players** — Server was only echoing the sticker back to the sender. Updated `handleShowWords` to iterate `scene.getPlayers()` and send `G2C_Scene_NotifyShowWords` to every `Player` in the same scene. Other players receive it via `onRoute(G2C_SCENE_NOTIFYSHOWWORDS)` → `_receiveProvokeHandler` → `provokeInfo.show(E)`.
+
+```java
+Scene scene = (Scene) player.getCurrentScene();
+if (scene != null) {
+    List<AIFightPlayer> players = scene.getPlayers();
+    for (AIFightPlayer aip : players) {
+        if (aip instanceof Player) {
+            GameRoot.sendMessage(((Player) aip).getIdentity(), response);
+        }
+    }
+}
+```
+Note: `Scene.broadcastMsg()` is `protected`, so we iterate manually using public `getPlayers()` + `instanceof Player` check (same pattern used internally by `broadcastMsg`).
+
 Additionally, `show(H, G)` checks `G>0` to call `tweenAnimtion(G)` — if sticker index is 0 (first sticker), `G>0` is false and animation skips.
 
 Fix in `main.min_39fbca0f.js` (`sendProvoke` function):
