@@ -5,8 +5,8 @@
 	<e:Scroller id="floorGroup" y="37" x="11" width="578" height="700">
 		<e:Group width="578">
 			<item:FloorItem id="floorItem3" x="0" y="0" skinName="item.FloorItemSkin"/>
-			<item:FloorItem id="floorItem2" x="0" y="280" skinName="item.FloorItemSkin"/>
-			<item:FloorItem id="floorItem1" x="0" y="560" skinName="item.FloorItemSkin"/>
+			<item:FloorItem id="floorItem2" x="0" y="350" skinName="item.FloorItemSkin"/>
+			<item:FloorItem id="floorItem1" x="0" y="700" skinName="item.FloorItemSkin"/>
 		</e:Group>
 	</e:Scroller>
 	<e:Image anchorOffsetX="0" anchorOffsetY="0" height="170" y="745" source="common_implementbar_png" x="-20" scale9Grid="80,10,480,8"/>
