@@ -2,11 +2,13 @@
 <e:Skin class="dialog.CopyLockDemonSkin" xmlns:e="http://ns.egret.com/eui" xmlns:components="components.*" xmlns:item="item.*" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" xmlns:tips="tips.*" height="916" width="600">
 	<e:Image id="imgBackBg" source="img_lock_demonbg_jpg" x="13" y="37"/>
 	<e:Image source="img_explore_reward_png" scaleX="1" scaleY="1" width="216" height="159" y="0" x="371"/>
-	<e:Group id="floorGroup" y="37" x="11" width="578">
-		<item:FloorItem id="floorItem2" x="300.16" y="208.3" skinName="item.FloorItemSkin"/>
-		<item:FloorItem id="floorItem3" x="-4.69" y="17.51" skinName="item.FloorItemSkin"/>
-		<item:FloorItem id="floorItem1" x="-1" y="381" skinName="item.FloorItemSkin"/>
-	</e:Group>
+	<e:Scroller id="floorGroup" y="37" x="11" width="578" height="700">
+		<e:Group width="578">
+			<item:FloorItem id="floorItem3" x="0" y="0" skinName="item.FloorItemSkin"/>
+			<item:FloorItem id="floorItem2" x="0" y="280" skinName="item.FloorItemSkin"/>
+			<item:FloorItem id="floorItem1" x="0" y="560" skinName="item.FloorItemSkin"/>
+		</e:Group>
+	</e:Scroller>
 	<e:Image anchorOffsetX="0" anchorOffsetY="0" height="170" y="745" source="common_implementbar_png" x="-20" scale9Grid="80,10,480,8"/>
 	<components:SnapButton id="btnEnter" label="Challenge" x="385.33" y="849.36" anchorOffsetX="83" anchorOffsetY="34" skinName="skins.SnapButtonDefaultSkin"/>
 	<components:RewardItemBox id="drop1" x="59" y="789.38" skinName="components.ItemBoxSkin"/>
