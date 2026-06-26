@@ -20,10 +20,6 @@ $pkg    = isset($_GET['pkg'])    ? trim($_GET['pkg'])    : '';
 $player = isset($_GET['player']) ? trim($_GET['player']) : '';
 $sid    = isset($_GET['sid'])    ? (int)$_GET['sid']     : 1;
 
-// Debug: confirm new code is running
-file_put_contents(dirname(__FILE__) . '/payment_log.txt',
-    date('Y-m-d H:i:s') . ' | DEBUG_V2 | pkg=' . $pkg . ' player=' . $player . ' sid=' . $sid . "\n", FILE_APPEND);
-
 if (!$pkg || !$player) {
     http_response_code(400);
     echo 'Missing pkg or player';
@@ -97,13 +93,11 @@ if (!$paymentOn) {
 
             // Try server pay API first — handles items + bonuses (monthly card, bag slots, etc.)
             $serverHandled = false;
-            if ($rmb > 0) {
-                $payResult = api_pay_notify($player, $pkgId, $rmb, $sid);
-                $apiLog[] = 'pay_notify=' . json_encode($payResult);
-                if (isset($payResult['success']) && $payResult['success']) {
-                    $serverHandled = true;
-                    $delivered[] = 'via_server_pay';
-                }
+            $payResult = api_pay_notify($player, $pkgId, $rmb, $sid);
+            $apiLog[] = 'pay_notify=' . json_encode($payResult);
+            if (isset($payResult['success']) && $payResult['success']) {
+                $serverHandled = true;
+                $delivered[] = 'via_server_pay';
             }
 
             // Fallback: if server pay failed (player offline, etc.), send items via direct DB mail
