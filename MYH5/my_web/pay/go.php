@@ -20,6 +20,10 @@ $pkg    = isset($_GET['pkg'])    ? trim($_GET['pkg'])    : '';
 $player = isset($_GET['player']) ? trim($_GET['player']) : '';
 $sid    = isset($_GET['sid'])    ? (int)$_GET['sid']     : 1;
 
+// Debug: confirm new code is running
+file_put_contents(dirname(__FILE__) . '/payment_log.txt',
+    date('Y-m-d H:i:s') . ' | DEBUG_V2 | pkg=' . $pkg . ' player=' . $player . ' sid=' . $sid . "\n", FILE_APPEND);
+
 if (!$pkg || !$player) {
     http_response_code(400);
     echo 'Missing pkg or player';
