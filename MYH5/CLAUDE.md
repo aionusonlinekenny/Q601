@@ -674,6 +674,50 @@ DataPlugIn → TaskManagerPlugIn → DataCheck
 CommunicationService starts (accepts connections)
 ```
 
+### Infinite Gauntlet "Get Records" Fix (messageId 17113)
+
+Client sends `C2G_Glove_GetRecordInfo` (17113), server had no handler → disconnect.
+
+**Fix:** Created proto classes + patched ProtoEventManager + added handler in KuaFuComponent:
+- `C2G_Glove_GetRecordInfo` (17113) — empty body
+- `G2C_Glove_GetRecordInfo` (17114) — responds with `infoCount=0`
+- KuaFuComponent listens for 17113, responds with empty record list
+
+Patcher: `scratchpad/patch_glove_proto.py`
+
+### World Boss Provoke Stickers Fix (messageId 15360)
+
+Two issues fixed:
+
+**Issue 1: Server disconnect** — Client sends `C2G_Scene_ShowWords` (15360), server had no handler.
+- Created `C2G_Scene_ShowWords` (15360): fields `int showType, int showId, String showContent`
+- Created `G2C_Scene_NotifyShowWords` (15361): fields `String objectId, int showType, int showId, String showContent`
+- Patched ProtoEventManager to register both
+- KuaFuComponent handles 15360: echoes back as 15361 with player's objectId
+
+Patcher: `scratchpad/patch_showwords_proto.py`
+
+**Issue 2: Sticker animation not appearing** — After fixing disconnect, clicking stickers still showed nothing.
+
+Root cause: `sendProvoke()` in BossProvokeRender uses `request()` (request-response pattern) for EveryBoss/CrossBoss scenes. The `request()` callback consumed the G2C_SCENE_NOTIFYSHOWWORDS response before `onRoute` could fire, so `_receiveProvokeHandler` → `provokeInfo.show()` never ran.
+
+Additionally, `show(H, G)` checks `G>0` to call `tweenAnimtion(G)` — if sticker index is 0 (first sticker), `G>0` is false and animation skips.
+
+Fix in `main.min_39fbca0f.js` (`sendProvoke` function):
+```javascript
+// Added provokeInfo.show({ShowId:J}) in the request callback (EveryBoss/CrossBoss path):
+this._battleScene.requestSendProvoke(1,J,"",this,function(){
+    ...cooldown timer...,
+    copy.CopyMainView.instance.provokeInfo.show({ShowId:J})  // ← ADDED
+})
+
+// Also fixed the else branch (other scenes):
+// OLD: provokeInfo.show(null,J)  — fails for index 0
+// NEW: provokeInfo.show({ShowId:J})  — always works
+```
+
+Using `{ShowId:J}` instead of `(null, J)` ensures `show()` takes the `H.ShowId` path (always works) instead of the `G>0` path (fails for index 0).
+
 ### Cache Busting
 - `version_config: 1.11` (for config.nncc)
 - `version_assetscript: 15.08` (for main.min JS)
