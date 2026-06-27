@@ -1965,13 +1965,15 @@ function leLoadSkin() {
     leState.elements = d.skin.elements;
     leState.selected = -1;
     leState.changes = {};
-    leState.zoom = 1;
-    leState.panX = 20;
-    leState.panY = 20;
     document.getElementById('le-save-btn').style.display = 'none';
     var canvas = document.getElementById('le-canvas');
-    canvas.width = Math.max(700, d.skin.width + 40);
-    canvas.height = Math.max(500, d.skin.height + 40);
+    var cw = canvas.parentElement.clientWidth - 20;
+    var ch = 600;
+    canvas.width = cw; canvas.height = ch;
+    var fitZoom = Math.min(cw / (d.skin.width + 40), ch / (d.skin.height + 40), 2);
+    leState.zoom = Math.max(0.2, Math.min(fitZoom, 2));
+    leState.panX = (cw - d.skin.width * leState.zoom) / 2;
+    leState.panY = (ch - d.skin.height * leState.zoom) / 2;
     leBindCanvas();
     leRenderElements();
     lePreloadImages();
@@ -2152,14 +2154,14 @@ function leRender() {
     // --- compute position with correct w/h ---
     var x = p.x !== undefined ? p.x : 0;
     var y = p.y !== undefined ? p.y : 0;
-    if (p.horizontalCenter !== undefined) x = (skin.width - w * sx) / 2 + p.horizontalCenter;
-    if (p.verticalCenter !== undefined) y = (skin.height - h * sy) / 2 + p.verticalCenter;
-    if (p.left !== undefined && p.right !== undefined) { x = p.left; w = (skin.width - p.left - p.right) / sx; }
+    if (p.horizontalCenter !== undefined) x = (skin.width - w) / 2 + p.horizontalCenter;
+    if (p.verticalCenter !== undefined) y = (skin.height - h) / 2 + p.verticalCenter;
+    if (p.left !== undefined && p.right !== undefined) { x = p.left; w = skin.width - p.left - p.right; }
     else if (p.left !== undefined) x = p.left;
-    else if (p.right !== undefined) x = skin.width - w * sx - p.right;
-    if (p.top !== undefined && p.bottom !== undefined) { y = p.top; h = (skin.height - p.top - p.bottom) / sy; }
+    else if (p.right !== undefined) x = skin.width - w - p.right;
+    if (p.top !== undefined && p.bottom !== undefined) { y = p.top; h = skin.height - p.top - p.bottom; }
     else if (p.top !== undefined) y = p.top;
-    else if (p.bottom !== undefined) y = skin.height - h * sy - p.bottom;
+    else if (p.bottom !== undefined) y = skin.height - h - p.bottom;
 
     var aox = p.anchorOffsetX || 0;
     var aoy = p.anchorOffsetY || 0;
