@@ -737,4 +737,60 @@ Using `{ShowId:J}` instead of `(null, J)` ensures `show()` takes the `H.ShowId` 
 - `version_config: 1.11` (for config.nncc)
 - `version_assetscript: 15.08` (for main.min JS)
 
+---
+
+## Phantom Maze City (幻界迷城) Dungeon Panel — UI Fixes
+
+### Overview
+Fixed multiple overlapping/positioning issues in the Phantom Maze City floor list panel.
+
+### Key Discovery: Correct Skin Identification
+The floor list items are **NOT** `FloorItemSkin` — that skin is for a different dungeon (Animal Pagoda / Lock Demon). The actual skin is:
+
+- **`CopyHuanJieCellSkin`** (`renderer.CopyHuanJieCellSkin`) in `default.thm_11d2a765.js`
+- **Component**: `renderer.CopyHuanJieCell` extends `ui.CopyHuanJieCellSkin` in `main.min_39fbca0f.js`
+
+### CopyHuanJieCellSkin Layout (height=170)
+
+| Element | ID | Type | Purpose | Original Position | Fixed Position |
+|---|---|---|---|---|---|
+| Background | _Image1 | Image | `img_huanJie_listBg_png` | verticalCenter=0 | unchanged |
+| Floor text | _Image2 | Image | `explore_json.img_huanJie_ceng` | x=64, y=27 | horizontalCenter=-185, verticalCenter=-20 |
+| Floor number | blabCell | BitmapLabel | Font: `huanJie_font_fnt` | x=86, y=29, w=30 | horizontalCenter=-180, verticalCenter=20, w=40 |
+| Item 1 | drop0 | RewardItemBox | `components.ItemBoxSkin` (90×110) | x=148, y=33 | scaleX/Y=0.8, x=148, verticalCenter=0 |
+| Item 2 | drop1 | RewardItemBox | `components.ItemBoxSkin` (90×110) | x=268, y=33 | scaleX/Y=0.8, x=248, verticalCenter=0 |
+| 3-Star Normal | _Image3 | Image | `explore_json.img_huanJie_tg` | x=281, y=42 | scaleX/Y=0.8, x=252, y=40 |
+| Star 0/1/2 | star0/1/2 | Image | `explore_json.img_huanJie_star` | x=373/422/467, y=75 | x=380/425/470, y=65 |
+| Collected icon | imgLingqu | Image | `rankings_json.img_get` | x=260, y=47 | x=240, verticalCenter=0 |
+
+### Floor Number Text (blabCell)
+Set in `dataChanged()` in `main.min_39fbca0f.js`:
+```javascript
+this.blabCell.text=""+I.step
+```
+
+### Ranking Header (CopyMaterialSkin huanJie state)
+
+| Element | Purpose | Original | Fixed |
+|---|---|---|---|
+| `labLink` (text="Ranking") | "View Rankings" link | x=498, y=230 | x=440, y=240 |
+| `cell` in CopyHuanJieRankItemSkin | Floor number in ranking | width=37 | width=80 |
+
+Floor ranking text format changed in `main.min_39fbca0f.js`:
+```
+OLD: this.cell.text=I+Language.Z_CENG     → "2Floor"
+NEW: this.cell.text=Language.Z_CENG+" "+I  → "Floor 2"
+```
+(`Language.Z_CENG = "Floor"`)
+
+### Important Lessons Learned
+1. **`FloorItemSkin` is NOT the Phantom Maze floor skin** — it's for Animal Pagoda / Lock Demon dungeons
+2. **`default.thm` compiled JS changes DO work** for `CopyHuanJieCellSkin` (unlike FloorItemSkin which was unresponsive)
+3. **`main.min_39fbca0f.js` MUST remain single-line** — literal newlines in the file break game login completely
+4. **EXML files are NOT read at runtime** — only the compiled JS in `default.thm_*.js` matters
+5. The file was renamed from `default.thm_11d2a764.js` to `default.thm_11d2a765.js` during earlier work; `v1.1.9.1/manifest.json` references the new name
+
+### Files Modified
+- `v1.1.9.1/js/default.thm_11d2a765.js` — Skin layout changes
+- `v1.1.9.1/js/main.min_39fbca0f.js` — Floor text format change
 
