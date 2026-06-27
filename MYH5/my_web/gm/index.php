@@ -575,10 +575,153 @@ if (isset($_GET['ajax']) && $gmAuth) {
             }
             break;
 
+        // ── Layout Editor: list skins ─────────────────────────────────────
+        case 'layout_skins':
+            $thmFile = layout_find_thm();
+            if (!$thmFile) { echo json_encode(array('ok' => false, 'msg' => 'default.thm JS not found')); break; }
+            $skins = layout_parse_skins($thmFile);
+            $names = array();
+            foreach ($skins as $s) { $names[] = $s['name']; }
+            sort($names);
+            echo json_encode(array('ok' => true, 'skins' => $names, 'file' => basename($thmFile)));
+            break;
+
+        // ── Layout Editor: get skin elements ─────────────────────────────
+        case 'layout_get':
+            $thmFile = layout_find_thm();
+            if (!$thmFile) { echo json_encode(array('ok' => false, 'msg' => 'THM file not found')); break; }
+            $skinName = isset($_GET['skin']) ? $_GET['skin'] : '';
+            if (!$skinName) { echo json_encode(array('ok' => false, 'msg' => 'No skin name')); break; }
+            $skins = layout_parse_skins($thmFile);
+            $found = null;
+            foreach ($skins as $s) { if ($s['name'] === $skinName) { $found = $s; break; } }
+            if (!$found) { echo json_encode(array('ok' => false, 'msg' => 'Skin not found')); break; }
+            echo json_encode(array('ok' => true, 'skin' => $found));
+            break;
+
+        // ── Layout Editor: save element changes ──────────────────────────
+        case 'layout_save':
+            $thmFile = layout_find_thm();
+            if (!$thmFile) { echo json_encode(array('ok' => false, 'msg' => 'THM file not found')); break; }
+            $changes = isset($_POST['changes']) ? json_decode($_POST['changes'], true) : null;
+            if (!$changes || !is_array($changes)) { echo json_encode(array('ok' => false, 'msg' => 'No changes')); break; }
+            $data = file_get_contents($thmFile);
+            $applied = 0;
+            foreach ($changes as $c) {
+                $oldStr = isset($c['old']) ? $c['old'] : '';
+                $newStr = isset($c['new']) ? $c['new'] : '';
+                if ($oldStr && $newStr && $oldStr !== $newStr && strpos($data, $oldStr) !== false) {
+                    $data = str_replace($oldStr, $newStr, $data);
+                    $applied++;
+                }
+            }
+            if ($applied > 0) {
+                file_put_contents($thmFile, $data);
+                echo json_encode(array('ok' => true, 'applied' => $applied));
+            } else {
+                echo json_encode(array('ok' => false, 'msg' => 'No matching strings found to replace'));
+            }
+            break;
+
         default:
             echo json_encode(array('ok' => false, 'msg' => 'Unknown action'));
     }
     exit;
+}
+
+// ── Layout Editor helpers ────────────────────────────────────────────────
+function layout_find_thm() {
+    $dir = CLIENT_DIR . '/v1.1.9.1/js/';
+    if (!is_dir($dir)) return null;
+    $files = glob($dir . 'default.thm_*.js');
+    return $files ? $files[0] : null;
+}
+
+function layout_parse_skins($file) {
+    $data = file_get_contents($file);
+    $skins = array();
+    $offset = 0;
+    while (($pos = strpos($data, "generateEUI.paths['", $offset)) !== false) {
+        $pathStart = $pos + strlen("generateEUI.paths['");
+        $pathEnd = strpos($data, "']", $pathStart);
+        if ($pathEnd === false) break;
+        $path = substr($data, $pathStart, $pathEnd - $pathStart);
+
+        // find skin class name from the path
+        $nameMatch = array();
+        if (preg_match('/window\.([A-Za-z0-9_.]+)\s*=\s*\(function/', substr($data, $pathEnd, 200), $nameMatch)) {
+            $className = $nameMatch[1];
+        } else {
+            $className = basename($path, '.exml');
+        }
+
+        // find end of this skin (next generateEUI.paths or end of file)
+        $nextPos = strpos($data, "generateEUI.paths['", $pathEnd + 1);
+        if ($nextPos === false) $nextPos = strlen($data);
+        $skinCode = substr($data, $pathEnd, $nextPos - $pathEnd);
+
+        // extract skin dimensions
+        $w = 600; $h = 170;
+        if (preg_match('/this\.width\s*=\s*(\d+)/', $skinCode, $m)) $w = (int)$m[1];
+        if (preg_match('/this\.height\s*=\s*(\d+)/', $skinCode, $m)) $h = (int)$m[1];
+
+        // extract element functions
+        $elements = array();
+        preg_match_all('/_proto\.(\w+)_i\s*=\s*function\(\)\{(.*?)\}/', $skinCode, $matches, PREG_SET_ORDER);
+        foreach ($matches as $m) {
+            $funcName = $m[1];
+            $body = $m[2];
+            $el = array('id' => $funcName, 'props' => array(), 'raw' => $m[0]);
+
+            // detect type
+            if (strpos($body, 'eui.Image') !== false) $el['type'] = 'Image';
+            elseif (strpos($body, 'eui.Label') !== false) $el['type'] = 'Label';
+            elseif (strpos($body, 'eui.BitmapLabel') !== false) $el['type'] = 'BitmapLabel';
+            elseif (strpos($body, 'eui.Group') !== false) $el['type'] = 'Group';
+            elseif (strpos($body, 'eui.Scroller') !== false) $el['type'] = 'Scroller';
+            elseif (strpos($body, 'eui.Rect') !== false) $el['type'] = 'Rect';
+            elseif (strpos($body, 'components.') !== false) {
+                preg_match('/new (components\.\w+)/', $body, $cm);
+                $el['type'] = isset($cm[1]) ? $cm[1] : 'Component';
+            }
+            elseif (strpos($body, 'item.') !== false) {
+                preg_match('/new (item\.\w+)/', $body, $cm);
+                $el['type'] = isset($cm[1]) ? $cm[1] : 'Item';
+            }
+            else $el['type'] = 'Unknown';
+
+            // extract numeric/string properties
+            preg_match_all('/t\.(\w+)\s*=\s*([^;]+)/', $body, $pm, PREG_SET_ORDER);
+            foreach ($pm as $p) {
+                $key = $p[1];
+                $val = trim($p[2]);
+                if ($val === 'true') $el['props'][$key] = true;
+                elseif ($val === 'false') $el['props'][$key] = false;
+                elseif (is_numeric($val) || preg_match('/^-?\d+\.?\d*$/', $val)) $el['props'][$key] = floatval($val);
+                elseif (preg_match('/^0x[0-9a-fA-F]+$/', $val)) $el['props'][$key] = $val;
+                elseif (preg_match('/^"(.*)"$/', $val, $sm)) $el['props'][$key] = $sm[1];
+                else $el['props'][$key] = $val;
+            }
+
+            // extract 'this.ID = t' to get the component ID
+            if (preg_match('/this\.(\w+)\s*=\s*t/', $body, $idm)) {
+                $el['componentId'] = $idm[1];
+            }
+
+            $elements[] = $el;
+        }
+
+        $skins[] = array(
+            'name' => $className,
+            'path' => $path,
+            'width' => $w,
+            'height' => $h,
+            'elements' => $elements
+        );
+
+        $offset = $nextPos;
+    }
+    return $skins;
 }
 
 $servers = unserialize(SERVERS);
@@ -704,6 +847,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
       <a href="#" data-page="payment">Payment</a>
       <a href="#" data-page="notice">Notice</a>
       <a href="#" data-page="quests">Quests</a>
+      <a href="#" data-page="layout">Layout Editor</a>
     </nav>
     <div class="sidebar-bottom"><a href="?logout">Logout</a></div>
   </aside>
@@ -958,6 +1102,38 @@ tr:hover td{background:rgba(255,255,255,.025)}
   </div>
 </div>
 
+    <!-- ── Layout Editor ──────────────────────────────────────────────── -->
+    <div class="page" id="page-layout">
+      <div class="page-title">Layout Editor <small>Visual skin element editor</small></div>
+      <div style="display:flex;gap:12px;margin-bottom:12px;align-items:center;flex-wrap:wrap">
+        <input id="le-search" type="text" placeholder="Search skin name..." style="width:260px;padding:6px 10px;background:var(--card);border:1px solid var(--border);color:var(--fg);border-radius:4px">
+        <select id="le-skins" style="width:320px;padding:6px;background:var(--card);border:1px solid var(--border);color:var(--fg);border-radius:4px"><option>Loading...</option></select>
+        <button class="btn btn-primary" onclick="leLoadSkin()">Load Skin</button>
+        <button class="btn btn-ok" onclick="leSave()" id="le-save-btn" style="display:none">Save Changes</button>
+        <span id="le-file" style="color:var(--muted);font-size:12px"></span>
+      </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;min-width:400px">
+          <div style="background:#111;border:1px solid var(--border);border-radius:6px;overflow:auto;position:relative">
+            <canvas id="le-canvas" width="600" height="400" style="display:block;cursor:crosshair"></canvas>
+          </div>
+          <div style="margin-top:8px;color:var(--muted);font-size:12px">
+            <span id="le-info">Click element to select. Drag to move. Scroll to zoom.</span>
+          </div>
+        </div>
+        <div style="width:320px;max-height:600px;overflow-y:auto" id="le-panel">
+          <div class="card" style="padding:12px">
+            <div style="font-weight:600;margin-bottom:8px">Elements</div>
+            <div id="le-elements" style="font-size:13px"></div>
+          </div>
+          <div class="card" style="padding:12px;margin-top:8px;display:none" id="le-props-card">
+            <div style="font-weight:600;margin-bottom:8px">Properties: <span id="le-sel-name" style="color:var(--accent)"></span></div>
+            <div id="le-props" style="font-size:13px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 <div id="toast"></div>
 
 <script>
@@ -975,6 +1151,7 @@ document.querySelectorAll('[data-page]').forEach(function(a) {
     if (pg === 'gift')      { searchItems('g'); searchItems('ga'); }
     if (pg === 'payment')   loadPaymentPage();
     if (pg === 'quests')    loadQuests();
+    if (pg === 'layout')   leInit();
   });
 });
 
@@ -1688,6 +1865,294 @@ function qeSave() {
       document.getElementById('modal-quest').classList.remove('open');
       loadQuests();
     }
+  });
+}
+
+// ── Layout Editor ─────────────────────────────────────────────────────
+var leState = { skins: [], skin: null, elements: [], selected: -1, zoom: 1, panX: 20, panY: 20, drag: null, changes: {}, allSkins: [] };
+
+function leInit() {
+  fetch('index.php?ajax=layout_skins').then(function(r){return r.json()}).then(function(d) {
+    if (!d.ok) { toast(d.msg, 'err'); return; }
+    leState.allSkins = d.skins;
+    document.getElementById('le-file').textContent = d.file;
+    leFilterSkins('');
+    document.getElementById('le-search').oninput = function() { leFilterSkins(this.value); };
+  });
+}
+
+function leFilterSkins(q) {
+  var sel = document.getElementById('le-skins');
+  sel.innerHTML = '';
+  var lq = q.toLowerCase();
+  var filtered = leState.allSkins.filter(function(s) { return !q || s.toLowerCase().indexOf(lq) >= 0; });
+  filtered.forEach(function(s) {
+    var o = document.createElement('option'); o.value = s; o.textContent = s; sel.appendChild(o);
+  });
+}
+
+function leLoadSkin() {
+  var name = document.getElementById('le-skins').value;
+  if (!name) return;
+  fetch('index.php?ajax=layout_get&skin=' + encodeURIComponent(name))
+    .then(function(r){return r.json()}).then(function(d) {
+    if (!d.ok) { toast(d.msg, 'err'); return; }
+    leState.skin = d.skin;
+    leState.elements = d.skin.elements;
+    leState.selected = -1;
+    leState.changes = {};
+    leState.zoom = 1;
+    leState.panX = 20;
+    leState.panY = 20;
+    document.getElementById('le-save-btn').style.display = 'none';
+    var canvas = document.getElementById('le-canvas');
+    canvas.width = Math.max(640, d.skin.width + 40);
+    canvas.height = Math.max(400, d.skin.height + 40);
+    leBindCanvas();
+    leRenderElements();
+    leRender();
+  });
+}
+
+function leRenderElements() {
+  var el = document.getElementById('le-elements');
+  el.innerHTML = '';
+  leState.elements.forEach(function(e, i) {
+    var div = document.createElement('div');
+    div.style.cssText = 'padding:4px 6px;cursor:pointer;border-radius:3px;margin-bottom:2px;display:flex;justify-content:space-between;align-items:center';
+    var label = e.componentId || e.id;
+    var typeColors = {Image:'#4a9eff',Label:'#ff9f43',BitmapLabel:'#f368e0'};
+    var color = typeColors[e.type] || '#00d2d3';
+    div.innerHTML = '<span style="color:'+color+'">&#9679; </span><span>'+label+'</span><span style="color:var(--muted);font-size:11px">'+e.type+'</span>';
+    div.onclick = function() { leSelect(i); };
+    div.id = 'le-el-' + i;
+    el.appendChild(div);
+  });
+}
+
+function leSelect(idx) {
+  leState.selected = idx;
+  leState.elements.forEach(function(e, i) {
+    var d = document.getElementById('le-el-' + i);
+    if (d) d.style.background = i === idx ? 'var(--border)' : '';
+  });
+  var card = document.getElementById('le-props-card');
+  if (idx < 0) { card.style.display = 'none'; leRender(); return; }
+  card.style.display = 'block';
+  var e = leState.elements[idx];
+  document.getElementById('le-sel-name').textContent = e.componentId || e.id;
+  var html = '';
+  var editableProps = ['x','y','width','height','scaleX','scaleY','horizontalCenter','verticalCenter','anchorOffsetX','anchorOffsetY','size','right','left','top','bottom'];
+  editableProps.forEach(function(key) {
+    if (e.props[key] !== undefined) {
+      html += '<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">';
+      html += '<label style="width:120px;color:var(--muted)">'+key+'</label>';
+      html += '<input type="number" step="1" value="'+e.props[key]+'" data-prop="'+key+'" data-idx="'+idx+'" onchange="leChangeProp(this)" style="width:80px;padding:3px 6px;background:var(--bg);border:1px solid var(--border);color:var(--fg);border-radius:3px">';
+      html += '</div>';
+    }
+  });
+  ['text','source','font','skinName','textColor'].forEach(function(key) {
+    if (e.props[key] !== undefined) {
+      html += '<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">';
+      html += '<label style="width:120px;color:var(--muted)">'+key+'</label>';
+      html += '<span style="font-size:12px;color:var(--fg);word-break:break-all">'+e.props[key]+'</span>';
+      html += '</div>';
+    }
+  });
+  document.getElementById('le-props').innerHTML = html;
+  leRender();
+}
+
+function leChangeProp(input) {
+  var idx = parseInt(input.dataset.idx);
+  var prop = input.dataset.prop;
+  var val = parseFloat(input.value);
+  if (isNaN(val)) return;
+  var e = leState.elements[idx];
+  var origRaw = leState.changes[idx] ? leState.changes[idx].old : e.raw;
+  e.props[prop] = val;
+  var newRaw = e.raw.replace(new RegExp('t\\.' + prop + '\\s*=\\s*[^;]+'), 't.' + prop + '=' + val);
+  if (newRaw === e.raw && e.raw.indexOf('t.' + prop) < 0) {
+    newRaw = e.raw.replace('return t}', 't.' + prop + '=' + val + ';return t}');
+  }
+  if (newRaw !== origRaw) {
+    leState.changes[idx] = { old: origRaw, 'new': newRaw };
+    e.raw = newRaw;
+    document.getElementById('le-save-btn').style.display = '';
+  }
+  leRender();
+}
+
+function leSave() {
+  var changes = [];
+  for (var k in leState.changes) { changes.push(leState.changes[k]); }
+  if (!changes.length) { toast('No changes', 'info'); return; }
+  post('layout_save', { changes: JSON.stringify(changes) }).then(function(d) {
+    if (d.ok) {
+      toast('Saved ' + d.applied + ' changes', 'ok');
+      leState.changes = {};
+      document.getElementById('le-save-btn').style.display = 'none';
+    } else {
+      toast(d.msg || 'Save failed', 'err');
+    }
+  });
+}
+
+function leRender() {
+  var canvas = document.getElementById('le-canvas');
+  var ctx = canvas.getContext('2d');
+  var skin = leState.skin;
+  if (!skin) return;
+  var z = leState.zoom, px = leState.panX, py = leState.panY;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.save();
+  ctx.translate(px, py);
+  ctx.scale(z, z);
+
+  // skin boundary
+  ctx.strokeStyle = '#555';
+  ctx.lineWidth = 1/z;
+  ctx.setLineDash([4/z, 4/z]);
+  ctx.strokeRect(0, 0, skin.width, skin.height);
+  ctx.setLineDash([]);
+
+  // grid
+  ctx.strokeStyle = '#222';
+  ctx.lineWidth = 0.5/z;
+  for (var gx = 0; gx <= skin.width; gx += 50) { ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, skin.height); ctx.stroke(); }
+  for (var gy = 0; gy <= skin.height; gy += 50) { ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(skin.width, gy); ctx.stroke(); }
+
+  leState.elements.forEach(function(e, i) {
+    var p = e.props;
+    var x = p.x !== undefined ? p.x : 0;
+    var y = p.y !== undefined ? p.y : 0;
+    var w = p.width || 80;
+    var h = p.height || 30;
+    var sx = p.scaleX || 1;
+    var sy = p.scaleY || 1;
+
+    if (p.horizontalCenter !== undefined) x = (skin.width - w) / 2 + p.horizontalCenter;
+    if (p.verticalCenter !== undefined) y = (skin.height - h) / 2 + p.verticalCenter;
+
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(sx, sy);
+
+    var isSelected = i === leState.selected;
+    var colors = {Image:'#4a9eff',Label:'#ff9f43',BitmapLabel:'#f368e0'};
+    var color = colors[e.type] || '#00d2d3';
+
+    ctx.globalAlpha = isSelected ? 1.0 : 0.5;
+    ctx.fillStyle = color + '22';
+    ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = isSelected ? '#fff' : color;
+    ctx.lineWidth = isSelected ? 2/z : 1/z;
+    ctx.strokeRect(0, 0, w, h);
+
+    ctx.fillStyle = isSelected ? '#fff' : color;
+    ctx.font = Math.max(9, 10/z) + 'px monospace';
+    var label = e.componentId || e.id;
+    if (p.text && p.text.length < 20) label += ': ' + p.text;
+    ctx.fillText(label, 2, -3/z);
+
+    ctx.fillStyle = '#666';
+    ctx.font = Math.max(7, 8/z) + 'px monospace';
+    ctx.fillText(Math.round(x)+','+Math.round(y), 2, h + 10/z);
+
+    ctx.restore();
+  });
+
+  ctx.restore();
+  document.getElementById('le-info').textContent = skin.name + ' (' + skin.width + 'x' + skin.height + ') | Zoom: ' + (z*100).toFixed(0) + '% | Elements: ' + leState.elements.length;
+}
+
+function leBindCanvas() {
+  var canvas = document.getElementById('le-canvas');
+  if (canvas._leBound) return;
+  canvas._leBound = true;
+
+  canvas.addEventListener('mousedown', function(ev) {
+    var rect = canvas.getBoundingClientRect();
+    var mx = (ev.clientX - rect.left - leState.panX) / leState.zoom;
+    var my = (ev.clientY - rect.top - leState.panY) / leState.zoom;
+    var skin = leState.skin;
+    if (!skin) return;
+
+    var hit = -1;
+    for (var i = leState.elements.length - 1; i >= 0; i--) {
+      var e = leState.elements[i];
+      var p = e.props;
+      var ex = p.x !== undefined ? p.x : 0;
+      var ey = p.y !== undefined ? p.y : 0;
+      var ew = (p.width || 80) * (p.scaleX || 1);
+      var eh = (p.height || 30) * (p.scaleY || 1);
+      if (p.horizontalCenter !== undefined) ex = (skin.width - (p.width||80)) / 2 + p.horizontalCenter;
+      if (p.verticalCenter !== undefined) ey = (skin.height - (p.height||30)) / 2 + p.verticalCenter;
+      if (mx >= ex && mx <= ex + ew && my >= ey && my <= ey + eh) { hit = i; break; }
+    }
+
+    if (hit >= 0) {
+      leSelect(hit);
+      var e = leState.elements[hit];
+      leState.drag = { idx: hit, startX: mx, startY: my, origProps: JSON.parse(JSON.stringify(e.props)), origRaw: leState.changes[hit] ? leState.changes[hit].old : e.raw };
+    } else {
+      leSelect(-1);
+      leState.drag = { pan: true, startX: ev.clientX, startY: ev.clientY, origPanX: leState.panX, origPanY: leState.panY };
+    }
+  });
+
+  canvas.addEventListener('mousemove', function(ev) {
+    if (!leState.drag) return;
+    var rect = canvas.getBoundingClientRect();
+
+    if (leState.drag.pan) {
+      leState.panX = leState.drag.origPanX + (ev.clientX - leState.drag.startX);
+      leState.panY = leState.drag.origPanY + (ev.clientY - leState.drag.startY);
+      leRender();
+      return;
+    }
+
+    var mx = (ev.clientX - rect.left - leState.panX) / leState.zoom;
+    var my = (ev.clientY - rect.top - leState.panY) / leState.zoom;
+    var dx = mx - leState.drag.startX;
+    var dy = my - leState.drag.startY;
+    var idx = leState.drag.idx;
+    var e = leState.elements[idx];
+    var orig = leState.drag.origProps;
+
+    if (orig.horizontalCenter !== undefined) {
+      e.props.horizontalCenter = Math.round(orig.horizontalCenter + dx);
+    } else {
+      e.props.x = Math.round((orig.x || 0) + dx);
+    }
+    if (orig.verticalCenter !== undefined) {
+      e.props.verticalCenter = Math.round(orig.verticalCenter + dy);
+    } else {
+      e.props.y = Math.round((orig.y || 0) + dy);
+    }
+
+    var newRaw = e.raw;
+    ['x','y','horizontalCenter','verticalCenter'].forEach(function(prop) {
+      if (e.props[prop] !== undefined) {
+        newRaw = newRaw.replace(new RegExp('t\\.' + prop + '\\s*=\\s*[^;]+'), 't.' + prop + '=' + e.props[prop]);
+      }
+    });
+    leState.changes[idx] = { old: leState.drag.origRaw, 'new': newRaw };
+    e.raw = newRaw;
+    document.getElementById('le-save-btn').style.display = '';
+
+    leSelect(idx);
+  });
+
+  canvas.addEventListener('mouseup', function() { leState.drag = null; });
+  canvas.addEventListener('mouseleave', function() { leState.drag = null; });
+
+  canvas.addEventListener('wheel', function(ev) {
+    ev.preventDefault();
+    var delta = ev.deltaY > 0 ? 0.9 : 1.1;
+    leState.zoom = Math.max(0.2, Math.min(5, leState.zoom * delta));
+    leRender();
   });
 }
 

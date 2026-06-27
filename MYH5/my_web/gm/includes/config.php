@@ -33,5 +33,8 @@ define('GM_PASSWORD', 'gm123456');
 define('PAYMENT_STATE_FILE', dirname(__DIR__) . '/payment_state.json');
 define('PAYPAL_CONFIG_FILE',  dirname(__DIR__) . '/paypal_config.json');
 
+// ── Game client path ──────────────────────────────────────────────────────
+define('CLIENT_DIR', dirname(dirname(__DIR__)) . '/myh5_cilent');
+
 // ── Session ───────────────────────────────────────────────────────────────
 session_start();
