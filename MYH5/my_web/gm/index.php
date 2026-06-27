@@ -654,20 +654,36 @@ if (isset($_GET['ajax']) && $gmAuth) {
             $changes = isset($_POST['changes']) ? json_decode($_POST['changes'], true) : null;
             if (!$changes || !is_array($changes)) { echo json_encode(array('ok' => false, 'msg' => 'No changes')); break; }
             $data = file_get_contents($thmFile);
+            $errors = array();
             $applied = 0;
-            foreach ($changes as $c) {
+            foreach ($changes as $i => $c) {
                 $oldStr = isset($c['old']) ? $c['old'] : '';
                 $newStr = isset($c['new']) ? $c['new'] : '';
-                if ($oldStr && $newStr && $oldStr !== $newStr && strpos($data, $oldStr) !== false) {
-                    $data = str_replace($oldStr, $newStr, $data);
-                    $applied++;
+                if (!$oldStr || !$newStr || $oldStr === $newStr) continue;
+                $count = substr_count($data, $oldStr);
+                if ($count === 0) {
+                    $errors[] = 'Change ' . ($i+1) . ': old string not found in file';
+                    continue;
                 }
+                if ($count > 1) {
+                    $errors[] = 'Change ' . ($i+1) . ': old string found ' . $count . ' times (ambiguous, skipped)';
+                    continue;
+                }
+                $pos = strpos($data, $oldStr);
+                $data = substr($data, 0, $pos) . $newStr . substr($data, $pos + strlen($oldStr));
+                $applied++;
             }
             if ($applied > 0) {
+                $bakFile = $thmFile . '.bak';
+                if (!file_exists($bakFile)) {
+                    copy($thmFile, $bakFile);
+                }
                 file_put_contents($thmFile, $data);
-                echo json_encode(array('ok' => true, 'applied' => $applied));
+                $result = array('ok' => true, 'applied' => $applied);
+                if ($errors) $result['warnings'] = $errors;
+                echo json_encode($result);
             } else {
-                echo json_encode(array('ok' => false, 'msg' => 'No matching strings found to replace'));
+                echo json_encode(array('ok' => false, 'msg' => 'No changes applied', 'errors' => $errors));
             }
             break;
 
@@ -2020,7 +2036,7 @@ function leChangeProp(input) {
   var e = leState.elements[idx];
   var origRaw = leState.changes[idx] ? leState.changes[idx].old : e.raw;
   e.props[prop] = val;
-  var newRaw = e.raw.replace(new RegExp('t\\.' + prop + '\\s*=\\s*[^;]+'), 't.' + prop + '=' + val);
+  var newRaw = e.raw.replace(new RegExp('t\\.' + prop + '(?=[=\\s])\\s*=\\s*[^;]+'), 't.' + prop + '=' + val);
   if (newRaw === e.raw && e.raw.indexOf('t.' + prop) < 0) {
     newRaw = e.raw.replace('return t}', 't.' + prop + '=' + val + ';return t}');
   }
@@ -2036,13 +2052,18 @@ function leSave() {
   var changes = [];
   for (var k in leState.changes) { changes.push(leState.changes[k]); }
   if (!changes.length) { toast('No changes', 'info'); return; }
+  if (!confirm('Save ' + changes.length + ' change(s) to default.thm JS file?\nThis modifies the game client — a backup will be created automatically.')) return;
   post('layout_save', { changes: JSON.stringify(changes) }).then(function(d) {
     if (d.ok) {
-      toast('Saved ' + d.applied + ' changes', 'ok');
+      var msg = 'Saved ' + d.applied + ' change(s)';
+      if (d.warnings && d.warnings.length) msg += '\nWarnings:\n' + d.warnings.join('\n');
+      toast(msg, 'ok');
       leState.changes = {};
       document.getElementById('le-save-btn').style.display = 'none';
     } else {
-      toast(d.msg || 'Save failed', 'err');
+      var msg = d.msg || 'Save failed';
+      if (d.errors && d.errors.length) msg += '\n' + d.errors.join('\n');
+      toast(msg, 'err');
     }
   });
 }
@@ -2270,7 +2291,7 @@ function leBindCanvas() {
     var newRaw = e.raw;
     ['x','y','horizontalCenter','verticalCenter'].forEach(function(prop) {
       if (e.props[prop] !== undefined) {
-        newRaw = newRaw.replace(new RegExp('t\\.' + prop + '\\s*=\\s*[^;]+'), 't.' + prop + '=' + e.props[prop]);
+        newRaw = newRaw.replace(new RegExp('t\\.' + prop + '(?=[=\\s])\\s*=\\s*[^;]+'), 't.' + prop + '=' + e.props[prop]);
       }
     });
     leState.changes[idx] = { old: leState.drag.origRaw, 'new': newRaw };
