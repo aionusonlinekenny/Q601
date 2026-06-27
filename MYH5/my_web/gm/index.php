@@ -2132,15 +2132,18 @@ function leRender() {
     var drawType = 'rect';
     var fontSize = p.size || 16;
     var txt = '';
+    var naturalW = 0, naturalH = 0;
     if (imgData) {
       drawType = imgData.type;
       if (imgData.type === 'image') {
-        if (!w) w = imgData.img.naturalWidth;
-        if (!h) h = imgData.img.naturalHeight;
+        naturalW = imgData.img.naturalWidth;
+        naturalH = imgData.img.naturalHeight;
       } else if (imgData.type === 'sprite') {
-        if (!w) w = imgData.frame.sourceW;
-        if (!h) h = imgData.frame.sourceH;
+        naturalW = imgData.frame.sourceW;
+        naturalH = imgData.frame.sourceH;
       }
+      if (!w) w = naturalW;
+      if (!h) h = naturalH;
     } else if (e.type === 'Label' || e.type === 'BitmapLabel') {
       drawType = 'label';
       txt = p.text || (e.componentId || e.id);
@@ -2151,11 +2154,15 @@ function leRender() {
     if (!w) w = 80;
     if (!h) h = 30;
 
+    // For layout (center calc), use explicit size if set, else clamp to skin bounds
+    var layoutW = p.width || Math.min(w, skin.width);
+    var layoutH = p.height || Math.min(h, skin.height);
+
     // --- compute position with correct w/h ---
     var x = p.x !== undefined ? p.x : 0;
     var y = p.y !== undefined ? p.y : 0;
-    if (p.horizontalCenter !== undefined) x = (skin.width - w) / 2 + p.horizontalCenter;
-    if (p.verticalCenter !== undefined) y = (skin.height - h) / 2 + p.verticalCenter;
+    if (p.horizontalCenter !== undefined) x = (skin.width - layoutW) / 2 + p.horizontalCenter;
+    if (p.verticalCenter !== undefined) y = (skin.height - layoutH) / 2 + p.verticalCenter;
     if (p.left !== undefined && p.right !== undefined) { x = p.left; w = skin.width - p.left - p.right; }
     else if (p.left !== undefined) x = p.left;
     else if (p.right !== undefined) x = skin.width - w - p.right;
