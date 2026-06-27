@@ -599,6 +599,54 @@ if (isset($_GET['ajax']) && $gmAuth) {
             echo json_encode(array('ok' => true, 'skin' => $found));
             break;
 
+        // ── Layout Editor: resolve image resource ────────────────────────
+        case 'layout_res':
+            $src = isset($_GET['src']) ? $_GET['src'] : '';
+            if (!$src) { echo json_encode(array('ok' => false)); break; }
+            $resFile = CLIENT_DIR . '/v1.1.9.1/resource/default.res.json';
+            if (!file_exists($resFile)) { echo json_encode(array('ok' => false, 'msg' => 'res.json not found')); break; }
+            $res = json_decode(file_get_contents($resFile), true);
+            $baseUrl = '../myh5_cilent/v1.1.9.1/resource/';
+
+            // atlas sprite: "explore_json.img_huanJie_ceng"
+            if (strpos($src, '.') !== false && strpos($src, '_json.') !== false) {
+                $parts = explode('.', $src, 2);
+                $atlasName = $parts[0]; // e.g. "explore_json"
+                $spriteName = $parts[1]; // e.g. "img_huanJie_ceng"
+                // find atlas in resources
+                $atlasUrl = null;
+                foreach ($res['resources'] as $r) {
+                    if ($r['name'] === $atlasName && $r['type'] === 'sheet') {
+                        $atlasUrl = $r['url'];
+                        break;
+                    }
+                }
+                if ($atlasUrl) {
+                    $jsonPath = CLIENT_DIR . '/v1.1.9.1/resource/' . $atlasUrl;
+                    $pngUrl = $baseUrl . str_replace('.json', '.png', $atlasUrl);
+                    if (file_exists($jsonPath)) {
+                        $atlas = json_decode(file_get_contents($jsonPath), true);
+                        if (isset($atlas['frames'][$spriteName])) {
+                            $frame = $atlas['frames'][$spriteName];
+                            echo json_encode(array('ok' => true, 'type' => 'sprite', 'png' => $pngUrl, 'frame' => $frame));
+                            break;
+                        }
+                    }
+                }
+                echo json_encode(array('ok' => false, 'msg' => 'Sprite not found: ' . $src));
+                break;
+            }
+
+            // standalone image: "img_huanJie_listBg_png"
+            foreach ($res['resources'] as $r) {
+                if ($r['name'] === $src && $r['type'] === 'image') {
+                    echo json_encode(array('ok' => true, 'type' => 'image', 'url' => $baseUrl . $r['url']));
+                    break 2;
+                }
+            }
+            echo json_encode(array('ok' => false, 'msg' => 'Resource not found: ' . $src));
+            break;
+
         // ── Layout Editor: save element changes ──────────────────────────
         case 'layout_save':
             $thmFile = layout_find_thm();
@@ -1040,6 +1088,38 @@ tr:hover td{background:rgba(255,255,255,.025)}
       </div>
     </div>
 
+    <!-- ── Layout Editor (moved inside main) ─────────────────────────── -->
+    <div class="page" id="page-layout">
+      <div class="page-title">Layout Editor <small>Visual skin element editor</small></div>
+      <div style="display:flex;gap:12px;margin-bottom:12px;align-items:center;flex-wrap:wrap">
+        <input id="le-search" type="text" placeholder="Search skin name..." style="width:260px;padding:6px 10px;background:var(--card);border:1px solid var(--border);color:var(--fg);border-radius:4px">
+        <select id="le-skins" style="width:320px;padding:6px;background:var(--card);border:1px solid var(--border);color:var(--fg);border-radius:4px"><option>Loading...</option></select>
+        <button class="btn btn-primary" onclick="leLoadSkin()">Load Skin</button>
+        <button class="btn btn-ok" onclick="leSave()" id="le-save-btn" style="display:none">Save Changes</button>
+        <span id="le-file" style="color:var(--muted);font-size:12px"></span>
+      </div>
+      <div style="display:flex;gap:16px">
+        <div style="flex:1;min-width:500px">
+          <div style="background:#111;border:1px solid var(--border);border-radius:6px;overflow:hidden;position:relative">
+            <canvas id="le-canvas" width="700" height="500" style="display:block;cursor:crosshair"></canvas>
+          </div>
+          <div style="margin-top:8px;color:var(--muted);font-size:12px">
+            <span id="le-info">Click element to select. Drag to move. Scroll to zoom.</span>
+          </div>
+        </div>
+        <div style="width:300px;max-height:700px;overflow-y:auto" id="le-panel">
+          <div class="card" style="padding:12px">
+            <div style="font-weight:600;margin-bottom:8px">Elements</div>
+            <div id="le-elements" style="font-size:13px"></div>
+          </div>
+          <div class="card" style="padding:12px;margin-top:8px;display:none" id="le-props-card">
+            <div style="font-weight:600;margin-bottom:8px">Properties: <span id="le-sel-name" style="color:var(--accent)"></span></div>
+            <div id="le-props" style="font-size:13px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
 </div>
 
@@ -1101,38 +1181,6 @@ tr:hover td{background:rgba(255,255,255,.025)}
     </div>
   </div>
 </div>
-
-    <!-- ── Layout Editor ──────────────────────────────────────────────── -->
-    <div class="page" id="page-layout">
-      <div class="page-title">Layout Editor <small>Visual skin element editor</small></div>
-      <div style="display:flex;gap:12px;margin-bottom:12px;align-items:center;flex-wrap:wrap">
-        <input id="le-search" type="text" placeholder="Search skin name..." style="width:260px;padding:6px 10px;background:var(--card);border:1px solid var(--border);color:var(--fg);border-radius:4px">
-        <select id="le-skins" style="width:320px;padding:6px;background:var(--card);border:1px solid var(--border);color:var(--fg);border-radius:4px"><option>Loading...</option></select>
-        <button class="btn btn-primary" onclick="leLoadSkin()">Load Skin</button>
-        <button class="btn btn-ok" onclick="leSave()" id="le-save-btn" style="display:none">Save Changes</button>
-        <span id="le-file" style="color:var(--muted);font-size:12px"></span>
-      </div>
-      <div style="display:flex;gap:16px;flex-wrap:wrap">
-        <div style="flex:1;min-width:400px">
-          <div style="background:#111;border:1px solid var(--border);border-radius:6px;overflow:auto;position:relative">
-            <canvas id="le-canvas" width="600" height="400" style="display:block;cursor:crosshair"></canvas>
-          </div>
-          <div style="margin-top:8px;color:var(--muted);font-size:12px">
-            <span id="le-info">Click element to select. Drag to move. Scroll to zoom.</span>
-          </div>
-        </div>
-        <div style="width:320px;max-height:600px;overflow-y:auto" id="le-panel">
-          <div class="card" style="padding:12px">
-            <div style="font-weight:600;margin-bottom:8px">Elements</div>
-            <div id="le-elements" style="font-size:13px"></div>
-          </div>
-          <div class="card" style="padding:12px;margin-top:8px;display:none" id="le-props-card">
-            <div style="font-weight:600;margin-bottom:8px">Properties: <span id="le-sel-name" style="color:var(--accent)"></span></div>
-            <div id="le-props" style="font-size:13px"></div>
-          </div>
-        </div>
-      </div>
-    </div>
 
 <div id="toast"></div>
 
@@ -1869,7 +1917,7 @@ function qeSave() {
 }
 
 // ── Layout Editor ─────────────────────────────────────────────────────
-var leState = { skins: [], skin: null, elements: [], selected: -1, zoom: 1, panX: 20, panY: 20, drag: null, changes: {}, allSkins: [] };
+var leState = { skins: [], skin: null, elements: [], selected: -1, zoom: 1, panX: 20, panY: 20, drag: null, changes: {}, allSkins: [], imgCache: {}, imgLoading: {} };
 
 function leInit() {
   fetch('index.php?ajax=layout_skins').then(function(r){return r.json()}).then(function(d) {
@@ -1906,10 +1954,11 @@ function leLoadSkin() {
     leState.panY = 20;
     document.getElementById('le-save-btn').style.display = 'none';
     var canvas = document.getElementById('le-canvas');
-    canvas.width = Math.max(640, d.skin.width + 40);
-    canvas.height = Math.max(400, d.skin.height + 40);
+    canvas.width = Math.max(700, d.skin.width + 40);
+    canvas.height = Math.max(500, d.skin.height + 40);
     leBindCanvas();
     leRenderElements();
+    lePreloadImages();
     leRender();
   });
 }
@@ -1998,6 +2047,31 @@ function leSave() {
   });
 }
 
+function lePreloadImages() {
+  leState.elements.forEach(function(e) {
+    var src = e.props.source;
+    if (!src || leState.imgCache[src] || leState.imgLoading[src]) return;
+    leState.imgLoading[src] = true;
+    fetch('index.php?ajax=layout_res&src=' + encodeURIComponent(src))
+      .then(function(r){return r.json()}).then(function(d) {
+      if (!d.ok) { leState.imgLoading[src] = false; return; }
+      if (d.type === 'image') {
+        var img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = function() { leState.imgCache[src] = { img: img, type: 'image' }; leState.imgLoading[src] = false; leRender(); };
+        img.onerror = function() { leState.imgLoading[src] = false; };
+        img.src = d.url;
+      } else if (d.type === 'sprite') {
+        var img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = function() { leState.imgCache[src] = { img: img, type: 'sprite', frame: d.frame }; leState.imgLoading[src] = false; leRender(); };
+        img.onerror = function() { leState.imgLoading[src] = false; };
+        img.src = d.png;
+      }
+    });
+  });
+}
+
 function leRender() {
   var canvas = document.getElementById('le-canvas');
   var ctx = canvas.getContext('2d');
@@ -2011,14 +2085,14 @@ function leRender() {
   ctx.scale(z, z);
 
   // skin boundary
-  ctx.strokeStyle = '#555';
+  ctx.strokeStyle = '#444';
   ctx.lineWidth = 1/z;
   ctx.setLineDash([4/z, 4/z]);
   ctx.strokeRect(0, 0, skin.width, skin.height);
   ctx.setLineDash([]);
 
   // grid
-  ctx.strokeStyle = '#222';
+  ctx.strokeStyle = '#1a1a1a';
   ctx.lineWidth = 0.5/z;
   for (var gx = 0; gx <= skin.width; gx += 50) { ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, skin.height); ctx.stroke(); }
   for (var gy = 0; gy <= skin.height; gy += 50) { ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(skin.width, gy); ctx.stroke(); }
@@ -2035,30 +2109,85 @@ function leRender() {
     if (p.horizontalCenter !== undefined) x = (skin.width - w) / 2 + p.horizontalCenter;
     if (p.verticalCenter !== undefined) y = (skin.height - h) / 2 + p.verticalCenter;
 
-    ctx.save();
-    ctx.translate(x, y);
-    ctx.scale(sx, sy);
-
     var isSelected = i === leState.selected;
     var colors = {Image:'#4a9eff',Label:'#ff9f43',BitmapLabel:'#f368e0'};
     var color = colors[e.type] || '#00d2d3';
 
-    ctx.globalAlpha = isSelected ? 1.0 : 0.5;
-    ctx.fillStyle = color + '22';
-    ctx.fillRect(0, 0, w, h);
-    ctx.strokeStyle = isSelected ? '#fff' : color;
-    ctx.lineWidth = isSelected ? 2/z : 1/z;
-    ctx.strokeRect(0, 0, w, h);
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(sx, sy);
 
+    // draw real image if available
+    var imgData = p.source ? leState.imgCache[p.source] : null;
+    if (imgData) {
+      ctx.globalAlpha = isSelected ? 1.0 : 0.8;
+      if (imgData.type === 'image') {
+        var iw = imgData.img.naturalWidth;
+        var ih = imgData.img.naturalHeight;
+        w = p.width || iw; h = p.height || ih;
+        ctx.drawImage(imgData.img, 0, 0, w, h);
+      } else if (imgData.type === 'sprite') {
+        var f = imgData.frame;
+        w = p.width || f.sourceW; h = p.height || f.sourceH;
+        ctx.drawImage(imgData.img, f.x, f.y, f.w, f.h, f.offX || 0, f.offY || 0, f.w, f.h);
+        if (!p.width) w = f.sourceW;
+        if (!p.height) h = f.sourceH;
+      }
+    } else if (e.type === 'Label' || e.type === 'BitmapLabel') {
+      // draw real text
+      var fontSize = p.size || 16;
+      ctx.globalAlpha = isSelected ? 1.0 : 0.8;
+      var textColor = '#c6b59e';
+      if (p.textColor) {
+        var tc = p.textColor;
+        if (typeof tc === 'string' && tc.indexOf('0x') === 0) textColor = '#' + tc.substring(2);
+        else if (typeof tc === 'number') textColor = '#' + tc.toString(16).padStart(6, '0');
+      }
+      ctx.fillStyle = textColor;
+      ctx.font = (p.bold ? 'bold ' : '') + fontSize + 'px Arial';
+      var txt = p.text || (e.componentId || e.id);
+      if (p.stroke) {
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = p.stroke;
+        ctx.strokeText(txt, 0, fontSize);
+      }
+      ctx.fillText(txt, 0, fontSize);
+      w = p.width || ctx.measureText(txt).width + 4;
+      h = p.height || fontSize + 6;
+    } else {
+      // fallback: colored rectangle
+      ctx.globalAlpha = isSelected ? 0.6 : 0.3;
+      ctx.fillStyle = color + '44';
+      ctx.fillRect(0, 0, w, h);
+    }
+
+    // selection border
+    if (isSelected) {
+      ctx.globalAlpha = 1;
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 2/z;
+      ctx.setLineDash([3/z, 3/z]);
+      ctx.strokeRect(-1, -1, w+2, h+2);
+      ctx.setLineDash([]);
+    } else {
+      ctx.globalAlpha = 0.4;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 0.5/z;
+      ctx.strokeRect(0, 0, w, h);
+    }
+
+    // label above
+    ctx.globalAlpha = isSelected ? 1 : 0.6;
     ctx.fillStyle = isSelected ? '#fff' : color;
-    ctx.font = Math.max(9, 10/z) + 'px monospace';
-    var label = e.componentId || e.id;
-    if (p.text && p.text.length < 20) label += ': ' + p.text;
-    ctx.fillText(label, 2, -3/z);
+    ctx.font = Math.max(8, 9/z) + 'px monospace';
+    ctx.fillText((e.componentId || e.id), 0, -3/z);
 
-    ctx.fillStyle = '#666';
-    ctx.font = Math.max(7, 8/z) + 'px monospace';
-    ctx.fillText(Math.round(x)+','+Math.round(y), 2, h + 10/z);
+    // coordinates below
+    if (isSelected) {
+      ctx.fillStyle = '#aaa';
+      ctx.font = Math.max(7, 8/z) + 'px monospace';
+      ctx.fillText(Math.round(x)+','+Math.round(y)+' '+Math.round(w*sx)+'x'+Math.round(h*sy), 0, h + 12/z);
+    }
 
     ctx.restore();
   });
@@ -2085,10 +2214,16 @@ function leBindCanvas() {
       var p = e.props;
       var ex = p.x !== undefined ? p.x : 0;
       var ey = p.y !== undefined ? p.y : 0;
-      var ew = (p.width || 80) * (p.scaleX || 1);
-      var eh = (p.height || 30) * (p.scaleY || 1);
-      if (p.horizontalCenter !== undefined) ex = (skin.width - (p.width||80)) / 2 + p.horizontalCenter;
-      if (p.verticalCenter !== undefined) ey = (skin.height - (p.height||30)) / 2 + p.verticalCenter;
+      var ew = p.width || 80;
+      var eh = p.height || 30;
+      // get real size from loaded image
+      var imgD = p.source ? leState.imgCache[p.source] : null;
+      if (imgD && imgD.type === 'image') { ew = p.width || imgD.img.naturalWidth; eh = p.height || imgD.img.naturalHeight; }
+      else if (imgD && imgD.type === 'sprite') { ew = p.width || imgD.frame.sourceW; eh = p.height || imgD.frame.sourceH; }
+      else if (e.type === 'Label' || e.type === 'BitmapLabel') { ew = p.width || 100; eh = p.height || (p.size || 16) + 6; }
+      ew *= (p.scaleX || 1); eh *= (p.scaleY || 1);
+      if (p.horizontalCenter !== undefined) ex = (skin.width - (p.width||ew)) / 2 + p.horizontalCenter;
+      if (p.verticalCenter !== undefined) ey = (skin.height - (p.height||eh)) / 2 + p.verticalCenter;
       if (mx >= ex && mx <= ex + ew && my >= ey && my <= ey + eh) { hit = i; break; }
     }
 
