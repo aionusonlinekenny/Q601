@@ -2120,15 +2120,52 @@ function leRender() {
 
   leState.elements.forEach(function(e, i) {
     var p = e.props;
-    var x = p.x !== undefined ? p.x : 0;
-    var y = p.y !== undefined ? p.y : 0;
-    var w = p.width || 80;
-    var h = p.height || 30;
     var sx = p.scaleX || 1;
     var sy = p.scaleY || 1;
 
-    if (p.horizontalCenter !== undefined) x = (skin.width - w) / 2 + p.horizontalCenter;
-    if (p.verticalCenter !== undefined) y = (skin.height - h) / 2 + p.verticalCenter;
+    // --- determine real size FIRST ---
+    var w = p.width || 0;
+    var h = p.height || 0;
+    var imgData = p.source ? leState.imgCache[p.source] : null;
+    var drawType = 'rect';
+    var fontSize = p.size || 16;
+    var txt = '';
+    if (imgData) {
+      drawType = imgData.type;
+      if (imgData.type === 'image') {
+        if (!w) w = imgData.img.naturalWidth;
+        if (!h) h = imgData.img.naturalHeight;
+      } else if (imgData.type === 'sprite') {
+        if (!w) w = imgData.frame.sourceW;
+        if (!h) h = imgData.frame.sourceH;
+      }
+    } else if (e.type === 'Label' || e.type === 'BitmapLabel') {
+      drawType = 'label';
+      txt = p.text || (e.componentId || e.id);
+      ctx.font = (p.bold ? 'bold ' : '') + fontSize + 'px Arial';
+      if (!w) w = ctx.measureText(txt).width + 4;
+      if (!h) h = fontSize + 6;
+    }
+    if (!w) w = 80;
+    if (!h) h = 30;
+
+    // --- compute position with correct w/h ---
+    var x = p.x !== undefined ? p.x : 0;
+    var y = p.y !== undefined ? p.y : 0;
+    if (p.horizontalCenter !== undefined) x = (skin.width - w * sx) / 2 + p.horizontalCenter;
+    if (p.verticalCenter !== undefined) y = (skin.height - h * sy) / 2 + p.verticalCenter;
+    if (p.left !== undefined && p.right !== undefined) { x = p.left; w = (skin.width - p.left - p.right) / sx; }
+    else if (p.left !== undefined) x = p.left;
+    else if (p.right !== undefined) x = skin.width - w * sx - p.right;
+    if (p.top !== undefined && p.bottom !== undefined) { y = p.top; h = (skin.height - p.top - p.bottom) / sy; }
+    else if (p.top !== undefined) y = p.top;
+    else if (p.bottom !== undefined) y = skin.height - h * sy - p.bottom;
+
+    var aox = p.anchorOffsetX || 0;
+    var aoy = p.anchorOffsetY || 0;
+
+    // store computed bounds for hit testing
+    e._bx = x - aox * sx; e._by = y - aoy * sy; e._bw = w * sx; e._bh = h * sy;
 
     var isSelected = i === leState.selected;
     var colors = {Image:'#4a9eff',Label:'#ff9f43',BitmapLabel:'#f368e0'};
@@ -2137,26 +2174,17 @@ function leRender() {
     ctx.save();
     ctx.translate(x, y);
     ctx.scale(sx, sy);
+    ctx.translate(-aox, -aoy);
 
-    // draw real image if available
-    var imgData = p.source ? leState.imgCache[p.source] : null;
-    if (imgData) {
+    // --- draw content ---
+    if (drawType === 'image') {
       ctx.globalAlpha = isSelected ? 1.0 : 0.8;
-      if (imgData.type === 'image') {
-        var iw = imgData.img.naturalWidth;
-        var ih = imgData.img.naturalHeight;
-        w = p.width || iw; h = p.height || ih;
-        ctx.drawImage(imgData.img, 0, 0, w, h);
-      } else if (imgData.type === 'sprite') {
-        var f = imgData.frame;
-        w = p.width || f.sourceW; h = p.height || f.sourceH;
-        ctx.drawImage(imgData.img, f.x, f.y, f.w, f.h, f.offX || 0, f.offY || 0, f.w, f.h);
-        if (!p.width) w = f.sourceW;
-        if (!p.height) h = f.sourceH;
-      }
-    } else if (e.type === 'Label' || e.type === 'BitmapLabel') {
-      // draw real text
-      var fontSize = p.size || 16;
+      ctx.drawImage(imgData.img, 0, 0, w, h);
+    } else if (drawType === 'sprite') {
+      ctx.globalAlpha = isSelected ? 1.0 : 0.8;
+      var f = imgData.frame;
+      ctx.drawImage(imgData.img, f.x, f.y, f.w, f.h, f.offX || 0, f.offY || 0, f.w, f.h);
+    } else if (drawType === 'label') {
       ctx.globalAlpha = isSelected ? 1.0 : 0.8;
       var textColor = '#c6b59e';
       if (p.textColor) {
@@ -2166,17 +2194,9 @@ function leRender() {
       }
       ctx.fillStyle = textColor;
       ctx.font = (p.bold ? 'bold ' : '') + fontSize + 'px Arial';
-      var txt = p.text || (e.componentId || e.id);
-      if (p.stroke) {
-        ctx.strokeStyle = '#000';
-        ctx.lineWidth = p.stroke;
-        ctx.strokeText(txt, 0, fontSize);
-      }
+      if (p.stroke) { ctx.strokeStyle = '#000'; ctx.lineWidth = p.stroke; ctx.strokeText(txt, 0, fontSize); }
       ctx.fillText(txt, 0, fontSize);
-      w = p.width || ctx.measureText(txt).width + 4;
-      h = p.height || fontSize + 6;
     } else {
-      // fallback: colored rectangle
       ctx.globalAlpha = isSelected ? 0.6 : 0.3;
       ctx.fillStyle = color + '44';
       ctx.fillRect(0, 0, w, h);
@@ -2232,20 +2252,8 @@ function leBindCanvas() {
     var hit = -1;
     for (var i = leState.elements.length - 1; i >= 0; i--) {
       var e = leState.elements[i];
-      var p = e.props;
-      var ex = p.x !== undefined ? p.x : 0;
-      var ey = p.y !== undefined ? p.y : 0;
-      var ew = p.width || 80;
-      var eh = p.height || 30;
-      // get real size from loaded image
-      var imgD = p.source ? leState.imgCache[p.source] : null;
-      if (imgD && imgD.type === 'image') { ew = p.width || imgD.img.naturalWidth; eh = p.height || imgD.img.naturalHeight; }
-      else if (imgD && imgD.type === 'sprite') { ew = p.width || imgD.frame.sourceW; eh = p.height || imgD.frame.sourceH; }
-      else if (e.type === 'Label' || e.type === 'BitmapLabel') { ew = p.width || 100; eh = p.height || (p.size || 16) + 6; }
-      ew *= (p.scaleX || 1); eh *= (p.scaleY || 1);
-      if (p.horizontalCenter !== undefined) ex = (skin.width - (p.width||ew)) / 2 + p.horizontalCenter;
-      if (p.verticalCenter !== undefined) ey = (skin.height - (p.height||eh)) / 2 + p.verticalCenter;
-      if (mx >= ex && mx <= ex + ew && my >= ey && my <= ey + eh) { hit = i; break; }
+      if (e._bx === undefined) continue;
+      if (mx >= e._bx && mx <= e._bx + e._bw && my >= e._by && my <= e._by + e._bh) { hit = i; break; }
     }
 
     if (hit >= 0) {
