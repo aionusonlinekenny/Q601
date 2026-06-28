@@ -846,20 +846,43 @@ n.net.onRoute(n.MessageMap.G2C_SCENE_NOTIFY_GAMEEND,
 ```
 Maps `H.result` (lowercase, from GameEnd) to reward handler. Also added matching `offRoute` in `removeRoutes()`.
 
-### Issue 4: Exit Dungeon Causes Disconnect (ONGOING)
+### Issue 4: Exit Dungeon Causes Disconnect (FIXED)
 
-**Analysis so far:**
-- `exitToMainGame()` → `GameModels.crossServer.exitCrossServer()` needs to disconnect from kuafu server and reconnect to main server
-- Original code used `window.location.reload()` → lost all session state → went to login page
-- Changed to `GameModels.login.closeConnect()` + `this.connectGame(I, J, K)` → still fails with "Connection failed"
-- `connectGame()` calls `GameModels.login.connectGameHandler()` which connects to `_curHost` and sends `C2G_Reconnect`
-- Problem: `closeConnect()` triggers socket close event → `socketCloseHandler` fires → shows "Connection failed" dialog BEFORE `connectGameHandler` can establish new connection
-- Need to suppress error handlers during intentional disconnect, or use a different approach
+**Root cause:** Multiple issues in the exit flow:
+1. `closeConnect()` triggered socket close event → `socketCloseHandler` showed "Connection failed" before new connection
+2. `C2G_Reconnect` (10010) rejected by main server — player session cleaned up when they left for kuafu
+3. Using `connectCrossHandler` (C2G_KuaFuLogin) left CrossServer's socket handlers active instead of Login's
+
+**Fix (client JS):** `exitCrossServer` now:
+1. `offSocketAll()` — removes ALL socket handlers (prevents close/error events from firing during disconnect)
+2. `close(!0)` — cleanly closes kuafu connection
+3. `connectCrossHandler(_curHost)` — connects to main server and sends `C2G_KuaFuLogin` (10018) which works as a fresh login via `GateWay.onKuaFuAuth` on all servers
+4. On success callback: `offSocketAll()` again (removes CrossServer handlers) → registers Login's `socketCloseHandler` and `socketErrorHandler` → calls `enterGame` success callback
+
+```javascript
+exitCrossServer=function(I,J,K){
+  var Q=this, R=GameModels.login._curHost;
+  this._isCross=!1;
+  this._errorHandler&&(this._errorHandler.recover(),this._errorHandler=null);
+  n.net.offSocketAll();
+  n.net.close(!0);
+  this.connectCrossHandler(R, this, function(){
+    n.net.offSocketAll();
+    n.net.onSocketClose(GameModels.login, GameModels.login.socketCloseHandler);
+    n.net.onSocketError(GameModels.login, GameModels.login.socketErrorHandler);
+    J&&J.call(I)
+  }, K)
+}
+```
+
+**Why C2G_KuaFuLogin works but C2G_Reconnect doesn't:**
+- `C2G_Reconnect` (10010) → `GateWay.onReconnect()` — needs existing player session; main server already cleaned up when player left
+- `C2G_KuaFuLogin` (10018) → `GateWay.onKuaFuAuth()` — creates fresh session (MD5 auth → kick existing → create AuthIdentity → CharacterLogin); works on ALL servers
 
 **Key objects:**
 - `GameModels.crossServer` — `ModelCrossServer`, has `_isCross`, `exitCrossServer()`, `connectGame()`, `connectCrossHandler()`
 - `GameModels.login` — `ModelLogin`, has `_curHost` (main server), `_gameHost`, `connectGameHandler()`, `closeConnect()`
-- `_curHost` is set to `_gameHost` on init and NOT changed by cross-server connect — so reconnecting should target main server
+- `_curHost` is set to `_gameHost` on init and NOT changed by cross-server connect — always points to main server
 
 ### Server-side Boss Data (otherMonster.json)
 
