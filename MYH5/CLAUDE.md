@@ -794,3 +794,101 @@ NEW: this.cell.text=Language.Z_CENG+" "+I  → "Floor 2"
 - `v1.1.9.1/js/default.thm_11d2a765.js` — Skin layout changes
 - `v1.1.9.1/js/main.min_39fbca0f.js` — Floor text format change
 
+---
+
+## Cross-Server Boss Battle Fixes
+
+### Overview
+Fixed multiple issues with cross-server boss battles (TypeGame.CROSS_BOSS = 301):
+
+### Issue 1: Boss Selection Mismatch (wrong boss spawns)
+
+**Root cause:** `ModelSceneCrossBoss.enterGame(I, J, L, K)` passed copyVO object directly to `GameModels.scene.enterGame(I, J, ...)`. The base `scene.enterGame` does `M.EnterParam = N ? N : ""` — since N is an object, it became `"[object Object]"`. Server `Integer.parseInt("[object Object]")` failed → always spawned default boss (index 0).
+
+**Fix (client JS):** Changed `ModelSceneCrossBoss.enterGame` to convert `J.id.toString()`:
+```javascript
+// BEFORE: GameModels.scene.enterGame(I, J, this, ...)
+// AFTER:  GameModels.scene.enterGame(I, J&&J.id?J.id.toString():"", this, ...)
+```
+
+Other scene models (PublicBoss, etc.) already did `J.id.toString()` — this was the only one passing raw object.
+
+### Issue 2: Boss Owner Always "None"
+
+**Root cause:** `CrossCityScene` had NO ownership tracking. `PublicBossScene` delegates to `PublicBoss` class which tracks ownership via `onObjectLockTarget` (boss targets player → player becomes owner) and broadcasts `G2C_Public_Boss_Notify_Boss_Owner` (13508).
+
+**Fix (server CrossCityScene.java):**
+- Added `ownerPlayerId`/`ownerPlayerName` fields
+- Added `onObjectLockTarget()` override: when boss targets a player, that player becomes owner; broadcasts `G2C_Public_Boss_Notify_Boss_Owner` (13508) to all players
+- Added `onPlayerEnter()` override: sends `G2C_Public_Boss_Notify_Copy_Info` (13506) with current boss/owner info
+- Owner resets when owner player dies
+- `onGameEnd` passes `ownerPlayerId` as EndParam for reward distinction
+
+**Key protocol messages:**
+| ID | Class | Purpose |
+|---|---|---|
+| 13508 | `G2C_Public_Boss_Notify_Boss_Owner` | setCopyId, setOwnerId, setOwnerName |
+| 13506 | `G2C_Public_Boss_Notify_Copy_Info` | setBossUniqueId, setBossHP, setBossRefId, setOwnerId, setOwnerName, shield fields |
+
+**Ownership mechanism:** Based on boss **lock target** (same as PublicBoss), NOT damage dealt. When boss switches aggro to a new player → new owner. When owner dies → owner resets to None.
+
+### Issue 3: No Reward Notification on Boss Kill
+
+**Root cause:** Server sends `G2C_Scene_Notify_GameEnd` (15339), but client `ModelSceneCrossBoss` only listens for `G2C_Scene_Notify_GameResult` (15362) — different message IDs with same format but different field casing (`result` vs `Result`).
+
+**Fix (client JS):** Added route for `G2C_SCENE_NOTIFY_GAMEEND` in `ModelSceneCrossBoss.addRoutes()`:
+```javascript
+n.net.onRoute(n.MessageMap.G2C_SCENE_NOTIFY_GAMEEND,
+  utils.Handler.create(this, function(H){
+    var G = vo.parseProtoItems(H.Items);
+    this._gameRewardHandler && this._gameRewardHandler.runWith(H.result, G, GameModels.scene.getObjectByUId(H.EndParam))
+  }, null, !1))
+```
+Maps `H.result` (lowercase, from GameEnd) to reward handler. Also added matching `offRoute` in `removeRoutes()`.
+
+### Issue 4: Exit Dungeon Causes Disconnect (ONGOING)
+
+**Analysis so far:**
+- `exitToMainGame()` → `GameModels.crossServer.exitCrossServer()` needs to disconnect from kuafu server and reconnect to main server
+- Original code used `window.location.reload()` → lost all session state → went to login page
+- Changed to `GameModels.login.closeConnect()` + `this.connectGame(I, J, K)` → still fails with "Connection failed"
+- `connectGame()` calls `GameModels.login.connectGameHandler()` which connects to `_curHost` and sends `C2G_Reconnect`
+- Problem: `closeConnect()` triggers socket close event → `socketCloseHandler` fires → shows "Connection failed" dialog BEFORE `connectGameHandler` can establish new connection
+- Need to suppress error handlers during intentional disconnect, or use a different approach
+
+**Key objects:**
+- `GameModels.crossServer` — `ModelCrossServer`, has `_isCross`, `exitCrossServer()`, `connectGame()`, `connectCrossHandler()`
+- `GameModels.login` — `ModelLogin`, has `_curHost` (main server), `_gameHost`, `connectGameHandler()`, `closeConnect()`
+- `_curHost` is set to `_gameHost` on init and NOT changed by cross-server connect — so reconnecting should target main server
+
+### Server-side Boss Data (otherMonster.json)
+
+Boss data loaded from `my_kuafu/conf/copy/otherMonster.json` via `MGCopyBossConfigLoader("otherMonster")` → `MGCopyBossDataRef.getRefKey(String.valueOf(refId))` → returns `"{refId}_CopyBossProperty"`.
+
+7 cross-server bosses added:
+| copyId | refId | Name | Level | HP | resId |
+|--------|-------|------|-------|----|-------|
+| 351001 | 3510019 | Cross-server Blazing Queen | 150 | 5B | 3018 |
+| 351002 | 3510029 | Cross-server Blazing Knight | 150 | 5B | 3018 |
+| 351003 | 3510039 | Cross-server Abyss Lord | 150 | 5B | 3017 |
+| 351004 | 3510049 | Cross-server Dark Overlord | 150 | 5B | 3022 |
+| 351005 | 3510059 | Cross-server Bloodthirst Lord | 150 | 5B | 3023 |
+| 351006 | 3510069 | Cross-server Shadow Monarch | 150 | 5B | 3009 |
+| 351007 | 3510079 | Cross-server Rage Flame Demon King | 150 | 5B | 3020 |
+
+**Client model availability:** resId must reference existing sprites in `resource_other/actor/`. Model 3019 has 0 sprites → changed to 3020.
+
+### Files Modified
+- `my_kuafu/server.jar` — CrossCityScene.class (Java 8 target)
+- `my_kuafu/conf/copy/otherMonster.json` — Boss data entries
+- `my_web/myh5_cilent/v1.1.9.1/js/main.min_39fbca0f.js` — All client fixes
+- `my_web/myh5_cilent/v1.1.9.1/js/main.min_39fbca0f2.js` — Cache-bust copy
+- `my_web/myh5_cilent/v1.1.9.1/js/main.min_39fbca0f3.js` — Cache-bust copy
+- `my_web/myh5_cilent/v1.1.9.1/manifest.json` — Updated JS filename
+
+### CrossCityScene.java Source
+Source at: `scratchpad/kuafu_boss_src/newbee/morningGlory/mmorpg/player/kuafu/CrossCityScene.java`
+
+Compile: `javac -source 1.8 -target 1.8 -cp server.jar -d . CrossCityScene.java`
+Inject: `jar uf server.jar newbee/morningGlory/mmorpg/player/kuafu/CrossCityScene.class`
+
