@@ -926,9 +926,42 @@ Boss data loaded from `my_kuafu/conf/copy/otherMonster.json` via `MGCopyBossConf
 - `my_web/myh5_cilent/v1.1.9.1/js/main.min_39fbca0f3.js` — Cache-bust copy
 - `my_web/myh5_cilent/v1.1.9.1/manifest.json` — Updated JS filename
 
-### CrossCityScene.java Source
-Source at: `scratchpad/kuafu_boss_src/newbee/morningGlory/mmorpg/player/kuafu/CrossCityScene.java`
+### CrossCityScene.java & KuaFuComponent.java Source
+Source at: `scratchpad/kuafu_boss_src/newbee/morningGlory/mmorpg/player/kuafu/`
 
-Compile: `javac -source 1.8 -target 1.8 -cp server.jar -d . CrossCityScene.java`
-Inject: `jar uf server.jar newbee/morningGlory/mmorpg/player/kuafu/CrossCityScene.class`
+Compile: `javac -source 1.8 -target 1.8 -cp server.jar -d classes CrossCityScene.java KuaFuComponent.java`
+Inject: `jar uf server.jar newbee/morningGlory/mmorpg/player/kuafu/CrossCityScene.class newbee/morningGlory/mmorpg/player/kuafu/KuaFuComponent.class`
+
+---
+
+## Fix 4: Boss 30-Minute Respawn Timer
+
+### Problem
+After killing a boss, it respawns immediately when re-entering the scene. All 7 bosses should have independent 30-minute cooldowns after being killed.
+
+### Solution
+
+**Server-side (CrossCityScene.java)**:
+- Added static `ConcurrentHashMap<Integer, Long> killTimestamps` — records `System.currentTimeMillis()` for each copyId when its boss dies
+- `getRespawnRemainingSeconds(copyId)` — returns seconds until respawn (0 = alive)
+- `isBossOnCooldown(copyId)` — returns true if boss is still in cooldown
+- `onObjectDeath()` — records kill timestamp: `killTimestamps.put(copyId, System.currentTimeMillis())`
+- `spawnBoss()` — checks `isBossOnCooldown()` before spawning, skips if on cooldown
+- `prePlayerEnter()` — checks cooldown before calling `spawnBoss()`
+- Constant `RESPAWN_TIME_MS = 30 * 60 * 1000L` (30 minutes)
+
+**Server-side (KuaFuComponent.java)**:
+- `handleGetBossInfo()` — calls `CrossCityScene.getRespawnRemainingSeconds(copyId)` for each boss
+  - If `remainSec > 0`: sends `BossHP="0"` and `ReliveTime=remainSec`
+  - If `remainSec == 0`: sends `BossHP=maxHP` and `ReliveTime=0` (boss alive)
+
+**Client-side** (already built-in, no changes needed):
+- `CrossServerVO._reliveTime` is set from server's `ReliveTime` field
+- `lastTime` getter: `_reliveTime - elapsed_seconds` — counts down automatically
+- When `lastTime > 0`: boss dead, shows countdown timer, hides red dot
+- When `lastTime <= 0`: boss alive, shows red dot, allows attack
+
+### Note
+- Kill timestamps are in-memory only — server restart resets all cooldowns
+- Each boss has independent cooldown tracked by copyId
 
