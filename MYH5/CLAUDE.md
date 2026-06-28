@@ -941,19 +941,21 @@ After killing a boss, it respawns immediately when re-entering the scene. All 7 
 
 ### Solution
 
-**Server-side (CrossCityScene.java)**:
-- Added static `ConcurrentHashMap<Integer, Long> killTimestamps` — records `System.currentTimeMillis()` for each copyId when its boss dies
-- `getRespawnRemainingSeconds(copyId)` — returns seconds until respawn (0 = alive)
-- `isBossOnCooldown(copyId)` — returns true if boss is still in cooldown
-- `onObjectDeath()` — records kill timestamp: `killTimestamps.put(copyId, System.currentTimeMillis())`
-- `spawnBoss()` — checks `isBossOnCooldown()` before spawning, skips if on cooldown
-- `prePlayerEnter()` — checks cooldown before calling `spawnBoss()`
+**Key insight**: Main server (my_s1) and kuafu server (my_kuafu) run in separate JVMs — cannot share static memory. Solution: shared file `/tmp/cross_boss_kills.properties`.
+
+**Server-side (CrossCityScene.java)** — runs on kuafu server:
+- Static `ConcurrentHashMap<Integer, Long> killTimestamps` — in-memory cache
+- `onObjectDeath()` — records kill timestamp + calls `saveKillTimestamps()` to write file
+- `saveKillTimestamps()` / `loadKillTimestamps()` — persist to `/tmp/cross_boss_kills.properties`
+- `spawnBoss()` / `prePlayerEnter()` — check `isBossOnCooldown()` before spawning
 - Constant `RESPAWN_TIME_MS = 30 * 60 * 1000L` (30 minutes)
 
-**Server-side (KuaFuComponent.java)**:
-- `handleGetBossInfo()` — calls `CrossCityScene.getRespawnRemainingSeconds(copyId)` for each boss
-  - If `remainSec > 0`: sends `BossHP="0"` and `ReliveTime=remainSec`
-  - If `remainSec == 0`: sends `BossHP=maxHP` and `ReliveTime=0` (boss alive)
+**Server-side (KuaFuComponent.java)** — runs on main server:
+- `readKillTimestamps()` — reads `/tmp/cross_boss_kills.properties` on each `handleGetBossInfo()` call
+- `getRespawnRemaining(copyId, killTimes)` — calculates remaining seconds from file data
+- If `remainSec > 0`: sends `BossHP="0"` and `ReliveTime=remainSec`
+- If `remainSec == 0`: sends `BossHP=maxHP` and `ReliveTime=0` (boss alive)
+- **IMPORTANT**: Both `my_kuafu/server.jar` AND `my_s1/server.jar` (+ s2, s3) must be updated
 
 **Client-side** (already built-in, no changes needed):
 - `CrossServerVO._reliveTime` is set from server's `ReliveTime` field
@@ -962,6 +964,7 @@ After killing a boss, it respawns immediately when re-entering the scene. All 7 
 - When `lastTime <= 0`: boss alive, shows red dot, allows attack
 
 ### Note
-- Kill timestamps are in-memory only — server restart resets all cooldowns
+- Kill timestamps persist via file — survive kuafu server restart but not OS reboot
 - Each boss has independent cooldown tracked by copyId
+- Both servers (main + kuafu) must have updated server.jar
 
