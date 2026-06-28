@@ -1033,3 +1033,64 @@ After killing a boss, it respawns immediately when re-entering the scene. All 7 
 - `server.jar` (all 4: kuafu, s1, s2, s3) — KuaFuComponent with 4B HP
 - `my_kuafu/conf/copy/otherMonster.json` — HP + EXP changes
 
+---
+
+## Fix 9: Boss Kill Server-Wide Announcement Broadcast
+
+### Problem
+When a player kills a cross-server boss, no one else on any server knows about it.
+
+### Solution
+When a boss dies in `CrossCityScene.onObjectDeath()`, broadcast a scrolling marquee message to ALL online players across ALL servers.
+
+**Two broadcast paths:**
+
+1. **Kuafu server (direct):** Calls `SystemPromptHelper.sendSystemPromptToWorld(msg, 3, 1)` — type=3 (SYS channel), ifsend=1 (marquee/scrolling). This reaches all players currently on the kuafu server (i.e., all cross-server boss fighters).
+
+2. **Main servers s1/s2/s3 (HTTP):** Background thread POSTs to each server's Tomcat ChatService endpoint:
+   - URL: `http://127.0.0.1:{port}/game/services`
+   - Params: `action=scrollNotice&isScroll=1&sendSys=1&content={msg}&sign={md5}`
+   - Ports: 8090 (s1), 8091 (s2), 8092 (s3)
+   - Sign: `MD5(isScroll + sendSys + HttpCommunicationKey)` → `MD5("11ABC123")` uppercase hex
+   - If Tomcat isn't running on a server, the call silently fails (logged as warning)
+
+**Message format (using game's `|C:&T:` color tags):**
+```
+|C:0xEDC839&T:PlayerName|T: has slain |C:0xFF4444&T:BossName|T: in the Cross-Server Battlefield!
+```
+- Player name in gold (`0xEDC839`)
+- Boss name in red (`0xFF4444`)
+
+**Key discovery — ChatService routing:**
+- Tomcat `ServicesServlet` routes `action=scrollNotice` to `ChatService.doPost()`
+- `ChatService` params: `isScroll` (int), `sendSys` (int), `content` (URL-encoded string), `sign` (MD5)
+- When `isScroll==1`, calls `SystemPromptFacade.gmSendSystemPrompt(content)` → `SystemPromptHelper.sendSystemPromptToWorld(msg, 3, 1)`
+- `sendSystemPromptToWorld` creates `G2C_Chat_Notify_Msg` (11910) with `Type=3`, `IsPaoMaDeng=1`, broadcasts via `ActionEventFacade.sendMessageToWorld()`
+
+**Client-side handling (already built-in):**
+- `G2C_Chat_Notify_Msg` received → `ChatVO.initialize()` → `_isHorstLamp = IsPaoMaDeng ? true : false`
+- When `isHorstLamp==true` → `_horseLampHandler.runWith(chatVO)` → scrolling marquee text appears across screen
+- Color tags `|C:0xEDC839&T:text|T:` parsed by `TextFlowMaker.generateTextFlow()` for colored inline text
+
+**Boss names array (matches BOSS_COPY_IDS order):**
+```java
+private static final String[] BOSS_NAMES = {
+    "Blazing Queen", "Demon Overlord", "Blazing Knight",
+    "Flame Demon Overlord", "Bloodthirst Lord", "Lava Lizard King", "Rage Flame Demon King"
+};
+```
+
+**Anonymous inner class:** Compilation generates `CrossCityScene$1.class` (the `new Runnable()` for HTTP thread). This MUST be injected into server.jar alongside `CrossCityScene.class`.
+
+### Files Modified
+- `server.jar` (all 4: kuafu, s1, s2, s3) — CrossCityScene with broadcast + CrossCityScene$1 inner class
+- Source: `scratchpad/kuafu_boss_src/newbee/morningGlory/mmorpg/player/kuafu/CrossCityScene.java`
+
+### Inject command
+```bash
+cd classes && jar uf server.jar \
+  newbee/morningGlory/mmorpg/player/kuafu/CrossCityScene.class \
+  newbee/morningGlory/mmorpg/player/kuafu/CrossCityScene\$1.class \
+  newbee/morningGlory/mmorpg/player/kuafu/KuaFuComponent.class
+```
+
