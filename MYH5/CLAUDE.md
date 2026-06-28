@@ -834,24 +834,34 @@ Other scene models (PublicBoss, etc.) already did `J.id.toString()` — this was
 
 ### Issue 3: No Reward Notification on Boss Kill (FIXED)
 
-**Root cause (two bugs):**
+**Root cause (three bugs):**
 1. Client `ModelSceneCrossBoss` had no route for `G2C_SCENE_NOTIFY_GAMEEND` — only listened for `G2C_SCENE_NOTIFY_GAMERESULT`
-2. Server `CrossCityScene.onObjectDeath()` passed `null` for Items param in `onGameEnd(player, 1, 3, null, ownerPlayerId)`. The `onGameEnd` method skips `setItems()` when items is null, so client receives `H.Items = undefined`. Client's `vo.parseProtoItems(undefined)` crashes trying to iterate, killing the entire GameEnd handler silently — no reward popup shown.
+2. Server `CrossCityScene.onObjectDeath()` passed `null` for Items param in `onGameEnd()`. `MGScene.onGameEnd` skips `setItems()` when null → client receives `H.Items = undefined` → `vo.parseProtoItems(undefined)` crashes → entire GameEnd handler fails silently
+3. **Route overwrite race condition:** `ModelSceneCrossBoss.addRoutes()` registers `G2C_SCENE_NOTIFY_GAMEEND` first, but `ModelScene.initialize()` re-registers the same route later → overwrites `_gameRewardHandler` path. GameEnd goes through `ModelScene.gameEndHandler` → `_gameOverHandler` → `GameCrossBoss.endHandler` → `end()` → `_endHandlers`, but `_endHandlers` was never set (code used `onGameReawrd` instead of `onEndOnce`)
 
-**Fix (server CrossCityScene.java):** Changed `null` to `new ArrayList<ProtoDropItems>()` so Items is sent as empty array.
+**Fix (server CrossCityScene.java):**
+- Uses `MGDropLibFacade.dropByCopyBoss(bossRefId)` to generate drop items from config
+- Calls `MGDropLibFacade.pickupItems(player, dropItems, 70)` to give items to player
+- Converts via `MGDropLibFacade.genProtoDropItems(dropItems)` for GameEnd display
+- Passes actual items list (not null) to `onGameEnd()`
 
-**Fix (client JS):** 
-1. Added `G2C_SCENE_NOTIFY_GAMEEND` route in `ModelSceneCrossBoss.addRoutes()` with debug logging
-2. Added null guard: `vo.parseProtoItems(H.Items||[])` to prevent crash if Items is undefined
+**Fix (client JS):**
+1. Added `G2C_SCENE_NOTIFY_GAMEEND` route in `ModelSceneCrossBoss.addRoutes()` with null guard `H.Items||[]`
+2. Added `O.getGameCrossBoss().onEndOnce()` in `enterCrossEveryOneBoss` — same mechanism as EveryBoss — so rewards show via `_endHandlers` path regardless of which route handler wins
 
-```javascript
-n.net.onRoute(n.MessageMap.G2C_SCENE_NOTIFY_GAMEEND,
-  utils.Handler.create(this, function(H){
-    var G = vo.parseProtoItems(H.Items||[]);
-    this._gameRewardHandler ? this._gameRewardHandler.runWith(H.result, G, GameModels.scene.getObjectByUId(H.EndParam))
-      : mg.alertManager.tip("GameEnd: no reward handler!", 16711680)
-  }, null, !1))
-```
+**Boss drop items (configured in `otherMonster.json` FixDrop):**
+
+| Boss (RefID) | Item 1 (Unique) | Item 2 | Item 3 | Item 4 |
+|---|---|---|---|---|
+| Blazing Queen (3510019) | Lucky Dudu (262501) | Beast Soul Shard (210201) | Starlight Stone (214601) | Phantom Beast Egg (214701) |
+| Demon Overlord (3510029) | Lucky Lulu (262502) | Beast Soul Shard | Starlight Stone | Phantom Beast Egg |
+| Blazing Knight (3510039) | Taurus Star Yar (262503) | Beast Soul Shard | Starlight Stone | Phantom Beast Egg |
+| Flame Demon Overlord (3510049) | Protector Lia (262504) | Beast Soul Shard | Starlight Stone | Phantom Beast Egg |
+| Bloodthirst Lord (3510059) | Bestower Aiden (262505) | Beast Soul Shard | Starlight Stone | Phantom Beast Egg |
+| Lava Lizard King (3510069) | Phantom Cat Kadath (262506) | Beast Soul Shard | Starlight Stone | Phantom Beast Egg |
+| Rage Flame Demon King (3510079) | Starlight Bracelet (221505) | Starlight Necklace (221504) | Beast Soul Shard | Starlight Stone |
+
+**Temporary test change:** Boss HP reduced to 1,000,000 (from 5,000,000,000) in both `otherMonster.json` and `KuaFuComponent.java` `BOSS_MAX_HP`. **Restore after testing.**
 
 ### Issue 4: Exit Dungeon Causes Disconnect (FIXED)
 
