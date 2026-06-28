@@ -994,3 +994,42 @@ After killing a boss, it respawns immediately when re-entering the scene. All 7 
 - `main.min_39fbca0f*.js` (all 3 copies) — CrossServerVO initialize/getServerName/reset
 - `server.jar` (all 4: kuafu, s1, s2, s3) — killer name storage and transmission
 
+---
+
+## Fix 6: Boss Panel UI Polish
+
+### Changes
+1. **Label widths increased further**: 140 → 180 for all boss labels (labLevel, labTime, labName 1-7) to prevent "Divine-5 Unlocked" from wrapping
+2. **Sword icons moved further left**: shifted -20px from original (was -5px)
+3. **Killer name gold color**: labName labels changed `textColor` to `0xEDC839` (gold) to highlight killer name
+4. **"BOSS Ownership Attempts" text**: width increased to 280, `textAlign=left`, x=170; count label `labTimesGuiShu` x=440
+5. **"Assist Attempts" text**: width increased to 220, `textAlign=left`, x=195; count label `labTimesXieZhu` x=400
+
+### Files Modified
+- `default.thm_11d2a765.js` — CrossServerSkin label/icon adjustments
+
+---
+
+## Fix 7: Battle Scene UI Adjustments
+
+### Changes
+1. **Owner name position**: `belongName` x moved from 127 → 165 to avoid overlapping with "Owner" title text
+2. **My Reward button**: `btnReward` x moved from 24 → -2 (and state overrides 28 → -2) to center under boss icon
+
+### Files Modified
+- `default.thm_11d2a765.js` — CopyMainViewSkin belongName/btnReward position changes
+
+---
+
+## Fix 8: Boss HP Restored to 4 Billion + 1M EXP Reward
+
+### Changes
+1. **Boss HP**: Restored from test value 1,000,000 back to 4,000,000,000 (4B) in both:
+   - `KuaFuComponent.java` — `BOSS_MAX_HP` and `SECRET_MAX_HP` arrays
+   - `otherMonster.json` — all 7 boss entries `maxHp` field
+2. **EXP reward**: Added `dropExp: 1000000` (1M EXP) to all 7 bosses in `otherMonster.json`
+
+### Files Modified
+- `server.jar` (all 4: kuafu, s1, s2, s3) — KuaFuComponent with 4B HP
+- `my_kuafu/conf/copy/otherMonster.json` — HP + EXP changes
+
