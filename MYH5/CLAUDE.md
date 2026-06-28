@@ -941,20 +941,19 @@ After killing a boss, it respawns immediately when re-entering the scene. All 7 
 
 ### Solution
 
-**Key insight**: Main server (my_s1) and kuafu server (my_kuafu) run in separate JVMs — cannot share static memory. Solution: shared file `/tmp/cross_boss_kills.properties`.
+**Key insight**: Main server (my_s1) and kuafu server (my_kuafu) run in separate JVMs — cannot share static memory. Solution: shared file via `System.getProperty("java.io.tmpdir") + "/cross_boss_kills.properties"` (cross-platform, works on Windows).
 
 **Server-side (CrossCityScene.java)** — runs on kuafu server:
-- Static `ConcurrentHashMap<Integer, Long> killTimestamps` — in-memory cache
-- `onObjectDeath()` — records kill timestamp + calls `saveKillTimestamps()` to write file
-- `saveKillTimestamps()` / `loadKillTimestamps()` — persist to `/tmp/cross_boss_kills.properties`
+- Static `ConcurrentHashMap<Integer, Long> killTimestamps` + `killPlayerNames` — in-memory cache
+- `onObjectDeath()` — records kill timestamp + killer name + calls `saveKillTimestamps()` to write file
+- File format: `351001=1719612345678` (timestamp) + `351001.name=Emma` (killer name)
 - `spawnBoss()` / `prePlayerEnter()` — check `isBossOnCooldown()` before spawning
 - Constant `RESPAWN_TIME_MS = 30 * 60 * 1000L` (30 minutes)
 
 **Server-side (KuaFuComponent.java)** — runs on main server:
-- `readKillTimestamps()` — reads `/tmp/cross_boss_kills.properties` on each `handleGetBossInfo()` call
-- `getRespawnRemaining(copyId, killTimes)` — calculates remaining seconds from file data
-- If `remainSec > 0`: sends `BossHP="0"` and `ReliveTime=remainSec`
-- If `remainSec == 0`: sends `BossHP=maxHP` and `ReliveTime=0` (boss alive)
+- `readKillTimestamps()` + `readKillPlayerNames()` — reads shared file on each `handleGetBossInfo()` call
+- If `remainSec > 0`: sends `BossHP="0"`, `ReliveTime=remainSec`, `MaxBossHP="1000000|KillerName"`
+- If `remainSec == 0`: sends `BossHP=maxHP`, `ReliveTime=0`, `MaxBossHP="1000000"`
 - **IMPORTANT**: Both `my_kuafu/server.jar` AND `my_s1/server.jar` (+ s2, s3) must be updated
 
 **Client-side** (already built-in, no changes needed):
@@ -967,4 +966,31 @@ After killing a boss, it respawns immediately when re-entering the scene. All 7 
 - Kill timestamps persist via file — survive kuafu server restart but not OS reboot
 - Each boss has independent cooldown tracked by copyId
 - Both servers (main + kuafu) must have updated server.jar
+- File path uses `System.getProperty("java.io.tmpdir")` for Windows compatibility
+
+---
+
+## Fix 5: Boss Panel UI Improvements
+
+### Problem
+1. "Divine-5 Unlocked" and "BOSS Refreshed" text wrapping badly (label width=100 too narrow)
+2. Sword icon overlapping text
+3. "None" displayed where killer name should be
+
+### Solution
+
+**Theme file** (`default.thm_11d2a765.js`):
+- All CrossServerSkin boss labels (labLevel, labTime, labName 1-7): width 100 → 140, x adjusted -20 to keep center
+- All sword icons (imgSword 2-7): x shifted left by 5px
+
+**Killer name display** — creative protocol encoding:
+- Server encodes killer name in `MaxBossHP` field: `"1000000|KillerName"` (only when boss is dead)
+- Client parses `MaxBossHP.split("|")` → `_hpMax = parts[0]`, `_killerName = parts[1]`
+- `getServerName()` returns `_killerName` if available, otherwise falls back to original logic
+- `reset()` clears `_killerName`
+
+### Files Modified
+- `default.thm_11d2a765.js` — 26 label/icon position changes
+- `main.min_39fbca0f*.js` (all 3 copies) — CrossServerVO initialize/getServerName/reset
+- `server.jar` (all 4: kuafu, s1, s2, s3) — killer name storage and transmission
 
