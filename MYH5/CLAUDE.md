@@ -820,7 +820,7 @@ Other scene models (PublicBoss, etc.) already did `J.id.toString()` — this was
 **Fix (server CrossCityScene.java):**
 - Added `ownerPlayerId`/`ownerPlayerName` fields
 - Added `onObjectLockTarget()` override: when boss targets a player, that player becomes owner; broadcasts `G2C_Public_Boss_Notify_Boss_Owner` (13508) to all players
-- Added `onPlayerEnter()` override: sends `G2C_Public_Boss_Notify_Copy_Info` (13506) with current boss/owner info
+- Added `onPlayerEnter()` override: sends `G2C_Public_Boss_Notify_Copy_Info` (13539) with current boss/owner info
 - Owner resets when owner player dies
 - `onGameEnd` passes `ownerPlayerId` as EndParam for reward distinction
 
@@ -828,23 +828,30 @@ Other scene models (PublicBoss, etc.) already did `J.id.toString()` — this was
 | ID | Class | Purpose |
 |---|---|---|
 | 13508 | `G2C_Public_Boss_Notify_Boss_Owner` | setCopyId, setOwnerId, setOwnerName |
-| 13506 | `G2C_Public_Boss_Notify_Copy_Info` | setBossUniqueId, setBossHP, setBossRefId, setOwnerId, setOwnerName, shield fields |
+| 13539 | `G2C_Public_Boss_Notify_Copy_Info` | setBossUniqueId, setBossHP, setBossRefId, setOwnerId, setOwnerName, shield fields |
 
 **Ownership mechanism:** Based on boss **lock target** (same as PublicBoss), NOT damage dealt. When boss switches aggro to a new player → new owner. When owner dies → owner resets to None.
 
-### Issue 3: No Reward Notification on Boss Kill
+### Issue 3: No Reward Notification on Boss Kill (FIXED)
 
-**Root cause:** Server sends `G2C_Scene_Notify_GameEnd` (15339), but client `ModelSceneCrossBoss` only listens for `G2C_Scene_Notify_GameResult` (15362) — different message IDs with same format but different field casing (`result` vs `Result`).
+**Root cause (two bugs):**
+1. Client `ModelSceneCrossBoss` had no route for `G2C_SCENE_NOTIFY_GAMEEND` — only listened for `G2C_SCENE_NOTIFY_GAMERESULT`
+2. Server `CrossCityScene.onObjectDeath()` passed `null` for Items param in `onGameEnd(player, 1, 3, null, ownerPlayerId)`. The `onGameEnd` method skips `setItems()` when items is null, so client receives `H.Items = undefined`. Client's `vo.parseProtoItems(undefined)` crashes trying to iterate, killing the entire GameEnd handler silently — no reward popup shown.
 
-**Fix (client JS):** Added route for `G2C_SCENE_NOTIFY_GAMEEND` in `ModelSceneCrossBoss.addRoutes()`:
+**Fix (server CrossCityScene.java):** Changed `null` to `new ArrayList<ProtoDropItems>()` so Items is sent as empty array.
+
+**Fix (client JS):** 
+1. Added `G2C_SCENE_NOTIFY_GAMEEND` route in `ModelSceneCrossBoss.addRoutes()` with debug logging
+2. Added null guard: `vo.parseProtoItems(H.Items||[])` to prevent crash if Items is undefined
+
 ```javascript
 n.net.onRoute(n.MessageMap.G2C_SCENE_NOTIFY_GAMEEND,
   utils.Handler.create(this, function(H){
-    var G = vo.parseProtoItems(H.Items);
-    this._gameRewardHandler && this._gameRewardHandler.runWith(H.result, G, GameModels.scene.getObjectByUId(H.EndParam))
+    var G = vo.parseProtoItems(H.Items||[]);
+    this._gameRewardHandler ? this._gameRewardHandler.runWith(H.result, G, GameModels.scene.getObjectByUId(H.EndParam))
+      : mg.alertManager.tip("GameEnd: no reward handler!", 16711680)
   }, null, !1))
 ```
-Maps `H.result` (lowercase, from GameEnd) to reward handler. Also added matching `offRoute` in `removeRoutes()`.
 
 ### Issue 4: Exit Dungeon Causes Disconnect (FIXED)
 
