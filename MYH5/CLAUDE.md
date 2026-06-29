@@ -1094,3 +1094,56 @@ cd classes && jar uf server.jar \
   newbee/morningGlory/mmorpg/player/kuafu/KuaFuComponent.class
 ```
 
+---
+
+## Fix 10: Item Name Truncation in TipIcon (Phantom Maze City floors)
+
+### Problem
+Item names like "Blue Holy Relic Reward" displayed full-length in CopyHuanJieCell floor items, overlapping/wrapping.
+
+### Root Cause
+Previous truncation in `RewardItemBox.dataChange` didn't work for HuanJie cells because they set items via `this._rwards[H].dataSource=J[H]` which flows through **TipIcon's `dataChanged`** path (not RewardItemBox).
+
+### Fix
+In TipIcon's switch statement where `labName.text=M.name`:
+```javascript
+// BEFORE: this.labName.text=M.name
+// AFTER:  this.labName.text=M.name.length>11?M.name.substring(0,10)+"..":M.name
+```
+Limit: 11 chars (based on "Life SoulEXP" which fits correctly). Longer names show 10 chars + "..".
+
+### Files Modified
+- `main.min_39fbca0f3.js` — TipIcon dataChanged truncation
+
+---
+
+## Fix 11: Cultivation Exchange Panel (Obtain Materials) UI Fix
+
+### Problem
+1. "Can still exchange today5" — text and number merged/overflowed right edge
+2. Item description "Pure Divine Power Essence" text overlapping with Exchange button area
+
+### Fix
+
+**Language string** (`main.min_39fbca0f3.js`):
+```
+OLD: E_JRHKDH1C="Can still exchange today<font color='#37DB31'>{1}</font>Times"
+NEW: E_JRHKDH1C="Can still exchange: <font color='#37DB31'>{1}</font>"
+```
+
+**Skin layout** (`default.thm_11d2a765.js`):
+Two skins affected: `RoleGodhoodExchangeAlertSkin$Skin269` and `RoleXiuShenAlertSkin$Skin276`
+
+`labLimit` (exchange count label):
+```
+OLD: t.left=393;t.size=18;t.textAlign="right";t.y=14
+NEW: t.size=16;t.textAlign="right";t.width=250;t.right=5;t.y=4
+```
+
+`labdesc` (item gain description): Added `t.width=260;t.maxLines=1`
+`labName` (item cost description): Added `t.width=260;t.maxLines=1`
+
+### Files Modified
+- `main.min_39fbca0f3.js` — Language.E_JRHKDH1C text change
+- `default.thm_11d2a765.js` — labLimit/labdesc/labName layout in 2 exchange item skins
+
