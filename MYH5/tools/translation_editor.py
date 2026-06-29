@@ -20,6 +20,8 @@ except ImportError:
 
 _CHINESE_RE = re.compile(r"[一-鿿㐀-䶿]")
 
+IMAGE_EXTS = (".png", ".jpg", ".jpeg")
+
 
 def has_chinese(s):
     return bool(_CHINESE_RE.search(str(s)))
@@ -820,26 +822,36 @@ class TranslationEditor:
     # -----------------------------------------------------------------------
     # Sprite logic
     # -----------------------------------------------------------------------
+    def _sprite_glob_images(self, folder):
+        """All image files (PNG/JPG/JPEG) in folder, case-insensitive, de-duped."""
+        seen = {}
+        for ext in IMAGE_EXTS:
+            for f in folder.glob(f"*{ext}"):
+                seen[f.name.lower()] = f
+            for f in folder.glob(f"*{ext.upper()}"):
+                seen[f.name.lower()] = f
+        return sorted(seen.values())
+
     def _sprite_browse_folder(self):
-        folder = filedialog.askdirectory(title="Select folder containing JSON + PNG sprite files")
+        folder = filedialog.askdirectory(title="Select folder containing JSON + PNG/JPG sprite files")
         if not folder:
             return
         self.sprite_folder = Path(folder)
         self.sprite_folder_var.set(str(self.sprite_folder))
         json_files = sorted(self.sprite_folder.glob("*.json"))
         json_basenames = {f.stem for f in json_files}
-        standalone_pngs = sorted(
-            f for f in self.sprite_folder.glob("*.png")
+        standalone_imgs = sorted(
+            f for f in self._sprite_glob_images(self.sprite_folder)
             if f.stem not in json_basenames
         )
-        files = json_files + standalone_pngs
+        files = json_files + standalone_imgs
         self.sprite_json_files = files
         self.sprite_file_lb.delete(0, tk.END)
         for f in files:
             self.sprite_file_lb.insert(tk.END, f.name)
         nj = len(json_files)
-        np_ = len(standalone_pngs)
-        self.status_var.set(f"Folder: {self.sprite_folder}  |  {nj} JSON + {np_} standalone PNG files.")
+        ni = len(standalone_imgs)
+        self.status_var.set(f"Folder: {self.sprite_folder}  |  {nj} JSON + {ni} standalone image files.")
         # Clear sprite list and preview
         self.sprite_name_lb.delete(0, tk.END)
         self.sprite_list = []
@@ -847,8 +859,12 @@ class TranslationEditor:
 
     def _sprite_browse_file(self):
         path = filedialog.askopenfilename(
-            title="Open sprite JSON or PNG file",
-            filetypes=[("JSON files", "*.json"), ("PNG files", "*.png"), ("All files", "*.*")]
+            title="Open sprite JSON or PNG/JPG file",
+            filetypes=[("JSON files", "*.json"),
+                       ("Image files", "*.png *.jpg *.jpeg"),
+                       ("PNG files", "*.png"),
+                       ("JPEG files", "*.jpg *.jpeg"),
+                       ("All files", "*.*")]
         )
         if not path:
             return
@@ -857,11 +873,11 @@ class TranslationEditor:
         self.sprite_folder_var.set(str(self.sprite_folder))
         json_files = sorted(self.sprite_folder.glob("*.json"))
         json_basenames = {f.stem for f in json_files}
-        standalone_pngs = sorted(
-            f for f in self.sprite_folder.glob("*.png")
+        standalone_imgs = sorted(
+            f for f in self._sprite_glob_images(self.sprite_folder)
             if f.stem not in json_basenames
         )
-        files = json_files + standalone_pngs
+        files = json_files + standalone_imgs
         self.sprite_json_files = files
         self.sprite_file_lb.delete(0, tk.END)
         for f in files:
@@ -870,7 +886,7 @@ class TranslationEditor:
             idx = files.index(p)
             self.sprite_file_lb.selection_set(idx)
             self.sprite_file_lb.see(idx)
-        if p.suffix.lower() == ".png":
+        if p.suffix.lower() in IMAGE_EXTS:
             self._sprite_load_standalone_png(p)
         else:
             self._sprite_load_json(p)
@@ -880,7 +896,7 @@ class TranslationEditor:
         if not sel or sel[0] >= len(self.sprite_json_files):
             return
         file_path = self.sprite_json_files[sel[0]]
-        if file_path.suffix.lower() == ".png":
+        if file_path.suffix.lower() in IMAGE_EXTS:
             self._sprite_load_standalone_png(file_path)
         else:
             self._sprite_load_json(file_path)
@@ -929,22 +945,23 @@ class TranslationEditor:
             f"{json_path.name}  |  Format: {fmt}  |  {n} sprites  |  Atlas: {png_name}"
         )
 
-    def _sprite_load_standalone_png(self, png_path):
+    def _sprite_load_standalone_png(self, img_path):
         try:
-            img = Image.open(png_path).convert("RGBA")
+            img = Image.open(img_path).convert("RGBA")
         except Exception as e:
-            messagebox.showerror("PNG Error", f"Cannot open {png_path.name}:\n{e}")
+            messagebox.showerror("Image Error", f"Cannot open {img_path.name}:\n{e}")
             return
         self.sprite_atlas_img = img
-        self.sprite_atlas_path = png_path
+        self.sprite_atlas_path = img_path
         self.sprite_json_data = None
         self.sprite_format = "standalone"
         w, h = img.size
-        self.sprite_list = [(png_path.stem, 0, 0, w, h)]
+        self.sprite_list = [(img_path.stem, 0, 0, w, h)]
         self._sprite_populate_list()
         self._sprite_draw_atlas_thumb()
+        fmt = img_path.suffix.upper().lstrip(".")
         self.status_var.set(
-            f"{png_path.name}  |  Standalone PNG  |  {w}×{h}"
+            f"{img_path.name}  |  Standalone {fmt}  |  {w}×{h}"
         )
 
     def _sprite_detect_format(self, data):
@@ -964,7 +981,11 @@ class TranslationEditor:
                 candidate = json_path.parent / val
                 if candidate.exists():
                     return candidate
-        # Fall back to same basename with .png
+        # Fall back to same basename, trying PNG then JPG
+        for ext in IMAGE_EXTS:
+            candidate = json_path.with_suffix(ext)
+            if candidate.exists():
+                return candidate
         return json_path.with_suffix(".png")
 
     def _sprite_extract_list(self, data, fmt):
@@ -1141,13 +1162,18 @@ class TranslationEditor:
             return
         safe_name = re.sub(r'[\\/:*?"<>|]', "_", name)
         out = filedialog.asksaveasfilename(
-            title="Save sprite as PNG",
+            title="Save sprite as image",
             initialfile=f"{safe_name}.png",
             defaultextension=".png",
-            filetypes=[("PNG", "*.png")]
+            filetypes=[("PNG", "*.png"),
+                       ("JPEG", "*.jpg *.jpeg"),
+                       ("All files", "*.*")]
         )
         if out:
-            crop.save(out)
+            save_img = crop
+            if Path(out).suffix.lower() in (".jpg", ".jpeg"):
+                save_img = crop.convert("RGB")
+            save_img.save(out)
             self.status_var.set(f"Extracted → {out}")
 
     def _sprite_extract_all(self):
@@ -1191,8 +1217,11 @@ class TranslationEditor:
             return
         name, x, y, w, h = entry
         src = filedialog.askopenfilename(
-            title=f"Import replacement PNG for '{name}'",
-            filetypes=[("PNG files", "*.png"), ("All files", "*.*")]
+            title=f"Import replacement image for '{name}'",
+            filetypes=[("Image files", "*.png *.jpg *.jpeg"),
+                       ("PNG files", "*.png"),
+                       ("JPEG files", "*.jpg *.jpeg"),
+                       ("All files", "*.*")]
         )
         if not src:
             return
@@ -1252,15 +1281,21 @@ class TranslationEditor:
             return
         if self.sprite_atlas_path is None:
             out = filedialog.asksaveasfilename(
-                title="Save atlas PNG",
+                title="Save atlas image",
                 defaultextension=".png",
-                filetypes=[("PNG", "*.png")]
+                filetypes=[("PNG", "*.png"),
+                           ("JPEG", "*.jpg *.jpeg"),
+                           ("All files", "*.*")]
             )
             if not out:
                 return
             self.sprite_atlas_path = Path(out)
         try:
-            self.sprite_atlas_img.save(self.sprite_atlas_path)
+            img = self.sprite_atlas_img
+            # JPEG does not support alpha channel — flatten to RGB
+            if self.sprite_atlas_path.suffix.lower() in (".jpg", ".jpeg"):
+                img = img.convert("RGB")
+            img.save(self.sprite_atlas_path)
             self.status_var.set(f"Atlas saved → {self.sprite_atlas_path}")
         except Exception as e:
             messagebox.showerror("Save Error", str(e))
