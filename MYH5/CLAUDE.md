@@ -1572,3 +1572,101 @@ contain the new `playerTradeComponent` field/getter and the 17400-17419
   flow, gold deduction/credit, item delivery) — only static compilation and
   byte-for-byte jar-injection verification.
 
+### Third follow-up fix: "Tradeable Item" screen showed nothing (2026-06-30)
+
+**Symptom:** the standalone "Tradeable Item" dialog (`dialog.trading.TradingSellSkin`,
+opened via the bag's "Tradeable Item" button) always showed "No tradeable
+items.", even after the market-browse fix. The user clarified the intended
+design: items dropped from 5 specific boss-kill sources (Divine Fallen Eagle,
+Cross-server Secret Realm BOSS, World Boss, Lost Demon Realm, Phantom Realm
+Forbidden Zone) should be sellable via this screen.
+
+**Root causes found (three, compounding):**
+1. **Wrong wire message, client-side bug.** The client's
+   `requestTradingSellMyItem` (called by `TradingSellSkin.enter()`) sent
+   `C2G_Trade_GetSellInfo` — the *exact same, parameterless* message already
+   used by the market-browse screen (`requestTradingSellList`). Both
+   functions are byte-for-byte indistinguishable requests, so the server had
+   no way to tell which screen was asking; it always answered with the full
+   market list (`ProtoTradeSellItem` shape: OrderId/PlayerId/.../Price/
+   EndTime). The "Tradeable Item" screen's VO (`TradingSellMyItemVO.decode`)
+   expects `ProtoTradeStorageItem` shape (ItemId/Count/BagType) — a field
+   mismatch that left the screen empty.
+2. **No trade-eligibility data anywhere server-side.** The `ITEMTRADE`
+   template (`templates.Map.ITEMTRADE`, client key `"itemTrade"`) that the
+   sell-confirmation popup (`TradingSellShangJiaTip`) reads price/priceMin/
+   priceMax from had no server-side equivalent at all.
+3. **No bag-query code path** populated "my eligible-to-sell bag items" —
+   `handleGetStorageInfo` queried the (separate, legitimate) cancelled/
+   expired-listing claim table, not the player's live bag.
+
+**Key discovery that simplified the fix:** the client's own bundled data
+file (`resource/data/config.nncc` / `config1.nncc`, both contain an
+already-fully-populated `"itemTrade"` JSON array — 47 itemIds with
+price/priceMin/priceMax/pool fields) turns out to **already encode the
+intended whitelist** — these are exactly the boss-drop items the game design
+intends to be tradeable. No new item list had to be invented; it was
+extracted verbatim from this existing client data and mirrored server-side.
+
+Also discovered: `JSONDataManager.load()` (server) indexes **every** `*.json`
+file under `conf/` by filename, regardless of whether a loader is registered
+in `ConcreteGameRefObjetLoaderRegister` — so a brand-new template type can be
+read via `JSONDataManagerContext.get("itemTrade")` directly from `TradeMgr`
+without needing to touch that large, shared ~100-entry registry class at all
+(avoids the highest-risk part of the originally-considered approach).
+
+Also discovered: `C2G_Trade_GetStorageInfo` / `requestPickupShop` (pickup-
+storage) was **already wired by the client to refresh the same
+`TradingSellMyItemVO` list** the "Tradeable Item" screen renders
+(`initTradingSellMyItem(E.ItemList)`), and no client code currently sends
+`C2G_Trade_GetStorageInfo` at all — confirming this message is safe to
+fully repurpose for "player's own tradeable bag items" with no risk to any
+existing feature.
+
+**Fix:**
+- `TradeMgr` (new): lazily loads `conf/.../itemTrade.json` (read by filename
+  via `JSONDataManagerContext.get("itemTrade")`, no registry changes) into
+  an `itemId -> ItemTradeRule{price,priceMin,priceMax}` map. New
+  `getTradeableBagItems(Player)` enumerates the player's live bag
+  (`getItemBagComponent().getItemBag().getItemBagCollection()`) and returns
+  `Trade`-shaped (itemId/count) entries for any item whose id is in the
+  whitelist.
+- `TradeMgr.sellItem` now also validates `itemId` is in the whitelist and
+  `price` is within `[priceMin, priceMax]` before allowing a listing
+  (previously had no such checks).
+- `PlayerTradeComponent.handleGetStorageInfo` / `handlePickUpStorageItem`
+  now build their response from `TradeMgr.getTradeableBagItems(player)`
+  instead of the legacy claim-table query.
+- `itemTrade.json` (new, 47 entries, identical values to the client's
+  `config.nncc`/`config1.nncc` `"itemTrade"` array) added under
+  `conf/item/` in all 4 server instances (`my_s1`, `my_s2`, `my_s3`,
+  `my_kuafu`).
+- **One client JS edit** (`main.min_39fbca0f3.js`): `requestTradingSellMyItem`
+  now sends `C2G_Trade_GetStorageInfo` / reads `E.ItemList`/`E.LeftSellCount`
+  instead of colliding with the market-browse message — this was a genuine
+  pre-existing bug in the client bundle (the function name says
+  "MyItem" but was wired to the wrong message), not new client behavior
+  being invented.
+
+**Files modified:**
+- `sophia/mmorpg/Trade/TradeMgr.java` (whitelist load + `getTradeableBagItems`
+  + `sellItem` validation)
+- `sophia/mmorpg/Trade/ItemTradeRule.java` (new, plain bean)
+- `sophia/mmorpg/Trade/PlayerTradeComponent.java` (`handleGetStorageInfo`,
+  `handlePickUpStorageItem` data source swap)
+- `conf/item/itemTrade.json` (new, all 4 server instances)
+- `js/main.min_39fbca0f3.js` (`requestTradingSellMyItem`, 1 function body)
+
+**Compilation & jar-patch verification:** `TradeMgr`, `ItemTradeRule`,
+`PlayerTradeComponent`, `Trade`, `TradeRecord` compiled clean (`javac
+-source 8 -target 8`) and injected into all 4 server jars via `jar uf`
+(each backed up first as `server.jar.bak.pre_trade_whitelist`). Verified via
+`md5sum` that `TradeMgr.class` is byte-identical across all 4 patched jars.
+
+**NOT yet done:** no in-game/live testing of the "Tradeable Item" → list →
+buy flow has been performed; the actual boss-kill drop tables were not
+audited to confirm itemId-to-boss-source attribution (the implementation is
+intentionally pull-based / sell-time whitelist validation, so it does not
+depend on tracking which boss an item came from — only whether the item id
+is on the whitelist and currently in the player's bag).
+
