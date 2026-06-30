@@ -1380,64 +1380,114 @@ procedure `IN`/`OUT` parameter lists in both `myh5_s1.sql` and
   detected...") instead of silent rollback — check server logs for that
   message to confirm Fix 12 is catching it correctly.
 
-## Trade Panel ("TRADE" / Player Marketplace) — investigated 2026-06-30
+## Trade / Marketplace Feature — implemented 2026-06-30
 
-User reported the in-game "TRADE" panel always shows "No tradeable items."
-(screenshot of `TradingSellSkin`, the player-to-player marketplace/Auction
-House listing UI — NOT the loot-notification popup `TradingSellShowItemTip`,
-which is a different, unrelated feature).
+Full player-to-player item marketplace ("TRADE" panel / Auction House),
+covering listing items for sale, browsing/buying the market, cancelling a
+listing, claiming returned/unsold items, viewing sell/buy history, and
+gold<->moshi exchange. Originally the panel always showed "No tradeable
+items" because the client model's three list-query methods
+(`requestTradingSellMyItem`/`requestTradingSellList`/`requestTradingSellRecord`)
+were empty stubs and the server had no query messages for them — only
+sell/buy/cancel/pickup actions existed. This has been fully built out
+end-to-end (server handlers + new protocol messages + client wiring).
 
-### Root cause (confirmed)
-In `my_web/myh5_cilent/v1.1.9.1/js/main.min_39fbca0f3.js`, the model class
-behind `GameModels.tradingSell` has these three methods completely empty:
-```js
-A.prototype.requestTradingSellMyItem = function(F){}
-A.prototype.requestTradingSellList   = function(F){}
-A.prototype.requestTradingSellRecord = function(F){}
-```
-They take a callback `F` but never call it and never send anything to the
-server. The panel's `enter()` calls
-`GameModels.tradingSell.requestTradingSellMyItem(utils.Handler.create(...))`
-expecting the callback to eventually run and populate `_listTrading.source`
-— but since the body is empty, the callback never fires and the list stays
-empty forever. This reproduces "No tradeable items." 100% of the time,
-regardless of what items the player owns.
+### DB schema
+`game_auction` (existing table, redesigned) — one row per listing:
+`id` (orderId, PK varchar(36)), `playerId`, `sellerName`, `itemId`, `count`,
+`price`, `status` (0=ACTIVE,1=SOLD,2=CANCELLED,3=EXPIRED), `startTime`,
+`endTime` (epoch ms), `item` (nullable byte[], reserved for future complex
+item instances). Indexes: `idx_auction_playerId`, `idx_auction_status_endTime`.
+New table `game_trade_record` — one row per completed purchase: `id`,
+`orderId`, `buyPlayerId`, `buyPlayerName`, `sellPlayerId`, `sellPlayerName`,
+`itemId`, `count`, `price`, `buyTime`.
+Applied (idempotently) to all 4 DBs' schema sources:
+`MYH5/环境/sql/myh5_s1.sql` (covers my_s1/my_s2/my_s3, which share one master
+schema) and `MYH5/my_kuafu/setup_kuafu_db.sql`. Standalone migration script
+for already-deployed databases: `MYH5/环境/sql/trade_migration.sql`
+(mirrors `fix12_version_lock_migration.sql`'s
+information_schema-guarded ALTER TABLE pattern — safe to re-run).
 
-Compounding this: searching the whole client bundle for protocol message
-names turns up only `C2G_Trade_SellItem`, `C2G_Trade_BuyItem`,
-`C2G_Trade_CancelSell`, `C2G_Trade_ExchangeMoShi`,
-`C2G_Trade_PickUpStorageItem` (sell/buy/cancel/pickup) and one server→client
-push `G2C_Trade_NotifyDropItems`. **There is no `C2G_Trade_*` message at all
-for "get my sellable items" / "get market listing" / "get my sell record".**
-So this isn't just a missing function call — the client-server protocol for
-*browsing* the market was apparently never implemented/shipped in this
-build. Only the sell/buy/cancel/pickup actions exist; nothing populates the
-three list views.
+### Defaults / design decisions
+- Listing duration: fixed 7 days, enforced server-side (`TradeMgr.LISTING_DURATION_MS`),
+  not DB-level.
+- Trade currency: Gold. MoShi is a separate currency, only convertible via
+  the dedicated `ExchangeMoShi` action (fixed placeholder 1:1 gold<->moshi
+  rate — no real exchange-rate precedent exists anywhere in the decompiled
+  source, so this is clearly marked as a placeholder pending real design
+  input).
+- No tax/fee on sale — full price credited to seller.
+- Seller gold credit on a successful buy is best-effort, online-only
+  (`MMORPGContext.getPlayerComponent().getPlayerManager().getOnlinePlayer`).
+  **Known limitation**: if the seller is offline at sale time, gold credit
+  is skipped (logged as a warning) — no cross-player mail/pending-gold
+  mechanism exists for this yet.
+- Cancelled/expired listings are NOT pushed back into the seller's live bag
+  (could be full / seller offline). Instead the `game_auction` row is left
+  with status CANCELLED/EXPIRED; `GetStorageInfo`/`PickUpStorageItem` expose
+  and consume it. Row deletion on pickup == "claimed" (no extra column
+  needed) — see `TradeDao`'s class-level DESIGN NOTE.
+- Market list capped at 50 rows per request (`TradeDao.MARKET_LIMIT_CAP`).
 
-### Ruled out
-- `templates.itemTrade` whitelist (positional fields id/type/price/priceMin/
-  priceMax/personalPool/serverPool1-4) IS populated and non-empty — confirmed
-  by reading `resource/data/config.nncc` directly, e.g. entries like
-  `212101,0,8000,4000,40000,5,10,12,14,15`. So the tradeable-items whitelist
-  itself is fine; this is not a config/data problem.
-- `bindType` on items (`conf/item/propsItem.json`, `equipItem.json`) is `0`
-  for literally every item in both files — not a per-item blocker either.
+### Server-side files (new)
+- `sophia.mmorpg.Trade.Trade` — `game_auction` row model.
+- `sophia.mmorpg.Trade.TradeRecord` — `game_trade_record` row model.
+- `sophia.mmorpg.Trade.TradeMgr` — static manager: `sellItem`, `buyItem`,
+  `cancelSell`, `pickUpStorageItem`, `exchangeMoShi`, `expireOverdueListings`,
+  `getSellInfo`, `getStorageInfo`, `getRecordList`, `getMarketList`.
+- `sophia.mmorpg.Trade.persistence.TradeDao` — singleton DAO, raw hand-rolled
+  SQL (mirrors `MailDao`'s convention).
+- `sophia.mmorpg.Trade.PlayerTradeComponent` — per-player component
+  (mirrors `PlayerMailComponent`), registers the 8 `C2G_Trade_*` action
+  listeners, dispatches to `TradeMgr`, sends `G2C_Trade_*` responses.
+- 20 new proto message classes under `sophia.mmorpg.proto`: 3 structs
+  (`ProtoTradeStorageItem`, `ProtoTradeSellItem`, `ProtoTradeRecord`) + 8
+  C2G/G2C action pairs (GetSellInfo, GetStorageInfo, GetRecordList already
+  existed as queries that were missing — now added; SellItem, BuyItem,
+  CancelSell, PickUpStorageItem, ExchangeMoShi already existed and are
+  unchanged) + `G2C_Trade_NotifyDropItems` (already existed, unchanged).
+  `ProtoDropItems` (ID 10901) is a pre-existing, unrelated struct reused
+  as-is by `G2C_Trade_NotifyDropItems` — NOT re-registered.
 
-### What it would take to actually fix this
-This needs BOTH client and server work, not a one-line patch:
-1. Server side: a real handler for "get my tradeable items" / "get market
-   listing" / "get my sell record" requests (look at how `C2G_Trade_SellItem`
-   /`C2G_Trade_BuyItem` are handled server-side for the pattern to follow;
-   their responses already carry `ItemList`, so the server clearly has the
-   data — it just isn't exposed via a query message).
-2. New `C2G_*`/`G2C_*` protocol messages (or message IDs) for that query, on
-   both server and client.
-3. Client side: replace the three empty stub functions above with real
-   implementations that send the new request and invoke the callback with
-   the response (mirroring `requestSellShop`/`requestCancelSell`, which DO
-   work correctly and are good templates).
+### Modified existing classes
+- `sophia.mmorpg.player.Player` — added `playerTradeComponent` field +
+  `getPlayerTradeComponent()` getter, wired into `registComponents()`.
+- `sophia.mmorpg.proto.ProtoEventManager` — registered message IDs
+  17400-17419 (`registerActionEvents()`): 17400-17402 are the 3 structs,
+  17403-17419 are the 8 C2G/G2C pairs + the notify push, matching the
+  client's `protos.min_462eb740.js` `MessageMap.TRADE_*`/`PROTOTRADE*`
+  constants exactly.
 
-This is a genuine missing-feature gap (more than a regression/bug fix), so
-it has NOT been attempted yet — flag to the user before starting, since it
-needs a server-side protocol decision, not just a client JS patch.
+### Client-side files (modified)
+- `my_web/myh5_cilent/v1.1.9.1/js/main.min_39fbca0f3.js` — `mo.ModelTradingSell`'s
+  three previously-empty stub methods now send real requests and populate
+  the corresponding VO lists on response, mirroring the existing
+  `requestSellShop`/`requestCancelSell` pattern:
+  - `requestTradingSellMyItem` → `C2G_TRADE_GETSELLINFO` → `initTradingSellMyItem(SellItemList)`, `_leftSellCount = LeftCount`.
+  - `requestTradingSellList` → `C2G_TRADE_GETSTORAGEINFO` → `initTradingSellList(ItemList)`.
+  - `requestTradingSellRecord` → `C2G_TRADE_GETRECORDLIST` → `initTradingSellRecord(RecordList)`.
+  Backed up first as `main.min_39fbca0f3.js.bak.pre_trade`. `node --check`
+  confirmed syntactically valid after the edit.
+
+### Compilation & jar-patch verification (commands actually run)
+All new/modified Java compiled clean (`javac -source 8 -target 8`, only an
+unrelated "unchecked operations" note, zero errors) against
+`my_s1/server.jar:my_s1/moyu_lib/*`. All 26 Trade-related `.class` files
+(5 new Trade/* classes + 20 new proto classes + modified `Player.class` +
+modified `ProtoEventManager.class`) were injected into all 4 server jars
+(`my_s1`, `my_s2`, `my_s3`, `my_kuafu`) via `jar uf`, each jar backed up
+first as `server.jar.bak.pre_trade`. Verified via `md5sum` that every one
+of the 26 classes is byte-identical across all 4 patched jars, and that
+`Player.class`/`ProtoEventManager.class` (decompiled with `javap`) actually
+contain the new `playerTradeComponent` field/getter and the 17400-17419
+`MessageFactory.addMessage` registrations respectively.
+
+### NOT yet done
+- The SQL migration (`trade_migration.sql` / updated master schema files)
+  has NOT been executed against any live database — this requires
+  production DB access and should be run with servers stopped, per the
+  ordering notes inside `trade_migration.sql`.
+- No in-game/live testing has been performed (sell/buy/cancel/pickup/browse
+  flow, gold deduction/credit, item delivery) — only static compilation and
+  byte-for-byte jar-injection verification.
 

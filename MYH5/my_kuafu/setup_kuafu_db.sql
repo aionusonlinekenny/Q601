@@ -108,11 +108,33 @@ CREATE TABLE IF NOT EXISTS `blacklist` (
 CREATE TABLE IF NOT EXISTS `game_auction` (
   `id` varchar(36) NOT NULL,
   `playerId` varchar(36) NOT NULL,
+  `sellerName` varchar(64) NOT NULL DEFAULT '',
+  `itemId` varchar(64) NOT NULL DEFAULT '',
+  `count` int(11) NOT NULL DEFAULT '1',
   `price` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '0',
   `startTime` bigint(64) NOT NULL,
   `endTime` bigint(64) NOT NULL,
-  `item` mediumblob NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE
+  `item` mediumblob,
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `idx_auction_playerId` (`playerId`),
+  KEY `idx_auction_status_endTime` (`status`,`endTime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT KEY_BLOCK_SIZE=16;
+
+CREATE TABLE IF NOT EXISTS `game_trade_record` (
+  `id` varchar(36) NOT NULL,
+  `orderId` varchar(36) NOT NULL,
+  `buyPlayerId` varchar(36) NOT NULL,
+  `buyPlayerName` varchar(64) NOT NULL DEFAULT '',
+  `sellPlayerId` varchar(36) NOT NULL,
+  `sellPlayerName` varchar(64) NOT NULL DEFAULT '',
+  `itemId` varchar(64) NOT NULL DEFAULT '',
+  `count` int(11) NOT NULL DEFAULT '1',
+  `price` int(11) NOT NULL,
+  `buyTime` bigint(64) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `idx_traderecord_sellPlayerId` (`sellPlayerId`),
+  KEY `idx_traderecord_buyPlayerId` (`buyPlayerId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT KEY_BLOCK_SIZE=16;
 
 CREATE TABLE IF NOT EXISTS `game_chatfriend` (

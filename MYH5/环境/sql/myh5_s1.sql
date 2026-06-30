@@ -49,21 +49,61 @@ CREATE TABLE `cfg_server` (
 INSERT INTO `cfg_server` VALUES ('7', '2020-03-15 12:00:00');
 
 -- ----------------------------
--- Table structure for game_auction
+-- Table structure for game_auction (Trade / Marketplace listings)
 -- ----------------------------
+-- Redesigned for the player-to-player Trade/Marketplace feature: explicit
+-- columns (instead of an opaque `item` blob) so the server can list a
+-- player's own active listings, browse the full server market, and look up
+-- a single order by id without deserializing a blob. `status` distinguishes
+-- active/sold/cancelled/expired listings so sold/cancelled rows can be kept
+-- for history instead of being deleted. `sellerName` is denormalized from
+-- the player table purely to avoid a join when rendering the market list.
 DROP TABLE IF EXISTS `game_auction`;
 CREATE TABLE `game_auction` (
-  `id` varchar(36) NOT NULL COMMENT '拍卖物id',
-  `playerId` varchar(36) NOT NULL COMMENT '玩家playerId',
-  `price` int(11) NOT NULL COMMENT '价格',
-  `startTime` bigint(64) NOT NULL COMMENT '开始时间',
-  `endTime` bigint(64) NOT NULL COMMENT '结束时间',
-  `item` mediumblob NOT NULL COMMENT '拍卖物',
-  PRIMARY KEY (`id`) USING BTREE
+  `id` varchar(36) NOT NULL COMMENT '挂单id (orderId)',
+  `playerId` varchar(36) NOT NULL COMMENT '卖家玩家id',
+  `sellerName` varchar(64) NOT NULL DEFAULT '' COMMENT '卖家名称(冗余,避免market列表join)',
+  `itemId` varchar(64) NOT NULL COMMENT '物品id(itemRefId或唯一实例id,视物品类型而定)',
+  `count` int(11) NOT NULL DEFAULT '1' COMMENT '数量',
+  `price` int(11) NOT NULL COMMENT '总价',
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0=active 1=sold 2=cancelled 3=expired',
+  `startTime` bigint(64) NOT NULL COMMENT '开始时间(毫秒)',
+  `endTime` bigint(64) NOT NULL COMMENT '结束时间(毫秒, 默认7天)',
+  `item` mediumblob COMMENT '拍卖物序列化数据(可选,兼容复杂物品实例)',
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `idx_auction_playerId` (`playerId`),
+  KEY `idx_auction_status_endTime` (`status`,`endTime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT KEY_BLOCK_SIZE=16;
 
 -- ----------------------------
 -- Records of game_auction
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for game_trade_record (Trade / Marketplace sell history)
+-- ----------------------------
+-- One row per completed (bought) trade. Used to answer "my sell record"
+-- queries (rows where the requesting player is sellPlayerId) without
+-- scanning/parsing game_auction's sold/cancelled rows.
+DROP TABLE IF EXISTS `game_trade_record`;
+CREATE TABLE `game_trade_record` (
+  `id` varchar(36) NOT NULL COMMENT '记录id',
+  `orderId` varchar(36) NOT NULL COMMENT '原挂单id(game_auction.id)',
+  `buyPlayerId` varchar(36) NOT NULL COMMENT '买家玩家id',
+  `buyPlayerName` varchar(64) NOT NULL DEFAULT '' COMMENT '买家名称(冗余)',
+  `sellPlayerId` varchar(36) NOT NULL COMMENT '卖家玩家id',
+  `sellPlayerName` varchar(64) NOT NULL DEFAULT '' COMMENT '卖家名称(冗余)',
+  `itemId` varchar(64) NOT NULL COMMENT '物品id',
+  `count` int(11) NOT NULL DEFAULT '1' COMMENT '数量',
+  `price` int(11) NOT NULL COMMENT '成交价',
+  `buyTime` bigint(64) NOT NULL COMMENT '成交时间(毫秒)',
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `idx_traderecord_sellPlayerId` (`sellPlayerId`),
+  KEY `idx_traderecord_buyPlayerId` (`buyPlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT KEY_BLOCK_SIZE=16;
+
+-- ----------------------------
+-- Records of game_trade_record
 -- ----------------------------
 
 -- ----------------------------
