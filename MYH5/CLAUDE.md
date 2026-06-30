@@ -1246,43 +1246,112 @@ is where the version-lock is enforced, so both paths are protected by the same c
   is set server-side to a literal `0`, and a freshly created `Player` already
   defaults `dbVersion` to 0.
 
-### Compilation Status
-This decompiled source tree (CFR output) has **pre-existing, unrelated
-decompiler artifacts** that block a full clean `javac` build independent of
-this fix — e.g. `ObjectDAO.java` declares `prepareCall(sql)` results as
-`Statement` instead of `CallableStatement` (missing `setObject(String,Object)`/
-`executeUpdate()` no-arg overloads), and several other files
-(`DependencyManager.java`, `PropertiesWrapper.java`, `DaoConfig.java`) have
-decompiler syntax breakage unrelated to player persistence. These pre-date this
-session and are out of scope here.
+### Compilation Status — COMPLETED (full build + jar injection)
+A follow-up session finished the build end to end. The only real blocker was
+**local to `PlayerDAO.java` itself**, not `ObjectDAO.java`/`DependencyManager.java`/
+`PropertiesWrapper.java`/`DaoConfig.java` as originally suspected — those files
+were never actually in the compile dependency chain for `PlayerDAO`. The CFR
+decompiler had mistyped three `Connection.prepareCall(sql)`/`prepareStatement(sql)`
+result variables in `PlayerDAO.java` as the base `Statement` interface instead of
+`PreparedStatement`/`CallableStatement`, which hid `setObject`/`setString`/
+no-arg `executeUpdate()`. Fixed in place (decompiler bug fix, not a behavior
+change):
+- `deletePlayer()` (~line 354) and `deletePlayers()` (~line 414): `Statement pstat` → `PreparedStatement pstat` (both call `conn.prepareStatement(sql)`).
+- `UpdatePlayerName()` (~line 983): `Statement callableStatement` → `CallableStatement callableStatement` (calls `conn.prepareCall(sql)`).
 
-Verified instead by targeted compilation: javac was run against the 4 changed
-files (`PlayerDAO.java`, `PlayerSaveableObject.java`, `PlayerSaveComponent.java`,
-`Player.java`) with `-cp server.jar:moyu_lib/*.jar`. The compiler's error output
-maps 1:1 to the pre-existing baseline errors (confirmed by diffing error line
-numbers against the unmodified file) — **zero new errors originate from the
-Fix 12 code added in this session.** Full `.class` generation / jar injection
-was not performed because the baseline `ObjectDAO`/dependency errors must be
-fixed first to produce a working build, which is a separate, larger undertaking
-outside this fix's scope.
+With those three fixed, `javac -source 8 -target 8 -cp server.jar:moyu_lib/*.jar`
+compiled all 4 modified files (`Player.java`, `PlayerDAO.java`,
+`PlayerSaveableObject.java`, `PlayerSaveComponent.java`) **with zero errors**
+against `MYH5/my_s1/server.jar` + `MYH5/my_s1/moyu_lib/*.jar` as classpath. No
+anonymous/inner classes were generated (no `$1`-style classes for this fix).
+
+**Jar injection — done for all 4 servers.** Each original `server.jar` was
+backed up first (`server.jar.bak.pre_fix12`, mirroring the existing
+`.bak.pre_kuafu` convention), then patched via:
+```bash
+cd classes && jar uf server.jar \
+  sophia/mmorpg/player/Player.class \
+  sophia/mmorpg/player/persistence/PlayerDAO.class \
+  sophia/mmorpg/player/persistence/PlayerSaveableObject.class \
+  sophia/mmorpg/player/persistence/PlayerSaveComponent.class
+```
+Verified post-injection by extracting each class from each of the 4 jars and
+comparing md5sum against the freshly compiled `.class` files — all 4 jars
+(`MYH5/my_s1/server.jar`, `MYH5/my_s2/server.jar`, `MYH5/my_s3/server.jar`,
+`MYH5/my_kuafu/server.jar`) contain the identical, correctly compiled Fix 12
+classes.
 
 Modified Java sources are kept at
 `scratchpad/fix12_src/sophia/mmorpg/player/{Player.java,persistence/PlayerDAO.java,persistence/PlayerSaveableObject.java,persistence/PlayerSaveComponent.java}`
-for reference/future compilation once the baseline decompiler issues are addressed.
+(now including the three `Statement`→`PreparedStatement`/`CallableStatement`
+decompiler-bug fixes above) for reference.
 
-### Deployment Note
-The SQL changes (table column + both stored procedures) are immediately
-deployable/safe on their own — `expectedVersion`/`affectedRows` only take
-effect once the Java side actually passes them, so applying the SQL migration
-first is safe. The Java change requires a working server.jar rebuild before
-the version-lock is actually enforced at runtime.
+### Migration SQL for existing production databases
+`MYH5/环境/sql/fix12_version_lock_migration.sql` is a standalone, idempotent
+migration script (guards the `ALTER TABLE` via `information_schema`, uses
+`DROP PROCEDURE IF EXISTS` before each `CREATE PROCEDURE`) that brings an
+**existing** `player` table up to date — the `CREATE TABLE`/`CREATE TABLE IF
+NOT EXISTS` statements in `myh5_s1.sql`/`setup_kuafu_db.sql` only take effect
+on a brand-new database. This ONE script must be run against **all four**
+databases (`myh5_s1`, `myh5_s2`, `myh5_s3`, `myh5_kuafu` — confirmed there is
+only one shared `player` schema across all 3 main servers plus kuafu; see
+`MYH5/my_s{1,2,3}/data/morningGlory_data.xml` and
+`MYH5/my_kuafu/data/morningGlory_data.xml` connection strings):
+```bash
+mysql -u root -p123456 myh5_s1    < MYH5/环境/sql/fix12_version_lock_migration.sql
+mysql -u root -p123456 myh5_s2    < MYH5/环境/sql/fix12_version_lock_migration.sql
+mysql -u root -p123456 myh5_s3    < MYH5/环境/sql/fix12_version_lock_migration.sql
+mysql -u root -p123456 myh5_kuafu < MYH5/环境/sql/fix12_version_lock_migration.sql
+```
+
+### Deployment Note — CORRECTED (previous version of this note was wrong/unsafe)
+A previous draft of this note claimed the SQL migration was "safe to deploy on
+its own" before the Java change, on the theory that the new
+`expectedVersion`/`affectedRows` parameters "only take effect once Java passes
+them." **That claim was incorrect and dangerous.** `PlayerDAO.getUpdateSql()`
+builds a fixed JDBC `CallableStatement` string — `{call updatePlayer(?, ?, ...)}`
+with a hardcoded `?` count (31 before this fix, 33 after). MySQL stored
+procedure calls validate the parameter count at the JDBC/server layer
+independent of what Java "does" with the values — if the deployed
+`updatePlayer` procedure expects 33 parameters but the running server.jar's
+`CallableStatement` only supplies 31 (old jar, new SQL) — or vice versa (new
+jar, old SQL: 33 supplied against a 31-parameter procedure) — **every single
+player save fails immediately** with
+`Incorrect number of arguments for PROCEDURE updatePlayer; expected 33, got 31`
+(or the reverse). This is worse than the original bug: instead of an
+occasional rollback, no player's data saves at all until both sides are back
+in sync.
+
+**The SQL and the patched server.jar MUST be deployed together, in the same
+maintenance window, never independently.** Verified parameter counts (31 for
+`newPlayer`, 33 for `updatePlayer`) match exactly between
+`PlayerDAO.getInsertSql()`/`getUpdateSql()`'s `?` placeholders and the stored
+procedure `IN`/`OUT` parameter lists in both `myh5_s1.sql` and
+`fix12_version_lock_migration.sql`.
+
+**Deployment procedure (all 4 servers/DBs together):**
+1. Stop all 4 servers (s1, s2, s3, kuafu).
+2. Back up all 4 databases (`mysqldump` or equivalent) — in addition to the
+   `server.jar.bak.pre_fix12` backups already taken of each original jar.
+3. Run `fix12_version_lock_migration.sql` against all 4 databases (commands
+   above).
+4. Copy the patched `server.jar` into all 4 server directories (`MYH5/my_s1`,
+   `MYH5/my_s2`, `MYH5/my_s3`, `MYH5/my_kuafu`) — already done in this repo
+   checkout; for a separate production deployment, copy the patched jar from
+   this repo to the production server directories.
+5. Start all 4 servers.
 
 ### Files Modified
 - `MYH5/环境/sql/myh5_s1.sql` — `player` table `version` column + migration
   comment, `newPlayer`/`updatePlayer` procedure changes
 - `MYH5/my_kuafu/setup_kuafu_db.sql` — same changes for the kuafu DB
+- `MYH5/环境/sql/fix12_version_lock_migration.sql` — new standalone, idempotent
+  migration script for existing production DBs (all 4)
 - `scratchpad/decompiled/sophia/mmorpg/player/Player.java` — `dbVersion` field/accessors
-- `scratchpad/decompiled/sophia/mmorpg/player/persistence/PlayerDAO.java` — updated SQL strings, `getPlayerFromDB()`, new `updateOneWithVersionLock()`
+- `scratchpad/decompiled/sophia/mmorpg/player/persistence/PlayerDAO.java` — updated SQL strings, `getPlayerFromDB()`, new `updateOneWithVersionLock()`, plus 3 decompiler `Statement`→`PreparedStatement`/`CallableStatement` typing fixes
 - `scratchpad/decompiled/sophia/mmorpg/player/persistence/PlayerSaveableObject.java` — `expectedVersion`/`owningPlayer` fields
 - `scratchpad/decompiled/sophia/mmorpg/player/persistence/PlayerSaveComponent.java` — `snapshot()` populates `expectedVersion`/`owningPlayer`
+- `MYH5/my_s1/server.jar`, `MYH5/my_s2/server.jar`, `MYH5/my_s3/server.jar`,
+  `MYH5/my_kuafu/server.jar` — patched with the compiled Fix 12 classes
+  (originals preserved as `server.jar.bak.pre_fix12`)
 
