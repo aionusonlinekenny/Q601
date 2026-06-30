@@ -1355,3 +1355,89 @@ procedure `IN`/`OUT` parameter lists in both `myh5_s1.sql` and
   `MYH5/my_kuafu/server.jar` — patched with the compiled Fix 12 classes
   (originals preserved as `server.jar.bak.pre_fix12`)
 
+### Final Status (verified 2026-06-30)
+- **Repo state**: fully done and pushed — commit `d9b739b3` on `claude/relaxed-hypatia-ktouu7`.
+  Verified directly (not just trusting agent reports): all 4 `server.jar`
+  (`my_s1`, `my_s2`, `my_s3`, `my_kuafu`) contain the identical patched
+  `PlayerDAO.class` (md5 `f47d973dd316a0f7ec5c025908ab96b1`), each with an
+  original backup at `server.jar.bak.pre_fix12`. Migration SQL file exists at
+  `MYH5/环境/sql/fix12_version_lock_migration.sql`.
+- **NOT yet done**: actually running the migration SQL against live/production
+  MySQL (no MySQL client/instance was available in the sandbox — verified by
+  manual SQL review only, not execution), and the actual maintenance-window
+  deploy (stop servers → backup DBs → run SQL on all 4 DBs → restart). This
+  repo checkout's jars are already patched; only the live DB schema migration
+  + live server restart remain, and those require manual production access.
+- **If asked to investigate player data loss again in the future**: read this
+  Fix 12 section first — the version-lock should already prevent the
+  stale-save-overwrite class of bug (level rollback) at the DB layer, *once
+  the migration SQL has actually been run against production*. If data loss
+  still occurs after the production migration is applied, suspect either (a)
+  the migration was never actually run on production, (b) a different root
+  cause unrelated to the save race, or (c) the original async kick/relogin
+  timing bug itself (intentionally NOT fixed by Fix 12 — see "Chosen Fix"
+  above) is now surfacing as outright failed-save warnings ("Stale save
+  detected...") instead of silent rollback — check server logs for that
+  message to confirm Fix 12 is catching it correctly.
+
+## Trade Panel ("TRADE" / Player Marketplace) — investigated 2026-06-30
+
+User reported the in-game "TRADE" panel always shows "No tradeable items."
+(screenshot of `TradingSellSkin`, the player-to-player marketplace/Auction
+House listing UI — NOT the loot-notification popup `TradingSellShowItemTip`,
+which is a different, unrelated feature).
+
+### Root cause (confirmed)
+In `my_web/myh5_cilent/v1.1.9.1/js/main.min_39fbca0f3.js`, the model class
+behind `GameModels.tradingSell` has these three methods completely empty:
+```js
+A.prototype.requestTradingSellMyItem = function(F){}
+A.prototype.requestTradingSellList   = function(F){}
+A.prototype.requestTradingSellRecord = function(F){}
+```
+They take a callback `F` but never call it and never send anything to the
+server. The panel's `enter()` calls
+`GameModels.tradingSell.requestTradingSellMyItem(utils.Handler.create(...))`
+expecting the callback to eventually run and populate `_listTrading.source`
+— but since the body is empty, the callback never fires and the list stays
+empty forever. This reproduces "No tradeable items." 100% of the time,
+regardless of what items the player owns.
+
+Compounding this: searching the whole client bundle for protocol message
+names turns up only `C2G_Trade_SellItem`, `C2G_Trade_BuyItem`,
+`C2G_Trade_CancelSell`, `C2G_Trade_ExchangeMoShi`,
+`C2G_Trade_PickUpStorageItem` (sell/buy/cancel/pickup) and one server→client
+push `G2C_Trade_NotifyDropItems`. **There is no `C2G_Trade_*` message at all
+for "get my sellable items" / "get market listing" / "get my sell record".**
+So this isn't just a missing function call — the client-server protocol for
+*browsing* the market was apparently never implemented/shipped in this
+build. Only the sell/buy/cancel/pickup actions exist; nothing populates the
+three list views.
+
+### Ruled out
+- `templates.itemTrade` whitelist (positional fields id/type/price/priceMin/
+  priceMax/personalPool/serverPool1-4) IS populated and non-empty — confirmed
+  by reading `resource/data/config.nncc` directly, e.g. entries like
+  `212101,0,8000,4000,40000,5,10,12,14,15`. So the tradeable-items whitelist
+  itself is fine; this is not a config/data problem.
+- `bindType` on items (`conf/item/propsItem.json`, `equipItem.json`) is `0`
+  for literally every item in both files — not a per-item blocker either.
+
+### What it would take to actually fix this
+This needs BOTH client and server work, not a one-line patch:
+1. Server side: a real handler for "get my tradeable items" / "get market
+   listing" / "get my sell record" requests (look at how `C2G_Trade_SellItem`
+   /`C2G_Trade_BuyItem` are handled server-side for the pattern to follow;
+   their responses already carry `ItemList`, so the server clearly has the
+   data — it just isn't exposed via a query message).
+2. New `C2G_*`/`G2C_*` protocol messages (or message IDs) for that query, on
+   both server and client.
+3. Client side: replace the three empty stub functions above with real
+   implementations that send the new request and invoke the callback with
+   the response (mirroring `requestSellShop`/`requestCancelSell`, which DO
+   work correctly and are good templates).
+
+This is a genuine missing-feature gap (more than a regression/bug fix), so
+it has NOT been attempted yet — flag to the user before starting, since it
+needs a server-side protocol decision, not just a client JS patch.
+
