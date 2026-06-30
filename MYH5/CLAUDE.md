@@ -1392,6 +1392,30 @@ were empty stubs and the server had no query messages for them — only
 sell/buy/cancel/pickup actions existed. This has been fully built out
 end-to-end (server handlers + new protocol messages + client wiring).
 
+### Follow-up fix (verified via real in-game screenshots, 2026-06-30)
+After deploying the above, the user tested in-game and the embedded "Trade"
+sub-tab inside the **Bag** panel (`BagDialog`, tabs Equipment/Item/Soul
+Stone/Synthesize/Trade — note this is a SEPARATE UI surface from the
+standalone `TradingSellSkin` dialog opened via `btnAuction`) still showed
+"No items for trade." Root cause: `BagDialog.onSelectChange`'s tab switch
+only handled `case 0`-`case 3` (Equipment/Item/Soul Stone/Synthesize) —
+**`case 4` (the Trade tab) was completely missing**, so selecting that tab
+never called `requestTradingSellList()` and `tradingSellListVO` stayed
+permanently empty regardless of server data. A correct, unused method
+`showTradingSellView()` already existed (calls `requestTradingSellList`
+and binds `listTrade.dataProvider`) but was never invoked from anywhere.
+Fix: added `case 4:this.showTradingSellView();break` to the switch in
+`main.min_39fbca0f3.js` (backup: `main.min_39fbca0f3.js.bak.pre_trade_tab4`).
+
+Also noted but NOT yet fixed: `G2C_TRADE_NOTIFYDROPITEMS` (the push
+notification meant to tell the client "you just picked up a tradeable
+item from a boss kill", per the in-game help tooltip listing 5 boss
+sources) has no client-side handler registered in `main.min_39fbca0f3.js`
+at all — it's a dead/unhandled message. This doesn't block browsing the
+market (covered by the case-4 fix above), but the "fly-over" notification
+when you loot a tradeable item won't show. If the user reports that boss
+loot never visually announces itself as tradeable, wire this up next.
+
 ### DB schema
 `game_auction` (existing table, redesigned) — one row per listing:
 `id` (orderId, PK varchar(36)), `playerId`, `sellerName`, `itemId`, `count`,
