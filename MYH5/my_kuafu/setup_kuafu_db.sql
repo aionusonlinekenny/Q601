@@ -40,10 +40,16 @@ CREATE TABLE IF NOT EXISTS `player` (
   `hefuData` mediumblob,
   `starEquipData` mediumblob,
   `friendData` mediumblob,
+  `version` bigint(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `idx_identityId` (`identityId`) USING BTREE,
   KEY `idx_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT KEY_BLOCK_SIZE=16;
+
+-- Fix 12 migration: optimistic version-lock column for an existing kuafu DB
+-- created before this column existed (CREATE TABLE IF NOT EXISTS above only
+-- applies to a brand-new DB). Run manually if upgrading an existing deployment:
+-- ALTER TABLE `player` ADD COLUMN `version` bigint(20) NOT NULL DEFAULT '0';
 
 -- No-delay player table (for achievements, states, vip, activity)
 CREATE TABLE IF NOT EXISTS `no_delay_player` (
@@ -225,9 +231,10 @@ IN fightsoulData MEDIUMBLOB, IN unionData MEDIUMBLOB, IN storeData MEDIUMBLOB, I
 IN equipData MEDIUMBLOB, IN handbookData MEDIUMBLOB, IN lostTempleData MEDIUMBLOB, IN wingData MEDIUMBLOB, IN serverId VARCHAR(60), IN hefuData MEDIUMBLOB,
 IN starEquipData MEDIUMBLOB, IN friendData MEDIUMBLOB)
 BEGIN
+    -- Column order: ..., friendData, version (version is the new last column; literal 0 for a fresh row)
     INSERT INTO player VALUES(id, identityId, identityName, `name`, propertyData, itemBagData, NULL, dailyQuestData, peerageData, qdCode1, qdCode2,
     birthday, lastLoginTime, lastLogoutTime, `level`, NULL, petData, tarotData, copyData, fightsoulData, unionData, storeData, mineralData, shengHunData,
-    godBoxData, equipData, handbookData, lostTempleData, wingData, serverId, hefuData, starEquipData, friendData);
+    godBoxData, equipData, handbookData, lostTempleData, wingData, serverId, hefuData, starEquipData, friendData, 0);
 END;;
 
 DROP PROCEDURE IF EXISTS `updatePlayer`;;
@@ -235,13 +242,16 @@ CREATE PROCEDURE `updatePlayer`(IN `id` VARCHAR(36), IN identityId VARCHAR(60), 
 IN qdCode1 INT(11),IN qdCode2 INT(11),IN birthday BIGINT,IN lastLoginTime BIGINT,IN lastLogoutTime BIGINT,IN `level` INT(11) , IN propertyData BLOB, IN itemBagData MEDIUMBLOB,
 IN dailyQuestData MEDIUMBLOB, IN peerageData MEDIUMBLOB, IN petData MEDIUMBLOB, IN tarotData MEDIUMBLOB, IN copyData MEDIUMBLOB, IN fightsoulData MEDIUMBLOB, IN unionData MEDIUMBLOB,
 IN storeData MEDIUMBLOB, IN mineralData MEDIUMBLOB, IN shengHunData MEDIUMBLOB, IN godBoxData MEDIUMBLOB, IN equipData MEDIUMBLOB, IN handbookData MEDIUMBLOB,
-IN lostTempleData MEDIUMBLOB, IN wingData MEDIUMBLOB, IN serverId VARCHAR(60), IN hefuData MEDIUMBLOB, IN starEquipData MEDIUMBLOB, IN friendData MEDIUMBLOB)
+IN lostTempleData MEDIUMBLOB, IN wingData MEDIUMBLOB, IN serverId VARCHAR(60), IN hefuData MEDIUMBLOB, IN starEquipData MEDIUMBLOB, IN friendData MEDIUMBLOB,
+IN expectedVersion BIGINT, OUT affectedRows INT)
 BEGIN
     UPDATE player SET propertyData = propertyData, itemBagData = itemBagData, dailyQuestData = dailyQuestData, peerageData = peerageData, qdCode1 = qdCode1,
     qdCode2 = qdCode2, birthday = birthday, lastLoginTime = lastLoginTime, lastLogoutTime = lastLogoutTime, `level`=`level`, petData = petData, tarotData = tarotData,
     copyData = copyData, fightsoulData = fightsoulData,unionData = unionData,storeData = storeData, mineralData = mineralData, shengHunData = shengHunData,
     godBoxData = godBoxData, equipData = equipData, handbookData = handbookData, lostTempleData = lostTempleData, wingData = wingData, serverId = serverId,
-    hefuData = hefuData, starEquipData = starEquipData, friendData = friendData WHERE player.id = `id`;
+    hefuData = hefuData, starEquipData = starEquipData, friendData = friendData, `version` = `version` + 1
+    WHERE player.id = `id` AND player.`version` = expectedVersion;
+    SET affectedRows = ROW_COUNT();
 END;;
 
 DROP PROCEDURE IF EXISTS `newNoDelayPlayer`;;

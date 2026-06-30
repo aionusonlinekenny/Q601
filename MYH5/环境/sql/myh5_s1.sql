@@ -422,10 +422,21 @@ CREATE TABLE `player` (
   `hefuData` mediumblob COMMENT '合服活动数据',
   `starEquipData` mediumblob COMMENT '星辰装备',
   `friendData` mediumblob COMMENT '好友数据',
+  `version` bigint(20) NOT NULL DEFAULT '0' COMMENT '乐观锁版本号(Fix 12: 防止旧存档覆盖新存档)',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `idx_identityId` (`identityId`) USING BTREE,
   KEY `idx_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT KEY_BLOCK_SIZE=16;
+
+-- ----------------------------
+-- Migration: Fix 12 optimistic version-lock for `player` table
+-- Safe to run against an EXISTING production DB that already has a `player`
+-- table without the `version` column (CREATE TABLE above only applies to a
+-- fresh DB created from this dump). This ALTER is idempotent-ish: running it
+-- twice will error "duplicate column", so guard it in deployment tooling or
+-- check information_schema before applying if needed.
+-- ----------------------------
+-- ALTER TABLE `player` ADD COLUMN `version` bigint(20) NOT NULL DEFAULT '0' COMMENT '乐观锁版本号(Fix 12)';
 
 -- ----------------------------
 -- Records of player
@@ -476,14 +487,14 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `newPlayer`(IN id VARCHAR(36), IN id
 IN qdCode1 INT(11),IN qdCode2 INT(11),IN birthday BIGINT,IN lastLoginTime BIGINT,IN lastLogoutTime BIGINT,IN `level` INT(11) ,IN propertyData BLOB, 
 IN itemBagData MEDIUMBLOB, IN dailyQuestData MEDIUMBLOB, IN peerageData MEDIUMBLOB, IN petData MEDIUMBLOB, IN tarotData MEDIUMBLOB, IN copyData MEDIUMBLOB, 
 IN fightsoulData MEDIUMBLOB, IN unionData MEDIUMBLOB, IN storeData MEDIUMBLOB, IN mineralData MEDIUMBLOB, IN shengHunData MEDIUMBLOB, IN godBoxData MEDIUMBLOB, 
-IN equipData MEDIUMBLOB, IN handbookData MEDIUMBLOB, IN lostTempleData MEDIUMBLOB, IN wingData MEDIUMBLOB, IN serverId VARCHAR(60), IN hefuData MEDIUMBLOB, 
+IN equipData MEDIUMBLOB, IN handbookData MEDIUMBLOB, IN lostTempleData MEDIUMBLOB, IN wingData MEDIUMBLOB, IN serverId VARCHAR(60), IN hefuData MEDIUMBLOB,
 IN starEquipData MEDIUMBLOB, IN friendData MEDIUMBLOB)
 BEGIN
-	INSERT INTO player(id,identityId, identityName, `name`, propertyData, itemBagData, dailyQuestData, peerageData, qdCode1, qdCode2, birthday, lastLoginTime, 
+	INSERT INTO player(id,identityId, identityName, `name`, propertyData, itemBagData, dailyQuestData, peerageData, qdCode1, qdCode2, birthday, lastLoginTime,
 lastLogoutTime, `level`, petData, tarotData, copyData, fightsoulData,unionData,storeData,mineralData,shengHunData, godBoxData, equipData, handbookData,
- lostTempleData, wingData, serverId, hefuData, starEquipData, friendData) VALUES(id,identityId, identityName, `name`, propertyData, itemBagData, dailyQuestData,
+ lostTempleData, wingData, serverId, hefuData, starEquipData, friendData, `version`) VALUES(id,identityId, identityName, `name`, propertyData, itemBagData, dailyQuestData,
  peerageData, qdCode1, qdCode2, birthday, lastLoginTime, lastLogoutTime,`level`, petData, tarotData, copyData, fightsoulData,unionData,storeData,mineralData,
-shengHunData, godBoxData, equipData, handbookData, lostTempleData, wingData, serverId, hefuData, starEquipData, friendData);
+shengHunData, godBoxData, equipData, handbookData, lostTempleData, wingData, serverId, hefuData, starEquipData, friendData, 0);
     END
 ;;
 DELIMITER ;
@@ -548,16 +559,19 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS `updatePlayer`;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `updatePlayer`(IN `id` VARCHAR(36), IN identityId VARCHAR(60), IN identityName VARCHAR(60), IN `name` VARCHAR(60),
-IN qdCode1 INT(11),IN qdCode2 INT(11),IN birthday BIGINT,IN lastLoginTime BIGINT,IN lastLogoutTime BIGINT,IN `level` INT(11) , IN propertyData BLOB, IN itemBagData MEDIUMBLOB, 
-IN dailyQuestData MEDIUMBLOB, IN peerageData MEDIUMBLOB, IN petData MEDIUMBLOB, IN tarotData MEDIUMBLOB, IN copyData MEDIUMBLOB, IN fightsoulData MEDIUMBLOB, IN unionData MEDIUMBLOB, 
-IN storeData MEDIUMBLOB, IN mineralData MEDIUMBLOB, IN shengHunData MEDIUMBLOB, IN godBoxData MEDIUMBLOB, IN equipData MEDIUMBLOB, IN handbookData MEDIUMBLOB, 
-IN lostTempleData MEDIUMBLOB, IN wingData MEDIUMBLOB, IN serverId VARCHAR(60), IN hefuData MEDIUMBLOB, IN starEquipData MEDIUMBLOB, IN friendData MEDIUMBLOB)
+IN qdCode1 INT(11),IN qdCode2 INT(11),IN birthday BIGINT,IN lastLoginTime BIGINT,IN lastLogoutTime BIGINT,IN `level` INT(11) , IN propertyData BLOB, IN itemBagData MEDIUMBLOB,
+IN dailyQuestData MEDIUMBLOB, IN peerageData MEDIUMBLOB, IN petData MEDIUMBLOB, IN tarotData MEDIUMBLOB, IN copyData MEDIUMBLOB, IN fightsoulData MEDIUMBLOB, IN unionData MEDIUMBLOB,
+IN storeData MEDIUMBLOB, IN mineralData MEDIUMBLOB, IN shengHunData MEDIUMBLOB, IN godBoxData MEDIUMBLOB, IN equipData MEDIUMBLOB, IN handbookData MEDIUMBLOB,
+IN lostTempleData MEDIUMBLOB, IN wingData MEDIUMBLOB, IN serverId VARCHAR(60), IN hefuData MEDIUMBLOB, IN starEquipData MEDIUMBLOB, IN friendData MEDIUMBLOB,
+IN expectedVersion BIGINT, OUT affectedRows INT)
 BEGIN
-	UPDATE player SET propertyData = propertyData, itemBagData = itemBagData, dailyQuestData = dailyQuestData, peerageData = peerageData, qdCode1 = qdCode1, 
-qdCode2 = qdCode2, birthday = birthday, lastLoginTime = lastLoginTime, lastLogoutTime = lastLogoutTime, `level`=`level`, petData = petData, tarotData = tarotData, 
-copyData = copyData, fightsoulData = fightsoulData,unionData = unionData,storeData = storeData, mineralData = mineralData, shengHunData = shengHunData, 
-godBoxData = godBoxData, equipData = equipData, handbookData = handbookData, lostTempleData = lostTempleData, wingData = wingData, serverId = serverId, 
-hefuData = hefuData, starEquipData = starEquipData, friendData = friendData WHERE player.id = `id`;
+	UPDATE player SET propertyData = propertyData, itemBagData = itemBagData, dailyQuestData = dailyQuestData, peerageData = peerageData, qdCode1 = qdCode1,
+qdCode2 = qdCode2, birthday = birthday, lastLoginTime = lastLoginTime, lastLogoutTime = lastLogoutTime, `level`=`level`, petData = petData, tarotData = tarotData,
+copyData = copyData, fightsoulData = fightsoulData,unionData = unionData,storeData = storeData, mineralData = mineralData, shengHunData = shengHunData,
+godBoxData = godBoxData, equipData = equipData, handbookData = handbookData, lostTempleData = lostTempleData, wingData = wingData, serverId = serverId,
+hefuData = hefuData, starEquipData = starEquipData, friendData = friendData, `version` = `version` + 1
+WHERE player.id = `id` AND player.`version` = expectedVersion;
+	SET affectedRows = ROW_COUNT();
     END
 ;;
 DELIMITER ;

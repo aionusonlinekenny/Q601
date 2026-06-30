@@ -1147,3 +1147,142 @@ NEW: t.size=16;t.textAlign="right";t.width=250;t.right=5;t.y=4
 - `main.min_39fbca0f3.js` — Language.E_JRHKDH1C text change
 - `default.thm_11d2a765.js` — labLimit/labdesc/labName layout in 2 exchange item skins
 
+---
+
+## Fix 12: Optimistic Version-Lock for Player Save (prevents level/data rollback on reconnect)
+
+### Problem
+A player's level dropped from 90 to 87 after several quick reconnects. Player data
+(level, items, etc.) intermittently rolled back to an older state after reconnecting.
+
+### Root Cause
+There's a race between two independent, decoupled subsystems:
+
+1. **Kick-then-relogin flow** (cross-server/kuafu login, `GateWay.onKuaFuAuth()`,
+   and ordinary reconnects): when a player logs in while their old session is
+   still considered online, the server kicks the existing session via
+   `PlayerManager.kickoutPlayerCharacterAsyn()` → `closeSession()`. This is
+   **asynchronous** — the actual cleanup and save (`PlayerManager.leaveWorld()`
+   → `savePlayerData()` → `PlayerPeriodSaveService.saveImmediateData()`) happens
+   later, on its own schedule, decoupled from the kick call itself.
+2. **Periodic save service** (`PlayerPeriodSaveService`, see
+   `scratchpad/decompiled/sophia/mmorpg/player/persistence/PlayerPeriodSaveService.java`):
+   snapshots and saves all online players' state every 15 seconds
+   (`Save_Interval_Time = 15000L`), independent of any kick/relogin event.
+
+If a player reconnects quickly after being kicked, the **new** session can load
+fresh data and start progressing (gaining levels) **before** the **old**
+session's queued/in-flight save (a stale snapshot captured before the
+disconnect) actually reaches the DB. When that stale save finally executes, it
+overwrites the newer in-memory state the new session had already produced —
+silently rolling the player back to an older level/state.
+
+### Chosen Fix: DB-Level Optimistic Version-Lock (not a timing fix)
+Per explicit decision, this fix does **not** attempt to fix the async kick/relogin
+timing race itself (out of scope). Instead it adds a general-purpose safety net at
+the save layer: a stale save can structurally never overwrite a newer save, no
+matter what timing bug causes it to be attempted.
+
+**Save call chain (confirmed by reading the decompiled sources):**
+```
+PlayerManager.leaveWorld() ─┐
+                             ├─→ PlayerPeriodSaveService.saveImmediateData()/handlePlayerSaveActionEvent()
+PlayerPeriodSaveService     │     → doSave()/doPeriodSave() → save(SaveMode, PlayerSaveComponent)
+  (every 15s, scheduled)   ─┘     → ObjectManager.save(...) → PlayerSaveSlaver.doSave()
+                                       → PlayerDAO.getInstance().batchUpdate(updateCollection)
+```
+Both the `leaveWorld()`-triggered save and the periodic save converge on the
+single chokepoint `PlayerSaveSlaver.doSave()` → `PlayerDAO.batchUpdate()` — this
+is where the version-lock is enforced, so both paths are protected by the same code.
+
+### What Changed
+
+**1. SQL schema (`MYH5/环境/sql/myh5_s1.sql`, `MYH5/my_kuafu/setup_kuafu_db.sql`):**
+- Added `player.version BIGINT NOT NULL DEFAULT 0` column to `CREATE TABLE player`.
+- Added a commented `ALTER TABLE player ADD COLUMN version BIGINT NOT NULL DEFAULT 0;`
+  migration statement next to the table definition, for upgrading an existing
+  production DB that already has a `player` table (the `CREATE TABLE`/`CREATE
+  TABLE IF NOT EXISTS` only takes effect on a brand-new DB).
+- `newPlayer(...)`: now inserts literal `0` for the new `version` column on row creation.
+- `updatePlayer(...)`: added `IN expectedVersion BIGINT` and `OUT affectedRows INT`
+  parameters. The `UPDATE` now sets `version = version + 1` and adds
+  `AND player.version = expectedVersion` to the `WHERE` clause; `affectedRows`
+  is set to `ROW_COUNT()` right after. If the row's version had already moved
+  on (because a newer save won the race), the `WHERE` matches 0 rows, the
+  stale data is never written, and `affectedRows = 0` tells the Java caller this happened.
+
+**2. Java (decompiled sources under
+`scratchpad/decompiled/sophia/mmorpg/player/` — see note on compilation below):**
+- `Player.java`: added an `AtomicLong dbVersion` field (`getDbVersion()`/
+  `setDbVersion()`/`incrementAndGetDbVersion()`), mirroring the DB
+  `player.version` column. Starts at 0 for both freshly-created and freshly
+  DB-loaded players.
+- `PlayerDAO.getPlayerFromDB()`: reads the `version` column from the result set
+  and calls `player.setDbVersion(...)` when hydrating a `Player` from a DB row.
+- `PlayerSaveableObject`: added `expectedVersion` (the version this save attempt
+  expects the row to currently be at) and an `owningPlayer` back-reference, so
+  the DAO can propagate a successful save's bumped version back to the live
+  `Player` object without needing a separate DB round-trip.
+- `PlayerSaveComponent.snapshot()`: before each save, copies
+  `player.getDbVersion()` into the save object's `expectedVersion` and sets
+  `owningPlayer`.
+- `PlayerDAO.getUpdateSql()`: extended the `{call updatePlayer(...)}` JDBC call
+  string with two more `?` placeholders for `expectedVersion` (IN) and
+  `affectedRows` (OUT).
+- `PlayerDAO`: overrode `batchUpdate()`/`update()` (previously delegated to the
+  generic `ObjectDAO.modifyBatch()`, which uses JDBC `addBatch()`/
+  `executeBatch()` and cannot retrieve a per-row OUT parameter) with a new
+  `updateOneWithVersionLock()` that executes each player's update individually,
+  sets `expectedVersion`, registers `affectedRows` as an OUT parameter, and
+  after execution:
+  - `affectedRows == 0` → logs
+    `"Stale save detected for player - version mismatch (expectedVersion=...), save skipped to avoid overwriting newer data"`
+    and returns without applying any further side effects. Does not crash.
+  - `affectedRows > 0` → bumps `expectedVersion` by 1 on both the saveable
+    object and the owning `Player` (mirroring `version = version + 1` in SQL),
+    so the next save in this process uses the correct expected version without
+    re-reading from the DB.
+- Insert path (`newPlayer`) needed no Java parameter-list change — `version`
+  is set server-side to a literal `0`, and a freshly created `Player` already
+  defaults `dbVersion` to 0.
+
+### Compilation Status
+This decompiled source tree (CFR output) has **pre-existing, unrelated
+decompiler artifacts** that block a full clean `javac` build independent of
+this fix — e.g. `ObjectDAO.java` declares `prepareCall(sql)` results as
+`Statement` instead of `CallableStatement` (missing `setObject(String,Object)`/
+`executeUpdate()` no-arg overloads), and several other files
+(`DependencyManager.java`, `PropertiesWrapper.java`, `DaoConfig.java`) have
+decompiler syntax breakage unrelated to player persistence. These pre-date this
+session and are out of scope here.
+
+Verified instead by targeted compilation: javac was run against the 4 changed
+files (`PlayerDAO.java`, `PlayerSaveableObject.java`, `PlayerSaveComponent.java`,
+`Player.java`) with `-cp server.jar:moyu_lib/*.jar`. The compiler's error output
+maps 1:1 to the pre-existing baseline errors (confirmed by diffing error line
+numbers against the unmodified file) — **zero new errors originate from the
+Fix 12 code added in this session.** Full `.class` generation / jar injection
+was not performed because the baseline `ObjectDAO`/dependency errors must be
+fixed first to produce a working build, which is a separate, larger undertaking
+outside this fix's scope.
+
+Modified Java sources are kept at
+`scratchpad/fix12_src/sophia/mmorpg/player/{Player.java,persistence/PlayerDAO.java,persistence/PlayerSaveableObject.java,persistence/PlayerSaveComponent.java}`
+for reference/future compilation once the baseline decompiler issues are addressed.
+
+### Deployment Note
+The SQL changes (table column + both stored procedures) are immediately
+deployable/safe on their own — `expectedVersion`/`affectedRows` only take
+effect once the Java side actually passes them, so applying the SQL migration
+first is safe. The Java change requires a working server.jar rebuild before
+the version-lock is actually enforced at runtime.
+
+### Files Modified
+- `MYH5/环境/sql/myh5_s1.sql` — `player` table `version` column + migration
+  comment, `newPlayer`/`updatePlayer` procedure changes
+- `MYH5/my_kuafu/setup_kuafu_db.sql` — same changes for the kuafu DB
+- `scratchpad/decompiled/sophia/mmorpg/player/Player.java` — `dbVersion` field/accessors
+- `scratchpad/decompiled/sophia/mmorpg/player/persistence/PlayerDAO.java` — updated SQL strings, `getPlayerFromDB()`, new `updateOneWithVersionLock()`
+- `scratchpad/decompiled/sophia/mmorpg/player/persistence/PlayerSaveableObject.java` — `expectedVersion`/`owningPlayer` fields
+- `scratchpad/decompiled/sophia/mmorpg/player/persistence/PlayerSaveComponent.java` — `snapshot()` populates `expectedVersion`/`owningPlayer`
+
