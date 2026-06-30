@@ -1416,6 +1416,63 @@ market (covered by the case-4 fix above), but the "fly-over" notification
 when you loot a tradeable item won't show. If the user reports that boss
 loot never visually announces itself as tradeable, wire this up next.
 
+### Second follow-up fix: market browse was wired to the wrong handler/wire-shape (2026-06-30)
+After the case-4 fix above, the user confirmed full redeploy (jar+JS+SQL+
+restart) but the Trade tab still showed "No items for trade." Direct
+decompilation of the live `server.jar` (CFR) found the real root cause,
+two layered bugs from the original implementation:
+
+1. **Wrong server data source.** Client's `requestTradingSellList()`
+   (used by `BagDialog.showTradingSellView()`, i.e. the Trade tab the user
+   was testing) called `C2G_TRADE_GETSTORAGEINFO` (17405). Server's
+   `handleGetStorageInfo` answered with `TradeMgr.getStorageInfo(player)`
+   — the player's OWN expired/returned listings only (`status in (2,3)`),
+   which is legitimately empty for any player who has never sold
+   anything. The actual "browse what everyone is selling" data lives in
+   `TradeMgr.getMarketList(int,int)` → `TradeDao.getMarketList()`
+   (`select * from game_auction where status=0 ... limit`), confirmed
+   correctly implemented but never called by ANY protocol handler.
+2. **Wrong wire shape even if the data source were fixed.** Decompiling
+   `protos.min_462eb740.js` showed `G2C_Trade_GetStorageInfo`'s wire
+   format only carries `ItemId/Count/BagType` (`ProtoTradeStorageItem`) —
+   no price/seller/order fields. But the client's `TradingSellListVO`
+   (which `BagDialog`'s `listTrade` renders, and whose `onBuyClick` logic
+   inspects `E.playerId`/`E.orderId`/`E.price` to decide buy-vs-cancel)
+   decodes `OrderId/PlayerId/PlayerName/ItemId/Count/Price/EndTime` —
+   only `G2C_Trade_GetSellInfo`'s wire format (`ProtoTradeSellItem`, used
+   for message 17409/17410) actually carries those fields. So even with
+   correct data, message 17405/17406 could never deliver a renderable
+   market row — the two proto shapes are incompatible at the byte level.
+
+Fix (both sides changed together, no SQL/schema change needed):
+- **Client** (`main.min_39fbca0f3.js`, backup
+  `main.min_39fbca0f3.js.bak.pre_trade_market`): `requestTradingSellList`
+  now sends `C2G_TRADE_GETSELLINFO` (17409) instead of
+  `C2G_TRADE_GETSTORAGEINFO` (17405), and reads the response's
+  `SellItemList` field instead of `ItemList` — matching the wire shape
+  `TradingSellListVO.decode` actually expects.
+- **Server** (`PlayerTradeComponent.handleGetSellInfo`, recompiled from
+  the original implementation agent's surviving `.java` source under
+  `scratchpad/trade_build/src/`, patched into all 4 `server.jar`):
+  changed `TradeMgr.getSellInfo(this.self())` (self-only listings) to
+  `TradeMgr.getMarketList(0, 50)` (all active listings, any seller) —
+  matching what the client's `onBuyClick` (compares `E.playerId` against
+  `GameModels.user.player.uid` to offer Cancel for your own rows or Buy
+  for others') actually needs. This also changes the standalone
+  `TradingSellSkin`/"My Item" panel (`requestTradingSellMyItem`, same
+  17409 message) to show the full market rather than self-only — verified
+  intentional: that panel's UI flow (tap row → `TradingSellBuyTip` →
+  `requestBuyShop`) only makes sense for a market-browse list, not a
+  self-only list.
+- Verified: `javac` recompile clean (no errors), CFR decompile of the
+  rebuilt class confirms `handleGetSellInfo` now calls
+  `TradeMgr.getMarketList(0, 50)`, `node --check` clean on the patched
+  JS, and `unzip -p server.jar sophia/mmorpg/Trade/PlayerTradeComponent.class
+  | md5sum` identical (`86663f83...`) across all 4 server jars.
+- **NOT yet verified in-game** — needs fresh jar+JS deploy and restart
+  (same as before; no new SQL migration required this time) before the
+  Trade tab can be confirmed fixed live.
+
 ### DB schema
 `game_auction` (existing table, redesigned) — one row per listing:
 `id` (orderId, PK varchar(36)), `playerId`, `sellerName`, `itemId`, `count`,
