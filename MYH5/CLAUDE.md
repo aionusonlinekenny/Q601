@@ -1742,3 +1742,31 @@ MoShi decreases by `count`. `remainingMagicStones(player)` = `getMoShi()` after 
 - `TypeProperty.UnbindedGold = 1007` (♦ MoShi = Magic Gems = same thing)
 - `player.gold` = `getProperty(1005)`
 - `player.mojing` = `player.diamonds` = `getProperty(1007)`
+
+
+### ⚠️ CRITICAL: Always compile Java with `-source 8 -target 8`
+
+Server runs Java 8. Compiling without explicit target produces Java 21 bytecode (class version 65).
+Java 8 JVM throws `UnsupportedClassVersionError` on load → **server crashes silently, WebSocket accepts connection but sends no data → "can't enter server"**.
+
+**ALWAYS use:**
+```bash
+javac -source 8 -target 8 -cp "$CP" -d out MyClass.java
+```
+
+**Verify before injecting:**
+```python
+data = open('MyClass.class','rb').read()
+assert data[7] == 52, f"Wrong Java version: {data[7]} (need 52=Java8)"
+```
+
+This mistake broke the server in commit 8b8d3051 (TradeMgr EXCHANGE_RATE change) — fixed in f6c312be.
+
+### ⚠️ CRITICAL: Edit the correct JS file
+
+The manifest at `v1.1.9.1/manifest.json` loads:
+- `js/main.min_39fbca0f4.js`  ← **THIS is the active game logic file**
+- `js/default.thm_11d2a765.js` ← **THIS is the active skin file**
+
+Files `main.min_39fbca0f.js`, `main.min_39fbca0f2.js`, `main.min_39fbca0f3.js` are OLD/UNUSED copies.
+Editing those has NO effect on the running game.
