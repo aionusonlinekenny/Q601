@@ -107,7 +107,7 @@ if (!$paymentOn) {
                 }
             }
 
-            // Fallback: if server pay failed or type=10 pkg (always direct DB mail)
+            // Fallback: if server pay failed or type=10 pkg (always direct DB mail / creditmoshi)
             if (!$serverHandled) {
                 $parts = array();
                 if ($isFirstTime && isset($pkgData['oneRewards']) && $pkgData['oneRewards']) {
@@ -118,7 +118,8 @@ if (!$paymentOn) {
                 }
                 $rewardStr = implode(';', $parts);
 
-                $itemParts = array();
+                $itemParts  = array();
+                $moShiTotal = 0;
                 foreach (explode(';', $rewardStr) as $part) {
                     $part = trim($part);
                     if (!$part) continue;
@@ -128,11 +129,28 @@ if (!$paymentOn) {
                     $itemId = $pieces[0];
                     $count  = (int)$pieces[1];
                     if (!$itemId || $count < 1) continue;
-                    $itemParts[]  = $itemId . '_' . $count;
-                    $delivered[]  = $itemId . 'x' . $count;
+                    // Item 2501 = Demon Crystal / MoShi — credit directly via server API
+                    if ($itemId === '2501') {
+                        $moShiTotal += $count;
+                        $delivered[] = 'moshi+' . $count;
+                    } else {
+                        $itemParts[] = $itemId . '_' . $count;
+                        $delivered[] = $itemId . 'x' . $count;
+                    }
                 }
 
-                if (!empty($itemParts)) {
+                // Credit MoShi directly (bypasses bag item system, updates ♦ counter)
+                if ($moShiTotal > 0) {
+                    $creditUrl = rtrim($apiBase, '/') . '/myh5/creditmoshi?playerName=' . urlencode($player)
+                               . '&amount=' . $moShiTotal;
+                    $creditResp = @file_get_contents($creditUrl);
+                    $apiLog[] = 'creditmoshi=' . $creditResp;
+                    if ($creditResp !== 'SUCCESS') {
+                        $failed = true;
+                    }
+                }
+
+                if (!$failed && !empty($itemParts)) {
                     $combinedStr = implode(';', $itemParts);
                     $r = api_mail_gift_db_items($player, $combinedStr, $pkgData['name'], 'GM Gift', $sid);
                     $apiLog[] = $combinedStr . '=' . json_encode($r);
