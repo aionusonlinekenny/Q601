@@ -1708,3 +1708,37 @@ MoShi decreases by `count`. `remainingMagicStones(player)` = `getMoShi()` after 
 - `setMoShi()` and `getMoShi()` both use `MGPropertyAccesser` on `player.getProperty()` — same dictionary, consistent reads/writes
 - `PlayerMoneyComponent.notifyProperty()` builds a separate PropertyDictionary, reads current getMoShi() value, sends to client — correct as long as called AFTER setMoShi
 
+
+### Fourth follow-up: Exchange Gems redesign — Gold→♦ direction (2026-07-01)
+
+**Finding:** MoShi (♦, property 1007) and Magic Gem (item 201) ARE THE SAME currency.
+- Both use property 1007 (TypeProperty.UnbindedGold)
+- `player.mojing` = `player.diamonds` = `player.getProperty(1007)`
+- Item 201: `itemType=0, isNonPropertyItem=1` → addResource(201,N) = addMoShi(N) = property 1007
+- This is correct by design — they are one unified currency shown in two places
+
+**Previous broken design (do not revert to):**
+- Exchange spent ♦ → no reward (just a sink, user loses ♦ for nothing)
+- User tested: "MoShi increases/decreases with Magic Gem" — confirmed same currency
+
+**Correct design (commit a99f62b4):**
+- Exchange Gems = spend Gold → receive ♦ (players TOP UP their trade balance with Gold)
+- ♦ increases after exchange (not decreases)
+- Dialog shows Gold balance and Gold icon (not ♦/diamond)
+
+**Client JS changes (DimensityExchangeAlert):**
+- `initData`: `vo.fromPool(vo.ItemVO, 101)` (Gold icon instead of 201)
+- `showMoJing`: `player.gold` in lblTatolPrice0, `player.mojing` in labLimit0
+- Property listener: `TypeProperty.Gold` (fires when Gold changes after spending)
+- offPropertyChange: also changed to `TypeProperty.Gold`
+
+**Client skin changes (DimensityExchange in default.thm_11d2a765.js):**
+- `_Label2` text: "Owned" → "Gold:"
+- `imgTatolPayType0` source: `trading_json.img_crystal_little` → `common_json.img_gold_png`
+- `imgPayType` source (unit price icon): diamond → gold (`common_json.img_gold_png`)
+
+**TypeProperty IDs (for reference):**
+- `TypeProperty.Gold = 1005` (Gold Coins)
+- `TypeProperty.UnbindedGold = 1007` (♦ MoShi = Magic Gems = same thing)
+- `player.gold` = `getProperty(1005)`
+- `player.mojing` = `player.diamonds` = `getProperty(1007)`
