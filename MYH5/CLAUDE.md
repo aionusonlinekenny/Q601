@@ -1670,3 +1670,41 @@ intentionally pull-based / sell-time whitelist validation, so it does not
 depend on tracking which boss an item came from — only whether the item id
 is on the whitelist and currently in the player's bag).
 
+---
+
+## Exchange Gems (ExchangeMoShi) — Bug History & Root Cause
+
+### CRITICAL: Item 201 (Magic Stone) = MoShi Currency
+
+**DO NOT** call `MGRewardUtil.reward(player, "201_N", ...)` inside `exchangeMoShi`.
+
+**Why this breaks everything:**
+- `propsItem.json` item 201 has `"itemType": 0` and `"isNonPropertyItem": 1`
+- `MGDropLibFacade.pickupItems` for itemType=0 routes to `MGResourceUtil.addResource(player, 201, N, source)`
+- `MGResourceUtil.addResource` with id=201 calls `addMoShi(N)` because `CurrencyUnit.MoShi = 201`
+- Net result: `setMoShi(current - N)` deducts N, then `addMoShi(N)` adds N back → **zero change**
+- Client sees `E.LeftCount = original_balance` (unchanged) and ♦ counter never moves
+
+**Attempted approaches that FAILED (do not retry):**
+
+1. ❌ `subUnbindGold(count, source)` — returned true, gave items, but getMoShi() returned old value in response. Root cause: subUnbindGold internally calls setMoShiImpl → setMoShi + notifyProperty, but THEN reward("201_N") called addMoShi undoing it.
+2. ❌ `money.setMoShi(current - count) + money.notifyProperty() + MGRewardUtil.reward("201_count")` — same net-zero problem. setMoShi worked but reward("201_N") = addMoShi(N) restoring original value.
+
+**Correct fix (commit c6b7030c):**
+```java
+money.setMoShi(current - count);
+money.notifyProperty();
+// NO reward call — item 201 IS MoShi, rewarding it would undo the deduction
+return RuntimeResult.OK();
+```
+MoShi decreases by `count`. `remainingMagicStones(player)` = `getMoShi()` after deduction = correct LeftCount.
+
+### Key facts to remember
+- `CurrencyUnit.Gold = 101`, `CurrencyUnit.MoShi = 201`, `CurrencyUnit.Exp = 301`
+- These correspond to item refIds 101/201/301 in propsItem.json (all `itemType=0, isNonPropertyItem=1`)
+- `MGResourceUtil.addResource(player, 201, N, source)` = `addMoShi(N)` 
+- `MGResourceUtil.addResource(player, 101, N, source)` = `addGold(N)`
+- Rewarding "currency items" = modifying the player's property, NOT adding to bag
+- `setMoShi()` and `getMoShi()` both use `MGPropertyAccesser` on `player.getProperty()` — same dictionary, consistent reads/writes
+- `PlayerMoneyComponent.notifyProperty()` builds a separate PropertyDictionary, reads current getMoShi() value, sends to client — correct as long as called AFTER setMoShi
+
