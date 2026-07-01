@@ -91,16 +91,23 @@ if (!$paymentOn) {
             $servers = unserialize(SERVERS);
             $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8081';
 
+            // type=10 (Gem Shop / Demon Crystal): always use DB mail — the server
+            // pay API silently succeeds without delivering these packages because they
+            // are new and may not be loaded in server memory until the next restart.
+            $isMoShiPkg = ($pkgType === 10);
+
             // Try server pay API first — handles items + bonuses (monthly card, bag slots, etc.)
             $serverHandled = false;
-            $payResult = api_pay_notify($player, $pkgId, $rmb, $sid);
-            $apiLog[] = 'pay_notify=' . json_encode($payResult);
-            if (isset($payResult['success']) && $payResult['success']) {
-                $serverHandled = true;
-                $delivered[] = 'via_server_pay';
+            if (!$isMoShiPkg) {
+                $payResult = api_pay_notify($player, $pkgId, $rmb, $sid);
+                $apiLog[] = 'pay_notify=' . json_encode($payResult);
+                if (isset($payResult['success']) && $payResult['success']) {
+                    $serverHandled = true;
+                    $delivered[] = 'via_server_pay';
+                }
             }
 
-            // Fallback: if server pay failed (player offline, etc.), send items via direct DB mail
+            // Fallback: if server pay failed or type=10 pkg (always direct DB mail)
             if (!$serverHandled) {
                 $parts = array();
                 if ($isFirstTime && isset($pkgData['oneRewards']) && $pkgData['oneRewards']) {

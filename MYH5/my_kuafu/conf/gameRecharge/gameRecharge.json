@@ -414,9 +414,9 @@
     "type": 10,
     "icon": "201",
     "RMB": 10,
-    "oneRewards": "2501_10000;1701_1000",
+    "oneRewards": "1701_1000;201_5000",
     "duration": 1,
-    "rewards": "201_5000",
+    "rewards": "2501_10000",
     "rewardsForServer": ""
   },
   {
@@ -426,9 +426,9 @@
     "type": 10,
     "icon": "201",
     "RMB": 20,
-    "oneRewards": "2501_20000;1701_2000",
+    "oneRewards": "1701_2000;201_10000",
     "duration": 1,
-    "rewards": "201_10000",
+    "rewards": "2501_20000",
     "rewardsForServer": ""
   },
   {
@@ -438,9 +438,9 @@
     "type": 10,
     "icon": "201",
     "RMB": 50,
-    "oneRewards": "2501_50000;1701_5000",
+    "oneRewards": "1701_5000;201_25000",
     "duration": 1,
-    "rewards": "201_25000",
+    "rewards": "2501_50000",
     "rewardsForServer": ""
   },
   {
@@ -450,9 +450,9 @@
     "type": 10,
     "icon": "201",
     "RMB": 100,
-    "oneRewards": "2501_100000;1701_10000",
+    "oneRewards": "1701_10000;201_50000",
     "duration": 1,
-    "rewards": "201_50000",
+    "rewards": "2501_100000",
     "rewardsForServer": ""
   },
   {
@@ -462,9 +462,9 @@
     "type": 10,
     "icon": "201",
     "RMB": 200,
-    "oneRewards": "2501_200000;1701_20000",
+    "oneRewards": "1701_20000;201_100000",
     "duration": 1,
-    "rewards": "201_100000",
+    "rewards": "2501_200000",
     "rewardsForServer": ""
   },
   {
@@ -474,9 +474,9 @@
     "type": 10,
     "icon": "201",
     "RMB": 500,
-    "oneRewards": "2501_500000;1701_50000",
+    "oneRewards": "1701_50000;201_250000",
     "duration": 1,
-    "rewards": "201_250000",
+    "rewards": "2501_500000",
     "rewardsForServer": ""
   },
   {
@@ -486,9 +486,9 @@
     "type": 10,
     "icon": "201",
     "RMB": 1000,
-    "oneRewards": "2501_1000000;1701_100000",
+    "oneRewards": "1701_100000;201_500000",
     "duration": 1,
-    "rewards": "201_500000",
+    "rewards": "2501_1000000",
     "rewardsForServer": ""
   }
 ]
