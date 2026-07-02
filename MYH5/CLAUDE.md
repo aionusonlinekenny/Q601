@@ -1770,3 +1770,42 @@ The manifest at `v1.1.9.1/manifest.json` loads:
 
 Files `main.min_39fbca0f.js`, `main.min_39fbca0f2.js`, `main.min_39fbca0f3.js` are OLD/UNUSED copies.
 Editing those has NO effect on the running game.
+
+---
+
+## Fix 13: Demon Realm Expedition (MOJIE) — prevent disconnect on kuafu
+
+### Problem
+Clicking the "Demon Realm Expedition" tab in the Cross-Server Battlefield screen caused "Connection failed" disconnect when on the kuafu server (port 8028).
+
+### Root Cause
+`CrossDemonDialog.enter()` auto-calls `ModelSceneDemon.getDemonInfo()` which sends `C2G_MOJIE_GETINFO` (17703) immediately. This ID was NOT registered in `ProtoEventManager` → `DemuxingProtocolDecoder.doDecode` crashed → WebSocket closed → disconnect.
+
+### Fix
+- **ProtoEventManager** patched (via `patch_mojie_proto.py`): registered 18 MOJIE message IDs (17703-17746 range) so the decoder never crashes on any MOJIE message
+- **18 new proto classes** added to all 4 server.jar files:
+  - `C2G_MoJie_GetInfo` (17703), `G2C_MoJie_GetInfo` (17704) — core GetInfo pair
+  - `G2C_MoJie_BuyCount` (17722), `G2C_MoJie_GetDropRecord` (17746) — response stubs
+  - 14 C2G stub classes for all other MOJIE client messages (17705-17745 range)
+- **KuaFuComponent** updated with MOJIE handlers:
+  - `handleMoJieGetInfo` (17703) → responds `G2C_MoJie_GetInfo` with LeftChallengeCount=2, BuyCount=0
+  - `handleMoJieBuyCount` (17721) → stub response (feature not fully implemented)
+  - `handleMoJieGetDropRecord` (17745) → empty record list response
+  - All other MOJIE C2G IDs → logged and silently ignored (no crash, no response)
+
+### Message IDs registered
+C2G: 17703, 17705, 17707, 17709, 17711, 17712, 17714, 17715, 17721, 17726, 17729, 17730, 17733, 17734, 17745
+G2C: 17704, 17722, 17746
+
+### Files Modified
+- `server.jar` (all 4: my_s1, my_s2, my_s3, my_kuafu) — 18 new MOJIE proto classes + patched ProtoEventManager + updated KuaFuComponent
+- `main.min_39fbca0f4.js` — reverted wrong previous fix (remove `_isCross` block that disabled the Demon tab)
+
+### Patcher script
+`scratchpad/patch_mojie_proto.py` — same pattern as `patch_glove_proto.py`
+
+### Source files
+`scratchpad/mojie_src/` — all 18 proto classes + updated KuaFuComponent.java
+
+### Status (commit a8b662fa)
+Demon Realm Expedition tab opens without disconnect. The tab shows challenge count=2. Room creation/joining/actual gameplay are stubs (not implemented) — the MOJIE dungeon feature is placeholder only. If a player clicks Create Room etc., those messages are silently ignored server-side.
