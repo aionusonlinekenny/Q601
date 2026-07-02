@@ -1807,5 +1807,24 @@ G2C: 17704, 17722, 17746
 ### Source files
 `scratchpad/mojie_src/` — all 18 proto classes + updated KuaFuComponent.java
 
-### Status (commit a8b662fa)
-Demon Realm Expedition tab opens without disconnect. The tab shows challenge count=2. Room creation/joining/actual gameplay are stubs (not implemented) — the MOJIE dungeon feature is placeholder only. If a player clicks Create Room etc., those messages are silently ignored server-side.
+### Status (commit a8b662fa → updated)
+- Tab opens without disconnect ✓
+- "Today left: 2" displays correctly ✓
+- Time restriction "Daily 13:00-21:00 opens" bypassed → `config.nncc` dataSetting 1402002 changed from `"13:00-21:00"` to `"0:00-23:59"` (always open for testing)
+- Co-op button click now works: `C2G_MOJIE_CREATEROOM` (17705) → server responds with `G2C_MOJIE_CREATEROOM` (17706) containing a 1-player room with the requester
+- After room creation, Start button (C2G_MOJIE_START=17714) is silently ignored — dungeon scene entry is NOT implemented (requires CrossDemonScene=305 and full combat loop)
+
+### ⚠️ CRITICAL: ProtoEventManager patcher must run on ORIGINAL class
+When re-patching ProtoEventManager, ALWAYS start from the original pre-mojie backup:
+`jar xf server.jar.bak.pre_mojie sophia/mmorpg/proto/ProtoEventManager.class`
+NOT from the already-patched version — otherwise all IDs get double-registered → `IllegalArgumentException: commandId already mapped` on server startup.
+
+### config.nncc time field mapping
+`dataSetting` section, row `[id, groupId, type, name, description, value]`:
+- ID 1402002 → value = open time range string "H:MM-H:MM"
+- Used by `CrossDemonDialog.enter()` to display "Daily{value} opens" and by `checkRedFunction()` to determine red dot
+
+### Known issues / next steps
+- Dungeon gameplay (CrossDemonScene type 305) not implemented
+- Invite/Join other players not implemented (stubs)
+- Buy count (spend items for extra attempts) stub only
