@@ -6,6 +6,12 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
  * - Payment ON: generate signed URL and redirect to PayPal payment page.
  *
  * Usage: /pay/go.php?pkg=PACKAGE_ID&player=PLAYER_NAME[&sid=SERVER_ID]
+ *
+ * Purchase tracking (free mode):
+ *   pay/purchase_history.json stores {"player:pkg:sid": count, ...}
+ *   - oneRewards sent only on FIRST purchase of each package per player.
+ *   - rewards sent every time (repeatable purchases like Magic Stones).
+ *   - type=1 (First Recharge) and type=99 (Special First Recharge): blocked after first purchase.
  */
 require_once dirname(__DIR__) . '/gm/includes/config.php';
 require_once dirname(__DIR__) . '/gm/includes/api.php';
@@ -27,6 +33,32 @@ if (file_exists(PAYMENT_STATE_FILE)) {
 }
 $paymentOn = isset($payState['payment_enabled']) ? (bool)$payState['payment_enabled'] : true;
 
+// ── Purchase history helpers ───────────────────────────────────────────────
+$historyFile = dirname(__FILE__) . '/purchase_history.json';
+
+function load_history() {
+    global $historyFile;
+    if (!file_exists($historyFile)) return array();
+    $data = @json_decode(file_get_contents($historyFile), true);
+    return is_array($data) ? $data : array();
+}
+
+function save_history($history) {
+    global $historyFile;
+    file_put_contents($historyFile, json_encode($history, JSON_PRETTY_PRINT));
+}
+
+function get_purchase_count($history, $player, $pkg, $sid) {
+    $key = $player . ':' . $pkg . ':' . $sid;
+    return isset($history[$key]) ? (int)$history[$key] : 0;
+}
+
+function increment_purchase($history, $player, $pkg, $sid) {
+    $key = $player . ':' . $pkg . ':' . $sid;
+    $history[$key] = get_purchase_count($history, $player, $pkg, $sid) + 1;
+    return $history;
+}
+
 // ── Payment OFF: deliver items for free ────────────────────────────────────
 if (!$paymentOn) {
     $pkgs    = load_recharge_packages();
@@ -37,48 +69,110 @@ if (!$paymentOn) {
 
     $delivered = array();
     $failed    = false;
+    $alreadyClaimed = false;
 
     if ($pkgData) {
-        // Parse oneRewards: "itemId_count;itemId_count;..."
-        $rewardStr = (isset($pkgData['oneRewards']) && $pkgData['oneRewards'])
-                   ? $pkgData['oneRewards']
-                   : (isset($pkgData['rewards']) ? $pkgData['rewards'] : '');
+        $history = load_history();
+        $prevCount = get_purchase_count($history, $player, $pkg, $sid);
+        $pkgType = isset($pkgData['type']) ? (int)$pkgData['type'] : 0;
+        $isFirstRecharge = ($pkgType === 1 || $pkgType === 99);
 
-        $servers = unserialize(SERVERS);
-        $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8081';
-
-        // Collect all items first, then insert as a single mail (one purchase = one mail).
-        $itemParts = array();
-        foreach (explode(';', $rewardStr) as $part) {
-            $part = trim($part);
-            if (!$part) continue;
-            // For group rewards A&B&C take first option
-            $choice = explode('&', $part);
-            $pieces = explode('_', $choice[0]);
-            if (count($pieces) < 2) continue;
-            $itemId = $pieces[0];
-            $count  = (int)$pieces[1];
-            if (!$itemId || $count < 1) continue;
-            $itemParts[]  = $itemId . '_' . $count;
-            $delivered[]  = $itemId . 'x' . $count;
+        // First Recharge packages (type 1, 99): only claimable once
+        if ($isFirstRecharge && $prevCount > 0) {
+            $alreadyClaimed = true;
         }
 
-        $apiLog = array();
-        if (!empty($itemParts)) {
-            $combinedStr = implode(';', $itemParts);
-            // Insert mail directly into DB — works for online and offline players.
-            $r = api_mail_gift_db_items($player, $combinedStr, $pkgData['name'], 'GM Gift', $sid);
-            $apiLog[] = $combinedStr . '=' . json_encode($r);
-            if (isset($r['success']) && $r['success'] === false) {
-                $failed = true;
+        if (!$alreadyClaimed) {
+            $isFirstTime = ($prevCount === 0);
+            $pkgId = (int)$pkgData['id'];
+            $rmb   = isset($pkgData['RMB']) ? (int)$pkgData['RMB'] : 0;
+            $apiLog = array();
+
+            $servers = unserialize(SERVERS);
+            $apiBase = isset($servers[$sid]['api']) ? $servers[$sid]['api'] : 'http://127.0.0.1:8081';
+
+            // type=10 (Gem Shop / Demon Crystal): always use DB mail — the server
+            // pay API silently succeeds without delivering these packages because they
+            // are new and may not be loaded in server memory until the next restart.
+            $isMoShiPkg = ($pkgType === 10);
+
+            // Try server pay API first — handles items + bonuses (monthly card, bag slots, etc.)
+            $serverHandled = false;
+            if (!$isMoShiPkg) {
+                $payResult = api_pay_notify($player, $pkgId, $rmb, $sid);
+                $apiLog[] = 'pay_notify=' . json_encode($payResult);
+                if (isset($payResult['success']) && $payResult['success']) {
+                    $serverHandled = true;
+                    $delivered[] = 'via_server_pay';
+                }
             }
-        }
 
-        $log = date('Y-m-d H:i:s') . ' | FREE | player=' . $player
-             . ' pkg=' . $pkg . ' sid=' . $sid
-             . ' items=' . implode(',', $delivered)
-             . ' db=' . implode('|', $apiLog) . "\n";
-        file_put_contents(dirname(__FILE__) . '/payment_log.txt', $log, FILE_APPEND);
+            // Fallback: if server pay failed or type=10 pkg (always direct DB mail / creditmoshi)
+            if (!$serverHandled) {
+                $parts = array();
+                if ($isFirstTime && isset($pkgData['oneRewards']) && $pkgData['oneRewards']) {
+                    $parts[] = $pkgData['oneRewards'];
+                }
+                if (isset($pkgData['rewards']) && $pkgData['rewards']) {
+                    $parts[] = $pkgData['rewards'];
+                }
+                $rewardStr = implode(';', $parts);
+
+                $itemParts  = array();
+                $moShiTotal = 0;
+                foreach (explode(';', $rewardStr) as $part) {
+                    $part = trim($part);
+                    if (!$part) continue;
+                    $choice = explode('&', $part);
+                    $pieces = explode('_', $choice[0]);
+                    if (count($pieces) < 2) continue;
+                    $itemId = $pieces[0];
+                    $count  = (int)$pieces[1];
+                    if (!$itemId || $count < 1) continue;
+                    // Item 2501 = Demon Crystal / MoShi — credit directly via server API
+                    if ($itemId === '2501') {
+                        $moShiTotal += $count;
+                        $delivered[] = 'moshi+' . $count;
+                    } else {
+                        $itemParts[] = $itemId . '_' . $count;
+                        $delivered[] = $itemId . 'x' . $count;
+                    }
+                }
+
+                // Credit MoShi directly (bypasses bag item system, updates ♦ counter)
+                if ($moShiTotal > 0) {
+                    $creditUrl = rtrim($apiBase, '/') . '/myh5/creditmoshi?playerName=' . urlencode($player)
+                               . '&amount=' . $moShiTotal;
+                    $creditResp = @file_get_contents($creditUrl);
+                    $apiLog[] = 'creditmoshi=' . $creditResp;
+                    if ($creditResp !== 'SUCCESS') {
+                        $failed = true;
+                    }
+                }
+
+                if (!$failed && !empty($itemParts)) {
+                    $combinedStr = implode(';', $itemParts);
+                    $r = api_mail_gift_db_items($player, $combinedStr, $pkgData['name'], 'GM Gift', $sid);
+                    $apiLog[] = $combinedStr . '=' . json_encode($r);
+                    if (isset($r['success']) && $r['success'] === false) {
+                        $failed = true;
+                    }
+                }
+            }
+
+            // Record purchase
+            if (!$failed) {
+                $history = increment_purchase($history, $player, $pkg, $sid);
+                save_history($history);
+            }
+
+            $firstTag = $isFirstTime ? ' FIRST' : ' REPEAT';
+            $log = date('Y-m-d H:i:s') . ' | FREE' . $firstTag . ' | player=' . $player
+                 . ' pkg=' . $pkg . ' sid=' . $sid
+                 . ' items=' . implode(',', $delivered)
+                 . ' db=' . implode('|', $apiLog) . "\n";
+            file_put_contents(dirname(__FILE__) . '/payment_log.txt', $log, FILE_APPEND);
+        }
     }
 
     $pkgName = $pkgData ? htmlspecialchars($pkgData['name']) : 'Package #' . htmlspecialchars($pkg);
@@ -104,12 +198,20 @@ h1{font-size:22px;font-weight:700;color:#fff;margin-bottom:8px}
            padding:12px 28px;font-size:15px;font-weight:700;cursor:pointer;width:100%}
 .err-box{background:#3a1a1a;border:1px solid #ff3860;border-radius:10px;
          padding:20px;color:#ff3860}
+.warn-box{background:#3a3a1a;border:1px solid #ffdd57;border-radius:10px;
+         padding:20px;color:#ffdd57;margin-bottom:20px}
 </style>
 </head>
 <body>
 <div class="box">
 <?php if (!$pkgData): ?>
   <div class="err-box">Package not found.</div>
+<?php elseif ($alreadyClaimed): ?>
+  <div class="icon">⚠️</div>
+  <h1>Already Claimed</h1>
+  <div class="sub">You have already claimed this<br>First Recharge reward.</div>
+  <div class="pkg"><?php echo $pkgName; ?></div>
+  <button class="close-btn" onclick="window.close()">Close</button>
 <?php elseif ($failed): ?>
   <div class="icon">⚠️</div>
   <h1>Delivery Issue</h1>

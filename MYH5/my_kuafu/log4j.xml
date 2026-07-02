@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+	<!-- ===============输出的定义================ -->
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yy-MM-dd HH:mm:ss,SSS} %-5p %c - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="GAME_DEBUG" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="log/game_debug" />
+		<param name="DatePattern" value="'_'yyyy-MM-dd'.log'" />
+		<param name="Append" value="true" />
+		<param name="Threshold" value="off" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yy-MM-dd HH:mm:ss,SSS} %-5p %c - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="GAME_INFO" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="log/game_info" />
+		<param name="DatePattern" value="'_'yyyy-MM-dd'.log'" />
+		<param name="Append" value="true" />
+		<param name="Threshold" value="INFO" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yy-MM-dd HH:mm:ss,SSS} %-5p %c - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="GAME_ERROR" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="log/game_error" />
+		<param name="DatePattern" value="'_'yyyy-MM-dd'.log'" />
+		<param name="Append" value="true" />
+		<param name="Threshold" value="ERROR" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yy-MM-dd HH:mm:ss,SSS} %-5p %c - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="DB_LOG" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="log/db_log" />
+		<param name="DatePattern" value="'_'yyyy-MM-dd'.log'" />
+		<param name="Append" value="true" />
+		<param name="Threshold" value="off" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yy-MM-dd HH:mm:ss,SSS} %-5p %c - %m%n" />
+		</layout>
+	</appender>
+
+
+	<!-- =============newbee.morningGlory的定义=========== -->
+	<logger name="newbee.morningGlory">
+		<level value="INFO"></level>
+	</logger>
+	<logger name="newbee.morningGlory.mmorpg.sprite.MGFightProcessComponent">
+		<level value="off"></level>
+	</logger>
+	<logger
+		name="newbee.morningGlory.mmorpg.player.fightSkill.MGPlayerFightSkillTreeGameEventDelegate">
+		<level value="off"></level>
+	</logger>
+
+	<logger
+		name="newbee.morningGlory.mmorpg.gameInstance.persistence.GameInstanceDao">
+		<level value="off"></level>
+	</logger>
+	<logger name="newbee.morningGlory.mmorpg.ladder.persistence.MGLadderDAO">
+		<level value="off"></level>
+	</logger>
+	<logger name="newbee.morningGlory.mmorpg.union.persistence.MGUnionDAO">
+		<level value="off"></level>
+	</logger>
+	
+	<logger
+		name="newbee.morningGlory.mmorpg.gameInstance.MGGameInstanceSystemComponent">
+		<level value="off"></level>
+	</logger>
+	
+	
+	<logger
+		name="newbee.morningGlory.mmorpg.gameInstance.MGGameInstance">
+		<level value="off"></level>
+	</logger>
+	
+	<logger
+		name="newbee.morningGlory.mmorpg.gameInstance.MGGameInstanceOpeningTimeMgr">
+		<level value="off"></level>
+	</logger>
+	
+	<logger
+		name="newbee.morningGlory.mmorpg.gameInstance.MGGameInstanceOpeningTimeLimit">
+		<level value="off"></level>
+	</logger>
+	
+	<logger
+		name="newbee.morningGlory.mmorpg.player.gameInstance.GameInstanceMgr">
+		<level value="off"></level>
+	</logger>
+	
+	<logger
+		name="newbee.morningGlory.mmorpg.player.gameInstance.PlayerGameInstanceComponent">
+		<level value="off"></level>
+	</logger>
+	
+	<logger
+		name="newbee.morningGlory.mmorpg.player.wing.MGPlayerWingComponent">
+		<level value="off"></level>
+	</logger>
+	
+	<!-- =============sophia.game的定义=========== -->
+	<logger name="sophia.game">
+		<level value="INFO"></level>
+	</logger>
+
+	<!-- =============sophia.mmorpg的定义=========== -->
+	<logger name="sophia.mmorpg.monster.ai.MonsterPerceiveComponent">
+		<level value="off"></level>
+	</logger>
+	<logger name="sophia.mmorpg">
+		<level value="off"></level>
+	</logger>
+	<logger name="sophia.mmorpg.core.timer">
+		<level value="off"></level>
+	</logger>
+	<logger name="sophia.mmorpg.core.timer.SFSecondTimer">
+		<level value="off"></level>
+	</logger>
+	<logger name="sophia.mmorpg.base.sprite.aoi.SpritePathComponent">
+		<level value="off"></level>
+	</logger>
+	<logger name="sophia.mmorpg.player.scene.PlayerPathComponent">
+		<level value="off"></level>
+	</logger>
+	<logger name="sophia.mmorpg.player.scene.event.G2C_Scene_AOI">
+		<level value="off"></level>
+	</logger>
+	<logger name="sophia.mmorpg.player.scene.PlayerAOIComponent">
+		<level value="off"></level>
+	</logger>
+	<logger name="sophia.mmorpg.base.scene.mgr.MonsterMgrComponent">
+		<level value="off"></level>
+	</logger>
+	<logger name="sophia.mmorpg.base.scene.mgr.LootMgrComponent">
+		<level value="off"></level>
+	</logger>
+	<logger name="sophia.mmorpg.player.scene.PlayerSceneComponent">
+		<level value="off"></level>
+	</logger>
+	<logger name="sophia.mmorpg.player.persistence.PlayerSaveComponent">
+		<level value="off"></level>
+	</logger>
+	<logger name="sophia.mmorpg.player.persistence.PlayerPeriodSaveService">
+		<level value="off"></level>
+	</logger>
+
+	<logger name="sophia.game.persistence.ObjectDAO">
+		<level value="off"></level>
+	</logger>
+	<logger name="sophia.mmorpg.Mail.persistence.GmMailDao">
+		<level value="off"></level>
+	</logger>
+	<logger name="sophia.mmorpg.Mail.persistence.MailDao">
+		<level value="off"></level>
+	</logger>
+	<logger name="sophia.mmorpg.player.persistence.PlayerDAO">
+		<level value="off"></level>
+	</logger>
+	<logger
+		name="sophia.mmorpg.player.persistence.immediatelySave.PlayerImmediateDAO">
+		<level value="off"></level>
+	</logger>
+
+	<logger
+		name="sophia.mmorpg.base.sprite.fightProperty.FightPropertyEffectFacade">
+		<level value="off"></level>
+	</logger>
+
+
+
+	<!-- <logger name="sophia.mmorpg.monster.ai"> <level value="DEBUG"></level> 
+		</logger> <logger name="sophia.mmorpg.monster.drop"> <level value="DEBUG"></level> 
+		</logger> <logger name="sophia.mmorpg.player.scene.event.G2C_Scene_AOI"> 
+		<level value="DEBUG"></level> </logger> -->
+
+	<!-- =============sophia.foundation的定义=========== -->
+	<logger name="sophia.foundation">
+		<level value="INFO"></level>
+	</logger>
+	<logger name="sophia.foundation.communication.core.impl.MessageDecoderImpl">
+		<level value="off"></level>
+	</logger>
+	<logger name="sophia.foundation.communication.core.impl.MessageEncoderImpl">
+		<level value="off"></level>
+	</logger>
+
+	<logger name="org.logicalcobwebs.proxool.ProxoolFacade">
+		<level value="off"></level>
+	</logger>
+
+	<!-- <category name="org.logicalcobwebs.proxool.morningGlory_data"> <appender-ref 
+		ref="DB_LOG"/> </category> -->
+
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="GAME_DEBUG" />
+		<appender-ref ref="GAME_INFO" />
+		<appender-ref ref="GAME_ERROR" />
+	</root>
+</log4j:configuration>

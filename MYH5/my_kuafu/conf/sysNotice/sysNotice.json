@@ -1,0 +1,986 @@
+[
+    {
+        "id":1001,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew %2$s from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
+    },
+    {
+        "id":1002,
+        "desc":"|C:0xD6CAB7&T:Top Warrior |C:0xd1a765&T:%1$s|T: is now online, Atem Continent stirs once more!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"#1 ranked Warrior comes online"
+    },
+    {
+        "id":1003,
+        "desc":"|C:0xD6CAB7&T:Top Mage |C:0xd1a765&T:%1$s|T: is now online, Atem Continent stirs once more!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"#1 ranked Mage comes online"
+    },
+    {
+        "id":1004,
+        "desc":"|C:0xD6CAB7&T:Top Psychic |C:0xd1a765&T:%1$s|T: is now online, Atem Continent stirs once more!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"#1 ranked Psychic comes online"
+    },
+    {
+        "id":1005,
+        "desc":"|C:0xd1a765&T:%1$s|T:'s |C:0xE17123&T:Noble Title|T: has risen to |C:0x34e22c&T:%2$s|T:, fame grows!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Noble Title promotion"
+    },
+    {
+        "id":1006,
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully forged Orange Equipment |C:0xDF660E&T:%2$s|T:, congratulations! |C:0x34e22c&U:&H:2008&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Orange equipment forged"
+    },
+    {
+        "id":1007,
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully forged Dragon Equipment |C:0xB6281A&T:%2$s|T:, one step closer to MoYu champion!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Dragon equipment forged"
+    },
+    {
+        "id":1008,
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained from |C:0x34e22c&T:First Recharge|T: a |C:0xE17123&T:Stat-less Divine Weapon|T: and exclusive pet |C:0x8425CB&T:Holy Angel|T:, monster hunting efficiency sky-high! |C:0x34e22c&U:&H:7018&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Claimed first recharge reward"
+    },
+    {
+        "id":1009,
+        "desc":"|C:0xd1a765&T:%1$s|T: claimed |C:0x34e22c&T:Monthly Pass|T:, earning |C:0xE17123&T:Magic Stones|T: daily, AFK grinding worry-free! |C:0x34e22c&U:&H:7015&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"Claimed monthly pass"
+    },
+    {
+        "id":1010,
+        "desc":"|C:0xd1a765&T:%1$s|T: claimed |C:0x34e22c&T:Divine Privilege|T:, earning |C:0xE17123&T:Prestige|T: daily and gaining an |C:0xE17123&T:elite title|T:! |C:0x34e22c&U:&H:7015&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"Claimed Divine Privilege"
+    },
+    {
+        "id":1011,
+        "desc":"|C:0xd1a765&T:%1$s|T: advanced |C:0xE17123&T:%2$s|T: to stage |C:0x34e22c&T:%3$s|T:, |C:0xE17123&T:XP stats|T: greatly boosted!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Goddess advanced"
+    },
+    {
+        "id":1012,
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully advanced to God Power stage |C:0x34e22c&T:%2$s|T:, one step closer to becoming a god! |C:0x34e25c&U:&H:2006&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"God cultivation successful"
+    },
+    {
+        "id":1013,
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully advanced |C:0xE17123&T:Ladder Rank|T: to |C:0x34e22c&T:%2$s|T:, dominating all!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Ladder rank promotion"
+    },
+    {
+        "id":1014,
+        "desc":"|C:0xd1a765&T:%1$s|T: hired a |C:0xB6281A&T:Top Miner|T:, lucrative returns await! |C:0x34e22c&U:&H:4001&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Hired top miner"
+    },
+    {
+        "id":1015,
+        "desc":"|C:0xd1a765&T:%1$s|T: claimed the |C:0x34e22c&T:Ultimate Treasure Chest|T: in |C:0xE17123&T:Endless Challenge|T:, congratulations!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Claimed treasure chest in Endless Challenge"
+    },
+    {
+        "id":1016,
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully hatched |C:0xE17123&T:%2$s S-rank|T: Phantom Beasts %3$s.",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"X S-rank Phantom Beasts hatched successfully"
+    },
+    {
+        "id":1017,
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased |C:0x34e22c&T:%2$s|T: from |C:0xE17123&T:Special Offer Pack|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Special offer pack purchased"
+    },
+    {
+        "id":1018,
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:%2$s|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"VIP pack purchased"
+    },
+    {
+        "id":1019,
+        "desc":"|C:0xB6281A&T:%1$s|T: has appeared in |C:0xE17123&T:World BOSS|T:, go challenge it! |C:0x34e22c&U:&H:4007&T:Go Now",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"BOSS spawn alert, displays BOSS name and level"
+    },
+    {
+        "id":1020,
+        "desc":"|C:0xd1a765&T:%1$s|T: defeated |C:0xB6281A&T:%2$s|T: in |C:0xE17123&T:World BOSS|T: and dropped %3$s!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"World BOSS killed, dropped orange or better item"
+    },
+    {
+        "id":1021,
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully advanced %2$s to stage |C:0x34e22c&T:%3$s|T:, |C:0xE17123&T:stats|T: greatly increased!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"[XXXX] successfully advanced [Phantom Beast name] to stage [X], stats greatly increased!"
+    },
+    {
+        "id":1022,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, found |C:0xE17123&T:%2$s|T: in |C:0xE17123&T:Divine Treasury|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"XXX found XX item in Divine Treasury, incredible luck!"
+    },
+    {
+        "id":3001,
+        "desc":"|C:0xd1a765&T:%1$s|T: has been kicked from the Legion!",
+        "type":2,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"XXXX kicked from Legion"
+    },
+    {
+        "id":3002,
+        "desc":"|C:0xd1a765&T:%1$s|T: has left the Legion!",
+        "type":2,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"XXXX left the Legion"
+    },
+    {
+        "id":3003,
+        "desc":"|C:0xd1a765&T:%1$s|T: has joined the Legion, welcome everyone!",
+        "type":2,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"XXXX joined the Legion"
+    },
+    {
+        "id":3004,
+        "desc":"|C:0xd1a765&T:%1$s|T: registered Phantom Beast %2$s, contributing |C:0xE17123&T:%3$s|T: Prestige to the Legion!",
+        "type":2,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"XXXX registered Phantom Beast XXX, Legion power rises"
+    },
+    {
+        "id":3005,
+        "desc":"|C:0xd1a765&T:%1$s|T: updated the Legion Bulletin!",
+        "type":2,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"XXXX updated the Legion Bulletin"
+    },
+    {
+        "id":3006,
+        "desc":"|C:0xd1a765&T:%1$s|T: has been appointed |C:0xE17123&T:Vice Leader|T:!",
+        "type":2,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"Player XXXX appointed Vice Leader"
+    },
+    {
+        "id":3007,
+        "desc":"|C:0xd1a765&T:%1$s|T: donated |C:0x34e22c&T:%2$s|T: Magic Stones to the Legion, earning a large amount of |C:0xE17123&T:Legion Contribution|T:!",
+        "type":2,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"XXXX donated XXXX gems to the Legion, gaining a large amount of Legion Contribution!"
+    },
+    {
+        "id":3008,
+        "desc":"|C:0xE17123&T:%1$s Totem|T: reached level |C:0x34e22c&T:%2$s|T:, Legion power greatly increased!",
+        "type":2,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"XXX Totem reached level X, Legion power greatly increased!"
+    },
+    {
+        "id":3009,
+        "desc":"|C:0xd1a765&T:%1$s|T: has been appointed |C:0xE17123&T:Leader|T:!",
+        "type":2,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"Player XXXX appointed Leader"
+    },
+    {
+        "id":3010,
+        "desc":"|C:0xd1a765&T:%1$s|T: earned |C:0xE17123&T:%2$s|T: points in Legion War and was awarded |C:0xDF660E&T:War General Reward|T: by the Legion Leader!",
+        "type":2,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"Player XXXX earned XXX points in Legion War and received Elite reward"
+    },
+    {
+        "id":3011,
+        "desc":"|C:0xd1a765&T:%1$s|T: earned |C:0xE17123&T:%2$s|T: points in Legion War and was awarded |C:0xB93BDD&T:Elite Lord Reward|T: by the Legion Leader!",
+        "type":2,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"Player XXXX earned XXX points in Legion War and received Outstanding reward"
+    },
+    {
+        "id":3012,
+        "desc":"|C:0xd1a765&T:%1$s|T: earned |C:0xE17123&T:%2$s|T: points in Legion War and was awarded |C:0x1291CE&T:Outstanding Member Reward|T: by the Legion Leader!",
+        "type":2,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"Player XXXX earned XXX points in Legion War and received Normal reward"
+    },
+    {
+        "id":3013,
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully impeached the Legion Leader and became the new Leader.",
+        "type":2,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"Player XXX successfully impeached the Legion Leader and became the new Leader"
+    },
+    {
+        "id":4001,
+        "desc":"|C:0xD6CAB7&T:You have successfully left |C:0xd1a765&T:%1$s|T: Legion.",
+        "type":3,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"You successfully left Legion XXXX (system channel)"
+    },
+    {
+        "id":4002,
+        "desc":"|C:0xD6CAB7&T:You have been removed from |C:0xd1a765&T:%1$s|T: Legion.",
+        "type":3,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"You were kicked from Legion XXXX (shown to kicked player) (system channel)"
+    },
+    {
+        "id":4003,
+        "desc":"|C:0xD6CAB7&T:You have successfully joined |C:0xd1a765&T:%1$s|T: Legion.",
+        "type":3,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"You successfully joined XXXX Legion (system channel)"
+    },
+    {
+        "id":4004,
+        "desc":"|C:0xd1a765&T:%1$s|T: Legion has been disbanded.",
+        "type":3,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"XXXX Legion has been disbanded (system channel)"
+    },
+    {
+        "id":4005,
+        "desc":"|C:0xd1a765&T:%1$s|T: Legion has rejected your application.",
+        "type":3,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"XXXX Legion rejected your application (system channel)"
+    },
+    {
+        "id":1023,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by Lady Luck and obtained a |C:0xE17123&T:Bronze Key|T:, one step closer to the No.1 Player reward!",
+        "type":3,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"Obtained Bronze Key in No.1 Player event"
+    },
+    {
+        "id":1024,
+        "desc":"|C:0xd1a765&T:%1$s|T: bravely seized a |C:0xE17123&T:Jade Key|T: from the BOSS, the No.1 Player reward is within reach!",
+        "type":3,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"Obtained Jade Key in No.1 Player event"
+    },
+    {
+        "id":1025,
+        "desc":"|C:0xd1a765&T:%1$s|T: with the help of their Phantom Beast, successfully obtained a |C:0xE17123&T:Crystal Key|T:, the No.1 Player reward is almost in hand!",
+        "type":3,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"Obtained Crystal Key in No.1 Player event"
+    },
+    {
+        "id":1026,
+        "desc":"|C:0xd1a765&T:%1$s|T: was destined for greatness, collected |C:0xE17123&T:Bronze Key|T:, |C:0xE17123&T:Jade Key|T:, and |C:0xE17123&T:Crystal Key|T:, successfully claimed the No.1 Player event reward!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Claimed No.1 Player event reward"
+    },
+    {
+        "id":1027,
+        "desc":"|C:0xd1a765&T:%1$s|T: collected |C:0xE17123&T:Bronze Key|T:, |C:0xE17123&T:Jade Key|T:, and |C:0xE17123&T:Crystal Key|T: in record time, claimed the super grand prize and earned the server-exclusive title \"|C:0xE17123&T:No.1 Player|T:\"!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"No.1 Player event first place claimed reward"
+    },
+    {
+        "id":1028,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Lia the Protector from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
+    },
+    {
+        "id":1029,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Aiden the Giver from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
+    },
+    {
+        "id":1030,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Taurus Star Yar from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
+    },
+    {
+        "id":1031,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Lucky Lulu from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
+    },
+    {
+        "id":1032,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Lucky Dudu from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
+    },
+    {
+        "id":1033,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Sky Slash from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
+    },
+    {
+        "id":1034,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Phantom Combo from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
+    },
+    {
+        "id":1035,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Advanced Power Strike from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
+    },
+    {
+        "id":1036,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Advanced Regeneration from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
+    },
+    {
+        "id":1037,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Advanced Regeneration from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
+    },
+    {
+        "id":1038,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew Lucky Lulu from |C:0xE17123&T:Tarot Cards|T:, what incredible luck! |C:0x34e22c&U:&H:7006&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"XXX drew XX item from Tarot Cards, incredible luck!"
+    },
+    {
+        "id":1039,
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased a |C:0x34e22c&T:Materials Pack|T: from |C:0xE17123&T:Events|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"Event purchase"
+    },
+    {
+        "id":1040,
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased a |C:0x34e22c&T:Lucky Draw Pack|T: from |C:0xE17123&T:Events|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"Event purchase"
+    },
+    {
+        "id":1041,
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased a |C:0x34e22c&T:Divine Gear Pack|T: from |C:0xE17123&T:Events|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"Event purchase"
+    },
+    {
+        "id":1042,
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased a |C:0x34e22c&T:Phantom Pack|T: from |C:0xE17123&T:Events|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"Event purchase"
+    },
+    {
+        "id":1043,
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased a |C:0x34e22c&T:Forging Pack|T: from |C:0xE17123&T:Events|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"Event purchase"
+    },
+    {
+        "id":1044,
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased a |C:0x34e22c&T:Phantom Beast Pack|T: from |C:0xE17123&T:Events|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"Event purchase"
+    },
+    {
+        "id":1045,
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased a |C:0x34e22c&T:Divine Soul Pack|T: from |C:0xE17123&T:Events|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"Event purchase"
+    },
+    {
+        "id":1046,
+        "desc":"|C:0xd1a765&T:%1$s|T: purchased a |C:0x34e22c&T:Phantom Pack|T: from |C:0xE17123&T:Events|T:, |C:0x34e22c&T:Combat Power|T: surges! |C:0x34e22c&U:&H:7012&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"Event purchase"
+    },
+    {
+        "id":1047,
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:VIP0 Pack|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"VIP pack purchased"
+    },
+    {
+        "id":1048,
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:VIP0 Pack|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"VIP pack purchased"
+    },
+    {
+        "id":1049,
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:VIP0 Pack|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"VIP pack purchased"
+    },
+    {
+        "id":1050,
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:VIP0 Pack|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"VIP pack purchased"
+    },
+    {
+        "id":1051,
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:VIP0 Pack|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"VIP pack purchased"
+    },
+    {
+        "id":1052,
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:VIP0 Pack|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"VIP pack purchased"
+    },
+    {
+        "id":1053,
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:VIP0 Pack|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"VIP pack purchased"
+    },
+    {
+        "id":1054,
+        "desc":"|C:0xd1a765&T:%1$s|T: decisively purchased |C:0x34e22c&T:VIP0 Pack|T:, gaining a large amount of rare materials! |C:0x34e22c&U:&H:7019&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"VIP pack purchased"
+    },
+    {
+        "id":1056,
+        "desc":"|C:0xd1a765&T:%1$s|T: has worshipped you!",
+        "type":3,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"Worship notification"
+    },
+    {
+        "id":1057,
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained a |C:0xDF660E&T:Bronze Key|T:.",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"No.1 Player obtained key"
+    },
+    {
+        "id":1058,
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained a |C:0xDF660E&T:Jade Key|T:.",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"No.1 Player obtained key"
+    },
+    {
+        "id":1059,
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained a |C:0xDF660E&T:Crystal Key|T:.",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"No.1 Player obtained key"
+    },
+    {
+        "id":1060,
+        "desc":"|C:0xD6CAB7&T:The enraged |C:0xB6281A&T:%1$s|T: is invading Cassano City, warriors go defeat it!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"%1$s is BOSS name, sent when Demon King BOSS spawns"
+    },
+    {
+        "id":1061,
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully led warriors to defeat |C:0xB6281A&T:%2$s|T:, bringing peace back to Cassano City",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"%1$s is final-hit player name, %2$s is BOSS name, sent when Demon King BOSS dies"
+    },
+    {
+        "id":1062,
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained from |C:0x34e22c&T:$10 First Recharge|T: a |C:0xE17123&T:Leveling Pill|T: and |C:0x8425CB&T:Stat-less Divine Gear|T:, monster hunting efficiency sky-high! |C:0x34e22c&U:&H:7018&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"Claimed $10 first recharge reward"
+    },
+    {
+        "id":1063,
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained from |C:0x34e22c&T:$50 First Recharge|T: a |C:0xE17123&T:Full-stat Purple Pet|T: and |C:0x8425CB&T:a large box of rare materials|T:, combat power surges! |C:0x34e23c&U:&H:7018&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":1,
+        "description":"Claimed $50 first recharge reward"
+    },
+    {
+        "id":1064,
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained from |C:0x34e22c&T:$200 First Recharge|T: a |C:0xE17123&T:Full-stat Orange Pet|T: and |C:0x8425CB&T:a large chest of rare materials|T:, combat power skyrockets! |C:0x34e24c&U:&H:7018&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Claimed $200 first recharge reward"
+    },
+    {
+        "id":1065,
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained from |C:0x34e22c&T:$500 First Recharge|T: an |C:0xE17123&T:exclusive limited outfit|T: and |C:0x8425CB&T:a large sack of rare materials|T:, already unstoppable! |C:0x34e25c&U:&H:7018&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Claimed $500 first recharge reward"
+    },
+    {
+        "id":1066,
+        "desc":"|C:0xE17123&T:%1$s|T: event has started, come join the fight!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Event start announcement, %1$s is event name"
+    },
+    {
+        "id":1067,
+        "desc":"|C:0xD6CAB7&T:This round of |C:0xE17123&T:Legion War|T: has ended, the winning Legion is |C:0xd1a765&T:%1$s|T:!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Legion War end announcement, %1$s is winner Legion name"
+    },
+    {
+        "id":1068,
+        "desc":"|C:0xD6CAB7&T:Player |C:0xd1a765&T:%1$s|T: has accumulated |C:0xE17123&T:10|T: kills, unstoppable!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Legion War kill count announcement, %1$s is player name"
+    },
+    {
+        "id":1069,
+        "desc":"|C:0xD6CAB7&T:Player |C:0xd1a765&T:%1$s|T: has accumulated |C:0xE17123&T:15|T: kills, someone stop them!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Legion War kill count announcement, %1$s is player name"
+    },
+    {
+        "id":1070,
+        "desc":"|C:0xD6CAB7&T:Player |C:0xd1a765&T:%1$s|T: has accumulated |C:0xE17123&T:20|T: kills, what a monster!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Legion War kill count announcement, %1$s is player name"
+    },
+    {
+        "id":1071,
+        "desc":"|C:0xD6CAB7&T:Player |C:0xd1a765&T:%1$s|T: is on a |C:0xE17123&T:killing spree|T:, someone stop them!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Legion War 3 consecutive kills announcement, %1$s is player name"
+    },
+    {
+        "id":1072,
+        "desc":"|C:0xD6CAB7&T:Player |C:0xd1a765&T:%1$s|T: is |C:0xE17123&T:dominating the match|T:, none can stop them!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Legion War 5 consecutive kills announcement, %1$s is player name"
+    },
+    {
+        "id":1073,
+        "desc":"|C:0xD6CAB7&T:Player |C:0xd1a765&T:%1$s|T: is |C:0xE17123&T:godlike|T:!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Legion War 7 consecutive kills announcement, %1$s is player name"
+    },
+    {
+        "id":1074,
+        "desc":"|C:0xd1a765&T:%1$s|T: obtained a large amount of |C:0xB6281A&T:%2$s|T: from |C:0xB6281A&T:Dragon Boat Gift Pack|T:, power greatly increased! |C:0x34e22c&U:&H:7028&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Dragon Boat Festival pack"
+    },
+    {
+        "id":1075,
+        "desc":"|C:0xd1a765&T:%1$s|T: was lucky to receive |C:0x34E22C&T:triple|T: Tarot EXP, getting the top orange pet |C:0xDF660E&T:Lia the Protector|T: is just around the corner! |C:0x34e22c&U:&H:7006&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Triple Tarot EXP"
+    },
+    {
+        "id":1076,
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully unlocked Divine Gear |C:0xB6281A&T:%2$s|T:, combat power soars, dominating MoYu is in sight! |C:0x34e22c&U:&H:7029&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Divine gear activated"
+    },
+    {
+        "id":1077,
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully upgraded Divine Gear to |C:0xB6281A&T:%2$s|T:, power increased, dominating MoYu is in sight! |C:0x34e22c&U:&H:7029&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Divine gear upgraded"
+    },
+    {
+        "id":1078,
+        "desc":"|C:0xd1a765&T:%1$s|T: defeated |C:0xB6281A&T:%2$s|T: in |C:0xE17123&T:BOSS House|T: and dropped %3$s!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"BOSS House BOSS killed, dropped orange or better item"
+    },
+    {
+        "id":1079,
+        "desc":"|C:0xD6CAB7&T:The |C:0xE17123&T:Star of Popularity|T: event has ended, the winner is the amazing |C:0xd1a765&T:%1$s|T:!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Star of Popularity end announcement, %1$s is player name"
+    },
+    {
+        "id":1080,
+        "desc":"|C:0xd1a765&T:%1$s|T: defeated |C:0xB6281A&T:%2$s|T: in |C:0xE17123&T:Lost MoYu|T: and dropped %3$s!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Lost MoYu BOSS killed, dropped orange or better item"
+    },
+    {
+        "id":1081,
+        "desc":"|C:0xB6281A&T:%1$s|T: has appeared in |C:0xE17123&T:Lost MoYu|T:, go challenge it! |C:0x34e22c&U:&H:7024&T:Go Now",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Lost MoYu BOSS spawn alert, displays BOSS name and level"
+    },
+    {
+        "id":1082,
+        "desc":"|C:0xB6281A&T:%1$s|T: has appeared in |C:0xE17123&T:Divine Realm BOSS|T:, go challenge it! |C:0x34e22c&U:&H:4011&T:Go Now",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Divine Realm BOSS spawn alert, displays BOSS name and level"
+    },
+    {
+        "id":1083,
+        "desc":"|C:0xd1a765&T:%1$s|T: defeated |C:0xB6281A&T:%2$s|T: in |C:0xE17123&T:Divine Realm BOSS|T: and dropped %3$s!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Divine Realm BOSS killed, dropped orange or better item"
+    },
+    {
+        "id":1084,
+        "desc":"|C:0xffffff&T:A joyous surprise! Explorer %1$s found Divine Soul %3$s in the Temple for |C:0xd1a765&T:%2$s|T:! |C:0x34e22c&U:&H:7039&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Temple exploration obtained red/gold soul announcement"
+    },
+    {
+        "id":1085,
+        "desc":"|C:0xB6281A&T:%1$s|T: has appeared in |C:0xE17123&T:Phantom Forbidden Zone|T:, go challenge it! |C:0x34e22c&U:&H:7024&T:Go Now",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Phantom Forbidden Zone BOSS spawn alert"
+    },
+    {
+        "id":1086,
+        "desc":"|C:0xd1a765&T:%1$s|T: defeated |C:0xB6281A&T:%2$s|T: in |C:0xE17123&T:Phantom Forbidden Zone|T: and dropped %3$s!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Phantom Forbidden Zone BOSS killed, dropped orange or better item"
+    },
+    {
+        "id":1087,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, received |C:0x34E22C&T:%2$s rebate|T: from the |C:0xE17123&T:Luxury Spin Wheel|T:, totaling |C:0x34E22C&T:%3$s|T: Magic Stones, what incredible luck!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Luxury Spin Wheel item jackpot announcement, %1$s is player name"
+    },
+    {
+        "id":1088,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew |C:0xDF660E&T:%2$s|T: from the |C:0xE17123&T:Luxury Spin Wheel|T:, what incredible luck!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Luxury Spin Wheel prize pool jackpot announcement, %1$s is player name"
+    },
+    {
+        "id":1089,
+        "desc":"|C:0xd1a765&T:%1$s|T: successfully raised Phantom Beast %2$s's |C:0x34E22C&T:%3$s|T: to |C:0xB6281A&T:%4$s|T:, power greatly increased! |C:0x34e22c&U:&H:7043&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Pet evolution raising aptitude to S or above announcement"
+    },
+    {
+        "id":1090,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by fortune, drew |C:0xDF660E&T:%2$s|T: from the |C:0xE17123&T:Golden Autumn Spin Wheel|T:, what incredible luck!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Golden Autumn Spin Wheel jackpot announcement, %1$s is player name, %2$s is item"
+    },
+    {
+        "id":1091,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by Lady Luck, hatched Phantom Beast %3$s through %2$s, |C:0x34e22c&U:&H:6011&T:I want one",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Mysterious Phantom Beast egg hatched orange or better beast announcement"
+    },
+    {
+        "id":1092,
+        "desc":"|C:0xd1a765&T:%1$s|T: was blessed by Lady Luck, hatched Phantom Beast %3$s through %2$s!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"Mysterious Phantom Beast egg hatched orange or better beast announcement (scroll display)"
+    },
+    {
+        "id":1093,
+        "desc":"|C:0xE17123&T:King's Legion War|T: score ranking rewards have been distributed, congratulations to Legion |C:0xd1a765&T:%1$s|T: for winning 1st place, keep up the great work!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"%1$s is the name of the Legion ranked 1st in King's Legion War"
+    },
+    {
+        "id":1094,
+        "desc":"Congratulations to |C:0xd1a765&T:%1$s|T: for defeating |C:0xd1a765&T:%2$s|T: players today in King's Legion War, earning 1st place on the leaderboard!",
+        "type":3,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"%1$s is player name ranked 1st, %2$s is their kill count"
+    },
+    {
+        "id":1095,
+        "desc":"|C:0xd1a765&T:%1$s|T: has opened Legend Challenge - |C:0xd1a765&T:%2$s|T: dungeon, come join the challenge! |C:0x34e22c&U:&H:7024&T:Join Now",
+        "type":2,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"%1$s is player name, %2$s is dungeon name"
+    },
+    {
+        "id":1096,
+        "desc":"|C:0xd1a765&T:%1$s|T: has opened Legend Challenge - |C:0xd1a765&T:%2$s|T: dungeon, come join the challenge! |C:0x34e22c&U:&H:7024&T:Join Now",
+        "type":1,
+        "ifsend":0,
+        "isRndpush":0,
+        "description":"%1$s is player name, %2$s is dungeon name"
+    },
+    {
+        "id":6001,
+        "desc":"|C:0xd1a765&T:%1$s|T: gazes lovingly at |C:0xd1a765&T:%2$s|T: and presents a bouquet of flowers!",
+        "type":6,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"%1$s is the user's player name, %2$s is the target player name"
+    },
+    {
+        "id":6002,
+        "desc":"|C:0xd1a765&T:%1$s|T: quickly slips a flower to |C:0xd1a765&T:%2$s|T: and immediately runs away shyly!",
+        "type":6,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"%1$s is the user's player name, %2$s is the target player name"
+    },
+    {
+        "id":6003,
+        "desc":"|C:0xd1a765&T:%1$s|T: gracefully offers a flower, |C:0xd1a765&T:%2$s|T: thinks for a moment and cleverly pulls out a cow patty!",
+        "type":6,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"%1$s is the user's player name, %2$s is the target player name"
+    },
+    {
+        "id":6004,
+        "desc":"|C:0xd1a765&T:%1$s|T: gazes lovingly at |C:0xd1a765&T:%2$s|T: and presents a bouquet of flowers!",
+        "type":6,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"%1$s is the user's player name, %2$s is the target player name"
+    },
+    {
+        "id":6005,
+        "desc":"|C:0xd1a765&T:%1$s|T: gazes lovingly at |C:0xd1a765&T:%2$s|T: and presents a bouquet of flowers!",
+        "type":6,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"%1$s is the user's player name, %2$s is the target player name"
+    },
+    {
+        "id":7001,
+        "desc":"|C:0xd1a765&T:%1$s|T: doesn't want to talk to |C:0xd1a765&T:%2$s|T: and throws an egg at them!",
+        "type":7,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"%1$s is the user's player name, %2$s is the target player name"
+    },
+    {
+        "id":7002,
+        "desc":"|C:0xd1a765&T:%1$s|T: starts throwing eggs without warning, |C:0xd1a765&T:%2$s|T: is so scared they're cowering in the corner!",
+        "type":7,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"%1$s is the user's player name, %2$s is the target player name"
+    },
+    {
+        "id":7003,
+        "desc":"|C:0xd1a765&T:%1$s|T: hurls an egg at |C:0xd1a765&T:%2$s|T: with lightning speed, |C:0xd1a765&T:%2$s|T: reaches out to block it and discovers it's a raw one!",
+        "type":7,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"%1$s is the user's player name, %2$s is the target player name"
+    },
+    {
+        "id":7004,
+        "desc":"|C:0xd1a765&T:%1$s|T: grabs an egg and throws it at |C:0xd1a765&T:%2$s|T:, muttering: \"Don't think being handsome means I won't hit you!\"",
+        "type":7,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"%1$s is the user's player name, %2$s is the target player name"
+    },
+    {
+        "id":7005,
+        "desc":"|C:0xd1a765&T:%1$s|T: doesn't want to talk to |C:0xd1a765&T:%2$s|T: and throws an egg at them!",
+        "type":7,
+        "ifsend":1,
+        "isRndpush":0,
+        "description":"%1$s is the user's player name, %2$s is the target player name"
+    }
+]

@@ -49,21 +49,61 @@ CREATE TABLE `cfg_server` (
 INSERT INTO `cfg_server` VALUES ('7', '2020-03-15 12:00:00');
 
 -- ----------------------------
--- Table structure for game_auction
+-- Table structure for game_auction (Trade / Marketplace listings)
 -- ----------------------------
+-- Redesigned for the player-to-player Trade/Marketplace feature: explicit
+-- columns (instead of an opaque `item` blob) so the server can list a
+-- player's own active listings, browse the full server market, and look up
+-- a single order by id without deserializing a blob. `status` distinguishes
+-- active/sold/cancelled/expired listings so sold/cancelled rows can be kept
+-- for history instead of being deleted. `sellerName` is denormalized from
+-- the player table purely to avoid a join when rendering the market list.
 DROP TABLE IF EXISTS `game_auction`;
 CREATE TABLE `game_auction` (
-  `id` varchar(36) NOT NULL COMMENT '拍卖物id',
-  `playerId` varchar(36) NOT NULL COMMENT '玩家playerId',
-  `price` int(11) NOT NULL COMMENT '价格',
-  `startTime` bigint(64) NOT NULL COMMENT '开始时间',
-  `endTime` bigint(64) NOT NULL COMMENT '结束时间',
-  `item` mediumblob NOT NULL COMMENT '拍卖物',
-  PRIMARY KEY (`id`) USING BTREE
+  `id` varchar(36) NOT NULL COMMENT '挂单id (orderId)',
+  `playerId` varchar(36) NOT NULL COMMENT '卖家玩家id',
+  `sellerName` varchar(64) NOT NULL DEFAULT '' COMMENT '卖家名称(冗余,避免market列表join)',
+  `itemId` varchar(64) NOT NULL COMMENT '物品id(itemRefId或唯一实例id,视物品类型而定)',
+  `count` int(11) NOT NULL DEFAULT '1' COMMENT '数量',
+  `price` int(11) NOT NULL COMMENT '总价',
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0=active 1=sold 2=cancelled 3=expired',
+  `startTime` bigint(64) NOT NULL COMMENT '开始时间(毫秒)',
+  `endTime` bigint(64) NOT NULL COMMENT '结束时间(毫秒, 默认7天)',
+  `item` mediumblob COMMENT '拍卖物序列化数据(可选,兼容复杂物品实例)',
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `idx_auction_playerId` (`playerId`),
+  KEY `idx_auction_status_endTime` (`status`,`endTime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT KEY_BLOCK_SIZE=16;
 
 -- ----------------------------
 -- Records of game_auction
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for game_trade_record (Trade / Marketplace sell history)
+-- ----------------------------
+-- One row per completed (bought) trade. Used to answer "my sell record"
+-- queries (rows where the requesting player is sellPlayerId) without
+-- scanning/parsing game_auction's sold/cancelled rows.
+DROP TABLE IF EXISTS `game_trade_record`;
+CREATE TABLE `game_trade_record` (
+  `id` varchar(36) NOT NULL COMMENT '记录id',
+  `orderId` varchar(36) NOT NULL COMMENT '原挂单id(game_auction.id)',
+  `buyPlayerId` varchar(36) NOT NULL COMMENT '买家玩家id',
+  `buyPlayerName` varchar(64) NOT NULL DEFAULT '' COMMENT '买家名称(冗余)',
+  `sellPlayerId` varchar(36) NOT NULL COMMENT '卖家玩家id',
+  `sellPlayerName` varchar(64) NOT NULL DEFAULT '' COMMENT '卖家名称(冗余)',
+  `itemId` varchar(64) NOT NULL COMMENT '物品id',
+  `count` int(11) NOT NULL DEFAULT '1' COMMENT '数量',
+  `price` int(11) NOT NULL COMMENT '成交价',
+  `buyTime` bigint(64) NOT NULL COMMENT '成交时间(毫秒)',
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `idx_traderecord_sellPlayerId` (`sellPlayerId`),
+  KEY `idx_traderecord_buyPlayerId` (`buyPlayerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT KEY_BLOCK_SIZE=16;
+
+-- ----------------------------
+-- Records of game_trade_record
 -- ----------------------------
 
 -- ----------------------------
@@ -422,10 +462,21 @@ CREATE TABLE `player` (
   `hefuData` mediumblob COMMENT '合服活动数据',
   `starEquipData` mediumblob COMMENT '星辰装备',
   `friendData` mediumblob COMMENT '好友数据',
+  `version` bigint(20) NOT NULL DEFAULT '0' COMMENT '乐观锁版本号(Fix 12: 防止旧存档覆盖新存档)',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `idx_identityId` (`identityId`) USING BTREE,
   KEY `idx_name` (`name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT KEY_BLOCK_SIZE=16;
+
+-- ----------------------------
+-- Migration: Fix 12 optimistic version-lock for `player` table
+-- Safe to run against an EXISTING production DB that already has a `player`
+-- table without the `version` column (CREATE TABLE above only applies to a
+-- fresh DB created from this dump). This ALTER is idempotent-ish: running it
+-- twice will error "duplicate column", so guard it in deployment tooling or
+-- check information_schema before applying if needed.
+-- ----------------------------
+-- ALTER TABLE `player` ADD COLUMN `version` bigint(20) NOT NULL DEFAULT '0' COMMENT '乐观锁版本号(Fix 12)';
 
 -- ----------------------------
 -- Records of player
@@ -476,14 +527,14 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `newPlayer`(IN id VARCHAR(36), IN id
 IN qdCode1 INT(11),IN qdCode2 INT(11),IN birthday BIGINT,IN lastLoginTime BIGINT,IN lastLogoutTime BIGINT,IN `level` INT(11) ,IN propertyData BLOB, 
 IN itemBagData MEDIUMBLOB, IN dailyQuestData MEDIUMBLOB, IN peerageData MEDIUMBLOB, IN petData MEDIUMBLOB, IN tarotData MEDIUMBLOB, IN copyData MEDIUMBLOB, 
 IN fightsoulData MEDIUMBLOB, IN unionData MEDIUMBLOB, IN storeData MEDIUMBLOB, IN mineralData MEDIUMBLOB, IN shengHunData MEDIUMBLOB, IN godBoxData MEDIUMBLOB, 
-IN equipData MEDIUMBLOB, IN handbookData MEDIUMBLOB, IN lostTempleData MEDIUMBLOB, IN wingData MEDIUMBLOB, IN serverId VARCHAR(60), IN hefuData MEDIUMBLOB, 
+IN equipData MEDIUMBLOB, IN handbookData MEDIUMBLOB, IN lostTempleData MEDIUMBLOB, IN wingData MEDIUMBLOB, IN serverId VARCHAR(60), IN hefuData MEDIUMBLOB,
 IN starEquipData MEDIUMBLOB, IN friendData MEDIUMBLOB)
 BEGIN
-	INSERT INTO player(id,identityId, identityName, `name`, propertyData, itemBagData, dailyQuestData, peerageData, qdCode1, qdCode2, birthday, lastLoginTime, 
+	INSERT INTO player(id,identityId, identityName, `name`, propertyData, itemBagData, dailyQuestData, peerageData, qdCode1, qdCode2, birthday, lastLoginTime,
 lastLogoutTime, `level`, petData, tarotData, copyData, fightsoulData,unionData,storeData,mineralData,shengHunData, godBoxData, equipData, handbookData,
- lostTempleData, wingData, serverId, hefuData, starEquipData, friendData) VALUES(id,identityId, identityName, `name`, propertyData, itemBagData, dailyQuestData,
+ lostTempleData, wingData, serverId, hefuData, starEquipData, friendData, `version`) VALUES(id,identityId, identityName, `name`, propertyData, itemBagData, dailyQuestData,
  peerageData, qdCode1, qdCode2, birthday, lastLoginTime, lastLogoutTime,`level`, petData, tarotData, copyData, fightsoulData,unionData,storeData,mineralData,
-shengHunData, godBoxData, equipData, handbookData, lostTempleData, wingData, serverId, hefuData, starEquipData, friendData);
+shengHunData, godBoxData, equipData, handbookData, lostTempleData, wingData, serverId, hefuData, starEquipData, friendData, 0);
     END
 ;;
 DELIMITER ;
@@ -548,16 +599,19 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS `updatePlayer`;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `updatePlayer`(IN `id` VARCHAR(36), IN identityId VARCHAR(60), IN identityName VARCHAR(60), IN `name` VARCHAR(60),
-IN qdCode1 INT(11),IN qdCode2 INT(11),IN birthday BIGINT,IN lastLoginTime BIGINT,IN lastLogoutTime BIGINT,IN `level` INT(11) , IN propertyData BLOB, IN itemBagData MEDIUMBLOB, 
-IN dailyQuestData MEDIUMBLOB, IN peerageData MEDIUMBLOB, IN petData MEDIUMBLOB, IN tarotData MEDIUMBLOB, IN copyData MEDIUMBLOB, IN fightsoulData MEDIUMBLOB, IN unionData MEDIUMBLOB, 
-IN storeData MEDIUMBLOB, IN mineralData MEDIUMBLOB, IN shengHunData MEDIUMBLOB, IN godBoxData MEDIUMBLOB, IN equipData MEDIUMBLOB, IN handbookData MEDIUMBLOB, 
-IN lostTempleData MEDIUMBLOB, IN wingData MEDIUMBLOB, IN serverId VARCHAR(60), IN hefuData MEDIUMBLOB, IN starEquipData MEDIUMBLOB, IN friendData MEDIUMBLOB)
+IN qdCode1 INT(11),IN qdCode2 INT(11),IN birthday BIGINT,IN lastLoginTime BIGINT,IN lastLogoutTime BIGINT,IN `level` INT(11) , IN propertyData BLOB, IN itemBagData MEDIUMBLOB,
+IN dailyQuestData MEDIUMBLOB, IN peerageData MEDIUMBLOB, IN petData MEDIUMBLOB, IN tarotData MEDIUMBLOB, IN copyData MEDIUMBLOB, IN fightsoulData MEDIUMBLOB, IN unionData MEDIUMBLOB,
+IN storeData MEDIUMBLOB, IN mineralData MEDIUMBLOB, IN shengHunData MEDIUMBLOB, IN godBoxData MEDIUMBLOB, IN equipData MEDIUMBLOB, IN handbookData MEDIUMBLOB,
+IN lostTempleData MEDIUMBLOB, IN wingData MEDIUMBLOB, IN serverId VARCHAR(60), IN hefuData MEDIUMBLOB, IN starEquipData MEDIUMBLOB, IN friendData MEDIUMBLOB,
+IN expectedVersion BIGINT, OUT affectedRows INT)
 BEGIN
-	UPDATE player SET propertyData = propertyData, itemBagData = itemBagData, dailyQuestData = dailyQuestData, peerageData = peerageData, qdCode1 = qdCode1, 
-qdCode2 = qdCode2, birthday = birthday, lastLoginTime = lastLoginTime, lastLogoutTime = lastLogoutTime, `level`=`level`, petData = petData, tarotData = tarotData, 
-copyData = copyData, fightsoulData = fightsoulData,unionData = unionData,storeData = storeData, mineralData = mineralData, shengHunData = shengHunData, 
-godBoxData = godBoxData, equipData = equipData, handbookData = handbookData, lostTempleData = lostTempleData, wingData = wingData, serverId = serverId, 
-hefuData = hefuData, starEquipData = starEquipData, friendData = friendData WHERE player.id = `id`;
+	UPDATE player SET propertyData = propertyData, itemBagData = itemBagData, dailyQuestData = dailyQuestData, peerageData = peerageData, qdCode1 = qdCode1,
+qdCode2 = qdCode2, birthday = birthday, lastLoginTime = lastLoginTime, lastLogoutTime = lastLogoutTime, `level`=`level`, petData = petData, tarotData = tarotData,
+copyData = copyData, fightsoulData = fightsoulData,unionData = unionData,storeData = storeData, mineralData = mineralData, shengHunData = shengHunData,
+godBoxData = godBoxData, equipData = equipData, handbookData = handbookData, lostTempleData = lostTempleData, wingData = wingData, serverId = serverId,
+hefuData = hefuData, starEquipData = starEquipData, friendData = friendData, `version` = `version` + 1
+WHERE player.id = `id` AND player.`version` = expectedVersion;
+	SET affectedRows = ROW_COUNT();
     END
 ;;
 DELIMITER ;

@@ -75,6 +75,91 @@ if (isset($_GET['ajax']) && $gmAuth) {
             ));
             break;
 
+        // ── Clean all game data ───────────────────────────────────────────
+        case 'clean_all':
+            $confirm = isset($_POST['confirm']) ? $_POST['confirm'] : '';
+            if ($confirm !== 'CLEAN ALL DATA') {
+                echo json_encode(array('ok' => false, 'msg' => 'Confirmation text did not match'));
+                break;
+            }
+
+            $servers = unserialize(SERVERS);
+            $result = array();
+
+            // Clean each game server DB
+            foreach ($servers as $srvId => $srv) {
+                $srvDb = isset($srv['db']) ? $srv['db'] : ('myh5_s' . $srvId);
+                $pdo = db_connect($srvDb);
+                if (!$pdo) {
+                    $result[$srvDb] = array('error' => 'Cannot connect');
+                    continue;
+                }
+                $tables = $pdo->query('SHOW TABLES')->fetchAll(PDO::FETCH_COLUMN);
+                $cleaned = array();
+                // Skip config/system tables — only clean player data tables
+                $skipTables = array('cfg_server');
+                foreach ($tables as $tbl) {
+                    if (in_array($tbl, $skipTables)) continue;
+                    try {
+                        $pdo->exec("TRUNCATE TABLE `$tbl`");
+                        $cleaned[] = $tbl;
+                    } catch (PDOException $e) {
+                        try {
+                            $pdo->exec("DELETE FROM `$tbl`");
+                            $cleaned[] = $tbl . '(delete)';
+                        } catch (PDOException $e2) { /* skip */ }
+                    }
+                }
+                $result[$srvDb] = array('tables' => count($cleaned), 'list' => $cleaned);
+            }
+
+            // Clean log databases (myh5_log, myh5_log1, myh5_log2, myh5_log3)
+            $logDbs = array('myh5_log', 'myh5_log1', 'myh5_log2', 'myh5_log3');
+            foreach ($logDbs as $logDb) {
+                $logPdo = db_connect($logDb);
+                if (!$logPdo) continue;
+                $logTables = $logPdo->query('SHOW TABLES')->fetchAll(PDO::FETCH_COLUMN);
+                $logCleaned = array();
+                foreach ($logTables as $tbl) {
+                    if (in_array($tbl, array('cfg_server'))) continue;
+                    try {
+                        $logPdo->exec("TRUNCATE TABLE `$tbl`");
+                        $logCleaned[] = $tbl;
+                    } catch (PDOException $e) {
+                        try {
+                            $logPdo->exec("DELETE FROM `$tbl`");
+                            $logCleaned[] = $tbl . '(delete)';
+                        } catch (PDOException $e2) { /* skip */ }
+                    }
+                }
+                if (count($logCleaned)) $result[$logDb] = array('tables' => count($logCleaned), 'list' => $logCleaned);
+            }
+
+            // Also clean platform DB (myh5_pl) player-related tables if accessible
+            $plDb = 'myh5_pl';
+            $plPdo = db_connect($plDb);
+            if ($plPdo) {
+                $plTables = $plPdo->query('SHOW TABLES')->fetchAll(PDO::FETCH_COLUMN);
+                $plCleaned = array();
+                $plSkip = array('cfg_server');
+                foreach ($plTables as $tbl) {
+                    if (in_array($tbl, $plSkip)) continue;
+                    try {
+                        $plPdo->exec("TRUNCATE TABLE `$tbl`");
+                        $plCleaned[] = $tbl;
+                    } catch (PDOException $e) {
+                        try {
+                            $plPdo->exec("DELETE FROM `$tbl`");
+                            $plCleaned[] = $tbl . '(delete)';
+                        } catch (PDOException $e2) { /* skip */ }
+                    }
+                }
+                if (count($plCleaned)) $result[$plDb] = array('tables' => count($plCleaned), 'list' => $plCleaned);
+            }
+
+            echo json_encode(array('ok' => true, 'result' => $result));
+            break;
+
         // ── Account search ────────────────────────────────────────────────
         case 'accounts':
             $q     = trim(isset($_GET['q']) ? $_GET['q'] : '');
@@ -150,6 +235,117 @@ if (isset($_GET['ajax']) && $gmAuth) {
             $row = db_query("SELECT * FROM `$tbl` WHERE `playerId`=? OR `roleId`=? OR `id`=? LIMIT 1",
                 array($pid, $pid, $pid), $dbName);
             echo json_encode(array('ok' => true, 'data' => isset($row[0]) ? $row[0] : null));
+            break;
+
+        // ── Delete player ─────────────────────────────────────────────────
+        case 'delete_player':
+            $pid = isset($_POST['playerId']) ? trim($_POST['playerId']) : '';
+            if (!$pid) { echo json_encode(array('ok' => false, 'msg' => 'Missing playerId')); break; }
+
+            $pdo = db_connect($dbName);
+            if (!$pdo) { echo json_encode(array('ok' => false, 'msg' => 'DB connect failed')); break; }
+
+            // Detect player table
+            $playerTbl = DB_TABLE_PLAYER;
+            $allTables = $pdo->query('SHOW TABLES')->fetchAll(PDO::FETCH_COLUMN);
+            if (!in_array($playerTbl, $allTables)) {
+                $playerTbl = db_find_player_table($dbName);
+            }
+            if (!$playerTbl) { echo json_encode(array('ok' => false, 'msg' => 'Player table not found')); break; }
+
+            // Detect id/name columns in player table
+            $cols = $pdo->query("DESCRIBE `$playerTbl`")->fetchAll(PDO::FETCH_COLUMN);
+            $idCol = 'id';
+            $nameCol = 'name';
+            foreach ($cols as $c) {
+                if (in_array(strtolower($c), array('playerid', 'roleid'))) $idCol = $c;
+                if (in_array(strtolower($c), array('playername', 'rolename'))) $nameCol = $c;
+            }
+
+            // Look up player UUID if name given
+            if (!preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i', $pid)) {
+                $stmt = $pdo->prepare("SELECT `$idCol` AS pid, `$nameCol` AS pname FROM `$playerTbl` WHERE `$nameCol` = ? LIMIT 1");
+                $stmt->execute(array($pid));
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                if (!$row) { echo json_encode(array('ok' => false, 'msg' => 'Player not found: ' . $pid)); break; }
+                $uuid = $row['pid'];
+                $playerName = $pid;
+            } else {
+                $uuid = $pid;
+                $stmt = $pdo->prepare("SELECT `$nameCol` AS pname FROM `$playerTbl` WHERE `$idCol` = ? LIMIT 1");
+                $stmt->execute(array($uuid));
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                $playerName = $row ? $row['pname'] : $uuid;
+            }
+
+            // Also look up identityName for this player (login account name)
+            $identityName = null;
+            try {
+                $idnCols = $pdo->query("DESCRIBE `$playerTbl`")->fetchAll(PDO::FETCH_COLUMN);
+                if (in_array('identityName', $idnCols)) {
+                    $stmt = $pdo->prepare("SELECT identityName FROM `$playerTbl` WHERE `$idCol` = ? LIMIT 1");
+                    $stmt->execute(array($uuid));
+                    $irow = $stmt->fetch(PDO::FETCH_ASSOC);
+                    if ($irow) $identityName = $irow['identityName'];
+                }
+            } catch (PDOException $e) { /* skip */ }
+
+            // Delete from ALL tables that have a playerId or identityName column
+            $deleted = array();
+            $errors = array();
+            foreach ($allTables as $tbl) {
+                if ($tbl === $playerTbl) continue;
+                try {
+                    $tblCols = $pdo->query("DESCRIBE `$tbl`")->fetchAll(PDO::FETCH_COLUMN);
+                    // Try playerId column
+                    foreach ($tblCols as $tc) {
+                        $tcl = strtolower($tc);
+                        if ($tcl === 'playerid' || $tcl === 'player_id') {
+                            $stmt = $pdo->prepare("DELETE FROM `$tbl` WHERE `$tc` = ?");
+                            $stmt->execute(array($uuid));
+                            $c = $stmt->rowCount();
+                            if ($c > 0) $deleted[$tbl] = (isset($deleted[$tbl]) ? $deleted[$tbl] : 0) + $c;
+                        }
+                        if ($identityName && ($tcl === 'identityname' || $tcl === 'identity_name')) {
+                            $stmt = $pdo->prepare("DELETE FROM `$tbl` WHERE `$tc` = ?");
+                            $stmt->execute(array($identityName));
+                            $c = $stmt->rowCount();
+                            if ($c > 0) $deleted[$tbl . '(identity)'] = $c;
+                        }
+                    }
+                } catch (PDOException $e) {
+                    $errors[] = $tbl . ': ' . $e->getMessage();
+                }
+            }
+
+            // Delete from player table last
+            try {
+                $stmt = $pdo->prepare("DELETE FROM `$playerTbl` WHERE `$idCol` = ?");
+                $stmt->execute(array($uuid));
+                $deleted[$playerTbl] = $stmt->rowCount();
+            } catch (PDOException $e) {
+                echo json_encode(array('ok' => false, 'msg' => 'Delete player failed: ' . $e->getMessage()));
+                break;
+            }
+
+            // Also delete all characters with same identityName (alt chars on same account)
+            if ($identityName) {
+                try {
+                    $stmt = $pdo->prepare("DELETE FROM `$playerTbl` WHERE identityName = ?");
+                    $stmt->execute(array($identityName));
+                    $c = $stmt->rowCount();
+                    if ($c > 0) $deleted[$playerTbl . '(same account)'] = $c;
+                } catch (PDOException $e) { /* skip */ }
+            }
+
+            echo json_encode(array(
+                'ok' => true,
+                'name' => $playerName,
+                'identity' => $identityName,
+                'deleted' => $deleted,
+                'errors' => $errors,
+                'note' => 'Restart game server to clear cached player data'
+            ));
             break;
 
         // ── Gift item ─────────────────────────────────────────────────────
@@ -329,10 +525,267 @@ if (isset($_GET['ajax']) && $gmAuth) {
             echo json_encode(array('ok' => true, 'data' => array_values($catalog)));
             break;
 
+        // ── Quest list ────────────────────────────────────────────────
+        case 'quest_list':
+            $taskFile = CONF_DIR . '/task/taskNewbie.json';
+            if (!file_exists($taskFile)) {
+                echo json_encode(array('ok' => false, 'msg' => 'taskNewbie.json not found: ' . $taskFile));
+                break;
+            }
+            $raw = file_get_contents($taskFile);
+            $quests = @json_decode($raw, true);
+            if (!is_array($quests)) {
+                echo json_encode(array('ok' => false, 'msg' => 'Failed to parse taskNewbie.json'));
+                break;
+            }
+            echo json_encode(array('ok' => true, 'data' => $quests));
+            break;
+
+        // ── Quest save rewards ───────────────────────────────────────────
+        case 'quest_save':
+            $qid     = isset($_POST['id'])      ? (int)$_POST['id']          : 0;
+            $rewards = isset($_POST['rewards'])  ? trim($_POST['rewards'])    : '';
+            if (!$qid) { echo json_encode(array('ok' => false, 'msg' => 'Missing quest id')); break; }
+
+            $confBase = dirname(CONF_DIR);  // MYH5/my_s1
+            $serverDirs = array('my_s1', 'my_s2', 'my_s3');
+            $errors = array();
+            foreach ($serverDirs as $sdir) {
+                $path = str_replace('my_s1', $sdir, $confBase) . '/conf/task/taskNewbie.json';
+                if (!file_exists($path)) { $errors[] = $sdir . ': file not found'; continue; }
+                $data = @json_decode(file_get_contents($path), true);
+                if (!is_array($data)) { $errors[] = $sdir . ': parse error'; continue; }
+                $found = false;
+                foreach ($data as &$q) {
+                    if (isset($q['id']) && (int)$q['id'] === $qid) {
+                        $q['rewards'] = $rewards;
+                        $found = true;
+                        break;
+                    }
+                }
+                unset($q);
+                if (!$found) { $errors[] = $sdir . ': quest id not found'; continue; }
+                $written = file_put_contents($path, json_encode($data, JSON_UNESCAPED_UNICODE));
+                if (!$written) { $errors[] = $sdir . ': write failed'; }
+            }
+            if (count($errors)) {
+                echo json_encode(array('ok' => false, 'msg' => implode('; ', $errors)));
+            } else {
+                echo json_encode(array('ok' => true, 'msg' => 'Saved to all 3 servers'));
+            }
+            break;
+
+        // ── Layout Editor: list skins ─────────────────────────────────────
+        case 'layout_skins':
+            $thmFile = layout_find_thm();
+            if (!$thmFile) { echo json_encode(array('ok' => false, 'msg' => 'default.thm JS not found')); break; }
+            $skins = layout_parse_skins($thmFile);
+            $names = array();
+            foreach ($skins as $s) { $names[] = $s['name']; }
+            sort($names);
+            echo json_encode(array('ok' => true, 'skins' => $names, 'file' => basename($thmFile)));
+            break;
+
+        // ── Layout Editor: get skin elements ─────────────────────────────
+        case 'layout_get':
+            $thmFile = layout_find_thm();
+            if (!$thmFile) { echo json_encode(array('ok' => false, 'msg' => 'THM file not found')); break; }
+            $skinName = isset($_GET['skin']) ? $_GET['skin'] : '';
+            if (!$skinName) { echo json_encode(array('ok' => false, 'msg' => 'No skin name')); break; }
+            $skins = layout_parse_skins($thmFile);
+            $found = null;
+            foreach ($skins as $s) { if ($s['name'] === $skinName) { $found = $s; break; } }
+            if (!$found) { echo json_encode(array('ok' => false, 'msg' => 'Skin not found')); break; }
+            echo json_encode(array('ok' => true, 'skin' => $found));
+            break;
+
+        // ── Layout Editor: resolve image resource ────────────────────────
+        case 'layout_res':
+            $src = isset($_GET['src']) ? $_GET['src'] : '';
+            if (!$src) { echo json_encode(array('ok' => false)); break; }
+            $resFile = CLIENT_DIR . '/v1.1.9.1/resource/default.res.json';
+            if (!file_exists($resFile)) { echo json_encode(array('ok' => false, 'msg' => 'res.json not found')); break; }
+            $res = json_decode(file_get_contents($resFile), true);
+            $baseUrl = '../myh5_cilent/v1.1.9.1/resource/';
+
+            // atlas sprite: "explore_json.img_huanJie_ceng"
+            if (strpos($src, '.') !== false && strpos($src, '_json.') !== false) {
+                $parts = explode('.', $src, 2);
+                $atlasName = $parts[0]; // e.g. "explore_json"
+                $spriteName = $parts[1]; // e.g. "img_huanJie_ceng"
+                // find atlas in resources
+                $atlasUrl = null;
+                foreach ($res['resources'] as $r) {
+                    if ($r['name'] === $atlasName && $r['type'] === 'sheet') {
+                        $atlasUrl = $r['url'];
+                        break;
+                    }
+                }
+                if ($atlasUrl) {
+                    $jsonPath = CLIENT_DIR . '/v1.1.9.1/resource/' . $atlasUrl;
+                    $pngUrl = $baseUrl . str_replace('.json', '.png', $atlasUrl);
+                    if (file_exists($jsonPath)) {
+                        $atlas = json_decode(file_get_contents($jsonPath), true);
+                        if (isset($atlas['frames'][$spriteName])) {
+                            $frame = $atlas['frames'][$spriteName];
+                            echo json_encode(array('ok' => true, 'type' => 'sprite', 'png' => $pngUrl, 'frame' => $frame));
+                            break;
+                        }
+                    }
+                }
+                echo json_encode(array('ok' => false, 'msg' => 'Sprite not found: ' . $src));
+                break;
+            }
+
+            // standalone image: "img_huanJie_listBg_png"
+            foreach ($res['resources'] as $r) {
+                if ($r['name'] === $src && $r['type'] === 'image') {
+                    echo json_encode(array('ok' => true, 'type' => 'image', 'url' => $baseUrl . $r['url']));
+                    break 2;
+                }
+            }
+            echo json_encode(array('ok' => false, 'msg' => 'Resource not found: ' . $src));
+            break;
+
+        // ── Layout Editor: save element changes ──────────────────────────
+        case 'layout_save':
+            $thmFile = layout_find_thm();
+            if (!$thmFile) { echo json_encode(array('ok' => false, 'msg' => 'THM file not found')); break; }
+            $changes = isset($_POST['changes']) ? json_decode($_POST['changes'], true) : null;
+            if (!$changes || !is_array($changes)) { echo json_encode(array('ok' => false, 'msg' => 'No changes')); break; }
+            $data = file_get_contents($thmFile);
+            $errors = array();
+            $applied = 0;
+            foreach ($changes as $i => $c) {
+                $oldStr = isset($c['old']) ? $c['old'] : '';
+                $newStr = isset($c['new']) ? $c['new'] : '';
+                if (!$oldStr || !$newStr || $oldStr === $newStr) continue;
+                $count = substr_count($data, $oldStr);
+                if ($count === 0) {
+                    $errors[] = 'Change ' . ($i+1) . ': old string not found in file';
+                    continue;
+                }
+                if ($count > 1) {
+                    $errors[] = 'Change ' . ($i+1) . ': old string found ' . $count . ' times (ambiguous, skipped)';
+                    continue;
+                }
+                $pos = strpos($data, $oldStr);
+                $data = substr($data, 0, $pos) . $newStr . substr($data, $pos + strlen($oldStr));
+                $applied++;
+            }
+            if ($applied > 0) {
+                $bakFile = $thmFile . '.bak';
+                if (!file_exists($bakFile)) {
+                    copy($thmFile, $bakFile);
+                }
+                file_put_contents($thmFile, $data);
+                $result = array('ok' => true, 'applied' => $applied);
+                if ($errors) $result['warnings'] = $errors;
+                echo json_encode($result);
+            } else {
+                echo json_encode(array('ok' => false, 'msg' => 'No changes applied', 'errors' => $errors));
+            }
+            break;
+
         default:
             echo json_encode(array('ok' => false, 'msg' => 'Unknown action'));
     }
     exit;
+}
+
+// ── Layout Editor helpers ────────────────────────────────────────────────
+function layout_find_thm() {
+    $dir = CLIENT_DIR . '/v1.1.9.1/js/';
+    if (!is_dir($dir)) return null;
+    $files = glob($dir . 'default.thm_*.js');
+    return $files ? $files[0] : null;
+}
+
+function layout_parse_skins($file) {
+    $data = file_get_contents($file);
+    $skins = array();
+    $offset = 0;
+    while (($pos = strpos($data, "generateEUI.paths['", $offset)) !== false) {
+        $pathStart = $pos + strlen("generateEUI.paths['");
+        $pathEnd = strpos($data, "']", $pathStart);
+        if ($pathEnd === false) break;
+        $path = substr($data, $pathStart, $pathEnd - $pathStart);
+
+        // find skin class name from the path
+        $nameMatch = array();
+        if (preg_match('/window\.([A-Za-z0-9_.]+)\s*=\s*\(function/', substr($data, $pathEnd, 200), $nameMatch)) {
+            $className = $nameMatch[1];
+        } else {
+            $className = basename($path, '.exml');
+        }
+
+        // find end of this skin (next generateEUI.paths or end of file)
+        $nextPos = strpos($data, "generateEUI.paths['", $pathEnd + 1);
+        if ($nextPos === false) $nextPos = strlen($data);
+        $skinCode = substr($data, $pathEnd, $nextPos - $pathEnd);
+
+        // extract skin dimensions
+        $w = 600; $h = 170;
+        if (preg_match('/this\.width\s*=\s*(\d+)/', $skinCode, $m)) $w = (int)$m[1];
+        if (preg_match('/this\.height\s*=\s*(\d+)/', $skinCode, $m)) $h = (int)$m[1];
+
+        // extract element functions
+        $elements = array();
+        preg_match_all('/_proto\.(\w+)_i\s*=\s*function\(\)\{(.*?)\}/', $skinCode, $matches, PREG_SET_ORDER);
+        foreach ($matches as $m) {
+            $funcName = $m[1];
+            $body = $m[2];
+            $el = array('id' => $funcName, 'props' => array(), 'raw' => $m[0]);
+
+            // detect type
+            if (strpos($body, 'eui.Image') !== false) $el['type'] = 'Image';
+            elseif (strpos($body, 'eui.Label') !== false) $el['type'] = 'Label';
+            elseif (strpos($body, 'eui.BitmapLabel') !== false) $el['type'] = 'BitmapLabel';
+            elseif (strpos($body, 'eui.Group') !== false) $el['type'] = 'Group';
+            elseif (strpos($body, 'eui.Scroller') !== false) $el['type'] = 'Scroller';
+            elseif (strpos($body, 'eui.Rect') !== false) $el['type'] = 'Rect';
+            elseif (strpos($body, 'components.') !== false) {
+                preg_match('/new (components\.\w+)/', $body, $cm);
+                $el['type'] = isset($cm[1]) ? $cm[1] : 'Component';
+            }
+            elseif (strpos($body, 'item.') !== false) {
+                preg_match('/new (item\.\w+)/', $body, $cm);
+                $el['type'] = isset($cm[1]) ? $cm[1] : 'Item';
+            }
+            else $el['type'] = 'Unknown';
+
+            // extract numeric/string properties
+            preg_match_all('/t\.(\w+)\s*=\s*([^;]+)/', $body, $pm, PREG_SET_ORDER);
+            foreach ($pm as $p) {
+                $key = $p[1];
+                $val = trim($p[2]);
+                if ($val === 'true') $el['props'][$key] = true;
+                elseif ($val === 'false') $el['props'][$key] = false;
+                elseif (is_numeric($val) || preg_match('/^-?\d+\.?\d*$/', $val)) $el['props'][$key] = floatval($val);
+                elseif (preg_match('/^0x[0-9a-fA-F]+$/', $val)) $el['props'][$key] = $val;
+                elseif (preg_match('/^"(.*)"$/', $val, $sm)) $el['props'][$key] = $sm[1];
+                else $el['props'][$key] = $val;
+            }
+
+            // extract 'this.ID = t' to get the component ID
+            if (preg_match('/this\.(\w+)\s*=\s*t/', $body, $idm)) {
+                $el['componentId'] = $idm[1];
+            }
+
+            $elements[] = $el;
+        }
+
+        $skins[] = array(
+            'name' => $className,
+            'path' => $path,
+            'width' => $w,
+            'height' => $h,
+            'elements' => $elements
+        );
+
+        $offset = $nextPos;
+    }
+    return $skins;
 }
 
 $servers = unserialize(SERVERS);
@@ -457,6 +910,8 @@ tr:hover td{background:rgba(255,255,255,.025)}
       <a href="#" data-page="gift">Gift Items</a>
       <a href="#" data-page="payment">Payment</a>
       <a href="#" data-page="notice">Notice</a>
+      <a href="#" data-page="quests">Quests</a>
+      <a href="#" data-page="layout">Layout Editor</a>
     </nav>
     <div class="sidebar-bottom"><a href="?logout">Logout</a></div>
   </aside>
@@ -473,6 +928,12 @@ tr:hover td{background:rgba(255,255,255,.025)}
         <div class="stat"><div class="stat-val" id="s-vip" style="color:var(--gold)">—</div><div class="stat-lbl">VIP Players</div></div>
       </div>
       <div class="card"><div class="card-title">Recent Active Players</div><div id="dash-recent"><div class="spinner"></div></div></div>
+      <div class="card" style="border:1px solid var(--danger);margin-top:16px">
+        <div class="card-title" style="color:var(--danger)">Danger Zone</div>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:12px">Wipe ALL data from all game databases (myh5_s1/s2/s3), log databases (myh5_log/log1/log2/log3), and platform DB (myh5_pl). cfg_server tables are preserved. <strong>Requires server restart after cleaning.</strong></p>
+        <button class="btn btn-danger" onclick="cleanAllData()">Clean All Data</button>
+        <div id="clean-result" style="display:none;margin-top:12px;font-size:12px;padding:10px;background:#1a1a2e;border-radius:6px;white-space:pre-wrap"></div>
+      </div>
     </div>
 
     <!-- ACCOUNTS -->
@@ -626,7 +1087,93 @@ tr:hover td{background:rgba(255,255,255,.025)}
       </div>
     </div>
 
+    <!-- QUESTS -->
+    <div class="page" id="page-quests">
+      <div class="page-title">Quests <small>View &amp; edit quest rewards</small></div>
+      <div class="card">
+        <div class="card-title" style="display:flex;align-items:center;justify-content:space-between">
+          <span>Newbie Quests (taskNewbie.json)</span>
+          <button class="btn btn-ghost btn-sm" onclick="loadQuests()">Refresh</button>
+        </div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>ID</th><th>Name</th><th>Type</th><th>Description</th><th>Rewards</th><th>Actions</th></tr></thead>
+            <tbody id="quest-tbody"><tr><td colspan="6" style="color:var(--muted);text-align:center">Click Quests tab to load</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Layout Editor (moved inside main) ─────────────────────────── -->
+    <div class="page" id="page-layout">
+      <div class="page-title">Layout Editor <small>Visual skin element editor</small></div>
+      <div style="display:flex;gap:12px;margin-bottom:12px;align-items:center;flex-wrap:wrap">
+        <input id="le-search" type="text" placeholder="Search skin name..." style="width:260px;padding:6px 10px;background:var(--card);border:1px solid var(--border);color:var(--fg);border-radius:4px">
+        <select id="le-skins" style="width:320px;padding:6px;background:var(--card);border:1px solid var(--border);color:var(--fg);border-radius:4px"><option>Loading...</option></select>
+        <button class="btn btn-primary" onclick="leLoadSkin()">Load Skin</button>
+        <button class="btn btn-ok" onclick="leSave()" id="le-save-btn" style="display:none">Save Changes</button>
+        <span id="le-file" style="color:var(--muted);font-size:12px"></span>
+      </div>
+      <div style="display:flex;gap:16px">
+        <div style="flex:1;min-width:500px">
+          <div style="background:#111;border:1px solid var(--border);border-radius:6px;overflow:hidden;position:relative">
+            <canvas id="le-canvas" width="700" height="500" style="display:block;cursor:crosshair"></canvas>
+          </div>
+          <div style="margin-top:8px;color:var(--muted);font-size:12px">
+            <span id="le-info">Click element to select. Drag to move. Scroll to zoom.</span>
+          </div>
+        </div>
+        <div style="width:300px;max-height:700px;overflow-y:auto" id="le-panel">
+          <div class="card" style="padding:12px">
+            <div style="font-weight:600;margin-bottom:8px">Elements</div>
+            <div id="le-elements" style="font-size:13px"></div>
+          </div>
+          <div class="card" style="padding:12px;margin-top:8px;display:none" id="le-props-card">
+            <div style="font-weight:600;margin-bottom:8px">Properties: <span id="le-sel-name" style="color:var(--accent)"></span></div>
+            <div id="le-props" style="font-size:13px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
+</div>
+
+<!-- Quest reward editor modal -->
+<div class="modal-backdrop" id="modal-quest">
+  <div class="modal" style="width:720px;max-height:90vh;overflow-y:auto">
+    <h2>Edit Quest Rewards</h2>
+    <div id="qe-quest-info" style="margin-bottom:12px;font-size:13px;color:var(--muted)"></div>
+    <div id="qe-rows" style="margin-bottom:12px"></div>
+    <div style="display:flex;gap:8px;margin-bottom:12px">
+      <button class="btn btn-ghost btn-sm" onclick="qeAddRow()">+ Add Reward</button>
+    </div>
+    <div class="field" style="margin-bottom:12px">
+      <label>Raw Reward String (auto-updated)</label>
+      <input id="qe-raw" style="width:100%;font-family:monospace;font-size:12px" readonly>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-success" onclick="qeSave()">Save to All Servers</button>
+      <button class="btn btn-ghost" onclick="document.getElementById('modal-quest').classList.remove('open')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Item picker modal for quest editor -->
+<div class="modal-backdrop" id="modal-itempick" style="z-index:600">
+  <div class="modal" style="width:680px;max-height:85vh;display:flex;flex-direction:column">
+    <h2 style="margin-bottom:8px">Select Item</h2>
+    <div class="search-bar" style="margin-bottom:8px">
+      <input id="qip-search" placeholder="Search by name or ID..." oninput="qipFilter()" style="flex:1;background:#12141e;border:1px solid var(--border);border-radius:6px;color:var(--text);padding:8px 10px;font-size:13px">
+    </div>
+    <div id="qip-grid" style="flex:1;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;max-height:55vh;padding:2px"></div>
+    <div style="display:flex;gap:8px;margin-top:10px;align-items:center">
+      <button class="btn btn-ghost btn-sm" id="qip-prev" onclick="qipPage(-1)">← Prev</button>
+      <span style="font-size:12px;color:var(--muted);flex:1;text-align:center" id="qip-count"></span>
+      <button class="btn btn-ghost btn-sm" id="qip-next" onclick="qipPage(1)">Next →</button>
+      <button class="btn btn-ghost btn-sm" onclick="document.getElementById('modal-itempick').classList.remove('open')">Cancel</button>
+    </div>
+  </div>
 </div>
 
 <!-- Gift modal -->
@@ -667,6 +1214,8 @@ document.querySelectorAll('[data-page]').forEach(function(a) {
     if (pg === 'accounts')  loadAccounts();
     if (pg === 'gift')      { searchItems('g'); searchItems('ga'); }
     if (pg === 'payment')   loadPaymentPage();
+    if (pg === 'quests')    loadQuests();
+    if (pg === 'layout')   leInit();
   });
 });
 
@@ -768,7 +1317,8 @@ function buildPlayerRows(rows) {
       '<td>' + fmt(p.jade || p.diamond || p.rmb) + '</td>' +
       '<td><span class="badge ' + (online ? 'badge-online' : 'badge-offline') + '">' + (online ? 'Online' : 'Offline') + '</span></td>' +
       '<td style="font-size:12px;color:var(--muted)">' + esc((p.lastLoginTime || p.lastLogin || '').replace('T', ' ').slice(0, 16)) + '</td>' +
-      '<td><button class="btn btn-success btn-sm" onclick="openGiftModal(\'' + esc(pid) + '\',\'' + esc(name) + '\')">Gift</button></td>' +
+      '<td><button class="btn btn-success btn-sm" onclick="openGiftModal(\'' + esc(pid) + '\',\'' + esc(name) + '\')">Gift</button> ' +
+      '<button class="btn btn-danger btn-sm" onclick="deletePlayer(\'' + esc(pid) + '\',\'' + esc(name) + '\')">Delete</button></td>' +
       '</tr>';
   }).join('');
 }
@@ -786,6 +1336,61 @@ function buildPlayerTable(rows) {
       '<td><span class="badge ' + (online?'badge-online':'badge-offline') + '">' + (online?'Online':'Offline') + '</span></td></tr>';
   });
   return html + '</tbody></table></div>';
+}
+
+// ── Delete player ─────────────────────────────────────────────────────────
+function deletePlayer(pid, name) {
+  if (!confirm('Delete player "' + name + '" (ID: ' + pid + ')?\n\nThis will remove the player and all related data (mail, arena, friends, tasks).\n\nThis action CANNOT be undone!')) return;
+  if (!confirm('Are you ABSOLUTELY sure?\n\nPlayer: ' + name + '\n\nType OK to confirm.')) return;
+  fetch('index.php?ajax=delete_player', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: 'playerId=' + encodeURIComponent(pid)
+  }).then(function(r) { return r.json(); }).then(function(d) {
+    if (d.ok) {
+      var details = [];
+      for (var t in d.deleted) { details.push(t + ': ' + d.deleted[t] + ' rows'); }
+      var msg = 'Player "' + (d.name || name) + '" deleted completely.';
+      if (d.identity) msg += '\nAccount: ' + d.identity;
+      msg += '\nDeleted: ' + details.join(', ');
+      if (d.note) msg += '\n\n⚠ ' + d.note;
+      if (d.errors && d.errors.length) msg += '\nWarnings: ' + d.errors.join('; ');
+      toast(msg, 'ok');
+      loadAccounts();
+    } else {
+      toast(d.msg || 'Delete failed', 'err');
+    }
+  });
+}
+
+// ── Clean All Data ────────────────────────────────────────────────────────
+function cleanAllData() {
+  var txt = prompt('This will WIPE ALL DATA from all game, log, and platform databases.\n\nType "CLEAN ALL DATA" to confirm:');
+  if (txt !== 'CLEAN ALL DATA') { if (txt !== null) toast('Confirmation did not match', 'err'); return; }
+  if (!confirm('FINAL WARNING: All player data, logs, mail, and game records will be permanently deleted.\n\nContinue?')) return;
+  var el = document.getElementById('clean-result');
+  el.style.display = 'block';
+  el.textContent = 'Cleaning databases...';
+  fetch('index.php?ajax=clean_all', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: 'confirm=' + encodeURIComponent('CLEAN ALL DATA')
+  }).then(function(r) { return r.json(); }).then(function(d) {
+    if (d.ok) {
+      var lines = [];
+      for (var db in d.result) {
+        var r = d.result[db];
+        if (r.error) { lines.push(db + ': ERROR - ' + r.error); }
+        else { lines.push(db + ': ' + r.tables + ' tables cleaned (' + (r.list||[]).join(', ') + ')'); }
+      }
+      el.textContent = lines.join('\n') + '\n\nDone! Restart game servers for changes to take effect.';
+      toast('All databases cleaned successfully', 'ok');
+      loadDashboard();
+    } else {
+      el.textContent = 'Error: ' + (d.msg || 'Unknown error');
+      toast(d.msg || 'Clean failed', 'err');
+    }
+  }).catch(function(e) { el.textContent = 'Network error: ' + e; toast('Network error', 'err'); });
 }
 
 // ── Item search ───────────────────────────────────────────────────────────
@@ -1073,6 +1678,656 @@ function sendNotice() {
 // ── Helpers ───────────────────────────────────────────────────────────────
 function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function fmt(n) { return parseInt(n||0).toLocaleString(); }
+
+// ── Quests ────────────────────────────────────────────────────────────────
+var questData = [];
+var qeQuestId = 0;
+var QUEST_TYPES = {1:'Talk',2:'Collect',3:'Interact',4:'Kill',11:'Level',12:'Equip',13:'Stage',14:'Enchant',
+  15:'Skill',16:'Smelt',17:'PBoss',18:'PetTransform',19:'SpiritInfuse',21:'Gem',22:'Rune',23:'Mark',
+  24:'Endless',25:'Legion',27:'PetTower',28:'CelestLadder',30:'LearnPts',31:'PVP',32:'PetHatch',
+  33:'BattleSoul',34:'PetAdvance',35:'ForgeOrange',40:'GemDgn',41:'PetDgn',42:'DragonDgn',43:'RuneDgn',
+  44:'MarkDgn',45:'PhantomWeap',90:'WBoss',91:'WBoss'};
+var ICON_BASE = '../myh5_cilent/v1.1.9.1/resource/icon/item/';
+
+function itemIconId(id) {
+  if (!itemCache) return id;
+  for (var i = 0; i < itemCache.length; i++) {
+    if (String(itemCache[i].id) === String(id)) return itemCache[i].icon || itemCache[i].id;
+  }
+  return id;
+}
+
+function itemIcon(id) {
+  var ico = itemIconId(id);
+  return '<img src="' + ICON_BASE + ico + '.png" style="width:24px;height:24px;vertical-align:middle;border-radius:3px" onerror="this.style.display=\'none\'">';
+}
+
+function itemName(id) {
+  if (!itemCache) return '#' + id;
+  for (var i = 0; i < itemCache.length; i++) {
+    if (String(itemCache[i].id) === String(id)) return itemCache[i].name;
+  }
+  return '#' + id;
+}
+
+function loadQuests() {
+  document.getElementById('quest-tbody').innerHTML = '<tr><td colspan="6" style="text-align:center"><span class="spinner"></span></td></tr>';
+  getItems().then(function() {
+    return fetch('index.php?ajax=quest_list').then(function(r) { return r.json(); });
+  }).then(function(d) {
+    if (!d.ok) { toast(d.msg || 'Failed to load quests', 'err'); return; }
+    questData = d.data || [];
+    var html = '';
+    if (!questData.length) {
+      html = '<tr><td colspan="6" style="color:var(--muted);text-align:center">No quests found</td></tr>';
+    } else {
+      questData.forEach(function(q) {
+        html += '<tr>' +
+          '<td style="font-family:monospace">' + q.id + '</td>' +
+          '<td><strong>' + esc(q.name) + '</strong></td>' +
+          '<td><span class="badge" style="background:#1a1e3a;color:#aaf">' + esc(QUEST_TYPES[q.type] || 'Type ' + q.type) + '</span></td>' +
+          '<td style="max-width:250px;font-size:12px;color:var(--muted)">' + esc(q.des || '') + '</td>' +
+          '<td style="font-size:12px;max-width:280px">' + formatRewardsHtml(q.rewards || '') + '</td>' +
+          '<td><button class="btn btn-primary btn-sm" onclick="openQuestEditor(' + q.id + ')">Edit</button></td>' +
+          '</tr>';
+      });
+    }
+    document.getElementById('quest-tbody').innerHTML = html;
+  }).catch(function() { toast('Failed to fetch quests', 'err'); });
+}
+
+function formatRewardsHtml(str) {
+  if (!str) return '<span style="color:var(--muted)">none</span>';
+  return str.split(';').map(function(part) {
+    return part.split('&').map(function(rw) {
+      var s = rw.split('_');
+      var iid = s[0]; var cnt = s[1] || '?';
+      var name = itemName(iid);
+      return itemIcon(iid) + ' <span style="color:var(--accent)">' + esc(name) + '</span> <span style="color:var(--warn)">x' + esc(fmt(cnt)) + '</span>';
+    }).join(' | ');
+  }).join('<br>');
+}
+
+function openQuestEditor(id) {
+  qeQuestId = id;
+  var q = null;
+  for (var i = 0; i < questData.length; i++) {
+    if (questData[i].id === id) { q = questData[i]; break; }
+  }
+  if (!q) return;
+  document.getElementById('qe-quest-info').innerHTML =
+    '<strong>' + esc(q.name) + '</strong> (ID: ' + q.id + ')' +
+    (q.des ? '<br>' + esc(q.des) : '');
+  var rows = [];
+  if (q.rewards) {
+    q.rewards.split(';').forEach(function(part) { rows.push(part); });
+  }
+  if (!rows.length) rows.push('');
+  renderQeRows(rows);
+  document.getElementById('modal-quest').classList.add('open');
+}
+
+function renderQeRows(rows) {
+  var container = document.getElementById('qe-rows');
+  var html = '';
+  rows.forEach(function(part, idx) {
+    var items = part ? part.split('&') : [''];
+    html += '<div style="background:#12141e;border:1px solid var(--border);border-radius:6px;padding:10px;margin-bottom:6px" data-qe-idx="' + idx + '">';
+    html += '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">';
+    html += '<span style="font-size:11px;color:var(--muted)">Reward Slot ' + (idx + 1) + '</span>';
+    html += '<div style="display:flex;gap:4px">';
+    html += '<button class="btn btn-ghost btn-sm" style="padding:2px 6px;font-size:11px" onclick="qeAddAlt(' + idx + ')">+Alt</button>';
+    html += '<button class="btn btn-danger btn-sm" style="padding:2px 6px;font-size:11px" onclick="qeRemoveRow(' + idx + ')">Remove</button>';
+    html += '</div></div>';
+    items.forEach(function(rw, aidx) {
+      var s = rw.split('_');
+      var iid = s[0] || ''; var cnt = s[1] || '';
+      var iname = iid ? itemName(iid) : '';
+      html += '<div style="display:flex;gap:6px;align-items:center;margin-bottom:4px;padding:4px;background:#0a0c14;border-radius:4px">';
+      html += '<div style="width:32px;height:32px;min-width:32px;background:#12141e;border-radius:4px;display:flex;align-items:center;justify-content:center;overflow:hidden" id="qe-icon-' + idx + '-' + aidx + '">';
+      if (iid) html += '<img src="' + ICON_BASE + itemIconId(iid) + '.png" style="width:32px;height:32px" onerror="this.style.display=\'none\'">';
+      html += '</div>';
+      html += '<div style="flex:1;min-width:0">';
+      html += '<div style="display:flex;gap:4px;align-items:center">';
+      html += '<input class="qe-custom-id" data-row="' + idx + '" data-alt="' + aidx + '" value="' + esc(iid) + '" style="width:60px;background:#12141e;border:1px solid var(--border);border-radius:4px;color:var(--text);padding:3px 6px;font-size:12px;font-family:monospace" oninput="qeUpdate()" readonly>';
+      html += '<span class="qe-item-label" style="font-size:12px;color:var(--accent);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px" id="qe-label-' + idx + '-' + aidx + '">' + esc(iname) + '</span>';
+      html += '<button class="btn btn-ghost btn-sm" style="padding:2px 8px;font-size:11px;white-space:nowrap" onclick="qePickItem(' + idx + ',' + aidx + ')">Browse</button>';
+      html += '</div>';
+      html += '</div>';
+      html += '<div class="field" style="gap:1px"><label style="font-size:10px">Count</label>';
+      html += '<input class="qe-cnt" data-row="' + idx + '" data-alt="' + aidx + '" value="' + esc(cnt) + '" type="number" min="1" style="width:90px;background:#12141e;border:1px solid var(--border);border-radius:4px;color:var(--text);padding:3px 6px;font-size:12px" oninput="qeUpdate()">';
+      html += '</div>';
+      if (items.length > 1) {
+        html += '<button class="btn btn-ghost btn-sm" style="padding:2px 6px;font-size:11px;color:var(--danger)" onclick="qeRemoveAlt(' + idx + ',' + aidx + ')">✕</button>';
+      }
+      html += '</div>';
+    });
+    html += '</div>';
+  });
+  container.innerHTML = html;
+  qeUpdate();
+}
+
+var qePickRow = 0, qePickAlt = 0;
+var qipCurrentPage = 0, qipFiltered = [], qipPerPage = 40;
+
+function qePickItem(row, alt) {
+  qePickRow = row; qePickAlt = alt;
+  qipCurrentPage = 0;
+  document.getElementById('qip-search').value = '';
+  document.getElementById('modal-itempick').classList.add('open');
+  qipFilter();
+  setTimeout(function() { document.getElementById('qip-search').focus(); }, 100);
+}
+
+function qipPage(dir) {
+  var maxPage = Math.max(0, Math.ceil(qipFiltered.length / qipPerPage) - 1);
+  qipCurrentPage = Math.max(0, Math.min(maxPage, qipCurrentPage + dir));
+  qipRender();
+  document.getElementById('qip-grid').scrollTop = 0;
+}
+
+function qipFilter() {
+  var q = document.getElementById('qip-search').value.toLowerCase();
+  qipCurrentPage = 0;
+  getItems().then(function(all) {
+    qipFiltered = q ? all.filter(function(i) {
+      return i.name.toLowerCase().indexOf(q) !== -1 || String(i.id).indexOf(q) !== -1;
+    }) : all;
+    qipRender();
+  });
+}
+
+function qipRender() {
+  var totalPages = Math.max(1, Math.ceil(qipFiltered.length / qipPerPage));
+  var start = qipCurrentPage * qipPerPage;
+  var shown = qipFiltered.slice(start, start + qipPerPage);
+  var qualColors = {0:'#aaa',1:'#6cf',2:'#a6f',3:'#fa6',4:'#f64',5:'#ffd700',6:'#f44',7:'#ffd700',8:'#f0f'};
+  var html = '';
+  shown.forEach(function(i) {
+    var col = qualColors[i.quality] || '#aaa';
+    html += '<div style="background:#12141e;border:1px solid var(--border);border-radius:6px;padding:6px;cursor:pointer;display:flex;gap:6px;align-items:center;transition:.15s" ' +
+      'onmouseover="this.style.borderColor=\'var(--accent)\'" onmouseout="this.style.borderColor=\'var(--border)\'" ' +
+      'onclick="qipSelect(\'' + esc(String(i.id)) + '\')">' +
+      '<img src="' + ICON_BASE + (i.icon || i.id) + '.png" style="width:36px;height:36px;border-radius:4px;border:1px solid ' + col + '" onerror="this.src=\'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\'">' +
+      '<div style="min-width:0;flex:1">' +
+      '<div style="font-size:11px;font-weight:600;color:' + col + ';white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + esc(i.name) + '</div>' +
+      '<div style="font-size:10px;color:var(--muted);font-family:monospace">#' + i.id + '</div>' +
+      '</div></div>';
+  });
+  document.getElementById('qip-grid').innerHTML = html || '<div style="color:var(--muted);text-align:center;padding:20px">No items found</div>';
+  document.getElementById('qip-count').textContent = qipFiltered.length + ' items — Page ' + (qipCurrentPage + 1) + ' / ' + totalPages;
+  document.getElementById('qip-prev').disabled = qipCurrentPage <= 0;
+  document.getElementById('qip-next').disabled = qipCurrentPage >= totalPages - 1;
+}
+
+function qipSelect(id) {
+  document.getElementById('modal-itempick').classList.remove('open');
+  var idInput = document.querySelector('#qe-rows .qe-custom-id[data-row="' + qePickRow + '"][data-alt="' + qePickAlt + '"]');
+  if (idInput) idInput.value = id;
+  var label = document.getElementById('qe-label-' + qePickRow + '-' + qePickAlt);
+  if (label) label.textContent = itemName(id);
+  var icon = document.getElementById('qe-icon-' + qePickRow + '-' + qePickAlt);
+  if (icon) icon.innerHTML = '<img src="' + ICON_BASE + itemIconId(id) + '.png" style="width:32px;height:32px" onerror="this.style.display=\'none\'">';
+  qeUpdate();
+}
+
+function qeGetRows() {
+  var container = document.getElementById('qe-rows');
+  var groups = container.querySelectorAll('[data-qe-idx]');
+  var rows = [];
+  for (var g = 0; g < groups.length; g++) {
+    var ids = groups[g].querySelectorAll('.qe-custom-id');
+    var cnts = groups[g].querySelectorAll('.qe-cnt');
+    var alts = [];
+    for (var a = 0; a < ids.length; a++) {
+      var iid = ids[a].value.trim();
+      var cnt = cnts[a].value.trim();
+      if (iid && cnt) alts.push(iid + '_' + cnt);
+    }
+    rows.push(alts.join('&'));
+  }
+  return rows;
+}
+
+function qeUpdate() {
+  document.getElementById('qe-raw').value = qeGetRows().filter(function(r) { return r; }).join(';');
+}
+
+function qeAddRow() {
+  var rows = qeGetRows();
+  rows.push('');
+  renderQeRows(rows);
+}
+
+function qeRemoveRow(idx) {
+  var rows = qeGetRows();
+  rows.splice(idx, 1);
+  if (!rows.length) rows.push('');
+  renderQeRows(rows);
+}
+
+function qeAddAlt(idx) {
+  var rows = qeGetRows();
+  rows[idx] = rows[idx] ? rows[idx] + '&_' : '_';
+  renderQeRows(rows);
+}
+
+function qeRemoveAlt(idx, aidx) {
+  var rows = qeGetRows();
+  var parts = rows[idx].split('&');
+  parts.splice(aidx, 1);
+  rows[idx] = parts.join('&');
+  renderQeRows(rows);
+}
+
+function qeSave() {
+  var raw = document.getElementById('qe-raw').value;
+  post('quest_save', {id: qeQuestId, rewards: raw}).then(function(r) {
+    toast(r.msg || (r.ok ? 'Saved' : 'Failed'), r.ok ? 'ok' : 'err');
+    if (r.ok) {
+      document.getElementById('modal-quest').classList.remove('open');
+      loadQuests();
+    }
+  });
+}
+
+// ── Layout Editor ─────────────────────────────────────────────────────
+var leState = { skins: [], skin: null, elements: [], selected: -1, zoom: 1, panX: 20, panY: 20, drag: null, changes: {}, allSkins: [], imgCache: {}, imgLoading: {} };
+
+function leInit() {
+  fetch('index.php?ajax=layout_skins').then(function(r){return r.json()}).then(function(d) {
+    if (!d.ok) { toast(d.msg, 'err'); return; }
+    leState.allSkins = d.skins;
+    document.getElementById('le-file').textContent = d.file;
+    leFilterSkins('');
+    document.getElementById('le-search').oninput = function() { leFilterSkins(this.value); };
+  });
+}
+
+function leFilterSkins(q) {
+  var sel = document.getElementById('le-skins');
+  sel.innerHTML = '';
+  var lq = q.toLowerCase();
+  var filtered = leState.allSkins.filter(function(s) { return !q || s.toLowerCase().indexOf(lq) >= 0; });
+  filtered.forEach(function(s) {
+    var o = document.createElement('option'); o.value = s; o.textContent = s; sel.appendChild(o);
+  });
+}
+
+function leLoadSkin() {
+  var name = document.getElementById('le-skins').value;
+  if (!name) return;
+  fetch('index.php?ajax=layout_get&skin=' + encodeURIComponent(name))
+    .then(function(r){return r.json()}).then(function(d) {
+    if (!d.ok) { toast(d.msg, 'err'); return; }
+    leState.skin = d.skin;
+    leState.elements = d.skin.elements;
+    leState.selected = -1;
+    leState.changes = {};
+    document.getElementById('le-save-btn').style.display = 'none';
+    var canvas = document.getElementById('le-canvas');
+    var cw = canvas.parentElement.clientWidth - 20;
+    var ch = 600;
+    canvas.width = cw; canvas.height = ch;
+    var fitZoom = Math.min(cw / (d.skin.width + 40), ch / (d.skin.height + 40), 2);
+    leState.zoom = Math.max(0.2, Math.min(fitZoom, 2));
+    leState.panX = (cw - d.skin.width * leState.zoom) / 2;
+    leState.panY = (ch - d.skin.height * leState.zoom) / 2;
+    leBindCanvas();
+    leRenderElements();
+    lePreloadImages();
+    leRender();
+  });
+}
+
+function leRenderElements() {
+  var el = document.getElementById('le-elements');
+  el.innerHTML = '';
+  leState.elements.forEach(function(e, i) {
+    var div = document.createElement('div');
+    div.style.cssText = 'padding:4px 6px;cursor:pointer;border-radius:3px;margin-bottom:2px;display:flex;justify-content:space-between;align-items:center';
+    var label = e.componentId || e.id;
+    var typeColors = {Image:'#4a9eff',Label:'#ff9f43',BitmapLabel:'#f368e0'};
+    var color = typeColors[e.type] || '#00d2d3';
+    div.innerHTML = '<span style="color:'+color+'">&#9679; </span><span>'+label+'</span><span style="color:var(--muted);font-size:11px">'+e.type+'</span>';
+    div.onclick = function() { leSelect(i); };
+    div.id = 'le-el-' + i;
+    el.appendChild(div);
+  });
+}
+
+function leSelect(idx) {
+  leState.selected = idx;
+  leState.elements.forEach(function(e, i) {
+    var d = document.getElementById('le-el-' + i);
+    if (d) d.style.background = i === idx ? 'var(--border)' : '';
+  });
+  var card = document.getElementById('le-props-card');
+  if (idx < 0) { card.style.display = 'none'; leRender(); return; }
+  card.style.display = 'block';
+  var e = leState.elements[idx];
+  document.getElementById('le-sel-name').textContent = e.componentId || e.id;
+  var html = '';
+  var editableProps = ['x','y','width','height','scaleX','scaleY','horizontalCenter','verticalCenter','anchorOffsetX','anchorOffsetY','size','right','left','top','bottom'];
+  editableProps.forEach(function(key) {
+    if (e.props[key] !== undefined) {
+      html += '<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">';
+      html += '<label style="width:120px;color:var(--muted)">'+key+'</label>';
+      html += '<input type="number" step="1" value="'+e.props[key]+'" data-prop="'+key+'" data-idx="'+idx+'" onchange="leChangeProp(this)" style="width:80px;padding:3px 6px;background:var(--bg);border:1px solid var(--border);color:var(--fg);border-radius:3px">';
+      html += '</div>';
+    }
+  });
+  ['text','source','font','skinName','textColor'].forEach(function(key) {
+    if (e.props[key] !== undefined) {
+      html += '<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">';
+      html += '<label style="width:120px;color:var(--muted)">'+key+'</label>';
+      html += '<span style="font-size:12px;color:var(--fg);word-break:break-all">'+e.props[key]+'</span>';
+      html += '</div>';
+    }
+  });
+  document.getElementById('le-props').innerHTML = html;
+  leRender();
+}
+
+function leChangeProp(input) {
+  var idx = parseInt(input.dataset.idx);
+  var prop = input.dataset.prop;
+  var val = parseFloat(input.value);
+  if (isNaN(val)) return;
+  var e = leState.elements[idx];
+  var origRaw = leState.changes[idx] ? leState.changes[idx].old : e.raw;
+  e.props[prop] = val;
+  var newRaw = e.raw.replace(new RegExp('t\\.' + prop + '(?=[=\\s])\\s*=\\s*[^;]+'), 't.' + prop + '=' + val);
+  if (newRaw === e.raw && e.raw.indexOf('t.' + prop) < 0) {
+    newRaw = e.raw.replace('return t}', 't.' + prop + '=' + val + ';return t}');
+  }
+  if (newRaw !== origRaw) {
+    leState.changes[idx] = { old: origRaw, 'new': newRaw };
+    e.raw = newRaw;
+    document.getElementById('le-save-btn').style.display = '';
+  }
+  leRender();
+}
+
+function leSave() {
+  var changes = [];
+  for (var k in leState.changes) { changes.push(leState.changes[k]); }
+  if (!changes.length) { toast('No changes', 'info'); return; }
+  if (!confirm('Save ' + changes.length + ' change(s) to default.thm JS file?\nThis modifies the game client — a backup will be created automatically.')) return;
+  post('layout_save', { changes: JSON.stringify(changes) }).then(function(d) {
+    if (d.ok) {
+      var msg = 'Saved ' + d.applied + ' change(s)';
+      if (d.warnings && d.warnings.length) msg += '\nWarnings:\n' + d.warnings.join('\n');
+      toast(msg, 'ok');
+      leState.changes = {};
+      document.getElementById('le-save-btn').style.display = 'none';
+    } else {
+      var msg = d.msg || 'Save failed';
+      if (d.errors && d.errors.length) msg += '\n' + d.errors.join('\n');
+      toast(msg, 'err');
+    }
+  });
+}
+
+function lePreloadImages() {
+  leState.elements.forEach(function(e) {
+    var src = e.props.source;
+    if (!src || leState.imgCache[src] || leState.imgLoading[src]) return;
+    leState.imgLoading[src] = true;
+    fetch('index.php?ajax=layout_res&src=' + encodeURIComponent(src))
+      .then(function(r){return r.json()}).then(function(d) {
+      if (!d.ok) { leState.imgLoading[src] = false; return; }
+      if (d.type === 'image') {
+        var img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = function() { leState.imgCache[src] = { img: img, type: 'image' }; leState.imgLoading[src] = false; leRender(); };
+        img.onerror = function() { leState.imgLoading[src] = false; };
+        img.src = d.url;
+      } else if (d.type === 'sprite') {
+        var img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = function() { leState.imgCache[src] = { img: img, type: 'sprite', frame: d.frame }; leState.imgLoading[src] = false; leRender(); };
+        img.onerror = function() { leState.imgLoading[src] = false; };
+        img.src = d.png;
+      }
+    });
+  });
+}
+
+function leRender() {
+  var canvas = document.getElementById('le-canvas');
+  var ctx = canvas.getContext('2d');
+  var skin = leState.skin;
+  if (!skin) return;
+  var z = leState.zoom, px = leState.panX, py = leState.panY;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.save();
+  ctx.translate(px, py);
+  ctx.scale(z, z);
+
+  // skin boundary
+  ctx.strokeStyle = '#444';
+  ctx.lineWidth = 1/z;
+  ctx.setLineDash([4/z, 4/z]);
+  ctx.strokeRect(0, 0, skin.width, skin.height);
+  ctx.setLineDash([]);
+
+  // grid
+  ctx.strokeStyle = '#1a1a1a';
+  ctx.lineWidth = 0.5/z;
+  for (var gx = 0; gx <= skin.width; gx += 50) { ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, skin.height); ctx.stroke(); }
+  for (var gy = 0; gy <= skin.height; gy += 50) { ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(skin.width, gy); ctx.stroke(); }
+
+  leState.elements.forEach(function(e, i) {
+    var p = e.props;
+    var sx = p.scaleX || 1;
+    var sy = p.scaleY || 1;
+
+    // --- determine real size FIRST ---
+    var w = p.width || 0;
+    var h = p.height || 0;
+    var imgData = p.source ? leState.imgCache[p.source] : null;
+    var drawType = 'rect';
+    var fontSize = p.size || 16;
+    var txt = '';
+    var naturalW = 0, naturalH = 0;
+    if (imgData) {
+      drawType = imgData.type;
+      if (imgData.type === 'image') {
+        naturalW = imgData.img.naturalWidth;
+        naturalH = imgData.img.naturalHeight;
+      } else if (imgData.type === 'sprite') {
+        naturalW = imgData.frame.sourceW;
+        naturalH = imgData.frame.sourceH;
+      }
+      if (!w) w = naturalW;
+      if (!h) h = naturalH;
+    } else if (e.type === 'Label' || e.type === 'BitmapLabel') {
+      drawType = 'label';
+      txt = p.text || (e.componentId || e.id);
+      ctx.font = (p.bold ? 'bold ' : '') + fontSize + 'px Arial';
+      if (!w) w = ctx.measureText(txt).width + 4;
+      if (!h) h = fontSize + 6;
+    }
+    if (!w) w = 80;
+    if (!h) h = 30;
+
+    // For layout (center calc), use explicit size if set, else clamp to skin bounds
+    var layoutW = p.width || Math.min(w, skin.width);
+    var layoutH = p.height || Math.min(h, skin.height);
+
+    // --- compute position with correct w/h ---
+    var x = p.x !== undefined ? p.x : 0;
+    var y = p.y !== undefined ? p.y : 0;
+    if (p.horizontalCenter !== undefined) x = (skin.width - layoutW) / 2 + p.horizontalCenter;
+    if (p.verticalCenter !== undefined) y = (skin.height - layoutH) / 2 + p.verticalCenter;
+    if (p.left !== undefined && p.right !== undefined) { x = p.left; w = skin.width - p.left - p.right; }
+    else if (p.left !== undefined) x = p.left;
+    else if (p.right !== undefined) x = skin.width - w - p.right;
+    if (p.top !== undefined && p.bottom !== undefined) { y = p.top; h = skin.height - p.top - p.bottom; }
+    else if (p.top !== undefined) y = p.top;
+    else if (p.bottom !== undefined) y = skin.height - h - p.bottom;
+
+    var aox = p.anchorOffsetX || 0;
+    var aoy = p.anchorOffsetY || 0;
+
+    // store computed bounds for hit testing
+    e._bx = x - aox * sx; e._by = y - aoy * sy; e._bw = w * sx; e._bh = h * sy;
+
+    var isSelected = i === leState.selected;
+    var colors = {Image:'#4a9eff',Label:'#ff9f43',BitmapLabel:'#f368e0'};
+    var color = colors[e.type] || '#00d2d3';
+
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(sx, sy);
+    ctx.translate(-aox, -aoy);
+
+    // --- draw content ---
+    if (drawType === 'image') {
+      ctx.globalAlpha = isSelected ? 1.0 : 0.8;
+      ctx.drawImage(imgData.img, 0, 0, w, h);
+    } else if (drawType === 'sprite') {
+      ctx.globalAlpha = isSelected ? 1.0 : 0.8;
+      var f = imgData.frame;
+      ctx.drawImage(imgData.img, f.x, f.y, f.w, f.h, f.offX || 0, f.offY || 0, f.w, f.h);
+    } else if (drawType === 'label') {
+      ctx.globalAlpha = isSelected ? 1.0 : 0.8;
+      var textColor = '#c6b59e';
+      if (p.textColor) {
+        var tc = p.textColor;
+        if (typeof tc === 'string' && tc.indexOf('0x') === 0) textColor = '#' + tc.substring(2);
+        else if (typeof tc === 'number') textColor = '#' + tc.toString(16).padStart(6, '0');
+      }
+      ctx.fillStyle = textColor;
+      ctx.font = (p.bold ? 'bold ' : '') + fontSize + 'px Arial';
+      if (p.stroke) { ctx.strokeStyle = '#000'; ctx.lineWidth = p.stroke; ctx.strokeText(txt, 0, fontSize); }
+      ctx.fillText(txt, 0, fontSize);
+    } else {
+      ctx.globalAlpha = isSelected ? 0.6 : 0.3;
+      ctx.fillStyle = color + '44';
+      ctx.fillRect(0, 0, w, h);
+    }
+
+    // selection border
+    if (isSelected) {
+      ctx.globalAlpha = 1;
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 2/z;
+      ctx.setLineDash([3/z, 3/z]);
+      ctx.strokeRect(-1, -1, w+2, h+2);
+      ctx.setLineDash([]);
+    } else {
+      ctx.globalAlpha = 0.4;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 0.5/z;
+      ctx.strokeRect(0, 0, w, h);
+    }
+
+    // label above
+    ctx.globalAlpha = isSelected ? 1 : 0.6;
+    ctx.fillStyle = isSelected ? '#fff' : color;
+    ctx.font = Math.max(8, 9/z) + 'px monospace';
+    ctx.fillText((e.componentId || e.id), 0, -3/z);
+
+    // coordinates below
+    if (isSelected) {
+      ctx.fillStyle = '#aaa';
+      ctx.font = Math.max(7, 8/z) + 'px monospace';
+      ctx.fillText(Math.round(x)+','+Math.round(y)+' '+Math.round(w*sx)+'x'+Math.round(h*sy), 0, h + 12/z);
+    }
+
+    ctx.restore();
+  });
+
+  ctx.restore();
+  document.getElementById('le-info').textContent = skin.name + ' (' + skin.width + 'x' + skin.height + ') | Zoom: ' + (z*100).toFixed(0) + '% | Elements: ' + leState.elements.length;
+}
+
+function leBindCanvas() {
+  var canvas = document.getElementById('le-canvas');
+  if (canvas._leBound) return;
+  canvas._leBound = true;
+
+  canvas.addEventListener('mousedown', function(ev) {
+    var rect = canvas.getBoundingClientRect();
+    var mx = (ev.clientX - rect.left - leState.panX) / leState.zoom;
+    var my = (ev.clientY - rect.top - leState.panY) / leState.zoom;
+    var skin = leState.skin;
+    if (!skin) return;
+
+    var hit = -1;
+    for (var i = leState.elements.length - 1; i >= 0; i--) {
+      var e = leState.elements[i];
+      if (e._bx === undefined) continue;
+      if (mx >= e._bx && mx <= e._bx + e._bw && my >= e._by && my <= e._by + e._bh) { hit = i; break; }
+    }
+
+    if (hit >= 0) {
+      leSelect(hit);
+      var e = leState.elements[hit];
+      leState.drag = { idx: hit, startX: mx, startY: my, origProps: JSON.parse(JSON.stringify(e.props)), origRaw: leState.changes[hit] ? leState.changes[hit].old : e.raw };
+    } else {
+      leSelect(-1);
+      leState.drag = { pan: true, startX: ev.clientX, startY: ev.clientY, origPanX: leState.panX, origPanY: leState.panY };
+    }
+  });
+
+  canvas.addEventListener('mousemove', function(ev) {
+    if (!leState.drag) return;
+    var rect = canvas.getBoundingClientRect();
+
+    if (leState.drag.pan) {
+      leState.panX = leState.drag.origPanX + (ev.clientX - leState.drag.startX);
+      leState.panY = leState.drag.origPanY + (ev.clientY - leState.drag.startY);
+      leRender();
+      return;
+    }
+
+    var mx = (ev.clientX - rect.left - leState.panX) / leState.zoom;
+    var my = (ev.clientY - rect.top - leState.panY) / leState.zoom;
+    var dx = mx - leState.drag.startX;
+    var dy = my - leState.drag.startY;
+    var idx = leState.drag.idx;
+    var e = leState.elements[idx];
+    var orig = leState.drag.origProps;
+
+    if (orig.horizontalCenter !== undefined) {
+      e.props.horizontalCenter = Math.round(orig.horizontalCenter + dx);
+    } else {
+      e.props.x = Math.round((orig.x || 0) + dx);
+    }
+    if (orig.verticalCenter !== undefined) {
+      e.props.verticalCenter = Math.round(orig.verticalCenter + dy);
+    } else {
+      e.props.y = Math.round((orig.y || 0) + dy);
+    }
+
+    var newRaw = e.raw;
+    ['x','y','horizontalCenter','verticalCenter'].forEach(function(prop) {
+      if (e.props[prop] !== undefined) {
+        newRaw = newRaw.replace(new RegExp('t\\.' + prop + '(?=[=\\s])\\s*=\\s*[^;]+'), 't.' + prop + '=' + e.props[prop]);
+      }
+    });
+    leState.changes[idx] = { old: leState.drag.origRaw, 'new': newRaw };
+    e.raw = newRaw;
+    document.getElementById('le-save-btn').style.display = '';
+
+    leSelect(idx);
+  });
+
+  canvas.addEventListener('mouseup', function() { leState.drag = null; });
+  canvas.addEventListener('mouseleave', function() { leState.drag = null; });
+
+  canvas.addEventListener('wheel', function(ev) {
+    ev.preventDefault();
+    var delta = ev.deltaY > 0 ? 0.9 : 1.1;
+    leState.zoom = Math.max(0.2, Math.min(5, leState.zoom * delta));
+    leRender();
+  });
+}
 
 // ── Init ──────────────────────────────────────────────────────────────────
 loadDashboard();

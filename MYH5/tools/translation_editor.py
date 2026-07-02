@@ -20,6 +20,8 @@ except ImportError:
 
 _CHINESE_RE = re.compile(r"[一-鿿㐀-䶿]")
 
+IMAGE_EXTS = (".png", ".jpg", ".jpeg")
+
 
 def has_chinese(s):
     return bool(_CHINESE_RE.search(str(s)))
@@ -47,6 +49,7 @@ class TranslationEditor:
         self.props_data  = None
         self.config_current_section  = None
         self.config_filtered_indices = []
+        self.config_search_results   = []   # [(section, idx, item)]
         self.equip_filtered_ids = []
         self.props_filtered_ids = []
 
@@ -134,17 +137,52 @@ class TranslationEditor:
         paned = ttk.PanedWindow(tab, orient=tk.HORIZONTAL)
         paned.pack(fill=tk.BOTH, expand=True, padx=4, pady=4)
 
-        lf = ttk.Frame(paned, width=220)
+        lf = ttk.Frame(paned, width=240)
         lf.pack_propagate(False)
         paned.add(lf, weight=1)
-        ttk.Label(lf, text="Sections", font=("TkDefaultFont", 9, "bold")
+
+        # Vertical paned: top=section list, bottom=cross-section find
+        lf_paned = ttk.PanedWindow(lf, orient=tk.VERTICAL)
+        lf_paned.pack(fill=tk.BOTH, expand=True)
+
+        sec_fr = ttk.Frame(lf_paned)
+        lf_paned.add(sec_fr, weight=2)
+        ttk.Label(sec_fr, text="Sections", font=("TkDefaultFont", 9, "bold")
                   ).pack(anchor=tk.W, padx=4, pady=(4, 0))
-        self.config_section_lb = tk.Listbox(lf, exportselection=False, activestyle="dotbox")
-        sc = ttk.Scrollbar(lf, orient=tk.VERTICAL, command=self.config_section_lb.yview)
+        self.config_section_lb = tk.Listbox(sec_fr, exportselection=False, activestyle="dotbox")
+        sc = ttk.Scrollbar(sec_fr, orient=tk.VERTICAL, command=self.config_section_lb.yview)
         self.config_section_lb.configure(yscrollcommand=sc.set)
         sc.pack(side=tk.RIGHT, fill=tk.Y)
         self.config_section_lb.pack(fill=tk.BOTH, expand=True, padx=(4, 0), pady=4)
         self.config_section_lb.bind("<<ListboxSelect>>", self._config_section_selected)
+
+        # Cross-section text search
+        find_fr = ttk.Frame(lf_paned)
+        lf_paned.add(find_fr, weight=1)
+        ttk.Label(find_fr, text="Find in all sections:",
+                  font=("TkDefaultFont", 9, "bold")
+                  ).pack(anchor=tk.W, padx=4, pady=(4, 0))
+        find_row = ttk.Frame(find_fr)
+        find_row.pack(fill=tk.X, padx=4, pady=(2, 0))
+        self.config_find_var = tk.StringVar()
+        find_entry = ttk.Entry(find_row, textvariable=self.config_find_var)
+        find_entry.pack(side=tk.LEFT, fill=tk.X, expand=True)
+        find_entry.bind("<Return>", lambda _e: self._config_find_all())
+        ttk.Button(find_row, text="Find",
+                   command=self._config_find_all).pack(side=tk.LEFT, padx=(4, 0))
+        self.config_find_count_var = tk.StringVar(value="")
+        ttk.Label(find_fr, textvariable=self.config_find_count_var,
+                  foreground="gray").pack(anchor=tk.W, padx=4)
+        find_res_fr = ttk.Frame(find_fr)
+        find_res_fr.pack(fill=tk.BOTH, expand=True, padx=4, pady=(2, 4))
+        self.config_find_lb = tk.Listbox(find_res_fr, exportselection=False,
+                                          activestyle="dotbox", font=("TkFixedFont", 8))
+        find_sc = ttk.Scrollbar(find_res_fr, orient=tk.VERTICAL,
+                                 command=self.config_find_lb.yview)
+        self.config_find_lb.configure(yscrollcommand=find_sc.set)
+        find_sc.pack(side=tk.RIGHT, fill=tk.Y)
+        self.config_find_lb.pack(fill=tk.BOTH, expand=True)
+        self.config_find_lb.bind("<<ListboxSelect>>", self._config_find_result_selected)
 
         rf = ttk.Frame(paned)
         paned.add(rf, weight=4)
@@ -303,7 +341,7 @@ class TranslationEditor:
         self.sprite_folder_var = tk.StringVar(value="(no folder selected)")
         ttk.Entry(bar, textvariable=self.sprite_folder_var, state="readonly",
                   width=55).pack(side=tk.LEFT, padx=(6, 4), fill=tk.X, expand=True)
-        ttk.Button(bar, text="Browse JSON file…",
+        ttk.Button(bar, text="Browse File…",
                    command=self._sprite_browse_file).pack(side=tk.LEFT, padx=(0, 4))
 
         # Action toolbar
@@ -315,7 +353,7 @@ class TranslationEditor:
                    command=self._sprite_extract_all).pack(side=tk.LEFT, padx=(0, 4))
         ttk.Button(bar2, text="Import (Replace Selected)…",
                    command=self._sprite_import).pack(side=tk.LEFT, padx=(0, 4))
-        ttk.Button(bar2, text="Save Atlas PNG",
+        ttk.Button(bar2, text="Save PNG",
                    command=self._sprite_save_atlas).pack(side=tk.LEFT, padx=(0, 12))
         self.sprite_info_var = tk.StringVar(value="")
         ttk.Label(bar2, textvariable=self.sprite_info_var,
@@ -329,7 +367,7 @@ class TranslationEditor:
         lf = ttk.Frame(paned, width=200)
         lf.pack_propagate(False)
         paned.add(lf, weight=1)
-        ttk.Label(lf, text="JSON files", font=("TkDefaultFont", 9, "bold")
+        ttk.Label(lf, text="Files (JSON / PNG)", font=("TkDefaultFont", 9, "bold")
                   ).pack(anchor=tk.W, padx=4, pady=(4, 0))
         self.sprite_file_lb = tk.Listbox(lf, exportselection=False,
                                           activestyle="dotbox", font=("TkFixedFont", 9))
@@ -365,11 +403,21 @@ class TranslationEditor:
         paned.add(rf, weight=3)
 
         # Atlas thumbnail at top
-        self.sprite_atlas_frame = ttk.LabelFrame(rf, text="Atlas", padding=2)
+        self.sprite_atlas_frame = ttk.LabelFrame(rf, text="Atlas  (click sprite to select)", padding=2)
         self.sprite_atlas_frame.pack(fill=tk.X, padx=2, pady=(2, 0))
         self.sprite_atlas_canvas = tk.Canvas(self.sprite_atlas_frame,
-                                              height=120, bg="#222", highlightthickness=0)
+                                              height=280, bg="#222", highlightthickness=0)
+        atlas_sv = ttk.Scrollbar(self.sprite_atlas_frame, orient=tk.VERTICAL,
+                                  command=self.sprite_atlas_canvas.yview)
+        atlas_sh = ttk.Scrollbar(self.sprite_atlas_frame, orient=tk.HORIZONTAL,
+                                  command=self.sprite_atlas_canvas.xview)
+        self.sprite_atlas_canvas.configure(yscrollcommand=atlas_sv.set,
+                                            xscrollcommand=atlas_sh.set)
+        atlas_sv.pack(side=tk.RIGHT, fill=tk.Y)
+        atlas_sh.pack(side=tk.BOTTOM, fill=tk.X)
         self.sprite_atlas_canvas.pack(fill=tk.X)
+        self.sprite_atlas_canvas.bind("<Button-1>", self._sprite_atlas_click)
+        self._sprite_atlas_scale = 1.0
 
         # Sprite preview below
         pv_frame = ttk.LabelFrame(rf, text="Sprite Preview", padding=2)
@@ -519,6 +567,48 @@ class TranslationEditor:
             self.status_var.set(f"Saved → {self.config_path}")
         except Exception as e:
             messagebox.showerror("Save Error", str(e))
+
+    def _config_find_all(self):
+        q = self.config_find_var.get().strip().lower()
+        self.config_find_lb.delete(0, tk.END)
+        self.config_search_results = []
+        if not q or self.config_data is None:
+            self.config_find_count_var.set("")
+            return
+        for section in sorted(self.config_data.keys()):
+            for idx, item in enumerate(self.config_data[section]):
+                text = str(item)
+                if q in text.lower():
+                    self.config_search_results.append((section, idx, item))
+                    preview = truncate(text, 55)
+                    self.config_find_lb.insert(
+                        tk.END, f"{section}[{idx}]  {preview}")
+        count = len(self.config_search_results)
+        self.config_find_count_var.set(
+            f"{count} match{'es' if count != 1 else ''}" if count else "No matches")
+
+    def _config_find_result_selected(self, _event=None):
+        sel = self.config_find_lb.curselection()
+        if not sel or sel[0] >= len(self.config_search_results):
+            return
+        section, idx, _item = self.config_search_results[sel[0]]
+        # Navigate section listbox
+        sections = list(self.config_section_lb.get(0, tk.END))
+        if section in sections:
+            si = sections.index(section)
+            self.config_section_lb.selection_clear(0, tk.END)
+            self.config_section_lb.selection_set(si)
+            self.config_section_lb.see(si)
+        self.config_current_section = section
+        self.config_search_var.set("")
+        self.config_filter_var.set("All")
+        self._config_apply_filter()
+        # Select the row in treeview
+        iid = str(idx)
+        if self.config_tree.exists(iid):
+            self.config_tree.selection_set(iid)
+            self.config_tree.see(iid)
+            self._config_row_selected()
 
     # -----------------------------------------------------------------------
     # Item logic (shared)
@@ -732,18 +822,36 @@ class TranslationEditor:
     # -----------------------------------------------------------------------
     # Sprite logic
     # -----------------------------------------------------------------------
+    def _sprite_glob_images(self, folder):
+        """All image files (PNG/JPG/JPEG) in folder, case-insensitive, de-duped."""
+        seen = {}
+        for ext in IMAGE_EXTS:
+            for f in folder.glob(f"*{ext}"):
+                seen[f.name.lower()] = f
+            for f in folder.glob(f"*{ext.upper()}"):
+                seen[f.name.lower()] = f
+        return sorted(seen.values())
+
     def _sprite_browse_folder(self):
-        folder = filedialog.askdirectory(title="Select folder containing JSON + PNG sprite files")
+        folder = filedialog.askdirectory(title="Select folder containing JSON + PNG/JPG sprite files")
         if not folder:
             return
         self.sprite_folder = Path(folder)
         self.sprite_folder_var.set(str(self.sprite_folder))
-        files = sorted(self.sprite_folder.glob("*.json"))
+        json_files = sorted(self.sprite_folder.glob("*.json"))
+        json_basenames = {f.stem for f in json_files}
+        standalone_imgs = sorted(
+            f for f in self._sprite_glob_images(self.sprite_folder)
+            if f.stem not in json_basenames
+        )
+        files = json_files + standalone_imgs
         self.sprite_json_files = files
         self.sprite_file_lb.delete(0, tk.END)
         for f in files:
             self.sprite_file_lb.insert(tk.END, f.name)
-        self.status_var.set(f"Folder: {self.sprite_folder}  |  {len(files)} JSON files found.")
+        nj = len(json_files)
+        ni = len(standalone_imgs)
+        self.status_var.set(f"Folder: {self.sprite_folder}  |  {nj} JSON + {ni} standalone image files.")
         # Clear sprite list and preview
         self.sprite_name_lb.delete(0, tk.END)
         self.sprite_list = []
@@ -751,33 +859,47 @@ class TranslationEditor:
 
     def _sprite_browse_file(self):
         path = filedialog.askopenfilename(
-            title="Open sprite JSON file",
-            filetypes=[("JSON files", "*.json"), ("All files", "*.*")]
+            title="Open sprite JSON or PNG/JPG file",
+            filetypes=[("JSON files", "*.json"),
+                       ("Image files", "*.png *.jpg *.jpeg"),
+                       ("PNG files", "*.png"),
+                       ("JPEG files", "*.jpg *.jpeg"),
+                       ("All files", "*.*")]
         )
         if not path:
             return
         p = Path(path)
         self.sprite_folder = p.parent
         self.sprite_folder_var.set(str(self.sprite_folder))
-        # Load folder list and pre-select this file
-        files = sorted(self.sprite_folder.glob("*.json"))
+        json_files = sorted(self.sprite_folder.glob("*.json"))
+        json_basenames = {f.stem for f in json_files}
+        standalone_imgs = sorted(
+            f for f in self._sprite_glob_images(self.sprite_folder)
+            if f.stem not in json_basenames
+        )
+        files = json_files + standalone_imgs
         self.sprite_json_files = files
         self.sprite_file_lb.delete(0, tk.END)
         for f in files:
             self.sprite_file_lb.insert(tk.END, f.name)
-        # Select the browsed file
         if p in files:
             idx = files.index(p)
             self.sprite_file_lb.selection_set(idx)
             self.sprite_file_lb.see(idx)
-        self._sprite_load_json(p)
+        if p.suffix.lower() in IMAGE_EXTS:
+            self._sprite_load_standalone_png(p)
+        else:
+            self._sprite_load_json(p)
 
     def _sprite_file_selected(self, _event=None):
         sel = self.sprite_file_lb.curselection()
         if not sel or sel[0] >= len(self.sprite_json_files):
             return
-        json_path = self.sprite_json_files[sel[0]]
-        self._sprite_load_json(json_path)
+        file_path = self.sprite_json_files[sel[0]]
+        if file_path.suffix.lower() in IMAGE_EXTS:
+            self._sprite_load_standalone_png(file_path)
+        else:
+            self._sprite_load_json(file_path)
 
     def _sprite_load_json(self, json_path):
         try:
@@ -823,6 +945,25 @@ class TranslationEditor:
             f"{json_path.name}  |  Format: {fmt}  |  {n} sprites  |  Atlas: {png_name}"
         )
 
+    def _sprite_load_standalone_png(self, img_path):
+        try:
+            img = Image.open(img_path).convert("RGBA")
+        except Exception as e:
+            messagebox.showerror("Image Error", f"Cannot open {img_path.name}:\n{e}")
+            return
+        self.sprite_atlas_img = img
+        self.sprite_atlas_path = img_path
+        self.sprite_json_data = None
+        self.sprite_format = "standalone"
+        w, h = img.size
+        self.sprite_list = [(img_path.stem, 0, 0, w, h)]
+        self._sprite_populate_list()
+        self._sprite_draw_atlas_thumb()
+        fmt = img_path.suffix.upper().lstrip(".")
+        self.status_var.set(
+            f"{img_path.name}  |  Standalone {fmt}  |  {w}×{h}"
+        )
+
     def _sprite_detect_format(self, data):
         if "frames" in data and isinstance(data.get("frames"), dict):
             return "frames"
@@ -840,7 +981,11 @@ class TranslationEditor:
                 candidate = json_path.parent / val
                 if candidate.exists():
                     return candidate
-        # Fall back to same basename with .png
+        # Fall back to same basename, trying PNG then JPG
+        for ext in IMAGE_EXTS:
+            candidate = json_path.with_suffix(ext)
+            if candidate.exists():
+                return candidate
         return json_path.with_suffix(".png")
 
     def _sprite_extract_list(self, data, fmt):
@@ -920,16 +1065,16 @@ class TranslationEditor:
         c.delete("all")
         if self.sprite_atlas_img is None:
             return
-        # Fit atlas into 120px height, up to 800px wide
         aw, ah = self.sprite_atlas_img.size
-        max_h = 116
-        max_w = c.winfo_width() or 800
-        scale = min(max_h / ah, max_w / aw, 1.0)
+        # Fit width to canvas; keep up to full size (no upscaling)
+        max_w = c.winfo_width() or 700
+        scale = min(max_w / aw, 1.0)
         tw = max(1, int(aw * scale))
         th = max(1, int(ah * scale))
+        self._sprite_atlas_scale = scale
         thumb = self.sprite_atlas_img.resize((tw, th), Image.LANCZOS)
         self._sprite_full_tk_img = ImageTk.PhotoImage(thumb)
-        c.configure(width=tw)
+        c.configure(scrollregion=(0, 0, tw, th))
         c.create_image(0, 0, anchor=tk.NW, image=self._sprite_full_tk_img)
         if highlight:
             hx, hy, hw, hh = highlight
@@ -938,6 +1083,52 @@ class TranslationEditor:
                 int((hx + hw) * scale), int((hy + hh) * scale),
                 outline="#FF4444", width=2
             )
+
+    def _sprite_atlas_click(self, event):
+        if self.sprite_atlas_img is None or not self.sprite_list:
+            return
+        c = self.sprite_atlas_canvas
+        # Convert canvas coords to image coords (account for scroll)
+        cx = c.canvasx(event.x)
+        cy = c.canvasy(event.y)
+        scale = self._sprite_atlas_scale
+        ix = cx / scale
+        iy = cy / scale
+        # Find the smallest sprite whose bounding box contains the click point
+        best = None
+        best_area = float('inf')
+        for i, entry in enumerate(self.sprite_list):
+            name, x, y, w, h = entry
+            if w <= 0 or h <= 0:
+                continue
+            if x <= ix <= x + w and y <= iy <= y + h:
+                area = w * h
+                if area < best_area:
+                    best_area = area
+                    best = (i, entry)
+        if best is None:
+            return
+        idx, entry = best
+        # Find in filtered list
+        filtered = getattr(self, '_sprite_filtered', self.sprite_list)
+        try:
+            fi = filtered.index(entry)
+        except ValueError:
+            # Entry not visible due to search filter — clear filter and retry
+            self.sprite_search_var.set('')
+            self._sprite_populate_list()
+            filtered = getattr(self, '_sprite_filtered', self.sprite_list)
+            try:
+                fi = filtered.index(entry)
+            except ValueError:
+                return
+        self.sprite_name_lb.selection_clear(0, tk.END)
+        self.sprite_name_lb.selection_set(fi)
+        self.sprite_name_lb.see(fi)
+        name, x, y, w, h = entry
+        self.sprite_info_var.set(f"{name}  x={x} y={y} w={w} h={h}")
+        self._sprite_show_preview(x, y, w, h)
+        self._sprite_draw_atlas_thumb(highlight=(x, y, w, h))
 
     def _sprite_clear_preview(self):
         self.sprite_canvas.delete("all")
@@ -971,13 +1162,18 @@ class TranslationEditor:
             return
         safe_name = re.sub(r'[\\/:*?"<>|]', "_", name)
         out = filedialog.asksaveasfilename(
-            title="Save sprite as PNG",
+            title="Save sprite as image",
             initialfile=f"{safe_name}.png",
             defaultextension=".png",
-            filetypes=[("PNG", "*.png")]
+            filetypes=[("PNG", "*.png"),
+                       ("JPEG", "*.jpg *.jpeg"),
+                       ("All files", "*.*")]
         )
         if out:
-            crop.save(out)
+            save_img = crop
+            if Path(out).suffix.lower() in (".jpg", ".jpeg"):
+                save_img = crop.convert("RGB")
+            save_img.save(out)
             self.status_var.set(f"Extracted → {out}")
 
     def _sprite_extract_all(self):
@@ -1021,8 +1217,11 @@ class TranslationEditor:
             return
         name, x, y, w, h = entry
         src = filedialog.askopenfilename(
-            title=f"Import replacement PNG for '{name}'",
-            filetypes=[("PNG files", "*.png"), ("All files", "*.*")]
+            title=f"Import replacement image for '{name}'",
+            filetypes=[("Image files", "*.png *.jpg *.jpeg"),
+                       ("PNG files", "*.png"),
+                       ("JPEG files", "*.jpg *.jpeg"),
+                       ("All files", "*.*")]
         )
         if not src:
             return
@@ -1082,15 +1281,21 @@ class TranslationEditor:
             return
         if self.sprite_atlas_path is None:
             out = filedialog.asksaveasfilename(
-                title="Save atlas PNG",
+                title="Save atlas image",
                 defaultextension=".png",
-                filetypes=[("PNG", "*.png")]
+                filetypes=[("PNG", "*.png"),
+                           ("JPEG", "*.jpg *.jpeg"),
+                           ("All files", "*.*")]
             )
             if not out:
                 return
             self.sprite_atlas_path = Path(out)
         try:
-            self.sprite_atlas_img.save(self.sprite_atlas_path)
+            img = self.sprite_atlas_img
+            # JPEG does not support alpha channel — flatten to RGB
+            if self.sprite_atlas_path.suffix.lower() in (".jpg", ".jpeg"):
+                img = img.convert("RGB")
+            img.save(self.sprite_atlas_path)
             self.status_var.set(f"Atlas saved → {self.sprite_atlas_path}")
         except Exception as e:
             messagebox.showerror("Save Error", str(e))

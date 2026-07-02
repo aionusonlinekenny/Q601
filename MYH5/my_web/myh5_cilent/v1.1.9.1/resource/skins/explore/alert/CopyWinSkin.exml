@@ -48,7 +48,7 @@
 		<e:Image source="explore_json.img_jifen_up" includeIn="ladderpvp,wilderfigth" x="14" y="195" y.wilderfigth="257.14" source.wilderfigth="wilderfight_json.img_shalu_png"/>
 		<e:Image id="imgUpGrade" source="explore_json.img_grade_up" includeIn="ladderpvp" x="330" y="133"/>
 		<e:Label id="labCountDown" text="Auto-advance to next stage in 5 seconds" x="252" y="698.3" size="14" includeIn="pagoda" textColor="0x37a01c"/>
-		<e:Label text="Challenge Succeeded" includeIn="pagoda,wilderfigth,collier,godRuins,chuansong" y="170.54" x="157" textColor="0xedc839" y.wilderfigth="135.71"/>
+		<e:Label text="Challenge Succeeded" includeIn="pagoda,wilderfigth,collier,godRuins,chuansong" y="170.54" horizontalCenter="0" textColor="0xedc839" y.wilderfigth="135.71"/>
 	</e:Group>
 	<e:Label id="labTime" text="10" y="829" size="20" touchEnabled="false" horizontalCenter="0" includeIn="material,personboss,everyboss,ladderpvp,noend,wilderfigth,godRuins,chuansong" textColor="0xc6b59e"/>
 </e:Skin>
